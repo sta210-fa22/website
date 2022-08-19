@@ -15,8 +15,15 @@ website:
     creator: "@MT_statistics"
     image: "images/twitter-card.png"
 
+  page-footer:
+    background: "#7eb7c2"
+    left: |
+      &copy; Copyright 2022, Maria Tackett
+    right: |
+      This site is built with [Quarto](https://quarto.org/)<br>
+
   sidebar:
-    background: "#D9E3E4"
+    background: "#7eb7c2"
     logo: "images/logo.png"
     align: center
     tools: 

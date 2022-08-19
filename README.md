@@ -1,6 +1,7 @@
 # Website for STA 210 at Duke University (Fall 2022)
 
-[Add Netlify status badge]
+[![Netlify Status](https://api.netlify.com/api/v1/badges/3ab0ad96-0f98-441c-9c9b-217732fcc2bc/deploy-status)](https://app.netlify.com/sites/sta210-fa22/deploys)
+
 :link: [sta210-fa22.netlify.app](https://sta210-fa22.netlify.app/)
 
 ## Colors

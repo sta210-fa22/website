@@ -1,55 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://sta210-fa22.netlify.app/index.html</loc>
-    <lastmod>2022-08-19T19:09:12.359Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sta210-fa22.netlify.app/about.html</loc>
-    <lastmod>2022-08-19T18:32:15.232Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sta210-fa22.netlify.app/r-resources.html</loc>
-    <lastmod>2022-08-19T18:48:02.916Z</lastmod>
-  </url>
-  <url>
     <loc>https://sta210-fa22.netlify.app/support.html</loc>
-    <lastmod>2022-08-19T19:20:05.845Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sta210-fa22.netlify.app/access.html</loc>
-    <lastmod>2022-08-19T18:48:03.542Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sta210-fa22.netlify.app/links.html</loc>
-    <lastmod>2022-08-19T19:12:29.483Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sta210-fa22.netlify.app/syllabus.html</loc>
-    <lastmod>2022-08-19T19:20:53.652Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sta210-fa22.netlify.app/troubleshooting.html</loc>
-    <lastmod>2022-08-19T18:51:03.355Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sta210-fa22.netlify.app/schedule.html</loc>
-    <lastmod>2022-08-19T18:48:04.832Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sta210-fa22.netlify.app/computing-access.html</loc>
-    <lastmod>2022-08-19T19:00:11.770Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sta210-fa22.netlify.app/computing-troubleshooting.html</loc>
-    <lastmod>2022-08-19T19:00:16.202Z</lastmod>
+    <lastmod>2022-08-19T20:20:46.439Z</lastmod>
   </url>
   <url>
     <loc>https://sta210-fa22.netlify.app/computing-r-resources.html</loc>
-    <lastmod>2022-08-19T19:00:09.381Z</lastmod>
+    <lastmod>2022-08-19T20:20:46.790Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta210-fa22.netlify.app/computing-access.html</loc>
+    <lastmod>2022-08-19T20:20:47.116Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta210-fa22.netlify.app/index.html</loc>
+    <lastmod>2022-08-19T20:22:12.683Z</lastmod>
   </url>
   <url>
     <loc>https://sta210-fa22.netlify.app/teaching-team.html</loc>
-    <lastmod>2022-08-19T19:08:10.183Z</lastmod>
+    <lastmod>2022-08-19T20:20:47.887Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta210-fa22.netlify.app/about.html</loc>
+    <lastmod>2022-08-19T20:20:48.148Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta210-fa22.netlify.app/links.html</loc>
+    <lastmod>2022-08-19T20:20:48.436Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta210-fa22.netlify.app/syllabus.html</loc>
+    <lastmod>2022-08-19T20:20:48.929Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta210-fa22.netlify.app/computing-troubleshooting.html</loc>
+    <lastmod>2022-08-19T20:20:49.217Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta210-fa22.netlify.app/schedule.html</loc>
+    <lastmod>2022-08-19T20:20:49.551Z</lastmod>
   </url>
 </urlset>

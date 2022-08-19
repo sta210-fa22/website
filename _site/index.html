@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>STA 210 - Fall 2022 - mysite</title>
+<title>STA 210 - Fall 2022 - STA 210: Regression Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,7 @@ ul.task-list{list-style: none;}
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
@@ -54,8 +55,8 @@ ul.task-list{list-style: none;}
 }</script>
 
 
-<meta name="twitter:title" content="STA 210 - Fall 2022 - mysite">
-<meta name="twitter:description" content="This is a Quarto website.">
+<meta name="twitter:title" content="STA 210 - Fall 2022 - STA 210: Regression Analysis">
+<meta name="twitter:description" content="Learn approaches for analyzing multivariate data sets, emphasizing analysis of variance, linear regression, and logistic regression.">
 <meta name="twitter:image" content="https://sta210-fa22.netlify.app/images/twitter-card.png">
 <meta name="twitter:creator" content="@MT_statistics">
 <meta name="twitter:image-height" content="377">
@@ -69,7 +70,7 @@ ul.task-list{list-style: none;}
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">mysite</h1>
+      <h1 class="quarto-secondary-nav-title">STA 210: Regression Analysis</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -87,9 +88,24 @@ ul.task-list{list-style: none;}
       <div class="sidebar-tools-main tools-wide">
     <a href="https://github.com/sta210-fa22" title="GitHub organization" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
     <a href="https://cmgr.oit.duke.edu/containers" title="RStudio Containers" class="sidebar-tool px-1"><i class="bi bi-code-square"></i></a>
-    <a href="" title="Sakai menu: - text: Discussion forum url: https://sakai.duke.edu/portal/site/779c3ebe-3b88-4bcc-bd01-1813e8396a23/tool/13b6446a-a6c6-4222-8cfb-c36d1f70802b - text: Gradescope url: https://sakai.duke.edu/portal/site/779c3ebe-3b88-4bcc-bd01-1813e8396a23/page/aec742dc-2972-4f02-a35b-1dd3315af889 - text: Gradebook url: https://sakai.duke.edu/portal/site/779c3ebe-3b88-4bcc-bd01-1813e8396a23/tool/69078433-67a6-4054-a2e7-9e6c202ecdc3/
-contents: - section: Course information contents:  - href: syllabus.qmd text: Syllabus - href: teaching-team.qmd text: Teaching team - href: schedule.qmd text: Schedule - href: support.qmd text: Support - section: Computing contents:  - href: computing-access.qmd text: Access - href: computing-troubleshooting.qmd text: Troubleshooting - href: computing-r-resources.qmd text: R resources - href: links.qmd text: Useful links
-page-footer: left: | &amp;copy; Copyright 2022, Maria Tackett <br> All content licensed under a {{< fa brands creative-commons >}} {{< fa brands creative-commons-by >}} {{< fa brands creative-commons-nc >}} [Creative Commons Attribution-NonCommercial 4.0 International license (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/) right: | Made with {{< fa brands r-project >}} and [Quarto](https://quarto.org/)<br> [View the source at {{< fa brands github >}} GitHub](https://www.github.com/sta210-fa22/website) background: " class="sidebar-tool px-1"><i class="bi bi-person-fill"></i></a>
+    <a href="" title="Sakai" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-fill"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://sakai.duke.edu/portal/site/779c3ebe-3b88-4bcc-bd01-1813e8396a23/tool/13b6446a-a6c6-4222-8cfb-c36d1f70802b">
+          Discussion forum
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://sakai.duke.edu/portal/site/779c3ebe-3b88-4bcc-bd01-1813e8396a23/page/aec742dc-2972-4f02-a35b-1dd3315af889">
+          Gradescope
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://sakai.duke.edu/portal/site/779c3ebe-3b88-4bcc-bd01-1813e8396a23/tool/69078433-67a6-4054-a2e7-9e6c202ecdc3/">
+          Gradebook
+          </a>
+        </li>
+    </ul>
 </div>
       </div>
       <div class="mt-2 flex-shrink-0 align-items-center">
@@ -97,17 +113,74 @@ page-footer: left: | &amp;copy; Copyright 2022, Maria Tackett <br> All content l
         <div id="quarto-search" class="" title="Search"></div>
         </div>
       </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./syllabus.html" class="sidebar-item-text sidebar-link">Syllabus</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./schedule.html" class="sidebar-item-text sidebar-link">Schedule</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./support.html" class="sidebar-item-text sidebar-link">Support</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">Computing</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./computing-access.html" class="sidebar-item-text sidebar-link">Access</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./computing-troubleshooting.html" class="sidebar-item-text sidebar-link">Troubleshooting</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./computing-r-resources.html" class="sidebar-item-text sidebar-link">R resources</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./links.html" class="sidebar-item-text sidebar-link">Useful links</a>
+  </div>
+</li>
+    </ul>
+    </div>
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#class-meetings" id="toc-class-meetings" class="nav-link" data-scroll-target="#class-meetings">Class meetings</a></li>
+  <li><a href="#teaching-team" id="toc-teaching-team" class="nav-link" data-scroll-target="#teaching-team">Teaching team</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/sta210-fa22/website/edit/main/index.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/sta210-fa22/website/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">mysite</h1>
+<h1 class="title d-none d-lg-block">STA 210: Regression Analysis</h1>
 </div>
 
 
@@ -121,10 +194,64 @@ page-footer: left: | &amp;copy; Copyright 2022, Maria Tackett <br> All content l
 
 </header>
 
-<p>This is a Quarto website.</p>
-<p>To learn more about Quarto websites visit <a href="https://quarto.org/docs/websites" class="uri">https://quarto.org/docs/websites</a>.</p>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>Learn approaches for analyzing multivariate data sets, emphasizing analysis of variance, linear regression, and logistic regression. Learn techniques for checking the appropriateness of proposed models, such as residual analyses and case influence diagnostics, and techniques for selecting models. Gain experience dealing with the challenges that arise in practice through assignments that utilize real-world data. This class emphasizes data analysis over mathematical theory.</p>
+</section>
+<section id="class-meetings" class="level2">
+<h2 class="anchored" data-anchor-id="class-meetings">Class meetings</h2>
+<table class="table">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 16%">
+<col style="width: 37%">
+<col style="width: 28%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Lecture</strong></td>
+<td>Section 01</td>
+<td>Mon &amp; Wed 10:15 - 11:30 am</td>
+<td>Reuben-Cooke 130</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Section 02</td>
+<td>Mon &amp; Wed 3:30 - 4:45pm</td>
+<td>Social Sciences 136</td>
+</tr>
+<tr class="odd">
+<td><strong>Lab</strong></td>
+<td>Lab 01</td>
+<td>Thu 3:30 - 4:45pm</td>
+<td>Perkins Link #5</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Lab 02</td>
+<td>Thu 5:15 - 6:30pm</td>
+<td>Perkins Link #5</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Lab 03</td>
+<td>Fri 12 - 1:15pm</td>
+<td>Perkins Link #5</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Lab 04</td>
+<td>Fri 1:45 - 3pm</td>
+<td>Old Chemistry 003</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="teaching-team" class="level2">
+<h2 class="anchored" data-anchor-id="teaching-team">Teaching team</h2>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

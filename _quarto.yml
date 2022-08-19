@@ -14,16 +14,12 @@ website:
   twitter-card:
     creator: "@MT_statistics"
     image: "images/twitter-card.png"
-    
+
   sidebar:
     background: "#D9E3E4"
     logo: "images/logo.png"
-    pinned: true
     align: center
-    style: "docked"
-    search: true
-    collapse-level: 1
-    tools:
+    tools: 
       - icon: github
         href: https://github.com/sta210-fa22
         text: "GitHub organization"
@@ -31,7 +27,7 @@ website:
         href: https://cmgr.oit.duke.edu/containers
         text: "RStudio Containers"
       - icon: person-fill
-        text: "Sakai
+        text: "Sakai"
         menu:
           - text: Discussion forum
             url: https://sakai.duke.edu/portal/site/779c3ebe-3b88-4bcc-bd01-1813e8396a23/tool/13b6446a-a6c6-4222-8cfb-c36d1f70802b
@@ -39,14 +35,13 @@ website:
             url: https://sakai.duke.edu/portal/site/779c3ebe-3b88-4bcc-bd01-1813e8396a23/page/aec742dc-2972-4f02-a35b-1dd3315af889
           - text: Gradebook
             url: https://sakai.duke.edu/portal/site/779c3ebe-3b88-4bcc-bd01-1813e8396a23/tool/69078433-67a6-4054-a2e7-9e6c202ecdc3/
-
+    
+    style: "docked"
+    search: true
+    collapse-level: 1
     contents:
-      - section: Course information
-        contents: 
-         - href: syllabus.qmd
-           text: Syllabus
-         - href: teaching-team.qmd
-            text: Teaching team
+      - href: syllabus.qmd
+        text: Syllabus
       - href: schedule.qmd
         text: Schedule
       - href: support.qmd
@@ -61,18 +56,6 @@ website:
           text: R resources
       - href: links.qmd
         text: Useful links
-
-  page-footer:
-    left: |
-      &copy; Copyright 2022, Maria Tackett <br>
-      All content licensed under a {{< fa brands creative-commons >}}
-      {{< fa brands creative-commons-by >}} {{< fa brands creative-commons-nc >}}
-      [Creative Commons Attribution-NonCommercial 4.0 International license (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/)
-    right: |
-      Made with {{< fa brands r-project >}} and [Quarto](https://quarto.org/)<br>
-      [View the source at {{< fa brands github >}} GitHub](https://www.github.com/sta210-fa22/website)
-    background: "#D9E3E4"
-
 
 format:
   html:

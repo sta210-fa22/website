@@ -1,7 +1,20 @@
 ---
-title: "mysite"
+title: "STA 210: Regression Analysis"
 ---
 
-This is a Quarto website.
+## Overview
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+Learn approaches for analyzing multivariate data sets, emphasizing analysis of variance, linear regression, and logistic regression. Learn techniques for checking the appropriateness of proposed models, such as residual analyses and case influence diagnostics, and techniques for selecting models. Gain experience dealing with the challenges that arise in practice through assignments that utilize real-world data. This class emphasizes data analysis over mathematical theory.
+
+## Class meetings
+
+|             |            |                            |                     |
+|-------------|------------|----------------------------|---------------------|
+| **Lecture** | Section 01 | Mon & Wed 10:15 - 11:30 am | Reuben-Cooke 130    |
+|             | Section 02 | Mon & Wed 3:30 - 4:45pm    | Social Sciences 136 |
+| **Lab**     | Lab 01     | Thu 3:30 - 4:45pm          | Perkins Link #5     |
+|             | Lab 02     | Thu 5:15 - 6:30pm          | Perkins Link #5     |
+|             | Lab 03     | Fri 12 - 1:15pm            | Perkins Link #5     |
+|             | Lab 04     | Fri 1:45 - 3pm             | Old Chemistry 003   |
+
+## Teaching team

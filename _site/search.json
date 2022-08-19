@@ -23,9 +23,9 @@
   {
     "objectID": "support.html",
     "href": "support.html",
-    "title": "mysite",
+    "title": "STA 210 - Fall 2022",
     "section": "",
-    "text": "To learn more about Quarto websites visit https://quarto.org/docs/websites."
+    "text": "We expect everyone will have questions at some point in the semester, so we encourage you to use the following resources for help:"
   },
   {
     "objectID": "access.html",
@@ -37,16 +37,16 @@
   {
     "objectID": "links.html",
     "href": "links.html",
-    "title": "mysite",
+    "title": "Useful links",
     "section": "",
-    "text": "To learn more about Quarto websites visit https://quarto.org/docs/websites."
+    "text": "RStudio containers\n🔗 on Duke Container Manager\n\n\nCourse GitHub organization\n🔗 on GitHub\n\n\nDiscussion forum\n🔗 on Sakai\n\n\nLecture streaming and recordings\n🔗 on Panopto\n\n\nGradebook\n🔗 on Sakai\n\n\nVirtual meetings\n🔗 on Sakai"
   },
   {
     "objectID": "syllabus.html",
     "href": "syllabus.html",
-    "title": "mysite",
+    "title": "Syllabus",
     "section": "",
-    "text": "To learn more about Quarto websites visit https://quarto.org/docs/websites."
+    "text": "Click here for office hours Zoom links.\nInstructor\n\n\n\nName\nContact\nOffice hours\n\n\n\n\n\nProf. Maria Tackett\n\nThu 10a - 11a\nZoom\n\n\n\n\nor by appointment\n\n\n\n\n\nTeaching Assistants\n\n\n\n\n\n\n\n\n\nName\nContact\nOffice hours\n\n\n\n\n\nSophie Dalldorf\n\nWed 9a - 11a\nZoom\n\n\nEmily Gentles\n\nFri 11a - 12p\nOld Chem 203B\n\n\n\n\nFri 12p - 1p\nZoom\n\n\nLeslie Li\n\nTue 3p - 5p\nZoom\n\n\nJose Pliego San Martin\n\nTue 10a - 11a\nZoom\n\n\n\n\nWed 12p - 1p\nOld Chem 025\n\n\nShari Tian\n\nTue 6p - 7p\nOld Chem 203B\n\n\n\n\nTue 7p - 8p\nZoom\n\n\nAaditya Warrier\n\nMon 12p - 1p\nZoom\n\n\n\n\nWed 11a - 12p\nOld Chem 203B\n\n\nGrace Zhao\n\nMon 9a - 11a\nZoom"
   },
   {
     "objectID": "troubleshooting.html",
@@ -75,5 +75,159 @@
     "title": "Computing troubleshooting",
     "section": "",
     "text": "If the status shows something other than Operational, this means there is a known incident with the containers. Check back later to see if it’s been resolved. If there’s a deadline coming up soon, post on the course forum to let us know that there’s an issue. We can look into how quickly it might get resolved and decide on what to do about the deadline accordingly. Note: We don’t anticipate this to happen regularly, the systems are Operational a huge majority of the time!\nIf the status shows Operational, this means the system is expected to be working. Check your internet connection, if need be, restart your computer to ensure a fresh new connection. If your issue persists, post on the course forum with details on what you’ve tried and the errors you see (including verbatim errors and/or screenshots).\nEither way you can also fill out the form here, which will notify our the R TA for the department as well as our undergraduate coordinator. They’ll be able to help diagnose the issue."
+  },
+  {
+    "objectID": "computing-r-resources.html",
+    "href": "computing-r-resources.html",
+    "title": "mysite",
+    "section": "",
+    "text": "To learn more about Quarto websites visit https://quarto.org/docs/websites."
+  },
+  {
+    "objectID": "syllabus.html#teaching-team-office-hours",
+    "href": "syllabus.html#teaching-team-office-hours",
+    "title": "Syllabus",
+    "section": "Teaching team & office hours",
+    "text": "Teaching team & office hours\nClick here for office hours Zoom links.\nInstructor\n\n\n\nName\nContact\nOffice hours\n\n\n\n\n\nProf. Maria Tackett\n\nThu 10a - 11a\nZoom\n\n\n\n\nor by appointment\n\n\n\n\n\nTeaching Assistants\n\n\n\n\n\n\n\n\n\nName\nContact\nOffice hours\n\n\n\n\n\nSophie Dalldorf\n\nWed 9a - 11a\nZoom\n\n\nEmily Gentles\n\nFri 11a - 12p\nOld Chem 203B\n\n\n\n\nFri 12p - 1p\nZoom\n\n\nLeslie Li\n\nTue 3p - 5p\nZoom\n\n\nJose Pliego San Martin\n\nTue 10a - 11a\nZoom\n\n\n\n\nWed 12p - 1p\nOld Chem 025\n\n\nShari Tian\n\nTue 6p - 7p\nOld Chem 203B\n\n\n\n\nTue 7p - 8p\nZoom\n\n\nAaditya Warrier\n\nMon 12p - 1p\nZoom\n\n\n\n\nWed 11a - 12p\nOld Chem 203B\n\n\nGrace Zhao\n\nMon 9a - 11a\nZoom"
+  },
+  {
+    "objectID": "syllabus.html#course-info",
+    "href": "syllabus.html#course-info",
+    "title": "Syllabus",
+    "section": "Course info",
+    "text": "Course info\n\n\n\n\nDay\nTime\nLocation\n\n\n\n\nLectures\nMon & Wed\n3:30p - 4:45p\nSoc Sci 139\n\n\nLab 07\nThu\n12p - 1:15p\nOld Chem 101\n\n\nLab 08\nThu\n3:30p - 4:45p\nOld Chem 101\n\n\nLab 09\nThu\n5:15p - 6:30p\nOld Chem 101"
+  },
+  {
+    "objectID": "syllabus.html#course-learning-objectives",
+    "href": "syllabus.html#course-learning-objectives",
+    "title": "Syllabus",
+    "section": "Course Learning Objectives",
+    "text": "Course Learning Objectives\nBy the end of the semester, you will be able to…\n\nanalyze real-world data to answer questions about multivariable relationships.\nfit and evaluate linear and logistic regression models.\nassess whether a proposed model is appropriate and describe its limitations.\nuse R Markdown to write reproducible reports and GitHub for version control and collaboration.\ncommunicate results from statistical analyses to a general audience."
+  },
+  {
+    "objectID": "syllabus.html#course-community",
+    "href": "syllabus.html#course-community",
+    "title": "Syllabus",
+    "section": "Course community",
+    "text": "Course community\n\nDuke Community Standard\nAs a student in this course, you have agreed to uphold the Duke Community Standard as well as the practices specific to this course.\n\n\n\n\nInclusive community\nIt is my intent that students from all diverse backgrounds and perspectives be well-served by this course, that students’ learning needs be addressed both in and out of class, and that the diversity that the students bring to this class be viewed as a resource, strength, and benefit. It is my intent to present materials and activities that are respectful of diversity and in alignment with Duke’s Commitment to Diversity and Inclusion. Your suggestions are encouraged and appreciated. Please let me know ways to improve the effectiveness of the course for you personally, or for other students or student groups.\nFurthermore, I would like to create a learning environment for my students that supports a diversity of thoughts, perspectives and experiences, and honors your identities. To help accomplish this:\n\nIf you feel like your performance in the class is being impacted by your experiences outside of class, please don’t hesitate to come and talk with me. If you prefer to speak with someone outside of the course, your academic dean is an excellent resource.\nI (like many people) am still in the process of learning about diverse perspectives and identities. If something was said in class (by anyone) that made you feel uncomfortable, please let me or a member of the teaching team know.\n\n\n\nAccessibility\nIf there is any portion of the course that is not accessible to you due to challenges with technology or the course format, please let me know so we can make appropriate accommodations.\nThe Student Disability Access Office (SDAO) is available to ensure that students are able to engage with their courses and related assignments. Students should be in touch with the Student Disability Access Office to request or update accommodations under these circumstances.\n\n\nAttendance Policy Related to COVID Symptoms, Exposure, or Infection\nStudent health, safety, and well-being are the university’s top priorities. To help ensure your well-being and the well-being of those around you, please do not come to class if you have symptoms related to COVID-19, have had a known exposure to COVID-19, or have tested positive for COVID-19. If any of these situations apply to you, you must follow university guidance related to the ongoing COVID-19 pandemic and current health and safety protocols.\nIf you are experiencing any COVID-19 symptoms, contact student health at 919-681-9355. To keep the university community as safe and healthy as possible, you will be expected to follow these guidelines. Please reach out to me and your academic dean as soon as possible if you need to quarantine or isolate so that we can discuss arrangements for your continued participation in class.\n\n\nCommunication\nAll lecture notes, assignment instructions, an up-to-date schedule, and other course materials may be found on the course website, sta210-fa21.netlify.app .\nAnnouncements will be emailed through Sakai Announcements periodically. Please check your email regularly to ensure you have the latest announcements for the course.\n\n\nWhere to get help\n\nIf you have a question during lecture or lab, feel free to ask it! There are likely other students with the same question, so by asking you will create a learning opportunity for everyone.\nThe teaching team is here to help you be successful in the course. You are encouraged to attend office hours to ask questions about the course content and assignments. Many questions are most effectively answered as you discuss them with others, so office hours are a valuable resource. Please use them!\nOutside of class and office hours, any general questions about course content or assignments should be posted on Ed Discussion. There is a chance another student has already asked a similar question, so please check the other posts in Ed Discussion before adding a new question. If you know the answer to a question posted in the discussion forum, I encourage you to respond!\n\nCheck out the Help tab for more resources.\n\n\nEmail\nIf there is a question that’s not appropriate for the public forum, you are welcome to email me directly. If you email me, please include “STA 210” in the subject line. Barring extenuating circumstances, I will respond to STA 210 emails within 48 hours Monday - Friday. Response time may be slower for emails sent Friday evening - Sunday."
+  },
+  {
+    "objectID": "syllabus.html#activities-assessment",
+    "href": "syllabus.html#activities-assessment",
+    "title": "Syllabus",
+    "section": "Activities & Assessment",
+    "text": "Activities & Assessment\nThe activities and assessments in this course are designed to help you successfully achieve the course learning objectives. They are designed to follow the Prepare, Practice, Perform format.\n\nPrepare: Includes short videos, reading assignments, and a short quiz to introduce new concepts and ensure a basic comprehension of the material. The goal is to help you prepare for the in-class activities during lecture.\nPractice: Includes in-class application exercises where you will begin to the concepts and methods introduced in the prepare assignment. The activities will graded for completion, as they are designed for you to gain experience with the statistical and computing techniques before working on graded assignments.\nPerform: Includes labs, homework, exams, and the final project. These assignments build upon the prepare and practice assignments and are the opportunity for you to demonstrate your understanding of the course material and how it is applied to analyze real-world data.\n\n\nPrep quizzes (Prepare)\nThese are low-stakes quizzes that will be completed at the beginning of each unit (about once per week) as part of the preparation for lecture. These quizzes include multiple choice and fill-in-the-blank questions. Each quiz will be administered in Sakai and may be taken up to three times. The quiz is due by the beginning of lecture on the specified due date. An overall score of 80% on all quizzes will result in full credit for prep quizzes in the final course grade.\n\n\nApplication Exercises (Practice)\nA majority of the in-class lectures will be dedicated to working on Application Exercises (AEs). These exercises which give you an opportunity to practice apply the statistical concepts and code introduced in the prepare assignment. These AEs are due within three days of the corresponding lecture period. Specifically, AEs from Monday lectures are due Thursday by 11:59p ET, and AEs from Wednesday lectures are due Saturday by 11:59p ET.\nBecause these AEs are for practice, they will be graded based on completion, i.e., a good-faith effort has been made in attempting all parts. Successful on-time completion of at least 80% of AEs will result in full credit for AEs in the final course grade.\nIn addition to AEs will be periodic activities help build a learning community. These will be short, fun activities that will help everyone in the class connect throughout the semester.\n\n\nLabs (Perform)\nIn labs, you will apply the concepts discussed in lecture to various data analysis scenarios, with a focus on the computation. Most lab assignments will be completed in teams, and all team members are expected to contribute equally to the completion of each assignment. You are expected to use the team’s Git repository on the course’s GitHub page as the central platform for collaboration. Commits to this repository will be used as a metric of each team member’s relative contribution for each lab, and there will be periodic peer evaluation on the team collaboration. Lab assignments will be completed using R Markdown, correspond to an appropriate GitHub repository, and submitted for grading in Gradescope.\nThe lowest lab grade will be dropped at the end of the semester.\n\n\nHomework (Perform)\nIn homework, you will apply what you’ve learned during lecture and lab to complete data analysis tasks. You may discuss homework assignments with other students; however, homework should be completed and submitted individually. Similar to lab assignments, homework must be typed up using R Markdown and GitHub and submitted as a PDF in Gradescope.\nOne homework assignment will be dedicated to a statistics experience. The statistics experience is an opportunity to engage with statistics and data science outside of the classroom through podcasts, books, seminars, data analysis competitions, and other activities. As you complete these experiences, the goal is to consider how the material you’re learning in the course connects with society more broadly.\nThe lowest homework grade will be dropped at the end of the semester.\n\n\nExams (Perform)\nThere will be three, take-home, open-note exams. Through these exams you have the opportunity to demonstrate what you’ve learned in the course thus far. The exams will focus on the conceptual understanding of the content, and they may also include small analysis and computational tasks. The content of the exam will be related to the content in the prepare, practice, and perform assignments. More detail about the exams will be given during the semester.\n\n\nFinal Project (Perform)\nThe purpose of the final project is to apply what you’ve learned throughout the semester to analyze an interesting data-driven research question. The project will be completed with your lab teams, and each team will present their work in video and in writing during the final exam period. More information about the project will be provided during the semester."
+  },
+  {
+    "objectID": "syllabus.html#grading",
+    "href": "syllabus.html#grading",
+    "title": "Syllabus",
+    "section": "Grading",
+    "text": "Grading\nThe final course grade will be calculated as follows:\n\n\n\n\nCategory\nPercentage\n\n\n\n\nHomework\n30%\n\n\nFinal project\n15%\n\n\nLab\n15%\n\n\nExam 01\n10%\n\n\nExam 02\n10%\n\n\nExam 03\n10%\n\n\nPrep quizzes\n5%\n\n\nApplication Exercises\n2.5%\n\n\nTeamwork\n2.5%\n\n\n\n\n\nThe final letter grade will be determined based on the following thresholds:\n\n\n\n\nLetter Grade\nFinal Course Grade\n\n\n\n\nA\n>= 93\n\n\nA-\n90 - 92.99\n\n\nB+\n87 - 89.99\n\n\nB\n83 - 86.99\n\n\nB-\n80 - 82.99\n\n\nC+\n77 - 79.99\n\n\nC\n73 - 76.99\n\n\nC-\n70 - 72.99\n\n\nD+\n67 - 69.99\n\n\nD\n63 - 66.99\n\n\nD-\n60 - 62.99\n\n\nF\n< 60"
+  },
+  {
+    "objectID": "syllabus.html#course-policies",
+    "href": "syllabus.html#course-policies",
+    "title": "Syllabus",
+    "section": "Course policies",
+    "text": "Course policies\n\nAcademic honesty\nTL;DR: Don’t cheat!\nPlease abide by the following as you work on assignments in this course:\n\nYou may discuss individual homework and lab assignments with other students; however, you may not directly share (or copy) code or write up with other students. For team assignments, you may collaborate freely within your team. You may discuss the assignment with other teams; however, you may not directly share (or copy) code or write up with another team. Unauthorized sharing (or copying) of the code or write up will be considered a violation for all students involved.\nYou may not discuss or otherwise work with others on the exams. Unauthorized collaboration or using unauthorized materials will be considered a violation for all students involved. More details will be given closer to the exam date.\nReusing code: Unless explicitly stated otherwise, you may make use of online resources (e.g. StackOverflow) for coding examples on assignments. If you directly use code from an outside source (or use it as inspiration), you must explicitly cite where you obtained the code. Any recycled code that is discovered and is not explicitly cited will be treated as plagiarism.\n\nAny violations in academic honesty standards as outlined in the Duke Community Standard and those specific to this course will automatically result in a 0 for the assignment and will be reported to the Office of Student Conduct for further action.\n\n\nLate work & extensions\nThe due dates for assignments are there to help you keep up with the course material and to ensure the teaching team can provide feedback within a timely manner. We understand that things come up periodically that could make it difficult to submit an assignment by the deadline. Note that the lowest homework and lab assignment will be dropped to accommodate such circumstances.\n\n\nLate work policy\n\nHomework and labs may be submitted up to 3 days late. There will be a 5% deduction for each 24-hour period the assignment is late.\nThere is no late work accepted for prep quizzes or application exercises, since these are designed to help you prepare for labs and homework.\nThe late work policy for exams will be provided with the exam instructions.\nThe late work policy for the project will be provided with the project instructions.\n\n\n\nWaiver for extenuating circumstances\nIf there are circumstances that prevent you from completing a lab or homework assignment by the stated due date, you may email Professor Tackett before the deadline to waive the late penalty. In your email, you only need to request the waiver; you do not need to provide explanation. This waiver may only be used for once in the semester, so only use it for a truly extenuating circumstance.\nIf there are circumstances that are having a longer-term impact on your academic performance, please let your academic dean know, as they can be a resource. Please let Professor Tackett know if you need help contacting your academic dean.\n\n\nRegrade Requests\nRegrade requests must be submitted on Gradescope within a week of when an assignment is returned. Regrade requests will be considered if there was an error in the grade calculation or if you feel a correct answer was mistakenly marked as incorrect. Requests to dispute the number of points deducted for an incorrect response will not be considered. Note that by submitting a regrade request, the entire question will be graded which could potentially result in losing points.\nNo grades will be changed after the final project presentations."
+  },
+  {
+    "objectID": "syllabus.html#additional-resources",
+    "href": "syllabus.html#additional-resources",
+    "title": "Syllabus",
+    "section": "Additional resources",
+    "text": "Additional resources\n\nAcademic Resource Center\nThere are times may need help with the class that is beyond what can be provided by the teaching team. In those instances, I encourage you to visit the Academic Resource Center. The Academic Resource Center (ARC) offers free services to all students during their undergraduate careers at Duke. Services include Learning Consultations, Peer Tutoring and Study Groups, ADHD/LD Coaching, Outreach Workshops, and more. Because learning is a process unique to every individual, they work with each student to discover and develop their own academic strategy for success at Duke. Contact the ARC to schedule an appointment. Undergraduates in any year, studying any discipline can benefit! Contact ARC@duke.edu, 919-684-5917.\n\n\nCAPS\nDuke Counseling & Pyschological Services (CAPS) helps Duke Students enhance strengths and develop abilities to successfully live, grow and learn in their personal and academic lives. CAPS recognizes that we are living in unprecedented times and that the changes, challenges and stressors brought on by the COVID-19 pandemic have impacted everyone, often in ways that are tax our well-being. CAPS offers many services to Duke undergraduate students, including brief individual and group counseling, couples counseling and more. CAPS staff also provides outreach to student groups, particularly programs supportive of at-risk populations, on a wide range of issues impacting them in various aspects of campus life. CAPS provides services to students via Telehealth. To initiate services, you can contact their front desk at 919-660-1000."
+  },
+  {
+    "objectID": "syllabus.html#important-dates",
+    "href": "syllabus.html#important-dates",
+    "title": "Syllabus",
+    "section": "Important dates",
+    "text": "Important dates\n\nAug 23: Classes begin\nSep 3: Drop/add ends\nOct 4-5: Fall break\nNov 5: Last day to withdraw with W\nNov 24-26: Thanksgiving recess\nDec 3: Classes end\nDec 4-7: Reading period\nDec 8-13: Final exams\n\nClick here for the full Duke academic calendar."
+  },
+  {
+    "objectID": "teaching-team.html",
+    "href": "teaching-team.html",
+    "title": "mysite",
+    "section": "",
+    "text": "To learn more about Quarto websites visit https://quarto.org/docs/websites."
+  },
+  {
+    "objectID": "support.html#ask-questions-during-lectures-and-lab",
+    "href": "support.html#ask-questions-during-lectures-and-lab",
+    "title": "STA 210 - Fall 2022",
+    "section": "Ask questions during lectures and lab",
+    "text": "Ask questions during lectures and lab\nIf you have a question during lecture or lab, feel free to ask it! There are likely other students with the same question, so by asking you will create a learning opportunity for everyone."
+  },
+  {
+    "objectID": "support.html#office-hours",
+    "href": "support.html#office-hours",
+    "title": "STA 210 - Fall 2022",
+    "section": "Office hours",
+    "text": "Office hours\nThe teaching team is here to help you be successful in the course. You are encouraged to attend office hours during the times posted on the home page to ask questions about the course content and assignments. A lot of questions are most effectively answered in-person, so office hours are a valuable resource. Please use them!\nYou can find the schedule for office hours and associated links for online office hours in Sakai."
+  },
+  {
+    "objectID": "support.html#ed-discussion",
+    "href": "support.html#ed-discussion",
+    "title": "STA 210 - Fall 2022",
+    "section": "Ed Discussion",
+    "text": "Ed Discussion\nOutside of class and office hours, any general questions about course content or assignments should be posted on Ed Discussion. There is a chance another student has already asked a similar question, so please check the other posts on Ed Discussion before adding a new question. If you know the answer to a question that is posted, I encourage you to respond!"
+  },
+  {
+    "objectID": "support.html#email",
+    "href": "support.html#email",
+    "title": "STA 210 - Fall 2022",
+    "section": "Email",
+    "text": "Email\nIf you have questions about personal matters that are not appropriate for the public forum on Piazza (e.g. illness, accommodations, etc.), you may email Professor Tackett at maria.tackett@duke.edu."
+  },
+  {
+    "objectID": "support.html#rstudio-containers",
+    "href": "support.html#rstudio-containers",
+    "title": "STA 210 - Fall 2022",
+    "section": "RStudio Containers",
+    "text": "RStudio Containers\nIf you’re having trouble with your RStudio container…\n\nFirst try opening the RStudio container using a different web browser.\nIf you’re still having issues, next try restarting the container. Click here for instructions on restarting.\nLastly, if the issues persist, submit a ticket to OIT and they can look into the issue further. Click here to submit the ticket."
+  },
+  {
+    "objectID": "support.html#additional-resources",
+    "href": "support.html#additional-resources",
+    "title": "STA 210 - Fall 2022",
+    "section": "Additional resources",
+    "text": "Additional resources\n\nR for Data Science by Garret Grolemund and Hadley Wickham\nBeyond Multiple Linear Regression by Paul Roback and Julie Legler\nStat2: Modeling with Regression and ANOVA by Ann Cannon et al."
+  },
+  {
+    "objectID": "support.html#resources-for-mental-health-and-wellness",
+    "href": "support.html#resources-for-mental-health-and-wellness",
+    "title": "STA 210 - Fall 2022",
+    "section": "Resources for mental health and wellness",
+    "text": "Resources for mental health and wellness\n\nDukeReach: Provides comprehensive outreach services to identify and support students in managing all aspects of well being. If you have concerns about a student’s behavior or health visit the website for resources and assistance. Go to studentaffairs.duke.edu/dukereach\nCounseling and Psychological Services (CAPS): CAPS services include individual, group, and couples counseling services, health coaching, psychiatric services, and workshops and discussions. Contact CAPS at (919) 660-1000\nBlue Devils Care. A convenient and cost-effective way for Duke students to receive 24/7 mental health support through TalkNow. Go to bluedevilscare.duke.edu"
+  },
+  {
+    "objectID": "support.html#resources-for-academic-support-and-wellness",
+    "href": "support.html#resources-for-academic-support-and-wellness",
+    "title": "STA 210 - Fall 2022",
+    "section": "Resources for academic support and wellness",
+    "text": "Resources for academic support and wellness\n\nThe Academic Resource Center: Contact the ARC at (919) 684-5917, theARC@duke.edu, or visit their website arc.duke.edu\nDuWell: Contact DuWell at (919) 681-8421, duwell@studentaffairs.duke.edu, or studentaffairs.duke.edu/duwell\nWellTrack: Contact WellTrack at app.welltrack.com"
+  },
+  {
+    "objectID": "support.html#technology-accommodations",
+    "href": "support.html#technology-accommodations",
+    "title": "STA 210 - Fall 2022",
+    "section": "Technology accommodations",
+    "text": "Technology accommodations\nStudents with demonstrated high financial need who have limited access to computers may request assistance in the form of loaner laptops. For technology assistance requests, please go here. Please note that supplies are limited.\nNote that we will be using Duke’s computational resources in this course. These resources are freely available to you. As long as your computer can connect to the internet and open a browser window, you can perform the necessary computing for this course. All software we use is open-source and/or freely available."
+  },
+  {
+    "objectID": "support.html#course-materials-costs",
+    "href": "support.html#course-materials-costs",
+    "title": "STA 210 - Fall 2022",
+    "section": "Course materials costs",
+    "text": "Course materials costs\nThere are no costs associated with this course. All readings will come from freely available, open resources (open-source textbooks, journal articles, etc.)."
+  },
+  {
+    "objectID": "support.html#assistance-with-zoom-or-sakai",
+    "href": "support.html#assistance-with-zoom-or-sakai",
+    "title": "STA 210 - Fall 2022",
+    "section": "Assistance with Zoom or Sakai",
+    "text": "Assistance with Zoom or Sakai\nFor technical help with Sakai or Zoom, contact the Duke OIT Service Desk at oit.duke.edu/help. You can also access the self-service help documentation for Zoom here and for Sakai here.\nNote that we will be making minimal use of Sakai in this course (primarily for announcements and grade book). All assignment submission and discussion will take place on GitHub instead.\nZoom will be used for online office hours as well as as a backup option should we need to hold the course online instead of in person."
   }
 ]

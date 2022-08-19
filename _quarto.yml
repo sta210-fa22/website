@@ -41,20 +41,26 @@ website:
             url: https://sakai.duke.edu/portal/site/779c3ebe-3b88-4bcc-bd01-1813e8396a23/tool/69078433-67a6-4054-a2e7-9e6c202ecdc3/
 
     contents:
-      - href: syllabus.qmd
-        text: Syllabus
+      - section: Course information
+        contents: 
+         - href: syllabus.qmd
+           text: Syllabus
+         - href: teaching-team.qmd
+            text: Teaching team
       - href: schedule.qmd
         text: Schedule
       - href: support.qmd
         text: Support
+      - section: Computing
+        contents: 
+        - href: computing-access.qmd
+          text: Access
+        - href: computing-troubleshooting.qmd
+          text: Troubleshooting
+        - href: computing-r-resources.qmd
+          text: R resources
       - href: links.qmd
         text: Useful links
-      - href: computing-access.qmd
-        text: Access
-      - href: computing-troubleshooting.qmd
-        text: Troubleshooting
-      - href: computing-r-resources.qmd
-        text: R resources
 
   page-footer:
     left: |

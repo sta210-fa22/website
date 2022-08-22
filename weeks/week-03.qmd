@@ -1,8 +1,8 @@
 ---
 title: "Week 03"
 subtitle: "SLR: Inference + Prediction"
-description: "Sep 12 - 16"
-author: ""
+description: ""
+author: "Sep 12 - 16"
 date: ""
 listing:
   - id: slides
@@ -32,6 +32,7 @@ listing:
     sort-ui: false
     filter-ui: false
 tbl-colwidths: [10,50,40]
+title-block-style: none
 ---
 
 # Lectures

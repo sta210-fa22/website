@@ -1,8 +1,8 @@
 ---
 title: "Week 04"
 subtitle: "Multiple Linear Regression (MLR)"
-description: "Sep 19 - 23 "
-author: ""
+description: ""
+author: "Sep 19 - 23"
 date: ""
 listing:
   - id: slides
@@ -32,6 +32,7 @@ listing:
     sort-ui: false
     filter-ui: false
 tbl-colwidths: [10,50,40]
+title-block-style: none
 ---
 
 # Lectures

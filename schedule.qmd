@@ -5,11 +5,12 @@ listing:
     contents:
       - weeks/week-*.qmd
     type: table
-    fields: [title, description, subtitle]
+    fields: [title, author, subtitle, description]
     field-display-names:
       title: "Week"
-      description: "Dates"
+      author: "Dates"
       subtitle: "Topic"
+      description: "Assignments"
     date-format: "MMMM DD, YYYY"
     sort: [filename]
     sort-ui: false

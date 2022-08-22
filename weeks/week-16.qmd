@@ -1,8 +1,8 @@
 ---
 title: "Week 16"
 subtitle: "Final exam period"
-description: "Dec 12 - 19"
-author: ""
+description: ""
+author: "Dec 12 - 19"
 date: ""
 listing:
   - id: slides
@@ -32,6 +32,7 @@ listing:
     sort-ui: false
     filter-ui: false
 tbl-colwidths: [10,50,40]
+title-block-style: none
 ---
 
 # Lectures

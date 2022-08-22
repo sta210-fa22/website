@@ -1,8 +1,8 @@
 ---
 title: "Week 01"
 subtitle: "Welcome to Regression Analysis"
-description: "Aug 29 - Sep 02"
-author: ""
+author: "Aug 29 - Sep 02"
+description: ""
 date: ""
 listing:
   - id: slides
@@ -32,6 +32,7 @@ listing:
   #   sort-ui: false
   #   filter-ui: false
 tbl-colwidths: [10,50,40]
+title-block-style: none
 ---
 
 # Lectures

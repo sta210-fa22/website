@@ -1,8 +1,8 @@
 ---
 title: "Week 09"
 subtitle: "MLR: Inference"
-description: "Oct 24 - 28"
-author: ""
+description: ""
+author: "Oct 24 - 28"
 date: ""
 listing:
   - id: slides
@@ -32,6 +32,7 @@ listing:
     sort-ui: false
     filter-ui: false
 tbl-colwidths: [10,50,40]
+title-block-style: none
 ---
 
 # Lectures

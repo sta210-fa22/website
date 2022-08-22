@@ -1,8 +1,8 @@
 ---
 title: "Week 10"
 subtitle: "Odds + Odds Ratios"
-description: "Oct 31 - Nov 04"
-author: ""
+description: ""
+author: "Oct 31 - Nov 04"
 date: ""
 listing:
   - id: slides
@@ -32,6 +32,7 @@ listing:
     sort-ui: false
     filter-ui: false
 tbl-colwidths: [10,50,40]
+title-block-style: none
 ---
 
 # Lectures

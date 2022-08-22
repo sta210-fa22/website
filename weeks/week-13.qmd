@@ -1,8 +1,8 @@
 ---
 title: "Week 13"
 subtitle: "Multinomial logistic regression"
-description: "Nov 21 - 25"
-author: ""
+description: ""
+author: "Nov 21 - 25"
 date: ""
 listing:
   - id: slides

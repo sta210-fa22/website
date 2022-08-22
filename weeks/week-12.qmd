@@ -1,13 +1,13 @@
 ---
-title: "Week 03"
-subtitle: "Wrangling Data"
-description: "Sep 12 - 16"
+title: "Week 12"
+subtitle: "LR: Inference"
+description: "Nov 14 - 18"
 author: ""
 date: ""
 listing:
   - id: slides
     contents:
-      - ../slides/week-03/*.qmd
+      - ../slides/week-12/*.qmd
     type: table
     fields: [title, date]
     date-format: "ddd, MMM DD"
@@ -19,8 +19,8 @@ listing:
     filter-ui: false
   - id: assignments
     contents:
-      - ../hw/w3-*.qmd
-      - ../labs/w3-*.qmd
+      - ../hw/w12-*.qmd
+      - ../labs/w12-*.qmd
     type: table
     fields: [categories, title, date]
     date-format: "ddd, MMM DD"

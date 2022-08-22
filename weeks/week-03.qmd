@@ -1,6 +1,6 @@
 ---
 title: "Week 03"
-subtitle: "Wrangling Data"
+subtitle: "SLR: Inference + Prediction"
 description: "Sep 12 - 16"
 author: ""
 date: ""

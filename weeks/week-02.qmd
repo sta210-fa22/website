@@ -1,7 +1,7 @@
 ---
 title: "Week 02"
 subtitle: "Simple Linear Regression (SLR)"
-description: ""
+description: "Statistics experience"
 author: "Sep 05 - 09"
 date: ""
 listing:

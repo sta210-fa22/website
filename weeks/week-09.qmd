@@ -1,7 +1,7 @@
 ---
 title: "Week 09"
 subtitle: "MLR: Inference"
-description: ""
+description: "HW 03"
 author: "Oct 24 - 28"
 date: ""
 listing:

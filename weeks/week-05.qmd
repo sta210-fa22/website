@@ -1,7 +1,7 @@
 ---
 title: "Week 05"
-subtitle: "Model comparsion + Exam 01"
-description: ""
+subtitle: "Model comparsion"
+description: "Exam 01"
 author: "Sep 26 - 30"
 date: ""
 listing:

@@ -19,27 +19,22 @@ listing:
 editor: visual
 ---
 
+*This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses, with all changes documented here.*
+
 ## Weekly schedule
 
 ::: {#schedule}
 :::
 
-## Assignments
+## Notes
 
-Below are assignment due dates for the semester. You can find details and assignment instructions in the relevant week on the schedule.
+-   Homework will be due on Wednesdays at 11:59pm. You will have one week to complete each homework assignment.
 
-### Homework
+-   Lab:
 
-Homework will be due on Wednesdays at 11:59pm. You will have one week to complete each homework assignment.
+    -   Labs 01 & 02 (Thursdays): Labs will be due on Mondays at 11:59pm.
+    -   Labs 03 & 04 (Fridays): Labs will be due onTuesdays at 11:59pm.
 
-### Labs
+-   Project dates will be added when the project is assigned.
 
-Labs will be due on Fridays at 11:59pm. You will start the lab during your scheduled lab section.
-
-### Exams
-
-There will be two exams on the dates:
-
--   October 12, 9am - October 14, 11:59pm
-
--   November 16, 9am - November 16: 11:59pm
+## 

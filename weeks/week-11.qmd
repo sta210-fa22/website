@@ -1,7 +1,7 @@
 ---
 title: "Week 11"
 subtitle: "Logistic regression (LR)"
-description: "HW 04"
+description: "Project peer review, HW 04"
 author: "Nov 07 - 11"
 date: ""
 listing:

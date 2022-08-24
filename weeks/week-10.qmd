@@ -1,7 +1,7 @@
 ---
 title: "Week 10"
 subtitle: "Odds + Odds Ratios"
-description: ""
+description: "Lab 07"
 author: "Oct 31 - Nov 04"
 date: ""
 listing:

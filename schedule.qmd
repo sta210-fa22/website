@@ -32,8 +32,8 @@ editor: visual
 
 -   Lab:
 
-    -   Labs 01 & 02 (Thursdays): Labs will be due on Mondays at 11:59pm.
-    -   Labs 03 & 04 (Fridays): Labs will be due onTuesdays at 11:59pm.
+    -   Lab sections 01 & 02 (Thursdays): Labs will be due on Mondays at 11:59pm.
+    -   Lab sections 03 & 04 (Fridays): Labs will be due on Tuesdays at 11:59pm.
 
 -   Project dates will be added when the project is assigned.
 

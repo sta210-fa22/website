@@ -1,7 +1,7 @@
 ---
 title: "Week 03"
 subtitle: "SLR: Inference + Prediction"
-description: "HW 01"
+description: "Lab 02, HW 01"
 author: "Sep 12 - 16"
 date: ""
 listing:

@@ -8,13 +8,13 @@ Learn approaches for analyzing multivariate data sets, emphasizing analysis of v
 
 ## Class meetings
 
-|             |            |                            |                     |
-|-------------|------------|----------------------------|---------------------|
-| **Lecture** | Section 01 | Mon & Wed 10:15 - 11:30 am | Reuben-Cooke 130    |
-|             | Section 02 | Mon & Wed 3:30 - 4:45pm    | Social Sciences 136 |
-| **Lab**     | Lab 01     | Thu 3:30 - 4:45pm          | Perkins Link #5     |
-|             | Lab 02     | Thu 5:15 - 6:30pm          | Perkins Link #5     |
-|             | Lab 03     | Fri 12 - 1:15pm            | Perkins Link #5     |
-|             | Lab 04     | Fri 1:45 - 3pm             | Old Chemistry 003   |
+|             |             |                            |                     |
+|-------------|-------------|----------------------------|---------------------|
+| **Lecture** | Section 001 | Mon & Wed 10:15 - 11:30 am | Reuben-Cooke 130    |
+|             | Section 002 | Mon & Wed 3:30 - 4:45pm    | Social Sciences 136 |
+| **Lab**     | Lab 01      | Thu 3:30 - 4:45pm          | Perkins Link #5     |
+|             | Lab 02      | Thu 5:15 - 6:30pm          | Perkins Link #5     |
+|             | Lab 03      | Fri 12 - 1:15pm            | Perkins Link #5     |
+|             | Lab 04      | Fri 1:45 - 3pm             | Old Chemistry 003   |
 
 ## Teaching team

@@ -1,6 +1,6 @@
 ---
 title: "Week 14"
-subtitle: "Multinomial logistic regression"
+subtitle: "Mixed effects models"
 description: "Exam 02"
 author: "Nov 28 - Dec 02"
 date: ""

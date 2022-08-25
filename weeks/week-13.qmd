@@ -1,6 +1,6 @@
 ---
 title: "Week 13"
-subtitle: "Multinomial logistic regression"
+subtitle: "Mixed effects models"
 description: ""
 author: "Nov 21 - 25"
 date: ""

@@ -7,7 +7,7 @@ date: ""
 listing:
   - id: slides
     contents:
-      - ../slides/week-01/*.qmd
+      - ../slides/w01-*.qmd
     type: table
     fields: [title, date]
     date-format: "ddd, MMM DD"

@@ -1,5 +1,5 @@
 ---
-title: "Welcome to STA 210"
+title: "Welcome to STA 210!"
 author: "Prof. Maria Tackett"
 date: "2022-08-29"
 date-format: "MMM DD, YYYY"

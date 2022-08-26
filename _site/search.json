@@ -548,126 +548,126 @@
   {
     "objectID": "slides/w01-welcome.html#meet-the-teaching-team-instructor",
     "href": "slides/w01-welcome.html#meet-the-teaching-team-instructor",
-    "title": "Welcome to Regression Analysis",
+    "title": "Welcome to STA 210!",
     "section": "Meet the teaching team: Instructor",
     "text": "Meet the teaching team: Instructor\nProf. Maria Tackett\n.pull-left[]\n.pull-right[]"
   },
   {
     "objectID": "slides/w01-welcome.html#meet-the-teaching-team-tas",
     "href": "slides/w01-welcome.html#meet-the-teaching-team-tas",
-    "title": "Welcome to Regression Analysis",
+    "title": "Welcome to STA 210!",
     "section": "Meet the teaching team: TAs",
     "text": "Meet the teaching team: TAs\n\nSophie Dalldorf\nEmily Gentles\nLeslie Li\nJose Pliego San Martin\nShari Tian\nAaditya Warrier\nGrace Zhao"
   },
   {
     "objectID": "slides/w01-welcome.html#check-in-on-ed-discussion",
     "href": "slides/w01-welcome.html#check-in-on-ed-discussion",
-    "title": "Welcome to Regression Analysis",
+    "title": "Welcome to STA 210!",
     "section": "Check in on Ed Discussion!",
     "text": "Check in on Ed Discussion!\n\nGo to the class Ed Discussion: edstem.org/us/courses/8350/discussion/565405\nAnswer the poll question: How are you doing?"
   },
   {
     "objectID": "slides/w01-welcome.html#what-is-regression-analysis",
     "href": "slides/w01-welcome.html#what-is-regression-analysis",
-    "title": "Welcome to Regression Analysis",
+    "title": "Welcome to STA 210!",
     "section": "What is regression analysis?",
     "text": "What is regression analysis?\n“In statistical modeling, regression analysis is a set of statistical processes for estimating the relationships among variables. It includes many techniques for modeling and analyzing several variables, when the focus is on the relationship between a dependent variable and one or more independent variables (or ‘predictors’). More specifically, regression analysis helps one understand how the typical value of the dependent variable (or ‘criterion variable’) changes when any one of the independent variables is varied, while the other independent variables are held fixed.”\n.pull-right[ -Wikipedia]"
   },
   {
     "objectID": "slides/w01-welcome.html#course-faq",
     "href": "slides/w01-welcome.html#course-faq",
-    "title": "Welcome to Regression Analysis",
+    "title": "Welcome to STA 210!",
     "section": "Course FAQ",
     "text": "Course FAQ\n.vocab[Q - What background is assumed for the course?]\nA - Introductory statistics or probability course \n.vocab[Q - Will we be doing computing?]\nA - Yes. We will use the computing language R. \n.vocab[Q - Will we learn the mathematical theory of regression?]\n.midi[A - Yes and No. The course is primarily focused on application; however, we will discuss some of the mathematics of simple linear regression. There is a new 1-credit course STA 211: Mathematics of Regression to take simultaneously or after this course to dive into more of the mathematics.]"
   },
   {
     "objectID": "slides/w01-welcome.html#course-learning-objectives",
     "href": "slides/w01-welcome.html#course-learning-objectives",
-    "title": "Welcome to Regression Analysis",
+    "title": "Welcome to STA 210!",
     "section": "Course learning objectives",
     "text": "Course learning objectives\n\nAnalyze real-world data to answer questions about multivariable relationships.\nFit and evaluate linear and logistic regression models.\nAssess whether a proposed model is appropriate and describe its limitations.\nUse R Markdown to write reproducible reports and GitHub for version control and collaboration.\nCommunicate results from statistical analyses to a general audience."
   },
   {
     "objectID": "slides/w01-welcome.html#examples-of-regression-in-practice",
     "href": "slides/w01-welcome.html#examples-of-regression-in-practice",
-    "title": "Welcome to Regression Analysis",
+    "title": "Welcome to STA 210!",
     "section": "Examples of regression in practice",
     "text": "Examples of regression in practice\nNew Yorkers Will Pay $56 A Month To Trim A Minute Off Their Commute\nHow FiveThirtyEight’s 2020 Presidential Forecast Works — And What’s Different Because Of COVID-19\nEffect of Forensic Evidence on Criminal Justice Case Processing\nWhy it’s so freaking hard to make a good COVID-19 model"
   },
   {
     "objectID": "slides/w01-welcome.html#course-toolkit",
     "href": "slides/w01-welcome.html#course-toolkit",
-    "title": "Welcome to Regression Analysis",
+    "title": "Welcome to STA 210!",
     "section": "Course Toolkit",
     "text": "Course Toolkit\n\n.vocab[Course website:] sta210-fa21.netlify.app\n\nCentral hub for the course!\nQuick tour of the website\n\n.vocab[Sakai:] sakai.duke.edu\n\n.midi[Gradebook]"
   },
   {
     "objectID": "slides/w01-welcome.html#course-toolkit-1",
     "href": "slides/w01-welcome.html#course-toolkit-1",
-    "title": "Welcome to Regression Analysis",
+    "title": "Welcome to STA 210!",
     "section": "Course Toolkit",
     "text": "Course Toolkit\n\n.vocab[Ed Discussion: edstem.org/us/courses/8350/discussion]\n\nClass Q&A and discussion forum\n\n.vocab[GitHub:] github.com/sta210-fa21\n\nDistribute & work on assignments – more on this later!"
   },
   {
     "objectID": "slides/w01-welcome.html#activities-prepare-practice-perform",
     "href": "slides/w01-welcome.html#activities-prepare-practice-perform",
-    "title": "Welcome to Regression Analysis",
+    "title": "Welcome to STA 210!",
     "section": "Activities: Prepare, Practice, Perform",
     "text": "Activities: Prepare, Practice, Perform\n\n.vocab[Prepare:] introduce new content and prepare for lectures\n\nVideos & readings before lecture\nLow-stakes prep quizzes on basic definitions & concepts from videos\nSee Prepare column on course schedule\n\n.vocab[Practice:] practice applying statistical concepts and computing\n\nApplication Exercises (AE) during lecture\nGraded for completion"
   },
   {
     "objectID": "slides/w01-welcome.html#activities-prepare-practice-perform-1",
     "href": "slides/w01-welcome.html#activities-prepare-practice-perform-1",
-    "title": "Welcome to Regression Analysis",
+    "title": "Welcome to STA 210!",
     "section": "Activities: Prepare, Practice, Perform",
     "text": "Activities: Prepare, Practice, Perform\n\n.vocab[Perform:] Put together what you’ve learned to analyze real-world data\n\nWeekly team or individual lab assignments\nPeriodic individual homework assignments\nTwo take-home exams\nFinal team project presented during the final exam period."
   },
   {
     "objectID": "slides/w01-welcome.html#where-to-find-help",
     "href": "slides/w01-welcome.html#where-to-find-help",
-    "title": "Welcome to Regression Analysis",
+    "title": "Welcome to STA 210!",
     "section": "Where to find help",
     "text": "Where to find help\n–\n\nAttend .vocab[Office hours] to meet with a member of the teaching team.\n\nFull office hours begin August 30\n\n\n–\n\nUse Ed Discussion for general questions about course content and/or assignments, since other students may benefit from the response.\n\n–\n\nUse email for questions regarding personal matters and/or grades."
   },
   {
     "objectID": "slides/w01-welcome.html#academic-resource-center",
     "href": "slides/w01-welcome.html#academic-resource-center",
-    "title": "Welcome to Regression Analysis",
+    "title": "Welcome to STA 210!",
     "section": "Academic Resource Center",
     "text": "Academic Resource Center\nThe Academic Resource Center (ARC) offers free services to all students during their undergraduate careers at Duke.\nServices include - Learning Consultations - Peer Tutoring and Study Groups - ADHD/LD Coaching, Outreach Workshops - and more.\nContact the ARC at ARC@duke.edu or call 919-684-5917 to schedule an appointment."
   },
   {
     "objectID": "slides/w01-welcome.html#caps",
     "href": "slides/w01-welcome.html#caps",
-    "title": "Welcome to Regression Analysis",
+    "title": "Welcome to STA 210!",
     "section": "CAPS",
     "text": "CAPS\nDuke Counseling & Psychological Services (CAPS) helps Duke Students enhance strengths and develop abilities to successfully live, grow and learn in their personal and academic lives.\nServices include - brief individual and group counseling - couples counseling - outreach to student groups - and more…"
   },
   {
     "objectID": "slides/w01-welcome.html#course-community-learning-environment",
     "href": "slides/w01-welcome.html#course-community-learning-environment",
-    "title": "Welcome to Regression Analysis",
+    "title": "Welcome to STA 210!",
     "section": "Course community & Learning environment",
     "text": "Course community & Learning environment\n–\n\nUphold the Duke Community Standard: > - I will not lie, cheat, or steal in my academic endeavors; >- I will conduct myself honorably in all my endeavors; and > - I will act if the Standard is compromised.\n\n–\n\nRespect, honor, and celebrate our diverse community\n\n–\n\nLearning environment that is welcoming and accessible to everyone"
   },
   {
     "objectID": "slides/w01-welcome.html#attending-lectures-and-labs",
     "href": "slides/w01-welcome.html#attending-lectures-and-labs",
-    "title": "Welcome to Regression Analysis",
+    "title": "Welcome to STA 210!",
     "section": "Attending lectures and labs",
     "text": "Attending lectures and labs\n\nYou are expected to attend and participate lectures and labs\nPlease wear a mask to help protect your peers and others around you 😷\nPlease do not come to class if you have symptoms related to COVID-19, have had a known exposure to COVID-19, or have tested positive for COVID-19.\n\nYou will still have access to AEs and labs to complete remotely\nOnline office hours and Ed Discussion are available to ask questions\nEmail Professor Tackett if further arrangements needed"
   },
   {
     "objectID": "slides/w01-welcome.html#create-a-github-account",
     "href": "slides/w01-welcome.html#create-a-github-account",
-    "title": "Welcome to Regression Analysis",
+    "title": "Welcome to STA 210!",
     "section": "Create a GitHub account",
     "text": "Create a GitHub account\n.question[ Go to https://github.com/, and create an account, if needed. Then, go to bit.ly/sta210-fa21-github and enter your Duke email address (NETID@duke.edu) and GitHub username.]\n Some tips from Happy Git with R.  - .small[Incorporate your actual name!] - .small[Use your username from other contexts if you can, e.g., Twitter or Slack.] - .small[Pick a username you will be comfortable revealing to your future boss.] - .small[Be as unique as possible in as few characters as possible. Shorter is better than longer.] - .small[Make it timeless.] - .small[Avoid words with special meaning in programming (e.g. NA).]\n\n\n\n05:00"
   },
   {
     "objectID": "slides/w01-welcome.html#for-wednesday",
     "href": "slides/w01-welcome.html#for-wednesday",
-    "title": "Welcome to Regression Analysis",
+    "title": "Welcome to STA 210!",
     "section": "For Wednesday",
     "text": "For Wednesday\n\nWe’ll start talking about the computing toolkit\nWatch videos for Prepare: Week 01\nReserve an .vocab[STA210] RStudio container.\n\nGo to https://vm-manage.oit.duke.edu/containers\nClick Reserve Container for the STA210 container\n\nSubmit your GitHub username\nBring laptop/tablet/Chromebook to class\nComplete the Get to Know You survey (by Wed, Sep 01)\n\n\n\n\n🔗 Week 01"
   }

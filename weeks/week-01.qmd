@@ -7,7 +7,7 @@ date: ""
 listing:
   - id: slides
     contents:
-      - ../slides/w01-*.qmd
+      - ../w01-*.qmd
     type: table
     fields: [title, date]
     date-format: "ddd, MMM DD"
@@ -17,20 +17,6 @@ listing:
     sort: [filename]
     sort-ui: false
     filter-ui: false
-  # - id: assignments
-  #   contents:
-  #     - ../hw/w1-*.qmd
-  #     - ../labs/w1-*.qmd
-  #   type: table
-  #   fields: [categories, title, date]
-  #   date-format: "ddd, MMM DD"
-  #   field-display-names:
-  #     categories: "Assignment"
-  #     title: "Title"
-  #     date: "Due"
-  #   sort: [date]
-  #   sort-ui: false
-  #   filter-ui: false
 tbl-colwidths: [10,50,40]
 title-block-style: none
 ---
@@ -42,10 +28,16 @@ title-block-style: none
 
 # Assignments
 
++----------------------------------+-----------------------------------+
+| Complete Get to Know You Survey  | due Mon, Sep 05                   |
++----------------------------------+-----------------------------------+
+
 # Readings
 
-|     |
-|-----|
-|     |
-|     |
-|     |
++----------------------------------------------------------------------------------------------------------------------------------------------+
+| [Syllabus](../syllabus.qmd)                                                                                                                  |
+|                                                                                                                                              |
+| [Course support](../support.qmd)                                                                                                             |
+|                                                                                                                                              |
+| Introduction to Modern Statistics (IMS), Ch 7: [Linear regression with a single predictor](https://openintro-ims.netlify.app/model-slr.html) |
++----------------------------------------------------------------------------------------------------------------------------------------------+

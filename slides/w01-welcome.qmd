@@ -29,8 +29,6 @@ library(tidyverse)
 library(rvest)
 ```
 
-class: center, middle
-
 # Welcome!
 
 ------------------------------------------------------------------------

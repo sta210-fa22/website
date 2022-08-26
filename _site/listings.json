@@ -1,67 +1,9 @@
 [
   {
-    "listing": "/weeks/week-08.html",
-    "items": []
-  },
-  {
-    "listing": "/weeks/week-09.html",
-    "items": []
-  },
-  {
-    "listing": "/weeks/week-04.html",
-    "items": []
-  },
-  {
-    "listing": "/weeks/week-10.html",
-    "items": []
-  },
-  {
-    "listing": "/weeks/week-11.html",
-    "items": []
-  },
-  {
-    "listing": "/weeks/week-05.html",
-    "items": []
-  },
-  {
-    "listing": "/weeks/week-13.html",
-    "items": []
-  },
-  {
-    "listing": "/weeks/week-07.html",
-    "items": []
-  },
-  {
-    "listing": "/weeks/week-06.html",
-    "items": []
-  },
-  {
-    "listing": "/weeks/week-12.html",
-    "items": []
-  },
-  {
-    "listing": "/weeks/week-16.html",
-    "items": []
-  },
-  {
-    "listing": "/weeks/week-02.html",
-    "items": []
-  },
-  {
-    "listing": "/weeks/week-03.html",
-    "items": []
-  },
-  {
     "listing": "/weeks/week-01.html",
-    "items": []
-  },
-  {
-    "listing": "/weeks/week-15.html",
-    "items": []
-  },
-  {
-    "listing": "/weeks/week-14.html",
-    "items": []
+    "items": [
+      "/slides/w01-01-welcome.html"
+    ]
   },
   {
     "listing": "/schedule.html",

@@ -1,115 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://sta210-fa22.netlify.app/weeks/week-08.html</loc>
-    <lastmod>2022-08-25T18:52:23.489Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sta210-fa22.netlify.app/weeks/week-09.html</loc>
-    <lastmod>2022-08-25T18:52:23.878Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sta210-fa22.netlify.app/weeks/week-04.html</loc>
-    <lastmod>2022-08-25T18:52:24.256Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sta210-fa22.netlify.app/weeks/week-10.html</loc>
-    <lastmod>2022-08-25T18:52:24.616Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sta210-fa22.netlify.app/weeks/week-11.html</loc>
-    <lastmod>2022-08-25T18:52:25.047Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sta210-fa22.netlify.app/weeks/week-05.html</loc>
-    <lastmod>2022-08-25T18:52:25.417Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sta210-fa22.netlify.app/weeks/week-13.html</loc>
-    <lastmod>2022-08-25T18:52:27.189Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sta210-fa22.netlify.app/weeks/week-07.html</loc>
-    <lastmod>2022-08-25T18:52:28.915Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sta210-fa22.netlify.app/weeks/week-06.html</loc>
-    <lastmod>2022-08-25T18:52:29.324Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sta210-fa22.netlify.app/weeks/week-12.html</loc>
-    <lastmod>2022-08-24T15:31:47.888Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sta210-fa22.netlify.app/weeks/week-16.html</loc>
-    <lastmod>2022-08-22T19:38:58.902Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sta210-fa22.netlify.app/weeks/week-02.html</loc>
-    <lastmod>2022-08-24T13:20:39.454Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sta210-fa22.netlify.app/weeks/week-03.html</loc>
-    <lastmod>2022-08-25T18:52:29.674Z</lastmod>
-  </url>
-  <url>
     <loc>https://sta210-fa22.netlify.app/weeks/week-01.html</loc>
-    <lastmod>2022-08-26T13:48:57.309Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sta210-fa22.netlify.app/weeks/week-15.html</loc>
-    <lastmod>2022-08-25T18:52:34.878Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sta210-fa22.netlify.app/weeks/week-14.html</loc>
-    <lastmod>2022-08-25T18:52:30.085Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sta210-fa22.netlify.app/support.html</loc>
-    <lastmod>2022-08-23T20:08:02.468Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sta210-fa22.netlify.app/computing-r-resources.html</loc>
-    <lastmod>2022-08-19T21:47:28.048Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sta210-fa22.netlify.app/computing-access.html</loc>
-    <lastmod>2022-08-19T21:47:28.466Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sta210-fa22.netlify.app/index.html</loc>
-    <lastmod>2022-08-25T18:52:30.924Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sta210-fa22.netlify.app/teaching-team.html</loc>
-    <lastmod>2022-08-19T21:47:29.138Z</lastmod>
+    <lastmod>2022-08-26T14:14:31.759Z</lastmod>
   </url>
   <url>
     <loc>https://sta210-fa22.netlify.app/about.html</loc>
-    <lastmod>2022-08-19T21:47:29.433Z</lastmod>
+    <lastmod>2022-08-26T13:56:19.505Z</lastmod>
   </url>
   <url>
     <loc>https://sta210-fa22.netlify.app/links.html</loc>
-    <lastmod>2022-08-25T18:52:31.266Z</lastmod>
+    <lastmod>2022-08-26T13:56:19.910Z</lastmod>
   </url>
   <url>
     <loc>https://sta210-fa22.netlify.app/syllabus.html</loc>
-    <lastmod>2022-08-25T18:52:31.936Z</lastmod>
+    <lastmod>2022-08-26T13:56:20.538Z</lastmod>
   </url>
   <url>
     <loc>https://sta210-fa22.netlify.app/computing-troubleshooting.html</loc>
-    <lastmod>2022-08-19T21:47:30.590Z</lastmod>
+    <lastmod>2022-08-26T13:56:20.879Z</lastmod>
   </url>
   <url>
     <loc>https://sta210-fa22.netlify.app/schedule.html</loc>
-    <lastmod>2022-08-26T13:48:59.221Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sta210-fa22.netlify.app/slides/w1-01-welcome.html</loc>
-    <lastmod>2022-08-26T13:08:47.655Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sta210-fa22.netlify.app/slides/w01-welcome.html</loc>
-    <lastmod>2022-08-26T13:35:18.164Z</lastmod>
+    <lastmod>2022-08-26T14:14:32.715Z</lastmod>
   </url>
 </urlset>

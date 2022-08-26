@@ -21,9 +21,6 @@ knitr:
     width: 200
 ---
 
-```{r child = "setup.Rmd"}
-```
-
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 library(tidyverse)
 library(rvest)

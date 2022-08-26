@@ -1,6 +1,5 @@
 ---
 title: "Welcome to STA 210"
-subtitle: "Regression Analysis"
 author: "Prof. Maria Tackett"
 date: "2022-08-29"
 date-format: "MMM DD, YYYY"

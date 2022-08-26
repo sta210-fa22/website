@@ -48,8 +48,26 @@ website:
     contents:
       - href: syllabus.qmd
         text: Syllabus
-      - href: schedule.qmd
-        text: Schedule
+      - section: Schedule
+        contents: 
+          - href: schedule.qmd
+            text: Full schedule
+          - href: weeks/week-01.qmd
+          - href: weeks/week-02.qmd
+          - href: weeks/week-03.qmd
+          - href: weeks/week-04.qmd
+          - href: weeks/week-05.qmd
+          - href: weeks/week-06.qmd
+          - href: weeks/week-07.qmd
+          - href: weeks/week-08.qmd
+          - href: weeks/week-09.qmd
+          - href: weeks/week-10.qmd
+          - href: weeks/week-11.qmd
+          - href: weeks/week-12.qmd
+          - href: weeks/week-13.qmd
+          - href: weeks/week-14.qmd
+          - href: weeks/week-15.qmd
+          - href: weeks/week-16.qmd
       - href: support.qmd
         text: Support
       - section: Computing

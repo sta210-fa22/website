@@ -29,8 +29,6 @@ ul.task-list{list-style: none;}
 <meta name="quarto:offset" content="../">
 <link href="../weeks/week-02.html" rel="next">
 <link href="../schedule.html" rel="prev">
-<script src="../site_libs/quarto-listing/list.min.js"></script>
-<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -59,37 +57,7 @@ ul.task-list{list-style: none;}
     "search-submit-button-title": "Submit"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-slides .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-date',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-slides'] = new List('listing-slides', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <meta name="twitter:title" content="STA 210 - Fall 2022 - Week 01">
 <meta name="twitter:description" content="Compelete STA 210 Student Survey">
@@ -295,9 +263,10 @@ ul.task-list{list-style: none;}
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#lectures" id="toc-lectures" class="nav-link active" data-scroll-target="#lectures">Lectures</a></li>
-  <li><a href="#assignments" id="toc-assignments" class="nav-link" data-scroll-target="#assignments">Assignments</a></li>
-  <li><a href="#readings" id="toc-readings" class="nav-link" data-scroll-target="#readings">Readings</a></li>
+  <li><a href="#prepare" id="toc-prepare" class="nav-link active" data-scroll-target="#prepare">Prepare</a></li>
+  <li><a href="#participate" id="toc-participate" class="nav-link" data-scroll-target="#participate">Participate</a></li>
+  <li><a href="#practice" id="toc-practice" class="nav-link" data-scroll-target="#practice">Practice</a></li>
+  <li><a href="#perform" id="toc-perform" class="nav-link" data-scroll-target="#perform">Perform</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/sta210-fa22/website/edit/main/weeks/week-01.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/sta210-fa22/website/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -312,58 +281,11 @@ ul.task-list{list-style: none;}
 
 </header>
 
-<section id="lectures" class="level1">
-<h1>Lectures</h1>
-<div id="listing-slides" class="quarto-listing quarto-listing-container-table">
-
-<table class="quarto-listing-table table">
-<thead>
-<tr>
-<th>
-Topic
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody class="list">
-<tr data-index="0" data-listing-date-sort="1661745600000" data-listing-file-modified-sort="1661544744030" data-listing-reading-time-sort="5.71" data-listing-title-sort="Welcome to STA 210!" data-listing-filename-sort="w01-01-welcome.qmd">
-<td class="listing-title">
-<a href="../slides/w01-01-welcome.html" class="title">Welcome to STA 210!</a>
-</td>
-<td class="listing-date">
-Mon, Aug 29
-</td>
-</tr>
-</tbody>
-
-</table>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div>
-</section>
-<section id="assignments" class="level1">
-<h1>Assignments</h1>
+<section id="prepare" class="level1">
+<h1>Prepare</h1>
 <table class="table">
 <colgroup>
-<col style="width: 61%">
-<col style="width: 39%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td>📝 Complete <a href="https://duke.qualtrics.com/jfe/form/SV_cGV5IKoeadWR59s">STA 210 Student Survey</a></td>
-<td>due Mon, Sep 05</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="readings" class="level1">
-<h1>Readings</h1>
-<table class="table">
-<colgroup>
-<col style="width: 75%">
+<col style="width: 60%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -377,7 +299,63 @@ No matching items
 </tr>
 </tbody>
 </table>
-
+</section>
+<section id="participate" class="level1">
+<h1>Participate</h1>
+<table class="table">
+<colgroup>
+<col style="width: 60%">
+<col style="width: 40%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Topic</th>
+<th>Date</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>💻 <a href="../slides/w1-01-welcome.qmd">Welcome to STA 210!</a></td>
+<td>Aug 29</td>
+</tr>
+<tr class="even">
+<td>Simple Linear Regression</td>
+<td>Aug 31</td>
+</tr>
+<tr class="odd">
+<td>Lab 00</td>
+<td>Sep 01 &amp; 02</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="practice" class="level1">
+<h1>Practice</h1>
+<table class="table">
+<colgroup>
+<col style="width: 60%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>📋 <a href="../ae/ae-01-movies.html">AE 01-Movie Budgets</a></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="perform" class="level1">
+<h1>Perform</h1>
+<table class="table">
+<colgroup>
+<col style="width: 60%">
+<col style="width: 40%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>📝 Complete <a href="https://duke.qualtrics.com/jfe/form/SV_cGV5IKoeadWR59s">STA 210 Student Survey</a></td>
+<td>due Mon, Sep 05</td>
+</tr>
+</tbody>
+</table>
 
 
 </section>

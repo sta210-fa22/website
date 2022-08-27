@@ -4,40 +4,40 @@ subtitle: "Welcome to Regression Analysis"
 description: "Compelete STA 210 Student Survey"
 author: "Aug 29 - Sep 02"
 date: ""
-listing:
-  - id: slides
-    contents:
-      - ../slides/w01-*.qmd
-    type: table
-    fields: [title, date]
-    date-format: "ddd, MMM DD"
-    field-display-names:
-      title: "Topic"
-      date: "Date"
-    sort: [filename]
-    sort-ui: false
-    filter-ui: false
-tbl-colwidths: [75,25]
+tbl-colwidths: [60,40]
 title-block-style: none
 ---
 
-# Lectures
+# Prepare
 
-::: {#slides}
-:::
++-------------------------------------------------------------------------------------------------------------------------------------------------+
+| 📖 [Syllabus](../syllabus.qmd)                                                                                                                  |
++-------------------------------------------------------------------------------------------------------------------------------------------------+
+| 📖 [Course support](../support.qmd)                                                                                                             |
++-------------------------------------------------------------------------------------------------------------------------------------------------+
+| 📖 Introduction to Modern Statistics (IMS), Ch 7: [Linear regression with a single predictor](https://openintro-ims.netlify.app/model-slr.html) |
++-------------------------------------------------------------------------------------------------------------------------------------------------+
 
-# Assignments
+# Participate
+
++-------------------------------------------------------+---------------+
+| Topic                                                 | Date          |
++=======================================================+===============+
+| 💻 [Welcome to STA 210!](../slides/w1-01-welcome.qmd) | Aug 29        |
++-------------------------------------------------------+---------------+
+| Simple Linear Regression                              | Aug 31        |
++-------------------------------------------------------+---------------+
+| Lab 00                                                | Sep 01 & 02   |
++-------------------------------------------------------+---------------+
+
+# Practice
+
+|                                                  |
+|--------------------------------------------------|
+| 📋 [AE 01-Movie Budgets](../ae/ae-01-movies.qmd) |
+
+# Perform
 
 |                                                                                              |                 |
 |----------------------------------------------------------------------------------------------|-----------------|
 | 📝 Complete [STA 210 Student Survey](https://duke.qualtrics.com/jfe/form/SV_cGV5IKoeadWR59s) | due Mon, Sep 05 |
-
-: {tbl-colwidths="\[61, 39\]"}
-
-# Readings
-
-|                                                                                                                                                 |
-|-------------------------------------------------------------------------------------------------------------------------------------------------|
-| 📖 [Syllabus](../syllabus.qmd)                                                                                                                  |
-| 📖 [Course support](../support.qmd)                                                                                                             |
-| 📖 Introduction to Modern Statistics (IMS), Ch 7: [Linear regression with a single predictor](https://openintro-ims.netlify.app/model-slr.html) |

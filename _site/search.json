@@ -228,63 +228,63 @@
     "href": "slides/w01-01-welcome.html#meet-the-teaching-team-instructor",
     "title": "Welcome to STA 210!",
     "section": "Meet the teaching team: Instructor",
-    "text": "Meet the teaching team: Instructor\nProf. Maria Tackett\n.pull-left[]\n.pull-right[]"
+    "text": "Meet the teaching team: Instructor\nProf. Maria Tackett\n[Add some background information]"
   },
   {
     "objectID": "slides/w01-01-welcome.html#meet-the-teaching-team-tas",
     "href": "slides/w01-01-welcome.html#meet-the-teaching-team-tas",
     "title": "Welcome to STA 210!",
     "section": "Meet the teaching team: TAs",
-    "text": "Meet the teaching team: TAs\n\nSophie Dalldorf\nEmily Gentles\nLeslie Li\nJose Pliego San Martin\nShari Tian\nAaditya Warrier\nGrace Zhao"
+    "text": "Meet the teaching team: TAs\n\n\n\nCarson Garcia\nSara Meta\nMedy Mu\nGlenn Palmer\nBraden Scherting\n\n\n\nLuke Vrotsos\nBen Wallace\nAaditya Warrier\nGrace Zhao"
   },
   {
     "objectID": "slides/w01-01-welcome.html#check-in-on-ed-discussion",
     "href": "slides/w01-01-welcome.html#check-in-on-ed-discussion",
     "title": "Welcome to STA 210!",
     "section": "Check in on Ed Discussion!",
-    "text": "Check in on Ed Discussion!\n\nGo to the class Ed Discussion: edstem.org/us/courses/8350/discussion/565405\nAnswer the poll question: How are you doing?"
+    "text": "Check in on Ed Discussion!\n\nGo to the class Ed Discussion: edstem.org/us/courses/8350/discussion/565405 - UPDATE LINK\nAnswer the poll question: How are you doing?"
   },
   {
     "objectID": "slides/w01-01-welcome.html#what-is-regression-analysis",
     "href": "slides/w01-01-welcome.html#what-is-regression-analysis",
     "title": "Welcome to STA 210!",
     "section": "What is regression analysis?",
-    "text": "What is regression analysis?\n“In statistical modeling, regression analysis is a set of statistical processes for estimating the relationships among variables. It includes many techniques for modeling and analyzing several variables, when the focus is on the relationship between a dependent variable and one or more independent variables (or ‘predictors’). More specifically, regression analysis helps one understand how the typical value of the dependent variable (or ‘criterion variable’) changes when any one of the independent variables is varied, while the other independent variables are held fixed.”\n.pull-right[ -Wikipedia]"
+    "text": "What is regression analysis?\n“In statistical modeling, regression analysis is a set of statistical processes for estimating the relationships among variables. It includes many techniques for modeling and analyzing several variables, when the focus is on the relationship between a dependent variable and one or more independent variables (or ‘predictors’). More specifically, regression analysis helps one understand how the typical value of the dependent variable (or ‘criterion variable’) changes when any one of the independent variables is varied, while the other independent variables are held fixed.”\n-Wikipedia"
   },
   {
     "objectID": "slides/w01-01-welcome.html#course-faq",
     "href": "slides/w01-01-welcome.html#course-faq",
     "title": "Welcome to STA 210!",
     "section": "Course FAQ",
-    "text": "Course FAQ\n.vocab[Q - What background is assumed for the course?]\nA - Introductory statistics or probability course \n.vocab[Q - Will we be doing computing?]\nA - Yes. We will use the computing language R. \n.vocab[Q - Will we learn the mathematical theory of regression?]\n.midi[A - Yes and No. The course is primarily focused on application; however, we will discuss some of the mathematics of simple linear regression. There is a new 1-credit course STA 211: Mathematics of Regression to take simultaneously or after this course to dive into more of the mathematics.]"
+    "text": "Course FAQ\nQ - What background is assumed for the course?\nA - Introductory statistics or probability course at Duke\n\nQ - Will we be doing computing?\nA - Yes. We will use the computing language R\n\n\nQ - Will we learn the mathematical theory of regression?\nA - Yes and No. The course is primarily focused on application; however, we will discuss some of the mathematics of simple linear regression. There is a new 1-credit course STA 211: Mathematics of Regression to take simultaneously or after this course to dive into more of the mathematics."
   },
   {
     "objectID": "slides/w01-01-welcome.html#course-learning-objectives",
     "href": "slides/w01-01-welcome.html#course-learning-objectives",
     "title": "Welcome to STA 210!",
     "section": "Course learning objectives",
-    "text": "Course learning objectives\n\nAnalyze real-world data to answer questions about multivariable relationships.\nFit and evaluate linear and logistic regression models.\nAssess whether a proposed model is appropriate and describe its limitations.\nUse R Markdown to write reproducible reports and GitHub for version control and collaboration.\nCommunicate results from statistical analyses to a general audience."
+    "text": "Course learning objectives\n\nAnalyze real-world data to answer questions about multivariable relationships.\nFit and evaluate linear and logistic regression models.\nAssess whether a proposed model is appropriate and describe its limitations.\nUse Quarto to write reproducible reports and GitHub for version control and collaboration.\nCommunicate results from statistical analyses to a general audience."
   },
   {
     "objectID": "slides/w01-01-welcome.html#examples-of-regression-in-practice",
     "href": "slides/w01-01-welcome.html#examples-of-regression-in-practice",
     "title": "Welcome to STA 210!",
     "section": "Examples of regression in practice",
-    "text": "Examples of regression in practice\nNew Yorkers Will Pay $56 A Month To Trim A Minute Off Their Commute\nHow FiveThirtyEight’s 2020 Presidential Forecast Works — And What’s Different Because Of COVID-19\nEffect of Forensic Evidence on Criminal Justice Case Processing\nWhy it’s so freaking hard to make a good COVID-19 model"
+    "text": "Examples of regression in practice\n\nNew Yorkers Will Pay $56 A Month To Trim A Minute Off Their Commute\nHow FiveThirtyEight’s 2020 Presidential Forecast Works — And What’s Different Because Of COVID-19\nEffect of Forensic Evidence on Criminal Justice Case Processing\nWhy it’s so freaking hard to make a good COVID-19 model"
   },
   {
     "objectID": "slides/w01-01-welcome.html#course-toolkit",
     "href": "slides/w01-01-welcome.html#course-toolkit",
     "title": "Welcome to STA 210!",
     "section": "Course Toolkit",
-    "text": "Course Toolkit\n\n.vocab[Course website:] sta210-fa21.netlify.app\n\nCentral hub for the course!\nQuick tour of the website\n\n.vocab[Sakai:] sakai.duke.edu\n\n.midi[Gradebook]"
+    "text": "Course Toolkit\n\n.Course website: sta210-fa21.netlify.app\n\nCentral hub for the course!\nQuick tour of the website\n\nSakai: sakai.duke.edu\n\nGradebook\nAnnouncements\n\nEd Discussion: edstem.org/us/courses/8350/discussion]\n\nClass Q&A and discussion forum"
   },
   {
-    "objectID": "slides/w01-01-welcome.html#course-toolkit-1",
-    "href": "slides/w01-01-welcome.html#course-toolkit-1",
+    "objectID": "slides/w01-01-welcome.html#computing-toolkit",
+    "href": "slides/w01-01-welcome.html#computing-toolkit",
     "title": "Welcome to STA 210!",
-    "section": "Course Toolkit",
-    "text": "Course Toolkit\n\n.vocab[Ed Discussion: edstem.org/us/courses/8350/discussion]\n\nClass Q&A and discussion forum\n\n.vocab[GitHub:] github.com/sta210-fa21\n\nDistribute & work on assignments – more on this later!"
+    "section": "Computing toolkit",
+    "text": "Computing toolkit\n[Add logos]\n\nRStudio\n\n\n\n.vocab[GitHub:] github.com/sta210-fa21\n\nDistribute & work on assignments – more on this later!"
   },
   {
     "objectID": "slides/w01-01-welcome.html#activities-prepare-practice-perform",
@@ -343,11 +343,11 @@
     "text": "Create a GitHub account\n.question[ Go to https://github.com/, and create an account, if needed. Then, go to bit.ly/sta210-fa21-github and enter your Duke email address (NETID@duke.edu) and GitHub username.]\n Some tips from Happy Git with R.  - .small[Incorporate your actual name!] - .small[Use your username from other contexts if you can, e.g., Twitter or Slack.] - .small[Pick a username you will be comfortable revealing to your future boss.] - .small[Be as unique as possible in as few characters as possible. Shorter is better than longer.] - .small[Make it timeless.] - .small[Avoid words with special meaning in programming (e.g. NA).]\n\n\n\n05:00"
   },
   {
-    "objectID": "slides/w01-01-welcome.html#for-wednesday",
-    "href": "slides/w01-01-welcome.html#for-wednesday",
+    "objectID": "slides/w01-01-welcome.html#this-week",
+    "href": "slides/w01-01-welcome.html#this-week",
     "title": "Welcome to STA 210!",
-    "section": "For Wednesday",
-    "text": "For Wednesday\n\nWe’ll start talking about the computing toolkit\nWatch videos for Prepare: Week 01\nReserve an .vocab[STA210] RStudio container.\n\nGo to https://vm-manage.oit.duke.edu/containers\nClick Reserve Container for the STA210 container\n\nSubmit your GitHub username\nBring laptop/tablet/Chromebook to class\nComplete the Get to Know You survey (by Wed, Sep 01)\n\n\n\n\n🔗 Week 01"
+    "section": "This week…",
+    "text": "This week…\n\n\n\n🔗 Week 01"
   },
   {
     "objectID": "about.html",

@@ -35,39 +35,43 @@ library(rvest)
 
 ### Prof. Maria Tackett
 
-.pull-left\[\]
-
-.pull-right\[\]
+\[Add some background information\]
 
 ------------------------------------------------------------------------
 
 ## Meet the teaching team: TAs
 
--   Sophie Dalldorf
+::: columns
+::: {.column width="50%"}
+-   Carson Garcia
 
--   Emily Gentles
+-   Sara Meta
 
--   Leslie Li
+-   Medy Mu
 
--   Jose Pliego San Martin
+-   Glenn Palmer
 
--   Shari Tian
+-   Braden Scherting
+:::
+
+::: {.column width="50%"}
+-   Luke Vrotsos
+
+-   Ben Wallace
 
 -   Aaditya Warrier
 
 -   Grace Zhao
-
-------------------------------------------------------------------------
+:::
+:::
 
 ## Check in on Ed Discussion!
 
--   Go to the class Ed Discussion: [edstem.org/us/courses/8350/discussion/565405](https://edstem.org/us/courses/8350/discussion/565405)
+-   Go to the class Ed Discussion: [edstem.org/us/courses/8350/discussion/565405](https://edstem.org/us/courses/8350/discussion/565405) - UPDATE LINK
 
 -   Answer the poll question: **How are you doing?**
 
 ------------------------------------------------------------------------
-
-class: middle, center
 
 # Regression analysis
 
@@ -75,13 +79,11 @@ class: middle, center
 
 ## What is regression analysis?
 
-"In statistical modeling, regression analysis is a set of statistical processes for estimating the relationships among variables. It includes many techniques for modeling and analyzing several variables, when <font class="vocab">**the focus is on the relationship between a dependent variable and one or more independent variables (or 'predictors')**</font>. More specifically, regression analysis helps one understand how the typical value of the dependent variable (or 'criterion variable') changes when any one of the independent variables is varied, while the other independent variables are held fixed."
+"In statistical modeling, regression analysis is a set of statistical processes for estimating the relationships among variables. It includes many techniques for modeling and analyzing several variables, when ***the focus is on the relationship between a dependent variable and one or more independent variables (or 'predictors')***. More specifically, regression analysis helps one understand how the typical value of the dependent variable (or 'criterion variable') changes when any one of the independent variables is varied, while the other independent variables are held fixed."
 
-.pull-right\[ [-Wikipedia](https://en.wikipedia.org/wiki/Regression_analysis)\]
+[-Wikipedia](https://en.wikipedia.org/wiki/Regression_analysis)
 
 ------------------------------------------------------------------------
-
-class: middle, center
 
 # The Course
 
@@ -89,17 +91,21 @@ class: middle, center
 
 ## Course FAQ
 
-.vocab\[Q - What background is assumed for the course?\]
+**Q - What background is assumed for the course?**
 
-A - Introductory statistics or probability course <br>
+A - Introductory statistics or probability course at Duke
 
-.vocab\[Q - Will we be doing computing?\]
+. . .
 
-A - Yes. We will use the computing language R. <br>
+**Q - Will we be doing computing?**
 
-.vocab\[Q - Will we learn the mathematical theory of regression?\]
+A - Yes. We will use the computing language R
 
-.midi\[A - Yes and No. The course is primarily focused on application; however, we will discuss some of the mathematics of simple linear regression. There is a new 1-credit course [STA 211: Mathematics of Regression](https://stat.duke.edu/courses/mathematics-regression) to take simultaneously or after this course to dive into more of the mathematics.\]
+. . .
+
+**Q - Will we learn the mathematical theory of regression?**
+
+A - Yes and No. The course is primarily focused on application; however, we will discuss some of the mathematics of simple linear regression. There is a new 1-credit course [STA 211: Mathematics of Regression](https://stat.duke.edu/courses/mathematics-regression) to take simultaneously or after this course to dive into more of the mathematics.
 
 ------------------------------------------------------------------------
 
@@ -111,25 +117,21 @@ A - Yes. We will use the computing language R. <br>
 
 -   Assess whether a proposed model is appropriate and describe its limitations.
 
--   Use R Markdown to write reproducible reports and GitHub for version control and collaboration.
+-   Use Quarto to write reproducible reports and GitHub for version control and collaboration.
 
 -   Communicate results from statistical analyses to a general audience.
 
-------------------------------------------------------------------------
-
 ## Examples of regression in practice
 
-[New Yorkers Will Pay \$56 A Month To Trim A Minute Off Their Commute](https://fivethirtyeight.com/features/new-yorkers-will-pay-56-a-month-to-trim-a-minute-off-their-commute/)
+-   [New Yorkers Will Pay \$56 A Month To Trim A Minute Off Their Commute](https://fivethirtyeight.com/features/new-yorkers-will-pay-56-a-month-to-trim-a-minute-off-their-commute/)
 
-[How FiveThirtyEight's 2020 Presidential Forecast Works --- And What's Different Because Of COVID-19](https://fivethirtyeight.com/features/how-fivethirtyeights-2020-presidential-forecast-works-and-whats-different-because-of-covid-19/)
+-   [How FiveThirtyEight's 2020 Presidential Forecast Works --- And What's Different Because Of COVID-19](https://fivethirtyeight.com/features/how-fivethirtyeights-2020-presidential-forecast-works-and-whats-different-because-of-covid-19/)
 
-[Effect of Forensic Evidence on Criminal Justice Case Processing](https://onlinelibrary.wiley.com/doi/10.1111/1556-4029.12020)
+-   [Effect of Forensic Evidence on Criminal Justice Case Processing](https://onlinelibrary.wiley.com/doi/10.1111/1556-4029.12020)
 
-[Why it's so freaking hard to make a good COVID-19 model](https://fivethirtyeight.com/features/why-its-so-freaking-hard-to-make-a-good-covid-19-model/)
+-   [Why it's so freaking hard to make a good COVID-19 model](https://fivethirtyeight.com/features/why-its-so-freaking-hard-to-make-a-good-covid-19-model/)
 
 ------------------------------------------------------------------------
-
-class: middle, center
 
 # The Course
 
@@ -137,18 +139,27 @@ class: middle, center
 
 ## Course Toolkit
 
--   .vocab\[Course website:\] [sta210-fa21.netlify.app](https://sta210-fa21.netlify.app/)
+-   .**Course website**: [sta210-fa21.netlify.app](https://sta210-fa21.netlify.app/)
     -   Central hub for the course!
     -   Quick tour of the website
--   .vocab\[Sakai:\] [sakai.duke.edu](https://sakai.duke.edu)
-    -   .midi\[Gradebook\]
+-   **Sakai**: [sakai.duke.edu](https://sakai.duke.edu)
+    -   Gradebook
+    -   Announcements
+-   **Ed Discussion**: [edstem.org/us/courses/8350/discussion](https://edstem.org/us/courses/8350/discussion/)\]
+    -   Class Q&A and discussion forum
+-   
 
 ------------------------------------------------------------------------
 
-## Course Toolkit
+## Computing toolkit
 
--   .vocab\[Ed Discussion: [edstem.org/us/courses/8350/discussion](https://edstem.org/us/courses/8350/discussion/)\]
-    -   Class Q&A and discussion forum
+\[Add logos\]
+
+-   RStudio
+
+```{=html}
+<!-- -->
+```
 -   .vocab\[GitHub:\] [github.com/sta210-fa21](https://github.com/sta210-fa21)
     -   Distribute & work on assignments -- more on this later!
 
@@ -279,21 +290,4 @@ countdown::countdown(minutes = 5, seconds = 0)
 countdown::countdown(minutes = 5, seconds = 0)
 ```
 
-------------------------------------------------------------------------
-
-## For Wednesday
-
--   We'll start talking about the computing toolkit
-
--   Watch videos for [Prepare: Week 01](https://sta210-fa21.netlify.app/prepare/week-01.html)
-
--   Reserve an .vocab\[STA210\] RStudio container.
-
-    -   Go to https://vm-manage.oit.duke.edu/containers
-    -   Click **Reserve Container** for the STA210 container
-
--   Submit your [GitHub username](https://bit.ly/sta210-fa21-github)
-
--   Bring laptop/tablet/Chromebook to class
-
--   Complete the [Get to Know You survey](https://duke.qualtrics.com/jfe/form/SV_eyUiuqZKsJaqHWK) (by Wed, Sep 01)
+## This week...

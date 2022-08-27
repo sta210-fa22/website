@@ -3,31 +3,32 @@ project:
 
 website:
   page-navigation: true
-  title: "STA 210 - Spring 2022"
+  title: "STA 210 - Fall 2022"
   description: "Homepage for STA 210 - Regression Analysis at Duke University, Spring 2022."
-  site-url: "https://sta210-fa22.netlify.app"
+  site-url: https://sta210-fa22.netlify.app
 
   repo-url: https://github.com/sta210-fa22/website
   repo-actions: [edit, issue]
-
+  
   opengraph: true
   twitter-card:
-    creator: "@minebocek"
+    creator: "@MT_statistics"
     image: "images/twitter-card.png"
 
   page-footer:
-    right: "This page is built with ❤️ and [Quarto](https://quarto.org/)."
-    left: "&copy; Copyright 2022, Mine Çetinkaya-Rundel"
-    background: "#D9E3E4"
+    background: "#7eb7c2"
+    left: |
+      &copy; Copyright 2022, Maria Tackett
+    right: |
+      This site is built with [Quarto](https://quarto.org/)
 
   sidebar:
-    background: "#D9E3E4"
+    background: "#7eb7c2"
     logo: "images/logo.png"
-    pinned: true
     align: center
-    tools:
+    tools: 
       - icon: github
-        href: https://github.com/sta210-s22
+        href: https://github.com/sta210-fa22
         text: "GitHub organization"
       - icon: code-square
         href: https://cmgr.oit.duke.edu/containers
@@ -36,99 +37,64 @@ website:
         text: "Sakai"
         menu:
           - text: Discussion forum
-            url: https://sakai.duke.edu/portal/site/779c3ebe-3b88-4bcc-bd01-1813e8396a23/tool/13b6446a-a6c6-4222-8cfb-c36d1f70802b
-          - text: Gradescope
-            url: https://sakai.duke.edu/portal/site/779c3ebe-3b88-4bcc-bd01-1813e8396a23/page/aec742dc-2972-4f02-a35b-1dd3315af889
-          - text: Gradebook
-            url: https://sakai.duke.edu/portal/site/779c3ebe-3b88-4bcc-bd01-1813e8396a23/tool/69078433-67a6-4054-a2e7-9e6c202ecdc3/
-
+            url: https://edstem.org/us/courses/26900/discussion/
+          - text: Gradescope (Section 001)
+            url: https://sakai.duke.edu/portal/site/539329c2-8893-4f4a-82b1-ebebc1cf2a45/page/03b9bd7b-d226-40d6-b747-fd1536bd09bf
+          - text: Gradescope (Section 002)
+            url: https://sakai.duke.edu/portal/site/8644d884-07c5-485c-bd1e-06c6c229f7de/page/5c3b941e-c292-4851-926f-99799b468130
     style: "docked"
     search: true
     collapse-level: 1
     contents:
-      - section: "Course information"
-        contents:
-          - href: course-overview.qmd
-            text: Overview
-          - href: course-syllabus.qmd
-            text: Syllabus
-          - href: course-support.qmd
-            text: Support
-          - href: course-team.qmd
-            text: Teaching team
-          - href: index.qmd
-            text: Schedule
-          - href: course-links.qmd
-            text: Useful links
-          - href: course-faq.qmd
-            text: FAQ
-      - section: "Computing"
-        contents:
-          - href: computing-access.qmd
-            text: Access
-          - href: computing-troubleshooting.qmd
-            text: Troubleshooting
-      - section: "Project"
-        contents:
-          - href: project-description.qmd
-            text: Description
-          - href: project-tips-resources.qmd
-            text: Tips + resources
-      - section: "Weekly materials"
-        contents:
-          - href: weeks/week-1.qmd
-            text: "Week 1"
-          - href: weeks/week-2.qmd
-            text: "Week 2"
-          - href: weeks/week-3.qmd
-            text: "Week 3"
-          - href: weeks/week-4.qmd
-            text: "Week 4"
-          - href: weeks/week-5.qmd
-            text: "Week 5"
-          - href: weeks/week-6.qmd
-            text: "Week 6"
-          - href: weeks/week-7.qmd
-            text: "Week 7"
-          - href: weeks/week-8.qmd
-            text: "Week 8"
-          - href: weeks/week-9.qmd
-            text: "Week 9"
+      - href: syllabus.qmd
+        text: Syllabus
+      - section: Schedule
+        contents: 
+          - href: schedule.qmd
+            text: Full schedule
+          - href: weeks/week-01.qmd
+          - href: weeks/week-02.qmd
+          - href: weeks/week-03.qmd
+          - href: weeks/week-04.qmd
+          - href: weeks/week-05.qmd
+          - href: weeks/week-06.qmd
+          - href: weeks/week-07.qmd
+          - href: weeks/week-08.qmd
+          - href: weeks/week-09.qmd
           - href: weeks/week-10.qmd
-            text: "Week 10"
           - href: weeks/week-11.qmd
-            text: "Week 11"
           - href: weeks/week-12.qmd
-            text: "Week 12"
           - href: weeks/week-13.qmd
-            text: "Week 13"
           - href: weeks/week-14.qmd
-            text: "Week 14"
           - href: weeks/week-15.qmd
-            text: "Week 15"
-      - section: "Supplemental notes"
-        contents:
-          - href: supplemental/slr-derivations.qmd
-            text: SLR derivations
-          - href: supplemental/model-diagnostics-matrix.qmd
-            text: Model diagnostics
-          - href: supplemental/mlr-matrix.qmd
-            text: MLR matrix notation
-          - href: supplemental/log-transformations.qmd
-            text: Log transformations
-          - href: supplemental/model-selection-criteria.qmd
-            text: Model selection criteria
+          - href: weeks/week-16.qmd
+      - href: support.qmd
+        text: Support
+      - section: Computing
+        contents: 
+        - href: computing-access.qmd
+          text: Access
+        - href: computing-troubleshooting.qmd
+          text: Troubleshooting
+        - href: computing-r-resources.qmd
+          text: R resources
+      - href: links.qmd
+        text: Useful links
 
 format:
   html:
     theme:
       light: [cosmo, theme.scss]
-      dark: [cosmo, theme-dark.scss]
-    mainfont: "Atkinson Hyperlegible"
+    mainfont: "Open Sans"
     code-copy: true
     code-overflow: wrap
     toc: true
 
-freeze: auto
+execute:
+  freeze: auto
 
-editor: visual
+editor: visual    
+    
+
+
+

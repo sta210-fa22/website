@@ -10,11 +10,6 @@ website:
   repo-url: https://github.com/sta210-fa22/website
   repo-actions: [edit, issue]
   
-  opengraph: true
-  twitter-card:
-    creator: "@MT_statistics"
-    image: "images/twitter-card.png"
-
   page-footer:
     background: "#7eb7c2"
     left: |

@@ -31,7 +31,7 @@ library(rvest)
 
 ------------------------------------------------------------------------
 
-## Meet the professor 
+## Meet the professor
 
 ::: columns
 ::: {.column width="50%"}
@@ -95,7 +95,7 @@ library(rvest)
 Source: [Wikipedia](https://en.wikipedia.org/wiki/Regression_analysis)
 :::
 
-# STA 210 
+# STA 210
 
 ## Course FAQ
 
@@ -129,7 +129,7 @@ A - Yes and No. The course is primarily focused on application; however, we will
 
 -   Communicate results from statistical analyses to a general audience.
 
-## Course topics 
+## Course topics
 
 ::: columns
 ::: {.column width="50%"}
@@ -206,9 +206,8 @@ A - Yes and No. The course is primarily focused on application; however, we will
 ::: {.column width="50%"}
 -   Access assignments
 
-```{=html}
 <!-- -->
-```
+
 -   Facilitates version control and collaboration
 
 -   All work in [STA 210 course organization](https://github.com/sta210-fa22)
@@ -224,7 +223,7 @@ A - Yes and No. The course is primarily focused on application; however, we will
 
 -   **Practice:** Practice applying statistical concepts and computing with application exercises during lecture, graded for completion
 
--   **Perform:** Put together what you\'ve learned to analyze real-world data
+-   **Perform:** Put together what you've learned to analyze real-world data
 
     -   Lab assignments (first individual, later team-based)
 
@@ -235,7 +234,7 @@ A - Yes and No. The course is primarily focused on application; however, we will
     -   Term project presented during the final exam period
 :::
 
-## Grading 
+## Grading
 
 | Category              | Percentage |
 |-----------------------|------------|
@@ -257,16 +256,16 @@ See the [syllabus](../../syllabus.qmd) for details on how the final letter grade
 -   Use email for questions regarding personal matters and/or grades
 -   Read the [Course Support](../../support.qmd) page for more details
 
-## Diversity & inclusion 
+## Diversity & inclusion
 
 ::: small
-It is my intent that students from all diverse backgrounds and perspectives be well-served by this course, that students\' learning needs be addressed both in and out of class, and that the diversity that the students bring to this class be viewed as a resource, strength and benefit.
+It is my intent that students from all diverse backgrounds and perspectives be well-served by this course, that students' learning needs be addressed both in and out of class, and that the diversity that the students bring to this class be viewed as a resource, strength and benefit.
 
 -   If you have a name that differs from those that appear in your official Duke records, please let me know!
 
--   Please let me know your preferred pronouns. You\'ll also be able to note this in the Getting to know you survey.
+-   Please let me know your preferred pronouns. You'll also be able to note this in the Getting to know you survey.
 
--   If you feel like your performance in the class is being impacted by your experiences outside of class, please don\'t hesitate to come and talk with me. I want to be a resource for you. If you prefer to speak with someone outside of the course, your advisers and deans are excellent resources.
+-   If you feel like your performance in the class is being impacted by your experiences outside of class, please don't hesitate to come and talk with me. I want to be a resource for you. If you prefer to speak with someone outside of the course, your advisers and deans are excellent resources.
 
 -   I (like many people) am still in the process of learning about diverse perspectives and identities. If something was said in class (by anyone) that made you feel uncomfortable, please talk to me about it.
 :::
@@ -275,7 +274,7 @@ It is my intent that students from all diverse backgrounds and perspectives be w
 
 -   The [Student Disability Access Office (SDAO)](https://access.duke.edu/students) is available to ensure that students are able to engage with their courses and related assignments.
 
--   I am committed to making all course materials accessible and I\'m always learning how to do this better. If any course component is not accessible to you in any way, please don\'t hesitate to let me know.
+-   I am committed to making all course materials accessible and I'm always learning how to do this better. If any course component is not accessible to you in any way, please don't hesitate to let me know.
 
 # Course policies
 
@@ -299,7 +298,7 @@ It is my intent that students from all diverse backgrounds and perspectives be w
 
 -   We'll discuss these more before the first assignments
 
-## Academic integrity 
+## Academic integrity
 
 > To uphold the Duke Community Standard:
 >
@@ -314,9 +313,9 @@ By participating in this course, you are agreeing that all your work and conduct
 
 ## If you're not sure...
 
-Ask if you\'re not sure if something violates a policy!
+Ask if you're not sure if something violates a policy!
 
-# Being successful in STA 210 
+# Being successful in STA 210
 
 ## Five tips for success
 
@@ -326,15 +325,15 @@ Ask if you\'re not sure if something violates a policy!
 
 3.  Do the homework and lab.
 
-4.  Don\'t procrastinate and don\'t let a week pass by with lingering questions.
+4.  Don't procrastinate and don't let a week pass by with lingering questions.
 
 5.  Stay up-to-date on announcements (posted on Sakai & sent via email).
 
 ## Learning during a pandemic
 
-I want to make sure that you learn everything you were hoping to learn from this class. If this requires flexibility, please don\'t hesitate to ask.
+I want to make sure that you learn everything you were hoping to learn from this class. If this requires flexibility, please don't hesitate to ask.
 
--   You never owe me personal information about your health (mental or physical) but you\'re always welcome to talk to me. If I can\'t help, I likely know someone who can.
+-   You never owe me personal information about your health (mental or physical) but you're always welcome to talk to me. If I can't help, I likely know someone who can.
 
 -   I want you to learn lots of things from this class, but I primarily want you to stay healthy, balanced, and grounded.
 

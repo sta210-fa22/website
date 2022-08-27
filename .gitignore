@@ -6,7 +6,5 @@
 
 /.quarto/
 /_site/
-/_old-slides/
 
-*.key
-*.html
+*speaker.html

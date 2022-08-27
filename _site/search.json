@@ -228,7 +228,7 @@
     "href": "slides/w01-01-welcome.html#meet-the-teaching-team-instructor",
     "title": "Welcome to STA 210!",
     "section": "Meet the teaching team: Instructor",
-    "text": "Meet the teaching team: Instructor\nProf. Maria Tackett\n[Add some background information]"
+    "text": "Meet the teaching team: Instructor\nProf. Maria Tackett\n\n\n\n\n\n\n\n\nDr. Maria Tackett (she/her)\n\n\n\nAssistant Professor of the Practice, Department of Statistical Science\nWork focuses on statistics education, specifically active learning, motivation, and classroom community\nFind out more at maria-tackett.netlify.app"
   },
   {
     "objectID": "slides/w01-01-welcome.html#meet-the-teaching-team-tas",
@@ -249,7 +249,7 @@
     "href": "slides/w01-01-welcome.html#what-is-regression-analysis",
     "title": "Welcome to STA 210!",
     "section": "What is regression analysis?",
-    "text": "What is regression analysis?\n“In statistical modeling, regression analysis is a set of statistical processes for estimating the relationships among variables. It includes many techniques for modeling and analyzing several variables, when the focus is on the relationship between a dependent variable and one or more independent variables (or ‘predictors’). More specifically, regression analysis helps one understand how the typical value of the dependent variable (or ‘criterion variable’) changes when any one of the independent variables is varied, while the other independent variables are held fixed.”\n-Wikipedia"
+    "text": "What is regression analysis?\n\n\n“In statistical modeling, regression analysis is a set of statistical processes for estimating the relationships among variables. It includes many techniques for modeling and analyzing several variables, when the focus is on the relationship between a dependent variable and one or more independent variables (or ‘predictors’). More specifically, regression analysis helps one understand how the typical value of the dependent variable (or ‘criterion variable’) changes when any one of the independent variables is varied, while the other independent variables are held fixed.”\n\nSource: Wikipedia"
   },
   {
     "objectID": "slides/w01-01-welcome.html#course-faq",
@@ -276,22 +276,22 @@
     "objectID": "slides/w01-01-welcome.html#course-toolkit",
     "href": "slides/w01-01-welcome.html#course-toolkit",
     "title": "Welcome to STA 210!",
-    "section": "Course Toolkit",
-    "text": "Course Toolkit\n\n.Course website: sta210-fa21.netlify.app\n\nCentral hub for the course!\nQuick tour of the website\n\nSakai: sakai.duke.edu\n\nGradebook\nAnnouncements\n\nEd Discussion: edstem.org/us/courses/8350/discussion]\n\nClass Q&A and discussion forum"
+    "section": "Course toolkit",
+    "text": "Course toolkit\n\nCourse website: sta210-fa21.netlify.app\n\nCentral hub for the course!\nTour of the website\n\nSakai: sakai.duke.edu\n\nGradebook\nAnnouncements\n\nEd Discussion: edstem.org/us/courses/8350/discussion]\n\nClass Q&A and discussion forums"
   },
   {
     "objectID": "slides/w01-01-welcome.html#computing-toolkit",
     "href": "slides/w01-01-welcome.html#computing-toolkit",
     "title": "Welcome to STA 210!",
     "section": "Computing toolkit",
-    "text": "Computing toolkit\n[Add logos]\n\nRStudio\n\n\n\n.vocab[GitHub:] github.com/sta210-fa21\n\nDistribute & work on assignments – more on this later!"
+    "text": "Computing toolkit\n\n\n\n\n\n\n\n\n\nAll analyses using R, a statistical programming language\nWrite reproducible reports in Quarto\nAccess RStudio through STA 210 Docker Containers"
   },
   {
     "objectID": "slides/w01-01-welcome.html#activities-prepare-practice-perform",
     "href": "slides/w01-01-welcome.html#activities-prepare-practice-perform",
     "title": "Welcome to STA 210!",
     "section": "Activities: Prepare, Practice, Perform",
-    "text": "Activities: Prepare, Practice, Perform\n\n.vocab[Prepare:] introduce new content and prepare for lectures\n\nVideos & readings before lecture\nLow-stakes prep quizzes on basic definitions & concepts from videos\nSee Prepare column on course schedule\n\n.vocab[Practice:] practice applying statistical concepts and computing\n\nApplication Exercises (AE) during lecture\nGraded for completion"
+    "text": "Activities: Prepare, Practice, Perform\n\n.vocab[Perform:] Put together what you’ve learned to analyze real-world data\n\nWeekly team or individual lab assignments\nPeriodic individual homework assignments\nTwo take-home exams\nFinal team project presented during the final exam period."
   },
   {
     "objectID": "slides/w01-01-welcome.html#activities-prepare-practice-perform-1",
@@ -347,7 +347,7 @@
     "href": "slides/w01-01-welcome.html#this-week",
     "title": "Welcome to STA 210!",
     "section": "This week…",
-    "text": "This week…\n\n\n\n🔗 Week 01"
+    "text": "This week…\n\nSee Week 01 on the schedule for lecture slides, assignments, and readings.\nComplete the STA 210 Student Survey (will ask for a GitHub username)\n\nClick here for information on registering for a GitHub account and choosing a username.\nYou will go over this in lab this week.\n\nRead the syllabus\n\n\n\n\n🔗 Week 01"
   },
   {
     "objectID": "about.html",
@@ -488,5 +488,159 @@
     "title": "Schedule",
     "section": "Notes",
     "text": "Notes\n\nHomework will be due on Wednesdays at 11:59pm. You will have one week to complete each homework assignment.\nLab:\n\nLab sections 01 & 02 (Thursdays): Labs will be due on Mondays at 11:59pm.\nLab sections 03 & 04 (Fridays): Labs will be due on Tuesdays at 11:59pm.\n\nProject dates will be added when the project is assigned."
+  },
+  {
+    "objectID": "slides/w01-01-welcome.html#course-topics",
+    "href": "slides/w01-01-welcome.html#course-topics",
+    "title": "Welcome to STA 210!",
+    "section": "Course topics",
+    "text": "Course topics\n\n\nUnit 1: Quantitative Response Variables\n\nSimple Linear Regression\nMultiple Linear Regression\n\nUnit 2: Categorical Response Variable\n\nLogistic Regression\n\n\nUnit 3: Looking Ahead\n\nMixed and random effects\nIntroduction to linear mixed models\nPresenting statistical results"
+  },
+  {
+    "objectID": "slides/w01-01-welcome.html#activities-prepare-participate-practice-perform",
+    "href": "slides/w01-01-welcome.html#activities-prepare-participate-practice-perform",
+    "title": "Welcome to STA 210!",
+    "section": "Activities: Prepare, Participate, Practice, Perform",
+    "text": "Activities: Prepare, Participate, Practice, Perform\n\n\nPrepare: Introduce new content and prepare for lectures by completing the readings (and sometimes watching the videos)\nParticipate: Attend and actively participate in lectures and labs, office hours, team meetings\nPractice: Practice applying statistical concepts and computing with application exercises during lecture, graded for completion\nPerform: Put together what you've learned to analyze real-world data\n\nLab assignments (first individual, later team-based)\nHomework assignments (individual)\nTwo take-home exams\nTerm project presented during the final exam period"
+  },
+  {
+    "objectID": "slides/w01-01-welcome.html#activities-prepare-participate-practice-perform-1",
+    "href": "slides/w01-01-welcome.html#activities-prepare-participate-practice-perform-1",
+    "title": "Welcome to STA 210!",
+    "section": "Activities: Prepare, Participate, Practice, Perform",
+    "text": "Activities: Prepare, Participate, Practice, Perform\n\n.vocab[Prepare:] introduce new content and prepare for lectures\n\nVideos & readings before lecture\nLow-stakes prep quizzes on basic definitions & concepts from videos\nSee Prepare column on course schedule\n\n.vocab[Practice:] practice applying statistical concepts and computing\n\nApplication Exercises (AE) during lecture\nGraded for completion"
+  },
+  {
+    "objectID": "slides/w01-01-welcome.html#teams",
+    "href": "slides/w01-01-welcome.html#teams",
+    "title": "Welcome to STA 210!",
+    "section": "Teams",
+    "text": "Teams"
+  },
+  {
+    "objectID": "slides/w01-01-welcome.html#grading",
+    "href": "slides/w01-01-welcome.html#grading",
+    "title": "Welcome to STA 210!",
+    "section": "Grading",
+    "text": "Grading\n\n\n\nCategory\nPercentage\n\n\n\n\nHomework\n35%\n\n\nFinal project\n15%\n\n\nLab\n15%\n\n\nExam 01\n15%\n\n\nExam 02\n15%\n\n\nApplication Exercises\n2.5%\n\n\nTeamwork\n2.5%\n\n\n\nSee the syllabus for details on how the final letter grade will be calculated."
+  },
+  {
+    "objectID": "slides/w01-01-welcome.html#support",
+    "href": "slides/w01-01-welcome.html#support",
+    "title": "Welcome to STA 210!",
+    "section": "Support",
+    "text": "Support\n\nAttend office hours to meet with a member of the teaching team.\n\nFull office hours schedule begins Tuesday, September 6\n\nAsk and answer questions on course discussion forum\nUse email for questions regarding personal matters and/or grades\nRead the Course Support page for more details"
+  },
+  {
+    "objectID": "slides/w01-01-welcome.html#communication",
+    "href": "slides/w01-01-welcome.html#communication",
+    "title": "Welcome to STA 210!",
+    "section": "Communication",
+    "text": "Communication\n\nAnnouncements\nEd Discussion\nEmail"
+  },
+  {
+    "objectID": "slides/w01-01-welcome.html#diversity-inclusion",
+    "href": "slides/w01-01-welcome.html#diversity-inclusion",
+    "title": "Welcome to STA 210!",
+    "section": "Diversity & inclusion",
+    "text": "Diversity & inclusion\n\nIt is my intent that students from all diverse backgrounds and perspectives be well-served by this course, that students' learning needs be addressed both in and out of class, and that the diversity that the students bring to this class be viewed as a resource, strength and benefit.\n\nIf you have a name that differs from those that appear in your official Duke records, please let me know!\nPlease let me know your preferred pronouns. You'll also be able to note this in the Getting to know you survey.\nIf you feel like your performance in the class is being impacted by your experiences outside of class, please don't hesitate to come and talk with me. I want to be a resource for you. If you prefer to speak with someone outside of the course, your advisers and deans are excellent resources.\nI (like many people) am still in the process of learning about diverse perspectives and identities. If something was said in class (by anyone) that made you feel uncomfortable, please talk to me about it."
+  },
+  {
+    "objectID": "slides/w01-01-welcome.html#accessibility",
+    "href": "slides/w01-01-welcome.html#accessibility",
+    "title": "Welcome to STA 210!",
+    "section": "Accessibility",
+    "text": "Accessibility\n\nThe Student Disability Access Office (SDAO) is available to ensure that students are able to engage with their courses and related assignments.\nI am committed to making all course materials accessible and I'm always learning how to do this better. If any course component is not accessible to you in any way, please don't hesitate to let me know."
+  },
+  {
+    "objectID": "slides/w01-01-welcome.html#covid-policies",
+    "href": "slides/w01-01-welcome.html#covid-policies",
+    "title": "Welcome to STA 210!",
+    "section": "Covid policies",
+    "text": "Covid policies\n\n😷 Wear a mask at all times in lectures and labs.\nRead and follow the university guidelines"
+  },
+  {
+    "objectID": "slides/w01-01-welcome.html#late-work-waivers-and-regrade-requests",
+    "href": "slides/w01-01-welcome.html#late-work-waivers-and-regrade-requests",
+    "title": "Welcome to STA 210!",
+    "section": "Late work, waivers, and regrade requests",
+    "text": "Late work, waivers, and regrade requests\n\nWe have policies!\nRead about them in the syllabus and refer back to them as needed"
+  },
+  {
+    "objectID": "slides/w01-01-welcome.html#collaboration-policy",
+    "href": "slides/w01-01-welcome.html#collaboration-policy",
+    "title": "Welcome to STA 210!",
+    "section": "Collaboration policy",
+    "text": "Collaboration policy"
+  },
+  {
+    "objectID": "slides/w01-01-welcome.html#sharing-reusing-code",
+    "href": "slides/w01-01-welcome.html#sharing-reusing-code",
+    "title": "Welcome to STA 210!",
+    "section": "Sharing / reusing code",
+    "text": "Sharing / reusing code"
+  },
+  {
+    "objectID": "slides/w01-01-welcome.html#academic-integrity",
+    "href": "slides/w01-01-welcome.html#academic-integrity",
+    "title": "Welcome to STA 210!",
+    "section": "Academic integrity",
+    "text": "Academic integrity\n\nTo uphold the Duke Community Standard:\n\nI will not lie, cheat, or steal in my academic endeavors;\nI will conduct myself honorably in all my endeavors; and\nI will act if the Standard is compromised.\n\n\n\nBy participating in this course, you are agreeing that all your work and conduct will be in accordance with the Duke Community Standard."
+  },
+  {
+    "objectID": "slides/w01-01-welcome.html#ask",
+    "href": "slides/w01-01-welcome.html#ask",
+    "title": "Welcome to STA 210!",
+    "section": "Ask!",
+    "text": "Ask!"
+  },
+  {
+    "objectID": "slides/w01-01-welcome.html#five-tips-for-success",
+    "href": "slides/w01-01-welcome.html#five-tips-for-success",
+    "title": "Welcome to STA 210!",
+    "section": "Five tips for success",
+    "text": "Five tips for success\n\nComplete all the preparation work (readings and videos) before class.\nAsk questions.\nDo the homework and lab.\nDon't procrastinate and don't let a week pass by with lingering questions.\nStay up-to-date on announcements (posted on Sakai & sent via email)."
+  },
+  {
+    "objectID": "slides/w01-01-welcome.html#learning-during-a-pandemic",
+    "href": "slides/w01-01-welcome.html#learning-during-a-pandemic",
+    "title": "Welcome to STA 210!",
+    "section": "Learning during a pandemic",
+    "text": "Learning during a pandemic\nI want to make sure that you learn everything you were hoping to learn from this class. If this requires flexibility, please don't hesitate to ask.\n\nYou never owe me personal information about your health (mental or physical) but you're always welcome to talk to me. If I can't help, I likely know someone who can.\nI want you to learn lots of things from this class, but I primarily want you to stay healthy, balanced, and grounded.\n\nSee the Course Support page for information on Duke’s academic and wellness resources."
+  },
+  {
+    "objectID": "slides/w01-01-welcome.html#computing-toolkit-1",
+    "href": "slides/w01-01-welcome.html#computing-toolkit-1",
+    "title": "Welcome to STA 210!",
+    "section": "Computing toolkit",
+    "text": "Computing toolkit\n\n\n\n\n\n\n\n\n\nAccess assignments\n\n\n\nFacilitates version control and collaboration\nAll work in STA 210 course organization"
+  },
+  {
+    "objectID": "slides/w01-01-welcome.html#collaboration-sharing-code",
+    "href": "slides/w01-01-welcome.html#collaboration-sharing-code",
+    "title": "Welcome to STA 210!",
+    "section": "Collaboration & sharing code",
+    "text": "Collaboration & sharing code\n\nWe have policies!\nRead about them in the syllabus and refer to them as needed\nWe’ll discuss these more before the first assignments"
+  },
+  {
+    "objectID": "slides/w01-01-welcome.html#if-youre-not-sure",
+    "href": "slides/w01-01-welcome.html#if-youre-not-sure",
+    "title": "Welcome to STA 210!",
+    "section": "If you’re not sure…",
+    "text": "If you’re not sure…\nAsk if you're not sure if something violates a policy!"
+  },
+  {
+    "objectID": "slides/w01-01-welcome.html#meet-the-professor",
+    "href": "slides/w01-01-welcome.html#meet-the-professor",
+    "title": "Welcome to STA 210!",
+    "section": "Meet the professor",
+    "text": "Meet the professor\n\n\n\n\n\n\n\n\nDr. Maria Tackett (she/her)\n\n\n\nAssistant Professor of the Practice, Department of Statistical Science\nWork focuses on statistics education, specifically active learning, motivation, and classroom community\nFind out more at maria-tackett.netlify.app"
+  },
+  {
+    "objectID": "slides/w01-01-welcome.html#meet-tas",
+    "href": "slides/w01-01-welcome.html#meet-tas",
+    "title": "Welcome to STA 210!",
+    "section": "Meet TAs",
+    "text": "Meet TAs\n\n\n\nCarson Garcia (UG)\nSara Meta (UG)\nMedy Mu (UG)\nGlenn Palmer (PhD)\nBraden Scherting (PhD)\n\n\n\nLuke Vrotsos (PhD)\nBen Wallace (UG)\nAaditya Warrier (UG)\nGrace Zhao (MS)"
   }
 ]

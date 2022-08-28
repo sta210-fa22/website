@@ -28,9 +28,7 @@ Learn approaches for analyzing multivariate data sets, emphasizing analysis of v
 
 [Maria Tackett](https://www2.stat.duke.edu/~mt324) is an Assistant Professor of the Practice in the Department of Statistical Science at Duke University. Her work focuses on understanding how active learning strategies can be used to promote engagement and student motivation in undergraduate statistics courses. She also studies how classroom practices in introductory math and statistics courses impact students\' sense of community, self-efficacy, and learning outcomes.
 
-#### Office hours 
-
-|                        |               |
+| Office hours           | Location      |
 |------------------------|---------------|
 | Tuesdays 1:30 - 2:30pm | Old Chem 118B |
 | Thursdays 10 - 11am    | Zoom          |

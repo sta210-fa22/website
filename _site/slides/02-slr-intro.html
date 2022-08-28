@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.0.36">
 
   <meta name="author" content="Prof.&nbsp;Maria Tackett">
-  <title>STA 210 - Fall 2022 - Welcome to STA 210!</title>
+  <title>STA 210 - Fall 2022 - Simple Linear Regression</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -23,6 +23,70 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css" id="theme">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -315,410 +379,377 @@
       margin-right: 0; 
     }
   </style>
-  <link href="../site_libs/countdown-0.3.5/countdown.css" rel="stylesheet">
-  <script src="../site_libs/countdown-0.3.5/countdown.js"></script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
     <div class="slides">
 
 <section id="title-slide" class="center">
-  <h1 class="title">Welcome to STA 210!</h1>
+  <h1 class="title">Simple Linear Regression</h1>
   <p class="author">Prof.&nbsp;Maria Tackett</p>
-  <p class="date">Aug 29, 2022</p>
+  <p class="date">Aug 31, 2022</p>
 </section>
 
-<section class="slide level2">
-
+<section id="topics" class="slide level2">
+<h2>Topics</h2>
+<ul>
+<li><p>Use simple linear regression to describe the relationship between a quantitative predictor and quantitative response variable.</p></li>
+<li><p>Estimate the slope and intercept of the regression line using the least squares method.</p></li>
+<li><p>Interpret the slope and intercept of the regression line.</p></li>
+<li><p>Predict the response given a value of the predictor variable.</p></li>
+<li><p>Defined extrapolation and why we should avoid it.</p></li>
+</ul>
+</section>
+<section id="computation-set-up" class="slide level2">
+<h2>Computation set up</h2>
 <div class="cell">
-
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># load packages</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(tidyverse)       <span class="co"># for data wrangling</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="fu">library</span>(tidymodels)      <span class="co"># for modeling</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="fu">library</span>(fivethirtyeight) <span class="co"># for the fandango dataset</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a></span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="co"># set default theme and larger font size for ggplot2</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a>ggplot2<span class="sc">::</span><span class="fu">theme_set</span>(ggplot2<span class="sc">::</span><span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">16</span>))</span>
+<span id="cb1-8"><a href="#cb1-8"></a></span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="co"># set default figure parameters for knitr</span></span>
+<span id="cb1-10"><a href="#cb1-10"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(</span>
+<span id="cb1-11"><a href="#cb1-11"></a>  <span class="at">fig.width =</span> <span class="dv">8</span>,</span>
+<span id="cb1-12"><a href="#cb1-12"></a>  <span class="at">fig.asp =</span> <span class="fl">0.618</span>,</span>
+<span id="cb1-13"><a href="#cb1-13"></a>  <span class="at">fig.retina =</span> <span class="dv">3</span>,</span>
+<span id="cb1-14"><a href="#cb1-14"></a>  <span class="at">dpi =</span> <span class="dv">300</span>,</span>
+<span id="cb1-15"><a href="#cb1-15"></a>  <span class="at">out.width =</span> <span class="st">"80%"</span></span>
+<span id="cb1-16"><a href="#cb1-16"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section>
-<section id="welcome" class="title-slide slide level1 center">
-<h1>Welcome!</h1>
+<section id="data" class="title-slide slide level1 center">
+<h1>Data</h1>
 
 </section>
-<section id="meet-the-professor" class="slide level2">
-<h2>Meet the professor</h2>
+<section id="movie-ratings" class="slide level2">
+<h2>Movie ratings</h2>
 <div class="columns">
-<div class="column" style="width:50%;">
+<div class="column" style="width:70%;">
+<ul>
+<li>Data behind the FiveThirtyEight story <a href="%22Be%20Suspicious%20Of%20Online%20Movie%20Ratings,%20Especially%20Fandango's%22"><em>Be Suspicious Of Online Movie Ratings, Especially Fandango’s</em></a></li>
+<li>In the <strong>fivethirtyeight</strong> package: <a href="https://fivethirtyeight-r.netlify.app/reference/fandango.html"><code>fandango</code></a></li>
+<li>Contains every film that has at least 30 fan reviews on Fandango, an IMDb score, Rotten Tomatoes critic and user ratings, and Metacritic critic and user scores</li>
+</ul>
+</div><div class="column" style="width:30%;">
+<p><img data-src="images/02/fandango.png" alt="Fandango logo" width="200"></p>
+<p><img data-src="images/02/imdb.png" alt="IMDB logo" width="200"></p>
+<p><img data-src="images/02/rotten-tomatoes.png" alt="Rotten Tomatoes logo" width="200"></p>
+<p><img data-src="images/02/metacritic.png" alt="Metacritic logo" width="200"></p>
+</div>
+</div>
+</section>
+<section id="data-prep" class="slide level2">
+<h2>Data prep</h2>
+<ul>
+<li>Rename Rotten Tomatoes columns as <code>critics</code> and <code>audience</code></li>
+<li>Rename the dataset as <code>movie_scores</code></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>movie_scores <span class="ot">&lt;-</span> fandango <span class="sc">|&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>  <span class="fu">rename</span>(<span class="at">critics =</span> rottentomatoes, </span>
+<span id="cb2-3"><a href="#cb2-3"></a>         <span class="at">audience =</span> rottentomatoes_user)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="data-overview" class="slide level2">
+<h2>Data overview</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">glimpse</span>(movie_scores)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 146
+Columns: 23
+$ film                       &lt;chr&gt; "Avengers: Age of Ultron", "Cinderella", "A…
+$ year                       &lt;dbl&gt; 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2…
+$ critics                    &lt;int&gt; 74, 85, 80, 18, 14, 63, 42, 86, 99, 89, 84,…
+$ audience                   &lt;int&gt; 86, 80, 90, 84, 28, 62, 53, 64, 82, 87, 77,…
+$ metacritic                 &lt;int&gt; 66, 67, 64, 22, 29, 50, 53, 81, 81, 80, 71,…
+$ metacritic_user            &lt;dbl&gt; 7.1, 7.5, 8.1, 4.7, 3.4, 6.8, 7.6, 6.8, 8.8…
+$ imdb                       &lt;dbl&gt; 7.8, 7.1, 7.8, 5.4, 5.1, 7.2, 6.9, 6.5, 7.4…
+$ fandango_stars             &lt;dbl&gt; 5.0, 5.0, 5.0, 5.0, 3.5, 4.5, 4.0, 4.0, 4.5…
+$ fandango_ratingvalue       &lt;dbl&gt; 4.5, 4.5, 4.5, 4.5, 3.0, 4.0, 3.5, 3.5, 4.0…
+$ rt_norm                    &lt;dbl&gt; 3.70, 4.25, 4.00, 0.90, 0.70, 3.15, 2.10, 4…
+$ rt_user_norm               &lt;dbl&gt; 4.30, 4.00, 4.50, 4.20, 1.40, 3.10, 2.65, 3…
+$ metacritic_norm            &lt;dbl&gt; 3.30, 3.35, 3.20, 1.10, 1.45, 2.50, 2.65, 4…
+$ metacritic_user_nom        &lt;dbl&gt; 3.55, 3.75, 4.05, 2.35, 1.70, 3.40, 3.80, 3…
+$ imdb_norm                  &lt;dbl&gt; 3.90, 3.55, 3.90, 2.70, 2.55, 3.60, 3.45, 3…
+$ rt_norm_round              &lt;dbl&gt; 3.5, 4.5, 4.0, 1.0, 0.5, 3.0, 2.0, 4.5, 5.0…
+$ rt_user_norm_round         &lt;dbl&gt; 4.5, 4.0, 4.5, 4.0, 1.5, 3.0, 2.5, 3.0, 4.0…
+$ metacritic_norm_round      &lt;dbl&gt; 3.5, 3.5, 3.0, 1.0, 1.5, 2.5, 2.5, 4.0, 4.0…
+$ metacritic_user_norm_round &lt;dbl&gt; 3.5, 4.0, 4.0, 2.5, 1.5, 3.5, 4.0, 3.5, 4.5…
+$ imdb_norm_round            &lt;dbl&gt; 4.0, 3.5, 4.0, 2.5, 2.5, 3.5, 3.5, 3.5, 3.5…
+$ metacritic_user_vote_count &lt;int&gt; 1330, 249, 627, 31, 88, 34, 17, 124, 62, 54…
+$ imdb_user_vote_count       &lt;int&gt; 271107, 65709, 103660, 3136, 19560, 39373, …
+$ fandango_votes             &lt;int&gt; 14846, 12640, 12055, 1793, 1021, 397, 252, …
+$ fandango_difference        &lt;dbl&gt; 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5…</code></pre>
+</div>
+</div>
+</section>
+<section id="movie-ratings-data" class="slide level2">
+<h2>Movie ratings data</h2>
+<p>The data set contains the “Tomatometer” score (<strong><code>critics</code></strong>) and audience score (<strong><code>audience</code></strong>) for 146 movies rated on rottentomatoes.com.</p>
+
+<img data-src="02-slr-intro_files/figure-revealjs/unnamed-chunk-2-1.png" style="width:80.0%" class="r-stretch quarto-figure-center"></section>
+<section id="movie-ratings-data-1" class="slide level2">
+<h2>Movie ratings data</h2>
+<p><strong>Goal</strong>: Fit a line to &lt;describe the relationship between the critics score and audience score.</p>
+
+<img data-src="02-slr-intro_files/figure-revealjs/unnamed-chunk-3-1.png" style="width:80.0%" class="r-stretch quarto-figure-center"></section>
+<section id="terminology" class="slide level2">
+<h2>Terminology</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<ul>
+<li><p><strong>Response, <em>Y</em></strong>: variable describing the outcome of interest</p></li>
+<li><p><strong>Predictor, <em>X</em></strong>: variable we use to help understand the variability in the response.</p></li>
+</ul>
+</div><div class="column" style="width:70%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/01/maria.png" alt="Headshot of Maria Tackett"></p>
+<p><img data-src="02-slr-intro_files/figure-revealjs/unnamed-chunk-4-1.png" style="width:80.0%"></p>
 </figure>
 </div>
-<div class="center">
-<p><strong>Dr.&nbsp;Maria Tackett</strong></p>
 </div>
-</div><div class="column" style="width:50%;">
-<ul>
-<li><p>Assistant Professor of the Practice, Department of Statistical Science</p></li>
-<li><p>Work focuses on statistics education, specifically active learning, motivation, and classroom community</p></li>
-<li><p>Find out more at <a href="https://maria-tackett.netlify.app">maria-tackett.netlify.app</a></p></li>
-</ul>
+</div>
 </div>
 </div>
 </section>
-<section id="meet-tas" class="slide level2">
-<h2>Meet TAs</h2>
+<section id="regression-model" class="slide level2">
+<h2>Regression model</h2>
+<p>A <strong>regression model</strong> is a function that describes the relationship between the response, <span class="math inline">\(Y\)</span>, and the predictor, <span class="math inline">\(X\)</span>.</p>
+<span class="math display">\[\begin{aligned} Y &amp;= \color{black}{\textbf{Model}} + \text{Error} \\[8pt]
+&amp;= \color{black}{\mathbf{f(X)}} + \epsilon \\[8pt]
+&amp;= \color{black}{\boldsymbol{\mu_{Y|X}}} + \epsilon \end{aligned}\]</span>
+</section>
+<section id="regression-model-1" class="slide level2">
+<h2>Regression model</h2>
 <div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li><p>Carson Garcia (UG)</p></li>
-<li><p>Sara Meta (UG)</p></li>
-<li><p>Medy Mu (UG)</p></li>
-<li><p>Glenn Palmer (PhD)</p></li>
-<li><p>Braden Scherting (PhD)</p></li>
-</ul>
-</div><div class="column" style="width:50%;">
-<ul>
-<li><p>Luke Vrotsos (PhD)</p></li>
-<li><p>Ben Wallace (UG)</p></li>
-<li><p>Aaditya Warrier (UG)</p></li>
-<li><p>Grace Zhao (MS)</p></li>
-</ul>
-</div>
-</div>
-</section>
-<section id="check-in-on-ed-discussion" class="slide level2">
-<h2>Check in on Ed Discussion!</h2>
-<ul>
-<li><p>Go to the class Ed Discussion: <a href="https://edstem.org/us/courses/8350/discussion/565405">edstem.org/us/courses/8350/discussion/565405</a> - UPDATE LINK</p></li>
-<li><p>Answer the poll question: <strong>How are you doing?</strong></p></li>
-</ul>
-</section></section>
-<section>
-<section id="regression-analysis" class="title-slide slide level1 center">
-<h1>Regression analysis</h1>
-
-</section>
-<section id="what-is-regression-analysis" class="slide level2">
-<h2>What is regression analysis?</h2>
-<div style="font-size: 0.85em;">
-<blockquote>
-<p>“In statistical modeling, regression analysis is a set of statistical processes for estimating the relationships among variables. It includes many techniques for modeling and analyzing several variables, when <strong><em>the focus is on the relationship between a dependent variable and one or more independent variables (or ‘predictors’)</em></strong>. More specifically, regression analysis helps one understand how the typical value of the dependent variable (or ‘criterion variable’) changes when any one of the independent variables is varied, while the other independent variables are held fixed.”</p>
-</blockquote>
-<p>Source: <a href="https://en.wikipedia.org/wiki/Regression_analysis">Wikipedia</a></p>
-</div>
-</section></section>
-<section>
-<section id="sta-210" class="title-slide slide level1 center">
-<h1>STA 210</h1>
-
-</section>
-<section id="course-faq" class="slide level2">
-<h2>Course FAQ</h2>
-<p><strong>Q - What background is assumed for the course?</strong></p>
-<p>A - Introductory statistics or probability course at Duke</p>
-<div class="fragment">
-<p><strong>Q - Will we be doing computing?</strong></p>
-<p>A - Yes. We will use the computing language R</p>
-</div>
-<div class="fragment">
-<p><strong>Q - Will we learn the mathematical theory of regression?</strong></p>
-<p>A - Yes and No.&nbsp;The course is primarily focused on application; however, we will discuss some of the mathematics of simple linear regression. There is a new 1-credit course <a href="https://stat.duke.edu/courses/mathematics-regression">STA 211: Mathematics of Regression</a> to take simultaneously or after this course to dive into more of the mathematics.</p>
-</div>
-</section>
-<section id="course-learning-objectives" class="slide level2">
-<h2>Course learning objectives</h2>
-<ul>
-<li><p>Analyze real-world data to answer questions about multivariable relationships.</p></li>
-<li><p>Fit and evaluate linear and logistic regression models.</p></li>
-<li><p>Assess whether a proposed model is appropriate and describe its limitations.</p></li>
-<li><p>Use Quarto to write reproducible reports and GitHub for version control and collaboration.</p></li>
-<li><p>Communicate results from statistical analyses to a general audience.</p></li>
-</ul>
-</section>
-<section id="course-topics" class="slide level2">
-<h2>Course topics</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><strong>Unit 1: Quantitative Response Variables</strong></p>
-<ul>
-<li><p>Simple Linear Regression</p></li>
-<li><p>Multiple Linear Regression</p></li>
-</ul>
-<p><strong>Unit 2: Categorical Response Variable</strong></p>
-<ul>
-<li>Logistic Regression</li>
-</ul>
-</div><div class="column" style="width:50%;">
-<p><strong>Unit 3: Looking Ahead</strong></p>
-<ul>
-<li><p>Mixed and random effects</p></li>
-<li><p>Introduction to linear mixed models</p></li>
-<li><p>Presenting statistical results</p></li>
-</ul>
-</div>
-</div>
-</section>
-<section id="examples-of-regression-in-practice" class="slide level2">
-<h2>Examples of regression in practice</h2>
-<ul>
-<li><p><a href="https://fivethirtyeight.com/features/new-yorkers-will-pay-56-a-month-to-trim-a-minute-off-their-commute/">New Yorkers Will Pay $56 A Month To Trim A Minute Off Their Commute</a></p></li>
-<li><p><a href="https://fivethirtyeight.com/features/how-fivethirtyeights-2020-presidential-forecast-works-and-whats-different-because-of-covid-19/">How FiveThirtyEight’s 2020 Presidential Forecast Works — And What’s Different Because Of COVID-19</a></p></li>
-<li><p><a href="https://onlinelibrary.wiley.com/doi/10.1111/1556-4029.12020">Effect of Forensic Evidence on Criminal Justice Case Processing</a></p></li>
-<li><p><a href="https://fivethirtyeight.com/features/why-its-so-freaking-hard-to-make-a-good-covid-19-model/">Why it’s so freaking hard to make a good COVID-19 model</a></p></li>
-</ul>
-</section></section>
-<section>
-<section id="course-overview" class="title-slide slide level1 center">
-<h1>Course overview</h1>
-
-</section>
-<section id="course-toolkit" class="slide level2">
-<h2>Course toolkit</h2>
-<ul>
-<li><strong>Course website</strong>: <a href="https://sta210-fa21.netlify.app/">sta210-fa21.netlify.app</a>
-<ul>
-<li>Central hub for the course!</li>
-<li><strong>Tour of the website</strong></li>
-</ul></li>
-<li><strong>Sakai</strong>: <a href="https://sakai.duke.edu">sakai.duke.edu</a>
-<ul>
-<li>Gradebook</li>
-<li>Announcements</li>
-</ul></li>
-<li><strong>Ed Discussion</strong>: <a href="https://edstem.org/us/courses/8350/discussion/">edstem.org/us/courses/8350/discussion</a>]
-<ul>
-<li>Class Q&amp;A and discussion forums</li>
-</ul></li>
-</ul>
-</section>
-<section id="computing-toolkit" class="slide level2">
-<h2>Computing toolkit</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
+<div class="column" style="width:30%;">
+<span class="math display">\[\begin{aligned} Y &amp;= \color{purple}{\textbf{Model}} + \text{Error} \\[8pt]
+&amp;= \color{purple}{\mathbf{f(X)}} + \epsilon \\[8pt]
+&amp;= \color{purple}{\boldsymbol{\mu_{Y|X}}} + \epsilon \end{aligned}\]</span>
+</div><div class="column" style="width:70%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/01/rstudio.png" alt="RStudio logo" style="width:75.0%"></p>
+<p><img data-src="02-slr-intro_files/figure-revealjs/unnamed-chunk-5-1.png" style="width:80.0%"></p>
 </figure>
 </div>
-</div><div class="column" style="width:50%;">
-<ul>
-<li><p>All analyses using R, a statistical programming language</p></li>
-<li><p>Write reproducible reports in Quarto</p></li>
-<li><p>Access RStudio through <a href="https://cmgr.oit.duke.edu/containers">STA 210 Docker Containers</a></p></li>
-</ul>
+</div>
+</div>
 </div>
 </div>
 </section>
-<section id="computing-toolkit-1" class="slide level2">
-<h2>Computing toolkit</h2>
+<section id="regression-model-2" class="slide level2">
+<h2>Regression model</h2>
 <div class="columns">
-<div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="images/01/github.png" alt="GitHub logo" style="width:75.0%"></p>
-</figure>
-</div>
-</div><div class="column" style="width:50%;">
-<ul>
-<li>Access assignments</li>
-</ul>
-<!-- -->
-<ul>
-<li><p>Facilitates version control and collaboration</p></li>
-<li><p>All work in <a href="https://github.com/sta210-fa22">STA 210 course organization</a></p></li>
-</ul>
-</div>
-</div>
-</section>
-<section id="activities-prepare-participate-practice-perform" class="slide level2">
-<h2>Activities: Prepare, Participate, Practice, Perform</h2>
-<div class="small">
-<ul>
-<li><p><strong>Prepare:</strong> Introduce new content and prepare for lectures by completing the readings (and sometimes watching the videos)</p></li>
-<li><p><strong>Participate:</strong> Attend and actively participate in lectures and labs, office hours, team meetings</p></li>
-<li><p><strong>Practice:</strong> Practice applying statistical concepts and computing with application exercises during lecture, graded for completion</p></li>
-<li><p><strong>Perform:</strong> Put together what you’ve learned to analyze real-world data</p>
-<ul>
-<li><p>Lab assignments (first individual, later team-based)</p></li>
-<li><p>Homework assignments (individual)</p></li>
-<li><p>Two take-home exams</p></li>
-<li><p>Term project presented during the final exam period</p></li>
-</ul></li>
-</ul>
-</div>
-</section>
-<section id="grading" class="slide level2">
-<h2>Grading</h2>
-<table>
-<thead>
-<tr class="header">
-<th>Category</th>
-<th>Percentage</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Homework</td>
-<td>35%</td>
-</tr>
-<tr class="even">
-<td>Final project</td>
-<td>15%</td>
-</tr>
-<tr class="odd">
-<td>Lab</td>
-<td>15%</td>
-</tr>
-<tr class="even">
-<td>Exam 01</td>
-<td>15%</td>
-</tr>
-<tr class="odd">
-<td>Exam 02</td>
-<td>15%</td>
-</tr>
-<tr class="even">
-<td>Application Exercises</td>
-<td>2.5%</td>
-</tr>
-<tr class="odd">
-<td>Teamwork</td>
-<td>2.5%</td>
-</tr>
-</tbody>
-</table>
-<p>See the <a href="../../syllabus.qmd">syllabus</a> for details on how the final letter grade will be calculated.</p>
-</section>
-<section id="support" class="slide level2">
-<h2>Support</h2>
-<ul>
-<li>Attend office hours to meet with a member of the teaching team.
-<ul>
-<li>Full office hours schedule begins Tuesday, September 6</li>
-</ul></li>
-<li>Ask and answer questions on course discussion forum</li>
-<li>Use email for questions regarding personal matters and/or grades</li>
-<li>Read the <a href="../../support.qmd">Course Support</a> page for more details</li>
-</ul>
-</section>
-<section id="diversity-inclusion" class="slide level2">
-<h2>Diversity &amp; inclusion</h2>
-<div class="small">
-<p>It is my intent that students from all diverse backgrounds and perspectives be well-served by this course, that students’ learning needs be addressed both in and out of class, and that the diversity that the students bring to this class be viewed as a resource, strength and benefit.</p>
-<ul>
-<li><p>If you have a name that differs from those that appear in your official Duke records, please let me know!</p></li>
-<li><p>Please let me know your preferred pronouns. You’ll also be able to note this in the Getting to know you survey.</p></li>
-<li><p>If you feel like your performance in the class is being impacted by your experiences outside of class, please don’t hesitate to come and talk with me. I want to be a resource for you. If you prefer to speak with someone outside of the course, your advisers and deans are excellent resources.</p></li>
-<li><p>I (like many people) am still in the process of learning about diverse perspectives and identities. If something was said in class (by anyone) that made you feel uncomfortable, please talk to me about it.</p></li>
-</ul>
-</div>
-</section>
-<section id="accessibility" class="slide level2">
-<h2>Accessibility</h2>
-<ul>
-<li><p>The <a href="https://access.duke.edu/students">Student Disability Access Office (SDAO)</a> is available to ensure that students are able to engage with their courses and related assignments.</p></li>
-<li><p>I am committed to making all course materials accessible and I’m always learning how to do this better. If any course component is not accessible to you in any way, please don’t hesitate to let me know.</p></li>
-</ul>
-</section></section>
-<section>
-<section id="course-policies" class="title-slide slide level1 center">
-<h1>Course policies</h1>
-
-</section>
-<section id="covid-policies" class="slide level2">
-<h2>Covid policies</h2>
-<ul>
-<li><p>😷 Wear a mask at all times in lectures and labs.</p></li>
-<li><p>Read and follow the <a href="https://coronavirus.duke.edu/guidelines-requirements/">university guidelines</a></p></li>
-</ul>
-</section>
-<section id="late-work-waivers-and-regrade-requests" class="slide level2">
-<h2>Late work, waivers, and regrade requests</h2>
-<ul>
-<li><p>We have policies!</p></li>
-<li><p>Read about them in the <a href="../../syllabus.qmd">syllabus</a> and refer back to them as needed</p></li>
-</ul>
-</section>
-<section id="collaboration-sharing-code" class="slide level2">
-<h2>Collaboration &amp; sharing code</h2>
-<ul>
-<li><p>We have policies!</p></li>
-<li><p>Read about them in the <a href="../../syllabus.qmd">syllabus</a> and refer to them as needed</p></li>
-<li><p>We’ll discuss these more before the first assignments</p></li>
-</ul>
-</section>
-<section id="academic-integrity" class="slide level2">
-<h2>Academic integrity</h2>
-<blockquote>
-<p>To uphold the Duke Community Standard:</p>
-<ul>
-<li><p>I will not lie, cheat, or steal in my academic endeavors;</p></li>
-<li><p>I will conduct myself honorably in all my endeavors; and</p></li>
-<li><p>I will act if the Standard is compromised.</p></li>
-</ul>
-</blockquote>
-<p><br>
-By participating in this course, you are agreeing that all your work and conduct will be in accordance with the Duke Community Standard.</p>
-</section>
-<section id="if-youre-not-sure" class="slide level2">
-<h2>If you’re not sure…</h2>
-<p>Ask if you’re not sure if something violates a policy!</p>
-</section></section>
-<section>
-<section id="being-successful-in-sta-210" class="title-slide slide level1 center">
-<h1>Being successful in STA 210</h1>
-
-</section>
-<section id="five-tips-for-success" class="slide level2">
-<h2>Five tips for success</h2>
-<ol type="1">
-<li><p>Complete all the preparation work (readings and videos) before class.</p></li>
-<li><p>Ask questions.</p></li>
-<li><p>Do the homework and lab.</p></li>
-<li><p>Don’t procrastinate and don’t let a week pass by with lingering questions.</p></li>
-<li><p>Stay up-to-date on announcements (posted on Sakai &amp; sent via email).</p></li>
-</ol>
-</section>
-<section id="learning-during-a-pandemic" class="slide level2">
-<h2>Learning during a pandemic</h2>
-<p>I want to make sure that you learn everything you were hoping to learn from this class. If this requires flexibility, please don’t hesitate to ask.</p>
-<ul>
-<li><p>You never owe me personal information about your health (mental or physical) but you’re always welcome to talk to me. If I can’t help, I likely know someone who can.</p></li>
-<li><p>I want you to learn lots of things from this class, but I primarily want you to stay healthy, balanced, and grounded.</p></li>
-</ul>
-<p>See the <a href="../../support.qmd">Course Support</a> page for information on Duke’s academic and wellness resources.</p>
-</section></section>
-<section id="questions" class="title-slide slide level1 center">
-<h1>Questions?</h1>
-
-</section>
-
-<section>
-<section id="lets-look-at-some-data" class="title-slide slide level1 center">
-<h1>Let’s look at some data!</h1>
-
-</section>
-<section class="slide level2">
-
-<ul>
-<li><p>Let’s take a look at the <a href="https://sta210-fa21.netlify.app/appex/ae-01-movies.html">Movies budgets vs.&nbsp;revenues</a> analysis. - Move to a GitHub repo</p></li>
-<li><p>You may discuss with your neighbor. (Don’t forget to introduce yourself first!)</p></li>
-<li><p>Type your answers under the <strong>August 23 - Movies</strong> thread on Ed Discussion</p></li>
-</ul>
+<div class="column" style="width:30%;">
+<p><span class="math display">\[
+\begin{aligned} Y &amp;= \color{purple}{\textbf{Model}} + \color{blue}{\textbf{Error}} \\[5pt]
+&amp;= \color{purple}{\mathbf{f(X)}} + \color{blue}{\boldsymbol{\epsilon}} \\[5pt]
+&amp;= \color{purple}{\boldsymbol{\mu_{Y|X}}} + \color{blue}{\boldsymbol{\epsilon}} \\[5pt]
+\end{aligned}
+\]</span></p>
+</div><div class="column" style="width:70%;">
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_630bb982" style="right:0;bottom:0;" data-warnwhen="0">
-<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+<p><img data-src="02-slr-intro_files/figure-revealjs/unnamed-chunk-6-1.png" style="width:80.0%"></p>
 </div>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="simple-linear-regression" class="title-slide slide level1 center">
+<h1>Simple linear regression</h1>
+
+</section>
+<section id="simple-linear-regression-1" class="slide level2">
+<h2>Simple linear regression</h2>
+<p>When we have a quantitative response, <span class="math inline">\(Y\)</span>, and a single quantitative predictor, <span class="math inline">\(X\)</span>, we can use a <strong>simple linear regression</strong> model to describe the relationship between <span class="math inline">\(Y\)</span> and <span class="math inline">\(X\)</span>. <span class="math display">\[\Large{Y = \mathbf{\beta_0 + \beta_1 X} + \epsilon}\]</span></p>
+<div class="fragment">
+<ul>
+<li><span class="math inline">\(\beta_1\)</span>: True slope of the relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span></li>
+<li><span class="math inline">\(\beta_0\)</span>: True intercept of the relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span></li>
+<li><span class="math inline">\(\epsilon\)</span>: Error (residual)</li>
+</ul>
+</div>
+</section>
+<section id="simple-linear-regression-2" class="slide level2">
+<h2>Simple linear regression</h2>
+<p><span class="math display">\[\Large{\hat{Y} = \hat{\beta}_0 + \hat{\beta}_1 X}\]</span></p>
+<ul>
+<li><span class="math inline">\(\hat{\beta}_1\)</span>: Estimated slope of the relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span></li>
+<li><span class="math inline">\(\hat{\beta}_0\)</span>: Estimated intercept of the relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span></li>
+<li>No error term!</li>
+</ul>
+</section>
+<section id="choosing-values-for-hatbeta_1-and-hatbeta_0" class="slide level2">
+<h2>Choosing values for <span class="math inline">\(\hat{\beta}_1\)</span> and <span class="math inline">\(\hat{\beta}_0\)</span></h2>
+
+<img data-src="02-slr-intro_files/figure-revealjs/unnamed-chunk-7-1.png" style="width:80.0%" class="r-stretch quarto-figure-center"></section>
+<section id="residuals" class="slide level2">
+<h2>Residuals</h2>
+
+<img data-src="02-slr-intro_files/figure-revealjs/unnamed-chunk-8-1.png" style="width:80.0%" class="r-stretch quarto-figure-center"><p><span class="math display">\[\text{residual} = \text{observed} - \text{predicted} = y - \hat{y}\]</span></p>
+</section>
+<section id="least-squares-line" class="slide level2">
+<h2>Least squares line</h2>
+<ul>
+<li>The residual for the <span class="math inline">\(i^{th}\)</span> observation is</li>
+</ul>
+<p><span class="math display">\[e_i = \text{observed} - \text{predicted}
+= y_i - \hat{y}_i\]</span></p>
+<ul>
+<li>The <strong>sum of squared residuals</strong> is</li>
+</ul>
+<p><span class="math display">\[e^2_1 + e^2_2 + \dots + e^2_n\]</span></p>
+<ul>
+<li>The <strong>least squares line</strong> is the one that minimizes the sum of squared residuals</li>
+</ul>
+<div class="cell">
+
+</div>
+</section></section>
+<section>
+<section id="slope-and-intercept" class="title-slide slide level1 center">
+<h1>Slope and intercept</h1>
+
+</section>
+<section id="properties-of-least-squares-regression" class="slide level2">
+<h2>Properties of least squares regression</h2>
+<ul>
+<li><p>The regression line goes through the center of mass point, the coordinates corresponding to average <span class="math inline">\(X\)</span> and average <span class="math inline">\(Y\)</span>: <span class="math inline">\(\hat{\beta}_0 = \bar{Y} - \hat{\beta}_1\bar{X}\)</span></p></li>
+<li><p>The slope has the same sign as the correlation coefficient: <span class="math inline">\(\hat{\beta}_1 = r \frac{s_Y}{s_X}\)</span></p></li>
+<li><p>The sum of the residuals is zero: <span class="math inline">\(\sum_{i = 1}^n \epsilon_i = 0\)</span></p></li>
+<li><p>The residuals and <span class="math inline">\(X\)</span> values are uncorrelated</p></li>
+</ul>
+</section>
+<section id="estimating-the-slope" class="slide level2">
+<h2>Estimating the slope</h2>
+<p><span class="math display">\[\large{\hat{\beta}_1 = r \frac{s_Y}{s_X}}\]</span></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<span class="math display">\[\begin{aligned}
+s_X &amp;= 30.1688 \\
+s_Y &amp;=  20.0244 \\
+r &amp;= 0.7814
+\end{aligned}\]</span>
+</div><div class="column" style="width:50%;">
+<span class="math display">\[\begin{aligned}
+\hat{\beta}_1 &amp;= 0.7814 \times \frac{20.0244}{30.1688} \\
+&amp;= 0.5187\end{aligned}\]</span>
 </div>
 </div>
 </section>
-<section id="this-week" class="slide level2">
-<h2>This week…</h2>
+<section id="estimating-the-intercept" class="slide level2">
+<h2>Estimating the intercept</h2>
+<p><span class="math display">\[\large{\hat{\beta}_0 = \bar{Y} - \hat{\beta}_1\bar{X}}\]</span></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<span class="math display">\[\begin{aligned}
+&amp;\bar{x} = 60.8493 \\
+&amp;\bar{y} = 63.8767 \\
+&amp;\hat{\beta}_1 = 0.5187
+\end{aligned}\]</span>
+</div><div class="column" style="width:50%;">
+<span class="math display">\[\begin{aligned}\hat{\beta}_0 &amp;= 63.8767 - 0.5187 \times 60.8493 \\
+&amp;= 32.3142
+\end{aligned}\]</span>
+</div>
+</div>
+</section>
+<section id="poll-interpreting-the-slope" class="slide level2">
+<h2>Poll: Interpreting the slope</h2>
+</section>
+<section id="does-it-make-sense-to-interpret-the-intercept" class="slide level2">
+<h2>Does it make sense to interpret the intercept?</h2>
+<p>✅ <strong>The intercept is meaningful in the context of the data if</strong></p>
 <ul>
-<li><p>See <a href="../../weeks/week-01.qmd">Week 01</a> on the schedule for lecture slides, assignments, and readings.</p></li>
-<li><p>Complete the <a href="https://duke.qualtrics.com/jfe/form/SV_cGV5IKoeadWR59s">STA 210 Student Survey</a> (will ask for a GitHub username)</p>
-<ul>
-<li><a href="https://happygitwithr.com/github-acct.html">Click here</a> for information on registering for a GitHub account and choosing a username.</li>
-<li>You will go over this in lab this week.</li>
-</ul></li>
-<li><p>Read the syllabus</p></li>
+<li><p>the predictor can feasibly take values equal to or near zero, or</p></li>
+<li><p>there are values near zero in the observed data.</p></li>
 </ul>
+<div class="fragment">
+<p>🛑 Otherwise, the intercept may not be meaningful!</p>
+</div>
+</section>
+<section id="interpreting-the-slope-intercept" class="slide level2">
+<h2>Interpreting the slope &amp; intercept</h2>
+<p><span class="math display">\[\hat{\text{audience}} = 32.296 + 0.518 \times \text{critics}\]</span></p>
+<div class="fragment">
+<div>
+<ul>
+<li class="fragment"><p><strong>Slope</strong>: For every one point increase in the critics score, we expect the audience score to increase by 0.518 points, on average.</p></li>
+<li class="fragment"><p><strong>Intercept</strong>: If the critics score is 0 points, we expect the audience score to be 32.296 points.</p>
+<ul>
+<li class="fragment">Is the intercept meaningful?</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</section></section>
+<section>
+<section id="prediction" class="title-slide slide level1 center">
+<h1>Prediction</h1>
+
+</section>
+<section id="making-a-prediction---update-the-math" class="slide level2">
+<h2>Making a prediction - UPDATE THE MATH</h2>
+<p>Suppose that a movie has a critics score of 70. According to this model, what is the movie’s predicted audience score?</p>
+<p>$$</p>
+<span class="math display">\[\begin{aligned}
+\widehat{\text{audience}} &amp;= 32.3142 + 0.5187 \times \text{critics} \\
+&amp;= 32.3142 + 0.5187 \times 50 \\
+&amp;= 58.2492
+\end{aligned}\]</span>
+<p>$$</p>
+</section>
+<section id="extrapolation" class="slide level2">
+<h2>⚠️ Extrapolation</h2>
+<div style="font-size: 0.80em;">
+<p>Using the model to predict for values outside the range of the original data is <strong>extrapolation</strong>.</p>
+</div>
+<div class="fragment">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="02-slr-intro_files/figure-revealjs/unnamed-chunk-10-1.png" style="width:55.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<div style="font-size: 0.80em;">
+<p>Suppose that a movie has a critics score of 0. According to this model, what is the movie’s predicted audience score?</p>
+</div>
+</div>
+</section></section>
+<section>
+<section id="recap" class="title-slide slide level1 center">
+<h1>Recap</h1>
+
+</section>
+<section id="recap-1" class="slide level2">
+<h2>Recap</h2>
+<div style="font-size: 0.85em">
+<ul>
+<li class="fragment"><p>Used simple linear regression to describe the relationship between a quantitative predictor and quantitative response variable.</p></li>
+<li class="fragment"><p>Used the least squares method to estimate the slope and intercept.</p></li>
+<li class="fragment"><p>We interpreted the slope and intercept.</p>
+<ul>
+<li class="fragment"><strong>Slope</strong>: For every one unit increase in <span class="math inline">\(x\)</span>, we expect y to change by <span class="math inline">\(\hat{\beta}_1\)</span> units, on average.</li>
+<li class="fragment"><strong>Intercept</strong>: If <span class="math inline">\(x\)</span> is 0, then we expect <span class="math inline">\(y\)</span> to be <span class="math inline">\(\hat{\beta}_0\)</span> units</li>
+</ul></li>
+<li class="fragment"><p>Predicted the response given a value of the predictor variable.</p></li>
+<li class="fragment"><p>Defined extrapolation and why we should avoid it.</p></li>
+</ul>
+</div>
 
 
 <img src="../images/logo.png" class="slide-logo r-stretch"><div class="footer footer-default">

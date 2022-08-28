@@ -249,7 +249,7 @@
     "href": "index.html#teaching-team",
     "title": "STA 210: Regression Analysis",
     "section": "Teaching team",
-    "text": "Teaching team\n\nInstructor\n\n\nTeaching assistants\n\n\n\nName\nOffice hours\nLocation\n\n\n\n\nCarson Garcia\nTA for Lab 04\n\n\n\n\nSara Meta\nTA for Lab 04\n\n\n\n\nMedy Mu\n\n\n\n\nGlenn Palmer\nTA for Lab 03\n\n\n\n\nBraden Scherting\nTA for Lab 02\n\n\n\n\nLuke Vrotsos\nTA for Lab 01\n\n\n\n\nBen Wallace\n\n\n\n\nAaditya Warrier\n\n\n\n\nGrace Zhao\nTA for Lab 01"
+    "text": "Teaching team\n\nInstructor\nMaria Tackett is an Assistant Professor of the Practice in the Department of Statistical Science at Duke University. Her work focuses on understanding how active learning strategies can be used to promote engagement and student motivation in undergraduate statistics courses. She also studies how classroom practices in introductory math and statistics courses impact students' sense of community, self-efficacy, and learning outcomes.\n\nOffice hours\n\n\n\n\n\n\n\nTuesdays 1:30 - 2:30pm\nThursdays 10 - 11am\nor by appointment.\nOld Chem 118B\nZoom\n\n\n\n\n\n\nTeaching assistants\n\n\n\nName\nOffice hours\nLocation\n\n\n\n\nCarson Garcia\nTA for Lab 04\nTBD\nTBD\n\n\nSara Meta\nTA for Lab 04\nTBD\nTBD\n\n\nMedy Mu\nTBD\nTBD\n\n\nGlenn Palmer\nTA for Lab 03\nTBD\nTBD\n\n\nBraden Scherting\nTA for Lab 02\nTBD\nTBD\n\n\nLuke Vrotsos\nTA for Lab 01\nTBD\nTBD\n\n\nBen Wallace\nTBD\nTBD\n\n\nAaditya Warrier\nTBD\nTBD\n\n\nGrace Zhao\nTA for Lab 01\nTBD\nTBD"
   },
   {
     "objectID": "teaching-team.html",
@@ -263,7 +263,7 @@
     "href": "slides/01-welcome.html#meet-the-professor",
     "title": "Welcome to STA 210!",
     "section": "Meet the professor",
-    "text": "Meet the professor\n\n\n\n\n\n\n\n\nDr. Maria Tackett (she/her)\n\n\n\nAssistant Professor of the Practice, Department of Statistical Science\nWork focuses on statistics education, specifically active learning, motivation, and classroom community\nFind out more at maria-tackett.netlify.app"
+    "text": "Meet the professor\n\n\n\n\n\n\n\n\nDr. Maria Tackett\n\n\n\nAssistant Professor of the Practice, Department of Statistical Science\nWork focuses on statistics education, specifically active learning, motivation, and classroom community\nFind out more at maria-tackett.netlify.app"
   },
   {
     "objectID": "slides/01-welcome.html#meet-tas",
@@ -425,6 +425,181 @@
     "title": "Welcome to STA 210!",
     "section": "This week…",
     "text": "This week…\n\nSee Week 01 on the schedule for lecture slides, assignments, and readings.\nComplete the STA 210 Student Survey (will ask for a GitHub username)\n\nClick here for information on registering for a GitHub account and choosing a username.\nYou will go over this in lab this week.\n\nRead the syllabus\n\n\n\n\n🔗 Week 01"
+  },
+  {
+    "objectID": "slides/02-slr-intro.html#topics",
+    "href": "slides/02-slr-intro.html#topics",
+    "title": "Simple Linear Regression",
+    "section": "Topics",
+    "text": "Topics\n\nUse simple linear regression to describe the relationship between a quantitative predictor and quantitative response variable.\nEstimate the slope and intercept of the regression line using the least squares method.\nInterpret the slope and intercept of the regression line.\nPredict the response given a value of the predictor variable.\nDefined extrapolation and why we should avoid it."
+  },
+  {
+    "objectID": "slides/02-slr-intro.html#computation-set-up",
+    "href": "slides/02-slr-intro.html#computation-set-up",
+    "title": "Simple Linear Regression",
+    "section": "Computation set up",
+    "text": "Computation set up\n\n# load packages\nlibrary(tidyverse)       # for data wrangling\nlibrary(tidymodels)      # for modeling\nlibrary(fivethirtyeight) # for the fandango dataset\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 16))\n\n# set default figure parameters for knitr\nknitr::opts_chunk$set(\n  fig.width = 8,\n  fig.asp = 0.618,\n  fig.retina = 3,\n  dpi = 300,\n  out.width = \"80%\"\n)"
+  },
+  {
+    "objectID": "slides/02-slr-intro.html#movie-ratings",
+    "href": "slides/02-slr-intro.html#movie-ratings",
+    "title": "Simple Linear Regression",
+    "section": "Movie ratings",
+    "text": "Movie ratings\n\n\n\nData behind the FiveThirtyEight story Be Suspicious Of Online Movie Ratings, Especially Fandango’s\nIn the fivethirtyeight package: fandango\nContains every film that has at least 30 fan reviews on Fandango, an IMDb score, Rotten Tomatoes critic and user ratings, and Metacritic critic and user scores"
+  },
+  {
+    "objectID": "slides/02-slr-intro.html#data-prep",
+    "href": "slides/02-slr-intro.html#data-prep",
+    "title": "Simple Linear Regression",
+    "section": "Data prep",
+    "text": "Data prep\n\nRename Rotten Tomatoes columns as critics and audience\nRename the dataset as movie_scores\n\n\nmovie_scores <- fandango |>\n  rename(critics = rottentomatoes, \n         audience = rottentomatoes_user)"
+  },
+  {
+    "objectID": "slides/02-slr-intro.html#data-overview",
+    "href": "slides/02-slr-intro.html#data-overview",
+    "title": "Simple Linear Regression",
+    "section": "Data overview",
+    "text": "Data overview\n\nglimpse(movie_scores)\n\nRows: 146\nColumns: 23\n$ film                       <chr> \"Avengers: Age of Ultron\", \"Cinderella\", \"A…\n$ year                       <dbl> 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2…\n$ critics                    <int> 74, 85, 80, 18, 14, 63, 42, 86, 99, 89, 84,…\n$ audience                   <int> 86, 80, 90, 84, 28, 62, 53, 64, 82, 87, 77,…\n$ metacritic                 <int> 66, 67, 64, 22, 29, 50, 53, 81, 81, 80, 71,…\n$ metacritic_user            <dbl> 7.1, 7.5, 8.1, 4.7, 3.4, 6.8, 7.6, 6.8, 8.8…\n$ imdb                       <dbl> 7.8, 7.1, 7.8, 5.4, 5.1, 7.2, 6.9, 6.5, 7.4…\n$ fandango_stars             <dbl> 5.0, 5.0, 5.0, 5.0, 3.5, 4.5, 4.0, 4.0, 4.5…\n$ fandango_ratingvalue       <dbl> 4.5, 4.5, 4.5, 4.5, 3.0, 4.0, 3.5, 3.5, 4.0…\n$ rt_norm                    <dbl> 3.70, 4.25, 4.00, 0.90, 0.70, 3.15, 2.10, 4…\n$ rt_user_norm               <dbl> 4.30, 4.00, 4.50, 4.20, 1.40, 3.10, 2.65, 3…\n$ metacritic_norm            <dbl> 3.30, 3.35, 3.20, 1.10, 1.45, 2.50, 2.65, 4…\n$ metacritic_user_nom        <dbl> 3.55, 3.75, 4.05, 2.35, 1.70, 3.40, 3.80, 3…\n$ imdb_norm                  <dbl> 3.90, 3.55, 3.90, 2.70, 2.55, 3.60, 3.45, 3…\n$ rt_norm_round              <dbl> 3.5, 4.5, 4.0, 1.0, 0.5, 3.0, 2.0, 4.5, 5.0…\n$ rt_user_norm_round         <dbl> 4.5, 4.0, 4.5, 4.0, 1.5, 3.0, 2.5, 3.0, 4.0…\n$ metacritic_norm_round      <dbl> 3.5, 3.5, 3.0, 1.0, 1.5, 2.5, 2.5, 4.0, 4.0…\n$ metacritic_user_norm_round <dbl> 3.5, 4.0, 4.0, 2.5, 1.5, 3.5, 4.0, 3.5, 4.5…\n$ imdb_norm_round            <dbl> 4.0, 3.5, 4.0, 2.5, 2.5, 3.5, 3.5, 3.5, 3.5…\n$ metacritic_user_vote_count <int> 1330, 249, 627, 31, 88, 34, 17, 124, 62, 54…\n$ imdb_user_vote_count       <int> 271107, 65709, 103660, 3136, 19560, 39373, …\n$ fandango_votes             <int> 14846, 12640, 12055, 1793, 1021, 397, 252, …\n$ fandango_difference        <dbl> 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5…"
+  },
+  {
+    "objectID": "slides/02-slr-intro.html#movie-ratings-data",
+    "href": "slides/02-slr-intro.html#movie-ratings-data",
+    "title": "Simple Linear Regression",
+    "section": "Movie ratings data",
+    "text": "Movie ratings data\nThe data set contains the “Tomatometer” score (critics) and audience score (audience) for 146 movies rated on rottentomatoes.com."
+  },
+  {
+    "objectID": "slides/02-slr-intro.html#movie-ratings-data-1",
+    "href": "slides/02-slr-intro.html#movie-ratings-data-1",
+    "title": "Simple Linear Regression",
+    "section": "Movie ratings data",
+    "text": "Movie ratings data\nGoal: Fit a line to <describe the relationship between the critics score and audience score."
+  },
+  {
+    "objectID": "slides/02-slr-intro.html#terminology",
+    "href": "slides/02-slr-intro.html#terminology",
+    "title": "Simple Linear Regression",
+    "section": "Terminology",
+    "text": "Terminology\n\n\n\nResponse, Y: variable describing the outcome of interest\nPredictor, X: variable we use to help understand the variability in the response."
+  },
+  {
+    "objectID": "slides/02-slr-intro.html#regression-model",
+    "href": "slides/02-slr-intro.html#regression-model",
+    "title": "Simple Linear Regression",
+    "section": "Regression model",
+    "text": "Regression model\nA regression model is a function that describes the relationship between the response, \\(Y\\), and the predictor, \\(X\\).\n\\[\\begin{aligned} Y &= \\color{black}{\\textbf{Model}} + \\text{Error} \\\\[8pt]\n&= \\color{black}{\\mathbf{f(X)}} + \\epsilon \\\\[8pt]\n&= \\color{black}{\\boldsymbol{\\mu_{Y|X}}} + \\epsilon \\end{aligned}\\]"
+  },
+  {
+    "objectID": "slides/02-slr-intro.html#regression-model-1",
+    "href": "slides/02-slr-intro.html#regression-model-1",
+    "title": "Simple Linear Regression",
+    "section": "Regression model",
+    "text": "Regression model\n\n\n\\[\\begin{aligned} Y &= \\color{purple}{\\textbf{Model}} + \\text{Error} \\\\[8pt]\n&= \\color{purple}{\\mathbf{f(X)}} + \\epsilon \\\\[8pt]\n&= \\color{purple}{\\boldsymbol{\\mu_{Y|X}}} + \\epsilon \\end{aligned}\\]"
+  },
+  {
+    "objectID": "slides/02-slr-intro.html#regression-model-2",
+    "href": "slides/02-slr-intro.html#regression-model-2",
+    "title": "Simple Linear Regression",
+    "section": "Regression model",
+    "text": "Regression model\n\n\n\\[\n\\begin{aligned} Y &= \\color{purple}{\\textbf{Model}} + \\color{blue}{\\textbf{Error}} \\\\[5pt]\n&= \\color{purple}{\\mathbf{f(X)}} + \\color{blue}{\\boldsymbol{\\epsilon}} \\\\[5pt]\n&= \\color{purple}{\\boldsymbol{\\mu_{Y|X}}} + \\color{blue}{\\boldsymbol{\\epsilon}} \\\\[5pt]\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "slides/02-slr-intro.html#simple-linear-regression-1",
+    "href": "slides/02-slr-intro.html#simple-linear-regression-1",
+    "title": "Simple Linear Regression",
+    "section": "Simple linear regression",
+    "text": "Simple linear regression\nWhen we have a quantitative response, \\(Y\\), and a single quantitative predictor, \\(X\\), we can use a simple linear regression model to describe the relationship between \\(Y\\) and \\(X\\). \\[\\Large{Y = \\mathbf{\\beta_0 + \\beta_1 X} + \\epsilon}\\]\n\n\n\\(\\beta_1\\): True slope of the relationship between \\(X\\) and \\(Y\\)\n\\(\\beta_0\\): True intercept of the relationship between \\(X\\) and \\(Y\\)\n\\(\\epsilon\\): Error (residual)"
+  },
+  {
+    "objectID": "slides/02-slr-intro.html#simple-linear-regression-2",
+    "href": "slides/02-slr-intro.html#simple-linear-regression-2",
+    "title": "Simple Linear Regression",
+    "section": "Simple linear regression",
+    "text": "Simple linear regression\n\\[\\Large{\\hat{Y} = \\hat{\\beta}_0 + \\hat{\\beta}_1 X}\\]\n\n\\(\\hat{\\beta}_1\\): Estimated slope of the relationship between \\(X\\) and \\(Y\\)\n\\(\\hat{\\beta}_0\\): Estimated intercept of the relationship between \\(X\\) and \\(Y\\)\nNo error term!"
+  },
+  {
+    "objectID": "slides/02-slr-intro.html#choosing-values-for-hatbeta_1-and-hatbeta_0",
+    "href": "slides/02-slr-intro.html#choosing-values-for-hatbeta_1-and-hatbeta_0",
+    "title": "Simple Linear Regression",
+    "section": "Choosing values for \\(\\hat{\\beta}_1\\) and \\(\\hat{\\beta}_0\\)",
+    "text": "Choosing values for \\(\\hat{\\beta}_1\\) and \\(\\hat{\\beta}_0\\)"
+  },
+  {
+    "objectID": "slides/02-slr-intro.html#residuals",
+    "href": "slides/02-slr-intro.html#residuals",
+    "title": "Simple Linear Regression",
+    "section": "Residuals",
+    "text": "Residuals\n\n\\[\\text{residual} = \\text{observed} - \\text{predicted} = y - \\hat{y}\\]"
+  },
+  {
+    "objectID": "slides/02-slr-intro.html#least-squares-line",
+    "href": "slides/02-slr-intro.html#least-squares-line",
+    "title": "Simple Linear Regression",
+    "section": "Least squares line",
+    "text": "Least squares line\n\nThe residual for the \\(i^{th}\\) observation is\n\n\\[e_i = \\text{observed} - \\text{predicted}\n= y_i - \\hat{y}_i\\]\n\nThe sum of squared residuals is\n\n\\[e^2_1 + e^2_2 + \\dots + e^2_n\\]\n\nThe least squares line is the one that minimizes the sum of squared residuals"
+  },
+  {
+    "objectID": "slides/02-slr-intro.html#properties-of-least-squares-regression",
+    "href": "slides/02-slr-intro.html#properties-of-least-squares-regression",
+    "title": "Simple Linear Regression",
+    "section": "Properties of least squares regression",
+    "text": "Properties of least squares regression\n\nThe regression line goes through the center of mass point, the coordinates corresponding to average \\(X\\) and average \\(Y\\): \\(\\hat{\\beta}_0 = \\bar{Y} - \\hat{\\beta}_1\\bar{X}\\)\nThe slope has the same sign as the correlation coefficient: \\(\\hat{\\beta}_1 = r \\frac{s_Y}{s_X}\\)\nThe sum of the residuals is zero: \\(\\sum_{i = 1}^n \\epsilon_i = 0\\)\nThe residuals and \\(X\\) values are uncorrelated"
+  },
+  {
+    "objectID": "slides/02-slr-intro.html#estimating-the-slope",
+    "href": "slides/02-slr-intro.html#estimating-the-slope",
+    "title": "Simple Linear Regression",
+    "section": "Estimating the slope",
+    "text": "Estimating the slope\n\\[\\large{\\hat{\\beta}_1 = r \\frac{s_Y}{s_X}}\\]\n\n\n\\[\\begin{aligned}\ns_X &= 30.1688 \\\\\ns_Y &=  20.0244 \\\\\nr &= 0.7814\n\\end{aligned}\\]\n\n\\[\\begin{aligned}\n\\hat{\\beta}_1 &= 0.7814 \\times \\frac{20.0244}{30.1688} \\\\\n&= 0.5187\\end{aligned}\\]"
+  },
+  {
+    "objectID": "slides/02-slr-intro.html#estimating-the-intercept",
+    "href": "slides/02-slr-intro.html#estimating-the-intercept",
+    "title": "Simple Linear Regression",
+    "section": "Estimating the intercept",
+    "text": "Estimating the intercept\n\\[\\large{\\hat{\\beta}_0 = \\bar{Y} - \\hat{\\beta}_1\\bar{X}}\\]\n\n\n\\[\\begin{aligned}\n&\\bar{x} = 60.8493 \\\\\n&\\bar{y} = 63.8767 \\\\\n&\\hat{\\beta}_1 = 0.5187\n\\end{aligned}\\]\n\n\\[\\begin{aligned}\\hat{\\beta}_0 &= 63.8767 - 0.5187 \\times 60.8493 \\\\\n&= 32.3142\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "slides/02-slr-intro.html#poll-interpreting-the-slope",
+    "href": "slides/02-slr-intro.html#poll-interpreting-the-slope",
+    "title": "Simple Linear Regression",
+    "section": "Poll: Interpreting the slope",
+    "text": "Poll: Interpreting the slope"
+  },
+  {
+    "objectID": "slides/02-slr-intro.html#does-it-make-sense-to-interpret-the-intercept",
+    "href": "slides/02-slr-intro.html#does-it-make-sense-to-interpret-the-intercept",
+    "title": "Simple Linear Regression",
+    "section": "Does it make sense to interpret the intercept?",
+    "text": "Does it make sense to interpret the intercept?\n✅ The intercept is meaningful in the context of the data if\n\nthe predictor can feasibly take values equal to or near zero, or\nthere are values near zero in the observed data.\n\n\n🛑 Otherwise, the intercept may not be meaningful!"
+  },
+  {
+    "objectID": "slides/02-slr-intro.html#interpreting-the-slope-intercept",
+    "href": "slides/02-slr-intro.html#interpreting-the-slope-intercept",
+    "title": "Simple Linear Regression",
+    "section": "Interpreting the slope & intercept",
+    "text": "Interpreting the slope & intercept\n\\[\\hat{\\text{audience}} = 32.296 + 0.518 \\times \\text{critics}\\]\n\n\n\nSlope: For every one point increase in the critics score, we expect the audience score to increase by 0.518 points, on average.\nIntercept: If the critics score is 0 points, we expect the audience score to be 32.296 points.\n\nIs the intercept meaningful?"
+  },
+  {
+    "objectID": "slides/02-slr-intro.html#making-a-prediction---update-the-math",
+    "href": "slides/02-slr-intro.html#making-a-prediction---update-the-math",
+    "title": "Simple Linear Regression",
+    "section": "Making a prediction - UPDATE THE MATH",
+    "text": "Making a prediction - UPDATE THE MATH\nSuppose that a movie has a critics score of 70. According to this model, what is the movie’s predicted audience score?\n$$\n\\[\\begin{aligned}\n\\widehat{\\text{audience}} &= 32.3142 + 0.5187 \\times \\text{critics} \\\\\n&= 32.3142 + 0.5187 \\times 50 \\\\\n&= 58.2492\n\\end{aligned}\\]\n$$"
+  },
+  {
+    "objectID": "slides/02-slr-intro.html#extrapolation",
+    "href": "slides/02-slr-intro.html#extrapolation",
+    "title": "Simple Linear Regression",
+    "section": "⚠️ Extrapolation",
+    "text": "⚠️ Extrapolation\n\nUsing the model to predict for values outside the range of the original data is extrapolation.\n\n\n\n\n\n\n\n\n\n\n\n\nSuppose that a movie has a critics score of 0. According to this model, what is the movie’s predicted audience score?"
+  },
+  {
+    "objectID": "slides/02-slr-intro.html#recap-1",
+    "href": "slides/02-slr-intro.html#recap-1",
+    "title": "Simple Linear Regression",
+    "section": "Recap",
+    "text": "Recap\n\n\nUsed simple linear regression to describe the relationship between a quantitative predictor and quantitative response variable.\nUsed the least squares method to estimate the slope and intercept.\nWe interpreted the slope and intercept.\n\nSlope: For every one unit increase in \\(x\\), we expect y to change by \\(\\hat{\\beta}_1\\) units, on average.\nIntercept: If \\(x\\) is 0, then we expect \\(y\\) to be \\(\\hat{\\beta}_0\\) units\n\nPredicted the response given a value of the predictor variable.\nDefined extrapolation and why we should avoid it.\n\n\n\n\n\n🔗 Week 01"
   },
   {
     "objectID": "about.html",

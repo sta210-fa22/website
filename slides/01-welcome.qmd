@@ -29,16 +29,14 @@ library(rvest)
 
 # Welcome!
 
-------------------------------------------------------------------------
-
 ## Meet the professor
 
 ::: columns
 ::: {.column width="50%"}
-![](images/w01/maria.png){fig-alt="Headshot of Maria Tackett" fig-align="center"}
+![](images/01/maria.png){fig-alt="Headshot of Maria Tackett" fig-align="center"}
 
 ::: center
-**Dr. Maria Tackett (she/her)**
+**Dr. Maria Tackett**
 :::
 :::
 
@@ -184,7 +182,7 @@ A - Yes and No. The course is primarily focused on application; however, we will
 
 ::: columns
 ::: {.column width="50%"}
-![](images/w01/rstudio.png){fig-alt="RStudio logo" fig-align="center" width="75%"}
+![](images/01/rstudio.png){fig-alt="RStudio logo" fig-align="center" width="75%"}
 :::
 
 ::: {.column width="50%"}
@@ -200,7 +198,7 @@ A - Yes and No. The course is primarily focused on application; however, we will
 
 ::: columns
 ::: {.column width="50%"}
-![](images/w01/github.png){fig-alt="GitHub logo" fig-align="center" width="75%"}
+![](images/01/github.png){fig-alt="GitHub logo" fig-align="center" width="75%"}
 :::
 
 ::: {.column width="50%"}

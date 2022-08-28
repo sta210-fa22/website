@@ -22,11 +22,6 @@ knitr:
     width: 200
 ---
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
-library(tidyverse)
-library(rvest)
-```
-
 # Welcome!
 
 ## Meet the professor
@@ -79,7 +74,11 @@ library(rvest)
 
 ## Check in on Ed Discussion!
 
--   Go to the class Ed Discussion: [edstem.org/us/courses/8350/discussion/565405](https://edstem.org/us/courses/8350/discussion/565405) - UPDATE LINK
+-   Go to the class Ed Discussion
+
+    -   [Section 001 (10:15am lecture)](https://edstem.org/us/courses/26900/discussion/1706930)
+
+    -   [Section 002 (3:30pm lecture)](https://edstem.org/us/courses/26900/discussion/1706937)
 
 -   Answer the poll question: **How are you doing?**
 
@@ -90,7 +89,7 @@ library(rvest)
 ::: {style="font-size: 0.85em;"}
 > "In statistical modeling, regression analysis is a set of statistical processes for estimating the relationships among variables. It includes many techniques for modeling and analyzing several variables, when ***the focus is on the relationship between a dependent variable and one or more independent variables (or 'predictors')***. More specifically, regression analysis helps one understand how the typical value of the dependent variable (or 'criterion variable') changes when any one of the independent variables is varied, while the other independent variables are held fixed."
 
-Source: [Wikipedia](https://en.wikipedia.org/wiki/Regression_analysis)
+Source: [Wikipedia](https://en.wikipedia.org/wiki/Regression_analysis) (previous definition)
 :::
 
 # STA 210
@@ -105,13 +104,13 @@ A - Introductory statistics or probability course at Duke
 
 **Q - Will we be doing computing?**
 
-A - Yes. We will use the computing language R
+A - Yes. We will use the computing language R and version control platform GitHub
 
 . . .
 
 **Q - Will we learn the mathematical theory of regression?**
 
-A - Yes and No. The course is primarily focused on application; however, we will discuss some of the mathematics of simple linear regression. There is a new 1-credit course [STA 211: Mathematics of Regression](https://stat.duke.edu/courses/mathematics-regression) to take simultaneously or after this course to dive into more of the mathematics.
+A - Yes and No. The course is primarily focused on application; however, we will discuss some of the mathematics of simple linear regression. There a 0.5-credit course [STA 211: Mathematics of Regression](https://stat.duke.edu/courses/mathematics-regression) to take simultaneously or after this course to dive into more of the mathematics.
 
 ------------------------------------------------------------------------
 
@@ -131,11 +130,13 @@ A - Yes and No. The course is primarily focused on application; however, we will
 
 ::: columns
 ::: {.column width="50%"}
-**Unit 1: Quantitative Response Variables**
+**Unit 1: Quantitative Response Variable**
 
 -   Simple Linear Regression
 
 -   Multiple Linear Regression
+
+<br>
 
 **Unit 2: Categorical Response Variable**
 
@@ -167,14 +168,15 @@ A - Yes and No. The course is primarily focused on application; however, we will
 
 ## Course toolkit
 
--   **Course website**: [sta210-fa21.netlify.app](https://sta210-fa21.netlify.app/)
+-   **Course website**: [sta210-fa22.netlify.app](https://sta210-fa22.netlify.app)
     -   Central hub for the course!
     -   **Tour of the website**
 -   **Sakai**: [sakai.duke.edu](https://sakai.duke.edu)
     -   Gradebook
     -   Announcements
--   **Ed Discussion**: [edstem.org/us/courses/8350/discussion](https://edstem.org/us/courses/8350/discussion/)\]
-    -   Class Q&A and discussion forums
+    -   Gradescope
+-   **Ed Discussion**: [edstem.org/us/courses/26900/discussion](https://edstem.org/us/courses/26900/discussion/)
+    -   Class Q&A and discussion forum
 
 ------------------------------------------------------------------------
 
@@ -215,6 +217,7 @@ A - Yes and No. The course is primarily focused on application; however, we will
 ## Activities: Prepare, Participate, Practice, Perform
 
 ::: small
+::: incremental
 -   **Prepare:** Introduce new content and prepare for lectures by completing the readings (and sometimes watching the videos)
 
 -   **Participate:** Attend and actively participate in lectures and labs, office hours, team meetings
@@ -231,6 +234,7 @@ A - Yes and No. The course is primarily focused on application; however, we will
 
     -   Term project presented during the final exam period
 :::
+:::
 
 ## Grading
 
@@ -244,28 +248,28 @@ A - Yes and No. The course is primarily focused on application; however, we will
 | Application Exercises | 2.5%       |
 | Teamwork              | 2.5%       |
 
-See the [syllabus](../../syllabus.qmd) for details on how the final letter grade will be calculated.
+See the [syllabus](https://sta210-fa22.netlify.app/syllabus.html) for details on how the final letter grade will be calculated.
 
 ## Support
 
--   Attend office hours to meet with a member of the teaching team.
+-   Attend office hours to meet with a member of the teaching team
     -   Full office hours schedule begins Tuesday, September 6
 -   Ask and answer questions on course discussion forum
 -   Use email for questions regarding personal matters and/or grades
--   Read the [Course Support](../../support.qmd) page for more details
+-   Read the [Course Support](https://sta210-fa22.netlify.app/support.html) page for more details
 
 ## Diversity & inclusion
 
 ::: small
 It is my intent that students from all diverse backgrounds and perspectives be well-served by this course, that students' learning needs be addressed both in and out of class, and that the diversity that the students bring to this class be viewed as a resource, strength and benefit.
 
--   If you have a name that differs from those that appear in your official Duke records, please let me know!
+-   If you have a name that differs from those that appear in your official Duke records, please let me know.
 
--   Please let me know your preferred pronouns. You'll also be able to note this in the Getting to know you survey.
+-   Please let me know your preferred pronouns, if you are comfortable sharing.
 
--   If you feel like your performance in the class is being impacted by your experiences outside of class, please don't hesitate to come and talk with me. I want to be a resource for you. If you prefer to speak with someone outside of the course, your advisers and deans are excellent resources.
+-   If you feel like your performance in the class is being impacted by your experiences outside of class, please don't hesitate to come and talk with me. If you prefer to speak with someone outside of the course, your advisers and deans are excellent resources.
 
--   I (like many people) am still in the process of learning about diverse perspectives and identities. If something was said in class (by anyone) that made you feel uncomfortable, please talk to me about it.
+-   I (like many people) am still in the process of learning about diverse perspectives and identities. If something was said or done in class (by anyone) that made you feel uncomfortable, please talk to me about it.
 :::
 
 ## Accessibility
@@ -276,9 +280,9 @@ It is my intent that students from all diverse backgrounds and perspectives be w
 
 # Course policies
 
-## Covid policies
+## COVID policies
 
--   `r emo::ji("mask")` Wear a mask at all times in lectures and labs.
+-   `r emo::ji("mask")` Wear a mask at all times in lectures and labs based on current university policy
 
 -   Read and follow the [university guidelines](https://coronavirus.duke.edu/guidelines-requirements/)
 
@@ -292,7 +296,7 @@ It is my intent that students from all diverse backgrounds and perspectives be w
 
 -   We have policies!
 
--   Read about them in the [syllabus](../../syllabus.qmd) and refer to them as needed
+-   Read about them in the [syllabus](https://sta210-fa22.netlify.app/syllabus.html) and refer to them as needed
 
 -   We'll discuss these more before the first assignments
 
@@ -313,7 +317,7 @@ By participating in this course, you are agreeing that all your work and conduct
 
 Ask if you're not sure if something violates a policy!
 
-# Being successful in STA 210
+# Having a successful semester in STA 210
 
 ## Five tips for success
 
@@ -321,7 +325,7 @@ Ask if you're not sure if something violates a policy!
 
 2.  Ask questions.
 
-3.  Do the homework and lab.
+3.  Do the homeworks and labs and get started on homework early when possible.
 
 4.  Don't procrastinate and don't let a week pass by with lingering questions.
 
@@ -335,25 +339,23 @@ I want to make sure that you learn everything you were hoping to learn from this
 
 -   I want you to learn lots of things from this class, but I primarily want you to stay healthy, balanced, and grounded.
 
-See the [Course Support](../../support.qmd) page for information on Duke's academic and wellness resources.
+See the [Course Support](https://sta210-fa22.netlify.app/support.html) page for information on Duke's academic and wellness resources.
 
 # Questions?
 
 # Let's look at some data!
 
-------------------------------------------------------------------------
+## Application exercise
 
--   Let's take a look at the [Movies budgets vs. revenues](https://sta210-fa21.netlify.app/appex/ae-01-movies.html) analysis. - Move to a GitHub repo
+::: appex
+📋 [AE 01 - Movie Budgets and Revenues](https://sta210-fa22.netlify.app/ae/ae-01-movies.html)
+:::
 
--   You may discuss with your neighbor. (Don't forget to introduce yourself first!)
+# This week
 
--   Type your answers under the **August 23 - Movies** thread on Ed Discussion
+## For this week...
 
-```{r echo = F}
-countdown::countdown(minutes = 5, seconds = 0)
-```
-
-## This week...
+-   Read the syllabus
 
 -   See [Week 01](../../weeks/week-01.qmd) on the schedule for lecture slides, assignments, and readings.
 
@@ -362,4 +364,4 @@ countdown::countdown(minutes = 5, seconds = 0)
     -   [Click here](https://happygitwithr.com/github-acct.html) for information on registering for a GitHub account and choosing a username.
     -   You will go over this in lab this week.
 
--   Read the syllabus
+-   Reserve an [STA 210 Docker Container](https://cmgr.oit.duke.edu/containers)

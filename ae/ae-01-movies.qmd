@@ -35,13 +35,11 @@ movies <- read_csv("https://raw.githubusercontent.com/danielgrijalva/movie-stats
 View the first 10 rows of data.
 
 ```{r}
-movies %>%
+movies |>
   slice(1:10)
 ```
 
 ## Analysis
-
-### Part 1
 
 We begin by looking at how the average gross revenue (`gross`) has changed over time. Since we want to visualize the results, we will choose a few genres of interest for the analysis.
 
@@ -50,10 +48,10 @@ genre_list <- c("Comedy", "Action", "Animation", "Horror")
 ```
 
 ```{r plot-rating, fig.width=10, warning=FALSE}
-movies %>%
-  filter(genre %in% genre_list) %>% 
-  group_by(genre,year) %>%
-  summarise(avg_gross = mean(gross)) %>%
+movies |>
+  filter(genre %in% genre_list) |> 
+  group_by(genre,year) |>
+  summarise(avg_gross = mean(gross)) |>
   ggplot(mapping = aes(x = year, y = avg_gross, color=genre)) +
     geom_point() + 
     geom_line() +
@@ -62,15 +60,13 @@ movies %>%
     scale_color_viridis_d()
 ```
 
-1.  What do you observe from the plot? Type your responses in Ed Discussion.
-
-### Part 2
+*What do you observe from the plot?*
 
 Next, let's see the relationship between a movie's budget and its gross revenue.
 
 ```{r plot-revenue, fig.width=10, warning=FALSE}
-movies %>%
-  filter(genre %in% genre_list, budget > 0) %>% 
+movies |>
+  filter(genre %in% genre_list, budget > 0) |> 
   ggplot(mapping = aes(x=log(budget), y = log(gross), color=genre)) +
   geom_point() +
   geom_smooth(method="lm",se=FALSE) + 
@@ -80,9 +76,17 @@ movies %>%
   scale_color_viridis_d()
 ```
 
+## Exercises
+
 1.  Suppose we fit a regression model for each genre that uses budget to predict gross revenue. What are the signs of the correlation between `budget` and `gross` and the slope in each regression equation?
 
 2.  Suppose we fit the regression model from the previous question. Which genre would you expect to have the smallest residuals, on average (*residual = observed revenue - predicted revenue*)?
+
+    Post your response on ED Discussion.
+
+    -   [Section 001 (10:15am lecture)](https://edstem.org/us/courses/26900/discussion/1706944)
+
+    -   [Section 002 (3:30pm lecture)](https://edstem.org/us/courses/26900/discussion/1706948)
 
 3.  In the remaining time, discuss the following: Notice in the graph above that `budget` and `gross` are log-transformed. Why are the log-transformed values of the variables displayed rather than the original values (in U.S. dollars)?
 
@@ -96,9 +100,9 @@ movies %>%
 Below is a list of genres in the data set:
 
 ```{r}
-movies %>% 
-  arrange(genre) %>% 
-  select(genre) %>%
-  distinct() %>%
+movies |> 
+  arrange(genre) |> 
+  select(genre) |>
+  distinct() |>
   datatable()
 ```

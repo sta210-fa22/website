@@ -290,7 +290,7 @@ It is my intent that students from all diverse backgrounds and perspectives be w
 
 -   We have policies!
 
--   Read about them in the [syllabus](../../syllabus.qmd) and refer back to them as needed
+-   Read about them in the [syllabus](https://sta210-fa22.netlify.app/syllabus.html) and refer back to them as needed
 
 ## Collaboration & sharing code
 

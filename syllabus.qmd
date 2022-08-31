@@ -235,7 +235,7 @@ Regrade requests must be submitted on Gradescope within a week of when an assign
 
 ### Class recordings request
 
-Lectures will be recorded on Panopto and will be made available to students with an excused absence upon request. Videos shared with such students will be available for a week. To request a particular lecture's video, please fill out the form at <https://forms.gle/NUd12PimLvLR1ghM7>.
+Lectures will be recorded on Panopto and will be made available to students with an excused absence upon request. Videos shared with such students will be available for a week. To request a particular lecture's video, please fill out the form at <https://forms.office.com/r/qU8ANXb6tB>.
 
 Please also make sure that any official documentation, such as STINFs, Dean's excuses, NOVAPs, and quarantine/removal from class notices from student health are also uploaded to the form.
 

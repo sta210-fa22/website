@@ -38,6 +38,21 @@ knitr:
 
 -   See [Week 01](https://sta210-fa22.netlify.app/weeks/week-01.html) for lecture notes, readings, AEs, and assignments
 
+## Meet your neighbor
+
+Take a few moments to meet or (reconnect with) your neighbor!
+
+-   Name
+-   Year
+-   Major
+-   A highlight or something that stood out in the first two days of class
+
+```{r}
+#| echo: false
+
+countdown::countdown(minutes = 3, seconds = 0)
+```
+
 ------------------------------------------------------------------------
 
 ![Data science life cycle from [R for Data Science](https://r4ds.had.co.nz) with modifications from *The Art of Statistics: How to Learn from Data*.](images/02/data-analysis-life-cycle.png)
@@ -361,6 +376,12 @@ r &= 0.7814
 :::
 :::
 
+<br>
+
+::: small
+[Click here](https://github.com/sta210-sp20/supplemental-notes/blob/master/slr-derivations.pdf) for details on deriving the equations for slope and intercept.
+:::
+
 ## Estimating the intercept
 
 $$\large{\hat{\beta}_0 = \bar{Y} - \hat{\beta}_1\bar{X}}$$
@@ -385,19 +406,33 @@ $$\large{\hat{\beta}_0 = \bar{Y} - \hat{\beta}_1\bar{X}}$$
 :::
 :::
 
+<br>
+
+::: small
+[Click here](https://github.com/sta210-sp20/supplemental-notes/blob/master/slr-derivations.pdf) for details on deriving the equations for slope and intercept.
+:::
+
 ## Interpretation
 
 ::: appex
+::: midi
 Post your answers to the following questions on Ed Discussion:
 
 -   The slope of the model for predicting audience score from critics score is 0.5187 . Which of the following is the best interpretation of this value?
 
 -   32.3142 is the predicted mean audience score for what type of movies?
 :::
+:::
 
 -   Link for [Section 001 (10:15am lecture)](https://edstem.org/us/courses/26900/discussion/1714178)
 
 -   Link for [Section 002 (3:30pm lecture)](https://edstem.org/us/courses/26900/discussion/1714185)
+
+```{r}
+#| echo: false
+
+countdown::countdown(minutes = 3, seconds = 0)
+```
 
 ## Does it make sense to interpret the intercept?
 

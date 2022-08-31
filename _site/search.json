@@ -462,6 +462,13 @@
     "text": "Announcements\n\nR Resources page updated on the course website\nUpcoming R workshops by Duke Center for Data and Visualization Sciences:\n\n​R for data science: getting started, EDA, data wrangling - Thu, Sep 15 at 1pm\nR for data science: visualization, pivot, join, regression - Thu, Sep 22 at 1pm\n\nPolicyon requesting class recordings\nSee Week 01 for lecture notes, readings, AEs, and assignments"
   },
   {
+    "objectID": "slides/02-slr-intro.html#meet-your-neighbor",
+    "href": "slides/02-slr-intro.html#meet-your-neighbor",
+    "title": "Simple Linear Regression",
+    "section": "Meet your neighbor",
+    "text": "Meet your neighbor\nTake a few moments to meet or (reconnect with) your neighbor!\n\nName\nYear\nMajor\nA highlight or something that stood out in the first two days of class\n\n\n\n\n03:00"
+  },
+  {
     "objectID": "slides/02-slr-intro.html#topics",
     "href": "slides/02-slr-intro.html#topics",
     "title": "Simple Linear Regression",
@@ -592,21 +599,21 @@
     "href": "slides/02-slr-intro.html#estimating-the-slope",
     "title": "Simple Linear Regression",
     "section": "Estimating the slope",
-    "text": "Estimating the slope\n\\[\\large{\\hat{\\beta}_1 = r \\frac{s_Y}{s_X}}\\]\n\n\n\\[\\begin{aligned}\ns_X &= 30.1688 \\\\\ns_Y &=  20.0244 \\\\\nr &= 0.7814\n\\end{aligned}\\]\n\n\\[\\begin{aligned}\n\\hat{\\beta}_1 &= 0.7814 \\times \\frac{20.0244}{30.1688} \\\\\n&= 0.5187\\end{aligned}\\]"
+    "text": "Estimating the slope\n\\[\\large{\\hat{\\beta}_1 = r \\frac{s_Y}{s_X}}\\]\n\n\n\\[\\begin{aligned}\ns_X &= 30.1688 \\\\\ns_Y &=  20.0244 \\\\\nr &= 0.7814\n\\end{aligned}\\]\n\n\\[\\begin{aligned}\n\\hat{\\beta}_1 &= 0.7814 \\times \\frac{20.0244}{30.1688} \\\\\n&= 0.5187\\end{aligned}\\]\n\n\n\n\nClick here for details on deriving the equations for slope and intercept."
   },
   {
     "objectID": "slides/02-slr-intro.html#estimating-the-intercept",
     "href": "slides/02-slr-intro.html#estimating-the-intercept",
     "title": "Simple Linear Regression",
     "section": "Estimating the intercept",
-    "text": "Estimating the intercept\n\\[\\large{\\hat{\\beta}_0 = \\bar{Y} - \\hat{\\beta}_1\\bar{X}}\\]\n\n\n\\[\\begin{aligned}\n&\\bar{x} = 60.8493 \\\\\n&\\bar{y} = 63.8767 \\\\\n&\\hat{\\beta}_1 = 0.5187\n\\end{aligned}\\]\n\n\\[\\begin{aligned}\\hat{\\beta}_0 &= 63.8767 - 0.5187 \\times 60.8493 \\\\\n&= 32.3142\n\\end{aligned}\\]"
+    "text": "Estimating the intercept\n\\[\\large{\\hat{\\beta}_0 = \\bar{Y} - \\hat{\\beta}_1\\bar{X}}\\]\n\n\n\\[\\begin{aligned}\n&\\bar{x} = 60.8493 \\\\\n&\\bar{y} = 63.8767 \\\\\n&\\hat{\\beta}_1 = 0.5187\n\\end{aligned}\\]\n\n\\[\\begin{aligned}\\hat{\\beta}_0 &= 63.8767 - 0.5187 \\times 60.8493 \\\\\n&= 32.3142\n\\end{aligned}\\]\n\n\n\n\nClick here for details on deriving the equations for slope and intercept."
   },
   {
     "objectID": "slides/02-slr-intro.html#interpretation",
     "href": "slides/02-slr-intro.html#interpretation",
     "title": "Simple Linear Regression",
     "section": "Interpretation",
-    "text": "Interpretation\n\nPost your answers to the following questions on Ed Discussion:\n\nThe slope of the model for predicting audience score from critics score is 0.5187 . Which of the following is the best interpretation of this value?\n32.3142 is the predicted mean audience score for what type of movies?\n\n\n\nLink for Section 001 (10:15am lecture)\nLink for Section 002 (3:30pm lecture)"
+    "text": "Interpretation\n\n\nPost your answers to the following questions on Ed Discussion:\n\nThe slope of the model for predicting audience score from critics score is 0.5187 . Which of the following is the best interpretation of this value?\n32.3142 is the predicted mean audience score for what type of movies?\n\n\n\n\nLink for Section 001 (10:15am lecture)\nLink for Section 002 (3:30pm lecture)\n\n\n\n\n03:00"
   },
   {
     "objectID": "slides/02-slr-intro.html#does-it-make-sense-to-interpret-the-intercept",

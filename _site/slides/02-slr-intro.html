@@ -379,6 +379,8 @@
       margin-right: 0; 
     }
   </style>
+  <link href="../site_libs/countdown-0.3.5/countdown.css" rel="stylesheet">
+  <script src="../site_libs/countdown-0.3.5/countdown.js"></script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -402,6 +404,23 @@
 <li><p><a href="https://sta210-fa22.netlify.app/syllabus.html#class-recordings-request">Policy</a>on requesting class recordings</p></li>
 <li><p>See <a href="https://sta210-fa22.netlify.app/weeks/week-01.html">Week 01</a> for lecture notes, readings, AEs, and assignments</p></li>
 </ul>
+</section>
+<section id="meet-your-neighbor" class="slide level2">
+<h2>Meet your neighbor</h2>
+<p>Take a few moments to meet or (reconnect with) your neighbor!</p>
+<ul>
+<li>Name</li>
+<li>Year</li>
+<li>Major</li>
+<li>A highlight or something that stood out in the first two days of class</li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div class="countdown" id="timer_630f65cf" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+</div>
+</div>
 </section>
 <section class="slide level2">
 
@@ -511,12 +530,12 @@ $ fandango_difference        &lt;dbl&gt; 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5,
 <h2>Movie ratings data</h2>
 <p>The data set contains the “Tomatometer” score (<strong><code>critics</code></strong>) and audience score (<strong><code>audience</code></strong>) for 146 movies rated on rottentomatoes.com.</p>
 
-<img data-src="02-slr-intro_files/figure-revealjs/unnamed-chunk-2-1.png" style="width:80.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="02-slr-intro_files/figure-revealjs/unnamed-chunk-3-1.png" style="width:80.0%" class="r-stretch quarto-figure-center"></section>
 <section id="movie-ratings-data-1" class="slide level2">
 <h2>Movie ratings data</h2>
 <p><strong>Goal</strong>: Fit a line to describe the relationship between the critics score and audience score.</p>
 
-<img data-src="02-slr-intro_files/figure-revealjs/unnamed-chunk-3-1.png" style="width:80.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="02-slr-intro_files/figure-revealjs/unnamed-chunk-4-1.png" style="width:80.0%" class="r-stretch quarto-figure-center"></section>
 <section id="why-fit-a-line" class="slide level2">
 <h2>Why fit a line?</h2>
 <p>We fit a line to accomplish one or both of the following:</p>
@@ -548,7 +567,7 @@ $ fandango_difference        &lt;dbl&gt; 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5,
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="02-slr-intro_files/figure-revealjs/unnamed-chunk-4-1.png" style="width:80.0%"></p>
+<p><img data-src="02-slr-intro_files/figure-revealjs/unnamed-chunk-5-1.png" style="width:80.0%"></p>
 </figure>
 </div>
 </div>
@@ -575,7 +594,7 @@ $ fandango_difference        &lt;dbl&gt; 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5,
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="02-slr-intro_files/figure-revealjs/unnamed-chunk-5-1.png" style="width:80.0%"></p>
+<p><img data-src="02-slr-intro_files/figure-revealjs/unnamed-chunk-6-1.png" style="width:80.0%"></p>
 </figure>
 </div>
 </div>
@@ -597,7 +616,7 @@ $ fandango_difference        &lt;dbl&gt; 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5,
 </div><div class="column" style="width:70%;">
 <div class="cell">
 <div class="cell-output-display">
-<p><img data-src="02-slr-intro_files/figure-revealjs/unnamed-chunk-6-1.png" style="width:80.0%"></p>
+<p><img data-src="02-slr-intro_files/figure-revealjs/unnamed-chunk-7-1.png" style="width:80.0%"></p>
 </div>
 </div>
 </div>
@@ -631,11 +650,11 @@ $ fandango_difference        &lt;dbl&gt; 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5,
 <section id="choosing-values-for-hatbeta_1-and-hatbeta_0" class="slide level2">
 <h2>Choosing values for <span class="math inline">\(\hat{\beta}_1\)</span> and <span class="math inline">\(\hat{\beta}_0\)</span></h2>
 
-<img data-src="02-slr-intro_files/figure-revealjs/unnamed-chunk-7-1.png" style="width:80.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="02-slr-intro_files/figure-revealjs/unnamed-chunk-8-1.png" style="width:80.0%" class="r-stretch quarto-figure-center"></section>
 <section id="residuals" class="slide level2">
 <h2>Residuals</h2>
 
-<img data-src="02-slr-intro_files/figure-revealjs/unnamed-chunk-8-1.png" style="width:80.0%" class="r-stretch quarto-figure-center"><p><span class="math display">\[\text{residual} = \text{observed} - \text{predicted} = y - \hat{y}\]</span></p>
+<img data-src="02-slr-intro_files/figure-revealjs/unnamed-chunk-9-1.png" style="width:80.0%" class="r-stretch quarto-figure-center"><p><span class="math display">\[\text{residual} = \text{observed} - \text{predicted} = y - \hat{y}\]</span></p>
 </section>
 <section id="least-squares-line" class="slide level2">
 <h2>Least squares line</h2>
@@ -687,6 +706,10 @@ r &amp;= 0.7814
 &amp;= 0.5187\end{aligned}\]</span>
 </div>
 </div>
+<p><br></p>
+<div class="small">
+<p><a href="https://github.com/sta210-sp20/supplemental-notes/blob/master/slr-derivations.pdf">Click here</a> for details on deriving the equations for slope and intercept.</p>
+</div>
 </section>
 <section id="estimating-the-intercept" class="slide level2">
 <h2>Estimating the intercept</h2>
@@ -704,20 +727,33 @@ r &amp;= 0.7814
 \end{aligned}\]</span>
 </div>
 </div>
+<p><br></p>
+<div class="small">
+<p><a href="https://github.com/sta210-sp20/supplemental-notes/blob/master/slr-derivations.pdf">Click here</a> for details on deriving the equations for slope and intercept.</p>
+</div>
 </section>
 <section id="interpretation" class="slide level2">
 <h2>Interpretation</h2>
 <div class="appex">
+<div class="midi">
 <p>Post your answers to the following questions on Ed Discussion:</p>
 <ul>
 <li><p>The slope of the model for predicting audience score from critics score is 0.5187 . Which of the following is the best interpretation of this value?</p></li>
 <li><p>32.3142 is the predicted mean audience score for what type of movies?</p></li>
 </ul>
 </div>
+</div>
 <ul>
 <li><p>Link for <a href="https://edstem.org/us/courses/26900/discussion/1714178">Section 001 (10:15am lecture)</a></p></li>
 <li><p>Link for <a href="https://edstem.org/us/courses/26900/discussion/1714185">Section 002 (3:30pm lecture)</a></p></li>
 </ul>
+<div class="cell">
+<div class="cell-output-display">
+<div class="countdown" id="timer_630f6468" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+</div>
+</div>
 </section>
 <section id="does-it-make-sense-to-interpret-the-intercept" class="slide level2">
 <h2>Does it make sense to interpret the intercept?</h2>
@@ -752,7 +788,7 @@ r &amp;= 0.7814
 <p>Using the model to predict for values outside the range of the original data is <strong>extrapolation</strong>.</p>
 </div>
 
-<img data-src="02-slr-intro_files/figure-revealjs/unnamed-chunk-10-1.png" style="width:55.0%" class="r-stretch quarto-figure-center"><div class="fragment">
+<img data-src="02-slr-intro_files/figure-revealjs/unnamed-chunk-12-1.png" style="width:55.0%" class="r-stretch quarto-figure-center"><div class="fragment">
 <div style="font-size: 0.80em;">
 <p>Suppose that a movie has a critics score of 0. According to this model, what is the movie’s predicted audience score?</p>
 </div>

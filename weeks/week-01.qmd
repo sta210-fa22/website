@@ -18,11 +18,11 @@ title-block-style: none
 
 # Participate
 
-| Topic                                                  | Date        |
-|--------------------------------------------------------|-------------|
-| 💻 [Welcome to STA 210!](../slides/01-welcome.qmd)     | Aug 29      |
-| [Simple Linear Regression](../slides/02-slr-intro.qmd) | Aug 31      |
-| Lab 00                                                 | Sep 01 & 02 |
+| Topic                                                     | Date        |
+|-----------------------------------------------------------|-------------|
+| 💻 [Welcome to STA 210!](../slides/01-welcome.qmd)        | Aug 29      |
+| 💻 [Simple Linear Regression](../slides/02-slr-intro.qmd) | Aug 31      |
+| Lab 00                                                    | Sep 01 & 02 |
 
 # Practice
 

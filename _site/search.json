@@ -95,7 +95,7 @@
     "href": "weeks/week-01.html",
     "title": "Week 01",
     "section": "",
-    "text": "Participate\n\n\n\n\n\n\n\nTopic\nDate\n\n\n\n\n💻 Welcome to STA 210!\nAug 29\n\n\nSimple Linear Regression\nAug 31\n\n\nLab 00\nSep 01 & 02\n\n\n\n\n\nPractice\n\n\n\n\n\n\n📋 AE 01-Movie Budgets\n\n\n\n\n\nPerform\n\n\n\n\n\n\n\n📝 Complete STA 210 Student Survey\ndue Fri, Sep 02 at 11:59pm\n\n\n📝 Reserve STA 210 RStudio Docker Container\nMon, Sep 05 at the beginning of class"
+    "text": "Participate\n\n\n\n\n\n\n\nTopic\nDate\n\n\n\n\n💻 Welcome to STA 210!\nAug 29\n\n\n💻 Simple Linear Regression\nAug 31\n\n\nLab 00\nSep 01 & 02\n\n\n\n\n\nPractice\n\n\n\n\n\n\n📋 AE 01-Movie Budgets\n\n\n\n\n\nPerform\n\n\n\n\n\n\n\n📝 Complete STA 210 Student Survey\ndue Fri, Sep 02 at 11:59pm\n\n\n📝 Reserve STA 210 RStudio Docker Container\nMon, Sep 05 at the beginning of class"
   },
   {
     "objectID": "weeks/week-15.html",
@@ -459,7 +459,7 @@
     "href": "slides/02-slr-intro.html#announcements",
     "title": "Simple Linear Regression",
     "section": "Announcements",
-    "text": "Announcements\n\nR Resources page updated on the course website\nUpcoming R workshops by Duke Center for Data and Visualization Sciences:\n\n​R for data science: getting started, EDA, data wrangling - Thu, Sep 15 at 1pm\nR for data science: visualization, pivot, join, regression - Thu, Sep 22 at 1pm\n\nPolicy on requesting class recordings\nSee Week 01 for lecture notes, readings, AEs, and assignments"
+    "text": "Announcements\n\nR Resources page updated on the course website\nUpcoming R workshops by Duke Center for Data and Visualization Sciences:\n\n​R for data science: getting started, EDA, data wrangling - Thu, Sep 15 at 1pm\nR for data science: visualization, pivot, join, regression - Thu, Sep 22 at 1pm\n\nPolicyon requesting class recordings\nSee Week 01 for lecture notes, readings, AEs, and assignments"
   },
   {
     "objectID": "slides/02-slr-intro.html#topics",

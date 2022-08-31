@@ -34,7 +34,7 @@ knitr:
 
     -   [R for data science: visualization, pivot, join, regression](https://urldefense.com/v3/__https://duke.libcal.com/event/9417981__;!!OToaGQ!vb6glowcEQHXdyMEU-stpi2jCuIXR6ZsvaFiyV35PYP3tXbCy07HOi_5UM4XKfT3nRZLzMwfOUykBYJ8b5Gy$ "https://urldefense.com/v3/__https://duke.libcal.com/event/9417981__;!!OToaGQ!vb6glowcEQHXdyMEU-stpi2jCuIXR6ZsvaFiyV35PYP3tXbCy07HOi_5UM4XKfT3nRZLzMwfOUykBYJ8b5Gy$") **- Thu, Sep 22 at 1pm**
 
--   Policy on requesting class recordings
+-   [Policy](https://sta210-fa22.netlify.app/syllabus.html#class-recordings-request)on requesting class recordings
 
 -   See [Week 01](https://sta210-fa22.netlify.app/weeks/week-01.html) for lecture notes, readings, AEs, and assignments
 

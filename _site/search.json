@@ -602,11 +602,11 @@
     "text": "Estimating the intercept\n\\[\\large{\\hat{\\beta}_0 = \\bar{Y} - \\hat{\\beta}_1\\bar{X}}\\]\n\n\n\\[\\begin{aligned}\n&\\bar{x} = 60.8493 \\\\\n&\\bar{y} = 63.8767 \\\\\n&\\hat{\\beta}_1 = 0.5187\n\\end{aligned}\\]\n\n\\[\\begin{aligned}\\hat{\\beta}_0 &= 63.8767 - 0.5187 \\times 60.8493 \\\\\n&= 32.3142\n\\end{aligned}\\]"
   },
   {
-    "objectID": "slides/02-slr-intro.html#poll-interpretation",
-    "href": "slides/02-slr-intro.html#poll-interpretation",
+    "objectID": "slides/02-slr-intro.html#interpretation",
+    "href": "slides/02-slr-intro.html#interpretation",
     "title": "Simple Linear Regression",
-    "section": "Poll: Interpretation",
-    "text": "Poll: Interpretation\n\\[\\hat{\\text{audience}} = 32.3142 + 0.5187 \\times \\text{critics}\\]"
+    "section": "Interpretation",
+    "text": "Interpretation\n\nPost your answers to the following questions on Ed Discussion:\n\nThe slope of the model for predicting audience score from critics score is 0.5187 . Which of the following is the best interpretation of this value?\n32.3142 is the predicted mean audience score for what type of movies?\n\n\n\nLink for Section 001 (10:15am lecture)\nLink for Section 002 (3:30pm lecture)"
   },
   {
     "objectID": "slides/02-slr-intro.html#does-it-make-sense-to-interpret-the-intercept",

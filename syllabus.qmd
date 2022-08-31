@@ -2,7 +2,7 @@
 title: Syllabus
 ---
 
-Click here to download a PDF of the syllabus.
+[**Click here**](sta210-fa22-syllabus.pdf) **to download a PDF of the syllabus.**
 
 ## Course info
 
@@ -120,7 +120,7 @@ One homework assignment will be dedicated to a *statistics experience*. The stat
 
 ### Exams
 
-There will be two take-home, open-note exams. Through these exams you have the opportunity to demonstrate what you've learned in the course thus far. The exams will focus on both conceptual understanding of the content and application through anaylsis and computational tasks. The content of the exam will be related to the content in reading assignments, lectures, application exercises, homeworks, and labs. More detail about the exams will be given during the semester.
+There will be two take-home, open-note exams. Through these exams you have the opportunity to demonstrate what you've learned in the course thus far. The exams will focus on both conceptual understanding of the content and application through analysis and computational tasks. The content of the exam will be related to the content in reading assignments, lectures, application exercises, homeworks, and labs. More detail about the exams will be given during the semester.
 
 ### Project
 
@@ -195,7 +195,7 @@ To uphold the Duke Community Standard, students agree:
 > -   I will conduct myself honorably in all my endeavors;and
 > -   I will act if the Standard is compromised.
 
-Regardless ofcourse delivery format, itis the responsibility of all students to understand and followallDuke policies, includingacademic integrity(e.g., completingone's own work, following proper citation of sources,adhering to guidance around group work projects,and more).Ignoring these requirements is a violation of the Duke Community Standard. Any questions and/or concerns regarding academic integrity can be directed to the Office of Student Conduct and Community Standards at [conduct\@duke.edu](mailto:conduct@duke.edu).
+Regardless of course delivery format, it is the responsibility of all students to understand and follow all Duke policies, including academic integrity(e.g., completing one's own work, following proper citation of sources,adhering to guidance around group work projects,and more).Ignoring these requirements is a violation of the Duke Community Standard. Any questions and/or concerns regarding academic integrity can be directed to the Office of Student Conduct and Community Standards at [conduct\@duke.edu](mailto:conduct@duke.edu).
 
 ### Collaboration policy
 
@@ -233,23 +233,19 @@ Regrade requests must be submitted on Gradescope within a week of when an assign
 
 *No grades will be changed after the final project presentations.*
 
+### Class recordings request
+
+Lectures will be recorded on Panopto and will be made available to students with an excused absence upon request. Videos shared with such students will be available for a week. To request a particular lecture's video, please fill out the form at <https://forms.gle/NUd12PimLvLR1ghM7>.
+
+Please also make sure that any official documentation, such as STINFs, Dean's excuses, NOVAPs, and quarantine/removal from class notices from student health are also uploaded to the form.
+
+About one week before each exam, the class recordings will be available to all students. These videos will be available until the exam deadline.\
+
 ### Attendance policy
 
-Responsibility for class attendance rests with individual students. Since regular and punctual class attendance is expected, students must accept the consequences of not attending. More details on Trinity attendance policies are available [here](https://trinity.duke.edu/undergraduate/academic-policies/class-attendance-and-missed-work).
+-   **COVID Symptoms, Exposure, or Infection:** Student health, safety, and well-being are the university's top priorities. To help ensure your well-being and the well-being of those around you, please do not come to class if you have tested positive for COVID-19or have possible symptoms and have not yet been tested.If any of these situations apply to you, you must follow university guidance related to the ongoing COVID-19 pandemic and current health and safety protocols. If you are experiencing any COVID-19 symptoms, [contact student health](https://coronavirus.duke.edu/testing/#symptomatic-testing) ([dshcheckin\@duke.edu](mailto:dshcheckin@duke.edu), 919-681-9355). Learn more about current university policy related to COVID-19 at [coronavirus.duke.edu](https://coronavirus.duke.edu/).
 
-However, there may be many reasons why you cannot be in class on a given day, particularly with possible extra personal and academic stress and health concerns this semester. If you miss a lecture, make sure to review the lecture notes and complete the application exercise (if applicable that day) before the next class session.
-
-Lab time is dedicated to working on your lab assignments and collaborating with your teammates on your project. If you miss a lab session, make sure to communicate with your team about how you can make up your contribution. Given the technologies we use in the course, this is straightforward to do asynchronously. If you know you're going to miss a lab session and you're feeling well enough to do so, notify your teammates ahead of time. Overall these policies are put in place to ensure communication between team members, respect for each others' time, and also to give you a safety net in the case of illness or other reasons that keep you away from attending class.
-
-### Attendance Policy Related to COVID Symptoms, Exposure, or Infection
-
-Student health, safety, and well-being are the university's top priorities. To help ensure your well-being and the well-being of those around you, please do not come to classif you have tested positive for COVID-19or have possible symptoms and have not yet been tested.If any of these situations apply to you, you must follow university guidance related to the ongoing COVID-19 pandemic and current health and safety protocols. If you are experiencing any COVID-19 symptoms, [contact student health](https://coronavirus.duke.edu/testing/#symptomatic-testing) ([dshcheckin\@duke.edu](mailto:dshcheckin@duke.edu), 919-681-9355). Learn more about current university policy related to COVID-19 at [coronavirus.duke.edu](https://coronavirus.duke.edu/).
-
-To keep the university community as safe and healthy as possible, you will be expected to follow these guidelines. Please reach out to me and your academic dean as soon as possible if you need to quarantine or isolate so that we can discuss arrangements for your continued participationin class.
-
-## Religious accommodations
-
-Students are permitted by university policy to be absent from class to observe a religious holiday. Accordingly, Trinity College of Arts & Sciences and the Pratt School of Engineering have established procedures to be followed by students for notifying their instructors of an absence necessitated by the observance of a religious holiday. Please submit requests for religious accommodations at the beginning of the semester so that we can work to make suitablearrangements well ahead of time. You can find the policy and relevant notification form here: [trinity.duke.edu/undergraduate/academic-policies/religious-holidays](https://trinity.duke.edu/undergraduate/academic-policies/religious-holidays)\
+-   **Religious accommodations:** Students are permitted by university policy to be absent from class to observe a religious holiday. Accordingly, Trinity College of Arts & Sciences and the Pratt School of Engineering have established procedures to be followed by students for notifying their instructors of an absence necessitated by the observance of a religious holiday. Please submit requests for religious accommodations at the beginning of the semester so that we can work to make suitable arrangements well ahead of time. You can find the policy and relevant notification form here: [trinity.duke.edu/undergraduate/academic-policies/religious-holidays](https://trinity.duke.edu/undergraduate/academic-policies/religious-holidays)\
 
 ## Academic and wellness support
 
@@ -259,7 +255,7 @@ There are times may need help with the class that is beyond what can be provided
 
 ### CAPS
 
-[Duke Counseling & Pyschological Services (CAPS)](https://studentaffairs.duke.edu/caps) helps Duke Students enhance strengths and develop abilities to successfully live, grow and learn in their personal and academic lives. CAPS recognizes that we are living in unprecedented times and that the changes, challenges and stressors brought on by the COVID-19 pandemic have impacted everyone, often in ways that are tax our well-being. CAPS offers many services to Duke undergraduate students, including brief individual and group counseling, couples counseling and more. CAPS staff also provides outreach to student groups, particularly programs supportive of at-risk populations, on a wide range of issues impacting them in various aspects of campus life. CAPS provides services to students via Telehealth. To initiate services, you can contact their front desk at 919-660-1000.
+[Duke Counseling & Psychological Services (CAPS)](https://studentaffairs.duke.edu/caps) helps Duke Students enhance strengths and develop abilities to successfully live, grow and learn in their personal and academic lives. CAPS recognizes that we are living in unprecedented times and that the changes, challenges and stressors brought on by the COVID-19 pandemic have impacted everyone, often in ways that are tax our well-being. CAPS offers many services to Duke undergraduate students, including brief individual and group counseling, couples counseling and more. CAPS staff also provides outreach to student groups, particularly programs supportive of at-risk populations, on a wide range of issues impacting them in various aspects of campus life. CAPS provides services to students via Telehealth. To initiate services, you can contact their front desk at 919-660-1000.
 
 ## Important dates
 

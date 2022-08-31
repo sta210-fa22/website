@@ -24,8 +24,27 @@ knitr:
     width: 200
 ---
 
+## Announcements
+
+-   [R Resources](https://sta210-fa22.netlify.app/computing-r-resources.html) page updated on the course website
+
+-   Upcoming R workshops by Duke Center for Data and Visualization Sciences:
+
+    -   [​R for data science: getting started, EDA, data wrangling](https://urldefense.com/v3/__https://duke.libcal.com/event/9417980__;!!OToaGQ!vb6glowcEQHXdyMEU-stpi2jCuIXR6ZsvaFiyV35PYP3tXbCy07HOi_5UM4XKfT3nRZLzMwfOUykBTAP-19e$ "https://urldefense.com/v3/__https://duke.libcal.com/event/9417980__;!!OToaGQ!vb6glowcEQHXdyMEU-stpi2jCuIXR6ZsvaFiyV35PYP3tXbCy07HOi_5UM4XKfT3nRZLzMwfOUykBTAP-19e$") **- Thu, Sep 15 at 1pm**
+
+    -   [R for data science: visualization, pivot, join, regression](https://urldefense.com/v3/__https://duke.libcal.com/event/9417981__;!!OToaGQ!vb6glowcEQHXdyMEU-stpi2jCuIXR6ZsvaFiyV35PYP3tXbCy07HOi_5UM4XKfT3nRZLzMwfOUykBYJ8b5Gy$ "https://urldefense.com/v3/__https://duke.libcal.com/event/9417981__;!!OToaGQ!vb6glowcEQHXdyMEU-stpi2jCuIXR6ZsvaFiyV35PYP3tXbCy07HOi_5UM4XKfT3nRZLzMwfOUykBYJ8b5Gy$") **- Thu, Sep 22 at 1pm**
+
+-   Policy on requesting class recordings
+
+-   See [Week 01](https://sta210-fa22.netlify.app/weeks/week-01.html) for lecture notes, readings, AEs, and assignments
+
+------------------------------------------------------------------------
+
+![Data science life cycle from [R for Data Science](https://r4ds.had.co.nz) with modifications from *The Art of Statistics: How to Learn from Data*.](images/02/data-analysis-life-cycle.png)
+
 ## Topics
 
+::: incremental
 -   Use simple linear regression to describe the relationship between a quantitative predictor and quantitative response variable.
 
 -   Estimate the slope and intercept of the regression line using the least squares method.
@@ -35,6 +54,7 @@ knitr:
 -   Predict the response given a value of the predictor variable.
 
 -   Defined extrapolation and why we should avoid it.
+:::
 
 ## Computation set up
 
@@ -64,7 +84,7 @@ knitr::opts_chunk$set(
 
 ::: columns
 ::: {.column width="70%"}
--   Data behind the FiveThirtyEight story [*Be Suspicious Of Online Movie Ratings, Especially Fandango's*](%22Be%20Suspicious%20Of%20Online%20Movie%20Ratings,%20Especially%20Fandango's%22)
+-   Data behind the FiveThirtyEight story [*Be Suspicious Of Online Movie Ratings*](https://fivethirtyeight.com/features/fandango-movies-ratings/)[*, Especially Fandango's*](%22Be%20Suspicious%20Of%20Online%20Movie%20Ratings,%20Especially%20Fandango's%22)
 -   In the **fivethirtyeight** package: [`fandango`](https://fivethirtyeight-r.netlify.app/reference/fandango.html)
 -   Contains every film that has at least 30 fan reviews on Fandango, an IMDb score, Rotten Tomatoes critic and user ratings, and Metacritic critic and user scores
 :::
@@ -114,7 +134,7 @@ ggplot(data = movie_scores, mapping = aes(x = critics, y = audience)) +
 
 ## Movie ratings data
 
-**Goal**: Fit a line to \<describe the relationship between the critics score and audience score.
+**Goal**: Fit a line to describe the relationship between the critics score and audience score.
 
 ```{r}
 #| echo: false
@@ -128,7 +148,25 @@ p <- ggplot(data = movie_scores, mapping = aes(x = critics, y = audience)) +
 p
 ```
 
-------------------------------------------------------------------------
+## Why fit a line?
+
+We fit a line to accomplish one or both of the following:
+
+. . .
+
+::: {style="color: #799100"}
+**Prediction**
+:::
+
+What is the audience score expected to be for an upcoming movie that received 35% from the critics?\
+
+. . .
+
+::: {style="color : #799100"}
+**Inference**
+:::
+
+Is the critics score a useful predictor of the audience score? By how much is the audience score expected to change for each additional point in the critics score?\
 
 ## Terminology
 
@@ -136,7 +174,7 @@ p
 ::: {.column width="30%"}
 -   **Response, *Y***: variable describing the outcome of interest
 
--   **Predictor, *X***: variable we use to help understand the variability in the response.
+-   **Predictor, *X***: variable we use to help understand the variability in the response
 :::
 
 ::: {.column width="70%"}
@@ -152,18 +190,20 @@ p
 
 A **regression model** is a function that describes the relationship between the response, $Y$, and the predictor, $X$.
 
+```{=tex}
 \begin{aligned} Y &= \color{black}{\textbf{Model}} + \text{Error} \\[8pt]
 &= \color{black}{\mathbf{f(X)}} + \epsilon \\[8pt]
 &= \color{black}{\boldsymbol{\mu_{Y|X}}} + \epsilon \end{aligned}
-
-## Regression model 
+```
+## Regression model
 
 ::: columns
-
 ::: {.column width="30%"}
+```{=tex}
 \begin{aligned} Y &= \color{purple}{\textbf{Model}} + \text{Error} \\[8pt]
 &= \color{purple}{\mathbf{f(X)}} + \epsilon \\[8pt]
 &= \color{purple}{\boldsymbol{\mu_{Y|X}}} + \epsilon \end{aligned}
+```
 :::
 
 ::: {.column width="70%"}
@@ -180,7 +220,9 @@ p +
 :::
 :::
 
-## Regression model 
+$\mu_{Y|X}$ is the mean value of $Y$ given a particular value of $X$.
+
+## Regression model
 
 ::: columns
 ::: {.column width="30%"}
@@ -218,9 +260,9 @@ When we have a quantitative response, $Y$, and a single quantitative predictor, 
 
 -   $\beta_1$: True slope of the relationship between $X$ and $Y$
 -   $\beta_0$: True intercept of the relationship between $X$ and $Y$
--   $\epsilon$: Error (residual)
+-   $\epsilon$: Error
 
-## Simple linear regression 
+## Simple linear regression
 
 $$\Large{\hat{Y} = \hat{\beta}_0 + \hat{\beta}_1 X}$$
 
@@ -228,7 +270,7 @@ $$\Large{\hat{Y} = \hat{\beta}_0 + \hat{\beta}_1 X}$$
 -   $\hat{\beta}_0$: Estimated intercept of the relationship between $X$ and $Y$
 -   No error term!
 
-## Choosing values for $\hat{\beta}_1$ and  $\hat{\beta}_0$
+## Choosing values for $\hat{\beta}_1$ and $\hat{\beta}_0$
 
 ```{r}
 #| echo: false
@@ -285,6 +327,7 @@ ybar <- round(mean(movie_scores$audience),4)
 
 ## Properties of least squares regression
 
+::: incremental
 -   The regression line goes through the center of mass point, the coordinates corresponding to average $X$ and average $Y$: $\hat{\beta}_0 = \bar{Y} - \hat{\beta}_1\bar{X}$
 
 -   The slope has the same sign as the correlation coefficient: $\hat{\beta}_1 = r \frac{s_Y}{s_X}$
@@ -292,6 +335,7 @@ ybar <- round(mean(movie_scores$audience),4)
 -   The sum of the residuals is zero: $\sum_{i = 1}^n \epsilon_i = 0$
 
 -   The residuals and $X$ values are uncorrelated
+:::
 
 ## Estimating the slope
 
@@ -299,17 +343,21 @@ $$\large{\hat{\beta}_1 = r \frac{s_Y}{s_X}}$$
 
 ::: columns
 ::: {.column width="50%"}
+```{=tex}
 \begin{aligned} 
 s_X &= 30.1688 \\
 s_Y &=  20.0244 \\
 r &= 0.7814
 \end{aligned}
+```
 :::
 
 ::: {.column width="50%"}
+```{=tex}
 \begin{aligned}
 \hat{\beta}_1 &= 0.7814 \times \frac{20.0244}{30.1688} \\
 &= 0.5187\end{aligned}
+```
 :::
 :::
 
@@ -319,23 +367,31 @@ $$\large{\hat{\beta}_0 = \bar{Y} - \hat{\beta}_1\bar{X}}$$
 
 ::: columns
 ::: {.column width="50%"}
+```{=tex}
 \begin{aligned}
 &\bar{x} = 60.8493 \\
 &\bar{y} = 63.8767 \\
 &\hat{\beta}_1 = 0.5187
 \end{aligned}
+```
 :::
 
 ::: {.column width="50%"}
+```{=tex}
 \begin{aligned}\hat{\beta}_0 &= 63.8767 - 0.5187 \times 60.8493 \\
 &= 32.3142
 \end{aligned}
+```
 :::
 :::
 
-## Poll:  Interpreting the slope 
+## Poll: Interpretation
+
+$$\hat{\text{audience}} = 32.3142 + 0.5187 \times \text{critics}$$
 
 ## Does it make sense to interpret the intercept?
+
+. . .
 
 `r emo::ji("white_check_mark")` **The intercept is meaningful in the context of the data if**
 
@@ -347,41 +403,24 @@ $$\large{\hat{\beta}_0 = \bar{Y} - \hat{\beta}_1\bar{X}}$$
 
 `r emo::ji("stop_sign")` Otherwise, the intercept may not be meaningful!
 
-## Interpreting the slope & intercept 
-
-$$\hat{\text{audience}} = 32.296 + 0.518 \times \text{critics}$$
-
-. . .
-
-::: incremental
--   **Slope**: For every one point increase in the critics score, we expect the audience score to increase by 0.518 points, on average.
-
--   **Intercept**: If the critics score is 0 points, we expect the audience score to be 32.296 points.
-
-    -   Is the intercept meaningful?
-:::
-
 # Prediction
 
-## Making a prediction - UPDATE THE MATH
+## Making a prediction
 
 Suppose that a movie has a critics score of 70. According to this model, what is the movie's predicted audience score?
 
-$$
+```{=tex}
 \begin{aligned}
 \widehat{\text{audience}} &= 32.3142 + 0.5187 \times \text{critics} \\
-&= 32.3142 + 0.5187 \times 50 \\
-&= 58.2492
+&= 32.3142 + 0.5187 \times 70 \\
+&= 68.6232
 \end{aligned}
-$$
-
+```
 ## `r emo::ji("warning")` Extrapolation
 
 ::: {style="font-size: 0.80em;"}
 Using the model to predict for values outside the range of the original data is **extrapolation**.
 :::
-
-. . .
 
 ```{r}
 #| echo: false
@@ -391,11 +430,13 @@ Using the model to predict for values outside the range of the original data is 
 p + coord_cartesian(xlim = c(0, 100))
 ```
 
+. . .
+
 ::: {style="font-size: 0.80em;"}
 Suppose that a movie has a critics score of 0. According to this model, what is the movie's predicted audience score?
 :::
 
-# Recap
+# Wrap up
 
 ## Recap
 
@@ -413,3 +454,11 @@ Suppose that a movie has a critics score of 0. According to this model, what is 
 
 -   Defined extrapolation and why we should avoid it.
 :::
+
+## Next class
+
+We will talk about fitting linear models in R with [tidymodels.](https://www.tidymodels.org/)
+
+-   Reserve [STA 210 Docker Container](https://cmgr.oit.duke.edu/containers) before Monday's lecture
+
+-   Complete the [STA 210 Student Survey](https://duke.qualtrics.com/jfe/form/SV_cGV5IKoeadWR59s) (will ask for a GitHub username) by **Friday at 11:59pm**

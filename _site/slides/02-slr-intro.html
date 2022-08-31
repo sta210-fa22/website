@@ -390,15 +390,34 @@
   <p class="date">Aug 31, 2022</p>
 </section>
 
+<section id="announcements" class="slide level2">
+<h2>Announcements</h2>
+<ul>
+<li><p><a href="https://sta210-fa22.netlify.app/computing-r-resources.html">R Resources</a> page updated on the course website</p></li>
+<li><p>Upcoming R workshops by Duke Center for Data and Visualization Sciences:</p>
+<ul>
+<li><p><a href="https://urldefense.com/v3/__https://duke.libcal.com/event/9417980__;!!OToaGQ!vb6glowcEQHXdyMEU-stpi2jCuIXR6ZsvaFiyV35PYP3tXbCy07HOi_5UM4XKfT3nRZLzMwfOUykBTAP-19e$" title="https://urldefense.com/v3/__https://duke.libcal.com/event/9417980__;!!OToaGQ!vb6glowcEQHXdyMEU-stpi2jCuIXR6ZsvaFiyV35PYP3tXbCy07HOi_5UM4XKfT3nRZLzMwfOUykBTAP-19e$">​R for data science: getting started, EDA, data wrangling</a> <strong>- Thu, Sep 15 at 1pm</strong></p></li>
+<li><p><a href="https://urldefense.com/v3/__https://duke.libcal.com/event/9417981__;!!OToaGQ!vb6glowcEQHXdyMEU-stpi2jCuIXR6ZsvaFiyV35PYP3tXbCy07HOi_5UM4XKfT3nRZLzMwfOUykBYJ8b5Gy$" title="https://urldefense.com/v3/__https://duke.libcal.com/event/9417981__;!!OToaGQ!vb6glowcEQHXdyMEU-stpi2jCuIXR6ZsvaFiyV35PYP3tXbCy07HOi_5UM4XKfT3nRZLzMwfOUykBYJ8b5Gy$">R for data science: visualization, pivot, join, regression</a> <strong>- Thu, Sep 22 at 1pm</strong></p></li>
+</ul></li>
+<li><p>Policy on requesting class recordings</p></li>
+<li><p>See <a href="https://sta210-fa22.netlify.app/weeks/week-01.html">Week 01</a> for lecture notes, readings, AEs, and assignments</p></li>
+</ul>
+</section>
+<section class="slide level2">
+
+
+<img data-src="images/02/data-analysis-life-cycle.png" class="r-stretch quarto-figure-center"><p class="caption">Data science life cycle from <a href="https://r4ds.had.co.nz">R for Data Science</a> with modifications from <em>The Art of Statistics: How to Learn from Data</em>.</p></section>
 <section id="topics" class="slide level2">
 <h2>Topics</h2>
+<div>
 <ul>
-<li><p>Use simple linear regression to describe the relationship between a quantitative predictor and quantitative response variable.</p></li>
-<li><p>Estimate the slope and intercept of the regression line using the least squares method.</p></li>
-<li><p>Interpret the slope and intercept of the regression line.</p></li>
-<li><p>Predict the response given a value of the predictor variable.</p></li>
-<li><p>Defined extrapolation and why we should avoid it.</p></li>
+<li class="fragment"><p>Use simple linear regression to describe the relationship between a quantitative predictor and quantitative response variable.</p></li>
+<li class="fragment"><p>Estimate the slope and intercept of the regression line using the least squares method.</p></li>
+<li class="fragment"><p>Interpret the slope and intercept of the regression line.</p></li>
+<li class="fragment"><p>Predict the response given a value of the predictor variable.</p></li>
+<li class="fragment"><p>Defined extrapolation and why we should avoid it.</p></li>
 </ul>
+</div>
 </section>
 <section id="computation-set-up" class="slide level2">
 <h2>Computation set up</h2>
@@ -431,7 +450,7 @@
 <div class="columns">
 <div class="column" style="width:70%;">
 <ul>
-<li>Data behind the FiveThirtyEight story <a href="%22Be%20Suspicious%20Of%20Online%20Movie%20Ratings,%20Especially%20Fandango's%22"><em>Be Suspicious Of Online Movie Ratings, Especially Fandango’s</em></a></li>
+<li>Data behind the FiveThirtyEight story <a href="https://fivethirtyeight.com/features/fandango-movies-ratings/"><em>Be Suspicious Of Online Movie Ratings</em></a><a href="%22Be%20Suspicious%20Of%20Online%20Movie%20Ratings,%20Especially%20Fandango's%22"><em>, Especially Fandango’s</em></a></li>
 <li>In the <strong>fivethirtyeight</strong> package: <a href="https://fivethirtyeight-r.netlify.app/reference/fandango.html"><code>fandango</code></a></li>
 <li>Contains every film that has at least 30 fan reviews on Fandango, an IMDb score, Rotten Tomatoes critic and user ratings, and Metacritic critic and user scores</li>
 </ul>
@@ -495,16 +514,34 @@ $ fandango_difference        &lt;dbl&gt; 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5,
 <img data-src="02-slr-intro_files/figure-revealjs/unnamed-chunk-2-1.png" style="width:80.0%" class="r-stretch quarto-figure-center"></section>
 <section id="movie-ratings-data-1" class="slide level2">
 <h2>Movie ratings data</h2>
-<p><strong>Goal</strong>: Fit a line to &lt;describe the relationship between the critics score and audience score.</p>
+<p><strong>Goal</strong>: Fit a line to describe the relationship between the critics score and audience score.</p>
 
 <img data-src="02-slr-intro_files/figure-revealjs/unnamed-chunk-3-1.png" style="width:80.0%" class="r-stretch quarto-figure-center"></section>
+<section id="why-fit-a-line" class="slide level2">
+<h2>Why fit a line?</h2>
+<p>We fit a line to accomplish one or both of the following:</p>
+<div class="fragment">
+<div style="color: #799100">
+<p><strong>Prediction</strong></p>
+</div>
+<p>What is the audience score expected to be for an upcoming movie that received 35% from the critics?<br>
+</p>
+</div>
+<div class="fragment">
+<div style="color : #799100">
+<p><strong>Inference</strong></p>
+</div>
+<p>Is the critics score a useful predictor of the audience score? By how much is the audience score expected to change for each additional point in the critics score?<br>
+</p>
+</div>
+</section>
 <section id="terminology" class="slide level2">
 <h2>Terminology</h2>
 <div class="columns">
 <div class="column" style="width:30%;">
 <ul>
 <li><p><strong>Response, <em>Y</em></strong>: variable describing the outcome of interest</p></li>
-<li><p><strong>Predictor, <em>X</em></strong>: variable we use to help understand the variability in the response.</p></li>
+<li><p><strong>Predictor, <em>X</em></strong>: variable we use to help understand the variability in the response</p></li>
 </ul>
 </div><div class="column" style="width:70%;">
 <div class="cell" data-layout-align="center">
@@ -545,6 +582,7 @@ $ fandango_difference        &lt;dbl&gt; 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5,
 </div>
 </div>
 </div>
+<p><span class="math inline">\(\mu_{Y|X}\)</span> is the mean value of <span class="math inline">\(Y\)</span> given a particular value of <span class="math inline">\(X\)</span>.</p>
 </section>
 <section id="regression-model-2" class="slide level2">
 <h2>Regression model</h2>
@@ -577,7 +615,7 @@ $ fandango_difference        &lt;dbl&gt; 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5,
 <ul>
 <li><span class="math inline">\(\beta_1\)</span>: True slope of the relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span></li>
 <li><span class="math inline">\(\beta_0\)</span>: True intercept of the relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span></li>
-<li><span class="math inline">\(\epsilon\)</span>: Error (residual)</li>
+<li><span class="math inline">\(\epsilon\)</span>: Error</li>
 </ul>
 </div>
 </section>
@@ -624,12 +662,14 @@ $ fandango_difference        &lt;dbl&gt; 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5,
 </section>
 <section id="properties-of-least-squares-regression" class="slide level2">
 <h2>Properties of least squares regression</h2>
+<div>
 <ul>
-<li><p>The regression line goes through the center of mass point, the coordinates corresponding to average <span class="math inline">\(X\)</span> and average <span class="math inline">\(Y\)</span>: <span class="math inline">\(\hat{\beta}_0 = \bar{Y} - \hat{\beta}_1\bar{X}\)</span></p></li>
-<li><p>The slope has the same sign as the correlation coefficient: <span class="math inline">\(\hat{\beta}_1 = r \frac{s_Y}{s_X}\)</span></p></li>
-<li><p>The sum of the residuals is zero: <span class="math inline">\(\sum_{i = 1}^n \epsilon_i = 0\)</span></p></li>
-<li><p>The residuals and <span class="math inline">\(X\)</span> values are uncorrelated</p></li>
+<li class="fragment"><p>The regression line goes through the center of mass point, the coordinates corresponding to average <span class="math inline">\(X\)</span> and average <span class="math inline">\(Y\)</span>: <span class="math inline">\(\hat{\beta}_0 = \bar{Y} - \hat{\beta}_1\bar{X}\)</span></p></li>
+<li class="fragment"><p>The slope has the same sign as the correlation coefficient: <span class="math inline">\(\hat{\beta}_1 = r \frac{s_Y}{s_X}\)</span></p></li>
+<li class="fragment"><p>The sum of the residuals is zero: <span class="math inline">\(\sum_{i = 1}^n \epsilon_i = 0\)</span></p></li>
+<li class="fragment"><p>The residuals and <span class="math inline">\(X\)</span> values are uncorrelated</p></li>
 </ul>
+</div>
 </section>
 <section id="estimating-the-slope" class="slide level2">
 <h2>Estimating the slope</h2>
@@ -665,33 +705,21 @@ r &amp;= 0.7814
 </div>
 </div>
 </section>
-<section id="poll-interpreting-the-slope" class="slide level2">
-<h2>Poll: Interpreting the slope</h2>
+<section id="poll-interpretation" class="slide level2">
+<h2>Poll: Interpretation</h2>
+<p><span class="math display">\[\hat{\text{audience}} = 32.3142 + 0.5187 \times \text{critics}\]</span></p>
 </section>
 <section id="does-it-make-sense-to-interpret-the-intercept" class="slide level2">
 <h2>Does it make sense to interpret the intercept?</h2>
+<div class="fragment">
 <p>✅ <strong>The intercept is meaningful in the context of the data if</strong></p>
 <ul>
 <li><p>the predictor can feasibly take values equal to or near zero, or</p></li>
 <li><p>there are values near zero in the observed data.</p></li>
 </ul>
+</div>
 <div class="fragment">
 <p>🛑 Otherwise, the intercept may not be meaningful!</p>
-</div>
-</section>
-<section id="interpreting-the-slope-intercept" class="slide level2">
-<h2>Interpreting the slope &amp; intercept</h2>
-<p><span class="math display">\[\hat{\text{audience}} = 32.296 + 0.518 \times \text{critics}\]</span></p>
-<div class="fragment">
-<div>
-<ul>
-<li class="fragment"><p><strong>Slope</strong>: For every one point increase in the critics score, we expect the audience score to increase by 0.518 points, on average.</p></li>
-<li class="fragment"><p><strong>Intercept</strong>: If the critics score is 0 points, we expect the audience score to be 32.296 points.</p>
-<ul>
-<li class="fragment">Is the intercept meaningful?</li>
-</ul></li>
-</ul>
-</div>
 </div>
 </section></section>
 <section>
@@ -699,43 +727,33 @@ r &amp;= 0.7814
 <h1>Prediction</h1>
 
 </section>
-<section id="making-a-prediction---update-the-math" class="slide level2">
-<h2>Making a prediction - UPDATE THE MATH</h2>
+<section id="making-a-prediction" class="slide level2">
+<h2>Making a prediction</h2>
 <p>Suppose that a movie has a critics score of 70. According to this model, what is the movie’s predicted audience score?</p>
-<p>$$</p>
 <span class="math display">\[\begin{aligned}
 \widehat{\text{audience}} &amp;= 32.3142 + 0.5187 \times \text{critics} \\
-&amp;= 32.3142 + 0.5187 \times 50 \\
-&amp;= 58.2492
+&amp;= 32.3142 + 0.5187 \times 70 \\
+&amp;= 68.6232
 \end{aligned}\]</span>
-<p>$$</p>
 </section>
 <section id="extrapolation" class="slide level2">
 <h2>⚠️ Extrapolation</h2>
 <div style="font-size: 0.80em;">
 <p>Using the model to predict for values outside the range of the original data is <strong>extrapolation</strong>.</p>
 </div>
-<div class="fragment">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="02-slr-intro_files/figure-revealjs/unnamed-chunk-10-1.png" style="width:55.0%"></p>
-</figure>
-</div>
-</div>
-</div>
+
+<img data-src="02-slr-intro_files/figure-revealjs/unnamed-chunk-10-1.png" style="width:55.0%" class="r-stretch quarto-figure-center"><div class="fragment">
 <div style="font-size: 0.80em;">
 <p>Suppose that a movie has a critics score of 0. According to this model, what is the movie’s predicted audience score?</p>
 </div>
 </div>
 </section></section>
 <section>
-<section id="recap" class="title-slide slide level1 center">
-<h1>Recap</h1>
+<section id="wrap-up" class="title-slide slide level1 center">
+<h1>Wrap up</h1>
 
 </section>
-<section id="recap-1" class="slide level2">
+<section id="recap" class="slide level2">
 <h2>Recap</h2>
 <div style="font-size: 0.85em">
 <ul>
@@ -750,6 +768,14 @@ r &amp;= 0.7814
 <li class="fragment"><p>Defined extrapolation and why we should avoid it.</p></li>
 </ul>
 </div>
+</section>
+<section id="next-class" class="slide level2">
+<h2>Next class</h2>
+<p>We will talk about fitting linear models in R with <a href="https://www.tidymodels.org/">tidymodels.</a></p>
+<ul>
+<li><p>Reserve <a href="https://cmgr.oit.duke.edu/containers">STA 210 Docker Container</a> before Monday’s lecture</p></li>
+<li><p>Complete the <a href="https://duke.qualtrics.com/jfe/form/SV_cGV5IKoeadWR59s">STA 210 Student Survey</a> (will ask for a GitHub username) by <strong>Friday at 11:59pm</strong></p></li>
+</ul>
 
 
 <img src="../images/logo.png" class="slide-logo r-stretch"><div class="footer footer-default">

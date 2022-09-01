@@ -1,6 +1,6 @@
 ---
 title: "Week 02"
-subtitle: "Simple Linear Regression (SLR)"
+subtitle: "SLR: Tidymodels + Model evaluation"
 description: "Lab 01, Statistics experience assigned"
 author: "Sep 05 - 09"
 date: ""
@@ -12,7 +12,7 @@ title-block-style: none
 **Due dates:**
 
 -   AE 02: Thu, Sep 08 at 11:59pm
--   AE 03: Thu, Sep 10 at 11:59pm
+-   AE 03: Sat, Sep 10 at 11:59pm
 -   Lab 01:
     -   due Mon, Sep 12, 11:5pm (Thu labs)
     -   due Tue, Sep 13, 11:59pm (Fri labs)

@@ -27,6 +27,8 @@ knitr:
 ## Meet each other!
 
 ::: midi
+-   Get into groups of 4 - 5.
+
 -   Introduce yourself - Name, year, major
 
 -   Choose a reporter

@@ -95,7 +95,7 @@
     "href": "weeks/week-01.html",
     "title": "Week 01",
     "section": "",
-    "text": "Participate\n\n\n\n\n\n\n\nTopic\nDate\n\n\n\n\n💻 Welcome to STA 210!\nAug 29\n\n\n💻 Simple Linear Regression\nAug 31\n\n\nLab 00\nSep 01 & 02\n\n\n\n\n\nPractice\n\n\n\n\n\n\n📋 AE 01-Movie Budgets\n\n\n\n\n\nPerform\n\n\n\n\n\n\n\n📝 Complete STA 210 Student Survey\ndue Fri, Sep 02 at 11:59pm\n\n\n📝 Reserve STA 210 RStudio Docker Container\nMon, Sep 05 at the beginning of class"
+    "text": "Participate\n\n\n\n\n\n\n\nTopic\nDate\n\n\n\n\n💻 Welcome to STA 210!\nAug 29\n\n\n💻 Simple Linear Regression\nAug 31\n\n\n💻 Lab 00\nSep 01 & 02\n\n\n\n\n\nPractice\n\n\n\n\n\n\n📋 AE 01-Movie Budgets\n\n\n\n\n\nPerform\n\n\n\n\n\n\n\n📝 Complete STA 210 Student Survey\ndue Fri, Sep 02 at 11:59pm\n\n\n📝 Reserve STA 210 RStudio Docker Container\nMon, Sep 05 at the beginning of class"
   },
   {
     "objectID": "weeks/week-15.html",
@@ -278,6 +278,34 @@
     "title": "mysite",
     "section": "",
     "text": "To learn more about Quarto websites visit https://quarto.org/docs/websites."
+  },
+  {
+    "objectID": "slides/lab-00.html#meet-your-ta",
+    "href": "slides/lab-00.html#meet-your-ta",
+    "title": "Welcome to STA 210 Labs!",
+    "section": "Meet your TA!",
+    "text": "Meet your TA!"
+  },
+  {
+    "objectID": "slides/lab-00.html#meet-each-other",
+    "href": "slides/lab-00.html#meet-each-other",
+    "title": "Welcome to STA 210 Labs!",
+    "section": "Meet each other!",
+    "text": "Meet each other!\n\n\nGet into groups of 4 - 5.\nIntroduce yourself - Name, year, major\nChoose a reporter\n\nNeed help choosing? Person with birthday closest to today’s date.\n\nIdentify 8 things everyone in the group has in common\n\nNot being a Duke student\nNot clothes (we’re all wearing socks)\nNot body parts (we all have a nose)\n\nReporter will share list with the class.\n\n\n\n\n\n06:00"
+  },
+  {
+    "objectID": "slides/lab-00.html#what-to-expect-in-lab",
+    "href": "slides/lab-00.html#what-to-expect-in-lab",
+    "title": "Welcome to STA 210 Labs!",
+    "section": "What to expect in lab",
+    "text": "What to expect in lab\n\nIntroduction to the lab assignment (~ 5 - 10 minutes)\nWork on the lab assignment (individual at first, but in teams for the rest of the semester)\nLab instructions will be posted on the course website\nStart each lab by finding your assignment repo in the course GitHub organization\n\nMore on the computing tools in Monday’s lecture"
+  },
+  {
+    "objectID": "slides/lab-00.html#for-todays-lab",
+    "href": "slides/lab-00.html#for-todays-lab",
+    "title": "Welcome to STA 210 Labs!",
+    "section": "For today’s lab",
+    "text": "For today’s lab\n\nComplete the STA 210 Student Survey (will ask for a GitHub username)\n\nClick here for information on registering for a GitHub account and choosing a username.\n\nReserve a STA 210 Docker Container\n\nMake sure to reserve the container titled “STA210”, not “RStudio”\n\n\n\n\n\n🔗 Week 01"
   },
   {
     "objectID": "slides/01-welcome.html#meet-the-professor",
@@ -782,33 +810,5 @@
     "title": "Schedule",
     "section": "Notes",
     "text": "Notes\n\nHomework will be due on Wednesdays at 11:59pm. You will have one week to complete each homework assignment.\nLab:\n\nLab sections 01 & 02 (Thursdays): Labs will be due on Mondays at 11:59pm.\nLab sections 03 & 04 (Fridays): Labs will be due on Tuesdays at 11:59pm.\n\nProject dates will be added when the project is assigned."
-  },
-  {
-    "objectID": "slides/lab-00.html#meet-your-ta",
-    "href": "slides/lab-00.html#meet-your-ta",
-    "title": "Welcome to STA 210 Labs!",
-    "section": "Meet your TA!",
-    "text": "Meet your TA!"
-  },
-  {
-    "objectID": "slides/lab-00.html#meet-each-other",
-    "href": "slides/lab-00.html#meet-each-other",
-    "title": "Welcome to STA 210 Labs!",
-    "section": "Meet each other!",
-    "text": "Meet each other!\n\n\nIntroduce yourself - Name, year, major\nChoose a reporter\n\nNeed help choosing? Person with birthday closest to today’s date.\n\nIdentify 8 things everyone in the group has in common\n\nNot being a Duke student\nNot clothes (we’re all wearing socks)\nNot body parts (we all have a nose)\n\nReporter will share list with the class.\n\n\n\n\n\n06:00"
-  },
-  {
-    "objectID": "slides/lab-00.html#what-to-expect-in-lab",
-    "href": "slides/lab-00.html#what-to-expect-in-lab",
-    "title": "Welcome to STA 210 Labs!",
-    "section": "What to expect in lab",
-    "text": "What to expect in lab\n\nIntroduction to the lab assignment (~ 5 - 10 minutes)\nWork on the lab assignment (individual at first, but in teams for the rest of the semester)\nLab instructions will be posted on the course website\nStart each lab by finding your assignment repo in the course GitHub organization\n\nMore on the computing tools in Monday’s lecture"
-  },
-  {
-    "objectID": "slides/lab-00.html#for-todays-lab",
-    "href": "slides/lab-00.html#for-todays-lab",
-    "title": "Welcome to STA 210 Labs!",
-    "section": "For today’s lab",
-    "text": "For today’s lab\n\nComplete the STA 210 Student Survey (will ask for a GitHub username)\n\nClick here for information on registering for a GitHub account and choosing a username.\n\nReserve a STA 210 Docker Container\n\nMake sure to reserve the container titled “STA210”, not “RStudio”\n\n\n\n\n\n🔗 Week 01"
   }
 ]

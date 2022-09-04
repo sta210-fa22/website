@@ -28,11 +28,11 @@ title-block-style: none
 
 # Participate
 
-| Topic                                       | Date        |
-|---------------------------------------------|-------------|
-| 💻 SLR: Fitting models in R with tidymodels | Sep 05      |
-| 💻 SLR: Prediction + model evaluation       | Sep 07      |
-| 💻 Lab 01                                   | Sep 08 & 09 |
+| Topic                                                                          | Date        |
+|--------------------------------------------------------------------------------|-------------|
+| 💻 [SLR: Fitting models in R with tidymodels](../slides/03-slr-tidymodels.qmd) | Sep 05      |
+| 💻 SLR: Prediction + model evaluation                                          | Sep 07      |
+| 💻 Lab 01                                                                      | Sep 08 & 09 |
 
 # Practice
 

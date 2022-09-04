@@ -270,7 +270,7 @@
     "href": "index.html#teaching-team",
     "title": "STA 210: Regression Analysis",
     "section": "Teaching team",
-    "text": "Teaching team\n\nInstructor\nMaria Tackett is an Assistant Professor of the Practice in the Department of Statistical Science at Duke University. Her work focuses on understanding how active learning strategies can be used to promote engagement and student motivation in undergraduate statistics courses. She also studies how classroom practices in introductory math and statistics courses impact students’ sense of community, self-efficacy, and learning outcomes.\n\n\n\nOffice hours\nLocation\n\n\n\n\nTuesdays 1:30 - 2:30pm\nOld Chem 118B or Zoom\n\n\nThursdays 10 - 11am\nZoom only\n\n\nor by appointment.\n\n\n\n\n\n\nTeaching assistants\n\n\n\nName\nOffice hours\nLocation\n\n\n\n\nCarson Garcia\nTA for Lab 04\nTBD\nTBD\n\n\nSara Meta\nTA for Lab 04\nTBD\nTBD\n\n\nMedy Mu\nTBD\nTBD\n\n\nGlenn Palmer\nTA for Lab 03\nTBD\nTBD\n\n\nBraden Scherting\nTA for Lab 02\nTBD\nTBD\n\n\nLuke Vrotsos\nTA for Lab 01\nTBD\nTBD\n\n\nBen Wallace\nTBD\nTBD\n\n\nAaditya Warrier\nTBD\nTBD\n\n\nGrace Zhao\nTA for Lab 01\nTBD\nTBD"
+    "text": "Teaching team\n\nInstructor\nMaria Tackett is an Assistant Professor of the Practice in the Department of Statistical Science at Duke University. Her work focuses on understanding how active learning strategies can be used to promote engagement and student motivation in undergraduate statistics courses. She also studies how classroom practices in introductory math and statistics courses impact students’ sense of community, self-efficacy, and learning outcomes.\n\n\n\nOffice hours\nLocation\n\n\n\n\nMondays 12 - 1pm\nOld Chem 118B or Zoom\n\n\nThursdays 10 - 11am\nZoom only\n\n\nor by appointment.\n\n\n\n\n\n\nTeaching assistants\n\n\n\nName\nOffice hours\nLocation\n\n\n\n\nCarson Garcia\nTA for Lab 04\nTBD\nTBD\n\n\nSara Meta\nTA for Lab 04\nTBD\nTBD\n\n\nMedy Mu\nTBD\nTBD\n\n\nGlenn Palmer\nTA for Lab 03\nTBD\nTBD\n\n\nBraden Scherting\nTA for Lab 02\nTBD\nTBD\n\n\nLuke Vrotsos\nTA for Lab 01\nTBD\nTBD\n\n\nBen Wallace\nTBD\nTBD\n\n\nAaditya Warrier\nTBD\nTBD\n\n\nGrace Zhao\nTA for Lab 01\nTBD\nTBD\n\n\n\nClick here for full list of office hours."
   },
   {
     "objectID": "teaching-team.html",
@@ -810,5 +810,334 @@
     "title": "Schedule",
     "section": "Notes",
     "text": "Notes\n\nHomework will be due on Wednesdays at 11:59pm. You will have one week to complete each homework assignment.\nLab:\n\nLab sections 01 & 02 (Thursdays): Labs will be due on Mondays at 11:59pm.\nLab sections 03 & 04 (Fridays): Labs will be due on Tuesdays at 11:59pm.\n\nProject dates will be added when the project is assigned."
+  },
+  {
+    "objectID": "slides/03-slr-tidymodels.html#topics",
+    "href": "slides/03-slr-tidymodels.html#topics",
+    "title": "SLR: Fitting models in R with tidymodels",
+    "section": "Topics",
+    "text": "Topics\n\nIntroduce the computing toolkit - RStudio and GitHub\nUse tidymodels to fit and summarize regression models in R\nComplete an application exercise on exploratory data analysis and modeling"
+  },
+  {
+    "objectID": "slides/03-slr-tidymodels.html#computational-setup",
+    "href": "slides/03-slr-tidymodels.html#computational-setup",
+    "title": "SLR: Fitting models in R with tidymodels",
+    "section": "Computational setup",
+    "text": "Computational setup\n\n# load packages\nlibrary(tidyverse)       # for data wrangling\nlibrary(tidymodels)      # for modeling\nlibrary(fivethirtyeight) # for the fandango dataset\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_minimal(base_size = 16))\n\n# set default figure parameters for knitr\nknitr::opts_chunk$set(\n  fig.width = 8,\n  fig.asp = 0.618,\n  fig.retina = 3,\n  dpi = 300,\n  out.width = \"80%\"\n)"
+  },
+  {
+    "objectID": "slides/03-slr-tidymodels.html#reproducible-data-analysis",
+    "href": "slides/03-slr-tidymodels.html#reproducible-data-analysis",
+    "title": "SLR: Fitting models in R with tidymodels",
+    "section": "Reproducible data analysis",
+    "text": "Reproducible data analysis"
+  },
+  {
+    "objectID": "slides/03-slr-tidymodels.html#reproducibility-checklist",
+    "href": "slides/03-slr-tidymodels.html#reproducibility-checklist",
+    "title": "SLR: Fitting models in R with tidymodels",
+    "section": "Reproducibility checklist",
+    "text": "Reproducibility checklist\n\nWhat does it mean for an analysis to be reproducible?\n\n\nNear term goals:\n✔️ Are the tables and figures reproducible from the code and data?\n✔️ Does the code actually do what you think it does?\n✔️ In addition to what was done, is it clear why it was done?\n\n\nLong term goals:\n✔️ Can the code be used for other data?\n✔️ Can you extend the code to do other things?"
+  },
+  {
+    "objectID": "slides/03-slr-tidymodels.html#can-you-extend-the-code-to-do-other-things",
+    "href": "slides/03-slr-tidymodels.html#can-you-extend-the-code-to-do-other-things",
+    "title": "SLR: Fitting models in R with tidymodels",
+    "section": "✔️ Can you extend the code to do other things?",
+    "text": "✔️ Can you extend the code to do other things?"
+  },
+  {
+    "objectID": "slides/03-slr-tidymodels.html#toolkit",
+    "href": "slides/03-slr-tidymodels.html#toolkit",
+    "title": "SLR: Fitting models in R with tidymodels",
+    "section": "Toolkit",
+    "text": "Toolkit\n\nScriptability \\(\\rightarrow\\) R\nLiterate programming (code, narrative, output in one place) \\(\\rightarrow\\) Quarto\nVersion control \\(\\rightarrow\\) Git / GitHub\n\nMore on this in this week’s lab"
+  },
+  {
+    "objectID": "slides/03-slr-tidymodels.html#what-is-r-and-rstudio",
+    "href": "slides/03-slr-tidymodels.html#what-is-r-and-rstudio",
+    "title": "SLR: Fitting models in R with tidymodels",
+    "section": "What is R and RStudio?",
+    "text": "What is R and RStudio?\n\nR is a statistical programming language\nRStudio is a convenient interface for R (an integrated development environment, IDE)\n\n\n\nSource: Modern Dive"
+  },
+  {
+    "objectID": "slides/03-slr-tidymodels.html#r-essentials-a-short-list",
+    "href": "slides/03-slr-tidymodels.html#r-essentials-a-short-list",
+    "title": "SLR: Fitting models in R with tidymodels",
+    "section": "R essentials (a short list)",
+    "text": "R essentials (a short list)\n\nFunctions are (most often) verbs, followed by what they will be applied to in parentheses:\n\n\ndo_this(to_this)\ndo_that(to_this, to_that, with_those)\n\n–\n\nColumns (variables) in data frames are accessed with $:\n\n\ndataframe$var_name\n\n\nPackages are installed with the install.packages function and loaded with the library function, once per session:\n\n\ninstall.packages(\"package_name\")\nlibrary(package_name)"
+  },
+  {
+    "objectID": "slides/03-slr-tidymodels.html#tidyverse",
+    "href": "slides/03-slr-tidymodels.html#tidyverse",
+    "title": "SLR: Fitting models in R with tidymodels",
+    "section": "tidyverse",
+    "text": "tidyverse\n.pull-left[]\n.pull-right[ - The tidyverse is an opinionated collection of R packages designed for data science. ]\n.footnote[ Image from Teaching in the Tidyverse 2020]"
+  },
+  {
+    "objectID": "slides/03-slr-tidymodels.html#r-markdown-1",
+    "href": "slides/03-slr-tidymodels.html#r-markdown-1",
+    "title": "SLR: Fitting models in R with tidymodels",
+    "section": "R Markdown",
+    "text": "R Markdown\n\nFully reproducible reports – the analysis is run from the beginning each time you knit\nSimple Markdown syntax for text\nCode goes in chunks, defined by three backticks, narrative goes outside of chunks"
+  },
+  {
+    "objectID": "slides/03-slr-tidymodels.html#how-will-we-use-r-markdown",
+    "href": "slides/03-slr-tidymodels.html#how-will-we-use-r-markdown",
+    "title": "SLR: Fitting models in R with tidymodels",
+    "section": "How will we use R Markdown?",
+    "text": "How will we use R Markdown?\n\nEvery assignment / lab / project / etc. is an R Markdown document\nYou’ll always have a template R Markdown document to start with\nThe amount of scaffolding in the template will decrease over the semester"
+  },
+  {
+    "objectID": "slides/03-slr-tidymodels.html#r-markdown-tips",
+    "href": "slides/03-slr-tidymodels.html#r-markdown-tips",
+    "title": "SLR: Fitting models in R with tidymodels",
+    "section": "R Markdown tips",
+    "text": "R Markdown tips\nResources - R Markdown cheat sheet - Markdown Quick Reference: - Help -> Markdown Quick Reference  –\nRemember: The workspace of the R Markdown document is separate from the console"
+  },
+  {
+    "objectID": "slides/03-slr-tidymodels.html#version-control",
+    "href": "slides/03-slr-tidymodels.html#version-control",
+    "title": "SLR: Fitting models in R with tidymodels",
+    "section": "Version control",
+    "text": "Version control\n\nWe introduced GitHub as a platform for collaboration\nBut it’s much more than that…\nIt’s actually designed for version control"
+  },
+  {
+    "objectID": "slides/03-slr-tidymodels.html#what-is-versioning",
+    "href": "slides/03-slr-tidymodels.html#what-is-versioning",
+    "title": "SLR: Fitting models in R with tidymodels",
+    "section": "What is versioning?",
+    "text": "What is versioning?"
+  },
+  {
+    "objectID": "slides/03-slr-tidymodels.html#what-is-versioning-1",
+    "href": "slides/03-slr-tidymodels.html#what-is-versioning-1",
+    "title": "SLR: Fitting models in R with tidymodels",
+    "section": "What is versioning?",
+    "text": "What is versioning?\nwith human readable messages"
+  },
+  {
+    "objectID": "slides/03-slr-tidymodels.html#why-do-we-need-version-control",
+    "href": "slides/03-slr-tidymodels.html#why-do-we-need-version-control",
+    "title": "SLR: Fitting models in R with tidymodels",
+    "section": "Why do we need version control?",
+    "text": "Why do we need version control?"
+  },
+  {
+    "objectID": "slides/03-slr-tidymodels.html#git-and-github-tips",
+    "href": "slides/03-slr-tidymodels.html#git-and-github-tips",
+    "title": "SLR: Fitting models in R with tidymodels",
+    "section": "Git and GitHub tips",
+    "text": "Git and GitHub tips\n\n\nThere are a lot of Git commands and very few people know them all. 99% of the time you will use git to commit, push, and pull.\nWe will be doing git things and interfacing with GitHub through RStudio\n\nIf you Google for help, skip any methods for using git through the command line.\n\nThere is a great resource for working with git and R: happygitwithr.com.\n\nSome of the content in there is beyond the scope of this course, but it’s a good place to look for help."
+  },
+  {
+    "objectID": "slides/03-slr-tidymodels.html#recap",
+    "href": "slides/03-slr-tidymodels.html#recap",
+    "title": "SLR: Fitting models in R with tidymodels",
+    "section": "Recap",
+    "text": "Recap\n\nIntroduced the computing toolkit - RStudio and GitHub\nUsed tidymodels to fit and summarize regression models in R\nCompleted an application exercise on exploratory data analysis and modeling\n\n\n\n\n🔗 Week 02"
+  },
+  {
+    "objectID": "slides/03-slr-tidymodels.html#recap-of-last-lecture",
+    "href": "slides/03-slr-tidymodels.html#recap-of-last-lecture",
+    "title": "SLR: Fitting models in R with tidymodels",
+    "section": "Recap of last lecture",
+    "text": "Recap of last lecture\n\n\nUsed simple linear regression to describe the relationship between a quantitative predictor and quantitative outcome variable.\nUsed the least squares method to estimate the slope and intercept.\nWe interpreted the slope and intercept.\n\n\nSlope: For every one unit increase in \\(x\\), we expect y to be higher/lower by \\(\\hat{\\beta}_1\\) units, on average.\nIntercept: If \\(x\\) is 0, then we expect \\(y\\) to be \\(\\hat{\\beta}_0\\) units.\n\n\nPredicted the response given a value of the predictor variable.\nDefined extrapolation and why we should avoid it."
+  },
+  {
+    "objectID": "slides/03-slr-tidymodels.html#interested-in-the-math-behind-it-all",
+    "href": "slides/03-slr-tidymodels.html#interested-in-the-math-behind-it-all",
+    "title": "SLR: Fitting models in R with tidymodels",
+    "section": "Interested in the math behind it all?",
+    "text": "Interested in the math behind it all?\nSee the supplemental notes on Deriving the Least-Squares Estimates for Simple Linear Regression for more mathematical details on the derivations of the estimates of \\(\\beta_0\\) and \\(\\beta_1\\)."
+  },
+  {
+    "objectID": "slides/03-slr-tidymodels.html#outline",
+    "href": "slides/03-slr-tidymodels.html#outline",
+    "title": "SLR: Fitting models in R with tidymodels",
+    "section": "Outline",
+    "text": "Outline\n\nUse tidymodels to fit and summarize regression models in R\nComplete an application exercise on exploratory data analysis and modeling"
+  },
+  {
+    "objectID": "slides/03-slr-tidymodels.html#movie-ratings",
+    "href": "slides/03-slr-tidymodels.html#movie-ratings",
+    "title": "SLR: Fitting models in R with tidymodels",
+    "section": "Movie ratings",
+    "text": "Movie ratings\n\n\n\nData behind the FiveThirtyEight story Be Suspicious Of Online Movie Ratings, Especially Fandango’s\nIn the fivethirtyeight package: fandango\nContains every film that has at least 30 fan reviews on Fandango, an IMDb score, Rotten Tomatoes critic and user ratings, and Metacritic critic and user scores"
+  },
+  {
+    "objectID": "slides/03-slr-tidymodels.html#data-prep",
+    "href": "slides/03-slr-tidymodels.html#data-prep",
+    "title": "SLR: Fitting models in R with tidymodels",
+    "section": "Data prep",
+    "text": "Data prep\n\nRename Rotten Tomatoes columns as critics and audience\nRename the dataset as movie_scores\n\n\nmovie_scores <- fandango |>\n  rename(\n    critics = rottentomatoes, \n    audience = rottentomatoes_user\n  )"
+  },
+  {
+    "objectID": "slides/03-slr-tidymodels.html#data-visualization",
+    "href": "slides/03-slr-tidymodels.html#data-visualization",
+    "title": "SLR: Fitting models in R with tidymodels",
+    "section": "Data visualization",
+    "text": "Data visualization\n\n\\[\n\\widehat{\\text{audience}} = 32.3142 + 0.5187 \\times \\text{critics}\n\\]"
+  },
+  {
+    "objectID": "slides/03-slr-tidymodels.html#step-1-specify-model",
+    "href": "slides/03-slr-tidymodels.html#step-1-specify-model",
+    "title": "SLR: Fitting models in R with tidymodels",
+    "section": "Step 1: Specify model",
+    "text": "Step 1: Specify model\n\nlinear_reg()\n\nLinear Regression Model Specification (regression)\n\nComputational engine: lm"
+  },
+  {
+    "objectID": "slides/03-slr-tidymodels.html#step-2-set-model-fitting-engine",
+    "href": "slides/03-slr-tidymodels.html#step-2-set-model-fitting-engine",
+    "title": "SLR: Fitting models in R with tidymodels",
+    "section": "Step 2: Set model fitting engine",
+    "text": "Step 2: Set model fitting engine\n\nlinear_reg() |>\n  set_engine(\"lm\") # lm: linear model\n\nLinear Regression Model Specification (regression)\n\nComputational engine: lm"
+  },
+  {
+    "objectID": "slides/03-slr-tidymodels.html#step-3-fit-model-estimate-parameters",
+    "href": "slides/03-slr-tidymodels.html#step-3-fit-model-estimate-parameters",
+    "title": "SLR: Fitting models in R with tidymodels",
+    "section": "Step 3: Fit model & estimate parameters",
+    "text": "Step 3: Fit model & estimate parameters\nusing formula syntax\n\n# #| code-line-numbers: \"|3\"\n\nlinear_reg() |>\n  set_engine(\"lm\") |>\n  fit(audience ~ critics, data = movie_scores)\n\nparsnip model object\n\n\nCall:\nstats::lm(formula = audience ~ critics, data = data)\n\nCoefficients:\n(Intercept)      critics  \n    32.3155       0.5187"
+  },
+  {
+    "objectID": "slides/03-slr-tidymodels.html#a-closer-look-at-model-output",
+    "href": "slides/03-slr-tidymodels.html#a-closer-look-at-model-output",
+    "title": "SLR: Fitting models in R with tidymodels",
+    "section": "A closer look at model output",
+    "text": "A closer look at model output\n\nmovie_fit <- linear_reg() |>\n  set_engine(\"lm\") |>\n  fit(audience ~ critics, data = movie_scores)\n\nmovie_fit\n\nparsnip model object\n\n\nCall:\nstats::lm(formula = audience ~ critics, data = data)\n\nCoefficients:\n(Intercept)      critics  \n    32.3155       0.5187  \n\n\n\\[\\widehat{\\text{audience}} = 32.3155 + 0.5187 \\times \\text{critics}\\]\n\n\nNote: The intercept is off by a tiny bit from the hand-calculated intercept, this is likely just due to rounding in the hand calculation."
+  },
+  {
+    "objectID": "slides/03-slr-tidymodels.html#the-regression-output",
+    "href": "slides/03-slr-tidymodels.html#the-regression-output",
+    "title": "SLR: Fitting models in R with tidymodels",
+    "section": "The regression output",
+    "text": "The regression output\nWe’ll focus on the first column for now…\n\nlinear_reg() |>\n  set_engine(\"lm\") |>\n  fit(audience ~ critics, data = movie_scores) |>\n  tidy() \n\n# A tibble: 2 × 5\n  term        estimate std.error statistic  p.value\n  <chr>          <dbl>     <dbl>     <dbl>    <dbl>\n1 (Intercept)   32.3      2.34        13.8 4.03e-28\n2 critics        0.519    0.0345      15.0 2.70e-31"
+  },
+  {
+    "objectID": "slides/03-slr-tidymodels.html#prediction",
+    "href": "slides/03-slr-tidymodels.html#prediction",
+    "title": "SLR: Fitting models in R with tidymodels",
+    "section": "Prediction",
+    "text": "Prediction\n\n# create a data frame for a new movie\nnew_movie <- tibble(critics = 70)\n\n# predict the outcome for a new movie\npredict(movie_fit, new_movie)\n\n# A tibble: 1 × 1\n  .pred\n  <dbl>\n1  68.6"
+  },
+  {
+    "objectID": "slides/03-slr-tidymodels.html#what-are-r-and-rstudio",
+    "href": "slides/03-slr-tidymodels.html#what-are-r-and-rstudio",
+    "title": "SLR: Fitting models in R with tidymodels",
+    "section": "What are R and RStudio?",
+    "text": "What are R and RStudio?\n\nR is a statistical programming language\nRStudio is a convenient interface for R (an integrated development environment, IDE)\n\n\n\nSource: Modern Dive"
+  },
+  {
+    "objectID": "slides/03-slr-tidymodels.html#rstudio-ide",
+    "href": "slides/03-slr-tidymodels.html#rstudio-ide",
+    "title": "SLR: Fitting models in R with tidymodels",
+    "section": "RStudio IDE",
+    "text": "RStudio IDE"
+  },
+  {
+    "objectID": "slides/03-slr-tidymodels.html#quarto",
+    "href": "slides/03-slr-tidymodels.html#quarto",
+    "title": "SLR: Fitting models in R with tidymodels",
+    "section": "Quarto",
+    "text": "Quarto\n\nFully reproducible reports – the analysis is run from the beginning each time you render\nCode goes in chunks and narrative goes outside of chunks\nVisual editor to make document editing experience similar to a word processor (Google docs, Word, Pages, etc.)"
+  },
+  {
+    "objectID": "slides/03-slr-tidymodels.html#quarto-1",
+    "href": "slides/03-slr-tidymodels.html#quarto-1",
+    "title": "SLR: Fitting models in R with tidymodels",
+    "section": "Quarto",
+    "text": "Quarto"
+  },
+  {
+    "objectID": "slides/03-slr-tidymodels.html#how-will-we-use-quarto",
+    "href": "slides/03-slr-tidymodels.html#how-will-we-use-quarto",
+    "title": "SLR: Fitting models in R with tidymodels",
+    "section": "How will we use Quarto?",
+    "text": "How will we use Quarto?\n\nEvery application exercise and assignment is written in a Quarto document\nYou’ll have a template Quarto document to start with\nThe amount of scaffolding in the template will decrease over the semester"
+  },
+  {
+    "objectID": "slides/03-slr-tidymodels.html#git-and-github",
+    "href": "slides/03-slr-tidymodels.html#git-and-github",
+    "title": "SLR: Fitting models in R with tidymodels",
+    "section": "Git and GitHub",
+    "text": "Git and GitHub\n\n\nGit is a version control system – like “Track Changes” features from Microsoft Word.\nGitHub is the home for your Git-based projects on the internet (like DropBox but much better).\nWe will use GitHub as the home for course assignments and activities and for collaboration"
+  },
+  {
+    "objectID": "slides/03-slr-tidymodels.html#application-exercise",
+    "href": "slides/03-slr-tidymodels.html#application-exercise",
+    "title": "SLR: Fitting models in R with tidymodels",
+    "section": "Application exercise",
+    "text": "Application exercise\n\n📋 github.com/sta210-fa22/ae-02-bikeshare"
+  },
+  {
+    "objectID": "slides/03-slr-tidymodels.html#tidymodels",
+    "href": "slides/03-slr-tidymodels.html#tidymodels",
+    "title": "SLR: Fitting models in R with tidymodels",
+    "section": "tidymodels",
+    "text": "tidymodels\n\nThe tidymodels framework is a collection of packages for modeling and machine learning using tidyverse principles.\n\n\n\nlibrary(tidymodels)\n\n── Attaching packages ────────────────────────────────────── tidymodels 1.0.0 ──\n\n\n✔ broom        1.0.0     ✔ rsample      1.0.0\n✔ dials        1.0.0     ✔ tune         1.0.0\n✔ infer        1.0.2     ✔ workflows    1.0.0\n✔ modeldata    1.0.0     ✔ workflowsets 1.0.0\n✔ parsnip      1.0.0     ✔ yardstick    1.0.0\n✔ recipes      1.0.1     \n\n\n── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──\n✖ scales::discard() masks purrr::discard()\n✖ dplyr::filter()   masks stats::filter()\n✖ recipes::fixed()  masks stringr::fixed()\n✖ dplyr::lag()      masks stats::lag()\n✖ yardstick::spec() masks readr::spec()\n✖ recipes::step()   masks stats::step()\n• Use suppressPackageStartupMessages() to eliminate package startup messages"
+  },
+  {
+    "objectID": "slides/03-slr-tidymodels.html#application-exercise-1",
+    "href": "slides/03-slr-tidymodels.html#application-exercise-1",
+    "title": "SLR: Fitting models in R with tidymodels",
+    "section": "Application exercise",
+    "text": "Application exercise\n\n📋 github.com/sta210-fa22/ae-02-bikeshare"
+  },
+  {
+    "objectID": "ae/ae-02-bikeshare.html",
+    "href": "ae/ae-02-bikeshare.html",
+    "title": "AE 02: Bike rentals in Washington, DC",
+    "section": "",
+    "text": "Important\n\n\n\nGo to the course GitHub organization and locate the repo titled ae-01-bikehsare to get started."
+  },
+  {
+    "objectID": "ae/ae-02-bikeshare.html#bike-rentals-in-dc",
+    "href": "ae/ae-02-bikeshare.html#bike-rentals-in-dc",
+    "title": "AE 02: Bike rentals in Washington, DC",
+    "section": "Bike rentals in DC",
+    "text": "Bike rentals in DC\n\nlibrary(tidyverse)\nlibrary(tidymodels)"
+  },
+  {
+    "objectID": "ae/ae-02-bikeshare.html#data",
+    "href": "ae/ae-02-bikeshare.html#data",
+    "title": "AE 02: Bike rentals in Washington, DC",
+    "section": "Data",
+    "text": "Data\nOur dataset contains daily rentals from the Capital Bikeshare in Washington, DC in 2011 and 2012. It was obtained from the dcbikeshare data set in the dsbox R package.\nWe will focus on the following variables in the analysis:\n\ncount: total bike rentals\ntemp_orig: Temperature in degrees Celsius\nseason: 1 - winter, 2 - spring, 3 - summer, 4 - fall\n\nClick here for the full list of variables and definitions.\n\nbikeshare <- read_csv(\"data/dcbikeshare.csv\")"
+  },
+  {
+    "objectID": "ae/ae-02-bikeshare.html#daily-counts-and-temperature",
+    "href": "ae/ae-02-bikeshare.html#daily-counts-and-temperature",
+    "title": "AE 02: Bike rentals in Washington, DC",
+    "section": "Daily counts and temperature",
+    "text": "Daily counts and temperature\n\nExercise 1\nVisualize the distribution of daily bike rentals and temperature as well as the relationship between these two variables.\n\nggplot(bikeshare, aes(x = count)) +\n  geom_histogram(binwidth = 250)\n\n\n\nggplot(bikeshare, aes(y = count, x = temp_orig)) +\n  geom_point()\n\n\n\n\n\n\nExercise 2\nDescribe the distribution of daily bike rentals and the distribution of temperature based on the visualizations created in Exercise 1. Include the shape, center, spread, and presence of any potential outliers.\n[Add your answer here]\n\n\nExercise 3\nThere appears to be one day with a very small number of bike rentals. What was the day? Why were the number of bike rentals so low on that day? Hint: You can Google the date to figure out what was going on that day.\n[Add your answer here]\n\n\nExercise 4\nDescribe the relationship between daily bike rentals and temperature based on the visualization created in Exercise 1. Comment on how we expect the number of bike rentals to change as the temperature increases.\n[Add your answer here]\n\n\nExercise 5\nSuppose you want to fit a model so you can use the temperature to predict the number of bike rentals. Would a model of the form\n\\[\\text{count} = \\beta_0 + \\beta_1 ~ \\text{temp\\_orig} + \\epsilon\\]\nbe the best fit for the data? Why or why not?\n[Add your answer here]"
+  },
+  {
+    "objectID": "ae/ae-02-bikeshare.html#daily-counts-temperature-and-season",
+    "href": "ae/ae-02-bikeshare.html#daily-counts-temperature-and-season",
+    "title": "AE 02: Bike rentals in Washington, DC",
+    "section": "Daily counts, temperature, and season",
+    "text": "Daily counts, temperature, and season\n\nExercise 6\nIn the raw data, seasons are coded as 1, 2, 3, 4 as numerical values, corresponding to winter, spring, summer, and fall respectively. Recode the season variable to make it a categorical variable (a factor) with levels corresponding to season names, making sure that the levels appear in a reasonable order in the variable (i.e., not alphabetical).\n\n# add code developed during livecoding here\n\n\n\nExercise 7\nNext, let’s look at how the daily bike rentals differ by season. Let’s visualize the distribution of bike rentals by season using density plots. You can think of a density plot as a “smoothed out histogram”. Compare and contrast the distributions. Is this what you expected? Why or why not?\n\n# add code developed during livecoding here\n\n[Add your answer here]\n\n\nExercise 8\nWe want to evaluate whether the relationship between temperature and daily bike rentals is the same for each season. To answer this question, first create a scatter plot of daily bike rentals vs. temperature faceted by season.\n\n# add code developed during livecoding here\n\n\n\nExercise 9\n\nWhich season appears to have the strongest relationship between temperature and daily bike rentals? Why do you think the relationship is strongest in this season?\nWhich season appears to have the weakest relationship between temperature and daily bike rentals? Why do you think the relationship is weakest in this season?\n\n[Add your answer here]"
+  },
+  {
+    "objectID": "ae/ae-02-bikeshare.html#modeling",
+    "href": "ae/ae-02-bikeshare.html#modeling",
+    "title": "AE 02: Bike rentals in Washington, DC",
+    "section": "Modeling",
+    "text": "Modeling\n\nExercise 10\nFilter your data for the season with the strongest apparent relationship between temperature and daily bike rentals.\n\n# add code developed during livecoding here\n\n\n\nExercise 11\nUsing the data you filtered in Exercise 10, fit a linear model for predicting daily bike rentals from temperature for this season.\n\n# add code developed during livecoding here\n\n\n\nExercise 12\nUse the output to write out the estimated regression equation.\n[Add your answer here]\n\n\nExercise 13\nInterpret the slope in the context of the data.\n[Add your answer here]\n\n\nExercise 14\nInterpret the intercept in the context of the data.\n[Add your answer here]"
+  },
+  {
+    "objectID": "ae/ae-02-bikeshare.html#synthesis",
+    "href": "ae/ae-02-bikeshare.html#synthesis",
+    "title": "AE 02: Bike rentals in Washington, DC",
+    "section": "Synthesis",
+    "text": "Synthesis\n\nExercise 15\nSuppose you work for a bike share company in Durham, NC, and they want to predict daily bike rentals in 2022. What is one reason you might recommend they use your analysis for this task? What is one reason you would recommend they not use your analysis for this task?\n[Add your answer here]\n\nThe following exercises will be completed only if time permits.\n\n\nExercise 16\nPick another season. Based on the visualization in Exercise 8, would you expect the slope of the relationship between temperature and daily bike rentals to be smaller or larger than the slope of the model you’ve been working with so far? Explain your reasoning.\n[Add your answer here]\n\n\nExercise 17\nFor this season you picked in Exercise 16, fit a linear model for predicting daily bike rentals from temperature. Note, you will need to filter your data for this season first. Use the output to write out the estimated regression equation and interpret the slope and the intercept of this model.\n\n# add your code here\n\n[Add your answer here]"
+  },
+  {
+    "objectID": "slides/03-slr-tidymodels.html#why-tidymodels",
+    "href": "slides/03-slr-tidymodels.html#why-tidymodels",
+    "title": "SLR: Fitting models in R with tidymodels",
+    "section": "Why tidymodels?",
+    "text": "Why tidymodels?\n\nConsistent syntax for different model types (linear, logistic, random forest, Bayesian, etc.)\nStreamline modeling workflow\n\nSplit data into train and test sets\nTransform and create new variables\nAssess model performance\nUse model for prediction and inference"
   }
 ]

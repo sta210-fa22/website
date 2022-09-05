@@ -7,6 +7,8 @@ editor: visual
 
 ::: callout-important
 Go to the [course GitHub organization](https://github.com/sta210-fa22) and locate the repo titled `ae-01-bikehsare` to get started.
+
+This AE will <u>not</u> be counted as part of the Application Exercises portion of the final course grade.
 :::
 
 ```{r load-packages}

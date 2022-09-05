@@ -158,7 +158,7 @@
     "href": "ae/ae-02-bikeshare.html",
     "title": "AE 02: Bike rentals in Washington, DC",
     "section": "",
-    "text": "Important\n\n\n\nGo to the course GitHub organization and locate the repo titled ae-01-bikehsare to get started."
+    "text": "Important\n\n\n\nGo to the course GitHub organization and locate the repo titled ae-01-bikehsare to get started.\nThis AE will not be counted as part of the Application Exercises portion of the final course grade."
   },
   {
     "objectID": "ae/ae-02-bikeshare.html#data",
@@ -312,7 +312,7 @@
     "href": "index.html#teaching-team",
     "title": "STA 210: Regression Analysis",
     "section": "Teaching team",
-    "text": "Teaching team\n\nInstructor\nMaria Tackett is an Assistant Professor of the Practice in the Department of Statistical Science at Duke University. Her work focuses on understanding how active learning strategies can be used to promote engagement and student motivation in undergraduate statistics courses. She also studies how classroom practices in introductory math and statistics courses impact students’ sense of community, self-efficacy, and learning outcomes.\n\n\n\nOffice hours\nLocation\n\n\n\n\nMondays 1 - 2pm\nOld Chem 118B or Zoom\n\n\nThursdays 10 - 11am\nZoom only\n\n\nor by appointment.\n\n\n\n\n\n\nTeaching assistants\n\n\n\nName\nOffice hours\nLocation\n\n\n\n\nCarson Garcia\nTA for Lab 04\nTBD\nTBD\n\n\nSara Meta\nTA for Lab 04\nTBD\nTBD\n\n\nMedy Mu\nTBD\nTBD\n\n\nGlenn Palmer\nTA for Lab 03\nTBD\nTBD\n\n\nBraden Scherting\nTA for Lab 02\nTBD\nTBD\n\n\nLuke Vrotsos\nTA for Lab 01\nTBD\nTBD\n\n\nBen Wallace\nTBD\nTBD\n\n\nAaditya Warrier\nTBD\nTBD\n\n\nGrace Zhao\nTA for Lab 01\nTBD\nTBD\n\n\n\nClick here for full list of office hours."
+    "text": "Teaching team\n\nInstructor\nMaria Tackett is an Assistant Professor of the Practice in the Department of Statistical Science at Duke University. Her work focuses on understanding how active learning strategies can be used to promote engagement and student motivation in undergraduate statistics courses. She also studies how classroom practices in introductory math and statistics courses impact students’ sense of community, self-efficacy, and learning outcomes.\n\n\n\nOffice hours\nLocation\n\n\n\n\nMondays 1 - 2pm\nOld Chem 118B or Zoom\n\n\nThursdays 10 - 11am\nZoom only\n\n\nor by appointment.\n\n\n\n\n\n\nTeaching assistants\n\n\n\nName\nOffice hours\nLocation\n\n\n\n\nCarson Garcia\nTA for Lab 04\nMon 5 - 7pm\nZoom\n\n\nSara Meta\nTA for Lab 04\nFri 10am - 12pm\nZoom\n\n\nMedy Mu\nTue 4 - 6pm\nZoom\n\n\nGlenn Palmer\nHead TA\nTA for Lab 03\n1:25 - 3:25pm\nOld Chem 203B\n\n\nBraden Scherting\nTA for Lab 02\nMon 2 - 3pm\nTue 3 - 4pm\nOld Chem 203B\nOld Chem 203B\n\n\nLuke Vrotsos\nTA for Lab 01\nTue 6:30 - 8:30pm\nOld Chem 025\n\n\nBen Wallace\nTue 1:30 - 2:30\nFri 9 - 10am\nZoom\nOld Chem 203B\n\n\nAaditya Warrier\nWed 1 - 3pm\nZoom\n\n\nGrace Zhao\nTA for Lab 01\nTBD\nTBD\n\n\n\nClick here for full list of office hours."
   },
   {
     "objectID": "teaching-team.html",
@@ -452,7 +452,7 @@
     "href": "slides/03-slr-tidymodels.html#tidymodels",
     "title": "SLR: Fitting models in R with tidymodels",
     "section": "tidymodels",
-    "text": "tidymodels\n\nThe tidymodels framework is a collection of packages for modeling and machine learning using tidyverse principles.\n\n\n\nlibrary(tidymodels)\n\n── Attaching packages ────────────────────────────────────── tidymodels 1.0.0 ──\n\n\n✔ broom        1.0.0     ✔ rsample      1.0.0\n✔ dials        1.0.0     ✔ tune         1.0.0\n✔ infer        1.0.2     ✔ workflows    1.0.0\n✔ modeldata    1.0.0     ✔ workflowsets 1.0.0\n✔ parsnip      1.0.0     ✔ yardstick    1.0.0\n✔ recipes      1.0.1     \n\n\n── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──\n✖ scales::discard() masks purrr::discard()\n✖ dplyr::filter()   masks stats::filter()\n✖ recipes::fixed()  masks stringr::fixed()\n✖ dplyr::lag()      masks stats::lag()\n✖ yardstick::spec() masks readr::spec()\n✖ recipes::step()   masks stats::step()\n• Learn how to get started at https://www.tidymodels.org/start/"
+    "text": "tidymodels\n\nThe tidymodels framework is a collection of packages for modeling and machine learning using tidyverse principles.\n\n\n\nlibrary(tidymodels)\n\n── Attaching packages ────────────────────────────────────── tidymodels 1.0.0 ──\n\n\n✔ broom        1.0.0     ✔ rsample      1.0.0\n✔ dials        1.0.0     ✔ tune         1.0.0\n✔ infer        1.0.2     ✔ workflows    1.0.0\n✔ modeldata    1.0.0     ✔ workflowsets 1.0.0\n✔ parsnip      1.0.0     ✔ yardstick    1.0.0\n✔ recipes      1.0.1     \n\n\n── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──\n✖ scales::discard() masks purrr::discard()\n✖ dplyr::filter()   masks stats::filter()\n✖ recipes::fixed()  masks stringr::fixed()\n✖ dplyr::lag()      masks stats::lag()\n✖ yardstick::spec() masks readr::spec()\n✖ recipes::step()   masks stats::step()\n• Search for functions across packages at https://www.tidymodels.org/find/"
   },
   {
     "objectID": "slides/03-slr-tidymodels.html#why-tidymodels",

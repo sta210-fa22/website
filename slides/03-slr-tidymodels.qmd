@@ -260,7 +260,7 @@ The **tidymodels** framework is a collection of packages for modeling and machin
 library(tidymodels)
 ```
 
-## Why tidymodels? 
+## Why tidymodels?
 
 -   Consistent syntax for different model types (linear, logistic, random forest, Bayesian, etc.)
 -   Streamline modeling workflow

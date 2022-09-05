@@ -24,6 +24,14 @@ knitr:
     width: 200
 ---
 
+## Announcements
+
+-   No office hours today. Office hours start Tuesday, September 6. [Click here](https://docs.google.com/spreadsheets/d/1Ay1GxqU2HDpFwnNLZxv0baIAa1lJwUVdtvmprPdkefk/edit?usp=sharing) for full schedule
+
+-   Check your email for an email to join the course GitHub organization. You will receive one by Tuesday, September 6.
+
+-   See [Week 02](https://sta210-fa22.netlify.app/weeks/week-02.html) for this week's activities.
+
 ## Topics
 
 -   Introduce the computing toolkit - RStudio and GitHub

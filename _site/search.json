@@ -350,6 +350,13 @@
     "text": "For today’s lab\n\nComplete the STA 210 Student Survey (will ask for a GitHub username)\n\nClick here for information on registering for a GitHub account and choosing a username.\n\nReserve a STA 210 Docker Container\n\nMake sure to reserve the container titled “STA210”, not “RStudio”\n\n\n\n\n\n🔗 Week 01"
   },
   {
+    "objectID": "slides/03-slr-tidymodels.html#announcements",
+    "href": "slides/03-slr-tidymodels.html#announcements",
+    "title": "SLR: Fitting models in R with tidymodels",
+    "section": "Announcements",
+    "text": "Announcements\n\nNo office hours today. Office hours start Tuesday, September 6. Click here for full schedule\nCheck your email for an email to join the course GitHub organization. You will receive one by Tuesday, September 6.\nSee Week 02 for this week’s activities."
+  },
+  {
     "objectID": "slides/03-slr-tidymodels.html#topics",
     "href": "slides/03-slr-tidymodels.html#topics",
     "title": "SLR: Fitting models in R with tidymodels",
@@ -445,7 +452,7 @@
     "href": "slides/03-slr-tidymodels.html#tidymodels",
     "title": "SLR: Fitting models in R with tidymodels",
     "section": "tidymodels",
-    "text": "tidymodels\n\nThe tidymodels framework is a collection of packages for modeling and machine learning using tidyverse principles.\n\n\n\nlibrary(tidymodels)\n\n── Attaching packages ────────────────────────────────────── tidymodels 1.0.0 ──\n\n\n✔ broom        1.0.0     ✔ rsample      1.0.0\n✔ dials        1.0.0     ✔ tune         1.0.0\n✔ infer        1.0.2     ✔ workflows    1.0.0\n✔ modeldata    1.0.0     ✔ workflowsets 1.0.0\n✔ parsnip      1.0.0     ✔ yardstick    1.0.0\n✔ recipes      1.0.1     \n\n\n── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──\n✖ scales::discard() masks purrr::discard()\n✖ dplyr::filter()   masks stats::filter()\n✖ recipes::fixed()  masks stringr::fixed()\n✖ dplyr::lag()      masks stats::lag()\n✖ yardstick::spec() masks readr::spec()\n✖ recipes::step()   masks stats::step()\n• Use suppressPackageStartupMessages() to eliminate package startup messages"
+    "text": "tidymodels\n\nThe tidymodels framework is a collection of packages for modeling and machine learning using tidyverse principles.\n\n\n\nlibrary(tidymodels)\n\n── Attaching packages ────────────────────────────────────── tidymodels 1.0.0 ──\n\n\n✔ broom        1.0.0     ✔ rsample      1.0.0\n✔ dials        1.0.0     ✔ tune         1.0.0\n✔ infer        1.0.2     ✔ workflows    1.0.0\n✔ modeldata    1.0.0     ✔ workflowsets 1.0.0\n✔ parsnip      1.0.0     ✔ yardstick    1.0.0\n✔ recipes      1.0.1     \n\n\n── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──\n✖ scales::discard() masks purrr::discard()\n✖ dplyr::filter()   masks stats::filter()\n✖ recipes::fixed()  masks stringr::fixed()\n✖ dplyr::lag()      masks stats::lag()\n✖ yardstick::spec() masks readr::spec()\n✖ recipes::step()   masks stats::step()\n• Learn how to get started at https://www.tidymodels.org/start/"
   },
   {
     "objectID": "slides/03-slr-tidymodels.html#why-tidymodels",

@@ -52,7 +52,7 @@ knitr::opts_chunk$set(
 
 -   See [Week 02](https://sta210-fa22.netlify.app/weeks/week-02.html) for this week's activities.
 
-## Topics 
+## Topics
 
 -   Motivate the importance of model evaluation
 
@@ -169,7 +169,7 @@ map_county_2019 |>
 ## Examining the relationship
 
 ::: midi
--   The [NC Labor and Economic Analysis Division (LEAD)](https://www.nccommerce.com/about-us/divisions-programs/labor-economic-analysis-division) "collects data, conducts research and analysis and publishes reports about the state\'s economy and labor market. Information and data produced by LEAD help stakeholders make more informed decisions on business recruitment, education and workforce policies and career development, as well as gain a more extensive view of North Carolina\'s economy."
+-   The [NC Labor and Economic Analysis Division (LEAD)](https://www.nccommerce.com/about-us/divisions-programs/labor-economic-analysis-division) "collects data, conducts research and analysis and publishes reports about the state's economy and labor market. Information and data produced by LEAD help stakeholders make more informed decisions on business recruitment, education and workforce policies and career development, as well as gain a more extensive view of North Carolina's economy."
 
 -   Suppose that an analyst working for LEAD is interested in the relationship between uninsurance and high school graduation rates in NC counties.
 :::
@@ -419,9 +419,9 @@ The $R^2$ of the model for predicting uninsurance rate from high school graduati
 :::
 :::
 
-Vote - Section 001
+[Vote - Section 001](https://edstem.org/us/courses/26900/discussion/1738486)
 
-Vote - Section 002
+[Vote - Section 002](https://edstem.org/us/courses/26900/discussion/1738497)
 
 ## Alternative approach for $R^2$
 
@@ -649,7 +649,7 @@ p_nc_boots
 
 -   Assessed model's predictive importance using data splitting and bootstrapping
 
-## Next week 
+## Next week
 
 Inference on the slope using
 

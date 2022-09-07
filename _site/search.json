@@ -739,7 +739,7 @@
     "href": "slides/04-slr-evaluation.html#examining-the-relationship",
     "title": "SLR: Prediction + model evaluation",
     "section": "Examining the relationship",
-    "text": "Examining the relationship\n\n\nThe NC Labor and Economic Analysis Division (LEAD) “collects data, conducts research and analysis and publishes reports about the state's economy and labor market. Information and data produced by LEAD help stakeholders make more informed decisions on business recruitment, education and workforce policies and career development, as well as gain a more extensive view of North Carolina's economy.”\nSuppose that an analyst working for LEAD is interested in the relationship between uninsurance and high school graduation rates in NC counties.\n\n\n\n\nWhat type of visualization should the analyst make to examine the relationship between these two variables?"
+    "text": "Examining the relationship\n\n\nThe NC Labor and Economic Analysis Division (LEAD) “collects data, conducts research and analysis and publishes reports about the state’s economy and labor market. Information and data produced by LEAD help stakeholders make more informed decisions on business recruitment, education and workforce policies and career development, as well as gain a more extensive view of North Carolina’s economy.”\nSuppose that an analyst working for LEAD is interested in the relationship between uninsurance and high school graduation rates in NC counties.\n\n\n\n\nWhat type of visualization should the analyst make to examine the relationship between these two variables?"
   },
   {
     "objectID": "slides/04-slr-evaluation.html#data-prep",

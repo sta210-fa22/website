@@ -656,7 +656,7 @@ Important
 <li>Another way to visualize numeric data is using density plots. Make a density plot to visualize the distribution of <code>price_usd</code> by category.Let’s make a new visualization with the density curves colored by category, so we can compare the distribution of price for each category.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> ikea_sub, <span class="fu">aes</span>(<span class="at">x =</span> width, <span class="at">fill =</span> category)) <span class="sc">+</span></span>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> ikea_sub, <span class="fu">aes</span>(<span class="at">x =</span> price_usd, <span class="at">fill =</span> category)) <span class="sc">+</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="lab-01_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>

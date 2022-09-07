@@ -270,7 +270,7 @@ ikea_sub <- ikea |>
 
 ```{r}
 #| eval: true
-ggplot(data = ikea_sub, aes(x = width, fill = category)) +
+ggplot(data = ikea_sub, aes(x = price_usd, fill = category)) +
   geom_density() 
 ```
 

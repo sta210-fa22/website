@@ -9,7 +9,7 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.0.36">
 
-  <meta name="author" content="Dr.&nbsp;Mine Çetinkaya-Rundel">
+  <meta name="author" content="Prof.&nbsp;Maria Tackett">
   <title>STA 210 - Fall 2022 - SLR: Prediction + model evaluation</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -92,6 +92,8 @@
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
@@ -384,44 +386,29 @@
 
 <section id="title-slide" class="center">
   <h1 class="title">SLR: Prediction + model evaluation</h1>
-  <p class="subtitle">STA 210 - Spring 2022</p>
-  <p class="author">Dr.&nbsp;Mine Çetinkaya-Rundel</p>
+  <p class="author">Prof.&nbsp;Maria Tackett</p>
+  <p class="date">Sep 07, 2022</p>
 </section>
 
-<section>
-<section id="welcome" class="title-slide slide level1 center">
-<h1>Welcome</h1>
-
-</section>
 <section id="announcements" class="slide level2">
 <h2>Announcements</h2>
 <ul>
-<li class="fragment">New on the course website: <a href="../course-faq.html">FAQ</a></li>
-<li class="fragment">New communication tool: Slack
+<li><p>Office hours have started. <a href="https://docs.google.com/spreadsheets/d/1Ay1GxqU2HDpFwnNLZxv0baIAa1lJwUVdtvmprPdkefk/edit?usp=sharing">Click here</a> for full schedule.</p></li>
+<li><p>Accept the email invitation to join the sta210-fa22 GitHub organization by <strong>today at 11:59pm.</strong></p>
 <ul>
-<li class="fragment">Find the invite link in your inbox / on Sakai announcements</li>
-<li class="fragment">Use #general for questions, #random for random 🤪</li>
-<li class="fragment">Use code formatting for for questions involving code (see Course FAQ for a demo video)</li>
+<li><p>You may also go to the <a href="https://github.com/sta210-fa22">course organization</a> and click to accept on the banner at the top of the page.</p></li>
+<li><p>If you don’t see the email or banner invitation, please email Prof.&nbsp;Tackett (maria.tackett@duke.edu).</p></li>
 </ul></li>
-<li class="fragment">My office hours: All virtual for now, hope to move 1 hour / week to in person later in the semester</li>
+<li><p>Lab 01 this week - will need access to RStudio and to be a member of the course GitHub organization.</p></li>
+<li><p>See <a href="https://sta210-fa22.netlify.app/weeks/week-02.html">Week 02</a> for this week’s activities.</p></li>
 </ul>
 </section>
-<section id="hybrid-teaching" class="slide level2 smaller">
-<h2>Hybrid teaching</h2>
+<section id="topics" class="slide level2">
+<h2>Topics</h2>
 <ul>
-<li class="fragment">Lectures:
-<ul>
-<li class="fragment">In person as long as university says so (and I don’t have COVID)</li>
-<li class="fragment">If you can’t be in class (and you’re well enough to follow along), watch live (or the recording later) on <a href="https://duke.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%22d6c1d58a-cb6d-4732-9d4b-ae0c011bf767%22">Panopto</a></li>
-<li class="fragment">Watching live and have questions? Post on Slack!</li>
-<li class="fragment">In class and see someone ask a question on Slack? Please raise it to me!</li>
-</ul></li>
-<li class="fragment">Labs:
-<ul>
-<li class="fragment">Not live streamed / recorded</li>
-<li class="fragment">Lab 2 (next Monday) - individual</li>
-<li class="fragment">Lab 3 onwards - in teams, if teammates are in isolation, set up team Zoom calls</li>
-</ul></li>
+<li><p>Motivate the importance of model evaluation</p></li>
+<li><p>Describe how <span class="math inline">\(R^2\)</span> and RMSE are used to evaluate models</p></li>
+<li><p>Assess model’s predictive importance using data splitting and bootstrapping</p></li>
 </ul>
 </section>
 <section id="computational-setup" class="slide level2">
@@ -435,16 +422,15 @@
 <span id="cb1-6"><a href="#cb1-6"></a><span class="fu">library</span>(glue)        <span class="co"># for constructing character strings</span></span>
 <span id="cb1-7"><a href="#cb1-7"></a></span>
 <span id="cb1-8"><a href="#cb1-8"></a><span class="co"># set default theme and larger font size for ggplot2</span></span>
-<span id="cb1-9"><a href="#cb1-9"></a>ggplot2<span class="sc">::</span><span class="fu">theme_set</span>(ggplot2<span class="sc">::</span><span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">16</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section></section>
-<section id="application-exercise" class="title-slide slide level1 center">
-<h1>Application exercise</h1>
-<div class="appex">
-<p>📋 <a href="https://github.com/sta210-s22/?q=ae-2-dcbikeshare&amp;type=all&amp;language=&amp;sort=">github.com/sta210-s22/ae-2-dcbikeshare</a></p>
+<span id="cb1-9"><a href="#cb1-9"></a>ggplot2<span class="sc">::</span><span class="fu">theme_set</span>(ggplot2<span class="sc">::</span><span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">16</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-
+<section id="application-exercise" class="slide level2">
+<h2>Application exercise</h2>
+<div class="appex">
+<p>📋 <a href="https://github.com/sta210-fa22/ae-02-bikeshare">github.com/sta210-fa22/ae-02-bikeshare</a></p>
+</div>
+</section>
 <section>
 <section id="uninsurance-and-high-school-graduation-rates-in-nc" class="title-slide slide level1 center">
 <h1>Uninsurance and high school graduation rates in NC</h1>
@@ -453,8 +439,8 @@
 <section id="data-source" class="slide level2">
 <h2>Data source</h2>
 <ul>
-<li class="fragment">The data come from <a href="https://openintrostat.github.io/usdata/reference/county_2019.html"><code>usdata::county_2019</code></a></li>
-<li class="fragment">These data have been compiled from the 2019 American Community Survey</li>
+<li>The data come from <a href="https://openintrostat.github.io/usdata/reference/county_2019.html"><code>usdata::county_2019</code></a></li>
+<li>These data have been compiled from the 2019 American Community Survey</li>
 </ul>
 <div class="cell">
 
@@ -463,17 +449,19 @@
 <section id="uninsurance-rate" class="slide level2">
 <h2>Uninsurance rate</h2>
 
-<img data-src="lec-4_files/figure-revealjs/unnamed-chunk-1-1.png" style="width:100.0%" class="r-stretch"></section>
+<img data-src="04-slr-evaluation_files/figure-revealjs/unnamed-chunk-1-1.png" style="width:100.0%" class="r-stretch"></section>
 <section id="high-school-graduation-rate" class="slide level2">
 <h2>High school graduation rate</h2>
 
-<img data-src="lec-4_files/figure-revealjs/unnamed-chunk-2-1.png" style="width:100.0%" class="r-stretch"></section>
+<img data-src="04-slr-evaluation_files/figure-revealjs/unnamed-chunk-2-1.png" style="width:100.0%" class="r-stretch"></section>
 <section id="examining-the-relationship" class="slide level2">
 <h2>Examining the relationship</h2>
+<div class="midi">
 <ul>
-<li class="fragment">The <a href="https://www.nc.gov/agency/labor-and-economic-analysis-division">NC Labor and Economic Analysis Division (LEAD)</a>, which “administers and collects data, conducts research, and publishes information on the state’s economy, labor force, educational, and workforce-related issues”.</li>
-<li class="fragment">Suppose that an analyst working for LEAD is interested in the relationship between uninsurance and high school graduation rates in NC counties.</li>
+<li><p>The <a href="https://www.nccommerce.com/about-us/divisions-programs/labor-economic-analysis-division">NC Labor and Economic Analysis Division (LEAD)</a> “collects data, conducts research and analysis and publishes reports about the state's economy and labor market. Information and data produced by LEAD help stakeholders make more informed decisions on business recruitment, education and workforce policies and career development, as well as gain a more extensive view of North Carolina's economy.”</p></li>
+<li><p>Suppose that an analyst working for LEAD is interested in the relationship between uninsurance and high school graduation rates in NC counties.</p></li>
 </ul>
+</div>
 <div class="fragment">
 <div class="question">
 <p>What type of visualization should the analyst make to examine the relationship between these two variables?</p>
@@ -483,9 +471,9 @@
 <section id="data-prep" class="slide level2">
 <h2>Data prep</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>county_2019_nc <span class="ot">&lt;-</span> county_2019 <span class="sc">%&gt;%</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a>  <span class="fu">as_tibble</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb2-3"><a href="#cb2-3"></a>  <span class="fu">filter</span>(state <span class="sc">==</span> <span class="st">"North Carolina"</span>) <span class="sc">%&gt;%</span></span>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>county_2019_nc <span class="ot">&lt;-</span> county_2019 <span class="sc">|&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>  <span class="fu">as_tibble</span>() <span class="sc">|&gt;</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a>  <span class="fu">filter</span>(state <span class="sc">==</span> <span class="st">"North Carolina"</span>) <span class="sc">|&gt;</span></span>
 <span id="cb2-4"><a href="#cb2-4"></a>  <span class="fu">select</span>(name, hs_grad, uninsured)</span>
 <span id="cb2-5"><a href="#cb2-5"></a></span>
 <span id="cb2-6"><a href="#cb2-6"></a>county_2019_nc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -522,12 +510,12 @@
 <span id="cb4-8"><a href="#cb4-8"></a>    <span class="at">title =</span> <span class="st">"Uninsurance vs. HS graduation rates"</span>,</span>
 <span id="cb4-9"><a href="#cb4-9"></a>    <span class="at">subtitle =</span> <span class="st">"North Carolina counties, 2015 - 2019"</span></span>
 <span id="cb4-10"><a href="#cb4-10"></a>  ) <span class="sc">+</span></span>
-<span id="cb4-11"><a href="#cb4-11"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> county_2019_nc <span class="sc">%&gt;%</span> <span class="fu">filter</span>(name <span class="sc">==</span> <span class="st">"Durham County"</span>), <span class="fu">aes</span>(<span class="at">x =</span> hs_grad, <span class="at">y =</span> uninsured), <span class="at">shape =</span> <span class="st">"circle open"</span>, <span class="at">color =</span> <span class="st">"#8F2D56"</span>, <span class="at">size =</span> <span class="dv">4</span>, <span class="at">stroke =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb4-12"><a href="#cb4-12"></a>  <span class="fu">geom_text</span>(<span class="at">data =</span> county_2019_nc <span class="sc">%&gt;%</span> <span class="fu">filter</span>(name <span class="sc">==</span> <span class="st">"Durham County"</span>), <span class="fu">aes</span>(<span class="at">x =</span> hs_grad, <span class="at">y =</span> uninsured, <span class="at">label =</span> name), <span class="at">color =</span> <span class="st">"#8F2D56"</span>, <span class="at">fontface =</span> <span class="st">"bold"</span>, <span class="at">nudge_y =</span> <span class="dv">3</span>, <span class="at">nudge_x =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-11"><a href="#cb4-11"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> county_2019_nc <span class="sc">|&gt;</span> <span class="fu">filter</span>(name <span class="sc">==</span> <span class="st">"Durham County"</span>), <span class="fu">aes</span>(<span class="at">x =</span> hs_grad, <span class="at">y =</span> uninsured), <span class="at">shape =</span> <span class="st">"circle open"</span>, <span class="at">color =</span> <span class="st">"#8F2D56"</span>, <span class="at">size =</span> <span class="dv">4</span>, <span class="at">stroke =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb4-12"><a href="#cb4-12"></a>  <span class="fu">geom_text</span>(<span class="at">data =</span> county_2019_nc <span class="sc">|&gt;</span> <span class="fu">filter</span>(name <span class="sc">==</span> <span class="st">"Durham County"</span>), <span class="fu">aes</span>(<span class="at">x =</span> hs_grad, <span class="at">y =</span> uninsured, <span class="at">label =</span> name), <span class="at">color =</span> <span class="st">"#8F2D56"</span>, <span class="at">fontface =</span> <span class="st">"bold"</span>, <span class="at">nudge_y =</span> <span class="dv">3</span>, <span class="at">nudge_x =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 
 </div>
-<img data-src="lec-4_files/figure-revealjs/nc-uninsured-hsgrad-scatter-1.png" style="width:80.0%" class="r-stretch"></section>
+<img data-src="04-slr-evaluation_files/figure-revealjs/nc-uninsured-hsgrad-scatter-1.png" style="width:80.0%" class="r-stretch"></section>
 <section id="modeling-the-relationship" class="slide level2">
 <h2>Modeling the relationship</h2>
 <div class="cell">
@@ -546,13 +534,13 @@
 </details>
 
 </div>
-<img data-src="lec-4_files/figure-revealjs/nc-uninsured-hsgrad-scatter-line-1.png" style="width:80.0%" class="r-stretch"></section>
+<img data-src="04-slr-evaluation_files/figure-revealjs/nc-uninsured-hsgrad-scatter-line-1.png" style="width:80.0%" class="r-stretch"></section>
 <section id="fitting-the-model" class="slide level2">
 <h2>Fitting the model</h2>
 <p>With <code>fit()</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>nc_fit <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a>  <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">%&gt;%</span></span>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>nc_fit <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">|&gt;</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a>  <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">|&gt;</span></span>
 <span id="cb6-3"><a href="#cb6-3"></a>  <span class="fu">fit</span>(uninsured <span class="sc">~</span> hs_grad, <span class="at">data =</span> county_2019_nc)</span>
 <span id="cb6-4"><a href="#cb6-4"></a></span>
 <span id="cb6-5"><a href="#cb6-5"></a><span class="fu">tidy</span>(nc_fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -601,7 +589,7 @@
 </div><div class="column" style="width:75%;">
 <div class="cell">
 <div class="cell-output-display">
-<p><img data-src="lec-4_files/figure-revealjs/unnamed-chunk-6-1.png" style="width:100.0%"></p>
+<p><img data-src="04-slr-evaluation_files/figure-revealjs/unnamed-chunk-6-1.png" style="width:100.0%"></p>
 </div>
 </div>
 </div>
@@ -620,7 +608,7 @@
 </div><div class="column" style="width:75%;">
 <div class="cell">
 <div class="cell-output-display">
-<p><img data-src="lec-4_files/figure-revealjs/unnamed-chunk-7-1.png" style="width:100.0%"></p>
+<p><img data-src="04-slr-evaluation_files/figure-revealjs/unnamed-chunk-7-1.png" style="width:100.0%"></p>
 </div>
 </div>
 </div>
@@ -640,7 +628,7 @@
 </div><div class="column" style="width:75%;">
 <div class="cell">
 <div class="cell-output-display">
-<p><img data-src="lec-4_files/figure-revealjs/unnamed-chunk-8-1.png" style="width:100.0%"></p>
+<p><img data-src="04-slr-evaluation_files/figure-revealjs/unnamed-chunk-8-1.png" style="width:100.0%"></p>
 </div>
 </div>
 </div>
@@ -661,7 +649,7 @@
 </div><div class="column" style="width:75%;">
 <div class="cell">
 <div class="cell-output-display">
-<p><img data-src="lec-4_files/figure-revealjs/unnamed-chunk-9-1.png" style="width:100.0%"></p>
+<p><img data-src="04-slr-evaluation_files/figure-revealjs/unnamed-chunk-9-1.png" style="width:100.0%"></p>
 </div>
 </div>
 </div>
@@ -678,8 +666,9 @@
 <h1>Model evaluation</h1>
 
 </section>
-<section id="two-statistics" class="slide level2 smaller">
+<section id="two-statistics" class="slide level2 small">
 <h2>Two statistics</h2>
+<div>
 <ul>
 <li class="fragment"><p><strong>R-squared</strong>, <span class="math inline">\(R^2\)</span> : Percentage of variability in the outcome explained by the regression model (in the context of SLR, the predictor)</p>
 <p><span class="math display">\[
@@ -690,18 +679,21 @@ R^2 = Cor(x,y)^2 = Cor(y, \hat{y})^2
 RMSE = \sqrt{\frac{\sum_{i = 1}^n (y_i - \hat{y}_i)^2}{n}}
 \]</span></p></li>
 </ul>
+</div>
 <div class="fragment">
 <div class="question">
 <p>What indicates a good model fit? Higher or lower <span class="math inline">\(R^2\)</span>? Higher or lower RMSE?</p>
 </div>
 </div>
 </section>
-<section id="r-squared" class="slide level2 smaller">
-<h2>R-squared</h2>
+<section id="r2" class="slide level2">
+<h2><span class="math inline">\(R^2\)</span></h2>
+<div>
 <ul>
 <li class="fragment"><p>Ranges between 0 (terrible predictor) and 1 (perfect predictor)</p></li>
-<li class="fragment"><p>Unitless</p></li>
-<li class="fragment"><p>Calculate with <code>rsq()</code>:</p>
+<li class="fragment"><p>Has no units</p></li>
+<li class="fragment"><p>Calculate with <code>rsq()</code> using the augmented data:</p></li>
+</ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">rsq</span>(nc_aug, <span class="at">truth =</span> uninsured, <span class="at">estimate =</span> .fitted)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -710,18 +702,20 @@ RMSE = \sqrt{\frac{\sum_{i = 1}^n (y_i - \hat{y}_i)^2}{n}}
   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
 1 rsq     standard       0.243</code></pre>
 </div>
-</div></li>
-</ul>
+</div>
+</div>
 </section>
-<section id="interpreting-r-squared" class="slide level2 smaller">
-<h2>Interpreting R-squared</h2>
+<section id="interpreting-r2" class="slide level2 smaller">
+<h2>Interpreting <span class="math inline">\(R^2\)</span></h2>
 <div class="cell">
 
 </div>
 <div class="poll">
-<p>🗳️ <strong>Vote on Slack</strong></p>
+<p>🗳️ <strong>Vote on Ed Discussion</strong></p>
+<div class="midi">
+<div class="poll">
 <p>The <span class="math inline">\(R^2\)</span> of the model for predicting uninsurance rate from high school graduation rate for NC counties is 24.3%. Which of the following is the correct interpretation of this value?</p>
-<div>
+</div>
 <ul>
 <li>High school graduation rates correctly predict 24.3% of uninsurance rates in NC counties.</li>
 <li>24.3% of the variability in uninsurance rates in NC counties can be explained by high school graduation rates.</li>
@@ -730,9 +724,11 @@ RMSE = \sqrt{\frac{\sum_{i = 1}^n (y_i - \hat{y}_i)^2}{n}}
 </ul>
 </div>
 </div>
+<p>Vote - Section 001</p>
+<p>Vote - Section 002</p>
 </section>
-<section id="alternative-approach-for-r-squared" class="slide level2">
-<h2>Alternative approach for R-squared</h2>
+<section id="alternative-approach-for-r2" class="slide level2">
+<h2>Alternative approach for <span class="math inline">\(R^2\)</span></h2>
 <p>Alternatively, use <code>glance()</code> to construct a single row summary of the model fit, including <span class="math inline">\(R^2\)</span>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">glance</span>(nc_fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -743,18 +739,23 @@ RMSE = \sqrt{\frac{\sum_{i = 1}^n (y_i - \hat{y}_i)^2}{n}}
 1     0.243         0.235  2.09      31.5 0.000000188     1  -214.  435.  443.
 # … with 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;</code></pre>
 </div>
+</div>
+<div class="fragment">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">glance</span>(nc_fit)<span class="sc">$</span>r.squared</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.2430694</code></pre>
 </div>
 </div>
+</div>
 </section>
 <section id="rmse" class="slide level2">
 <h2>RMSE</h2>
+<div>
 <ul>
 <li class="fragment"><p>Ranges between 0 (perfect predictor) and infinity (terrible predictor)</p></li>
-<li class="fragment"><p>Same units as the outcome variable</p></li>
-<li class="fragment"><p>Calculate with <code>rmse()</code>:</p>
+<li class="fragment"><p>Same units as the response variable</p></li>
+<li class="fragment"><p>Calculate with <code>rmse()</code> using the augmented data:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">rmse</span>(nc_aug, <span class="at">truth =</span> uninsured, <span class="at">estimate =</span> .fitted)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -766,9 +767,11 @@ RMSE = \sqrt{\frac{\sum_{i = 1}^n (y_i - \hat{y}_i)^2}{n}}
 </div></li>
 <li class="fragment"><p>The value of RMSE is not very meaningful on its own, but it’s useful for comparing across models (more on this when we get to regression with multiple predictors)</p></li>
 </ul>
+</div>
 </section>
-<section id="obtaining-r-squared-and-rmse" class="slide level2 smaller">
-<h2>Obtaining R-squared and RMSE</h2>
+<section id="obtaining-r2-and-rmse" class="slide level2">
+<h2>Obtaining <span class="math inline">\(R^2\)</span> and RMSE</h2>
+<div>
 <ul>
 <li class="fragment"><p>Use <code>rsq()</code> and <code>rmse()</code>, respectively</p>
 <div class="cell">
@@ -779,13 +782,14 @@ RMSE = \sqrt{\frac{\sum_{i = 1}^n (y_i - \hat{y}_i)^2}{n}}
 <li class="fragment"><p>Second argument: name of the column containing <code>truth</code> (observed outcome)</p></li>
 <li class="fragment"><p>Third argument: name of the column containing <code>estimate</code> (predicted outcome)</p></li>
 </ul>
+</div>
 </section>
 <section id="purpose-of-model-evaluation" class="slide level2">
 <h2>Purpose of model evaluation</h2>
 <ul>
-<li class="fragment"><span class="math inline">\(R^2\)</span> tells us how our model is doing to predict the data we <em>already have</em></li>
-<li class="fragment">But generally we are interested in prediction for a new observation, not for one that is already in our sample, i.e.&nbsp;<strong>out-of-sample prediction</strong></li>
-<li class="fragment">We have a couple ways of <em>simulating</em> out-of-sample prediction before actually getting new data to evaluate the performance of our models</li>
+<li><span class="math inline">\(R^2\)</span> tells us how our model is doing to predict the data we <em>already have</em></li>
+<li>But generally we are interested in prediction for a new observation, not for one that is already in our sample, i.e.&nbsp;<strong>out-of-sample prediction</strong></li>
+<li>We have a couple ways of <em>simulating</em> out-of-sample prediction before actually getting new data to evaluate the performance of our models</li>
 </ul>
 </section></section>
 <section>
@@ -795,11 +799,13 @@ RMSE = \sqrt{\frac{\sum_{i = 1}^n (y_i - \hat{y}_i)^2}{n}}
 </section>
 <section id="spending-our-data" class="slide level2">
 <h2>Spending our data</h2>
+<div>
 <ul>
 <li class="fragment">There are several steps to create a useful model: parameter estimation, model selection, performance assessment, etc.</li>
 <li class="fragment">Doing all of this on the entire data we have available leaves us with no other data to assess our choices</li>
 <li class="fragment">We can allocate specific subsets of data for different tasks, as opposed to allocating the largest possible amount to the model parameter estimation only (which is what we’ve done so far)</li>
 </ul>
+</div>
 </section>
 <section id="simulation-data-splitting" class="slide level2 smaller">
 <h2>Simulation: data splitting</h2>
@@ -816,7 +822,7 @@ RMSE = \sqrt{\frac{\sum_{i = 1}^n (y_i - \hat{y}_i)^2}{n}}
 </div><div class="column" style="width:70%;">
 <div class="cell">
 <div class="cell-output-display">
-<p><img data-src="lec-4_files/figure-revealjs/unnamed-chunk-15-1.png" style="width:100.0%"></p>
+<p><img data-src="04-slr-evaluation_files/figure-revealjs/unnamed-chunk-16-1.png" style="width:100.0%"></p>
 </div>
 </div>
 </div>
@@ -837,7 +843,7 @@ RMSE = \sqrt{\frac{\sum_{i = 1}^n (y_i - \hat{y}_i)^2}{n}}
 </div><div class="column" style="width:75%;">
 <div class="cell">
 <div class="cell-output-display">
-<p><img data-src="lec-4_files/figure-revealjs/unnamed-chunk-16-1.png" style="width:100.0%"></p>
+<p><img data-src="04-slr-evaluation_files/figure-revealjs/unnamed-chunk-17-1.png" style="width:100.0%"></p>
 </div>
 </div>
 </div>
@@ -848,8 +854,9 @@ RMSE = \sqrt{\frac{\sum_{i = 1}^n (y_i - \hat{y}_i)^2}{n}}
 <h1>Bootstrapping</h1>
 
 </section>
-<section id="bootstrapping-our-data" class="slide level2 smaller">
+<section id="bootstrapping-our-data" class="slide level2">
 <h2>Bootstrapping our data</h2>
+<div>
 <ul>
 <li class="fragment">The idea behind bootstrapping is that if a given observation exists in a sample, there may be more like it in the population</li>
 <li class="fragment">With bootstrapping, we simulate resampling from the population by resampling from the sample we observed</li>
@@ -858,6 +865,7 @@ RMSE = \sqrt{\frac{\sum_{i = 1}^n (y_i - \hat{y}_i)^2}{n}}
 <li class="fragment">For example, if our sample consists of the observations {A, B, C}, bootstrap samples could be {A, A, B}, {A, C, A}, {B, C, C}, {A, B, C}, etc.</li>
 </ul></li>
 </ul>
+</div>
 </section>
 <section id="simulation-bootstrapping" class="slide level2 smaller">
 <h2>Simulation: bootstrapping</h2>
@@ -873,7 +881,7 @@ RMSE = \sqrt{\frac{\sum_{i = 1}^n (y_i - \hat{y}_i)^2}{n}}
 </div><div class="column" style="width:75%;">
 <div class="cell">
 <div class="cell-output-display">
-<p><img data-src="lec-4_files/figure-revealjs/unnamed-chunk-17-1.png" style="width:100.0%"></p>
+<p><img data-src="04-slr-evaluation_files/figure-revealjs/unnamed-chunk-18-1.png" style="width:100.0%"></p>
 </div>
 </div>
 </div>
@@ -894,15 +902,31 @@ RMSE = \sqrt{\frac{\sum_{i = 1}^n (y_i - \hat{y}_i)^2}{n}}
 </div><div class="column" style="width:75%;">
 <div class="cell">
 <div class="cell-output-display">
-<p><img data-src="lec-4_files/figure-revealjs/unnamed-chunk-18-1.png" style="width:100.0%"></p>
+<p><img data-src="04-slr-evaluation_files/figure-revealjs/unnamed-chunk-19-1.png" style="width:100.0%"></p>
 </div>
 </div>
 </div>
 </div>
+</section>
+<section id="recap" class="slide level2">
+<h2>Recap</h2>
+<ul>
+<li><p>Motivateed the importance of model evaluation</p></li>
+<li><p>Described how <span class="math inline">\(R^2\)</span> and RMSE are used to evaluate models</p></li>
+<li><p>Assessed model’s predictive importance using data splitting and bootstrapping</p></li>
+</ul>
+</section>
+<section id="next-week" class="slide level2">
+<h2>Next week</h2>
+<p>Inference on the slope using</p>
+<ul>
+<li><p>Simulation-based methods</p></li>
+<li><p>Mathematical models</p></li>
+</ul>
 
-<p><img src="images/logo.png" class="slide-logo"></p>
-<div class="footer footer-default">
-<p><a href="https://sta210-s22.github.io/website/">sta210-s22.github.io/website</a></p>
+
+<img src="../images/logo.png" class="slide-logo r-stretch"><div class="footer footer-default">
+<p><a href="https://sta210-fa22.netlify.app/weeks/week-02.html">🔗 Week 02</a></p>
 </div>
 </section></section>
     </div>
@@ -915,8 +939,7 @@ RMSE = \sqrt{\frac{\sum_{i = 1}^n (y_i - \hat{y}_i)^2}{n}}
   <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="../site_libs/revealjs/plugin/multiplex/socket.io.js"></script>
-  <script src="../site_libs/revealjs/plugin/multiplex/multiplex.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -938,8 +961,8 @@ RMSE = \sqrt{\frac{\sum_{i = 1}^n (y_i - \hat{y}_i)^2}{n}}
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
-'multiplex': {"secret":null,"id":"44c3244ed6aa0536","url":"https://reveal-multiplex.glitch.me/"},
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
 'smaller': false,
  
         // Display controls in the bottom right corner
@@ -1110,10 +1133,10 @@ RMSE = \sqrt{\frac{\sum_{i = 1}^n (y_i - \hat{y}_i)^2}{n}}
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
 
           RevealMath,
-          
+          RevealNotes,
           RevealSearch,
           RevealZoom
         ]

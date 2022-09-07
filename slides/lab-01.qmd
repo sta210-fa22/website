@@ -1,5 +1,6 @@
 ---
-title: "Simple Linear Regression"
+title: "Lab 01"
+subtitle: "Simple Linear Regression"
 author: "Sep 08 - 09, 2022"
 footer: "[🔗 Week 02](https://sta210-fa22.netlify.app/weeks/week-02.html)"
 logo: "../images/logo.png"

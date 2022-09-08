@@ -322,24 +322,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </ul></li>
   <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting Started</a>
   <ul class="collapse">
-  <li><a href="#your-lab-ta-will-lead-you-through-the-getting-started-section." id="toc-your-lab-ta-will-lead-you-through-the-getting-started-section." class="nav-link" data-scroll-target="#your-lab-ta-will-lead-you-through-the-getting-started-section.">Your lab TA will lead you through the Getting Started section.</a></li>
-  <li><a href="#configuring-ssh-and-github" id="toc-configuring-ssh-and-github" class="nav-link" data-scroll-target="#configuring-ssh-and-github">Configuring SSH and GitHub</a>
-  <ul class="collapse">
-  <li><a href="#set-up-ssh-key" id="toc-set-up-ssh-key" class="nav-link" data-scroll-target="#set-up-ssh-key">Set up SSH Key</a></li>
-  </ul></li>
+  <li><a href="#log-in-to-rstudio" id="toc-log-in-to-rstudio" class="nav-link" data-scroll-target="#log-in-to-rstudio">Log in to RStudio</a></li>
+  <li><a href="#set-up-your-ssh-key" id="toc-set-up-your-ssh-key" class="nav-link" data-scroll-target="#set-up-your-ssh-key">Set up your SSH Key</a></li>
   <li><a href="#configure-git" id="toc-configure-git" class="nav-link" data-scroll-target="#configure-git">Configure git</a></li>
   <li><a href="#clone-the-repo-start-new-rstudio-project" id="toc-clone-the-repo-start-new-rstudio-project" class="nav-link" data-scroll-target="#clone-the-repo-start-new-rstudio-project">Clone the repo &amp; start new RStudio project</a></li>
-  <li><a href="#r-and-r-studio" id="toc-r-and-r-studio" class="nav-link" data-scroll-target="#r-and-r-studio">R and R Studio</a></li>
-  <li><a href="#warm-up" id="toc-warm-up" class="nav-link" data-scroll-target="#warm-up">Warm up</a></li>
-  <li><a href="#yaml" id="toc-yaml" class="nav-link" data-scroll-target="#yaml">YAML</a></li>
-  <li><a href="#commiting-changes" id="toc-commiting-changes" class="nav-link" data-scroll-target="#commiting-changes">Commiting changes</a></li>
-  <li><a href="#pushing-changes" id="toc-pushing-changes" class="nav-link" data-scroll-target="#pushing-changes">Pushing changes</a></li>
-  <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
-  </ul></li>
-  <li><a href="#data-ikea-furniture" id="toc-data-ikea-furniture" class="nav-link" data-scroll-target="#data-ikea-furniture">Data: Ikea furniture</a>
+  <li><a href="#r-and-r-studio" id="toc-r-and-r-studio" class="nav-link" data-scroll-target="#r-and-r-studio">R and R Studio</a>
   <ul class="collapse">
-  <li><a href="#view-the-data" id="toc-view-the-data" class="nav-link" data-scroll-target="#view-the-data">View the data</a></li>
+  <li><a href="#yaml" id="toc-yaml" class="nav-link" data-scroll-target="#yaml">YAML</a></li>
+  <li><a href="#committing-changes" id="toc-committing-changes" class="nav-link" data-scroll-target="#committing-changes">Committing changes</a></li>
+  <li><a href="#push-changes" id="toc-push-changes" class="nav-link" data-scroll-target="#push-changes">Push changes</a></li>
   </ul></li>
+  </ul></li>
+  <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
   <ul class="collapse">
   <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
@@ -385,89 +380,142 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
-<div class="cell">
-<pre class="marginfigure cell-code"><code>R is the name of the programming language itself and RStudio is a convenient interface.</code></pre>
-</div>
 <p>This lab will go through much of the same workflow we’ve demonstrated in class. The main goal is to reinforce our demo of R and RStudio, which we will be using throughout the course both to learn the statistical concepts discussed in the course and to analyze real data and come to informed conclusions.</p>
-<div class="cell">
-<pre class="marginfigure cell-code"><code>git is a version control system (like “Track Changes” features from Microsoft Word but more powerful) and GitHub is the home for your Git-based projects on the internet (like DropBox but much better).</code></pre>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>R is the name of the programming language itself and RStudio is a convenient interface.</p>
+</div>
 </div>
 <p>An additional goal is to reinforce git and GitHub, the collaboration and version control system that we will be using throughout the course.</p>
-<p>As the labs progress, you are encouraged to explore beyond what the labs dictate; a willingness to experiment will make you a much better programmer. Before we get to that stage, however, you need to build some basic fluency in R. Today we begin with the fundamental building blocks of R and RStudio: the interface, reading in data, and basic commands.</p>
-<p>To make versioning simpler, this and the next lab are solo labs. In the future, you’ll learn about collaborating on GitHub and producing a single lab report for your lab team, but for now, concentrate on getting the basics down.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Git is a version control system (like "Track Changes" features from Microsoft Word but more powerful) and GitHub is the home for your Git-based projects on the internet (like DropBox but much better).</p>
+</div>
+</div>
+<p>To make versioning simpler, this and the next lab are individual labs. In the future, you’ll learn about collaborating on GitHub and producing a single lab report for your lab team, but for now, concentrate on getting the basics down.</p>
 <section id="learning-goals" class="level2">
 <h2 class="anchored" data-anchor-id="learning-goals">Learning goals</h2>
 <p>By the end of the lab, you will…</p>
 <ul>
 <li>Be familiar with the workflow using RStudio and GitHub</li>
-<li>Gain practice writing a reproducible report using RMarkdown</li>
+<li>Gain practice writing a reproducible report using Quarto</li>
 <li>Practice version control using GitHub</li>
-<li>Be able to create data visualizations using <code>ggplot2</code></li>
-<li>Be able to describe variable distributions and the relationship between multiple variables</li>
+<li>Be able to create data visualizations using <code>ggplot2</code> and use those visualizations to describe distributions</li>
+<li>Be gain to fit, interpret, and evaluate simple linear regression models</li>
 </ul>
 </section>
 </section>
 <section id="getting-started" class="level1">
 <h1>Getting Started</h1>
-<section id="your-lab-ta-will-lead-you-through-the-getting-started-section." class="level2">
-<h2 class="anchored" data-anchor-id="your-lab-ta-will-lead-you-through-the-getting-started-section.">Your lab TA will lead you through the Getting Started section.</h2>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Your lab TA will lead you through the Getting Started section.</p>
+</div>
+</div>
+<section id="log-in-to-rstudio" class="level3">
+<h3 class="anchored" data-anchor-id="log-in-to-rstudio">Log in to RStudio</h3>
+<ul>
+<li><p>Go to <a href="https://cmgr.oit.duke.edu/containers" class="uri">https://cmgr.oit.duke.edu/containers</a> and login with your Duke NetID and Password.</p></li>
+<li><p>Click <code>STA210</code> to log into the Docker container. You should now see the RStudio environment.</p></li>
+</ul>
+<div class="callout-warning callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you haven't yet done so, you will need to reserve a container for <code>STA210</code> first.</p>
+</div>
+</div>
 </section>
-<section id="configuring-ssh-and-github" class="level2">
-<h2 class="anchored" data-anchor-id="configuring-ssh-and-github">Configuring SSH and GitHub</h2>
-<section id="set-up-ssh-key" class="level3">
-<h3 class="anchored" data-anchor-id="set-up-ssh-key">Set up SSH Key</h3>
-<p>You will authenticate GitHub using SSH. Below are an outline of the authentication steps; you are encouraged to follow along as your TA demonstrates the steps. <a href="https://github.com/DukeStatSci/github_auth_guide">Click here</a> to find more detailed instructions.</p>
-<p><em>Note: You only need to do this authentication process one time on a single system.</em></p>
+<section id="set-up-your-ssh-key" class="level3">
+<h3 class="anchored" data-anchor-id="set-up-your-ssh-key">Set up your SSH Key</h3>
+<p>You will authenticate GitHub using SSH. Below are an outline of the authentication steps; you are encouraged to follow along as your TA demonstrates the steps.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You only need to do this authentication process one time on a single system.</p>
+</div>
+</div>
 <ul>
 <li><strong>Step 1</strong>: Type <code>credentials::ssh_setup_github()</code> into your console.</li>
 <li><strong>Step 2</strong>: R will ask “No SSH key found. Generate one now?” You should click 1 for yes.</li>
 <li><strong>Step 3</strong>: You will generate a key. It will begin with “ssh-rsa….” R will then ask “Would you like to open a browser now?” You should click 1 for yes.</li>
-<li><strong>Step 4</strong>: You may be asked to provide your username and password to log into GitHub. This would be the ones associated with your account that you set up. After entering this information, you should paste the key in and give it a name.</li>
+<li><strong>Step 4</strong>: You may be asked to provide your username and password to log into GitHub. This would be the ones associated with your account that you set up. After entering this information, you should paste the key in and give it a name. You might name it in a way that indicates where the key will be used, e.g., <code>sta210</code>)</li>
 </ul>
+<p>You can find more detailed instructions <a href="https://github.com/DukeStatSci/github_auth_guide">here</a> if you're interested.</p>
 </section>
-</section>
-<section id="configure-git" class="level2">
-<h2 class="anchored" data-anchor-id="configure-git">Configure git</h2>
+<section id="configure-git" class="level3">
+<h3 class="anchored" data-anchor-id="configure-git">Configure git</h3>
 <p>There is one more thing we need to do before getting started on the assignment. Specifically, we need to configure your git so that RStudio can communicate with GitHub. This requires two pieces of information: your name and email address.</p>
 <p>To do so, you will use the <code>use_git_config()</code> function from the <code>usethis</code> package.</p>
 <p>Type the following lines of code in the <strong>console</strong> in RStudio filling in your name and the email address associated with your GitHub account.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_git_config</span>(<span class="at">user.name =</span> <span class="st">"GitHub username"</span>, </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>               <span class="at">user.email =</span> <span class="st">"your email"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_git_config</span>(</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">user.name =</span> <span class="st">"Your name"</span>, </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">user.email =</span> <span class="st">"Email associated with your GitHub account"")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>For example, mine would be</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_git_config</span>(<span class="at">user.name =</span> <span class="st">"matackett"</span>,</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>               <span class="at">user.email =</span> <span class="st">"maria.tackett@duke.edu"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_git_config</span>(</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">user.name =</span> <span class="st">"Maria Tackett"</span>,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">user.email =</span> <span class="st">"maria.tackett@duke.edu"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You are now ready interact between GitHub and RStudio!</p>
 </section>
 <section id="clone-the-repo-start-new-rstudio-project" class="level2">
 <h2 class="anchored" data-anchor-id="clone-the-repo-start-new-rstudio-project">Clone the repo &amp; start new RStudio project</h2>
 <ul>
-<li>Go to the course organization at <a href="https://github.com/sta210-fa21"><strong>github.com/sta210-fa21</strong></a> organization on GitHub. Click on the repo with the prefix <strong>lab-01</strong>. It contains the starter documents you need to complete the lab.</li>
+<li>Go to the course organization at <a href="https://github.com/sta210-fa22">github.com/sta210-fa22</a> organization on GitHub. Click on the repo with the prefix <strong>lab-01-ikea-</strong>. It contains the starter documents you need to complete the lab.</li>
 </ul>
-<div class="cell">
-
-</div>
+<!-- -->
 <ul>
 <li>Click on the green <strong>CODE</strong> button, select <strong>Use SSH</strong> (this might already be selected by default, and if it is, you’ll see the text <strong>Clone with SSH</strong>). Click on the clipboard icon to copy the repo URL.</li>
 </ul>
-<p><img src="images/01/github-example.png" class="img-fluid"></p>
-<div class="cell">
-<pre class="marginfigure cell-code"><code>If you get an error message that begins with *WARNING: UNPROTECTED PRIVATE KEY FILE!* then this can be fixed by clicking on "Terminal" (the tab next to the console) and pasting in `chmod 400 ~/.ssh/id_rsa` and hitting enter.
-Then, try to create a project again and it should work.</code></pre>
-</div>
+<!-- -->
 <ul>
-<li><p>Go to <a href="https://vm-manage.oit.duke.edu/containers" class="uri">https://vm-manage.oit.duke.edu/containers</a> and login with your Duke NetID and Password.</p></li>
-<li><p>Click <strong>STA210</strong> to log into the Docker container. You should now see the RStudio environment.</p></li>
-<li><p>Go to <em>File</em> <span class="math inline">\(\rightarrow\)</span> <em>New Project</em> <span class="math inline">\(\rightarrow\)</span> <em>Version Control</em> <span class="math inline">\(\rightarrow\)</span> <em>Git</em>.</p></li>
+<li><p>In RStudio, go to <em>File</em> <span class="math inline">\(\rightarrow\)</span> <em>New Project</em> <span class="math inline">\(\rightarrow\)</span> <em>Version Control</em> <span class="math inline">\(\rightarrow\)</span> <em>Git</em>.</p></li>
 <li><p>Copy and paste the URL of your assignment repo into the dialog box <em>Repository URL</em>. Again, please make sure to have <em>SSH</em> highlighted under <em>Clone</em> when you copy the address.</p></li>
 </ul>
-<p><img src="images/01/github-example-2.png" class="img-fluid"></p>
+<!-- -->
 <ul>
 <li><p>Click <em>Create Project</em>, and the files from your GitHub repo will be displayed in the <em>Files</em> pane in RStudio.</p></li>
-<li><p>Click <em>lab-01-ikea.Rmd</em> to open the template Quarto file. This is where you will write up your code and narrative for the lab.</p></li>
+<li><p>Click <em>lab-01.qmd</em> to open the template Quarto file. This is where you will write up your code and narrative for the lab.</p></li>
 </ul>
 </section>
 <section id="r-and-r-studio" class="level2">
@@ -475,49 +523,58 @@ Then, try to create a project again and it should work.</code></pre>
 <p>Below are the components of the RStudio IDE.</p>
 <p><img src="images/01/rstudio-panes.png" class="img-fluid"></p>
 <p>Below are the components of an Quarto (.Rmd) file.</p>
-<p><img src="images/01/rmarkdown.jpg" class="img-fluid"></p>
-</section>
-<section id="warm-up" class="level2">
-<h2 class="anchored" data-anchor-id="warm-up">Warm up</h2>
-<p>Before we introduce the data, let’s warm up with some simple exercises.</p>
-<p>We’re going to go through our first <strong>render</strong>, <strong>commit</strong>, and <strong>push</strong>.</p>
-</section>
-<section id="yaml" class="level2">
-<h2 class="anchored" data-anchor-id="yaml">YAML</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/01/quarto.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<section id="yaml" class="level3">
+<h3 class="anchored" data-anchor-id="yaml">YAML</h3>
 <p>The top portion of your Quarto file (between the three dashed lines) is called <strong>YAML</strong>. It stands for “YAML Ain’t Markup Language”. It is a human friendly data serialization standard for all programming languages. All you need to know is that this area is called the YAML (we will refer to it as such) and that it contains meta information about your document.</p>
-<p>Open the Quarto (.Rmd) file in your project, change the author name to your name, and render the document.</p>
-<p>Examine the renderted document.</p>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Open the Quarto (.Rmd) file in your project, change the author name to your name, and render the document. Examine the rendered document.</p>
+</div>
+</div>
 </section>
-<section id="commiting-changes" class="level2">
-<h2 class="anchored" data-anchor-id="commiting-changes">Commiting changes</h2>
+<section id="committing-changes" class="level3">
+<h3 class="anchored" data-anchor-id="committing-changes">Committing changes</h3>
 <p>Now, go to the Git pane in your RStudio instance. This will be in the top right hand corner in a separate tab.</p>
-<p>If you have made changes to your Rmd file, you should see it listed here. Click on it to select it in this list and then click on <strong>Diff</strong>. This shows you the <em>diff</em>erence between the last committed state of the document and its current state including changes. You should see deletions in red and additions in green.</p>
+<p>If you have made changes to your Quarto (.qmd) file, you should see it listed here. Click on it to select it in this list and then click on <strong>Diff</strong>. This shows you the <em>diff</em>erence between the last committed state of the document and its current state including changes. You should see deletions in red and additions in green.</p>
 <p>If you’re happy with these changes, we’ll prepare the changes to be pushed to your remote repository. First, <strong>stage</strong> your changes by checking the appropriate box on the files you want to prepare. Next, write a meaningful commit message (for instance, “updated author name”) in the <strong>Commit message</strong> box. Finally, click <strong>Commit</strong>. Note that every commit needs to have a commit message associated with it.</p>
 <p>You don’t have to commit after every change, as this would get quite tedious. You should commit states that are <em>meaningful to you</em> for inspection, comparison, or restoration.</p>
 <p>In the first few assignments we will tell you exactly when to commit and in some cases, what commit message to use. As the semester progresses we will let you make these decisions.</p>
 <p>Now let’s make sure all the changes went to GitHub. Go to your GitHub repo and refresh the page. You should see your commit message next to the updated files. If you see this, all your changes are on GitHub and you’re good to go!</p>
 </section>
-<section id="pushing-changes" class="level2">
-<h2 class="anchored" data-anchor-id="pushing-changes">Pushing changes</h2>
+<section id="push-changes" class="level3">
+<h3 class="anchored" data-anchor-id="push-changes">Push changes</h3>
 <p>Now that you have made an update and committed this change, it’s time to push these changes to your repo on GitHub.</p>
-<p>In order to push your changes to GitHub, you must have <strong>staged</strong> your <strong>commit</strong> to be pushed. click on <strong>Push</strong>.</p>
-<p>To get more details about the RStudio project, RMarkdown file, and just R in general, read <a href="https://socviz.co/gettingstarted.html#gettingstarted">Getting Started</a> in <em>Data Visualization</em> by Kieran Healy.</p>
+<p>In order to push your changes to GitHub, you must have <strong>staged</strong> your <strong>commit</strong> to be pushed. click on <strong>Push</strong>.x</p>
 </section>
-<section id="packages" class="level2">
-<h2 class="anchored" data-anchor-id="packages">Packages</h2>
+</section>
+</section>
+<section id="packages" class="level1">
+<h1>Packages</h1>
 <p>We will use the following packages in today’s lab.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-</section>
-<section id="data-ikea-furniture" class="level1">
-<h1>Data: Ikea furniture</h1>
+<section id="data" class="level1">
+<h1>Data</h1>
 <p>Today’s data is all about <a href="https://www.ikea.com/">Ikea</a> furniture. The data was obtained from the <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-11-03/readme.md">TidyTuesday</a> data collection.</p>
 <p>Use the code below to read in the data.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>ikea <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/ikea.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ikea <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/ikea.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The variable definitions are as follows:</p>
 <table class="table">
@@ -577,17 +634,17 @@ Then, try to create a project again and it should work.</code></pre>
 <tr class="odd">
 <td style="text-align: left;">depth</td>
 <td style="text-align: left;">double</td>
-<td style="text-align: left;">Depth of the item in Centimeter</td>
+<td style="text-align: left;">Depth of the item in centimeters</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">height</td>
 <td style="text-align: left;">double</td>
-<td style="text-align: left;">Height of the item in Centimeter</td>
+<td style="text-align: left;">Height of the item in centimeters</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">width</td>
 <td style="text-align: left;">double</td>
-<td style="text-align: left;">Width of the item in Centimeter</td>
+<td style="text-align: left;">Width of the item in centimeters</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">price_usd</td>
@@ -596,19 +653,11 @@ Then, try to create a project again and it should work.</code></pre>
 </tr>
 </tbody>
 </table>
-<section id="view-the-data" class="level2">
-<h2 class="anchored" data-anchor-id="view-the-data">View the data</h2>
-<p>Before doing any analysis, you may want to get quick view of the data. This is useful when you’ve imported data to see if your data imported correctly. We can use the <code>View</code> function to see the entire data set in RStudio. Type the code below in the <strong>console</strong> to view the entire dataset.</p>
-<div class="cell">
-<pre class="marginfigure cell-code"><code>Notice that the `View(ikea)` command was run in the console and **not** in a code chunk in the RMarkdown file. By running the `View(ikea)` in the console, the dataset displays in your RStudio environment but not in the PDF output from your renderted Rmd file. </code></pre>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(ikea)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
 </section>
 <section id="exercises" class="level1">
 <h1>Exercises</h1>
+<p><strong>Goal</strong>: You are furnishing a new apartment and would like to use statistical analysis to get idea of how much the furniture will cost and how the cost may change based on various characteristics of the furniture.</p>
+<hr>
 <p>Write all code and narrative in your Quarto file. Write all narrative in complete sentences. Throughout the assignment, you should periodically <strong>render</strong> your Quarto document to produce the updated PDF, <strong>commit</strong> the changes in the Git pane, and <strong>push</strong> the updated files to GitHub.</p>
 <div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
@@ -628,7 +677,7 @@ Tip
 <p>Viewing a summary of the data is a useful starting point for data analysis, especially if the dataset has a large number of observations (rows) or variables (columns). Run the code below to use the <code>glimpse</code> function to see a summary of the <code>ikea</code> dataset.</p>
 <p>How many observations are in the <code>ikea</code> dataset? How many variables?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(ikea)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(ikea)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
@@ -651,11 +700,11 @@ Note
 <p>When we make visualizations, we want them to be clear and suitable for a professional audience. This means that, at a minimum, each visualization should have <strong>an informative title</strong> and <strong>informative axis labels</strong>.</p>
 <p>Fill in the code below to visualize the distribution of <code>price_usd</code>, the price in US dollars.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> ikea, <span class="fu">aes</span>(<span class="at">x =</span> ____)) <span class="sc">+</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"_____"</span>,</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"_____"</span>, </span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"_____"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> ikea, <span class="fu">aes</span>(<span class="at">x =</span> ____)) <span class="sc">+</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"_____"</span>,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"_____"</span>, </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"_____"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="exercise-3" class="level3">
@@ -667,13 +716,13 @@ Note
 </section>
 <section id="exercise-4" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-4">Exercise 4</h3>
-<p>In this course, we’ll be most interested in the relationship between two or more variables, so let’s begin by looking at the distribution of price by category. We’ll focus on the four categories in the code below, since these include commonly purchased types of furniture (and may be the types of furniture you’re interested in purchasing as you furnish a new apartment.)</p>
+<p>In this course, we’ll be most interested in the relationship between two or more variables, so let’s begin by looking at the distribution of price by category. We’ll focus on the four categories in the code below, since these may be the types of furniture you’re interested in purchasing as you furnish a new apartment.</p>
 <p>Use the code below to create a new data frame that only includes the furniture categories of interest. We’re assigning this data frame to an object with a new name, so we don’t overwrite the original data.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>ikea_sub <span class="ot">&lt;-</span> ikea <span class="sc">|&gt;</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(category <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Tables &amp; desks"</span>, <span class="st">"Beds"</span>, </span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>                         <span class="st">"Bookcases &amp; shelving units"</span>, </span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>                         <span class="st">"Sofas &amp; armchairs"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>ikea_sub <span class="ot">&lt;-</span> ikea <span class="sc">|&gt;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(category <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Tables &amp; desks"</span>, <span class="st">"Beds"</span>, </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>                         <span class="st">"Bookcases &amp; shelving units"</span>, </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>                         <span class="st">"Sofas &amp; armchairs"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>How many observations are in the <code>ikea_sub</code> dataset? How many variables?</p>
 <div class="callout-important callout callout-style-default callout-captioned">
@@ -694,18 +743,18 @@ Important
 <h3 class="anchored" data-anchor-id="exercise-5">Exercise 5</h3>
 <p>The code below creates a density plot<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> where each density curve is colored by category; this allows us to compare the distribution of price across the four categories.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> ikea_sub, <span class="fu">aes</span>(<span class="at">x =</span> price_usd, <span class="at">fill =</span> category)) <span class="sc">+</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> ikea_sub, <span class="fu">aes</span>(<span class="at">x =</span> price_usd, <span class="at">fill =</span> category)) <span class="sc">+</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="lab-01_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+<p><img src="lab-01_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>The overlapping colors make it difficult to tell what’s happening with the distributions for the categories plotted first and hence covered by categories plotted over them. We can change the transparency level of the fill color to help with this. The <code>alpha</code>argument takes values between 0 and 1, where 0 is completely transparent and 1 is completely opaque. It’s difficult to tell what exact value will work best, so it’s best to try a few.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> ikea_sub, <span class="fu">aes</span>(<span class="at">x =</span> price_usd, <span class="at">fill =</span> category)) <span class="sc">+</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> ikea_sub, <span class="fu">aes</span>(<span class="at">x =</span> price_usd, <span class="at">fill =</span> category)) <span class="sc">+</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="lab-01_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+<p><img src="lab-01_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Recreate the density plot using a more suitable alpha level, so we can more easily see the distribution of all the categories. Include an informative title and informative axis labels on the plot.</p>
@@ -791,16 +840,28 @@ Important
 <section id="submission" class="level1">
 <h1>Submission</h1>
 <p>In this class, we’ll be submitting PDF documents to Gradescope.</p>
-<p><strong>Before you wrap up the assignment, make sure all documents are updated on your GitHub repo. We will be checking these to make sure you have been practicing how to commit and push changes.</strong></p>
-<p><strong>Remember – you must turn in a PDF file to the Gradescope page before the submission deadline for full credit.</strong></p>
+<div class="callout-warning callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Before you wrap up the assignment, make sure all documents are updated on your GitHub repo. We will be checking these to make sure you have been practicing how to commit and push changes.</p>
+<p>Remember – you must turn in a PDF file to the Gradescope page before the submission deadline for full credit.</p>
+</div>
+</div>
 <p>To submit your assignment:</p>
 <ul>
-<li><p>Go to http://www.gradescope.com and click <em>Log in</em> in the top right corner.</p></li>
-<li><p>Click <em>School Credentials</em> ➡️ <em>Duke NetID</em> and log in using your NetID credentials.</p></li>
-<li><p>Click on your <em>STA 210</em> course.</p></li>
-<li><p>Click on the assignment, and you’ll be prompted to submit it.</p></li>
-<li><p>Mark the pages associated with each exercise. All of the pages of your lab should be associated with at least one question (i.e., should be “checked”).</p></li>
-<li><p>Select the first page of your .PDF submission to be associated with the <em>“Workflow &amp; formatting”</em> section.</p></li>
+<li>Go to <a href="http://www.gradescope.com" class="uri">http://www.gradescope.com</a>and click <em>Log in</em> in the top right corner.</li>
+<li>Click <em>School Credentials</em> ➡️ <em>Duke NetID</em> and log in using your NetID credentials.</li>
+<li>Click on your <em>STA 210</em> course.</li>
+<li>Click on the assignment, and you’ll be prompted to submit it.</li>
+<li>Mark the pages associated with each exercise. All of the pages of your lab should be associated with at least one question (i.e., should be “checked”).</li>
+<li>Select the first page of your .PDF submission to be associated with the <em>“Workflow &amp; formatting”</em> section.</li>
 </ul>
 </section>
 <section id="grading-50-pts" class="level1">
@@ -820,25 +881,21 @@ Important
 </tr>
 <tr class="even">
 <td style="text-align: left;">Workflow &amp; formatting</td>
-<td style="text-align: left;">3</td>
+<td style="text-align: left;">3<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></td>
 </tr>
 </tbody>
 </table>
-<p><strong>Grading notes</strong>:</p>
-<ul>
-<li>The “Workflow &amp; formatting” grade is to assess the reproducible workflow. This includes having at least 3 informative commit messages and updating the name and date in the YAML.</li>
-</ul>
 </section>
 <section id="resources-for-additional-practice-optional" class="level1">
 <h1>Resources for additional practice (optional)</h1>
 <ul>
-<li><p><a href="https://socviz.co/gettingstarted.html#work-in-plain-text-using-rmarkdown">Chapter 2: Get Started</a> <em>Data Visualization by Kieran Healy</em></p></li>
-<li><p><a href="https://r4ds.had.co.nz/data-visualisation.html">Chapter 3: Data visualization</a> in <em>R for Data Science</em> by Hadley Wickham</p></li>
-<li><p>RStudio Cloud Primers</p>
+<li><a href="https://socviz.co/gettingstarted.html#work-in-plain-text-using-rmarkdown">Chapter 2: Get Started</a> <em>Data Visualization by Kieran Healy</em></li>
+<li><a href="https://r4ds.had.co.nz/data-visualisation.html">Chapter 3: Data visualization</a> in <em>R for Data Science</em> by Hadley Wickham</li>
+<li>RStudio Cloud Primers
 <ul>
-<li>Visualization Basics: https://rstudio.cloud/learn/primers/1.1</li>
-<li>Work with Data: https://rstudio.cloud/learn/primers/2</li>
-<li>Visualize Data: https://rstudio.cloud/learn/primers/3</li>
+<li>Visualization Basics: <a href="https://rstudio.cloud/learn/primers/1.1" class="uri">https://rstudio.cloud/learn/primers/1.1</a></li>
+<li>Work with Data: <a href="https://rstudio.cloud/learn/primers/2" class="uri">https://rstudio.cloud/learn/primers/2</a></li>
+<li>Visualize Data: <a href="https://rstudio.cloud/learn/primers/3" class="uri">https://rstudio.cloud/learn/primers/3</a></li>
 </ul></li>
 </ul>
 
@@ -850,6 +907,7 @@ Important
 
 <ol>
 <li id="fn1" role="doc-endnote"><p>Learn more about density plots and see code examples at the <a href="https://ggplot2.tidyverse.org/reference/geom_density.html">ggplot2 reference page for density plots</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>The “Workflow &amp; formatting” grade is to assess the reproducible workflow. This includes having at least 3 informative commit messages and updating the name and date in the YAML.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

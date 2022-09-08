@@ -4,7 +4,14 @@
     "href": "labs/lab-01.html",
     "title": "Lab 01: Ikea furniture",
     "section": "",
-    "text": "This lab will go through much of the same workflow we’ve demonstrated in class. The main goal is to reinforce our demo of R and RStudio, which we will be using throughout the course both to learn the statistical concepts discussed in the course and to analyze real data and come to informed conclusions.\n\n\n\n\n\n\nNote\n\n\n\nR is the name of the programming language itself and RStudio is a convenient interface.\n\n\nAn additional goal is to reinforce git and GitHub, the collaboration and version control system that we will be using throughout the course.\n\n\n\n\n\n\nNote\n\n\n\nGit is a version control system (like \"Track Changes\" features from Microsoft Word but more powerful) and GitHub is the home for your Git-based projects on the internet (like DropBox but much better).\n\n\nTo make versioning simpler, this and the next lab are individual labs. In the future, you’ll learn about collaborating on GitHub and producing a single lab report for your lab team, but for now, concentrate on getting the basics down.\n\n\nBy the end of the lab, you will…\n\nBe familiar with the workflow using RStudio and GitHub\nGain practice writing a reproducible report using Quarto\nPractice version control using GitHub\nBe able to create data visualizations using ggplot2 and use those visualizations to describe distributions\nBe gain to fit, interpret, and evaluate simple linear regression models"
+    "text": "Important\n\n\n\nDue:\n\nMonday, September12, 11:59pm (Thursday labs)\nTuesday, September 13, 11:59pm (Friday labs)"
+  },
+  {
+    "objectID": "labs/lab-01.html#learning-goals",
+    "href": "labs/lab-01.html#learning-goals",
+    "title": "Lab 01: Ikea furniture",
+    "section": "Learning goals",
+    "text": "Learning goals\nBy the end of the lab, you will…\n\nBe familiar with the workflow using RStudio and GitHub\nGain practice writing a reproducible report using Quarto\nPractice version control using GitHub\nBe able to create data visualizations using ggplot2 and use those visualizations to describe distributions\nBe gain to fit, interpret, and evaluate simple linear regression models"
   },
   {
     "objectID": "labs/lab-01.html#clone-the-repo-start-new-rstudio-project",

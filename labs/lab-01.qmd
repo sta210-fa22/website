@@ -9,6 +9,13 @@ execute:
   message: false
 ---
 
+::: callout-important
+Due:
+
+-   Monday, September12, 11:59pm (Thursday labs)
+-   Tuesday, September 13, 11:59pm (Friday labs)
+:::
+
 # Introduction
 
 This lab will go through much of the same workflow we've demonstrated in class. The main goal is to reinforce our demo of R and RStudio, which we will be using throughout the course both to learn the statistical concepts discussed in the course and to analyze real data and come to informed conclusions.

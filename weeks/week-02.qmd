@@ -13,7 +13,7 @@ title-block-style: none
 
 -   No AEs due this week
 -   Lab 01:
-    -   due Mon, Sep 12, 11:5pm (Thu labs)
+    -   due Mon, Sep 12, 11:59pm (Thu labs)
     -   due Tue, Sep 13, 11:59pm (Fri labs)
 :::
 

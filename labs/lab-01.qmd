@@ -12,7 +12,7 @@ execute:
 ::: callout-important
 Due:
 
--   Monday, September12, 11:59pm (Thursday labs)
+-   Monday, September 12, 11:59pm (Thursday labs)
 -   Tuesday, September 13, 11:59pm (Friday labs)
 :::
 
@@ -27,7 +27,7 @@ R is the name of the programming language itself and RStudio is a convenient int
 An additional goal is to reinforce git and GitHub, the collaboration and version control system that we will be using throughout the course.
 
 ::: callout-note
-Git is a version control system (like \"Track Changes\" features from Microsoft Word but more powerful) and GitHub is the home for your Git-based projects on the internet (like DropBox but much better).
+Git is a version control system (like "Track Changes" features from Microsoft Word but more powerful) and GitHub is the home for your Git-based projects on the internet (like DropBox but much better).
 :::
 
 To make versioning simpler, this and the next lab are individual labs. In the future, you'll learn about collaborating on GitHub and producing a single lab report for your lab team, but for now, concentrate on getting the basics down.
@@ -48,14 +48,14 @@ By the end of the lab, you will...
 Your lab TA will lead you through the Getting Started section.
 :::
 
-### Log in to RStudio 
+### Log in to RStudio
 
 -   Go to <https://cmgr.oit.duke.edu/containers> and login with your Duke NetID and Password.
 
 -   Click `STA210` to log into the Docker container. You should now see the RStudio environment.
 
 ::: callout-warning
-If you haven\'t yet done so, you will need to reserve a container for `STA210` first.
+If you haven't yet done so, you will need to reserve a container for `STA210` first.
 :::
 
 ### Set up your SSH Key
@@ -71,7 +71,7 @@ You only need to do this authentication process one time on a single system.
 -   **Step 3**: You will generate a key. It will begin with "ssh-rsa...." R will then ask "Would you like to open a browser now?" You should click 1 for yes.
 -   **Step 4**: You may be asked to provide your username and password to log into GitHub. This would be the ones associated with your account that you set up. After entering this information, you should paste the key in and give it a name. You might name it in a way that indicates where the key will be used, e.g., `sta210`)
 
-You can find more detailed instructions [here](https://github.com/DukeStatSci/github_auth_guide) if you\'re interested.
+You can find more detailed instructions [here](https://github.com/DukeStatSci/github_auth_guide) if you're interested.
 
 ### Configure git
 
@@ -101,21 +101,18 @@ You are now ready interact between GitHub and RStudio!
 
 -   Go to the course organization at [github.com/sta210-fa22](https://github.com/sta210-fa22) organization on GitHub. Click on the repo with the prefix **lab-01-ikea-**. It contains the starter documents you need to complete the lab.
 
-```{=html}
 <!-- -->
-```
+
 -   Click on the green **CODE** button, select **Use SSH** (this might already be selected by default, and if it is, you'll see the text **Clone with SSH**). Click on the clipboard icon to copy the repo URL.
 
-```{=html}
 <!-- -->
-```
+
 -   In RStudio, go to *File* $\rightarrow$ *New Project* $\rightarrow$ *Version Control* $\rightarrow$ *Git*.
 
 -   Copy and paste the URL of your assignment repo into the dialog box *Repository URL*. Again, please make sure to have *SSH* highlighted under *Clone* when you copy the address.
 
-```{=html}
 <!-- -->
-```
+
 -   Click *Create Project*, and the files from your GitHub repo will be displayed in the *Files* pane in RStudio.
 
 -   Click *lab-01.qmd* to open the template Quarto file. This is where you will write up your code and narrative for the lab.
@@ -156,7 +153,7 @@ Now let's make sure all the changes went to GitHub. Go to your GitHub repo and r
 
 Now that you have made an update and committed this change, it's time to push these changes to your repo on GitHub.
 
-In order to push your changes to GitHub, you must have **staged** your **commit** to be pushed. click on **Push**.x
+In order to push your changes to GitHub, you must have **staged** your **commit** to be pushed. click on **Push**.
 
 # Packages
 
@@ -182,7 +179,7 @@ ikea <- read_csv("data/ikea.csv")
 The variable definitions are as follows:
 
 | variable          | class     | description                                                                                         |
-|:--------------|:--------------|:------------------------------------------|
+|:-----------|:-----------|:-----------------------------------------------|
 | item_id           | double    | item id which can be used later to merge with other IKEA data frames                                |
 | name              | character | the commercial name of items                                                                        |
 | category          | character | the furniture category that the item belongs to (Sofas, beds, chairs, Trolleys,...)                 |
@@ -219,9 +216,9 @@ glimpse(ikea)
 ```
 
 ::: callout-note
-In your \``` lab-01.qmd` `` document you\'ll see that we already added the code required for the exercise as well as a sentence where you can fill in the blanks to report the answer. Use this format for the remaining exercises.
+In your \``` lab-01.qmd` `` document you'll see that we already added the code required for the exercise as well as a sentence where you can fill in the blanks to report the answer. Use this format for the remaining exercises.
 
-Also note that the code chunk as a label: `glimpse-data`. It\'s not required, but good practice and highly encouraged to label your code chunks in this way.
+Also note that the code chunk as a label: `glimpse-data`. It's not required, but good practice and highly encouraged to label your code chunks in this way.
 :::
 
 ### Exercise 2

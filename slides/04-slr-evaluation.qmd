@@ -483,6 +483,8 @@ glance(nc_fit)$r.squared
 -   But generally we are interested in prediction for a new observation, not for one that is already in our sample, i.e. **out-of-sample prediction**
 -   We have a couple ways of *simulating* out-of-sample prediction before actually getting new data to evaluate the performance of our models
 
+<!--Ended here in class-->
+
 # Splitting data
 
 ## Spending our data
@@ -643,7 +645,7 @@ p_nc_boots
 
 ## Recap
 
--   Motivateed the importance of model evaluation
+-   Motivated the importance of model evaluation
 
 -   Described how $R^2$ and RMSE are used to evaluate models
 

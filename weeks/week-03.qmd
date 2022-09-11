@@ -1,6 +1,6 @@
 ---
 title: "Week 03"
-subtitle: "SLR: Inference + Prediction"
+subtitle: "SLR: Inference"
 description: "Lab 02, HW 01"
 author: "Sep 12 - 16"
 date: ""
@@ -8,10 +8,63 @@ tbl-colwidths: [60,40]
 title-block-style: none
 ---
 
+::: callout-important
+**Due dates:**
+
+-   Lab 02:
+    -   due Mon, Sep 19, 11:59pm (Thu labs)
+    -   due Tue, Sep 20, 11:59pm (Fri labs)
+-   HW 01: due Wed, Sep 21, 11:59pm
+:::
+
 # Prepare
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------+
+| Reading                                                                                                                                                        | Corresponding lecture |
++================================================================================================================================================================+=======================+
+| 📖 IMS, Sec 24.2: [Randomization test for the slope](https://openintro-ims.netlify.app/inf-model-slr.html#randslope)                                           | Sep 12                |
+|                                                                                                                                                                |                       |
+| 📖 IMS, Sec 24.3: [Bootstrap confidence interval for the slope](https://openintro-ims.netlify.app/inf-model-slr.html#bootbeta1)\                               |                       |
++----------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------+
+| 📖 IMS, Sec 24.4: [Mathematical model for testing the slope](https://openintro-ims.netlify.app/inf-model-slr.html#mathslope)                                   | Sep 14                |
+|                                                                                                                                                                |                       |
+| 📖 IMS, Sec 24.5: [Mathematical model, interval for the slope](https://openintro-ims.netlify.app/inf-model-slr.html#mathematical-model-interval-for-the-slope) |                       |
+|                                                                                                                                                                |                       |
+| 📖 IMS, Sec 24.6: [Checking model conditions](https://openintro-ims.netlify.app/inf-model-slr.html#tech-cond-linmod)                                           |                       |
+|                                                                                                                                                                |                       |
+| 📖 IMS, Sec 24.7: [Chapter review](https://openintro-ims.netlify.app/inf-model-slr.html#chp24-review)                                                          |                       |
++----------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------+
 
 # Participate
 
++------------------------------------------------------+--------------+
+| Topic                                                | Date         |
++======================================================+==============+
+| 💻 SLR: Simulation-based inference                   | Sep 12       |
++------------------------------------------------------+--------------+
+| 💻 SLR: Mathematical models for inference            | Sep 14       |
++------------------------------------------------------+--------------+
+| 💻 Lab 02                                            | Sep 15 & 16  |
++------------------------------------------------------+--------------+
+
 # Practice
 
++-----------------------------------------------------------------------+
+| 📋 TBD                                                                |
++=======================================================================+
+|                                                                       |
++-----------------------------------------------------------------------+
+
 # Perform
+
++-----------------------------------+-----------------------------------+
+| Assignment                        | Due date                          |
++===================================+===================================+
+| 📝 Lab 02                         | Mon, Sep 19, 11:59pm (Thu labs)   |
+|                                   |                                   |
+|                                   | Tue, Sep 20, 11:59pm (Fri labs)   |
++-----------------------------------+-----------------------------------+
+| 📝 HW 01                          | Wed, Sep 21, 11:59pm              |
++-----------------------------------+-----------------------------------+
+| 📝 Statistics experience          | Fri, Dec 09, 11:59pm              |
++-----------------------------------+-----------------------------------+

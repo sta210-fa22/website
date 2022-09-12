@@ -793,7 +793,7 @@ df_boot_samples_100_hist +
 ## Application exercise
 
 ::: appex
-📋 [AE 03: Bootstrap confidence intervals](../ae/ae-03-boostrap)
+📋 [AE 03: Bootstrap confidence intervals](../ae/ae-03-bootstrap.qmd)
 :::
 
 ## Computing the CI for the slope I

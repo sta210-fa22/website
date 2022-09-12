@@ -130,7 +130,7 @@
     "href": "weeks/week-03.html",
     "title": "Week 03",
     "section": "",
-    "text": "Prepare\n\n\n\n\n\n\n\nReading\nCorresponding lecture\n\n\n\n\n📖 IMS, Sec 24.2: Randomization test for the slope\n📖 IMS, Sec 24.3: Bootstrap confidence interval for the slope\n\nSep 12\n\n\n📖 IMS, Sec 24.4: Mathematical model for testing the slope\n📖 IMS, Sec 24.5: Mathematical model, interval for the slope\n📖 IMS, Sec 24.6: Checking model conditions\n📖 IMS, Sec 24.7: Chapter review\nSep 14\n\n\n\n\n\nParticipate\n\n\n\n\n\n\n\nTopic\nDate\n\n\n\n\n💻 SLR: Simulation-based inference\nSep 12\n\n\n💻 SLR: Mathematical models for inference\nSep 14\n\n\n💻 Lab 02\nSep 15 & 16\n\n\n\n\n\nPractice\n\n\n\n\n\n\n📋 TBD\n\n\n\n\n\n\n\n\n\n\nPerform\n\n\n\n\n\n\n\nAssignment\nDue date\n\n\n\n\n📝 Lab 02\nMon, Sep 19, 11:59pm (Thu labs)\nTue, Sep 20, 11:59pm (Fri labs)\n\n\n📝 HW 01\nWed, Sep 21, 11:59pm\n\n\n📝 Statistics experience\nFri, Dec 09, 11:59pm"
+    "text": "Prepare\n\n\n\n\n\n\n\nReading\nCorresponding lecture\n\n\n\n\n📖 IMS, Sec 24.2: Randomization test for the slope\n📖 IMS, Sec 24.3: Bootstrap confidence interval for the slope\n\nSep 12\n\n\n📖 IMS, Sec 24.4: Mathematical model for testing the slope\n📖 IMS, Sec 24.5: Mathematical model, interval for the slope\n📖 IMS, Sec 24.6: Checking model conditions\n📖 IMS, Sec 24.7: Chapter review\nSep 14\n\n\n\n\n\nParticipate\n\n\n\n\n\n\n\nTopic\nDate\n\n\n\n\n💻 SLR: Simulation-based inference\nSep 12\n\n\n💻 SLR: Mathematical models for inference\nSep 14\n\n\n💻 Lab 02\nSep 15 & 16\n\n\n\n\n\nPractice\n\n\n\n\n\n\n📋 AE 03: Bootstrap confidence intervals\n\n\n\n\n\n\n\n\nPerform\n\n\n\n\n\n\n\nAssignment\nDue date\n\n\n\n\n📝 Lab 02\nMon, Sep 19, 11:59pm (Thu labs)\nTue, Sep 20, 11:59pm (Fri labs)\n\n\n📝 HW 01\nWed, Sep 21, 11:59pm\n\n\n📝 Statistics experience\nFri, Dec 09, 11:59pm"
   },
   {
     "objectID": "weeks/week-01.html",
@@ -180,6 +180,48 @@
     "title": "HW: Statistics Experience",
     "section": "Submission",
     "text": "Submission\nSubmit the reflection as a PDF under the Statistics Experience assignment on Gradescope by Fri, Dec 09 at 11:59pm. It must be submitted by the deadline on Gradescope to be considered for grading."
+  },
+  {
+    "objectID": "ae/ae-03-bootstrap.html",
+    "href": "ae/ae-03-bootstrap.html",
+    "title": "AE 03: Bootstrap confidence intervals",
+    "section": "",
+    "text": "Important\n\n\n\nGo to the course GitHub organization and locate your ae-03-boostrap- to get started.\nThe AE is due on GitHub by Thursday, September 15 at 11:59pm."
+  },
+  {
+    "objectID": "ae/ae-03-bootstrap.html#data",
+    "href": "ae/ae-03-bootstrap.html#data",
+    "title": "AE 03: Bootstrap confidence intervals",
+    "section": "Data",
+    "text": "Data\nThe data are on houses that were sold in the Duke Forest neighborhood of Durham, NC around November 2020. It was originally scraped from Zillow, and can be found in the duke_forest data set in the openintro R package.\n\nglimpse(duke_forest)\n\nRows: 98\nColumns: 13\n$ address    <chr> \"1 Learned Pl, Durham, NC 27705\", \"1616 Pinecrest Rd, Durha…\n$ price      <dbl> 1520000, 1030000, 420000, 680000, 428500, 456000, 1270000, …\n$ bed        <dbl> 3, 5, 2, 4, 4, 3, 5, 4, 4, 3, 4, 4, 3, 5, 4, 5, 3, 4, 4, 3,…\n$ bath       <dbl> 4.0, 4.0, 3.0, 3.0, 3.0, 3.0, 5.0, 3.0, 5.0, 2.0, 3.0, 3.0,…\n$ area       <dbl> 6040, 4475, 1745, 2091, 1772, 1950, 3909, 2841, 3924, 2173,…\n$ type       <chr> \"Single Family\", \"Single Family\", \"Single Family\", \"Single …\n$ year_built <dbl> 1972, 1969, 1959, 1961, 2020, 2014, 1968, 1973, 1972, 1964,…\n$ heating    <chr> \"Other, Gas\", \"Forced air, Gas\", \"Forced air, Gas\", \"Heat p…\n$ cooling    <fct> central, central, central, central, central, central, centr…\n$ parking    <chr> \"0 spaces\", \"Carport, Covered\", \"Garage - Attached, Covered…\n$ lot        <dbl> 0.97, 1.38, 0.51, 0.84, 0.16, 0.45, 0.94, 0.79, 0.53, 0.73,…\n$ hoa        <chr> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…\n$ url        <chr> \"https://www.zillow.com/homedetails/1-Learned-Pl-Durham-NC-…"
+  },
+  {
+    "objectID": "ae/ae-03-bootstrap.html#exploratory-data-analysis",
+    "href": "ae/ae-03-bootstrap.html#exploratory-data-analysis",
+    "title": "AE 03: Bootstrap confidence intervals",
+    "section": "Exploratory data analysis",
+    "text": "Exploratory data analysis\n\nggplot(duke_forest, aes(x = area, y = price)) +\n  geom_point(alpha = 0.7) +\n  labs(\n    x = \"Area (square feet)\",\n    y = \"Sale price (USD)\",\n    title = \"Price and area of houses in Duke Forest\"\n  ) +\n  scale_y_continuous(labels = label_dollar())"
+  },
+  {
+    "objectID": "ae/ae-03-bootstrap.html#model",
+    "href": "ae/ae-03-bootstrap.html#model",
+    "title": "AE 03: Bootstrap confidence intervals",
+    "section": "Model",
+    "text": "Model\n\ndf_fit <- linear_reg() |>\n  set_engine(\"lm\") |>\n  fit(price ~ area, data = duke_forest)\n\ntidy(df_fit) |>\n  kable(digits = 2)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n116652.33\n53302.46\n2.19\n0.03\n\n\narea\n159.48\n18.17\n8.78\n0.00"
+  },
+  {
+    "objectID": "ae/ae-03-bootstrap.html#bootstrap-confidence-interval",
+    "href": "ae/ae-03-bootstrap.html#bootstrap-confidence-interval",
+    "title": "AE 03: Bootstrap confidence intervals",
+    "section": "Bootstrap confidence interval",
+    "text": "Bootstrap confidence interval\n\n1. Calculate the observed fit (slope)\n\nobserved_fit <- duke_forest |>\n  specify(price ~ area) |>\n  fit()\n\nobserved_fit\n\n# A tibble: 2 × 2\n  term      estimate\n  <chr>        <dbl>\n1 intercept  116652.\n2 area          159.\n\n\n\n\n2 Take n bootstrap samples and fit models to each one.\nFill in the code, then set eval: true .\n\nn = 100\nset.seed(091222)\n\nboot_fits <- ______ |>\n  specify(______) |>\n  generate(reps = ____, type = \"bootstrap\") |>\n  fit()\n\nboot_fits\n\n\nWhy do we set a seed before taking the bootstrap samples?\nMake a histogram of the bootstrap samples to visualize the bootstrap distribution.\n\n# Code for histogram\n\n\n\n\n3 Compute the 95% confidence interval as the middle 95% of the bootstrap distribution\nFill in the code, then set eval: true .\n\nget_confidence_interval(\n  boot_fits, \n  point_estimate = _____, \n  level = ____,\n  type = \"percentile\"\n)"
+  },
+  {
+    "objectID": "ae/ae-03-bootstrap.html#changing-confidence-level",
+    "href": "ae/ae-03-bootstrap.html#changing-confidence-level",
+    "title": "AE 03: Bootstrap confidence intervals",
+    "section": "Changing confidence level",
+    "text": "Changing confidence level\n\nModify the code from Step 3 to create a 90% confidence interval.\n\n# Paste code for 90% confidence interval\n\n\n\nModify the code from Step 3 to create a 99% confidence interval.\n\n# Paste code for 90% confidence interval\n\n\nWhich confidence level produces the most accurate confidence interval (90%, 95%, 99%)? Explain\nWhich confidence level produces the most precise confidence interval (90%, 95%, 99%)? Explain\nIf we want to be very certain that we capture the population parameter, should we use a wider or a narrower interval? What drawbacks are associated with using a wider interval?\nIf we want to be very certain that we capture the population parameter, should we use a wider or a narrower interval? What drawbacks are associated with using a wider interval?\n\n\n\n\n\n\n\nImportant\n\n\n\nTo submit the AE:\n\nRender the document to produce the PDF with all of your work from today’s class.\nPush all your work to your ae-03- repo on GitHub. (You do not submit AEs on Gradescope)."
   },
   {
     "objectID": "ae/ae-01-movies.html",
@@ -1302,6 +1344,13 @@
     "text": "95% confidence interval\n\n\n\nA 95% confidence interval is bounded by the middle 95% of the bootstrap distribution\nWe are 95% confident that for each additional square foot, the model predicts the sale price of Duke Forest houses to be higher, on average, by $90.43 to $205.77."
   },
   {
+    "objectID": "slides/05-slr-sim-inference.html#application-exercise",
+    "href": "slides/05-slr-sim-inference.html#application-exercise",
+    "title": "SLR: Simulation-based inference",
+    "section": "Application exercise",
+    "text": "Application exercise\n\n📋 AE 03: Bootstrap confidence intervals"
+  },
+  {
     "objectID": "slides/05-slr-sim-inference.html#computing-the-ci-for-the-slope-i",
     "href": "slides/05-slr-sim-inference.html#computing-the-ci-for-the-slope-i",
     "title": "SLR: Simulation-based inference",
@@ -1684,7 +1733,7 @@
     "href": "schedule.html#weekly-schedule",
     "title": "Schedule",
     "section": "Weekly schedule",
-    "text": "Weekly schedule\n\n\n\n\n\n\nWeek\n\n\nDates\n\n\nTopic\n\n\nAssignments\n\n\n\n\n\n\nWeek 01\n\n\nAug 29 - Sep 02\n\n\nWelcome to Regression Analysis\n\n\nCompelete STA 210 Student Survey\n\n\n\n\nWeek 02\n\n\nSep 05 - 09\n\n\nSLR: Tidymodels + Model evaluation\n\n\nLab 01, Statistics experience assigned\n\n\n\n\nWeek 03\n\n\nSep 12 - 16\n\n\nSLR: Inference\n\n\nLab 02, HW 01\n\n\n\n\nWeek 04\n\n\nSep 19 - 23\n\n\nMultiple Linear Regression (MLR)\n\n\nLab 03\n\n\n\n\nWeek 05\n\n\nSep 26 - 30\n\n\nModel comparsion\n\n\nExam 01\n\n\n\n\nWeek 06\n\n\nOct 03 - 07\n\n\nFeature Engineering\n\n\nLab 04, HW 02\n\n\n\n\nWeek 07\n\n\nOct 10 - 14\n\n\nVariable transformations\n\n\nIntroduce project\n\n\n\n\nWeek 08\n\n\nOct 17 - 21\n\n\nModel evaluation\n\n\nLab 05\n\n\n\n\nWeek 09\n\n\nOct 24 - 28\n\n\nMLR: Inference\n\n\nLab 06, HW 03\n\n\n\n\nWeek 10\n\n\nOct 31 - Nov 04\n\n\nOdds + Odds Ratios\n\n\nLab 07\n\n\n\n\nWeek 11\n\n\nNov 07 - 11\n\n\nLogistic regression (LR)\n\n\nProject peer review, HW 04\n\n\n\n\nWeek 12\n\n\nNov 14 - 18\n\n\nLR: Inference\n\n\nLab 08\n\n\n\n\nWeek 13\n\n\nNov 21 - 25\n\n\nMixed effects models\n\n\n\n\n\n\n\nWeek 14\n\n\nNov 28 - Dec 02\n\n\nMixed effects models\n\n\nExam 02\n\n\n\n\nWeek 15\n\n\nDec 05 - 09\n\n\nLooking ahead\n\n\nStatistics experience due\n\n\n\n\nWeek 16\n\n\nDec 12 - 19\n\n\nFinal exam period\n\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Weekly schedule\n\n\n\n\n\n\nWeek\n\n\nDates\n\n\nTopic\n\n\nAssignments\n\n\n\n\n\n\nWeek 01\n\n\nAug 29 - Sep 02\n\n\nWelcome to Regression Analysis\n\n\nCompelete STA 210 Student Survey\n\n\n\n\nWeek 02\n\n\nSep 05 - 09\n\n\nSLR: Tidymodels + Model evaluation\n\n\nLab 01, Statistics experience assigned\n\n\n\n\nWeek 03\n\n\nSep 12 - 16\n\n\nSLR: Inference\n\n\nLab 02, HW 01, Statistics experience assigned\n\n\n\n\nWeek 04\n\n\nSep 19 - 23\n\n\nMultiple Linear Regression (MLR)\n\n\nLab 03\n\n\n\n\nWeek 05\n\n\nSep 26 - 30\n\n\nModel comparsion\n\n\nExam 01\n\n\n\n\nWeek 06\n\n\nOct 03 - 07\n\n\nFeature Engineering\n\n\nLab 04, HW 02\n\n\n\n\nWeek 07\n\n\nOct 10 - 14\n\n\nVariable transformations\n\n\nIntroduce project\n\n\n\n\nWeek 08\n\n\nOct 17 - 21\n\n\nModel evaluation\n\n\nLab 05\n\n\n\n\nWeek 09\n\n\nOct 24 - 28\n\n\nMLR: Inference\n\n\nLab 06, HW 03\n\n\n\n\nWeek 10\n\n\nOct 31 - Nov 04\n\n\nOdds + Odds Ratios\n\n\nLab 07\n\n\n\n\nWeek 11\n\n\nNov 07 - 11\n\n\nLogistic regression (LR)\n\n\nProject peer review, HW 04\n\n\n\n\nWeek 12\n\n\nNov 14 - 18\n\n\nLR: Inference\n\n\nLab 08\n\n\n\n\nWeek 13\n\n\nNov 21 - 25\n\n\nMixed effects models\n\n\n\n\n\n\n\nWeek 14\n\n\nNov 28 - Dec 02\n\n\nMixed effects models\n\n\nExam 02\n\n\n\n\nWeek 15\n\n\nDec 05 - 09\n\n\nLooking ahead\n\n\nStatistics experience due\n\n\n\n\nWeek 16\n\n\nDec 12 - 19\n\n\nFinal exam period\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "schedule.html#notes",

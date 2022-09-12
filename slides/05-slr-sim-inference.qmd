@@ -790,6 +790,12 @@ df_boot_samples_100_hist +
 -   We are 95% confident that for each additional square foot, the model predicts the sale price of Duke Forest houses to be higher, on average, by `r dollar(lower)` to `r dollar(upper)`.
 :::
 
+## Application exercise
+
+::: appex
+📋 [AE 03: Bootstrap confidence intervals](../ae/ae-03-boostrap)
+:::
+
 ## Computing the CI for the slope I
 
 Calculate the observed slope:

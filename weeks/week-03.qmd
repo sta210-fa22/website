@@ -1,7 +1,7 @@
 ---
 title: "Week 03"
 subtitle: "SLR: Inference"
-description: "Lab 02, HW 01"
+description: "Lab 02, HW 01, [Statistics experience assigned](https://sta210-fa22.netlify.app/hw/stats-experience.html)"
 author: "Sep 12 - 16"
 date: ""
 tbl-colwidths: [60,40]
@@ -11,6 +11,7 @@ title-block-style: none
 ::: callout-important
 **Due dates:**
 
+-   AE 03: due Thu, Sep 15 at 11:59pm (on GitHub)
 -   Lab 02:
     -   due Mon, Sep 19, 11:59pm (Thu labs)
     -   due Tue, Sep 20, 11:59pm (Fri labs)
@@ -50,8 +51,8 @@ title-block-style: none
 # Practice
 
 +-----------------------------------------------------------------------+
-| 📋 TBD                                                                |
-+=======================================================================+
+| 📋 [AE 03: Bootstrap confidence intervals](../ae/ae-03-boostrap.qmd)  |
++-----------------------------------------------------------------------+
 |                                                                       |
 +-----------------------------------------------------------------------+
 

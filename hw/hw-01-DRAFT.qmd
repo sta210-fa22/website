@@ -1,0 +1,224 @@
+---
+title: "HW 01: Education & median income in US Counties"
+subtitle: "due Wednesday, September 21 at 11:59pm"
+editor: visual
+---
+
+# Introduction - UPDATE
+
+In this assignment, you'll use simple linear regression to explore the percent of votes cast in-person in the 2020 U.S. election based on the county's political leanings.
+
+# Learning goals
+
+In this assignment, you will...
+
+-   Fit, interpret, and evaluate simple linear regression models.
+-   Conduct statistical inference for the population slope, $\beta_1$
+-   Create and interpret spatial data visualizations using R.
+-   Continue developing a workflow for reproducible data analysis.
+
+# Getting started
+
+### Log in to RStudio
+
+-   Go to <https://vm-manage.oit.duke.edu/containers> and login with your Duke NetID and Password.
+-   Click **STA210** to log into the Docker container. You should now see the RStudio environment.
+
+### Clone the repo & start new RStudio project
+
+-   Go to the course organization at [github.com/sta210-fa22](https://github.com/sta210-fa22 "Course GitHub organization") organization on GitHub. Click on the repo with the prefix **hw-01**. It contains the starter documents you need to complete the lab.
+
+-   Click on the green **CODE** button, select **Use SSH** (this might already be selected by default, and if it is, you'll see the text **Clone with SSH**). Click on the clipboard icon to copy the repo URL.
+
+-   In RStudio, go to *File* ➛ *New Project* ➛*Version Control* ➛ *Git*.
+
+-   Copy and paste the URL of your assignment repo into the dialog box *Repository URL*. Again, please make sure to have *SSH* highlighted under *Clone* when you copy the address.
+
+-   Click *Create Project*, and the files from your GitHub repo will be displayed in the *Files* pane in RStudio.
+
+-   Click *hw-01.qmd* to open the template R Markdown file. This is where you will write up your code and narrative for the lab.
+
+# Packages
+
+The following packages will be used in this assignment:
+
+```{r}
+#| message: false
+library(tidyverse)
+library(tidymodels)
+library(knitr)
+library(scales)
+```
+
+# Data: US Counties
+
+The data are from the `county_2019` data frame in the **openintro** R package. \[ADD DESCRIPTION OF HOW DATA ARE COLLECTED\]
+
+This data is a random sample of 600 counties in the United States.
+
+<!--# Dataset created from county_2019 using seed 09132022 -->
+
+There are multiple data sets for this assignment. Use the code below to load the data.
+
+```{r}
+#| message: false
+
+county_data_sample <- read_csv("data/us-counties-sample.csv")
+map_data_sample <-  read_csv("data/county-map-sample.csv")
+map_data_all <- read_csv("data/county-map-all.csv")
+```
+
+-   `UPDATE THE VARIABLES`
+
+# Exercises
+
+UPDATE INTRO
+
+::: callout-important
+All narrative should be written in complete sentences, and all visualizations should have informative titles and axis labels.
+:::
+
+## Part 1: Exploratory data analysis
+
+### Exercise 1
+
+Visualize the distribution of the response variable `median_household_income` and calculate appropriate summary statistics. Use the visualization and summary statistics to describe the distribution. Include an informative title and axis labels on the plot.
+
+### Exercise 2
+
+Let's view the data in another way. Use the code below to make a map of the United States with the color of the counties filled in based on the median household income. Fill in title and axis labels.
+
+Then use the plot answer the following:
+
+-   What are 2 - 3 observations you have from the plot?
+-   What is a feature that is apparent in the map that wasn't apparent from the histogram in the previous exercise? What is a feature that is apparent in the histogram that is not apparent in the map?
+
+```{r}
+#| fig.show: hide
+#| message: false
+
+county_map_data <- left_join(county_data_sample, map_data_sample)
+
+ggplot(data = map_data_all) +
+  geom_polygon(aes(x = long, y = lat, group = group),
+    fill = "lightgray", color = "white"
+    ) +
+  geom_polygon(data = county_map_data, aes(x = long, y = lat, group = group,
+    fill = median_household_income)
+    ) +
+  labs(
+    x = "___",
+    y = "___",
+    fill = "___",
+    title = "___"
+  ) +
+  scale_fill_viridis_c(labels = label_dollar()) +
+  coord_quickmap()
+```
+
+### Exercise 3
+
+Create a visualization of the relationship between `bachelors` and `median_household_income` . Use the visualization to describe the relationship between the two variables.
+
+::: render-commit-push
+If you haven't yet done so, now is a good time to render your document and commit (with a meaningful commit message) and push all updates.
+:::
+
+## Part 2: Modeling
+
+### Exercise 4
+
+We will use a linear regression model to better quantify the relationship between the two variables.
+
+Write the form of the statistical model we will use for this task. Use variable names ("bachelors" and "median_household_income") in the equation for your model.
+
+### Exercise 5
+
+-   Fit the linear model to understand variability in the median household income based on the percent of adults in the county with a bachelor's degree. Neatly display the model output with 3 digits.
+
+-   Then, write the estimated regression equation using mathematical notation. Use variable names ("bachelors" and "median_household_income") in the equation.
+
+### Exercise 6
+
+Now let's use the model coefficients to describe the relationship.
+
+-   Interpret the slope. The interpretation should be written in a way that is meaningful in the context of the data.
+-   Does it make sense to interpret the intercept? If so, write the interpretation in the context of the data. Otherwise, briefly explain why not.
+
+::: render-commit-push
+Now is a good time to render your document again if you haven't done so recently and commit (with a meaningful commit message) and push all updates.
+:::
+
+## Part 3: Inference for the U.S.
+
+We want to use the data from these randomly selected 600 counties to draw conclusions about the relationship between the percent of adults with a bachelor's degree and median household income for all 3,006 counties in the United States.
+
+### Exercise 7
+
+-   What is the population of interest? What is the sample?
+
+-   Is it reasonable to treat the sample in this analysis as representative of the population? Briefly explain why or why not.
+
+### Exercise 8
+
+Conduct a hypothesis test for the slope using a permutation test. In your response:
+
+-   State the null and alternative hypotheses in words and mathematical notation
+-   Show all relevant code and output used to conduct the test. Use a seed of 10.
+-    State the conclusion in the context of the data.
+
+### Exercise 10
+
+Next, construct a 95% confidence interval for the slope using bootstrapping. Use a seed of 11. Show all relevant code and output used to calculate the interval. Interpret the confidence interval in the context of the data.
+
+### Exercise 11
+
+Comment on whether the hypothesis test and confidence interval support the general consensus that adults who have a completed a Bachelor's degree generally earn higher wages than adults who have not? A brief explanation is sufficient but it should be based on your conclusions from the hypothesis test and confidence interval.
+
+::: render-commit-push
+Now is a good time to render your document again if you haven't done so recently and commit (with a meaningful commit message) and push all updates.
+:::
+
+## Part 4: Model comparison
+
+### Exercise 12 
+
+A researcher suggests that knowing the percentage of households in a county with a computer is a better indicator of median household income than the percentage of adults with a Bachelor's degree.
+
+-   Fit a linear model of the relationship between `median_household_income` and `household_has_computer`. Neatly display the model with 3 digits.
+
+-   Evaluate this model and the one fit in Exercise 5 to assess the researcher's claim.
+
+-   Do your analysis results support the researcher's claim. Briefly explain why or why not.
+
+::: render-commit-push
+Before submitting, make sure you render your document and commit (with a meaningful commit message) and push all updates.
+:::
+
+## Submission
+
+::: callout-warning
+Before you wrap up the assignment, make sure all documents are updated on your GitHub repo. We will be checking these to make sure you have been practicing how to commit and push changes.
+
+Remember -- you must turn in a PDF file to the Gradescope page before the submission deadline for full credit.
+:::
+
+To submit your assignment:
+
+-   Go to [http://www.gradescope.com](http://www.gradescope.com/) and click *Log in* in the top right corner.
+-   Click *School Credentials* ➡️ *Duke NetID* and log in using your NetID credentials.
+-   Click on your *STA 210* course.
+-   Click on the assignment, and you'll be prompted to submit it.
+-   Mark the pages associated with each exercise. All of the pages of your lab should be associated with at least one question (i.e., should be "checked").
+-   Select the first page of your PDF submission to be associated with the *"Workflow & formatting"* section.
+
+## Grading
+
+Total points available: 50 points.
+
+| Component             | Points |
+|-----------------------|--------|
+| Ex 1 - 10             | 45     |
+| Workflow & formatting | 5[^1]  |
+
+[^1]: The "Workflow & formatting" grade is to assess the reproducible workflow. This includes having at least 3 informative commit messages and updating the name and date in the YAML.

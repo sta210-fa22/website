@@ -2,158 +2,162 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://sta210-fa22.netlify.app/labs/lab-01.html</loc>
-    <lastmod>2022-09-12T14:04:59.555Z</lastmod>
+    <lastmod>2022-09-13T16:38:59.883Z</lastmod>
   </url>
   <url>
     <loc>https://sta210-fa22.netlify.app/labs/lab-02-DRAFT.html</loc>
-    <lastmod>2022-09-12T14:05:00.350Z</lastmod>
+    <lastmod>2022-09-13T16:39:00.701Z</lastmod>
   </url>
   <url>
     <loc>https://sta210-fa22.netlify.app/weeks/week-08.html</loc>
-    <lastmod>2022-09-12T14:05:02.270Z</lastmod>
+    <lastmod>2022-09-13T16:39:02.481Z</lastmod>
   </url>
   <url>
     <loc>https://sta210-fa22.netlify.app/weeks/week-09.html</loc>
-    <lastmod>2022-09-12T14:05:02.699Z</lastmod>
+    <lastmod>2022-09-13T16:39:02.817Z</lastmod>
   </url>
   <url>
     <loc>https://sta210-fa22.netlify.app/weeks/week-04.html</loc>
-    <lastmod>2022-09-12T14:05:03.129Z</lastmod>
+    <lastmod>2022-09-13T16:39:03.165Z</lastmod>
   </url>
   <url>
     <loc>https://sta210-fa22.netlify.app/weeks/week-10.html</loc>
-    <lastmod>2022-09-12T14:05:03.562Z</lastmod>
+    <lastmod>2022-09-13T16:39:03.551Z</lastmod>
   </url>
   <url>
     <loc>https://sta210-fa22.netlify.app/weeks/week-11.html</loc>
-    <lastmod>2022-09-12T14:05:03.965Z</lastmod>
+    <lastmod>2022-09-13T16:39:03.922Z</lastmod>
   </url>
   <url>
     <loc>https://sta210-fa22.netlify.app/weeks/week-05.html</loc>
-    <lastmod>2022-09-12T14:05:04.391Z</lastmod>
+    <lastmod>2022-09-13T16:39:04.330Z</lastmod>
   </url>
   <url>
     <loc>https://sta210-fa22.netlify.app/weeks/week-13.html</loc>
-    <lastmod>2022-09-12T14:05:06.220Z</lastmod>
+    <lastmod>2022-09-13T16:39:06.098Z</lastmod>
   </url>
   <url>
     <loc>https://sta210-fa22.netlify.app/weeks/week-07.html</loc>
-    <lastmod>2022-09-12T14:05:08.105Z</lastmod>
+    <lastmod>2022-09-13T16:39:07.907Z</lastmod>
   </url>
   <url>
     <loc>https://sta210-fa22.netlify.app/weeks/week-06.html</loc>
-    <lastmod>2022-09-12T14:05:08.514Z</lastmod>
+    <lastmod>2022-09-13T16:39:08.295Z</lastmod>
   </url>
   <url>
     <loc>https://sta210-fa22.netlify.app/weeks/week-12.html</loc>
-    <lastmod>2022-09-12T14:05:08.972Z</lastmod>
+    <lastmod>2022-09-13T16:39:08.616Z</lastmod>
   </url>
   <url>
     <loc>https://sta210-fa22.netlify.app/weeks/week-16.html</loc>
-    <lastmod>2022-09-12T14:05:09.357Z</lastmod>
+    <lastmod>2022-09-13T16:39:09.017Z</lastmod>
   </url>
   <url>
     <loc>https://sta210-fa22.netlify.app/weeks/week-02.html</loc>
-    <lastmod>2022-09-12T14:05:09.851Z</lastmod>
+    <lastmod>2022-09-13T16:39:09.506Z</lastmod>
   </url>
   <url>
     <loc>https://sta210-fa22.netlify.app/weeks/week-03.html</loc>
-    <lastmod>2022-09-12T14:05:10.250Z</lastmod>
+    <lastmod>2022-09-13T16:39:09.880Z</lastmod>
   </url>
   <url>
     <loc>https://sta210-fa22.netlify.app/weeks/week-01.html</loc>
-    <lastmod>2022-09-12T14:05:10.598Z</lastmod>
+    <lastmod>2022-09-13T16:39:10.246Z</lastmod>
   </url>
   <url>
     <loc>https://sta210-fa22.netlify.app/weeks/week-15.html</loc>
-    <lastmod>2022-09-12T14:05:10.907Z</lastmod>
+    <lastmod>2022-09-13T16:39:10.534Z</lastmod>
   </url>
   <url>
     <loc>https://sta210-fa22.netlify.app/weeks/week-14.html</loc>
-    <lastmod>2022-09-12T14:05:11.366Z</lastmod>
+    <lastmod>2022-09-13T16:39:10.817Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sta210-fa22.netlify.app/hw/hw-01-DRAFT.html</loc>
+    <lastmod>2022-09-13T16:39:11.996Z</lastmod>
   </url>
   <url>
     <loc>https://sta210-fa22.netlify.app/hw/stats-experience.html</loc>
-    <lastmod>2022-09-12T14:05:13.305Z</lastmod>
+    <lastmod>2022-09-13T16:39:12.385Z</lastmod>
   </url>
   <url>
     <loc>https://sta210-fa22.netlify.app/ae/ae-03-bootstrap.html</loc>
-    <lastmod>2022-09-12T14:05:14.060Z</lastmod>
+    <lastmod>2022-09-13T16:39:13.093Z</lastmod>
   </url>
   <url>
     <loc>https://sta210-fa22.netlify.app/ae/ae-01-movies.html</loc>
-    <lastmod>2022-09-12T14:05:14.671Z</lastmod>
+    <lastmod>2022-09-13T16:39:13.728Z</lastmod>
   </url>
   <url>
     <loc>https://sta210-fa22.netlify.app/ae/ae-02-bikeshare.html</loc>
-    <lastmod>2022-09-12T14:05:15.310Z</lastmod>
+    <lastmod>2022-09-13T16:39:14.407Z</lastmod>
   </url>
   <url>
     <loc>https://sta210-fa22.netlify.app/support.html</loc>
-    <lastmod>2022-09-12T14:05:15.775Z</lastmod>
+    <lastmod>2022-09-13T16:39:14.867Z</lastmod>
   </url>
   <url>
     <loc>https://sta210-fa22.netlify.app/computing-r-resources.html</loc>
-    <lastmod>2022-09-12T14:05:16.210Z</lastmod>
+    <lastmod>2022-09-13T16:39:15.306Z</lastmod>
   </url>
   <url>
     <loc>https://sta210-fa22.netlify.app/computing-access.html</loc>
-    <lastmod>2022-09-12T14:05:16.605Z</lastmod>
+    <lastmod>2022-09-13T16:39:15.675Z</lastmod>
   </url>
   <url>
     <loc>https://sta210-fa22.netlify.app/index.html</loc>
-    <lastmod>2022-09-12T14:05:16.952Z</lastmod>
+    <lastmod>2022-09-13T16:39:16.159Z</lastmod>
   </url>
   <url>
     <loc>https://sta210-fa22.netlify.app/teaching-team.html</loc>
-    <lastmod>2022-09-12T14:05:17.271Z</lastmod>
+    <lastmod>2022-09-13T16:39:16.532Z</lastmod>
   </url>
   <url>
     <loc>https://sta210-fa22.netlify.app/slides/lab-01.html</loc>
-    <lastmod>2022-09-12T14:05:17.773Z</lastmod>
+    <lastmod>2022-09-13T16:39:16.988Z</lastmod>
   </url>
   <url>
     <loc>https://sta210-fa22.netlify.app/slides/lab-00.html</loc>
-    <lastmod>2022-09-12T14:05:18.229Z</lastmod>
+    <lastmod>2022-09-13T16:39:17.386Z</lastmod>
   </url>
   <url>
     <loc>https://sta210-fa22.netlify.app/slides/03-slr-tidymodels.html</loc>
-    <lastmod>2022-09-12T14:05:18.949Z</lastmod>
+    <lastmod>2022-09-13T16:39:18.046Z</lastmod>
   </url>
   <url>
     <loc>https://sta210-fa22.netlify.app/slides/01-welcome.html</loc>
-    <lastmod>2022-09-12T14:05:19.426Z</lastmod>
+    <lastmod>2022-09-13T16:39:18.507Z</lastmod>
   </url>
   <url>
     <loc>https://sta210-fa22.netlify.app/slides/04-slr-evaluation.html</loc>
-    <lastmod>2022-09-12T14:05:20.208Z</lastmod>
+    <lastmod>2022-09-13T16:39:19.291Z</lastmod>
   </url>
   <url>
     <loc>https://sta210-fa22.netlify.app/slides/05-slr-sim-inference.html</loc>
-    <lastmod>2022-09-12T14:05:59.638Z</lastmod>
+    <lastmod>2022-09-13T16:39:20.242Z</lastmod>
   </url>
   <url>
     <loc>https://sta210-fa22.netlify.app/slides/02-slr-intro.html</loc>
-    <lastmod>2022-09-12T14:06:00.349Z</lastmod>
+    <lastmod>2022-09-13T16:39:21.037Z</lastmod>
   </url>
   <url>
     <loc>https://sta210-fa22.netlify.app/about.html</loc>
-    <lastmod>2022-09-12T14:06:00.800Z</lastmod>
+    <lastmod>2022-09-13T16:39:21.377Z</lastmod>
   </url>
   <url>
     <loc>https://sta210-fa22.netlify.app/links.html</loc>
-    <lastmod>2022-09-12T14:06:01.113Z</lastmod>
+    <lastmod>2022-09-13T16:39:21.698Z</lastmod>
   </url>
   <url>
     <loc>https://sta210-fa22.netlify.app/syllabus.html</loc>
-    <lastmod>2022-09-12T14:06:01.707Z</lastmod>
+    <lastmod>2022-09-13T16:39:22.268Z</lastmod>
   </url>
   <url>
     <loc>https://sta210-fa22.netlify.app/computing-troubleshooting.html</loc>
-    <lastmod>2022-09-12T14:06:02.169Z</lastmod>
+    <lastmod>2022-09-13T16:39:22.597Z</lastmod>
   </url>
   <url>
     <loc>https://sta210-fa22.netlify.app/schedule.html</loc>
-    <lastmod>2022-09-12T14:06:02.672Z</lastmod>
+    <lastmod>2022-09-13T16:39:23.147Z</lastmod>
   </url>
 </urlset>

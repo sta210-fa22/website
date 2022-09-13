@@ -50,9 +50,8 @@ knitr::opts_chunk$set(
 
     -   Make sure all work is pushed to GitHub and the PDF is submitted on Gradescope by the deadline
 
-```{=html}
 <!-- -->
-```
+
 -   See [Week 03](https://sta210-fa22.netlify.app/weeks/week-03.html) for this week's activities.
 
 ## Topics
@@ -133,7 +132,7 @@ nc_aug <- augment(nc_fit$fit)
 nc_aug
 ```
 
-## Statistics for model evaluation  {.midi}
+## Statistics for model evaluation {.midi}
 
 ::: incremental
 -   **R-squared**, $R^2$ : Percentage of variability in the outcome explained by the regression model (in the context of SLR, the predictor)
@@ -345,7 +344,6 @@ p_nc_boots
 :::
 
 ::: {.column width="50%"}
-
 ![](images/05/duke_forest_home.jpg){fig-alt="Home in Duke Forest"}
 :::
 :::
@@ -420,7 +418,6 @@ slope <- tidy(df_fit) |> filter(term == "area") |> pull(estimate) |> round()
 ## Confidence interval {.midi}
 
 ::: incremental
-
 -   A plausible range of values for a population parameter is called a **confidence interval**
 -   Using only a single point estimate is like fishing in a murky lake with a spear, and using a confidence interval is like fishing with a net
     -   We can throw a spear where we saw a fish but we will probably miss, if we toss a net in that area, we have a good chance of catching the fish

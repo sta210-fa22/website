@@ -206,8 +206,6 @@ boot_dist |>
 
 ## Compute the CI
 
-Two methods:
-
 ```{r}
 #| echo: false
 boot_dist |>
@@ -286,6 +284,7 @@ boot_dist |>
 
 **for testing**
 
+::: incremental
 -   Two approaches:
     1.  Via simulation
     2.  Via mathematical models
@@ -293,6 +292,7 @@ boot_dist |>
     -   Simulate new samples from the original sample via permutation
     -   Fit models to each of the samples and estimate the slope
     -   Use features of the distribution of the permuted slopes to conduct a hypothesis test
+:::
 
 ## Permutation, described {.smaller}
 
@@ -536,10 +536,13 @@ tidy(df_fit) |>
 
 ## Inference, revisited
 
+::: incremental
 -   Earlier we computed a confidence interval and conducted a hypothesis test via simulation:
     -   CI: Bootstrap the observed sample to simulate the distribution of the slope
     -   HT: Permute the observed sample to simulate the distribution of the slope under the assumption that the null hypothesis is true
 -   Now we'll do these based on theoretical results, i.e., by using the Central Limit Theorem to define the distribution of the slope and use features (shape, center, spread) of this distribution to compute bounds of the confidence interval and the p-value for the hypothesis test
+-   
+:::
 
 ## Mathematical representation of the model {.midi}
 
@@ -554,10 +557,12 @@ $$
 
 where the errors are independent and normally distributed:
 
+. . .
+
 -   **independent**: Knowing the error term for one observation doesn't tell you anything about the error term for another observation
 -   **normally distributed**: $\epsilon \sim N(0, \sigma_\epsilon^2)$
 
-## Mathematical representation, visualized
+## Mathematical representation, visualized {.midi}
 
 $$
 Y|X \sim N(\beta_0 + \beta_1 X, \sigma_\epsilon^2)

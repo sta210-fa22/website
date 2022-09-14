@@ -97,7 +97,7 @@ observed_fit <- duke_forest |>
 # calculate p-value
 get_p_value(
   ____,
-  obs_stat = obs_fit,
+  obs_stat = ____,
   direction = "two-sided"
 )
 ```

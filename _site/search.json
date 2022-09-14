@@ -305,7 +305,7 @@
     "href": "ae/ae-04-sim-testing.html#hypothesis-test",
     "title": "AE 04: Simulation-based hypothesis testing",
     "section": "Hypothesis test",
-    "text": "Hypothesis test\n\n\n\n\n\n\nTip\n\n\n\nFor code chunks with fill-in-the-blank code, change code chunk option to #| eval: true once you’ve filled in the code.\n\n\n\nState the null and alternative hypotheses\n[Add hypotheses in mathematical notation]\n\n\nGenerate null distribution using permutation\nFill in the code, then set eval: true .\n\nn = 100\nset.seed(09142022)\n\nnull_dist <- _____ |>\n  specify(______) |>\n  hypothesize(null = \"independence\") |>\n  generate(reps = _____, type = \"permute\") |>\n  fit()\n\n\n\nVisualize distribution\n\n# Code for histogram of null distribution\n\n\n\nCalculate the p-value.\n\n# get observed fit \nobserved_fit <- duke_forest |>\n  specify(price ~ area) |>\n  fit()\n\n# calculate p-value\nget_p_value(\n  ____,\n  obs_stat = obs_fit,\n  direction = \"two-sided\"\n)\n\n\nWhat does the warning message mean?\n\n\n\nState conclusion\n[Write your conclusion in the context of the data.]\n\n\n\n\n\n\nImportant\n\n\n\nTo submit the AE:\n\nRender the document to produce the PDF with all of your work from today’s class.\nPush all your work to your ae-04- repo on GitHub. (You do not submit AEs on Gradescope)."
+    "text": "Hypothesis test\n\n\n\n\n\n\nTip\n\n\n\nFor code chunks with fill-in-the-blank code, change code chunk option to #| eval: true once you’ve filled in the code.\n\n\n\nState the null and alternative hypotheses\n[Add hypotheses in mathematical notation]\n\n\nGenerate null distribution using permutation\nFill in the code, then set eval: true .\n\nn = 100\nset.seed(09142022)\n\nnull_dist <- _____ |>\n  specify(______) |>\n  hypothesize(null = \"independence\") |>\n  generate(reps = _____, type = \"permute\") |>\n  fit()\n\n\n\nVisualize distribution\n\n# Code for histogram of null distribution\n\n\n\nCalculate the p-value.\n\n# get observed fit \nobserved_fit <- duke_forest |>\n  specify(price ~ area) |>\n  fit()\n\n# calculate p-value\nget_p_value(\n  ____,\n  obs_stat = ____,\n  direction = \"two-sided\"\n)\n\n\nWhat does the warning message mean?\n\n\n\nState conclusion\n[Write your conclusion in the context of the data.]\n\n\n\n\n\n\nImportant\n\n\n\nTo submit the AE:\n\nRender the document to produce the PDF with all of your work from today’s class.\nPush all your work to your ae-04- repo on GitHub. (You do not submit AEs on Gradescope)."
   },
   {
     "objectID": "ae/ae-01-movies.html",
@@ -1040,7 +1040,7 @@
     "href": "slides/06-slr-sim-testing.html#compute-the-ci",
     "title": "SLR: Simulation-based inference",
     "section": "Compute the CI",
-    "text": "Compute the CI\nTwo methods:"
+    "text": "Compute the CI"
   },
   {
     "objectID": "slides/06-slr-sim-testing.html#but-first",
@@ -1082,7 +1082,7 @@
     "href": "slides/06-slr-sim-testing.html#quantify-the-variability-of-the-slope",
     "title": "SLR: Simulation-based inference",
     "section": "Quantify the variability of the slope",
-    "text": "Quantify the variability of the slope\nfor testing\n\nTwo approaches:\n\nVia simulation\nVia mathematical models\n\nRandomization to quantify the variability of the slope for the purpose of testing, under the assumption that the null hypothesis is true:\n\nSimulate new samples from the original sample via permutation\nFit models to each of the samples and estimate the slope\nUse features of the distribution of the permuted slopes to conduct a hypothesis test"
+    "text": "Quantify the variability of the slope\nfor testing\n\n\nTwo approaches:\n\nVia simulation\nVia mathematical models\n\nRandomization to quantify the variability of the slope for the purpose of testing, under the assumption that the null hypothesis is true:\n\nSimulate new samples from the original sample via permutation\nFit models to each of the samples and estimate the slope\nUse features of the distribution of the permuted slopes to conduct a hypothesis test"
   },
   {
     "objectID": "slides/06-slr-sim-testing.html#permutation-described",
@@ -1180,14 +1180,14 @@
     "href": "slides/06-slr-sim-testing.html#inference-revisited",
     "title": "SLR: Simulation-based inference",
     "section": "Inference, revisited",
-    "text": "Inference, revisited\n\nEarlier we computed a confidence interval and conducted a hypothesis test via simulation:\n\nCI: Bootstrap the observed sample to simulate the distribution of the slope\nHT: Permute the observed sample to simulate the distribution of the slope under the assumption that the null hypothesis is true\n\nNow we’ll do these based on theoretical results, i.e., by using the Central Limit Theorem to define the distribution of the slope and use features (shape, center, spread) of this distribution to compute bounds of the confidence interval and the p-value for the hypothesis test"
+    "text": "Inference, revisited\n\n\nEarlier we computed a confidence interval and conducted a hypothesis test via simulation:\n\nCI: Bootstrap the observed sample to simulate the distribution of the slope\nHT: Permute the observed sample to simulate the distribution of the slope under the assumption that the null hypothesis is true\n\nNow we’ll do these based on theoretical results, i.e., by using the Central Limit Theorem to define the distribution of the slope and use features (shape, center, spread) of this distribution to compute bounds of the confidence interval and the p-value for the hypothesis test"
   },
   {
     "objectID": "slides/06-slr-sim-testing.html#mathematical-representation-of-the-model",
     "href": "slides/06-slr-sim-testing.html#mathematical-representation-of-the-model",
     "title": "SLR: Simulation-based inference",
     "section": "Mathematical representation of the model",
-    "text": "Mathematical representation of the model\n\\[\n\\begin{aligned}\nY &= Model + Error \\\\\n&= f(X) + \\epsilon \\\\\n&= \\mu_{Y|X} + \\epsilon \\\\\n&= \\beta_0 + \\beta_1 X + \\epsilon\n\\end{aligned}\n\\]\nwhere the errors are independent and normally distributed:\n\nindependent: Knowing the error term for one observation doesn’t tell you anything about the error term for another observation\nnormally distributed: \\(\\epsilon \\sim N(0, \\sigma_\\epsilon^2)\\)"
+    "text": "Mathematical representation of the model\n\\[\n\\begin{aligned}\nY &= Model + Error \\\\\n&= f(X) + \\epsilon \\\\\n&= \\mu_{Y|X} + \\epsilon \\\\\n&= \\beta_0 + \\beta_1 X + \\epsilon\n\\end{aligned}\n\\]\nwhere the errors are independent and normally distributed:\n\n\nindependent: Knowing the error term for one observation doesn’t tell you anything about the error term for another observation\nnormally distributed: \\(\\epsilon \\sim N(0, \\sigma_\\epsilon^2)\\)"
   },
   {
     "objectID": "slides/06-slr-sim-testing.html#mathematical-representation-visualized",

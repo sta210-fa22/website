@@ -622,7 +622,6 @@ Explanatory: area (numeric)
 <img data-src="06-slr-sim-testing_files/figure-revealjs/unnamed-chunk-8-1.png" style="width:80.0%" class="r-stretch quarto-figure-center"></section>
 <section id="compute-the-ci" class="slide level2">
 <h2>Compute the CI</h2>
-<p>Two methods:</p>
 
 <img data-src="06-slr-sim-testing_files/figure-revealjs/unnamed-chunk-9-1.png" style="width:80.0%" class="r-stretch quarto-figure-center"></section>
 <section id="but-first" class="slide level2">
@@ -711,19 +710,21 @@ H_A: \beta_1 \ne 0
 <section id="quantify-the-variability-of-the-slope" class="slide level2 midi">
 <h2>Quantify the variability of the slope</h2>
 <p><strong>for testing</strong></p>
+<div>
 <ul>
-<li>Two approaches:
+<li class="fragment">Two approaches:
 <ol type="1">
-<li>Via simulation</li>
-<li>Via mathematical models</li>
+<li class="fragment">Via simulation</li>
+<li class="fragment">Via mathematical models</li>
 </ol></li>
-<li>Randomization to quantify the variability of the slope for the purpose of testing, under the assumption that the null hypothesis is true:
+<li class="fragment">Randomization to quantify the variability of the slope for the purpose of testing, under the assumption that the null hypothesis is true:
 <ul>
-<li>Simulate new samples from the original sample via permutation</li>
-<li>Fit models to each of the samples and estimate the slope</li>
-<li>Use features of the distribution of the permuted slopes to conduct a hypothesis test</li>
+<li class="fragment">Simulate new samples from the original sample via permutation</li>
+<li class="fragment">Fit models to each of the samples and estimate the slope</li>
+<li class="fragment">Use features of the distribution of the permuted slopes to conduct a hypothesis test</li>
 </ul></li>
 </ul>
+</div>
 </section>
 <section id="permutation-described" class="slide level2 smaller">
 <h2>Permutation, described</h2>
@@ -1021,14 +1022,17 @@ approximation based on the number of `reps` chosen in the `generate()` step. See
 </section>
 <section id="inference-revisited" class="slide level2">
 <h2>Inference, revisited</h2>
+<div>
 <ul>
-<li>Earlier we computed a confidence interval and conducted a hypothesis test via simulation:
+<li class="fragment">Earlier we computed a confidence interval and conducted a hypothesis test via simulation:
 <ul>
-<li>CI: Bootstrap the observed sample to simulate the distribution of the slope</li>
-<li>HT: Permute the observed sample to simulate the distribution of the slope under the assumption that the null hypothesis is true</li>
+<li class="fragment">CI: Bootstrap the observed sample to simulate the distribution of the slope</li>
+<li class="fragment">HT: Permute the observed sample to simulate the distribution of the slope under the assumption that the null hypothesis is true</li>
 </ul></li>
-<li>Now we’ll do these based on theoretical results, i.e., by using the Central Limit Theorem to define the distribution of the slope and use features (shape, center, spread) of this distribution to compute bounds of the confidence interval and the p-value for the hypothesis test</li>
+<li class="fragment">Now we’ll do these based on theoretical results, i.e., by using the Central Limit Theorem to define the distribution of the slope and use features (shape, center, spread) of this distribution to compute bounds of the confidence interval and the p-value for the hypothesis test</li>
+<li class="fragment"></li>
 </ul>
+</div>
 </section>
 <section id="mathematical-representation-of-the-model" class="slide level2 midi">
 <h2>Mathematical representation of the model</h2>
@@ -1041,12 +1045,14 @@ Y &amp;= Model + Error \\
 \end{aligned}
 \]</span></p>
 <p>where the errors are independent and normally distributed:</p>
+<div class="fragment">
 <ul>
 <li><strong>independent</strong>: Knowing the error term for one observation doesn’t tell you anything about the error term for another observation</li>
 <li><strong>normally distributed</strong>: <span class="math inline">\(\epsilon \sim N(0, \sigma_\epsilon^2)\)</span></li>
 </ul>
+</div>
 </section>
-<section id="mathematical-representation-visualized" class="slide level2">
+<section id="mathematical-representation-visualized" class="slide level2 midi">
 <h2>Mathematical representation, visualized</h2>
 <p><span class="math display">\[
 Y|X \sim N(\beta_0 + \beta_1 X, \sigma_\epsilon^2)

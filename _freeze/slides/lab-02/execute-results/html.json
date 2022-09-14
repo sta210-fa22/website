@@ -1,0 +1,20 @@
+{
+  "hash": "15a260a2de34ca062a2613eaa96638f1",
+  "result": {
+    "markdown": "---\ntitle: \"Lab 02\"\nsubtitle: \"Inference for Simple Linear Regression\"\nauthor: \"Sep 15 - 16, 2022\"\nfooter: \"[🔗 Week 03](https://sta210-fa22.netlify.app/weeks/week-03.html)\"\nlogo: \"../images/logo.png\"\nformat: \n  revealjs:\n    theme: slides.scss\n    multiplex: false\n    transition: fade\n    slide-number: true\n    incremental: false \n    chalkboard: true\nexecute:\n  freeze: auto\n  echo: true\nknitr:\n  opts_chunk: \n    R.options:      \n    width: 200\n---\n\n\n## Reminders\n\n-   Select the pages corresponding to each exercise when you when you submit the assignment on Gradescope.\n\n-   Write all narrative in complete sentences.\n\n-   Include an informative title and axis labels on graphs.\n\n-   Write responses in the context of the data.\n\n-   Description of a distribution\n\n-   Description of relationship between two variables.\n\n## Code style\n\n## Axis labels\n\n-   make a graph and the TAs can get students to fill in the axis labels.\n\n-   Post video on how to upload to gradescope and mark pages.\n\n## Today's lab\n\n\\\n",
+    "supporting": [
+      "lab-02_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {
+      "include-after-body": [
+        "\n<script>\n  // htmlwidgets need to know to resize themselves when slides are shown/hidden.\n  // Fire the \"slideenter\" event (handled by htmlwidgets.js) when the current\n  // slide changes (different for each slide format).\n  (function () {\n    function fireSlideChanged(previousSlide, currentSlide) {\n\n      // dispatch for htmlwidgets\n      const event = window.document.createEvent(\"Event\");\n      event.initEvent(\"slideenter\", true, true);\n      window.document.dispatchEvent(event);\n\n      // dispatch for shiny\n      if (window.jQuery) {\n        if (previousSlide) {\n          window.jQuery(previousSlide).trigger(\"hidden\");\n        }\n        if (currentSlide) {\n          window.jQuery(currentSlide).trigger(\"shown\");\n        }\n      }\n    }\n\n    // hookup for reveal\n    if (window.Reveal) {\n      window.Reveal.addEventListener(\"slidechanged\", function(event) {\n        fireSlideChanged(event.previousSlide, event.currentSlide);\n      });\n    }\n\n    // hookup for slidy\n    if (window.w3c_slidy) {\n      window.w3c_slidy.add_observer(function (slide_num) {\n        // slide_num starts at position 1\n        fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);\n      });\n    }\n\n  })();\n</script>\n\n"
+      ]
+    },
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

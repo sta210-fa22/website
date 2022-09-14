@@ -1,0 +1,48 @@
+---
+title: "Lab 02"
+subtitle: "Inference for Simple Linear Regression"
+author: "Sep 15 - 16, 2022"
+footer: "[🔗 Week 03](https://sta210-fa22.netlify.app/weeks/week-03.html)"
+logo: "../images/logo.png"
+format: 
+  revealjs:
+    theme: slides.scss
+    multiplex: false
+    transition: fade
+    slide-number: true
+    incremental: false 
+    chalkboard: true
+execute:
+  freeze: auto
+  echo: true
+knitr:
+  opts_chunk: 
+    R.options:      
+    width: 200
+---
+
+## Reminders
+
+-   Select the pages corresponding to each exercise when you when you submit the assignment on Gradescope.
+
+-   Write all narrative in complete sentences.
+
+-   Include an informative title and axis labels on graphs.
+
+-   Write responses in the context of the data.
+
+-   Description of a distribution
+
+-   Description of relationship between two variables.
+
+## Code style
+
+## Axis labels
+
+-   make a graph and the TAs can get students to fill in the axis labels.
+
+-   Post video on how to upload to gradescope and mark pages.
+
+## Today's lab
+
+\

@@ -1113,13 +1113,6 @@
     "text": "Concluding the hypothesis test\n\nIs the observed slope of \\(\\hat{\\beta_1} = 159\\) (or an even more extreme slope) a likely outcome under the null hypothesis that \\(\\beta = 0\\)? What does this mean for our original question: “Do the data provide sufficient evidence that \\(\\beta_1\\) (the true slope for the population) is different from 0?”"
   },
   {
-    "objectID": "slides/06-slr-sim-testing.html#application-exercise",
-    "href": "slides/06-slr-sim-testing.html#application-exercise",
-    "title": "SLR: Simulation-based inference",
-    "section": "Application exercise",
-    "text": "Application exercise\n\n📋 AE 04: Simulation-based hypothesis testing"
-  },
-  {
     "objectID": "slides/06-slr-sim-testing.html#permutation-pipeline-i",
     "href": "slides/06-slr-sim-testing.html#permutation-pipeline-i",
     "title": "SLR: Simulation-based inference",

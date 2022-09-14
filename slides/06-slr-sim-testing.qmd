@@ -398,10 +398,10 @@ ggplot(null_dist |> filter(term == "area"),
   scale_x_continuous(limits = c(-slope, slope), breaks = seq(-150, 150, 50))
 ```
 
-## Application exercise
+# Application exercise
 
 ::: appex
-📋 [AE 04: Simulation-based hypothesis testing](https://sta210-fa22.netlify.app/ae/ae-04-sim-tests.html)
+📋 [AE 04: Simulation-based hypothesis testing](../ae/ae-04-sim-testing.qmd)
 :::
 
 ## Permutation pipeline I

@@ -401,7 +401,7 @@ ggplot(null_dist |> filter(term == "area"),
 # Application exercise
 
 ::: appex
-📋 [AE 04: Simulation-based hypothesis testing](../ae/ae-04-sim-testing.qmd)
+📋 [AE 04: Simulation-based hypothesis testing](https://sta210-fa22.netlify.app/ae/ae-04-sim-testing.html)
 :::
 
 ## Permutation pipeline I

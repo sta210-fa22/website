@@ -57,7 +57,6 @@ There are *a lot* of books about statistics, data science, and related topics. A
 -   *The Theory that Would Not Die* by Sharon Bertsch McGrayne
 -   *The Art of Statistics: How to learn from data* by David Spiegelhalter
 -   *The Signal and the Noise: Why so many predictions fail - but some don't* by Nate Silver
--   *How Charts Lie* by Alberto Cairo
 -   [List of books about data science ethics](https://teachdatascience.com/bookclub/)
 
 This list is not exhaustive.

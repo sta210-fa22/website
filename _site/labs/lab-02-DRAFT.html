@@ -405,7 +405,8 @@ Important
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lterdatasampler) <span class="co"># contains the data</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="data" class="level1">
@@ -437,11 +438,11 @@ Tip
 </div>
 <section id="exercise-1" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-1">Exercise 1</h3>
-<p>Fill in the code below to create a new data frame of the average ice duration by year. How many rows are in the new data frame? How many observations?</p>
+<p>Fill in the code below to create a new data frame of the average ice duration by year. How many observations (rows) are in the new data frame? How many variables (columns)?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ntl_icecover_avg <span class="ot">&lt;-</span> ntl_icecover <span class="sc">%&gt;%</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(____) <span class="sc">%&gt;%</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_ice_duration =</span> <span class="at">ice_duration =</span> <span class="fu">mean</span>(_____, <span class="at">na.rm  =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ntl_icecover_avg <span class="ot">&lt;-</span> ntl_icecover <span class="sc">|&gt;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(____) <span class="sc">|&gt;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_ice_duration =</span> <span class="fu">mean</span>(_____, <span class="at">na.rm  =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="exercise-2" class="level3">
@@ -449,21 +450,21 @@ Tip
 <p>Ice duration is most impacted by temperatures in the winter and spring seasons. Fill in the code to create a new data frame of the average temperature November - April for years 1885 onward. <strong>[Add explanation about <a href="https://lter.github.io/lterdatasampler/articles/ntl_icecover_vignette.html#investigate-the-relationship-between-ice-cover-duration-and-air-temperature">hydroyear</a>].</strong></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a column to group the Fall and Spring season into a same year, similarly to what is done when defining hydrological year</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>ntl_airtemp_hydro <span class="ot">&lt;-</span> ntl_airtemp <span class="sc">%&gt;%</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>ntl_airtemp_hydro <span class="ot">&lt;-</span> ntl_airtemp <span class="sc">|&gt;</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">hydroyear =</span> <span class="fu">if_else</span>(<span class="fu">month</span>(sampledate) <span class="sc">&lt;</span> <span class="dv">10</span>, year<span class="dv">-1</span>, year))</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute the average air temperature from Nov to April</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>ntl_airtemp_avg_winter <span class="ot">&lt;-</span>  ntl_airtemp_hydro <span class="sc">%&gt;%</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">_____</span>(<span class="fu">month</span>(sampledate) <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">11</span><span class="sc">:</span><span class="dv">12</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>)) <span class="sc">%&gt;%</span> <span class="co"># filter the months from Nov to April</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">_____</span>(hydroyear) <span class="sc">%&gt;%</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>ntl_airtemp_avg_winter <span class="ot">&lt;-</span>  ntl_airtemp_hydro <span class="sc">|&gt;</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">_____</span>(<span class="fu">month</span>(sampledate) <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">11</span><span class="sc">:</span><span class="dv">12</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>)) <span class="sc">|&gt;</span> <span class="co"># filter the months from Nov to April</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">_____</span>(hydroyear) <span class="sc">|&gt;</span></span>
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_air_temp =</span> ______)</span>
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="do">## join to to ntl_icecover_avg and filter for years 1885 onward</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>ntl_joined_avg <span class="ot">&lt;-</span> ntl_icecover_avg  <span class="sc">%&gt;%</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>ntl_joined_avg <span class="ot">&lt;-</span> ntl_icecover_avg  <span class="sc">|&gt;</span></span>
 <span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(________, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"_____"</span> <span class="ot">=</span> <span class="st">"______"</span>)) <span class="sc">|&gt;</span></span>
 <span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">&gt;=</span> ______)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>How many rows are in the new data frame? How many observations?</p>
+<p>How many observations are in the new data frame? How many variables?</p>
 <div class="callout-important callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -512,7 +513,7 @@ Important
 </section>
 <section id="exercise-7" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-7">Exercise 7</h3>
-<p>You would like to fit a linear model using average air temperature to understand variability in the average ice duration. Write the form of the statistical model using appropriate notation.</p>
+<p>You would like to fit a linear model using average air temperature to understand variability in the average ice duration. Write the form of the statistical model using mathematical notation. Use variable names (<code>avg_air_temp</code> and <code>ice_duration</code>) in the equation.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <div class="render-commit-push">
 <p>This is a good place to render, commit, and push changes to your remote lab repo on GitHub. Click the checkbox next to each file in the Git pane to stage the updates you’ve made, write an informative commit message, and push. After you push the changes, the Git pane in RStudio should be empty.</p>
 </div>
@@ -521,6 +522,7 @@ Important
 <h3 class="anchored" data-anchor-id="exercise-8">Exercise 8</h3>
 <p>Fit and neatly display the model from the previous exercise. Use the <code>kable</code> function to neatly display the model output to three decimal places.</p>
 <ul>
+<li><p>Write the regression equation using mathematical notation. Use variable names (<code>avg_air_temp</code> and <code>ice_duration</code>) in the equation.</p></li>
 <li><p>Interpret the slope in the context of the data.</p></li>
 <li><p>Does the intercept have a meaningful interpretation? If so, interpret it. Otherwise, explain why not.</p></li>
 </ul>
@@ -530,25 +532,25 @@ Important
 <p>We would like to answer the question “Do the data provide sufficient evidence of a linear relationship between average air temperature and average ice duration , i.e.&nbsp;<span class="math inline">\(\beta_1\)</span> is different from 0?”</p>
 <p>To answer this question we will use a hypothesis test. We can conduct a hypothesis test via simulation (what we’ll in this question) or using mathematical models (what we’ll do in a later exercise).</p>
 <ul>
-<li><p>Write the null and alternative hypotheses in words and using appropriate notation.</p></li>
+<li><p>Write the null and alternative hypotheses in words and mathematical notation.</p></li>
 <li><p>Test these hypotheses using a permutation test.</p>
 <ul>
-<li><p>First set a seed for simulating reproducibly.</p></li>
-<li><p>Use the permutation pipeline to simulate new samples from the original sample via permutation under the assumption that the null hypothesis is true and fit models to each of the samples and estimate the slope</p></li>
-<li><p>Create a histogram of the slope estimates in <code>perm_fits</code>. (Hint: Filter the dataset for just the slope values, <code>term == "avg_air_temp".</code>)</p></li>
+<li><p>First set a seed for simulating reproducibly. Use the seed <code>9</code>.</p></li>
+<li><p>Use the permutation pipeline with 1,000 permuted samples to simulate new samples from the original sample via permutation under the assumption that the null hypothesis is true and fit models to each of the samples and estimate the slope</p></li>
+<li><p>Create a histogram of the <u>slope</u> estimates in <code>perm_fits</code>.</p></li>
 <li><p>Estimate the p-value of the hypothesis test based on this distribution.</p></li>
-<li><p>State your conclusion for the test in context.</p></li>
+<li><p>State your conclusion for the test in the context of the data.</p></li>
 </ul></li>
 </ul>
 </section>
 <section id="exercise-10" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-10">Exercise 10</h3>
-<p>Next, construct 95% confidence interval for the slope using bootstrapping. Follow these steps to accomplish this:</p>
+<p>Next, construct 95% confidence interval for the slope using bootstrapping with the seed <code>10</code>. Follow these steps to accomplish this:</p>
 <ul>
 <li>First set a seed for simulating reproducibly.</li>
 <li>Then, simulate the bootstrap distribution of the slope using 1,000 bootstrap samples.</li>
-<li>Then, visually estimate the bounds of the bootstrap interval based on a histogram of the distribution of the bootstrapped slopes, using the percentile method.</li>
-<li>And then, use the <code>get_confidence_interval()</code> function to explicitly calculate the bounds of the confidence interval using the percentile method.</li>
+<li>Visualize the bootstrap distribution.</li>
+<li>Calculate the bounds of the confidence interval using the percentile method.</li>
 <li>Interpret the confidence interval in the context of the data.</li>
 <li>Indicate whether or not the confidence interval is consistent with the results of the hypothesis test from the previous exercise. Briefly explain your response.</li>
 </ul>
@@ -596,12 +598,12 @@ Warning
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Ex1 - 10</td>
+<td style="text-align: left;">Ex 1 - 10</td>
 <td style="text-align: left;">47</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Workflow &amp; formatting</td>
-<td style="text-align: left;">3<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></td>
+<td style="text-align: left;">3<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></td>
 </tr>
 </tbody>
 </table>
@@ -613,7 +615,8 @@ Warning
 <div id="quarto-appendix" class="default"><section class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
-<li id="fn1" role="doc-endnote"><p>The “Workflow &amp; formatting” grade is to assess the reproducible workflow. This includes having at least 3 informative commit messages and updating the name and date in the YAML.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1" role="doc-endnote"><p><a href="https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols">Click here</a> for a guide on writing mathematical symbols using LaTex.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>The “Workflow &amp; formatting” grade is to assess the reproducible workflow. This includes having at least 3 informative commit messages and updating the name and date in the YAML.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

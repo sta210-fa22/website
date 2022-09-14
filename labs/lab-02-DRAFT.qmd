@@ -43,7 +43,8 @@ We will use the following packages in today's lab.
 #| eval: true
 library(tidyverse)
 library(tidymodels)
-library(lterdatasampler) # contains the data
+library(lubridate)
+library(knitr)
 ```
 
 # Data
@@ -74,12 +75,12 @@ Make sure we can read all of your code in your PDF document. This means you will
 
 ### Exercise 1
 
-Fill in the code below to create a new data frame of the average ice duration by year. How many rows are in the new data frame? How many observations?
+Fill in the code below to create a new data frame of the average ice duration by year. How many observations (rows) are in the new data frame? How many variables (columns)?
 
 ```{r}
-ntl_icecover_avg <- ntl_icecover %>%
-  group_by(____) %>%
-  summarise(avg_ice_duration = ice_duration = mean(_____, na.rm  = TRUE))
+ntl_icecover_avg <- ntl_icecover |>
+  group_by(____) |>
+  summarise(avg_ice_duration = mean(_____, na.rm  = TRUE))
 ```
 
 ### Exercise 2
@@ -89,23 +90,23 @@ Ice duration is most impacted by temperatures in the winter and spring seasons. 
 ```{r}
 #| eval: false
 # Add a column to group the Fall and Spring season into a same year, similarly to what is done when defining hydrological year
-ntl_airtemp_hydro <- ntl_airtemp %>%
+ntl_airtemp_hydro <- ntl_airtemp |>
   mutate(hydroyear = if_else(month(sampledate) < 10, year-1, year))
 
 # Compute the average air temperature from Nov to April
-ntl_airtemp_avg_winter <-  ntl_airtemp_hydro %>%
-  _____(month(sampledate) %in% c(11:12,1:4)) %>% # filter the months from Nov to April
-  _____(hydroyear) %>%
+ntl_airtemp_avg_winter <-  ntl_airtemp_hydro |>
+  _____(month(sampledate) %in% c(11:12,1:4)) |> # filter the months from Nov to April
+  _____(hydroyear) |>
   summarise(avg_air_temp = ______)
 
 ## join to to ntl_icecover_avg and filter for years 1885 onward
-ntl_joined_avg <- ntl_icecover_avg  %>%
+ntl_joined_avg <- ntl_icecover_avg  |>
   left_join(________, by = c("_____" = "______")) |>
   filter(year >= ______)
 
 ```
 
-How many rows are in the new data frame? How many observations?
+How many observations are in the new data frame? How many variables?
 
 ::: callout-important
 You will use the `ntl_joined_avg` data frame for the remainder of lab.
@@ -149,7 +150,9 @@ Create a visualization of `avg_air_temp` versus `year`.
 
 ### Exercise 7
 
-You would like to fit a linear model using average air temperature to understand variability in the average ice duration. Write the form of the statistical model using appropriate notation.
+You would like to fit a linear model using average air temperature to understand variability in the average ice duration. Write the form of the statistical model using mathematical notation. Use variable names (`avg_air_temp` and `ice_duration`) in the equation.[^1]
+
+[^1]: [Click here](https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols) for a guide on writing mathematical symbols using LaTex.
 
 ::: render-commit-push
 This is a good place to render, commit, and push changes to your remote lab repo on GitHub. Click the checkbox next to each file in the Git pane to stage the updates you've made, write an informative commit message, and push. After you push the changes, the Git pane in RStudio should be empty.
@@ -158,6 +161,8 @@ This is a good place to render, commit, and push changes to your remote lab repo
 ### Exercise 8
 
 Fit and neatly display the model from the previous exercise. Use the `kable` function to neatly display the model output to three decimal places.
+
+-   Write the regression equation using mathematical notation. Use variable names (`avg_air_temp` and `ice_duration`) in the equation.
 
 -   Interpret the slope in the context of the data.
 
@@ -169,28 +174,28 @@ We would like to answer the question "Do the data provide sufficient evidence of
 
 To answer this question we will use a hypothesis test. We can conduct a hypothesis test via simulation (what we'll in this question) or using mathematical models (what we'll do in a later exercise).
 
--   Write the null and alternative hypotheses in words and using appropriate notation.
+-   Write the null and alternative hypotheses in words and mathematical notation.
 
 -   Test these hypotheses using a permutation test.
 
-    -   First set a seed for simulating reproducibly.
+    -   First set a seed for simulating reproducibly. Use the seed `9`.
 
-    -   Use the permutation pipeline to simulate new samples from the original sample via permutation under the assumption that the null hypothesis is true and fit models to each of the samples and estimate the slope
+    -   Use the permutation pipeline with 1,000 permuted samples to simulate new samples from the original sample via permutation under the assumption that the null hypothesis is true and fit models to each of the samples and estimate the slope
 
-    -   Create a histogram of the slope estimates in `perm_fits`. (Hint: Filter the dataset for just the slope values, `term == "avg_air_temp".`)
+    -   Create a histogram of the [slope]{.underline} estimates in `perm_fits`.
 
     -   Estimate the p-value of the hypothesis test based on this distribution.
 
-    -   State your conclusion for the test in context.
+    -   State your conclusion for the test in the context of the data.
 
 ### Exercise 10
 
-Next, construct 95% confidence interval for the slope using bootstrapping. Follow these steps to accomplish this:
+Next, construct 95% confidence interval for the slope using bootstrapping with the seed `10`. Follow these steps to accomplish this:
 
 -   First set a seed for simulating reproducibly.
 -   Then, simulate the bootstrap distribution of the slope using 1,000 bootstrap samples.
--   Then, visually estimate the bounds of the bootstrap interval based on a histogram of the distribution of the bootstrapped slopes, using the percentile method.
--   And then, use the `get_confidence_interval()` function to explicitly calculate the bounds of the confidence interval using the percentile method.
+-   Visualize the bootstrap distribution.
+-   Calculate the bounds of the confidence interval using the percentile method.
 -   Interpret the confidence interval in the context of the data.
 -   Indicate whether or not the confidence interval is consistent with the results of the hypothesis test from the previous exercise. Briefly explain your response.
 
@@ -223,7 +228,7 @@ To submit your assignment:
 
 | Component             | Points |
 |:----------------------|:-------|
-| Ex1 - 10              | 47     |
-| Workflow & formatting | 3[^1]  |
+| Ex 1 - 10             | 47     |
+| Workflow & formatting | 3[^2]  |
 
-[^1]: The "Workflow & formatting" grade is to assess the reproducible workflow. This includes having at least 3 informative commit messages and updating the name and date in the YAML.
+[^2]: The "Workflow & formatting" grade is to assess the reproducible workflow. This includes having at least 3 informative commit messages and updating the name and date in the YAML.

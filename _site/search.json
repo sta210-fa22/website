@@ -130,7 +130,7 @@
     "href": "weeks/week-03.html",
     "title": "Week 03",
     "section": "",
-    "text": "Prepare\n\n\n\n\n\n\n\nReading\nCorresponding lecture\n\n\n\n\n📖 IMS, Sec 24.2: Randomization test for the slope\n📖 IMS, Sec 24.3: Bootstrap confidence interval for the slope\n\nSep 12\n\n\n📖 IMS, Sec 24.4: Mathematical model for testing the slope\n📖 IMS, Sec 24.5: Mathematical model, interval for the slope\n📖 IMS, Sec 24.6: Checking model conditions\n📖 IMS, Sec 24.7: Chapter review\nSep 14\n\n\n\n\n\nParticipate\n\n\n\n\n\n\n\nTopic\nDate\n\n\n\n\n💻 SLR: Simulation-based inference\nSep 12\n\n\n💻 SLR: Mathematical models for inference\nSep 14\n\n\n💻 Lab 02\nSep 15 & 16\n\n\n\n\n\nPractice\n\n\n\n\n\n\n📋 AE 03: Bootstrap confidence intervals\n\n\n\n\n\n\n\n\nPerform\n\n\n\n\n\n\n\nAssignment\nDue date\n\n\n\n\n📝 Lab 02\nMon, Sep 19, 11:59pm (Thu labs)\nTue, Sep 20, 11:59pm (Fri labs)\n\n\n📝 HW 01\nWed, Sep 21, 11:59pm\n\n\n📝 Statistics experience\nFri, Dec 09, 11:59pm"
+    "text": "Prepare\n\n\n\n\n\n\n\nReading\nCorresponding lecture\n\n\n\n\n📖 IMS, Sec 24.2: Randomization test for the slope\n📖 IMS, Sec 24.3: Bootstrap confidence interval for the slope\n\nSep 12\n\n\n📖 IMS, Sec 24.4: Mathematical model for testing the slope\n📖 IMS, Sec 24.5: Mathematical model, interval for the slope\n📖 IMS, Sec 24.6: Checking model conditions\n📖 IMS, Sec 24.7: Chapter review\nSep 14\n\n\n\n\n\nParticipate\n\n\n\n\n\n\n\nTopic\nDate\n\n\n\n\n💻 SLR: Simulation-based inference (bootstrap confidence intervals)\nSep 12\n\n\n💻 SLR: Simulation-based inference (hypothesis testing)\nSep 14\n\n\n💻 Lab 02\nSep 15 & 16\n\n\n\n\n\nPractice\n\n\n\n\n\n\n📋 AE 03: Bootstrap confidence intervals\n\n\n📋 AE 04: Simulation-based hypothesis testing\n\n\n\n\n\nPerform\n\n\n\n\n\n\n\nAssignment\nDue date\n\n\n\n\n📝 Lab 02\nMon, Sep 19, 11:59pm (Thu labs)\nTue, Sep 20, 11:59pm (Fri labs)\n\n\n📝 HW 01\nWed, Sep 21, 11:59pm\n\n\n📝 Statistics experience\nFri, Dec 09, 11:59pm"
   },
   {
     "objectID": "weeks/week-01.html",
@@ -271,6 +271,41 @@
     "title": "AE 03: Bootstrap confidence intervals",
     "section": "Changing confidence level",
     "text": "Changing confidence level\n\nModify the code from Step 3 to create a 90% confidence interval.\n\n# Paste code for 90% confidence interval\n\n\n\nModify the code from Step 3 to create a 99% confidence interval.\n\n# Paste code for 90% confidence interval\n\n\nWhich confidence level produces the most accurate confidence interval (90%, 95%, 99%)? Explain\nWhich confidence level produces the most precise confidence interval (90%, 95%, 99%)? Explain\nIf we want to be very certain that we capture the population parameter, should we use a wider or a narrower interval? What drawbacks are associated with using a wider interval?\nIf we want to be very certain that we capture the population parameter, should we use a wider or a narrower interval? What drawbacks are associated with using a wider interval?\n\n\n\n\n\n\n\nImportant\n\n\n\nTo submit the AE:\n\nRender the document to produce the PDF with all of your work from today’s class.\nPush all your work to your ae-03- repo on GitHub. (You do not submit AEs on Gradescope)."
+  },
+  {
+    "objectID": "ae/ae-04-sim-testing.html",
+    "href": "ae/ae-04-sim-testing.html",
+    "title": "AE 04: Simulation-based hypothesis testing",
+    "section": "",
+    "text": "Important\n\n\n\nGo to the course GitHub organization and locate your ae-04-bootstrap- to get started.\nThe AE is due on GitHub by Saturday, September 17 at 11:59pm."
+  },
+  {
+    "objectID": "ae/ae-04-sim-testing.html#data",
+    "href": "ae/ae-04-sim-testing.html#data",
+    "title": "AE 04: Simulation-based hypothesis testing",
+    "section": "Data",
+    "text": "Data\nThe data are on houses that were sold in the Duke Forest neighborhood of Durham, NC around November 2020. It was originally scraped from Zillow, and can be found in the duke_forest data set in the openintro R package.\n\nglimpse(duke_forest)\n\nRows: 98\nColumns: 13\n$ address    <chr> \"1 Learned Pl, Durham, NC 27705\", \"1616 Pinecrest Rd, Durha…\n$ price      <dbl> 1520000, 1030000, 420000, 680000, 428500, 456000, 1270000, …\n$ bed        <dbl> 3, 5, 2, 4, 4, 3, 5, 4, 4, 3, 4, 4, 3, 5, 4, 5, 3, 4, 4, 3,…\n$ bath       <dbl> 4.0, 4.0, 3.0, 3.0, 3.0, 3.0, 5.0, 3.0, 5.0, 2.0, 3.0, 3.0,…\n$ area       <dbl> 6040, 4475, 1745, 2091, 1772, 1950, 3909, 2841, 3924, 2173,…\n$ type       <chr> \"Single Family\", \"Single Family\", \"Single Family\", \"Single …\n$ year_built <dbl> 1972, 1969, 1959, 1961, 2020, 2014, 1968, 1973, 1972, 1964,…\n$ heating    <chr> \"Other, Gas\", \"Forced air, Gas\", \"Forced air, Gas\", \"Heat p…\n$ cooling    <fct> central, central, central, central, central, central, centr…\n$ parking    <chr> \"0 spaces\", \"Carport, Covered\", \"Garage - Attached, Covered…\n$ lot        <dbl> 0.97, 1.38, 0.51, 0.84, 0.16, 0.45, 0.94, 0.79, 0.53, 0.73,…\n$ hoa        <chr> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…\n$ url        <chr> \"https://www.zillow.com/homedetails/1-Learned-Pl-Durham-NC-…"
+  },
+  {
+    "objectID": "ae/ae-04-sim-testing.html#exploratory-data-analysis",
+    "href": "ae/ae-04-sim-testing.html#exploratory-data-analysis",
+    "title": "AE 04: Simulation-based hypothesis testing",
+    "section": "Exploratory data analysis",
+    "text": "Exploratory data analysis\n\nggplot(duke_forest, aes(x = area, y = price)) +\n  geom_point(alpha = 0.7) +\n  labs(\n    x = \"Area (square feet)\",\n    y = \"Sale price (USD)\",\n    title = \"Price and area of houses in Duke Forest\"\n  ) +\n  scale_y_continuous(labels = label_dollar())"
+  },
+  {
+    "objectID": "ae/ae-04-sim-testing.html#model",
+    "href": "ae/ae-04-sim-testing.html#model",
+    "title": "AE 04: Simulation-based hypothesis testing",
+    "section": "Model",
+    "text": "Model\n\ndf_fit <- linear_reg() |>\n  set_engine(\"lm\") |>\n  fit(price ~ area, data = duke_forest)\n\ntidy(df_fit) |>\n  kable(digits = 2)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n116652.33\n53302.46\n2.19\n0.03\n\n\narea\n159.48\n18.17\n8.78\n0.00"
+  },
+  {
+    "objectID": "ae/ae-04-sim-testing.html#hypothesis-test",
+    "href": "ae/ae-04-sim-testing.html#hypothesis-test",
+    "title": "AE 04: Simulation-based hypothesis testing",
+    "section": "Hypothesis test",
+    "text": "Hypothesis test\n\n\n\n\n\n\nTip\n\n\n\nFor code chunks with fill-in-the-blank code, change code chunk option to #| eval: true once you’ve filled in the code.\n\n\n\nState the null and alternative hypotheses\n[Add hypotheses in mathematical notation]\n\n\nGenerate null distribution using permutation\nFill in the code, then set eval: true .\n\nn = 100\nset.seed(09142022)\n\nnull_dist <- _____ |>\n  specify(______) |>\n  hypothesize(null = \"independence\") |>\n  generate(reps = _____, type = \"permute\") |>\n  fit()\n\n\n\nVisualize distribution\n\n# Code for histogram of null distribution\n\n\n\nCalculate the p-value.\n\n# get observed fit \nobserved_fit <- duke_forest |>\n  specify(price ~ area) |>\n  fit()\n\n# calculate p-value\nget_p_value(\n  ____,\n  obs_stat = obs_fit,\n  direction = \"two-sided\"\n)\n\n\nWhat does the warning message mean?\n\n\n\nState conclusion\n[Write your conclusion in the context of the data.]\n\n\n\n\n\n\nImportant\n\n\n\nTo submit the AE:\n\nRender the document to produce the PDF with all of your work from today’s class.\nPush all your work to your ae-04- repo on GitHub. (You do not submit AEs on Gradescope)."
   },
   {
     "objectID": "ae/ae-01-movies.html",
@@ -473,7 +508,7 @@
     "href": "index.html#teaching-team",
     "title": "STA 210: Regression Analysis",
     "section": "Teaching team",
-    "text": "Teaching team\n\nInstructor\nMaria Tackett is an Assistant Professor of the Practice in the Department of Statistical Science at Duke University. Her work focuses on understanding how active learning strategies can be used to promote engagement and student motivation in undergraduate statistics courses. She also studies how classroom practices in introductory math and statistics courses impact students’ sense of community, self-efficacy, and learning outcomes.\n\n\n\nOffice hours\nLocation\n\n\n\n\nMondays 1 - 2pm\nOld Chem 118B or Zoom\n\n\nThursdays 10 - 11am\nZoom only\n\n\nor by appointment.\n\n\n\n\n\n\nTeaching assistants\n\n\n\nName\nOffice hours\nLocation\n\n\n\n\nCarson Garcia\nTA for Lab 04\nMon 5 - 7pm\nZoom\n\n\nSara Meta\nTA for Lab 04\nFri 10am - 12pm\nZoom\n\n\nMedy Mu\nTue 4 - 6pm\nZoom\n\n\nGlenn Palmer\nHead TA\nTA for Lab 03\nFri 1:25 - 3:25pm\nOld Chemistry 203B\n\n\nBraden Scherting\nTA for Lab 02\nMon 2 - 3pm\nTue 3 - 4pm\nOld Chemistry 203B\nOld Chemistry 203B\n\n\nLuke Vrotsos\nTA for Lab 01\nTue 6:30 - 8:30pm\nOld Chemistry 025\n\n\nBen Wallace\nTue 1:30 - 2:30\nFri 9 - 10am\nZoom\nOld Chemistry 203B\n\n\nAaditya Warrier\nWed 1 - 3pm\nZoom\n\n\nGrace Zhao\nTA for Lab 01\nTue 11a - 1pm\nZoom\n\n\n\nClick here for full list of office hours."
+    "text": "Teaching team\n\nInstructor\nMaria Tackett is an Assistant Professor of the Practice in the Department of Statistical Science at Duke University. Her work focuses on understanding how active learning strategies can be used to promote engagement and student motivation in undergraduate statistics courses. She also studies how classroom practices in introductory math and statistics courses impact students’ sense of community, self-efficacy, and learning outcomes.\n\n\n\nOffice hours\nLocation\n\n\n\n\nMondays 1 - 2pm\nOld Chem 118B or Zoom\n\n\nThursdays 10 - 11am\nZoom only\n\n\nor by appointment.\n\n\n\n\n\n\nTeaching assistants\n\n\n\nName\nOffice hours\nLocation\n\n\n\n\nCarson Garcia\nTA for Lab 04\nMon 5 - 7pm\nZoom\n\n\nSara Meta\nTA for Lab 04\nFri 10am - 12pm\nZoom\n\n\nMedy Mu\nTue 4 - 6pm\nZoom\n\n\nGlenn Palmer\nHead TA\nTA for Lab 03\nFri 1:25 - 3:25pm\nOld Chemistry 203B\n\n\nBraden Scherting\nTA for Lab 02\nMon 2 - 3pm\nTue 3:15 - 4:15 pm\nOld Chemistry 203B\nOld Chemistry 203B\n\n\nLuke Vrotsos\nTA for Lab 01\nTue 6:30 - 8:30pm\nOld Chemistry 025\n\n\nBen Wallace\nTue 1:30 - 2:30\nFri 9 - 10am\nZoom\nOld Chemistry 203B\n\n\nAaditya Warrier\nWed 1 - 3pm\nZoom\n\n\nGrace Zhao\nTA for Lab 01\nTue 11a - 1pm\nZoom\n\n\n\nClick here for full list of office hours."
   },
   {
     "objectID": "teaching-team.html",
@@ -910,6 +945,279 @@
     "text": "For this week…\n\nRead the syllabus\nSee Week 01 on the schedule for lecture slides, assignments, and readings.\nComplete the STA 210 Student Survey (will ask for a GitHub username)\n\nClick here for information on registering for a GitHub account and choosing a username.\nYou will go over this in lab this week.\n\nReserve an STA 210 Docker Container\n\n\n\n\n🔗 Week 01"
   },
   {
+    "objectID": "slides/06-slr-sim-testing.html#announcements",
+    "href": "slides/06-slr-sim-testing.html#announcements",
+    "title": "SLR: Simulation-based inference",
+    "section": "Announcements",
+    "text": "Announcements\n\nHW 01\n\nReleased later today (will get email when HW is available)\ndue Wed, Sep 21 at 11:59pm\n\nStatistics experience - due Fri, Dec 09 at 11:59pm\nSee Week 03 for this week’s activities."
+  },
+  {
+    "objectID": "slides/06-slr-sim-testing.html#topics",
+    "href": "slides/06-slr-sim-testing.html#topics",
+    "title": "SLR: Simulation-based inference",
+    "section": "Topics",
+    "text": "Topics\n\nEvaluate a claim about the slope using hypothesis testing\nDefine mathematical models to conduct inference for slope"
+  },
+  {
+    "objectID": "slides/06-slr-sim-testing.html#computational-setup",
+    "href": "slides/06-slr-sim-testing.html#computational-setup",
+    "title": "SLR: Simulation-based inference",
+    "section": "Computational setup",
+    "text": "Computational setup\n\n# load packages\nlibrary(tidyverse)   # for data wrangling and visualization\nlibrary(tidymodels)  # for modeling\nlibrary(usdata)      # for the county_2019 dataset\nlibrary(openintro)   # for Duke Forest dataset\nlibrary(scales)      # for pretty axis labels\nlibrary(glue)        # for constructing character strings\nlibrary(knitr)       # for neatly formatted tables\nlibrary(kableExtra)  # also for neatly formatted tablesf\n\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 16))"
+  },
+  {
+    "objectID": "slides/06-slr-sim-testing.html#data-duke-forest-houses",
+    "href": "slides/06-slr-sim-testing.html#data-duke-forest-houses",
+    "title": "SLR: Simulation-based inference",
+    "section": "Data: Duke Forest houses",
+    "text": "Data: Duke Forest houses"
+  },
+  {
+    "objectID": "slides/06-slr-sim-testing.html#the-regression-model",
+    "href": "slides/06-slr-sim-testing.html#the-regression-model",
+    "title": "SLR: Simulation-based inference",
+    "section": "The regression model",
+    "text": "The regression model\n\ndf_fit <- linear_reg() |>\n  set_engine(\"lm\") |>\n  fit(price ~ area, data = duke_forest)\n\ntidy(df_fit) |>\n  kable(digits = 2)\n\n\n\n \n  \n    term \n    estimate \n    std.error \n    statistic \n    p.value \n  \n \n\n  \n    (Intercept) \n    116652.33 \n    53302.46 \n    2.19 \n    0.03 \n  \n  \n    area \n    159.48 \n    18.17 \n    8.78 \n    0.00 \n  \n\n\n\n\n\n\n\n\n\n\nIntercept: Duke Forest houses that are 0 square feet are expected to sell, on average, for $116,652.\nSlope: For each additional square foot, the model predicts the sale price of Duke Forest houses to be higher, on average, by $159."
+  },
+  {
+    "objectID": "slides/06-slr-sim-testing.html#inference-for-simple-linear-regression",
+    "href": "slides/06-slr-sim-testing.html#inference-for-simple-linear-regression",
+    "title": "SLR: Simulation-based inference",
+    "section": "Inference for simple linear regression",
+    "text": "Inference for simple linear regression\n\nCalculate a confidence interval for the slope, \\(\\beta_1\\)\nConduct a hypothesis test for the slope, \\(\\beta_1\\)"
+  },
+  {
+    "objectID": "slides/06-slr-sim-testing.html#sampling-is-natural",
+    "href": "slides/06-slr-sim-testing.html#sampling-is-natural",
+    "title": "SLR: Simulation-based inference",
+    "section": "Sampling is natural",
+    "text": "Sampling is natural\n\n\nWhen you taste a spoonful of soup and decide the spoonful you tasted isn’t salty enough, that’s exploratory analysis\nIf you generalize and conclude that your entire soup needs salt, that’s an inference\nFor your inference to be valid, the spoonful you tasted (the sample) needs to be representative of the entire pot (the population)"
+  },
+  {
+    "objectID": "slides/06-slr-sim-testing.html#confidence-interval-via-bootstrapping",
+    "href": "slides/06-slr-sim-testing.html#confidence-interval-via-bootstrapping",
+    "title": "SLR: Simulation-based inference",
+    "section": "Confidence interval via bootstrapping",
+    "text": "Confidence interval via bootstrapping\n\nBootstrap new samples from the original sample\nFit models to each of the samples and estimate the slope\nUse features of the distribution of the bootstrapped slopes to construct a confidence interval"
+  },
+  {
+    "objectID": "slides/06-slr-sim-testing.html#bootstrapping-pipeline-i",
+    "href": "slides/06-slr-sim-testing.html#bootstrapping-pipeline-i",
+    "title": "SLR: Simulation-based inference",
+    "section": "Bootstrapping pipeline I",
+    "text": "Bootstrapping pipeline I\n\nset.seed(210)\n\nduke_forest |>\n  specify(price ~ area)\n\nResponse: price (numeric)\nExplanatory: area (numeric)\n# A tibble: 98 × 2\n     price  area\n     <dbl> <dbl>\n 1 1520000  6040\n 2 1030000  4475\n 3  420000  1745\n 4  680000  2091\n 5  428500  1772\n 6  456000  1950\n 7 1270000  3909\n 8  557450  2841\n 9  697500  3924\n10  650000  2173\n# … with 88 more rows"
+  },
+  {
+    "objectID": "slides/06-slr-sim-testing.html#bootstrapping-pipeline-ii",
+    "href": "slides/06-slr-sim-testing.html#bootstrapping-pipeline-ii",
+    "title": "SLR: Simulation-based inference",
+    "section": "Bootstrapping pipeline II",
+    "text": "Bootstrapping pipeline II\n\nset.seed(210)\n\nduke_forest |>\n  specify(price ~ area) |>\n  generate(reps = 1000, type = \"bootstrap\")\n\nResponse: price (numeric)\nExplanatory: area (numeric)\n# A tibble: 98,000 × 3\n# Groups:   replicate [1,000]\n   replicate   price  area\n       <int>   <dbl> <dbl>\n 1         1  290000  2414\n 2         1  285000  2108\n 3         1  265000  1300\n 4         1  416000  2949\n 5         1  541000  2740\n 6         1  525000  2256\n 7         1 1270000  3909\n 8         1  265000  1300\n 9         1  815000  3904\n10         1  535000  2937\n# … with 97,990 more rows"
+  },
+  {
+    "objectID": "slides/06-slr-sim-testing.html#bootstrapping-pipeline-iii",
+    "href": "slides/06-slr-sim-testing.html#bootstrapping-pipeline-iii",
+    "title": "SLR: Simulation-based inference",
+    "section": "Bootstrapping pipeline III",
+    "text": "Bootstrapping pipeline III\n\nset.seed(210)\n\nduke_forest |>\n  specify(price ~ area) |>\n  generate(reps = 1000, type = \"bootstrap\") |>\n  fit()\n\n# A tibble: 2,000 × 3\n# Groups:   replicate [1,000]\n   replicate term      estimate\n       <int> <chr>        <dbl>\n 1         1 intercept   80699.\n 2         1 area          168.\n 3         2 intercept  -18821.\n 4         2 area          205.\n 5         3 intercept  234297.\n 6         3 area          117.\n 7         4 intercept  134481.\n 8         4 area          150.\n 9         5 intercept   23861.\n10         5 area          190.\n# … with 1,990 more rows"
+  },
+  {
+    "objectID": "slides/06-slr-sim-testing.html#bootstrapping-pipeline-iv",
+    "href": "slides/06-slr-sim-testing.html#bootstrapping-pipeline-iv",
+    "title": "SLR: Simulation-based inference",
+    "section": "Bootstrapping pipeline IV",
+    "text": "Bootstrapping pipeline IV\n\nset.seed(210)\n\nboot_dist <- duke_forest |>\n  specify(price ~ area) |>\n  generate(reps = 1000, type = \"bootstrap\") |>\n  fit()"
+  },
+  {
+    "objectID": "slides/06-slr-sim-testing.html#visualize-the-bootstrap-distribution",
+    "href": "slides/06-slr-sim-testing.html#visualize-the-bootstrap-distribution",
+    "title": "SLR: Simulation-based inference",
+    "section": "Visualize the bootstrap distribution",
+    "text": "Visualize the bootstrap distribution\n\nboot_dist |>\n  filter(term == \"area\") |>\n  ggplot(aes(x = estimate)) +\n  geom_histogram(binwidth = 10)"
+  },
+  {
+    "objectID": "slides/06-slr-sim-testing.html#compute-the-ci",
+    "href": "slides/06-slr-sim-testing.html#compute-the-ci",
+    "title": "SLR: Simulation-based inference",
+    "section": "Compute the CI",
+    "text": "Compute the CI\nTwo methods:"
+  },
+  {
+    "objectID": "slides/06-slr-sim-testing.html#but-first",
+    "href": "slides/06-slr-sim-testing.html#but-first",
+    "title": "SLR: Simulation-based inference",
+    "section": "But first…",
+    "text": "But first…\n\nobs_fit <- duke_forest |>\n  specify(price ~ area) |>\n  fit()\n\nobs_fit\n\n# A tibble: 2 × 2\n  term      estimate\n  <chr>        <dbl>\n1 intercept  116652.\n2 area          159."
+  },
+  {
+    "objectID": "slides/06-slr-sim-testing.html#compute-95-confidence-interval",
+    "href": "slides/06-slr-sim-testing.html#compute-95-confidence-interval",
+    "title": "SLR: Simulation-based inference",
+    "section": "Compute 95% confidence interval",
+    "text": "Compute 95% confidence interval\n\nboot_dist |>\n  get_confidence_interval(\n    level = 0.95,\n    type = \"percentile\",\n    point_estimate = obs_fit\n  )\n\n# A tibble: 2 × 3\n  term      lower_ci upper_ci\n  <chr>        <dbl>    <dbl>\n1 area          91.7     211.\n2 intercept -18290.   287711."
+  },
+  {
+    "objectID": "slides/06-slr-sim-testing.html#research-question-and-hypotheses",
+    "href": "slides/06-slr-sim-testing.html#research-question-and-hypotheses",
+    "title": "SLR: Simulation-based inference",
+    "section": "Research question and hypotheses",
+    "text": "Research question and hypotheses\n\n“Do the data provide sufficient evidence that \\(\\beta_1\\) (the true slope for the population) is different from 0?”\nNull hypothesis: there is no linear relationship between area and price\n\\[\nH_0: \\beta_1 = 0\n\\]\nAlternative hypothesis: there is a linear relationship between area and price\n\\[\nH_A: \\beta_1 \\ne 0\n\\]"
+  },
+  {
+    "objectID": "slides/06-slr-sim-testing.html#hypothesis-testing-as-a-court-trial",
+    "href": "slides/06-slr-sim-testing.html#hypothesis-testing-as-a-court-trial",
+    "title": "SLR: Simulation-based inference",
+    "section": "Hypothesis testing as a court trial",
+    "text": "Hypothesis testing as a court trial\n\n\nNull hypothesis, \\(H_0\\): Defendant is innocent\nAlternative hypothesis, \\(H_A\\): Defendant is guilty\nPresent the evidence: Collect data\nJudge the evidence: “Could these data plausibly have happened by chance if the null hypothesis were true?”\n\nYes: Fail to reject \\(H_0\\)\nNo: Reject \\(H_0\\)"
+  },
+  {
+    "objectID": "slides/06-slr-sim-testing.html#hypothesis-testing-framework",
+    "href": "slides/06-slr-sim-testing.html#hypothesis-testing-framework",
+    "title": "SLR: Simulation-based inference",
+    "section": "Hypothesis testing framework",
+    "text": "Hypothesis testing framework\n\n\nStart with a null hypothesis, \\(H_0\\) that represents the status quo\nSet an alternative hypothesis, \\(H_A\\) that represents the research question, i.e. what we’re testing for\nConduct a hypothesis test under the assumption that the null hypothesis is true and calculate a p-value (probability of observed or more extreme outcome given that the null hypothesis is true)\n\nif the test results suggest that the data do not provide convincing evidence for the alternative hypothesis, stick with the null hypothesis\nif they do, then reject the null hypothesis in favor of the alternative"
+  },
+  {
+    "objectID": "slides/06-slr-sim-testing.html#quantify-the-variability-of-the-slope",
+    "href": "slides/06-slr-sim-testing.html#quantify-the-variability-of-the-slope",
+    "title": "SLR: Simulation-based inference",
+    "section": "Quantify the variability of the slope",
+    "text": "Quantify the variability of the slope\nfor testing\n\nTwo approaches:\n\nVia simulation\nVia mathematical models\n\nRandomization to quantify the variability of the slope for the purpose of testing, under the assumption that the null hypothesis is true:\n\nSimulate new samples from the original sample via permutation\nFit models to each of the samples and estimate the slope\nUse features of the distribution of the permuted slopes to conduct a hypothesis test"
+  },
+  {
+    "objectID": "slides/06-slr-sim-testing.html#permutation-described",
+    "href": "slides/06-slr-sim-testing.html#permutation-described",
+    "title": "SLR: Simulation-based inference",
+    "section": "Permutation, described",
+    "text": "Permutation, described\n\n\n\nSet the null hypothesis to be true, and measure the natural variability in the data due to sampling but not due to variables being correlated by permuting\n\nPermute one variable to eliminate any existing relationship between the variables\n\nEach price value is randomly assigned to area of a given house, i.e. area and price are no longer matched for a given house\n\n\n\n\n# A tibble: 98 × 3\n   price_Observed price_Permuted  area\n            <dbl>          <dbl> <dbl>\n 1        1520000         342500  6040\n 2        1030000         750000  4475\n 3         420000         645000  1745\n 4         680000         697500  2091\n 5         428500         428500  1772\n 6         456000         481000  1950\n 7        1270000         610000  3909\n 8         557450         680000  2841\n 9         697500         485000  3924\n10         650000         105000  2173\n# … with 88 more rows"
+  },
+  {
+    "objectID": "slides/06-slr-sim-testing.html#permutation-visualized",
+    "href": "slides/06-slr-sim-testing.html#permutation-visualized",
+    "title": "SLR: Simulation-based inference",
+    "section": "Permutation, visualized",
+    "text": "Permutation, visualized\n\n\n\nEach of the observed values for area (and for price) exist in both the observed data plot as well as the permuted price plot\nThe permutation removes the linear relationship between area and price"
+  },
+  {
+    "objectID": "slides/06-slr-sim-testing.html#permutation-repeated",
+    "href": "slides/06-slr-sim-testing.html#permutation-repeated",
+    "title": "SLR: Simulation-based inference",
+    "section": "Permutation, repeated",
+    "text": "Permutation, repeated\nRepeated permutations allow for quantifying the variability in the slope under the condition that there is no linear relationship (i.e., that the null hypothesis is true)"
+  },
+  {
+    "objectID": "slides/06-slr-sim-testing.html#concluding-the-hypothesis-test",
+    "href": "slides/06-slr-sim-testing.html#concluding-the-hypothesis-test",
+    "title": "SLR: Simulation-based inference",
+    "section": "Concluding the hypothesis test",
+    "text": "Concluding the hypothesis test\n\nIs the observed slope of \\(\\hat{\\beta_1} = 159\\) (or an even more extreme slope) a likely outcome under the null hypothesis that \\(\\beta = 0\\)? What does this mean for our original question: “Do the data provide sufficient evidence that \\(\\beta_1\\) (the true slope for the population) is different from 0?”"
+  },
+  {
+    "objectID": "slides/06-slr-sim-testing.html#application-exercise",
+    "href": "slides/06-slr-sim-testing.html#application-exercise",
+    "title": "SLR: Simulation-based inference",
+    "section": "Application exercise",
+    "text": "Application exercise\n\n📋 AE 04: Simulation-based hypothesis testing"
+  },
+  {
+    "objectID": "slides/06-slr-sim-testing.html#permutation-pipeline-i",
+    "href": "slides/06-slr-sim-testing.html#permutation-pipeline-i",
+    "title": "SLR: Simulation-based inference",
+    "section": "Permutation pipeline I",
+    "text": "Permutation pipeline I\n\nset.seed(1125)\n\nduke_forest |>\n  specify(price ~ area)\n\nResponse: price (numeric)\nExplanatory: area (numeric)\n# A tibble: 98 × 2\n     price  area\n     <dbl> <dbl>\n 1 1520000  6040\n 2 1030000  4475\n 3  420000  1745\n 4  680000  2091\n 5  428500  1772\n 6  456000  1950\n 7 1270000  3909\n 8  557450  2841\n 9  697500  3924\n10  650000  2173\n# … with 88 more rows"
+  },
+  {
+    "objectID": "slides/06-slr-sim-testing.html#permutation-pipeline-ii",
+    "href": "slides/06-slr-sim-testing.html#permutation-pipeline-ii",
+    "title": "SLR: Simulation-based inference",
+    "section": "Permutation pipeline II",
+    "text": "Permutation pipeline II\n\nset.seed(1125)\n\nduke_forest |>\n  specify(price ~ area) |>\n  hypothesize(null = \"independence\")\n\nResponse: price (numeric)\nExplanatory: area (numeric)\nNull Hypothesis: independence\n# A tibble: 98 × 2\n     price  area\n     <dbl> <dbl>\n 1 1520000  6040\n 2 1030000  4475\n 3  420000  1745\n 4  680000  2091\n 5  428500  1772\n 6  456000  1950\n 7 1270000  3909\n 8  557450  2841\n 9  697500  3924\n10  650000  2173\n# … with 88 more rows"
+  },
+  {
+    "objectID": "slides/06-slr-sim-testing.html#permutation-pipeline-iii",
+    "href": "slides/06-slr-sim-testing.html#permutation-pipeline-iii",
+    "title": "SLR: Simulation-based inference",
+    "section": "Permutation pipeline III",
+    "text": "Permutation pipeline III\n\nset.seed(1125)\n\nduke_forest |>\n  specify(price ~ area) |>\n  hypothesize(null = \"independence\") |>\n  generate(reps = 1000, type = \"permute\")\n\nResponse: price (numeric)\nExplanatory: area (numeric)\nNull Hypothesis: independence\n# A tibble: 98,000 × 3\n# Groups:   replicate [1,000]\n     price  area replicate\n     <dbl> <dbl>     <int>\n 1  465000  6040         1\n 2  481000  4475         1\n 3 1020000  1745         1\n 4  520000  2091         1\n 5  592000  1772         1\n 6  650000  1950         1\n 7  473000  3909         1\n 8  705000  2841         1\n 9  785000  3924         1\n10  671500  2173         1\n# … with 97,990 more rows"
+  },
+  {
+    "objectID": "slides/06-slr-sim-testing.html#permutation-pipeline-iv",
+    "href": "slides/06-slr-sim-testing.html#permutation-pipeline-iv",
+    "title": "SLR: Simulation-based inference",
+    "section": "Permutation pipeline IV",
+    "text": "Permutation pipeline IV\n\nset.seed(1125)\n\nduke_forest |>\n  specify(price ~ area) |>\n  hypothesize(null = \"independence\") |>\n  generate(reps = 1000, type = \"permute\") |>\n  fit()\n\n# A tibble: 2,000 × 3\n# Groups:   replicate [1,000]\n   replicate term       estimate\n       <int> <chr>         <dbl>\n 1         1 intercept 553355.  \n 2         1 area           2.35\n 3         2 intercept 635824.  \n 4         2 area         -27.3 \n 5         3 intercept 536072.  \n 6         3 area           8.57\n 7         4 intercept 598649.  \n 8         4 area         -13.9 \n 9         5 intercept 556202.  \n10         5 area           1.33\n# … with 1,990 more rows"
+  },
+  {
+    "objectID": "slides/06-slr-sim-testing.html#permutation-pipeline-v",
+    "href": "slides/06-slr-sim-testing.html#permutation-pipeline-v",
+    "title": "SLR: Simulation-based inference",
+    "section": "Permutation pipeline V",
+    "text": "Permutation pipeline V\n\nset.seed(1125)\n\nnull_dist <- duke_forest |>\n  specify(price ~ area) |>\n  hypothesize(null = \"independence\") |>\n  generate(reps = 1000, type = \"permute\") |>\n  fit()"
+  },
+  {
+    "objectID": "slides/06-slr-sim-testing.html#visualize-the-null-distribution",
+    "href": "slides/06-slr-sim-testing.html#visualize-the-null-distribution",
+    "title": "SLR: Simulation-based inference",
+    "section": "Visualize the null distribution",
+    "text": "Visualize the null distribution\n\nnull_dist |>\n  filter(term == \"area\") |>\n  ggplot(aes(x = estimate)) +\n  geom_histogram(binwidth = 10, color = \"white\")"
+  },
+  {
+    "objectID": "slides/06-slr-sim-testing.html#reason-around-the-p-value",
+    "href": "slides/06-slr-sim-testing.html#reason-around-the-p-value",
+    "title": "SLR: Simulation-based inference",
+    "section": "Reason around the p-value",
+    "text": "Reason around the p-value\n\nIn a world where the there is no relationship between the area of a Duke Forest house and in its price (\\(\\beta_1 = 0\\)), what is the probability that we observe a sample of 98 houses where the slope fo the model predicting price from area is 159 or even more extreme?"
+  },
+  {
+    "objectID": "slides/06-slr-sim-testing.html#compute-the-p-value",
+    "href": "slides/06-slr-sim-testing.html#compute-the-p-value",
+    "title": "SLR: Simulation-based inference",
+    "section": "Compute the p-value",
+    "text": "Compute the p-value\n\nWhat does this warning mean?\n\n\nget_p_value(\n  null_dist,\n  obs_stat = obs_fit,\n  direction = \"two-sided\"\n)\n\nWarning: Please be cautious in reporting a p-value of 0. This result is an\napproximation based on the number of `reps` chosen in the `generate()` step. See\n`?get_p_value()` for more information.\n\nWarning: Please be cautious in reporting a p-value of 0. This result is an\napproximation based on the number of `reps` chosen in the `generate()` step. See\n`?get_p_value()` for more information.\n\n\n# A tibble: 2 × 2\n  term      p_value\n  <chr>       <dbl>\n1 area            0\n2 intercept       0"
+  },
+  {
+    "objectID": "slides/06-slr-sim-testing.html#the-regression-model-revisited",
+    "href": "slides/06-slr-sim-testing.html#the-regression-model-revisited",
+    "title": "SLR: Simulation-based inference",
+    "section": "The regression model, revisited",
+    "text": "The regression model, revisited\n\ndf_fit <- linear_reg() |>\n  set_engine(\"lm\") |>\n  fit(price ~ area, data = duke_forest)\n\ntidy(df_fit) |>\n  kable(digits = 3)\n\n\n\n \n  \n    term \n    estimate \n    std.error \n    statistic \n    p.value \n  \n \n\n  \n    (Intercept) \n    116652.325 \n    53302.463 \n    2.188 \n    0.031 \n  \n  \n    area \n    159.483 \n    18.171 \n    8.777 \n    0.000"
+  },
+  {
+    "objectID": "slides/06-slr-sim-testing.html#inference-revisited",
+    "href": "slides/06-slr-sim-testing.html#inference-revisited",
+    "title": "SLR: Simulation-based inference",
+    "section": "Inference, revisited",
+    "text": "Inference, revisited\n\nEarlier we computed a confidence interval and conducted a hypothesis test via simulation:\n\nCI: Bootstrap the observed sample to simulate the distribution of the slope\nHT: Permute the observed sample to simulate the distribution of the slope under the assumption that the null hypothesis is true\n\nNow we’ll do these based on theoretical results, i.e., by using the Central Limit Theorem to define the distribution of the slope and use features (shape, center, spread) of this distribution to compute bounds of the confidence interval and the p-value for the hypothesis test"
+  },
+  {
+    "objectID": "slides/06-slr-sim-testing.html#mathematical-representation-of-the-model",
+    "href": "slides/06-slr-sim-testing.html#mathematical-representation-of-the-model",
+    "title": "SLR: Simulation-based inference",
+    "section": "Mathematical representation of the model",
+    "text": "Mathematical representation of the model\n\\[\n\\begin{aligned}\nY &= Model + Error \\\\\n&= f(X) + \\epsilon \\\\\n&= \\mu_{Y|X} + \\epsilon \\\\\n&= \\beta_0 + \\beta_1 X + \\epsilon\n\\end{aligned}\n\\]\nwhere the errors are independent and normally distributed:\n\nindependent: Knowing the error term for one observation doesn’t tell you anything about the error term for another observation\nnormally distributed: \\(\\epsilon \\sim N(0, \\sigma_\\epsilon^2)\\)"
+  },
+  {
+    "objectID": "slides/06-slr-sim-testing.html#mathematical-representation-visualized",
+    "href": "slides/06-slr-sim-testing.html#mathematical-representation-visualized",
+    "title": "SLR: Simulation-based inference",
+    "section": "Mathematical representation, visualized",
+    "text": "Mathematical representation, visualized\n\\[\nY|X \\sim N(\\beta_0 + \\beta_1 X, \\sigma_\\epsilon^2)\n\\]\n\n\n\n\n\n\n\n\n\n\n\n\n\nMean: \\(\\beta_0 + \\beta_1 X\\), the predicted value based on the regression model\nVariance: \\(\\sigma_\\epsilon^2\\), constant across the range of \\(X\\)\n\nHow do we estimate \\(\\sigma_\\epsilon^2\\)?"
+  },
+  {
+    "objectID": "slides/06-slr-sim-testing.html#regression-standard-error",
+    "href": "slides/06-slr-sim-testing.html#regression-standard-error",
+    "title": "SLR: Simulation-based inference",
+    "section": "Regression standard error",
+    "text": "Regression standard error\nOnce we fit the model, we can use the residuals to estimate the regression standard error (the spread of the distribution of the response, for a given value of the predictor variable):\n\\[\n\\hat{\\sigma}_\\epsilon = \\sqrt{\\frac{\\sum_\\limits{i=1}^n(y_i - \\hat{y}_i)^2}{n-2}} = \\sqrt{\\frac{\\sum_\\limits{i=1}^ne_i^2}{n-2}}\n\\]\n\n\n\n\nWhy divide by \\(n - 2\\)?\nWhy do we care about the value of the regression standard error?"
+  },
+  {
+    "objectID": "slides/06-slr-sim-testing.html#standard-error-of-hatbeta_1",
+    "href": "slides/06-slr-sim-testing.html#standard-error-of-hatbeta_1",
+    "title": "SLR: Simulation-based inference",
+    "section": "Standard error of \\(\\hat{\\beta}_1\\)",
+    "text": "Standard error of \\(\\hat{\\beta}_1\\)\n\\[\nSE_{\\hat{\\beta}_1} = \\hat{\\sigma}_\\epsilon\\sqrt{\\frac{1}{(n-1)s_X^2}}\n\\]\n\nor…\n\n\n\n\n \n  \n    term \n    estimate \n    std.error \n    statistic \n    p.value \n  \n \n\n  \n    (Intercept) \n    116652.33 \n    53302.46 \n    2.19 \n    0.03 \n  \n  \n    area \n    159.48 \n    18.17 \n    8.78 \n    0.00 \n  \n\n\n\n\n\n\n\n\n🔗 Week 03"
+  },
+  {
     "objectID": "slides/04-slr-evaluation.html#announcements",
     "href": "slides/04-slr-evaluation.html#announcements",
     "title": "SLR: Prediction + model evaluation",
@@ -1292,7 +1600,7 @@
     "href": "slides/05-slr-sim-inference.html#inference-for-simple-linear-regression",
     "title": "SLR: Simulation-based inference",
     "section": "Inference for simple linear regression",
-    "text": "Inference for simple linear regression\n\nCalculate a confidence interval for the slope, \\(\\beta_1\\)\nConduct a hypothesis test for the interval, \\(\\beta_1\\)"
+    "text": "Inference for simple linear regression\n\nCalculate a confidence interval for the slope, \\(\\beta_1\\)\nConduct a hypothesis test for the slope,\\(\\beta_1\\)"
   },
   {
     "objectID": "slides/05-slr-sim-inference.html#confidence-interval",

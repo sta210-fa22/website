@@ -411,7 +411,7 @@ slope <- tidy(df_fit) |> filter(term == "area") |> pull(estimate) |> round()
 
 -   Calculate a confidence interval for the slope, $\beta_1$
 
--   Conduct a hypothesis test for the interval, $\beta_1$
+-   Conduct a hypothesis test for the slope,$\beta_1$
 
 # Confidence interval for the slope
 

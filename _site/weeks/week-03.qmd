@@ -21,21 +21,14 @@ title-block-style: none
 
 # Prepare
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------+
-| Reading                                                                                                                                                        | Corresponding lecture |
-+================================================================================================================================================================+=======================+
-| 📖 IMS, Sec 24.2: [Randomization test for the slope](https://openintro-ims.netlify.app/inf-model-slr.html#randslope)                                           | Sep 12                |
-|                                                                                                                                                                |                       |
-| 📖 IMS, Sec 24.3: [Bootstrap confidence interval for the slope](https://openintro-ims.netlify.app/inf-model-slr.html#bootbeta1)\                               |                       |
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------+
-| 📖 IMS, Sec 24.4: [Mathematical model for testing the slope](https://openintro-ims.netlify.app/inf-model-slr.html#mathslope)                                   | Sep 14                |
-|                                                                                                                                                                |                       |
-| 📖 IMS, Sec 24.5: [Mathematical model, interval for the slope](https://openintro-ims.netlify.app/inf-model-slr.html#mathematical-model-interval-for-the-slope) |                       |
-|                                                                                                                                                                |                       |
-| 📖 IMS, Sec 24.6: [Checking model conditions](https://openintro-ims.netlify.app/inf-model-slr.html#tech-cond-linmod)                                           |                       |
-|                                                                                                                                                                |                       |
-| 📖 IMS, Sec 24.7: [Chapter review](https://openintro-ims.netlify.app/inf-model-slr.html#chp24-review)                                                          |                       |
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------+
++----------------------------------------------------------------------------------------------------------------------------------+-----------------------+
+| Reading                                                                                                                          | Corresponding lecture |
++==================================================================================================================================+=======================+
+| 📖 IMS, Sec 24.2: [Randomization test for the slope](https://openintro-ims.netlify.app/inf-model-slr.html#randslope)             | Sep 12                |
++----------------------------------------------------------------------------------------------------------------------------------+-----------------------+
+| 📖 IMS, Sec 24.3: [Bootstrap confidence interval for the slope](https://openintro-ims.netlify.app/inf-model-slr.html#bootbeta1)\ | Sep 14                |
+| 📖 IMS, Sec 24.4: [Mathematical model for testing the slope](https://openintro-ims.netlify.app/inf-model-slr.html#mathslope)     |                       |
++----------------------------------------------------------------------------------------------------------------------------------+-----------------------+
 
 # Participate
 

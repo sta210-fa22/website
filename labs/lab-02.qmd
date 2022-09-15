@@ -54,6 +54,8 @@ The primary variables for this analysis are
 
 -   `year`: a number denoting the year of observation
 
+-   `lakeid`: a factor denoting the lake name
+
 -   `ice_duration`: a number denoting the number of days between the freeze and breakup dates of each lake
 
 -   `ave_air_temp_adjusted`: a number denoting the air temperature in degrees Celsius, collected in Madison, WI and adjusted for biases\
@@ -80,7 +82,7 @@ Make sure we can read all of your code in your PDF document. This means you will
 Fill in the code below to create a new data frame, `icecover_avg`, of the average ice duration by lake and year. How many observations (rows) are in `icecover_avg`? How many variables (columns)?
 
 ```{r}
-icecover_avg <- ntl_icecover |>
+icecover_avg <- icecover |>
   group_by(____, _____) |>
   summarise(avg_ice_duration = mean(_____))
 ```
@@ -99,13 +101,13 @@ You will use `ice_air_joined` for the remainder of this lab.
 
 ### Exercise 3
 
-Create a histogram to examine the distribution `avg_ice_duration` and calculate summary statistics for the center and spread of the distribution. Include informative axis labels and an informative title on the visualization.
+Create a histogram to examine the distribution of `avg_ice_duration` and calculate summary statistics for the center and spread of the distribution. Include informative axis labels and an informative title on the visualization.
 
 Use the visualization and summary statistics to describe the distribution of `avg_ice_duration` . Include the shape, center, spread, and potential presence of outliers in the description.
 
 ### Exercise 4
 
-Create a histogram to examine the distribution of the `avg_air_temp` and calculate summary statistics for the center and spread of the distribution. Include informative axis labels and an informative title on the visualization.
+Create a histogram to examine the distribution of `avg_air_temp` and calculate summary statistics for the center and spread of the distribution. Include informative axis labels and an informative title on the visualization.
 
 Use the visualization and summary statistics to describe the distribution of `avg_air_temp`. Include the shape, center, spread, and potential presence of outliers in the description.
 
@@ -129,15 +131,15 @@ ggplot(data = ice_air_joined, aes(x = _____, y = ______, color = _____)) +
 
 ### Exercise 6
 
-Create a visualization of `avg_air_temp` versus `year`.
+Create a visualization of `avg_air_temp` versus `year`. Include informative axis labels and an informative title on the visualization.
 
 -   Use the visualization to write two observations about the trend of average air temperature over time.
 
--   Based on the visualizations of average ice duration and average air temperature over time, would you expect the slope of the linear model of the association between average ice duration and average air temperature to have a positive or negative slope? Briefly explain.
+-   Based on the visualizations of average ice duration and average air temperature over time, would you expect the linear model describing the association between average ice duration and average air temperature to have a positive or negative slope? Briefly explain.
 
 ### Exercise 7
 
-Researchers would like to use a linear model they can use to understand variability in the average ice duration based on the average air temperature. Write the form of the statistical model the researchers would like to estimate. Use mathematical notation and variable names (`avg_air_temp` and `ice_duration`) in the equation.[^1]
+Researchers would like to use a linear model to understand variability in the average ice duration based on the average air temperature. Write the form of the statistical model the researchers would like to estimate. Use mathematical notation and variable names (`avg_air_temp` and `ice_duration`) in the equation.[^1]
 
 [^1]: [Click here](https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols) for a guide on writing mathematical symbols using LaTex.
 
@@ -147,13 +149,13 @@ This is a good place to render, commit, and push changes to your remote lab repo
 
 ### Exercise 8
 
-Fit and display the model described in the previous exercise. Use the `kable` function to neatly display the model output to three decimal places.
+Fit and display the model described in the previous exercise. Use the `kable` function to neatly display the model output using three decimal places.
 
 -   Write the equation of the fitted model. Use mathematical notation and variable names (`avg_air_temp` and `ice_duration`) in the equation.
 
 -   Interpret the slope in the context of the data.
 
--   Does the intercept have a meaningful interpretation? If so, interpret the intercept in the context of the data. Otherwise, explain why not.
+-   Does the intercept have a meaningful interpretation in this context? If so, interpret the intercept in the context of the data. Otherwise, explain why not.
 
 ### Exercise 9
 

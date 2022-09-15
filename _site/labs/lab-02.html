@@ -414,6 +414,7 @@ Important
 <p>The primary variables for this analysis are</p>
 <ul>
 <li><p><code>year</code>: a number denoting the year of observation</p></li>
+<li><p><code>lakeid</code>: a factor denoting the lake name</p></li>
 <li><p><code>ice_duration</code>: a number denoting the number of days between the freeze and breakup dates of each lake</p></li>
 <li><p><code>ave_air_temp_adjusted</code>: a number denoting the air temperature in degrees Celsius, collected in Madison, WI and adjusted for biases<br>
 </p></li>
@@ -445,7 +446,7 @@ Tip
 <h3 class="anchored" data-anchor-id="exercise-1">Exercise 1</h3>
 <p>Fill in the code below to create a new data frame, <code>icecover_avg</code>, of the average ice duration by lake and year. How many observations (rows) are in <code>icecover_avg</code>? How many variables (columns)?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>icecover_avg <span class="ot">&lt;-</span> ntl_icecover <span class="sc">|&gt;</span></span>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>icecover_avg <span class="ot">&lt;-</span> icecover <span class="sc">|&gt;</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(____, _____) <span class="sc">|&gt;</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_ice_duration =</span> <span class="fu">mean</span>(_____))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -474,12 +475,12 @@ Important
 </section>
 <section id="exercise-3" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-3">Exercise 3</h3>
-<p>Create a histogram to examine the distribution <code>avg_ice_duration</code> and calculate summary statistics for the center and spread of the distribution. Include informative axis labels and an informative title on the visualization.</p>
+<p>Create a histogram to examine the distribution of <code>avg_ice_duration</code> and calculate summary statistics for the center and spread of the distribution. Include informative axis labels and an informative title on the visualization.</p>
 <p>Use the visualization and summary statistics to describe the distribution of <code>avg_ice_duration</code> . Include the shape, center, spread, and potential presence of outliers in the description.</p>
 </section>
 <section id="exercise-4" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-4">Exercise 4</h3>
-<p>Create a histogram to examine the distribution of the <code>avg_air_temp</code> and calculate summary statistics for the center and spread of the distribution. Include informative axis labels and an informative title on the visualization.</p>
+<p>Create a histogram to examine the distribution of <code>avg_air_temp</code> and calculate summary statistics for the center and spread of the distribution. Include informative axis labels and an informative title on the visualization.</p>
 <p>Use the visualization and summary statistics to describe the distribution of <code>avg_air_temp</code>. Include the shape, center, spread, and potential presence of outliers in the description.</p>
 <div class="render-commit-push">
 <p>This is a good place to render, commit, and push changes to your remote lab repo on GitHub. Click the checkbox next to each file in the Git pane to stage the updates you’ve made, write an informative commit message, and push. After you push the changes, the Git pane in RStudio should be empty.</p>
@@ -500,26 +501,26 @@ Important
 </section>
 <section id="exercise-6" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-6">Exercise 6</h3>
-<p>Create a visualization of <code>avg_air_temp</code> versus <code>year</code>.</p>
+<p>Create a visualization of <code>avg_air_temp</code> versus <code>year</code>. Include informative axis labels and an informative title on the visualization.</p>
 <ul>
 <li><p>Use the visualization to write two observations about the trend of average air temperature over time.</p></li>
-<li><p>Based on the visualizations of average ice duration and average air temperature over time, would you expect the slope of the linear model of the association between average ice duration and average air temperature to have a positive or negative slope? Briefly explain.</p></li>
+<li><p>Based on the visualizations of average ice duration and average air temperature over time, would you expect the linear model describing the association between average ice duration and average air temperature to have a positive or negative slope? Briefly explain.</p></li>
 </ul>
 </section>
 <section id="exercise-7" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-7">Exercise 7</h3>
-<p>Researchers would like to use a linear model they can use to understand variability in the average ice duration based on the average air temperature. Write the form of the statistical model the researchers would like to estimate. Use mathematical notation and variable names (<code>avg_air_temp</code> and <code>ice_duration</code>) in the equation.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>Researchers would like to use a linear model to understand variability in the average ice duration based on the average air temperature. Write the form of the statistical model the researchers would like to estimate. Use mathematical notation and variable names (<code>avg_air_temp</code> and <code>ice_duration</code>) in the equation.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <div class="render-commit-push">
 <p>This is a good place to render, commit, and push changes to your remote lab repo on GitHub. Click the checkbox next to each file in the Git pane to stage the updates you’ve made, write an informative commit message, and push. After you push the changes, the Git pane in RStudio should be empty.</p>
 </div>
 </section>
 <section id="exercise-8" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-8">Exercise 8</h3>
-<p>Fit and display the model described in the previous exercise. Use the <code>kable</code> function to neatly display the model output to three decimal places.</p>
+<p>Fit and display the model described in the previous exercise. Use the <code>kable</code> function to neatly display the model output using three decimal places.</p>
 <ul>
 <li><p>Write the equation of the fitted model. Use mathematical notation and variable names (<code>avg_air_temp</code> and <code>ice_duration</code>) in the equation.</p></li>
 <li><p>Interpret the slope in the context of the data.</p></li>
-<li><p>Does the intercept have a meaningful interpretation? If so, interpret the intercept in the context of the data. Otherwise, explain why not.</p></li>
+<li><p>Does the intercept have a meaningful interpretation in this context? If so, interpret the intercept in the context of the data. Otherwise, explain why not.</p></li>
 </ul>
 </section>
 <section id="exercise-9" class="level3">

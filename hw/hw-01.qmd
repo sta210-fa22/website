@@ -98,7 +98,7 @@ All narrative should be written in complete sentences, and all visualizations sh
 
 ### Exercise 1
 
-Visualize the distribution of the response variable `median_household_income` and calculate appropriate summary statistics. Use the visualization and summary statistics to describe the distribution. Include an informative title and axis labels on the plot.
+Create a histogram of the distribution of the response variable `median_household_income` and calculate appropriate summary statistics. Use the visualization and summary statistics to describe the distribution. Include an informative title and axis labels on the plot.
 
 ### Exercise 2
 

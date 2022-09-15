@@ -522,28 +522,35 @@
     "href": "slides/lab-02.html#reminders",
     "title": "Lab 02",
     "section": "Reminders",
-    "text": "Reminders\n\nSelect the pages corresponding to each exercise when you when you submit the assignment on Gradescope.\nWrite all narrative in complete sentences.\nInclude an informative title and axis labels on graphs.\nWrite responses in the context of the data.\nDescription of a distribution\nDescription of relationship between two variables."
+    "text": "Reminders\n\n\nSelect the pages corresponding to each exercise when you when you submit the assignment on Gradescope.\n\nClick here for written and video instructions on submitting an assignment and marking pages on Gradescope.\n\nIn your write up:\n\nWrite all narrative in complete sentences.\nInclude an informative title and axis labels on graphs.\nWrite responses in the context of the data.\nDescribe distribution using shape, center, spread, and potential outliers. Describe relationships between variables using strength, direction, and shape."
+  },
+  {
+    "objectID": "slides/lab-02.html#axis-labels-and-titles",
+    "href": "slides/lab-02.html#axis-labels-and-titles",
+    "title": "Lab 02",
+    "section": "Axis labels and titles",
+    "text": "Axis labels and titles\n\nBelow is a graph of association between flipper length in millimeters and body mass in grams of three species of penguins in Palmer Station, Antarctica. What are informative title and axis labels for this graph?"
   },
   {
     "objectID": "slides/lab-02.html#code-style",
     "href": "slides/lab-02.html#code-style",
     "title": "Lab 02",
     "section": "Code style",
-    "text": "Code style"
+    "text": "Code style\nWhich code chunk would you rather read?\n\n# code chunk 1\npenguins|>filter(!is.na(flipper_length_mm))|>group_by(species)|>summarise(min=min(flipper_length_mm),mean=mean(flipper_length_mm),sd=sd(flipper_length_mm),max=max(flipper_length_mm),n=n())\n\n\n\n\n# code chunk 2\npenguins |> \n  filter(!is.na(flipper_length_mm)) |> \n  group_by(species) |> \n  summarise(min = min(flipper_length_mm), \n            mean = mean(flipper_length_mm), \n            max = max(flipper_length_mm),\n            n = n())"
   },
   {
-    "objectID": "slides/lab-02.html#axis-labels",
-    "href": "slides/lab-02.html#axis-labels",
+    "objectID": "slides/lab-02.html#code-style-contd",
+    "href": "slides/lab-02.html#code-style-contd",
     "title": "Lab 02",
-    "section": "Axis labels",
-    "text": "Axis labels\n\nmake a graph and the TAs can get students to fill in the axis labels.\nPost video on how to upload to gradescope and mark pages."
+    "section": "Code style cont’d",
+    "text": "Code style cont’d\nMake code easier to read and debug by\n\nPutting each element on a different line (start a new line after + and |>)\nPutting spaces before and after operators (+, -, *, =, |> )\nIn general, avoiding long lines of code, i.e. lines longer than 120 characters.\n\nSee the Tidyverse Style Guide for more tips on code styling."
   },
   {
     "objectID": "slides/lab-02.html#todays-lab",
     "href": "slides/lab-02.html#todays-lab",
     "title": "Lab 02",
     "section": "Today’s lab",
-    "text": "Today’s lab\n\n\n\n\n\n🔗 Week 03"
+    "text": "Today’s lab\n\nRemember to use a reproducible workflow with regular commits (and informative commit messages).\n\nPush all update files after each commit!\n\nUse lectures and AEs from Week 02 and Week 03 as reference as you complete the lab.\n\n\n\n\n\n🔗 Week 03"
   },
   {
     "objectID": "slides/lab-01.html#computing-toolkit-for-reproducibility",

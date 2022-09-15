@@ -56,7 +56,7 @@ The primary variables for this analysis are
 
 -   `ice_duration`: a number denoting the number of days between the freeze and breakup dates of each lake
 
--   `ave_air_temp_adjusted`: a number denoting the air temperature in degrees Celsius, collected in Madison, WI and adjusted for biases \
+-   `ave_air_temp_adjusted`: a number denoting the air temperature in degrees Celsius, collected in Madison, WI and adjusted for biases\
 
 ```{r}
 icecover <- read_csv("data/wi-icecover.csv")
@@ -89,7 +89,7 @@ icecover_avg <- ntl_icecover |>
 
 -   Create a new data frame `airtemp_avg`, of the average air temperature by year.
 
--   Then, join `icecover_avg` and `airtemp_avg` to make a new data frame `ice_air_joined`. Remove the years that have missing data for the average annual air temperature or the average annual ice duration. \
+-   Then, join `icecover_avg` and `airtemp_avg` to make a new data frame `ice_air_joined`. Remove the years that have missing data for the average annual air temperature or the average annual ice duration.\
     \
     The data frame `ice_air_joined` has 268 observations.
 

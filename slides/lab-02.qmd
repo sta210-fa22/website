@@ -21,28 +21,86 @@ knitr:
     width: 200
 ---
 
-## Reminders
+## Reminders {.midi}
 
+::: incremental
 -   Select the pages corresponding to each exercise when you when you submit the assignment on Gradescope.
 
--   Write all narrative in complete sentences.
+    -   [Click here](https://help.gradescope.com/article/ccbpppziu9-student-submit-work#submitting_a_pdf) for written and video instructions on submitting an assignment and marking pages on Gradescope.
 
--   Include an informative title and axis labels on graphs.
+-   In your write up:
 
--   Write responses in the context of the data.
+    -   Write all narrative in complete sentences.
 
--   Description of a distribution
+    -   Include an informative title and axis labels on graphs.
 
--   Description of relationship between two variables.
+    -   Write responses in the context of the data.
+
+    -   Describe distribution using shape, center, spread, and potential outliers. Describe relationships between variables using strength, direction, and shape.
+:::
+
+## Axis labels and titles
+
+::: midi
+Below is a graph of association between flipper length in millimeters and body mass in grams of three species of penguins in Palmer Station, Antarctica. What are informative title and axis labels for this graph?
+:::
+
+```{r}
+#| echo: false
+#| fig-align: center
+
+library(palmerpenguins)
+library(tidyverse)
+library(viridis)
+
+ggplot(data = penguins, aes(x = flipper_length_mm, y = body_mass_g, color = species)) + 
+  geom_point(size = 2) + 
+  theme_bw() +
+    scale_color_manual(values = c("darkorange","purple","cyan4")) 
+```
 
 ## Code style
 
-## Axis labels
+Which code chunk would you rather read?
 
--   make a graph and the TAs can get students to fill in the axis labels.
+```{r}
+#| eval: false
+# code chunk 1
+penguins|>filter(!is.na(flipper_length_mm))|>group_by(species)|>summarise(min=min(flipper_length_mm),mean=mean(flipper_length_mm),sd=sd(flipper_length_mm),max=max(flipper_length_mm),n=n())
+```
 
--   Post video on how to upload to gradescope and mark pages.
+<br>
+
+. . .
+
+```{r}
+#| eval: false
+# code chunk 2
+penguins |> 
+  filter(!is.na(flipper_length_mm)) |> 
+  group_by(species) |> 
+  summarise(min = min(flipper_length_mm), 
+            mean = mean(flipper_length_mm), 
+            max = max(flipper_length_mm),
+            n = n())
+```
+
+## Code style cont'd
+
+Make code easier to read and debug by
+
+-   Putting each element on a different line (start a new line after `+` and `|>`)
+
+-   Putting spaces before and after operators (`+`, `-`, `*`, `=`, `|>` )
+
+-   In general, avoiding long lines of code, i.e. lines longer than 120 characters.
+
+See the [Tidyverse Style Guide](https://style.tidyverse.org/) for more tips on code styling.
 
 ## Today's lab
 
-\
+-   Remember to use a reproducible workflow with regular commits (and informative commit messages).
+
+    -   Push all update files after each commit!
+
+-   Use lectures and AEs from [Week 02](../weeks/week-02.qmd) and [Week 03](../weeks/week-03.qmd) as reference as you complete the lab. \

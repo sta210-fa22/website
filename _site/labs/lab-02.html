@@ -322,7 +322,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </ul></li>
   <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting started</a></li>
   <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
-  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
+  <li><a href="#data-ice-cover-and-air-temperature" id="toc-data-ice-cover-and-air-temperature" class="nav-link" data-scroll-target="#data-ice-cover-and-air-temperature">Data: Ice cover and air temperature</a></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
   <ul class="collapse">
   <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
@@ -339,7 +339,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#submission" id="toc-submission" class="nav-link" data-scroll-target="#submission">Submission</a></li>
   <li><a href="#grading-50-pts" id="toc-grading-50-pts" class="nav-link" data-scroll-target="#grading-50-pts">Grading (50 pts)</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/sta210-fa22/website/edit/main/labs/lab-02-DRAFT.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/sta210-fa22/website/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/sta210-fa22/website/edit/main/labs/lab-02.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/sta210-fa22/website/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -401,26 +401,31 @@ Important
 </section>
 <section id="packages" class="level1">
 <h1>Packages</h1>
-<p>We will use the following packages in today’s lab.</p>
+<p>The following packages are used in the lab:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="data" class="level1">
-<h1>Data</h1>
-<p>The data are in the <code>ntl_icecover</code> and <code>ntl_airtemp</code> data frames in the <a href="https://lter.github.io/lterdatasampler/index.html">lterdatasampler</a> R package.</p>
-<p>To find out more about the dataset, type the following in your console.</p>
-<pre><code>?ntl_icecover</code></pre>
-<p>A question mark before the name of an object will always bring up its help file. This command must be run in the console. Alternatively, you can use the <code>help()</code> function.</p>
-<pre><code>help(ntl_icecover)</code></pre>
-<p>You can use the same code to find out more about the airtemp data set.</p>
+<section id="data-ice-cover-and-air-temperature" class="level1">
+<h1>Data: Ice cover and air temperature</h1>
+<p>The datasets <code>wi-icecover.csv</code> and <code>wi-air-temperature.csv</code> contain information about ice cover and air temperature, respectively, at Lake Monona and Lake Mendota for days in 1885 through 2019. The data were obtained from the <a href="https://lter.github.io/lterdatasampler/reference/ntl_icecover.html"><code>ntl_icecover</code></a> and <a href="https://lter.github.io/lterdatasampler/reference/ntl_airtemp.html"><code>ntl_airtemp</code></a> data frames in the <a href="https://lter.github.io/lterdatasampler/index.html">lterdatasampler</a> R package. The data were originally collected at a <a href="https://lternet.edu/">US Long Term Ecological Research program (LTER) Network</a>.</p>
+<p>The primary variables for this analysis are</p>
+<ul>
+<li><p><code>year</code>: a number denoting the year of observation</p></li>
+<li><p><code>ice_duration</code>: a number denoting the number of days between the freeze and breakup dates of each lake</p></li>
+<li><p><code>ave_air_temp_adjusted</code>: a number denoting the air temperature in degrees Celsius, collected in Madison, WI and adjusted for biases<br>
+</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>icecover <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/wi-icecover.csv"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>airtemp <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/wi-air-temperature.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="exercises" class="level1">
 <h1>Exercises</h1>
-<p><strong>Goal</strong>: The goal of this analysis is to use the air temperature to understand changes in the ice duration for lakes in Wisconsin. <strong>[Insert motivation for doing this analysis].</strong></p>
+<p><strong>Goal</strong>: The goal of this analysis is to use linear regression understand the association between average air temperature and ice duration for two lakes in Madison, Wisconsin that freeze for a portion of the year. Because ice cover is impacted by various environmental factors, researchers are interested in examining the association between these two factors to understand how quickly the climate is changing.</p>
 <hr>
 <p>Write all code and narrative in your Quarto file. Write all narrative in complete sentences. Throughout the assignment, you should periodically <strong>render</strong> your Quarto document to produce the updated PDF, <strong>commit</strong> the changes in the Git pane, and <strong>push</strong> the updated files to GitHub.</p>
 <div class="callout-tip callout callout-style-default callout-captioned">
@@ -438,33 +443,21 @@ Tip
 </div>
 <section id="exercise-1" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-1">Exercise 1</h3>
-<p>Fill in the code below to create a new data frame of the average ice duration by year. How many observations (rows) are in the new data frame? How many variables (columns)?</p>
+<p>Fill in the code below to create a new data frame, <code>icecover_avg</code>, of the average ice duration by lake and year. How many observations (rows) are in <code>icecover_avg</code>? How many variables (columns)?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ntl_icecover_avg <span class="ot">&lt;-</span> ntl_icecover <span class="sc">|&gt;</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(____) <span class="sc">|&gt;</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_ice_duration =</span> <span class="fu">mean</span>(_____, <span class="at">na.rm  =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>icecover_avg <span class="ot">&lt;-</span> ntl_icecover <span class="sc">|&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(____, _____) <span class="sc">|&gt;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_ice_duration =</span> <span class="fu">mean</span>(_____))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="exercise-2" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-2">Exercise 2</h3>
-<p>Ice duration is most impacted by temperatures in the winter and spring seasons. Fill in the code to create a new data frame of the average temperature November - April for years 1885 onward. <strong>[Add explanation about <a href="https://lter.github.io/lterdatasampler/articles/ntl_icecover_vignette.html#investigate-the-relationship-between-ice-cover-duration-and-air-temperature">hydroyear</a>].</strong></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a column to group the Fall and Spring season into a same year, similarly to what is done when defining hydrological year</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>ntl_airtemp_hydro <span class="ot">&lt;-</span> ntl_airtemp <span class="sc">|&gt;</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">hydroyear =</span> <span class="fu">if_else</span>(<span class="fu">month</span>(sampledate) <span class="sc">&lt;</span> <span class="dv">10</span>, year<span class="dv">-1</span>, year))</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute the average air temperature from Nov to April</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>ntl_airtemp_avg_winter <span class="ot">&lt;-</span>  ntl_airtemp_hydro <span class="sc">|&gt;</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">_____</span>(<span class="fu">month</span>(sampledate) <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">11</span><span class="sc">:</span><span class="dv">12</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>)) <span class="sc">|&gt;</span> <span class="co"># filter the months from Nov to April</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">_____</span>(hydroyear) <span class="sc">|&gt;</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_air_temp =</span> ______)</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="do">## join to to ntl_icecover_avg and filter for years 1885 onward</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>ntl_joined_avg <span class="ot">&lt;-</span> ntl_icecover_avg  <span class="sc">|&gt;</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(________, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"_____"</span> <span class="ot">=</span> <span class="st">"______"</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">&gt;=</span> ______)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>How many observations are in the new data frame? How many variables?</p>
+<ul>
+<li><p>Create a new data frame <code>airtemp_avg</code>, of the average air temperature by year.</p></li>
+<li><p>Then, join <code>icecover_avg</code> and <code>airtemp_avg</code> to make a new data frame <code>ice_air_joined</code>. Remove the years that have missing data for the average annual air temperature or the average annual ice duration.<br>
+<br>
+The data frame <code>ice_air_joined</code> has 268 observations.</p></li>
+</ul>
 <div class="callout-important callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -475,32 +468,34 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>You will use the <code>ntl_joined_avg</code> data frame for the remainder of lab.</p>
+<p>You will use <code>ice_air_joined</code> for the remainder of this lab.</p>
 </div>
 </div>
 </section>
 <section id="exercise-3" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-3">Exercise 3</h3>
-<p>Create a histogram to examine the distribution of the response variable, <code>avg_ice_duration</code>, and calculate summary statistics for the center and spread of the distribution. Include informative axis labels and an informative title on the visualization.</p>
-<p>Use the visualization and summary statistics to describe the distribution of <code>avg_ice_duration</code> (shape, center, spread, outliers).</p>
+<p>Create a histogram to examine the distribution <code>avg_ice_duration</code> and calculate summary statistics for the center and spread of the distribution. Include informative axis labels and an informative title on the visualization.</p>
+<p>Use the visualization and summary statistics to describe the distribution of <code>avg_ice_duration</code> . Include the shape, center, spread, and potential presence of outliers in the description.</p>
 </section>
 <section id="exercise-4" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-4">Exercise 4</h3>
-<p>Create a histogram to examine the distribution of the predictor variable, <code>avg_air_temp</code>, and calculate summary statistics for the center and spread of the distribution. Include informative axis labels and an informative title on the visualization.</p>
-<p>Use the visualization and summary statistics to describe the distribution of <code>avg_air_temp</code> (shape, center, spread, outliers).</p>
+<p>Create a histogram to examine the distribution of the <code>avg_air_temp</code> and calculate summary statistics for the center and spread of the distribution. Include informative axis labels and an informative title on the visualization.</p>
+<p>Use the visualization and summary statistics to describe the distribution of <code>avg_air_temp</code>. Include the shape, center, spread, and potential presence of outliers in the description.</p>
 <div class="render-commit-push">
 <p>This is a good place to render, commit, and push changes to your remote lab repo on GitHub. Click the checkbox next to each file in the Git pane to stage the updates you’ve made, write an informative commit message, and push. After you push the changes, the Git pane in RStudio should be empty.</p>
 </div>
 </section>
 <section id="exercise-5" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-5">Exercise 5</h3>
-<p>Fill in the code below to create a visualization of <code>avg_ice_duration</code> versus <code>year</code>. Use the visualization to write two observations about the trend of average ice duration over time.</p>
+<p>Fill in the code below to create a visualization of <code>avg_ice_duration</code> versus <code>year</code> by <code>lakeid</code>. Write two observations from the visualization.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> ntl_joined_avg, <span class="fu">aes</span>(<span class="at">x =</span> _____, <span class="at">y =</span>_______)) <span class="sc">+</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"_______"</span>, </span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"_______"</span>, </span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"__________"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> ice_air_joined, <span class="fu">aes</span>(<span class="at">x =</span> _____, <span class="at">y =</span> ______, <span class="at">color =</span> _____)) <span class="sc">+</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"_______"</span>, </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"_______"</span>, </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">"______"</span>, </span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"_______"</span>, </span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"________"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="exercise-6" class="level3">
@@ -508,46 +503,46 @@ Important
 <p>Create a visualization of <code>avg_air_temp</code> versus <code>year</code>.</p>
 <ul>
 <li><p>Use the visualization to write two observations about the trend of average air temperature over time.</p></li>
-<li><p>Based on the visualizations of average ice duration and average air temperature over time, how would you describe the relationship between average ice duration and average air temperature?</p></li>
+<li><p>Based on the visualizations of average ice duration and average air temperature over time, would you expect the slope of the linear model of the association between average ice duration and average air temperature to have a positive or negative slope? Briefly explain.</p></li>
 </ul>
 </section>
 <section id="exercise-7" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-7">Exercise 7</h3>
-<p>You would like to fit a linear model using average air temperature to understand variability in the average ice duration. Write the form of the statistical model using mathematical notation. Use variable names (<code>avg_air_temp</code> and <code>ice_duration</code>) in the equation.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>Researchers would like to use a linear model they can use to understand variability in the average ice duration based on the average air temperature. Write the form of the statistical model the researchers would like to estimate. Use mathematical notation and variable names (<code>avg_air_temp</code> and <code>ice_duration</code>) in the equation.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <div class="render-commit-push">
 <p>This is a good place to render, commit, and push changes to your remote lab repo on GitHub. Click the checkbox next to each file in the Git pane to stage the updates you’ve made, write an informative commit message, and push. After you push the changes, the Git pane in RStudio should be empty.</p>
 </div>
 </section>
 <section id="exercise-8" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-8">Exercise 8</h3>
-<p>Fit and neatly display the model from the previous exercise. Use the <code>kable</code> function to neatly display the model output to three decimal places.</p>
+<p>Fit and display the model described in the previous exercise. Use the <code>kable</code> function to neatly display the model output to three decimal places.</p>
 <ul>
-<li><p>Write the regression equation using mathematical notation. Use variable names (<code>avg_air_temp</code> and <code>ice_duration</code>) in the equation.</p></li>
+<li><p>Write the equation of the fitted model. Use mathematical notation and variable names (<code>avg_air_temp</code> and <code>ice_duration</code>) in the equation.</p></li>
 <li><p>Interpret the slope in the context of the data.</p></li>
-<li><p>Does the intercept have a meaningful interpretation? If so, interpret it. Otherwise, explain why not.</p></li>
+<li><p>Does the intercept have a meaningful interpretation? If so, interpret the intercept in the context of the data. Otherwise, explain why not.</p></li>
 </ul>
 </section>
 <section id="exercise-9" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-9">Exercise 9</h3>
-<p>We would like to answer the question “Do the data provide sufficient evidence of a linear relationship between average air temperature and average ice duration , i.e.&nbsp;<span class="math inline">\(\beta_1\)</span> is different from 0?”</p>
-<p>To answer this question we will use a hypothesis test. We can conduct a hypothesis test via simulation (what we’ll in this question) or using mathematical models (what we’ll do in a later exercise).</p>
+<p><em>“Do the data provide sufficient evidence of a linear relationship between average air temperature and average ice duration , i.e.&nbsp;is</em> <span class="math inline">\(\beta_1\)</span> <em>different from 0?“</em></p>
+<p>Use a simulation-based hypothesis test to answer this question. In your response:</p>
 <ul>
-<li><p>Write the null and alternative hypotheses in words and mathematical notation.</p></li>
+<li><p>Write the null and alternative hypotheses in words and using mathematical notation.</p></li>
 <li><p>Test these hypotheses using a permutation test.</p>
 <ul>
 <li><p>First set a seed for simulating reproducibly. Use the seed <code>9</code>.</p></li>
-<li><p>Use the permutation pipeline with 1,000 permuted samples to simulate new samples from the original sample via permutation under the assumption that the null hypothesis is true and fit models to each of the samples and estimate the slope</p></li>
+<li><p>Use the permutation pipeline with 1,000 permuted samples to simulate new samples from the original sample via permutation under the assumption that the null hypothesis is true and fit models to each of the samples and estimate the slope. Save the results as <code>perm_fits</code>.</p></li>
 <li><p>Create a histogram of the <u>slope</u> estimates in <code>perm_fits</code>.</p></li>
-<li><p>Estimate the p-value of the hypothesis test based on this distribution.</p></li>
+<li><p>Approximate the p-value of the hypothesis test based on this distribution.</p></li>
 <li><p>State your conclusion for the test in the context of the data.</p></li>
 </ul></li>
 </ul>
 </section>
 <section id="exercise-10" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-10">Exercise 10</h3>
-<p>Next, construct 95% confidence interval for the slope using bootstrapping with the seed <code>10</code>. Follow these steps to accomplish this:</p>
+<p>Next, use bootstrapping to construct 95% confidence interval for the slope Follow these steps to accomplish this:</p>
 <ul>
-<li>First set a seed for simulating reproducibly.</li>
+<li>First set a seed for simulating reproducibly. Use the see <code>10</code>.</li>
 <li>Then, simulate the bootstrap distribution of the slope using 1,000 bootstrap samples.</li>
 <li>Visualize the bootstrap distribution.</li>
 <li>Calculate the bounds of the confidence interval using the percentile method.</li>

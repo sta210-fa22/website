@@ -879,7 +879,7 @@
     "href": "slides/07-slr-math-models.html#hypothesis-test-test-statistic",
     "title": "SLR: Mathematical models for inference",
     "section": "Hypothesis test: Test statistic",
-    "text": "Hypothesis test: Test statistic\n\n\n\n\n \n  \n    term \n    estimate \n    std.error \n    statistic \n    p.value \n  \n \n\n  \n    (Intercept) \n    116652.33 \n    53302.46 \n    2.19 \n    0.03 \n  \n  \n    area \n    159.48 \n    18.17 \n    8.78 \n    0.00 \n  \n\n\n\n\n\n\\[\nt = \\frac{\\hat{\\beta}_1 - 0}{SE_{\\hat{\\beta}_1}} = \\frac{159.48 - 0}{18.17} = 8.78\n\\]"
+    "text": "Hypothesis test: Test statistic\n\n\n\n\n \n  \n    term \n    estimate \n    std.error \n    statistic \n    p.value \n  \n \n\n  \n    (Intercept) \n    116652.33 \n    53302.46 \n    2.19 \n    0.03 \n  \n  \n    area \n    159.48 \n    18.17 \n    8.78 \n    0.00 \n  \n\n\n\n\n\n\\[\nT = \\frac{\\hat{\\beta}_1 - 0}{SE_{\\hat{\\beta}_1}} = \\frac{159.48 - 0}{18.17} = 8.78\n\\]"
   },
   {
     "objectID": "slides/07-slr-math-models.html#hypothesis-test-p-value",
@@ -931,8 +931,8 @@
     "text": "95% CI for the slope: Computation\n\ntidy(df_fit, conf.int = TRUE, conf.level = 0.95) |> \n  kable(digits = 2)\n\n\n\n \n  \n    term \n    estimate \n    std.error \n    statistic \n    p.value \n    conf.low \n    conf.high \n  \n \n\n  \n    (Intercept) \n    116652.33 \n    53302.46 \n    2.19 \n    0.03 \n    10847.77 \n    222456.88 \n  \n  \n    area \n    159.48 \n    18.17 \n    8.78 \n    0.00 \n    123.41 \n    195.55"
   },
   {
-    "objectID": "slides/07-slr-math-models.html#intervals-for-predictions",
-    "href": "slides/07-slr-math-models.html#intervals-for-predictions",
+    "objectID": "slides/07-slr-math-models.html#intervals-for-predictions-1",
+    "href": "slides/07-slr-math-models.html#intervals-for-predictions-1",
     "title": "SLR: Mathematical models for inference",
     "section": "Intervals for predictions",
     "text": "Intervals for predictions\n\nSuppose we want to answer the question “What is the predicted sale price of a Duke Forest house that is 2,800 square feet?”\nWe said reporting a single estimate for the slope is not wise, and we should report a plausible range instead\nSimilarly, reporting a single prediction for a new value is not wise, and we should report a plausible range instead"
@@ -1008,11 +1008,11 @@
     "text": "Linearity\n✅ The residuals vs. fitted values plot should not show a random scatter of residuals (no distinguishable pattern or structure)"
   },
   {
-    "objectID": "slides/07-slr-math-models.html#residuals-vs.-fitted-values",
-    "href": "slides/07-slr-math-models.html#residuals-vs.-fitted-values",
+    "objectID": "slides/07-slr-math-models.html#residuals-vs.-fitted-values-code",
+    "href": "slides/07-slr-math-models.html#residuals-vs.-fitted-values-code",
     "title": "SLR: Mathematical models for inference",
-    "section": "Residuals vs. fitted values",
-    "text": "Residuals vs. fitted values\n\ndf_aug <- augment(df_fit$fit)\n\nggplot(df_aug, aes(x = .fitted, y = .resid)) +\n  geom_point() +\n  geom_hline(yintercept = 0, linetype = \"dashed\") +\n  ylim(-1000000, 1000000) +\n  labs(\n    x = \"Fitted value\", y = \"Residual\",\n    title = \"Residuals vs. fitted values\"\n  )"
+    "section": "Residuals vs. fitted values (code)",
+    "text": "Residuals vs. fitted values (code)\n\ndf_aug <- augment(df_fit$fit)\n\nggplot(df_aug, aes(x = .fitted, y = .resid)) +\n  geom_point() +\n  geom_hline(yintercept = 0, linetype = \"dashed\") +\n  ylim(-1000000, 1000000) +\n  labs(\n    x = \"Fitted value\", y = \"Residual\",\n    title = \"Residuals vs. fitted values\"\n  )"
   },
   {
     "objectID": "slides/07-slr-math-models.html#non-linear-relationships",

@@ -39,7 +39,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-## Announcements 
+## Announcements
 
 -   Lab 02 due
 
@@ -224,7 +224,7 @@ tidy(df_fit) |>
   row_spec(2, background = "#D9E3E4")
 ```
 
-# Mathematical models for inference
+# Mathematical models for inference for $\beta_1$
 
 ## Hypothesis test for the slope {.midi}
 
@@ -258,7 +258,7 @@ tidy(df_fit) |>
 ```
 
 $$
-t = \frac{\hat{\beta}_1 - 0}{SE_{\hat{\beta}_1}} = \frac{159.48 - 0}{18.17} = 8.78
+T = \frac{\hat{\beta}_1 - 0}{SE_{\hat{\beta}_1}} = \frac{159.48 - 0}{18.17} = 8.78
 $$
 
 ## Hypothesis test: p-value
@@ -368,6 +368,8 @@ $$
 tidy(df_fit, conf.int = TRUE, conf.level = 0.95) |> 
   kable(digits = 2)
 ```
+
+# Intervals for predictions
 
 ## Intervals for predictions {.midi}
 
@@ -576,7 +578,7 @@ ggplot(df_aug, aes(x = .fitted, y = .resid)) +
   )
 ```
 
-## Residuals vs. fitted values
+## Residuals vs. fitted values (code)
 
 ```{r}
 #| echo: true

@@ -88,7 +88,7 @@ map_data_all <- read_csv("data/county-map-all.csv")
 
 There has been a lot of conversation recently about the impact of graduating college, i.e., obtaining a bachelor's degree, on one's future career and lifetime earnings. The common convention is that individuals who have earned a bachelor's degree (or higher) will earn more income over the course of a lifetime than an individual who does not have such a degree.
 
-While we don't have individual data in this analysis, we will examine the association between these two factors at a county level. In other words, do counties that have a high percentage of college graduates have higher median household incomes, on average?
+While we don't have individual data in this analysis, we will examine the association between these two factors at a county level. In other words, do counties that have a higher percentage of college graduates have higher median household incomes, on average, compared to counties with a lower percentage of college graduates?
 
 ::: callout-important
 All narrative should be written in complete sentences, and all visualizations should have informative titles and axis labels.

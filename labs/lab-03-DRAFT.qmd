@@ -139,7 +139,7 @@ Create a visualization of `avg_air_temp` versus `year`. Include informative axis
 
 ### Exercise 7
 
-Researchers would like to use a linear model to understand variability in the average ice duration based on the average air temperature. Write the form of the statistical model the researchers would like to estimate. Use mathematical notation and variable names (`avg_air_temp` and `avg_ice_duration`) in the equation.[^1]
+Researchers would like to use a linear model to understand variability in the average ice duration based on the average air temperature. Write the form of the statistical model the researchers would like to estimate. Use mathematical notation and variable names (`avg_air_temp` and `ice_duration`) in the equation.[^1]
 
 [^1]: [Click here](https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols) for a guide on writing mathematical symbols using LaTex.
 
@@ -151,7 +151,7 @@ This is a good place to render, commit, and push changes to your remote lab repo
 
 Fit and display the model described in the previous exercise. Use the `kable` function to neatly display the model output using three decimal places.
 
--   Write the equation of the fitted model. Use mathematical notation and variable names (`avg_air_temp` and `avg_ice_duration`) in the equation.
+-   Write the equation of the fitted model. Use mathematical notation and variable names (`avg_air_temp` and `ice_duration`) in the equation.
 
 -   Interpret the slope in the context of the data.
 

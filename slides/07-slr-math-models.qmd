@@ -51,6 +51,8 @@ knitr::opts_chunk$set(
 
 -   [Statistics experience](https://sta210-fa22.netlify.app/hw/stats-experience.html) - due Fri, Dec 09 at 11:59pm
 
+-   Lab 01 solutions posted in Resources folder in Sakai
+
 -   See [Week 04](https://sta210-fa22.netlify.app/weeks/week-04.html) for this week's activities.
 
 ## Topics

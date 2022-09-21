@@ -1,5 +1,5 @@
 ---
-title: "SLR: Conditionss"
+title: "SLR: Conditions"
 author: "Prof. Maria Tackett"
 date: "2022-09-21"
 date-format: "MMM DD, YYYY"
@@ -48,6 +48,8 @@ knitr::opts_chunk$set(
 -   Aaditya's office hours today: 1 - 2pm and 7 -8pm on Zoom (link in Sakai)
 
 -   See [Week 04](https://sta210-fa22.netlify.app/weeks/week-04.html) for this week's activities.
+
+-   Updated masking policy starting Sep 22
 
 -   Looking ahead: Exam 01: Sep 28 - 30
 

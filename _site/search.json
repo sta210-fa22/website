@@ -1899,98 +1899,98 @@
   {
     "objectID": "slides/08-slr-conditions.html#announcements",
     "href": "slides/08-slr-conditions.html#announcements",
-    "title": "SLR: Conditionss",
+    "title": "SLR: Conditions",
     "section": "Announcements",
-    "text": "Announcements\n\nHW 01: due TODAY at 11:59pm\nStatistics experience - due Fri, Dec 09 at 11:59pm\nAaditya’s office hours today: 1 - 2pm and 7 -8pm on Zoom (link in Sakai)\nSee Week 04 for this week’s activities.\nLooking ahead: Exam 01: Sep 28 - 30"
+    "text": "Announcements\n\nHW 01: due TODAY at 11:59pm\nStatistics experience - due Fri, Dec 09 at 11:59pm\nAaditya’s office hours today: 1 - 2pm and 7 -8pm on Zoom (link in Sakai)\nSee Week 04 for this week’s activities.\nUpdated masking policy starting Sep 22\nLooking ahead: Exam 01: Sep 28 - 30"
   },
   {
     "objectID": "slides/08-slr-conditions.html#exam-01",
     "href": "slides/08-slr-conditions.html#exam-01",
-    "title": "SLR: Conditionss",
+    "title": "SLR: Conditions",
     "section": "Exam 01",
     "text": "Exam 01\n\nReleased Sep 28 late afternoon, due Sep 30 at 11:59pm.\n\nNo labs or office hours Sep 28 - 30\n\nCovers content Weeks 01 - 05\nConceptual questions + analysis problems\nWill receive exam through GitHub repo, use a reproducible workflow and submit on GitHub and Gradescope (like labs and HW)\nLecture recordings for Weeks 01 -05 available here until September 28 at 11:59pm.\nLab and HW solutions will be posted after the late submission deadlines.\nExam 01 review in class on September 28"
   },
   {
     "objectID": "slides/08-slr-conditions.html#computational-set-up",
     "href": "slides/08-slr-conditions.html#computational-set-up",
-    "title": "SLR: Conditionss",
+    "title": "SLR: Conditions",
     "section": "Computational set up",
     "text": "Computational set up\n\n# load packages\nlibrary(tidyverse)   # for data wrangling and visualization\nlibrary(tidymodels)  # for modeling\nlibrary(openintro)   # for the duke_forest dataset\nlibrary(scales)      # for pretty axis labels\nlibrary(knitr)       # for pretty tables\nlibrary(kableExtra)  # also for pretty tables\nlibrary(patchwork)   # arrange plots\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 20))"
   },
   {
     "objectID": "slides/08-slr-conditions.html#regression-model-revisited",
     "href": "slides/08-slr-conditions.html#regression-model-revisited",
-    "title": "SLR: Conditionss",
+    "title": "SLR: Conditions",
     "section": "Regression model, revisited",
     "text": "Regression model, revisited\n\ndf_fit <- linear_reg() |>\n  set_engine(\"lm\") |>\n  fit(price ~ area, data = duke_forest)\n\ntidy(df_fit) |>\n  kable(digits = 3)\n\n\n\n \n  \n    term \n    estimate \n    std.error \n    statistic \n    p.value \n  \n \n\n  \n    (Intercept) \n    116652.325 \n    53302.463 \n    2.188 \n    0.031 \n  \n  \n    area \n    159.483 \n    18.171 \n    8.777 \n    0.000"
   },
   {
     "objectID": "slides/08-slr-conditions.html#mathematical-representation-visualized",
     "href": "slides/08-slr-conditions.html#mathematical-representation-visualized",
-    "title": "SLR: Conditionss",
+    "title": "SLR: Conditions",
     "section": "Mathematical representation, visualized",
     "text": "Mathematical representation, visualized\n\\[\nY|X \\sim N(\\beta_0 + \\beta_1 X, \\sigma_\\epsilon^2)\n\\]"
   },
   {
     "objectID": "slides/08-slr-conditions.html#model-conditions",
     "href": "slides/08-slr-conditions.html#model-conditions",
-    "title": "SLR: Conditionss",
+    "title": "SLR: Conditions",
     "section": "Model conditions",
     "text": "Model conditions\n\nLinearity: There is a linear relationship between the outcome and predictor variables\nConstant variance: The variability of the errors is equal for all values of the predictor variable, i.e. the errors are homeoscedastic\nNormality: The errors follow a normal distribution\nIndependence: The errors are independent from each other"
   },
   {
     "objectID": "slides/08-slr-conditions.html#linearity",
     "href": "slides/08-slr-conditions.html#linearity",
-    "title": "SLR: Conditionss",
+    "title": "SLR: Conditions",
     "section": "Linearity",
     "text": "Linearity\n✅ The residuals vs. fitted values plot should not show a random scatter of residuals (no distinguishable pattern or structure)"
   },
   {
     "objectID": "slides/08-slr-conditions.html#residuals-vs.-fitted-values-code",
     "href": "slides/08-slr-conditions.html#residuals-vs.-fitted-values-code",
-    "title": "SLR: Conditionss",
+    "title": "SLR: Conditions",
     "section": "Residuals vs. fitted values (code)",
     "text": "Residuals vs. fitted values (code)\n\ndf_aug <- augment(df_fit$fit)\n\nggplot(df_aug, aes(x = .fitted, y = .resid)) +\n  geom_point() +\n  geom_hline(yintercept = 0, linetype = \"dashed\") +\n  ylim(-1000000, 1000000) +\n  labs(\n    x = \"Fitted value\", y = \"Residual\",\n    title = \"Residuals vs. fitted values\"\n  )"
   },
   {
     "objectID": "slides/08-slr-conditions.html#non-linear-relationships",
     "href": "slides/08-slr-conditions.html#non-linear-relationships",
-    "title": "SLR: Conditionss",
+    "title": "SLR: Conditions",
     "section": "Non-linear relationships",
     "text": "Non-linear relationships"
   },
   {
     "objectID": "slides/08-slr-conditions.html#constant-variance",
     "href": "slides/08-slr-conditions.html#constant-variance",
-    "title": "SLR: Conditionss",
+    "title": "SLR: Conditions",
     "section": "Constant variance",
     "text": "Constant variance\n✅ The vertical spread of the residuals should be relatively constant across the plot"
   },
   {
     "objectID": "slides/08-slr-conditions.html#non-constant-variance",
     "href": "slides/08-slr-conditions.html#non-constant-variance",
-    "title": "SLR: Conditionss",
+    "title": "SLR: Conditions",
     "section": "Non-constant variance",
     "text": "Non-constant variance"
   },
   {
     "objectID": "slides/08-slr-conditions.html#normality",
     "href": "slides/08-slr-conditions.html#normality",
-    "title": "SLR: Conditionss",
+    "title": "SLR: Conditions",
     "section": "Normality",
     "text": "Normality"
   },
   {
     "objectID": "slides/08-slr-conditions.html#independence",
     "href": "slides/08-slr-conditions.html#independence",
-    "title": "SLR: Conditionss",
+    "title": "SLR: Conditions",
     "section": "Independence",
     "text": "Independence\n\nWe can often check the independence assumption based on the context of the data and how the observations were collected\nIf the data were collected in a particular order, examine a scatterplot of the residuals versus order in which the data were collected\n\n\n✅ If this is a random sample of Duke Houses, the error for one house does not tell us anything about the error for another use"
   },
   {
     "objectID": "slides/08-slr-conditions.html#recap",
     "href": "slides/08-slr-conditions.html#recap",
-    "title": "SLR: Conditionss",
+    "title": "SLR: Conditions",
     "section": "Recap",
     "text": "Recap\nUsed residual plots to check conditions for SLR:\n\n\n\n\nLinearity\nConstant variance\n\n\n\n\n\nNormality\nIndependence\n\n\n\n\n\n\nWhich of these conditions are required for fitting a SLR? Which for simulation-based inference for the slope for an SLR? Which for inference with mathematical models?\n\n\n\n\n03:00\n\n\n\n\n\n\n🔗 Week 04"
   },

@@ -1901,7 +1901,14 @@
     "href": "slides/08-slr-conditions.html#announcements",
     "title": "SLR: Conditionss",
     "section": "Announcements",
-    "text": "Announcements"
+    "text": "Announcements\n\nHW 01: due TODAY at 11:59pm\nStatistics experience - due Fri, Dec 09 at 11:59pm\nAaditya’s office hours today: 1 - 2pm and 7 -8pm on Zoom (link in Sakai)\nSee Week 04 for this week’s activities.\nLooking ahead: Exam 01: Sep 28 - 30"
+  },
+  {
+    "objectID": "slides/08-slr-conditions.html#exam-01",
+    "href": "slides/08-slr-conditions.html#exam-01",
+    "title": "SLR: Conditionss",
+    "section": "Exam 01",
+    "text": "Exam 01\n\nReleased Sep 28 late afternoon, due Sep 30 at 11:59pm.\n\nNo labs or office hours Sep 28 - 30\n\nCovers content Weeks 01 - 05\nConceptual questions + analysis problems\nWill receive exam through GitHub repo, use a reproducible workflow and submit on GitHub and Gradescope (like labs and HW)\nLecture recordings for Weeks 01 -05 available here until September 28 at 11:59pm.\nLab and HW solutions will be posted after the late submission deadlines.\nExam 01 review in class on September 28"
   },
   {
     "objectID": "slides/08-slr-conditions.html#computational-set-up",

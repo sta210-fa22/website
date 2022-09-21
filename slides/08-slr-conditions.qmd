@@ -41,7 +41,35 @@ knitr::opts_chunk$set(
 
 ## Announcements
 
-## Computational set up 
+-   HW 01: due TODAY at 11:59pm
+
+-   [Statistics experience](https://sta210-fa22.netlify.app/hw/stats-experience.html) - due Fri, Dec 09 at 11:59pm
+
+-   Aaditya's office hours today: 1 - 2pm and 7 -8pm on Zoom (link in Sakai)
+
+-   See [Week 04](https://sta210-fa22.netlify.app/weeks/week-04.html) for this week's activities.
+
+-   Looking ahead: Exam 01: Sep 28 - 30
+
+## Exam 01 {.midi}
+
+-   Released Sep 28 late afternoon, due Sep 30 at 11:59pm.
+
+    -   No labs or office hours Sep 28 - 30
+
+-   Covers content Weeks 01 - 05
+
+-   Conceptual questions + analysis problems
+
+-   Will receive exam through GitHub repo, use a reproducible workflow and submit on GitHub and Gradescope (like labs and HW)
+
+-   Lecture recordings for Weeks 01 -05 available [here](https://prodduke-my.sharepoint.com/:x:/g/personal/mt324_duke_edu/EfXF6q4ev7dNq53PBcDetSgBrNry2EB85vWv2xrUzGahbg?e=i3gLl6) until September 28 at 11:59pm.
+
+-   Lab and HW solutions will be posted after the late submission deadlines.
+
+-   Exam 01 review in class on September 28
+
+## Computational set up
 
 ```{r packages}
 #| echo: true

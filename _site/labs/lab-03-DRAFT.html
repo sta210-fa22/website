@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>STA 210 - Fall 2022 - Lab 02: Ice duration and air temperature in Madison, WI</title>
+<title>STA 210 - Fall 2022 - Coffee ratings</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -117,7 +117,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   }
 }</script>
 
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -127,7 +126,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Lab 02: Ice duration and air temperature in Madison, WI</h1>
+      <h1 class="quarto-secondary-nav-title">Coffee ratings</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -320,21 +319,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul class="collapse">
   <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link" data-scroll-target="#learning-goals">Learning goals</a></li>
   </ul></li>
+  <li><a href="#meet-your-team---update-maybe-put-the-team-agreement-in-a-doc" id="toc-meet-your-team---update-maybe-put-the-team-agreement-in-a-doc" class="nav-link" data-scroll-target="#meet-your-team---update-maybe-put-the-team-agreement-in-a-doc">Meet your team! - UPDATE (maybe put the team agreement in a doc?)</a></li>
   <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting started</a></li>
-  <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
-  <li><a href="#data-ice-cover-and-air-temperature" id="toc-data-ice-cover-and-air-temperature" class="nav-link" data-scroll-target="#data-ice-cover-and-air-temperature">Data: Ice cover and air temperature</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
+  <li><a href="#workflow-using-git-and-github-as-a-team" id="toc-workflow-using-git-and-github-as-a-team" class="nav-link" data-scroll-target="#workflow-using-git-and-github-as-a-team">Workflow: Using git and GitHub as a team</a>
   <ul class="collapse">
-  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
-  <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
-  <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise 3</a></li>
-  <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4">Exercise 4</a></li>
-  <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5">Exercise 5</a></li>
-  <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6">Exercise 6</a></li>
-  <li><a href="#exercise-7" id="toc-exercise-7" class="nav-link" data-scroll-target="#exercise-7">Exercise 7</a></li>
-  <li><a href="#exercise-8" id="toc-exercise-8" class="nav-link" data-scroll-target="#exercise-8">Exercise 8</a></li>
-  <li><a href="#exercise-9" id="toc-exercise-9" class="nav-link" data-scroll-target="#exercise-9">Exercise 9</a></li>
-  <li><a href="#exercise-10" id="toc-exercise-10" class="nav-link" data-scroll-target="#exercise-10">Exercise 10</a></li>
+  <li><a href="#update-yaml---update-team-icons" id="toc-update-yaml---update-team-icons" class="nav-link" data-scroll-target="#update-yaml---update-team-icons">Update YAML - UPDATE TEAM ICONS!</a></li>
+  <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
+  <li><a href="#the-data" id="toc-the-data" class="nav-link" data-scroll-target="#the-data">The Data</a></li>
+  </ul></li>
+  <li><a href="#exercises---relationship-between-sweetness-and-flavor" id="toc-exercises---relationship-between-sweetness-and-flavor" class="nav-link" data-scroll-target="#exercises---relationship-between-sweetness-and-flavor">Exercises - Relationship between sweetness and flavor</a>
+  <ul class="collapse">
+  <li><a href="#wrapping-up" id="toc-wrapping-up" class="nav-link" data-scroll-target="#wrapping-up">Wrapping up</a></li>
   </ul></li>
   <li><a href="#submission" id="toc-submission" class="nav-link" data-scroll-target="#submission">Submission</a></li>
   <li><a href="#grading-50-pts" id="toc-grading-50-pts" class="nav-link" data-scroll-target="#grading-50-pts">Grading (50 pts)</a></li>
@@ -346,8 +341,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Lab 02: Ice duration and air temperature in Madison, WI</h1>
-<p class="subtitle lead">Inference for simple linear regression</p>
+<h1 class="title d-none d-lg-block">Coffee ratings</h1>
+<p class="subtitle lead">Inference for simple linear regression using mathematical models</p>
 </div>
 
 
@@ -361,226 +356,148 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<div class="callout-important callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Due:</p>
-<ul>
-<li>Monday, September 19, 11:59pm (Thursday labs)</li>
-<li>Tuesday, September 20, 11:59pm (Friday labs)</li>
-</ul>
-</div>
-</div>
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
-<p>In today’s lab, you’ll use simple linear regression to analyze the relationship between air temperature and ice duration for two lakes in Wisconsin.</p>
+<p>In today’s lab you will analyze data from over 1,000 different coffees to explore the relationship between a coffee’s aroma and it’s overall quality. You will also begin working with your team and practicing a collaborative data analysis workflow.</p>
 <section id="learning-goals" class="level2">
 <h2 class="anchored" data-anchor-id="learning-goals">Learning goals</h2>
 <p>By the end of the lab you will…</p>
 <ul>
-<li>Be able to fit a simple linear regression model using R.</li>
-<li>Be able to interpret the slope and intercept for the model.</li>
-<li>Be able to use simulation-based inference to draw conclusions about the slope.</li>
-<li>Continue developing a workflow for reproducible data analysis.</li>
+<li>be able to use mathematical models to conduct inference for the slope</li>
+<li>be able to identify and calculate the appropriate interval for a given prediction tasks</li>
+<li>be able to assess conditions for simple linear regression</li>
+<li>practice collaborating with others using a single Github repo.</li>
 </ul>
 </section>
+</section>
+<section id="meet-your-team---update-maybe-put-the-team-agreement-in-a-doc" class="level1">
+<h1>Meet your team! - UPDATE (maybe put the team agreement in a doc?)</h1>
+<p><a href="https://prodduke-my.sharepoint.com/:x:/g/personal/mt324_duke_edu/EYAMe-DTHh5BpK-R0rLvUNYBKrYc88n8COENMulIBS3pCw?e=PjyxHf">Click here</a> to see the team assignments for STA 210. This will be your team for labs and the final project.</p>
+<p>This will be your team for labs and the final project.</p>
+<p>Before you get started on the lab, your TA will walk you through the following:</p>
+<p>✅ Icebreaker activity to get to know your teammates.</p>
+<p>✅ Come up with a team name. You can’t use the same name as another team, so I encourage you to be creative! Your TA will get your team name by the end of lab.</p>
+<p>✅ Fill out the team agreement. This will help you figure out a plan for communication,and working together during labs and outside of lab times. You can find the team agreement in the GitHub repo <strong>team-agreement-[github_team_name]</strong>.</p>
+<ul>
+<li>Have <strong>one person</strong> from the team clone the repo and start a new RStudio project. This person will type the team’s responses as you discuss the sections of the agreement. No one else in the team should type at this point but should be contributing to the discussion.</li>
+<li>Be sure to push the completed agreement to GitHub. Each team member can refer to the document in this repo or download the PDF of the agreement for future reference. <em>You do</em> <u>not</u> need to submit the agreement on Gradescope.</li>
+</ul>
 </section>
 <section id="getting-started" class="level1">
 <h1>Getting started</h1>
 <ul>
-<li><p>Go to the <a href="https://www.github.com/sta210-fa22">sta210-fa22</a> organization on GitHub. Click on the repo with the prefix <strong>lab-02-</strong>. It contains the starter documents you need to complete the lab.</p></li>
-<li><p>Clone the repo and start a new project in RStudio. See the <a href="../labs/lab-01.html">Lab 01 instructions</a> for details on cloning a repo, starting a new project in R, and configuring git.</p></li>
+<li><p>A repository has already been created for you and your teammates. Everyone in your team has access to the same repo.</p></li>
+<li><p>Go to the <a href="https://www.github.com/sta210-fa21">sta210-fa21 course organization</a> on GitHub.</p></li>
+<li><p>You should see a repo with the <strong>lab-03</strong> prefix.</p></li>
+<li><p>Each person on the team should clone the repository and open a new project in RStudio. <strong>Do not make any changes to the .Rmd file until the instructions tell you do to so.</strong></p></li>
 </ul>
 </section>
-<section id="packages" class="level1">
-<h1>Packages</h1>
-<p>The following packages are used in the lab:</p>
+<section id="workflow-using-git-and-github-as-a-team" class="level1">
+<h1>Workflow: Using git and GitHub as a team</h1>
+<p><strong>Assign each person on your team a number 1 through 4. For teams of three, Team Member 1 can take on the role of Team Member 4.</strong></p>
+<p>The following exercises must be done in order. <strong>Only one person should type in the .Rmd file and push updates at a time.</strong> When it is not your turn to type, you should still share ideas and contribute to the team’s discussion.</p>
+<section id="update-yaml---update-team-icons" class="level2">
+<h2 class="anchored" data-anchor-id="update-yaml---update-team-icons">Update YAML - UPDATE TEAM ICONS!</h2>
+<div class="commit">
+<p><strong>Team Member 1: Change the author to your team name and include each team member’s name in the <code>author</code> field of the YAML in the following format. <code>Team Name: Member 1, Member 2, Member 3, Member 4</code>. Knit, commit, and push the changes to GitHub.</strong></p>
+<p><strong>Team Members 2, 3, 4: Click the</strong> Pull** button in the Git pane to get the updated document. You should see the updated name in the .Rmd file.**</p>
+</div>
+</section>
+<section id="packages" class="level2">
+<h2 class="anchored" data-anchor-id="packages">Packages</h2>
+<p>The follow packages are used in the lab.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggfortify)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="data-ice-cover-and-air-temperature" class="level1">
-<h1>Data: Ice cover and air temperature</h1>
-<p>The datasets <code>wi-icecover.csv</code> and <code>wi-air-temperature.csv</code> contain information about ice cover and air temperature, respectively, at Lake Monona and Lake Mendota for days in 1885 through 2019. The data were obtained from the <a href="https://lter.github.io/lterdatasampler/reference/ntl_icecover.html"><code>ntl_icecover</code></a> and <a href="https://lter.github.io/lterdatasampler/reference/ntl_airtemp.html"><code>ntl_airtemp</code></a> data frames in the <a href="https://lter.github.io/lterdatasampler/index.html">lterdatasampler</a> R package. The data were originally collected at a <a href="https://lternet.edu/">US Long Term Ecological Research program (LTER) Network</a>.</p>
-<p>The primary variables for this analysis are</p>
+<section id="the-data" class="level2">
+<h2 class="anchored" data-anchor-id="the-data">The Data</h2>
+<p>The dataset for this lab comes from the <a href="https://github.com/jldbc/coffee-quality-database">Coffee Quality Database</a> and was obtained from the <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-07-07/readme.md">#TidyTuesday GitHub repo</a>. It includes information about the origin, producer, measures of various characteristics, and the quality measure for over 1000 coffees.</p>
+<p>This lab will focus on the following variables:</p>
 <ul>
-<li><p><code>year</code>: a number denoting the year of observation</p></li>
-<li><p><code>lakeid</code>: a factor denoting the lake name</p></li>
-<li><p><code>ice_duration</code>: a number denoting the number of days between the freeze and breakup dates of each lake</p></li>
-<li><p><code>ave_air_temp_adjusted</code>: a number denoting the air temperature in degrees Celsius, collected in Madison, WI and adjusted for biases<br>
-</p></li>
+<li><code>sweetness</code>: Sweetness grade</li>
+<li><code>flavor</code>: Flavor grade</li>
 </ul>
+<p>You can find the definitions for all variables in the data set <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-07-07/readme.md">here</a>. <a href="http://www.scaa.org/?page=resources&amp;d=cupping-protocols&amp;mod=article_inline">Click here</a> for more details about how these measures are obtained.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>icecover <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/wi-icecover.csv"</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>airtemp <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/wi-air-temperature.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>coffee <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/coffee-ratings.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="exercises" class="level1">
-<h1>Exercises</h1>
-<p><strong>Goal</strong>: The goal of this analysis is to use linear regression understand the association between average air temperature and ice duration for two lakes in Madison, Wisconsin that freeze for a portion of the year. Because ice cover is impacted by various environmental factors, researchers are interested in examining the association between these two factors to understand how quickly the climate is changing.</p>
-<hr>
-<p>Write all code and narrative in your Quarto file. Write all narrative in complete sentences. Throughout the assignment, you should periodically <strong>render</strong> your Quarto document to produce the updated PDF, <strong>commit</strong> the changes in the Git pane, and <strong>push</strong> the updated files to GitHub.</p>
-<div class="callout-tip callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Make sure we can read all of your code in your PDF document. This means you will need to break up long lines of code. One way to help avoid long lines of code is is start a new line after every pipe (<code>|&gt;</code>) and plus sign (<code>+</code>).</p>
-</div>
-</div>
-<section id="exercise-1" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-1">Exercise 1</h3>
-<p>Fill in the code below to create a new data frame, <code>icecover_avg</code>, of the average ice duration by lake and year. How many observations (rows) are in <code>icecover_avg</code>? How many variables (columns)?</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>icecover_avg <span class="ot">&lt;-</span> icecover <span class="sc">|&gt;</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(____, _____) <span class="sc">|&gt;</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_ice_duration =</span> <span class="fu">mean</span>(_____))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 </section>
-<section id="exercise-2" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-2">Exercise 2</h3>
+<section id="exercises---relationship-between-sweetness-and-flavor" class="level1">
+<h1>Exercises - Relationship between sweetness and flavor</h1>
+<p><strong>Note: Include axis labels and an informative title for all plots. Use the <code>kable</code> function to neatly print tables and regression output. Write all interpretations in the context of the data.</strong></p>
+<p><strong>Do the following exercises in order, following each step carefully.</strong></p>
+<p><strong>Only one person at a time should type in the <code>.Rmd</code> file and push updates.</strong></p>
+<p><strong>If you are working on any portion of the lab virtually, the person working should share their screen and the others should follow along.</strong></p>
+<div class="commit">
+<p>Type the team’s response to Exercises 1 - 2.</p>
+</div>
+<ol type="1">
+<li><p>Visualize the relationship between aroma and the total cup points. What do you observe from the plot? Use the plot the describe the relationship between the two variables.</p></li>
+<li><p>Fit the linear model and neatly display the results using 3 digits.</p>
 <ul>
-<li><p>Create a new data frame <code>airtemp_avg</code>, of the average air temperature by year.</p></li>
-<li><p>Then, join <code>icecover_avg</code> and <code>airtemp_avg</code> to make a new data frame <code>ice_air_joined</code>. Remove the years that have missing data for the average annual air temperature or the average annual ice duration.<br>
-<br>
-The data frame <code>ice_air_joined</code> has 268 observations.</p></li>
-</ul>
-<div class="callout-important callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>You will use <code>ice_air_joined</code> for the remainder of this lab.</p>
-</div>
-</div>
-</section>
-<section id="exercise-3" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-3">Exercise 3</h3>
-<p>Create a histogram to examine the distribution of <code>avg_ice_duration</code> and calculate summary statistics for the center and spread of the distribution. Include informative axis labels and an informative title on the visualization.</p>
-<p>Use the visualization and summary statistics to describe the distribution of <code>avg_ice_duration</code> . Include the shape, center, spread, and potential presence of outliers in the description.</p>
-</section>
-<section id="exercise-4" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-4">Exercise 4</h3>
-<p>Create a histogram to examine the distribution of <code>avg_air_temp</code> and calculate summary statistics for the center and spread of the distribution. Include informative axis labels and an informative title on the visualization.</p>
-<p>Use the visualization and summary statistics to describe the distribution of <code>avg_air_temp</code>. Include the shape, center, spread, and potential presence of outliers in the description.</p>
-<div class="render-commit-push">
-<p>This is a good place to render, commit, and push changes to your remote lab repo on GitHub. Click the checkbox next to each file in the Git pane to stage the updates you’ve made, write an informative commit message, and push. After you push the changes, the Git pane in RStudio should be empty.</p>
-</div>
-</section>
-<section id="exercise-5" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-5">Exercise 5</h3>
-<p>Fill in the code below to create a visualization of <code>avg_ice_duration</code> versus <code>year</code> by <code>lakeid</code>. Write two observations from the visualization.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> ice_air_joined, <span class="fu">aes</span>(<span class="at">x =</span> _____, <span class="at">y =</span> ______, <span class="at">color =</span> _____)) <span class="sc">+</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"_______"</span>, </span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"_______"</span>, </span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">"______"</span>, </span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"_______"</span>, </span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"________"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="exercise-6" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-6">Exercise 6</h3>
-<p>Create a visualization of <code>avg_air_temp</code> versus <code>year</code>. Include informative axis labels and an informative title on the visualization.</p>
-<ul>
-<li><p>Use the visualization to write two observations about the trend of average air temperature over time.</p></li>
-<li><p>Based on the visualizations of average ice duration and average air temperature over time, would you expect the linear model describing the association between average ice duration and average air temperature to have a positive or negative slope? Briefly explain.</p></li>
-</ul>
-</section>
-<section id="exercise-7" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-7">Exercise 7</h3>
-<p>Researchers would like to use a linear model to understand variability in the average ice duration based on the average air temperature. Write the form of the statistical model the researchers would like to estimate. Use mathematical notation and variable names (<code>avg_air_temp</code> and <code>ice_duration</code>) in the equation.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-<div class="render-commit-push">
-<p>This is a good place to render, commit, and push changes to your remote lab repo on GitHub. Click the checkbox next to each file in the Git pane to stage the updates you’ve made, write an informative commit message, and push. After you push the changes, the Git pane in RStudio should be empty.</p>
-</div>
-</section>
-<section id="exercise-8" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-8">Exercise 8</h3>
-<p>Fit and display the model described in the previous exercise. Use the <code>kable</code> function to neatly display the model output using three decimal places.</p>
-<ul>
-<li><p>Write the equation of the fitted model. Use mathematical notation and variable names (<code>avg_air_temp</code> and <code>ice_duration</code>) in the equation.</p></li>
-<li><p>Interpret the slope in the context of the data.</p></li>
-<li><p>Does the intercept have a meaningful interpretation in this context? If so, interpret the intercept in the context of the data. Otherwise, explain why not.</p></li>
-</ul>
-</section>
-<section id="exercise-9" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-9">Exercise 9</h3>
-<p><em>“Do the data provide sufficient evidence of a linear relationship between average air temperature and average ice duration , i.e.&nbsp;is</em> <span class="math inline">\(\beta_1\)</span> <em>different from 0?“</em></p>
-<p>Use a simulation-based hypothesis test to answer this question. In your response:</p>
-<ul>
-<li><p>Write the null and alternative hypotheses in words and using mathematical notation.</p></li>
-<li><p>Test these hypotheses using a permutation test.</p>
-<ul>
-<li><p>First set a seed for simulating reproducibly. Use the seed <code>9</code>.</p></li>
-<li><p>Use the permutation pipeline with 1,000 permuted samples to simulate new samples from the original sample via permutation under the assumption that the null hypothesis is true and fit models to each of the samples and estimate the slope. Save the results as <code>perm_fits</code>.</p></li>
-<li><p>Create a histogram of the <u>slope</u> estimates in <code>perm_fits</code>.</p></li>
-<li><p>Approximate the p-value of the hypothesis test based on this distribution.</p></li>
-<li><p>State your conclusion for the test in the context of the data.</p></li>
+<li>Interpret the slope in the context of the data.</li>
 </ul></li>
-</ul>
-</section>
-<section id="exercise-10" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-10">Exercise 10</h3>
-<p>Next, use bootstrapping to construct 95% confidence interval for the slope Follow these steps to accomplish this:</p>
+</ol>
+<div class="commit">
+<p>🧶 ✅ ⬆️ <strong>Team member 1</strong>: Knit, commit and push your changes to GitHub with an informative commit message. Make sure to commit and push all changed files so that your Git pane is empty afterwards.</p>
+<p><strong>All other team members</strong>: <strong>Pull</strong> to get the updated documents from GitHub. Click on the .Rmd file, and you should see the responses to exercises 1- 2.</p>
+<p><strong>Team Member 2</strong>: It’s your turn! Type the team’s response to exercises 3 - 4.</p>
+</div>
+<ol start="3" type="1">
+<li><p>Would the members of your group drink a coffee represented by the intercept? Why or why not? Discuss as a group and write the group’s consensus.</p></li>
+<li><p>We will proceed assuming the model conditions hold, so let’s focus on the model diagnostics. We’ll start by examining if there are any points with high leverage in the data.</p>
 <ul>
-<li>First set a seed for simulating reproducibly. Use the seed <code>10</code>.</li>
-<li>Then, simulate the bootstrap distribution of the slope using 1,000 bootstrap samples.</li>
-<li>Visualize the bootstrap distribution.</li>
-<li>Calculate the bounds of the confidence interval using the percentile method.</li>
-<li>Interpret the confidence interval in the context of the data.</li>
-<li>Indicate whether or not the confidence interval is consistent with the results of the hypothesis test from the previous exercise. Briefly explain your response.</li>
-</ul>
-<div class="render-commit-push">
-<p>This is a good place to render, commit, and push changes to your remote lab repo on GitHub. Click the checkbox next to each file in the Git pane to stage the updates you’ve made, write an informative commit message, and push. After you push the changes, the Git pane in RStudio should be empty.</p>
+<li>What threshold will you use to determine if there are points with high leverage?</li>
+<li>Are there any observations with high leverage? If so, how many? Briefly explain, including any output, graphs, etc. you used to determine the response.</li>
+</ul></li>
+</ol>
+<div class="commit">
+<p>🧶 ✅ ⬆️ <strong>Team member 2</strong>: Knit, commit and push your changes to GitHub with an informative commit message. Make sure to commit and push all changed files so that your Git pane is empty afterwards.</p>
+<p><strong>All other team members</strong>: <strong>Pull</strong> to get the updated documents from GitHub. Click on the .Rmd file, and you should see the responses to exercises 3 - 4.</p>
+<p><strong>Team Member 3</strong>: It’s your turn! Type the team’s response to exercise 5.</p>
+</div>
+<ol start="5" type="1">
+<li>Next, let’s examine if there are any points with standardized residuals that have large magnitude. Are there any such points in the data? If so, how many? Briefly explain, including any output, graphs, etc. you used to determine the response.</li>
+</ol>
+<div class="commit">
+<p>🧶 ✅ ⬆️ <strong>Team member 3</strong>: Knit, commit and push your changes to GitHub with an informative commit message. Make sure to commit and push all changed files so that your Git pane is empty afterwards.</p>
+<p><strong>All other team members</strong>: <strong>Pull</strong> to get the updated documents from GitHub. Click on the .Rmd file, and you should see the responses to exercise 5.</p>
+<p><strong>Team Member 4</strong>: It’s your turn! Type the team’s response to exercise 6.</p>
+</div>
+<ol start="6" type="1">
+<li><p>Lastly, let’s analyze Cook’s D to determine if there are influential points in the data.</p>
+<ul>
+<li>Based on Cook’s D, are there any influential points in our data? Briefly explain, including any output, graphs, etc. you used to determine the response.</li>
+<li>If there are influential points, briefly explain why they are outliers, ie. not in the trend of the rest of the data.</li>
+<li>If there are influential points, remove those points from the data and refit the model. How do the model coefficients change, if at all?</li>
+<li>If there are influential points, would you recommend using the model fit with or without these points for inferential conclusions and predictions? Briefly explain why or why not. Additionally, briefly explain potential impacts your choice has on inferential conclusions and/or predictions.</li>
+</ul></li>
+</ol>
+<div class="commit">
+<p>🧶 ✅ ⬆️ <strong>Team member 4</strong>: Knit, commit and push your changes to GitHub with an informative commit message. Make sure to commit and push all changed files so that your Git pane is empty afterwards.</p>
+<p><strong>All other team members</strong>: <strong>Pull</strong> to get the updated documents from GitHub. Click on the .Rmd file, and you should see the team’s completed lab!</p>
+</div>
+<section id="wrapping-up" class="level2">
+<h2 class="anchored" data-anchor-id="wrapping-up">Wrapping up</h2>
+<div class="commit">
+<p><strong>Team Member 2:</strong> Make any edits as needed. Then knit, commit, and push the updated documents to GitHub if you made any changes.</p>
+<p>All other team members can click to pull the finalized document.</p>
 </div>
 </section>
 </section>
 <section id="submission" class="level1">
 <h1>Submission</h1>
-<p>In this class, we’ll be submitting PDF documents to Gradescope.</p>
-<div class="callout-warning callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Warning
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Before you wrap up the assignment, make sure all documents are updated on your GitHub repo. We will be checking these to make sure you have been practicing how to commit and push changes.</p>
-<p>Remember – you must turn in a PDF file to the Gradescope page before the submission deadline for full credit.</p>
-</div>
-</div>
-<p>To submit your assignment:</p>
 <ul>
-<li>Go to <a href="http://www.gradescope.com" class="uri">http://www.gradescope.com</a>and click <em>Log in</em> in the top right corner.</li>
-<li>Click <em>School Credentials</em> ➡️ <em>Duke NetID</em> and log in using your NetID credentials.</li>
-<li>Click on your <em>STA 210</em> course.</li>
-<li>Click on the assignment, and you’ll be prompted to submit it.</li>
-<li>Mark the pages associated with each exercise. All of the pages of your lab should be associated with at least one question (i.e., should be “checked”).</li>
-<li>Select the first page of your .PDF submission to be associated with the <em>“Workflow &amp; formatting”</em> section.</li>
+<li><strong>Select</strong> <u>one</u> team member to upload the team’s PDF submission to Gradescope.</li>
+<li>Be sure to include every team member’s name in the Gradescope submission</li>
+<li>Associate the “Workflow &amp; formatting” graded section with the first page of your PDF, and mark the page associated with each exercise. If any answer spans multiple pages, then mark all pages.</li>
 </ul>
+<p><strong>There should only be</strong> <u>one</u> submission per team on Gradescope.</p>
 </section>
 <section id="grading-50-pts" class="level1">
 <h1>Grading (50 pts)</h1>
@@ -594,27 +511,28 @@ Warning
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Ex 1 - 10</td>
-<td style="text-align: left;">47</td>
+<td style="text-align: left;">Ex 1 - 6</td>
+<td style="text-align: left;">42</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Workflow &amp; formatting</td>
-<td style="text-align: left;">3<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></td>
+<td style="text-align: left;">5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Complete team contract</td>
+<td style="text-align: left;">3</td>
 </tr>
 </tbody>
 </table>
+<p><strong>Grading notes</strong>:</p>
+<ul>
+<li>The “Workflow &amp; formatting” grade is to assess the reproducible workflow and team work. This includes having at least one meaningful commit by each team member and updating the name and date in the YAML.</li>
+</ul>
 
 
 </section>
 
-
-<div id="quarto-appendix" class="default"><section class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
-<ol>
-<li id="fn1" role="doc-endnote"><p><a href="https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols">Click here</a> for a guide on writing mathematical symbols using LaTex.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2" role="doc-endnote"><p>The “Workflow &amp; formatting” grade is to assess the reproducible workflow. This includes having at least 3 informative commit messages and updating the name and date in the YAML.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

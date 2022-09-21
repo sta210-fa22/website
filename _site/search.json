@@ -44,16 +44,37 @@
   {
     "objectID": "labs/lab-03-DRAFT.html",
     "href": "labs/lab-03-DRAFT.html",
-    "title": "Lab 02: Ice duration and air temperature in Madison, WI",
+    "title": "Coffee ratings",
     "section": "",
-    "text": "Important\n\n\n\nDue:\n\nMonday, September 19, 11:59pm (Thursday labs)\nTuesday, September 20, 11:59pm (Friday labs)"
+    "text": "In today’s lab you will analyze data from over 1,000 different coffees to explore the relationship between a coffee’s aroma and it’s overall quality. You will also begin working with your team and practicing a collaborative data analysis workflow.\n\n\nBy the end of the lab you will…\n\nbe able to use mathematical models to conduct inference for the slope\nbe able to identify and calculate the appropriate interval for a given prediction tasks\nbe able to assess conditions for simple linear regression\npractice collaborating with others using a single Github repo."
   },
   {
-    "objectID": "labs/lab-03-DRAFT.html#learning-goals",
-    "href": "labs/lab-03-DRAFT.html#learning-goals",
-    "title": "Lab 02: Ice duration and air temperature in Madison, WI",
-    "section": "Learning goals",
-    "text": "Learning goals\nBy the end of the lab you will…\n\nBe able to fit a simple linear regression model using R.\nBe able to interpret the slope and intercept for the model.\nBe able to use simulation-based inference to draw conclusions about the slope.\nContinue developing a workflow for reproducible data analysis."
+    "objectID": "labs/lab-03-DRAFT.html#update-yaml---update-team-icons",
+    "href": "labs/lab-03-DRAFT.html#update-yaml---update-team-icons",
+    "title": "Coffee ratings",
+    "section": "Update YAML - UPDATE TEAM ICONS!",
+    "text": "Update YAML - UPDATE TEAM ICONS!\n\nTeam Member 1: Change the author to your team name and include each team member’s name in the author field of the YAML in the following format. Team Name: Member 1, Member 2, Member 3, Member 4. Knit, commit, and push the changes to GitHub.\nTeam Members 2, 3, 4: Click the Pull** button in the Git pane to get the updated document. You should see the updated name in the .Rmd file.**"
+  },
+  {
+    "objectID": "labs/lab-03-DRAFT.html#packages",
+    "href": "labs/lab-03-DRAFT.html#packages",
+    "title": "Coffee ratings",
+    "section": "Packages",
+    "text": "Packages\nThe follow packages are used in the lab.\n\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(knitr)\nlibrary(ggfortify)"
+  },
+  {
+    "objectID": "labs/lab-03-DRAFT.html#the-data",
+    "href": "labs/lab-03-DRAFT.html#the-data",
+    "title": "Coffee ratings",
+    "section": "The Data",
+    "text": "The Data\nThe dataset for this lab comes from the Coffee Quality Database and was obtained from the #TidyTuesday GitHub repo. It includes information about the origin, producer, measures of various characteristics, and the quality measure for over 1000 coffees.\nThis lab will focus on the following variables:\n\nsweetness: Sweetness grade\nflavor: Flavor grade\n\nYou can find the definitions for all variables in the data set here. Click here for more details about how these measures are obtained.\n\ncoffee <- read_csv(\"data/coffee-ratings.csv\")"
+  },
+  {
+    "objectID": "labs/lab-03-DRAFT.html#wrapping-up",
+    "href": "labs/lab-03-DRAFT.html#wrapping-up",
+    "title": "Coffee ratings",
+    "section": "Wrapping up",
+    "text": "Wrapping up\n\nTeam Member 2: Make any edits as needed. Then knit, commit, and push the updated documents to GitHub if you made any changes.\nAll other team members can click to pull the finalized document."
   },
   {
     "objectID": "weeks/week-08.html",
@@ -74,7 +95,7 @@
     "href": "weeks/week-04.html",
     "title": "Week 04",
     "section": "",
-    "text": "Prepare\n\n\n\n\n\n\n\nReading\nCorresponding lecture\n\n\n\n\n📖 IMS, Sec 24.4: Mathematical model for testing the slope\n📖 IMS, Sec 24.5: Mathematical model, interval for the slope\n📖 IMS, Sec 24.6: Checking model conditions\n📖 IMS, Sec 24.7: Chapter review\nSep 19\n\n\n📖 IMS, Sec 8.2: Many predictors in a model\nSep 21\n\n\n\n\n\nParticipate\n\n\n\n\n\n\n\nTopic\nDate\n\n\n\n\n💻 SLR: Mathematical models for inference\nSep 19\n\n\n💻 Multiple linear regression\nSep 21\n\n\n💻 Lab 03\nSep 22 & 23\n\n\n\n\n\nPractice\n\n\n\n\n\n\nTBD\n\n\n\n\n\n\n\n\n\n\nPerform\n\n\n\n\n\n\n\nAssignment\nDue date\n\n\n\n\n📝 HW 01\nWed, Sep 21, 11:59pm\n\n\n📝 Lab 03\nMon, Sep 26, 11:59pm (Thu labs)\nTue, Sep 27, 11:59pm (Fri labs)\n\n\n📝 Statistics experience\nFri, Dec 09, 11:59pm"
+    "text": "Prepare\n\n\n\n\n\n\n\nReading\nCorresponding lecture\n\n\n\n\n📖 IMS, Sec 24.4: Mathematical model for testing the slope\n📖 IMS, Sec 24.5: Mathematical model, interval for the slope\n📖 IMS, Sec 24.6: Checking model conditions\n📖 IMS, Sec 24.7: Chapter review\nSep 19\n\n\n📖 IMS, Sec 8.2: Many predictors in a model\nSep 21\n\n\n\n\n\nParticipate\n\n\n\n\n\n\n\nTopic\nDate\n\n\n\n\n💻 SLR: Mathematical models for inference\nSep 19\n\n\n💻 SLR: Model conditions\nSep 21\n\n\n💻 Multiple linear regression\nSep 21\n\n\n💻 Lab 03\nSep 22 & 23\n\n\n\n\n\nPractice\n\n\n\n\n\n\nAE 05: Multiple linear regression\n\n\n\n\n\n\n\n\nPerform\n\n\n\n\n\n\n\nAssignment\nDue date\n\n\n\n\n📝 HW 01\nWed, Sep 21, 11:59pm\n\n\n📝 Lab 03\nMon, Sep 26, 11:59pm (Thu labs)\nTue, Sep 27, 11:59pm (Fri labs)\n\n\n📝 Statistics experience\nFri, Dec 09, 11:59pm"
   },
   {
     "objectID": "weeks/week-10.html",
@@ -285,6 +306,41 @@
     "title": "AE 03: Bootstrap confidence intervals",
     "section": "Changing confidence level",
     "text": "Changing confidence level\n\nModify the code from Step 3 to create a 90% confidence interval.\n\n# Paste code for 90% confidence interval\n\n\n\nModify the code from Step 3 to create a 99% confidence interval.\n\n# Paste code for 90% confidence interval\n\n\nWhich confidence level produces the most accurate confidence interval (90%, 95%, 99%)? Explain\nWhich confidence level produces the most precise confidence interval (90%, 95%, 99%)? Explain\nIf we want to be very certain that we capture the population parameter, should we use a wider or a narrower interval? What drawbacks are associated with using a wider interval?\nIf we want to be very certain that we capture the population parameter, should we use a wider or a narrower interval? What drawbacks are associated with using a wider interval?\n\n\n\n\n\n\n\nImportant\n\n\n\nTo submit the AE:\n\nRender the document to produce the PDF with all of your work from today’s class.\nPush all your work to your ae-03- repo on GitHub. (You do not submit AEs on Gradescope)."
+  },
+  {
+    "objectID": "ae/ae-05-mlr.html",
+    "href": "ae/ae-05-mlr.html",
+    "title": "AE 05: Multiple linear regression",
+    "section": "",
+    "text": "Important\n\n\n\nGo to the course GitHub organization and locate your ae-05- to get started.\nThe AE is due on GitHub by Saturday, September 24 at 11:59pm.\nThe data set contains the sales price and characteristics of 85 homes in Levittown, NY that sold between June 2010 and May 2011. Levittown was built right after WWII and was the first planned suburban community built using mass production techniques.\nThe variables used in this analysis are\nThe goal of the analysis is to use the characteristics of a house to understand variability in the sales price."
+  },
+  {
+    "objectID": "ae/ae-05-mlr.html#exploratory-data-analysis",
+    "href": "ae/ae-05-mlr.html#exploratory-data-analysis",
+    "title": "AE 05: Multiple linear regression",
+    "section": "Exploratory data analysis",
+    "text": "Exploratory data analysis\n\nggpairs(levittown) +\n  theme(\n    axis.text.y = element_text(size = 10),\n    axis.text.x = element_text(angle = 45, size = 10),\n    strip.text.y = element_text(angle = 0, hjust = 0)\n    )"
+  },
+  {
+    "objectID": "ae/ae-05-mlr.html#linear-model",
+    "href": "ae/ae-05-mlr.html#linear-model",
+    "title": "AE 05: Multiple linear regression",
+    "section": "Linear model",
+    "text": "Linear model\nFit a linear model of housing prices versus the house characteristics in Levittown. Neatly display model using 3 digits.\n\n# fit model \n\n# display model with 3 digits"
+  },
+  {
+    "objectID": "ae/ae-05-mlr.html#interpretation",
+    "href": "ae/ae-05-mlr.html#interpretation",
+    "title": "AE 05: Multiple linear regression",
+    "section": "Interpretation",
+    "text": "Interpretation\n\nInterpret the coefficient of bedrooms in the context of the data.\nThe intercept is the estimated sales price for what subset of houses? Be specific."
+  },
+  {
+    "objectID": "ae/ae-05-mlr.html#prediction",
+    "href": "ae/ae-05-mlr.html#prediction",
+    "title": "AE 05: Multiple linear regression",
+    "section": "Prediction",
+    "text": "Prediction\nWhat is the predicted sale price for a house in Levittown, NY with 4 bedrooms, 2 bathrooms, 1,000 square feet of living area, 6,000 square foot lot size, built in 1947 with $7,403 in property taxes?\n\nReport the predicted value and appropriate interval.\n\n\n# create tibble for new observation \n\n# prediction + interval\n\n\nInterpret the interval in the context of the data.\n\n\n\n\n\n\n\nImportant\n\n\n\nTo submit the AE:\n\nRender the document to produce the PDF with all of your work from today’s class.\nPush all your work to your ae-05- repo on GitHub. (You do not submit AEs on Gradescope)."
   },
   {
     "objectID": "ae/ae-04-sim-testing.html",
@@ -565,6 +621,167 @@
     "title": "Lab 02",
     "section": "Today’s lab",
     "text": "Today’s lab\n\nRemember to use a reproducible workflow with regular commits (and informative commit messages).\n\nPush all update files after each commit!\n\nUse lectures and AEs from Week 02 and Week 03 as reference as you complete the lab.\n\n\n\n\n\n🔗 Week 03"
+  },
+  {
+    "objectID": "slides/08-mlr.html#computational-setup",
+    "href": "slides/08-mlr.html#computational-setup",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Computational setup",
+    "text": "Computational setup\n\n# load packages\nlibrary(tidyverse)   # for data wrangling and visualization\nlibrary(tidymodels)  # for modelingt\nlibrary(scales)      # for pretty axis labels\nlibrary(knitr)       # for pretty tables\nlibrary(patchwork)   # for laying out plots\nlibrary(GGally)      # for pairwise plots\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_minimal(base_size = 20))"
+  },
+  {
+    "objectID": "slides/08-mlr.html#house-prices-in-levittown",
+    "href": "slides/08-mlr.html#house-prices-in-levittown",
+    "title": "Multiple linear regression (MLR)",
+    "section": "House prices in Levittown",
+    "text": "House prices in Levittown\n\nThe data set contains the sales price and characteristics of 85 homes in Levittown, NY that sold between June 2010 and May 2011.\nLevittown was built right after WWII and was the first planned suburban community built using mass production techniques.\nThe article “Levittown, the prototypical American suburb – a history of cities in 50 buildings, day 25” gives an overview of Levittown’s controversial history."
+  },
+  {
+    "objectID": "slides/08-mlr.html#analysis-goals",
+    "href": "slides/08-mlr.html#analysis-goals",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Analysis goals",
+    "text": "Analysis goals\n\nWe would like to use the characteristics of a house to understand variability in the sales price.\nTo do so, we will fit a multiple linear regression model.\nUsing our model, we can answers questions such as\n\n\nWhat is the relationship between the characteristics of a house in Levittown and its sale price?\nGiven its characteristics, what is the expected sale price of a house in Levittown?"
+  },
+  {
+    "objectID": "slides/08-mlr.html#the-data",
+    "href": "slides/08-mlr.html#the-data",
+    "title": "Multiple linear regression (MLR)",
+    "section": "The data",
+    "text": "The data\n\nlevittown <- read_csv(here::here(\"slides/data/homeprices.csv\"))\nlevittown\n\n# A tibble: 85 × 7\n   bedrooms bathrooms living_area lot_size year_built property_tax sale_price\n      <dbl>     <dbl>       <dbl>    <dbl>      <dbl>        <dbl>      <dbl>\n 1        4       1          1380     6000       1948         8360     350000\n 2        4       2          1761     7400       1951         5754     360000\n 3        4       2          1564     6000       1948         8982     350000\n 4        5       2          2904     9898       1949        11664     375000\n 5        5       2.5        1942     7788       1948         8120     370000\n 6        4       2          1830     6000       1948         8197     335000\n 7        4       1          1585     6000       1948         6223     295000\n 8        4       1           941     6800       1951         2448     250000\n 9        4       1.5        1481     6000       1948         9087     299990\n10        3       2          1630     5998       1948         9430     375000\n# … with 75 more rows"
+  },
+  {
+    "objectID": "slides/08-mlr.html#variables",
+    "href": "slides/08-mlr.html#variables",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Variables",
+    "text": "Variables\nPredictors:\n\n\nbedrooms: Number of bedrooms\nbathrooms: Number of bathrooms\nliving_area: Total living area of the house (in square feet)\nlot_size: Total area of the lot (in square feet)\nyear_built: Year the house was built\nproperty_tax: Annual property taxes (in USD)\n\n\nResponse: sale_price: Sales price (in USD)"
+  },
+  {
+    "objectID": "slides/08-mlr.html#eda-response-variable",
+    "href": "slides/08-mlr.html#eda-response-variable",
+    "title": "Multiple linear regression (MLR)",
+    "section": "EDA: Response variable",
+    "text": "EDA: Response variable"
+  },
+  {
+    "objectID": "slides/08-mlr.html#eda-predictor-variables",
+    "href": "slides/08-mlr.html#eda-predictor-variables",
+    "title": "Multiple linear regression (MLR)",
+    "section": "EDA: Predictor variables",
+    "text": "EDA: Predictor variables"
+  },
+  {
+    "objectID": "slides/08-mlr.html#eda-response-vs.-predictors",
+    "href": "slides/08-mlr.html#eda-response-vs.-predictors",
+    "title": "Multiple linear regression (MLR)",
+    "section": "EDA: Response vs. Predictors",
+    "text": "EDA: Response vs. Predictors"
+  },
+  {
+    "objectID": "slides/08-mlr.html#eda-all-variables",
+    "href": "slides/08-mlr.html#eda-all-variables",
+    "title": "Multiple linear regression (MLR)",
+    "section": "EDA: All variables",
+    "text": "EDA: All variables\n\nPlotCode\n\n\n\nggpairs(levittown) +\n  theme(\n    axis.text.y = element_text(size = 10),\n    axis.text.x = element_text(angle = 45, size = 10),\n    strip.text.y = element_text(angle = 0, hjust = 0)\n    )\n\n\n\n\n\n\n\nggpairs(levittown) +\n  theme(\n    axis.text.y = element_text(size = 10),\n    axis.text.x = element_text(angle = 45, size = 10),\n    strip.text.y = element_text(angle = 0, hjust = 0)\n    )"
+  },
+  {
+    "objectID": "slides/08-mlr.html#single-vs.-multiple-predictors",
+    "href": "slides/08-mlr.html#single-vs.-multiple-predictors",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Single vs. multiple predictors",
+    "text": "Single vs. multiple predictors\nSo far we’ve used a single predictor variable to understand variation in a quantitative response variable\n\nNow we want to use multiple predictor variables to understand variation in a quantitative response variable"
+  },
+  {
+    "objectID": "slides/08-mlr.html#multiple-linear-regression-mlr",
+    "href": "slides/08-mlr.html#multiple-linear-regression-mlr",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Multiple linear regression (MLR)",
+    "text": "Multiple linear regression (MLR)\nBased on the analysis goals, we will use a multiple linear regression model of the following form\n\\[\n\\begin{aligned}\\hat{\\text{sale_price}} ~ = & ~\n\\hat{\\beta}_0 + \\hat{\\beta}_1 \\text{bedrooms} + \\hat{\\beta}_2 \\text{bathrooms} + \\hat{\\beta}_3 \\text{living_area} \\\\\n&+ \\hat{\\beta}_4 \\text{lot_size} + \\hat{\\beta}_5 \\text{year_built} + \\hat{\\beta}_6 \\text{property_tax}\\end{aligned}\n\\]\nSimilar to simple linear regression, this model assumes that at each combination of the predictor variables, the values sale_price follow a Normal distribution."
+  },
+  {
+    "objectID": "slides/08-mlr.html#regression-model",
+    "href": "slides/08-mlr.html#regression-model",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Regression Model",
+    "text": "Regression Model\nRecall: The simple linear regression model assumes\n\\[\nY|X\\sim N(\\beta_0 + \\beta_1 X, \\sigma_{\\epsilon}^2)\n\\]\n\nSimilarly: The multiple linear regression model assumes\n\\[\nY|X_1, X_2, \\ldots, X_p \\sim N(\\beta_0 + \\beta_1 X_1 + \\beta_2 X_2 + \\dots + \\beta_p X_p, \\sigma_{\\epsilon}^2)\n\\]"
+  },
+  {
+    "objectID": "slides/08-mlr.html#the-mlr-model",
+    "href": "slides/08-mlr.html#the-mlr-model",
+    "title": "Multiple linear regression (MLR)",
+    "section": "The MLR model",
+    "text": "The MLR model\nFor a given observation \\((x_{i1}, x_{i2} \\ldots, x_{ip}, y_i)\\)\n\\[\ny_i = \\beta_0 + \\beta_1 x_{i1} + \\beta_2 x_{i2} + \\dots + \\beta_p x_{ip} + \\epsilon_{i} \\hspace{8mm} \\epsilon_i \\sim N(0,\\sigma_\\epsilon^2)\n\\]"
+  },
+  {
+    "objectID": "slides/08-mlr.html#prediction",
+    "href": "slides/08-mlr.html#prediction",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Prediction",
+    "text": "Prediction\nAt any combination of the predictors, the mean value of the response \\(Y\\), is\n\\[\n\\mu_{Y|X_1, \\ldots, X_p} = \\beta_0 + \\beta_1 X_{1} + \\beta_2 X_2 + \\dots + \\beta_p X_p\n\\]\n\nUsing multiple linear regression, we can estimate the mean response for any combination of predictors\n\\[\n\\hat{Y} = \\hat{\\beta}_0 + \\hat{\\beta}_1 X_{1} + \\hat{\\beta}_2 X_2 + \\dots + \\hat{\\beta}_p X_{p}\n\\]"
+  },
+  {
+    "objectID": "slides/08-mlr.html#model-fit",
+    "href": "slides/08-mlr.html#model-fit",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Model fit",
+    "text": "Model fit\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-7148818.957\n3820093.694\n-1.871\n0.065\n\n\nbedrooms\n-12291.011\n9346.727\n-1.315\n0.192\n\n\nbathrooms\n51699.236\n13094.170\n3.948\n0.000\n\n\nliving_area\n65.903\n15.979\n4.124\n0.000\n\n\nlot_size\n-0.897\n4.194\n-0.214\n0.831\n\n\nyear_built\n3760.898\n1962.504\n1.916\n0.059\n\n\nproperty_tax\n1.476\n2.832\n0.521\n0.604"
+  },
+  {
+    "objectID": "slides/08-mlr.html#model-equation",
+    "href": "slides/08-mlr.html#model-equation",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Model equation",
+    "text": "Model equation\n\\[\n\\begin{align}\\hat{\\text{price}} = & -7148818.957 - 12291.011 \\times \\text{bedrooms}\\\\[5pt]  \n&+ 51699.236 \\times \\text{bathrooms}  + 65.903 \\times \\text{living area}\\\\[5pt]\n&- 0.897 \\times \\text{lot size} +  3760.898 \\times \\text{year built}\\\\[5pt]\n&+ 1.476 \\times \\text{property tax}\n\\end{align}\n\\]"
+  },
+  {
+    "objectID": "slides/08-mlr.html#interpreting-hatbeta_j",
+    "href": "slides/08-mlr.html#interpreting-hatbeta_j",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Interpreting \\(\\hat{\\beta}_j\\)",
+    "text": "Interpreting \\(\\hat{\\beta}_j\\)\n\nThe estimated coefficient \\(\\hat{\\beta}_j\\) is the expected change in the mean of \\(y\\) when \\(x_j\\) increases by one unit, holding the values of all other predictor variables constant.\n\n\n\nExample: The estimated coefficient for living_area is 65.90. This means for each additional square foot of living area, we expect the sale price of a house in Levittown, NY to increase by $65.90, on average, holding all other predictor variables constant."
+  },
+  {
+    "objectID": "slides/08-mlr.html#prediction-1",
+    "href": "slides/08-mlr.html#prediction-1",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Prediction",
+    "text": "Prediction\n\nWhat is the predicted sale price for a house in Levittown, NY with 3 bedrooms, 1 bathroom, 1,050 square feet of living area, 6,000 square foot lot size, built in 1948 with $6,306 in property taxes?\n\n\n\n-7148818.957 - 12291.011 * 3 + 51699.236 * 1 + \n  65.903 * 1050 - 0.897 * 6000 + 3760.898 * 1948 + \n  1.476 * 6306\n\n[1] 265360.4\n\n\n\nThe predicted sale price for a house in Levittown, NY with 3 bedrooms, 1 bathroom, 1050 square feet of living area, 6000 square foot lot size, built in 1948 with $6306 in property taxes is $265,360."
+  },
+  {
+    "objectID": "slides/08-mlr.html#prediction-revisit",
+    "href": "slides/08-mlr.html#prediction-revisit",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Prediction, revisit",
+    "text": "Prediction, revisit\nJust like with simple linear regression, we can use the predict() function in R to calculate the appropriate intervals for our predicted values:\n\nnew_house <- tibble(\n  bedrooms = 3, bathrooms = 1, \n  living_area = 1050, lot_size = 6000, \n  year_built = 1948, property_tax = 6306\n  )\n\npredict(price_fit, new_house)\n\n# A tibble: 1 × 1\n    .pred\n    <dbl>\n1 265360."
+  },
+  {
+    "objectID": "slides/08-mlr.html#confidence-interval-for-hatmu_y",
+    "href": "slides/08-mlr.html#confidence-interval-for-hatmu_y",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Confidence interval for \\(\\hat{\\mu}_y\\)",
+    "text": "Confidence interval for \\(\\hat{\\mu}_y\\)\n\nCalculate a 95% confidence interval for the estimated mean price of houses in Levittown, NY with 3 bedrooms, 1 bathroom, 1050 square feet of living area, 6000 square foot lot size, built in 1948 with $6306 in property taxes.\n\n\n\npredict(price_fit, new_house, type = \"conf_int\", level = 0.95)\n\n# A tibble: 1 × 2\n  .pred_lower .pred_upper\n        <dbl>       <dbl>\n1     238482.     292239."
+  },
+  {
+    "objectID": "slides/08-mlr.html#prediction-interval-for-haty",
+    "href": "slides/08-mlr.html#prediction-interval-for-haty",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Prediction interval for \\(\\hat{y}\\)",
+    "text": "Prediction interval for \\(\\hat{y}\\)\n\nCalculate a 95% prediction interval for an individual house in Levittown, NY with 3 bedrooms, 1 bathroom, 1050 square feet of living area, 6000 square foot lot size, built in 1948 with $6306 in property taxes.\n\n\n\npredict(price_fit, new_house, type = \"pred_int\", level = 0.95)\n\n# A tibble: 1 × 2\n  .pred_lower .pred_upper\n        <dbl>       <dbl>\n1     167277.     363444."
+  },
+  {
+    "objectID": "slides/08-mlr.html#cautions",
+    "href": "slides/08-mlr.html#cautions",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Cautions",
+    "text": "Cautions\n\nDo not extrapolate! Because there are multiple predictor variables, there is the potential to extrapolate in many directions\nThe multiple regression model only shows association, not causality\n\nTo show causality, you must have a carefully designed experiment or carefully account for confounding variables in an observational study"
+  },
+  {
+    "objectID": "slides/08-mlr.html#recap",
+    "href": "slides/08-mlr.html#recap",
+    "title": "Multiple linear regression (MLR)",
+    "section": "Recap",
+    "text": "Recap\n\n\nIntroduced multiple linear regression\nInterpreted a coefficient \\(\\hat{\\beta}_j\\)\nUsed the model to calculate predicted values and the corresponding intervals\n\n\n\n\n\n🔗 Week 04"
   },
   {
     "objectID": "slides/lab-01.html#computing-toolkit-for-reproducibility",
@@ -1005,70 +1222,7 @@
     "href": "slides/07-slr-math-models.html#extrapolation",
     "title": "SLR: Mathematical models for inference",
     "section": "Extrapolation",
-    "text": "Extrapolation\n\n\n\nCalculate the prediction interval for the sale price of a “tiny house” in Duke Forest that is 225 square feet.\n\n\n\n\n\n\n\n\n\n\nNo, thanks!"
-  },
-  {
-    "objectID": "slides/07-slr-math-models.html#model-conditions-1",
-    "href": "slides/07-slr-math-models.html#model-conditions-1",
-    "title": "SLR: Mathematical models for inference",
-    "section": "Model conditions",
-    "text": "Model conditions\n\nLinearity: There is a linear relationship between the outcome and predictor variables\nConstant variance: The variability of the errors is equal for all values of the predictor variable, i.e. the errors are homeoscedastic\nNormality: The errors follow a normal distribution\nIndependence: The errors are independent from each other"
-  },
-  {
-    "objectID": "slides/07-slr-math-models.html#linearity",
-    "href": "slides/07-slr-math-models.html#linearity",
-    "title": "SLR: Mathematical models for inference",
-    "section": "Linearity",
-    "text": "Linearity\n✅ The residuals vs. fitted values plot should not show a random scatter of residuals (no distinguishable pattern or structure)"
-  },
-  {
-    "objectID": "slides/07-slr-math-models.html#residuals-vs.-fitted-values-code",
-    "href": "slides/07-slr-math-models.html#residuals-vs.-fitted-values-code",
-    "title": "SLR: Mathematical models for inference",
-    "section": "Residuals vs. fitted values (code)",
-    "text": "Residuals vs. fitted values (code)\n\ndf_aug <- augment(df_fit$fit)\n\nggplot(df_aug, aes(x = .fitted, y = .resid)) +\n  geom_point() +\n  geom_hline(yintercept = 0, linetype = \"dashed\") +\n  ylim(-1000000, 1000000) +\n  labs(\n    x = \"Fitted value\", y = \"Residual\",\n    title = \"Residuals vs. fitted values\"\n  )"
-  },
-  {
-    "objectID": "slides/07-slr-math-models.html#non-linear-relationships",
-    "href": "slides/07-slr-math-models.html#non-linear-relationships",
-    "title": "SLR: Mathematical models for inference",
-    "section": "Non-linear relationships",
-    "text": "Non-linear relationships"
-  },
-  {
-    "objectID": "slides/07-slr-math-models.html#constant-variance",
-    "href": "slides/07-slr-math-models.html#constant-variance",
-    "title": "SLR: Mathematical models for inference",
-    "section": "Constant variance",
-    "text": "Constant variance\n✅ The vertical spread of the residuals should be relatively constant across the plot"
-  },
-  {
-    "objectID": "slides/07-slr-math-models.html#non-constant-variance",
-    "href": "slides/07-slr-math-models.html#non-constant-variance",
-    "title": "SLR: Mathematical models for inference",
-    "section": "Non-constant variance",
-    "text": "Non-constant variance"
-  },
-  {
-    "objectID": "slides/07-slr-math-models.html#normality",
-    "href": "slides/07-slr-math-models.html#normality",
-    "title": "SLR: Mathematical models for inference",
-    "section": "Normality",
-    "text": "Normality"
-  },
-  {
-    "objectID": "slides/07-slr-math-models.html#independence",
-    "href": "slides/07-slr-math-models.html#independence",
-    "title": "SLR: Mathematical models for inference",
-    "section": "Independence",
-    "text": "Independence\n\nWe can often check the independence assumption based on the context of the data and how the observations were collected\nIf the data were collected in a particular order, examine a scatterplot of the residuals versus order in which the data were collected\n\n\n✅ If this is a random sample of Duke Houses, the error for one house does not tell us anything about the error for another use"
-  },
-  {
-    "objectID": "slides/07-slr-math-models.html#recap",
-    "href": "slides/07-slr-math-models.html#recap",
-    "title": "SLR: Mathematical models for inference",
-    "section": "Recap",
-    "text": "Recap\nUsed residual plots to check conditions for SLR:\n\n\n\n\nLinearity\nConstant variance\n\n\n\n\n\nNormality\nIndependence\n\n\n\n\n\n\nWhich of these conditions are required for fitting a SLR? Which for simulation-based inference for the slope for an SLR? Which for inference with mathematical models?\n\n\n\n\n03:00\n\n\n\n\n\n\n🔗 Week 04"
+    "text": "Extrapolation\n\n\n\nCalculate the prediction interval for the sale price of a “tiny house” in Duke Forest that is 225 square feet.\n\n\n\n\n\n\n\n\n\n\nNo, thanks!\n\n\n\n🔗 Week 04"
   },
   {
     "objectID": "slides/01-welcome.html#meet-the-professor",
@@ -1741,6 +1895,97 @@
     "title": "SLR: Prediction + model evaluation",
     "section": "Next week",
     "text": "Next week\nInference on the slope using\n\nSimulation-based methods\nMathematical models\n\n\n\n\n🔗 Week 02"
+  },
+  {
+    "objectID": "slides/08-slr-conditions.html#announcements",
+    "href": "slides/08-slr-conditions.html#announcements",
+    "title": "SLR: Conditionss",
+    "section": "Announcements",
+    "text": "Announcements"
+  },
+  {
+    "objectID": "slides/08-slr-conditions.html#computational-set-up",
+    "href": "slides/08-slr-conditions.html#computational-set-up",
+    "title": "SLR: Conditionss",
+    "section": "Computational set up",
+    "text": "Computational set up\n\n# load packages\nlibrary(tidyverse)   # for data wrangling and visualization\nlibrary(tidymodels)  # for modeling\nlibrary(openintro)   # for the duke_forest dataset\nlibrary(scales)      # for pretty axis labels\nlibrary(knitr)       # for pretty tables\nlibrary(kableExtra)  # also for pretty tables\nlibrary(patchwork)   # arrange plots\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 20))"
+  },
+  {
+    "objectID": "slides/08-slr-conditions.html#regression-model-revisited",
+    "href": "slides/08-slr-conditions.html#regression-model-revisited",
+    "title": "SLR: Conditionss",
+    "section": "Regression model, revisited",
+    "text": "Regression model, revisited\n\ndf_fit <- linear_reg() |>\n  set_engine(\"lm\") |>\n  fit(price ~ area, data = duke_forest)\n\ntidy(df_fit) |>\n  kable(digits = 3)\n\n\n\n \n  \n    term \n    estimate \n    std.error \n    statistic \n    p.value \n  \n \n\n  \n    (Intercept) \n    116652.325 \n    53302.463 \n    2.188 \n    0.031 \n  \n  \n    area \n    159.483 \n    18.171 \n    8.777 \n    0.000"
+  },
+  {
+    "objectID": "slides/08-slr-conditions.html#mathematical-representation-visualized",
+    "href": "slides/08-slr-conditions.html#mathematical-representation-visualized",
+    "title": "SLR: Conditionss",
+    "section": "Mathematical representation, visualized",
+    "text": "Mathematical representation, visualized\n\\[\nY|X \\sim N(\\beta_0 + \\beta_1 X, \\sigma_\\epsilon^2)\n\\]"
+  },
+  {
+    "objectID": "slides/08-slr-conditions.html#model-conditions",
+    "href": "slides/08-slr-conditions.html#model-conditions",
+    "title": "SLR: Conditionss",
+    "section": "Model conditions",
+    "text": "Model conditions\n\nLinearity: There is a linear relationship between the outcome and predictor variables\nConstant variance: The variability of the errors is equal for all values of the predictor variable, i.e. the errors are homeoscedastic\nNormality: The errors follow a normal distribution\nIndependence: The errors are independent from each other"
+  },
+  {
+    "objectID": "slides/08-slr-conditions.html#linearity",
+    "href": "slides/08-slr-conditions.html#linearity",
+    "title": "SLR: Conditionss",
+    "section": "Linearity",
+    "text": "Linearity\n✅ The residuals vs. fitted values plot should not show a random scatter of residuals (no distinguishable pattern or structure)"
+  },
+  {
+    "objectID": "slides/08-slr-conditions.html#residuals-vs.-fitted-values-code",
+    "href": "slides/08-slr-conditions.html#residuals-vs.-fitted-values-code",
+    "title": "SLR: Conditionss",
+    "section": "Residuals vs. fitted values (code)",
+    "text": "Residuals vs. fitted values (code)\n\ndf_aug <- augment(df_fit$fit)\n\nggplot(df_aug, aes(x = .fitted, y = .resid)) +\n  geom_point() +\n  geom_hline(yintercept = 0, linetype = \"dashed\") +\n  ylim(-1000000, 1000000) +\n  labs(\n    x = \"Fitted value\", y = \"Residual\",\n    title = \"Residuals vs. fitted values\"\n  )"
+  },
+  {
+    "objectID": "slides/08-slr-conditions.html#non-linear-relationships",
+    "href": "slides/08-slr-conditions.html#non-linear-relationships",
+    "title": "SLR: Conditionss",
+    "section": "Non-linear relationships",
+    "text": "Non-linear relationships"
+  },
+  {
+    "objectID": "slides/08-slr-conditions.html#constant-variance",
+    "href": "slides/08-slr-conditions.html#constant-variance",
+    "title": "SLR: Conditionss",
+    "section": "Constant variance",
+    "text": "Constant variance\n✅ The vertical spread of the residuals should be relatively constant across the plot"
+  },
+  {
+    "objectID": "slides/08-slr-conditions.html#non-constant-variance",
+    "href": "slides/08-slr-conditions.html#non-constant-variance",
+    "title": "SLR: Conditionss",
+    "section": "Non-constant variance",
+    "text": "Non-constant variance"
+  },
+  {
+    "objectID": "slides/08-slr-conditions.html#normality",
+    "href": "slides/08-slr-conditions.html#normality",
+    "title": "SLR: Conditionss",
+    "section": "Normality",
+    "text": "Normality"
+  },
+  {
+    "objectID": "slides/08-slr-conditions.html#independence",
+    "href": "slides/08-slr-conditions.html#independence",
+    "title": "SLR: Conditionss",
+    "section": "Independence",
+    "text": "Independence\n\nWe can often check the independence assumption based on the context of the data and how the observations were collected\nIf the data were collected in a particular order, examine a scatterplot of the residuals versus order in which the data were collected\n\n\n✅ If this is a random sample of Duke Houses, the error for one house does not tell us anything about the error for another use"
+  },
+  {
+    "objectID": "slides/08-slr-conditions.html#recap",
+    "href": "slides/08-slr-conditions.html#recap",
+    "title": "SLR: Conditionss",
+    "section": "Recap",
+    "text": "Recap\nUsed residual plots to check conditions for SLR:\n\n\n\n\nLinearity\nConstant variance\n\n\n\n\n\nNormality\nIndependence\n\n\n\n\n\n\nWhich of these conditions are required for fitting a SLR? Which for simulation-based inference for the slope for an SLR? Which for inference with mathematical models?\n\n\n\n\n03:00\n\n\n\n\n\n\n🔗 Week 04"
   },
   {
     "objectID": "slides/05-slr-sim-inference.html#announcements",

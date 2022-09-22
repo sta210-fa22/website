@@ -25,7 +25,6 @@ In today's lab you will analyze data from over 1,000 different coffees to explor
 By the end of the lab you will...
 
 -   be able to use mathematical models to conduct inference for the slope
--   be able to identify and calculate the appropriate interval for a given prediction tasks
 -   be able to assess conditions for simple linear regression
 
 ## Packages
@@ -44,10 +43,10 @@ The dataset for this lab comes from the [Coffee Quality Database](https://github
 
 This lab will focus on the following variables:
 
--   `sweetness`: Sweetness grade (0 - 10)
--   `flavor`: Flavor grade (0 - 10)
+-   `sweetness`: Sweetness grade, 0 (least sweet) - 10 (most sweet)
+-   `flavor`: Flavor grade, 0 (worst flavor) - 10 (best flavor)
 
-You can find the definitions for all variables in the data set [here](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-07-07/readme.md). [Click here](http://www.scaa.org/?page=resources&d=cupping-protocols&mod=article_inline) for more details about how these measures are obtained.
+[Click here](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-07-07/readme.md) for the definitions of all variables in the data set. [Click here](http://www.scaa.org/?page=resources&d=cupping-protocols&mod=article_inline) for more details about how these measures are obtained.
 
 ```{r}
 coffee <- read_csv("data/coffee-grades.csv")
@@ -60,16 +59,13 @@ coffee <- read_csv("data/coffee-grades.csv")
 ::: callout-important
 Make sure to do the following as you complete the assignment:
 
--   Write all code and narrative in your Quarto file.
-
+-   Write all code and narrative in your Quarto file. We should be able to read all your code in the rendered PDF.
 -   Write all narrative in complete sentences.
-
 -   Use informative axis titles and labels on all graphs.
-
 -   Implement version control in your reproducible workflow. This means throughout the assignment, you should periodically **render** your Quarto document to produce the updated PDF, **commit** the changes in the Git pane, and **push** the updated files to GitHub. You should aim to push changes to GitHub at least three times as you work on the assignment.
 :::
 
-**Goal**: The goal of this analysis is to use linear regression understand the association between the sweetness and flavor grades for coffee.
+**Goal**: The goal of this analysis is to use linear regression to understand variability in coffee flavor grades based on the sweetness grade.
 
 ### Exercise 1
 
@@ -87,7 +83,7 @@ Fit the linear model using sweetness grade to understand variability in the flav
 
 ### Exercise 4
 
-Fill in the name of your model object to obtain the estimated regression standard error, $\hat{\sigma}_\epsilon$.
+Fill in the name of your model object from Exercise 2 to obtain the estimated regression standard error, $\hat{\sigma}_\epsilon$.
 
 ```{r}
 glance(_____$fit)$sigma
@@ -114,10 +110,10 @@ Do the data provide evidence of a statistically significant linear relationship 
 
 We'd like to check the model conditions to assess the reliability of the results in Exercises 4 - 6.
 
--   Make a scatterplot of the residuals vs. fitted values. Add a dotted line at $residuals = 0$.
+-   Make a scatterplot of the residuals vs. fitted values. Add a horizontal dotted line at $residuals = 0$.
 
     ::: callout-tip
-    You need to get the augmented data. See the l[ecture notes](https://sta210-fa22.netlify.app/slides/08-slr-conditions.html#/residuals-vs.-fitted-values-code) for example code.
+    You need to get the augmented data. See the [lecture notes](https://sta210-fa22.netlify.app/slides/08-slr-conditions.html#/residuals-vs.-fitted-values-code) for example code.
     :::
 
 -   Make a histogram of the residuals.
@@ -130,15 +126,15 @@ We'd like to check the model conditions to assess the reliability of the results
 
 ### Exercise 9
 
-Is the normality condition satisfied? Briefly explain your response referencing any graphs, data, tables, etc. used to make the assessment.
+Is the normality condition satisfied? Briefly explain your response.
 
 ### Exercise 10
 
-Is the independence condition satisfied? Briefly explain your response referencing any graphs, data, tables, etc. used to make the assessment.
+Is the independence condition satisfied? Briefly explain your response.
 
 # Submission
 
-In this class, we'll be submitting PDF documents to Gradescope.
+In this class, the final PDF documents will be submitted to Gradescope.
 
 ::: callout-warning
 Before you wrap up the assignment, make sure all documents are updated on your GitHub repo. We will be checking these to make sure you have been practicing how to commit and push changes.
@@ -153,7 +149,7 @@ To submit your assignment:
 -   Click on your *STA 210* course.
 -   Click on the assignment, and you'll be prompted to submit it.
 -   Mark the pages associated with each exercise. All of the pages of your lab should be associated with at least one question (i.e., should be "checked").
--   Select the first page of your .PDF submission to be associated with the *"Workflow & formatting"* section.
+-   Select the first page of your .PDF submission to be associated with the *"Workflow & formatting"* & *"Reproducible report"* sections.
 
 ## Grading (50 pts)
 

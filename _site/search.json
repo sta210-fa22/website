@@ -25,7 +25,7 @@
     "href": "labs/lab-03.html#learning-goals",
     "title": "Coffee grades",
     "section": "Learning goals",
-    "text": "Learning goals\nBy the end of the lab you will…\n\nbe able to use mathematical models to conduct inference for the slope\nbe able to identify and calculate the appropriate interval for a given prediction tasks\nbe able to assess conditions for simple linear regression"
+    "text": "Learning goals\nBy the end of the lab you will…\n\nbe able to use mathematical models to conduct inference for the slope\nbe able to assess conditions for simple linear regression"
   },
   {
     "objectID": "labs/lab-03.html#packages",
@@ -39,7 +39,7 @@
     "href": "labs/lab-03.html#the-data",
     "title": "Coffee grades",
     "section": "The Data",
-    "text": "The Data\nThe dataset for this lab comes from the Coffee Quality Database and was obtained from the #TidyTuesday GitHub repo. It includes information about the origin, producer, measures of various characteristics, and the quality measure for over 1,000 coffees. The coffees can be reasonably be treated as a random sample.\nThis lab will focus on the following variables:\n\nsweetness: Sweetness grade (0 - 10)\nflavor: Flavor grade (0 - 10)\n\nYou can find the definitions for all variables in the data set here. Click here for more details about how these measures are obtained.\n\ncoffee <- read_csv(\"data/coffee-grades.csv\")"
+    "text": "The Data\nThe dataset for this lab comes from the Coffee Quality Database and was obtained from the #TidyTuesday GitHub repo. It includes information about the origin, producer, measures of various characteristics, and the quality measure for over 1,000 coffees. The coffees can be reasonably be treated as a random sample.\nThis lab will focus on the following variables:\n\nsweetness: Sweetness grade, 0 (least sweet) - 10 (most sweet)\nflavor: Flavor grade, 0 (worst flavor) - 10 (best flavor)\n\nClick here for the definitions of all variables in the data set. Click here for more details about how these measures are obtained.\n\ncoffee <- read_csv(\"data/coffee-grades.csv\")"
   },
   {
     "objectID": "labs/lab-03.html#grading-50-pts",
@@ -627,14 +627,14 @@
     "href": "slides/lab-03.html#reminders",
     "title": "Lab 03",
     "section": "Reminders",
-    "text": "Reminders\nMake sure to do the following as you complete the assignment:\n\nWrite all narrative in complete sentences.\nUse informative axis titles and labels on all graphs.\nImplement version control in your reproducible workflow.\n\nThroughout the assignment periodically render your Quarto document to produce the updated PDF, commit the changes in the Git pane, and push the updated files to GitHub.\nAim to push changes to GitHub at least three times as you work on the assignment."
+    "text": "Reminders\nMake sure to do the following as you complete the assignment:\n\nWrite all narrative in complete sentences.\nUse informative axis titles and labels on all graphs.\nImplement version control in your reproducible workflow.\n\nThroughout the assignment periodically render your Quarto document to produce the updated PDF, commit the changes in the Git pane, and push the updated files to GitHub.\nBenchmark: Push changes to GitHub at least three times as you work on the assignment."
   },
   {
     "objectID": "slides/lab-03.html#todays-lab",
     "href": "slides/lab-03.html#todays-lab",
     "title": "Lab 03",
     "section": "Today’s lab",
-    "text": "Today’s lab\n\nRemember to use a reproducible workflow with regular commits (and informative commit messages).\n\nPush all updated files after each commit!\n\nUse lectures and AEs from Week 04 as reference as you complete the lab.\n\n\n\n\n\n🔗 Week 04"
+    "text": "Today’s lab\n\nFocused on mathematical inference for simple linear regression and checking model conditions.\nRemember to mark all pages in your Gradescope submission. The first page should be marked for the “Workflow & formatting” and “Reproducible report” sections.\nUse lectures and AEs from Week 04 as reference as you complete the lab.\n\n\n\n\n\n🔗 Week 04"
   },
   {
     "objectID": "slides/08-mlr.html#computational-setup",

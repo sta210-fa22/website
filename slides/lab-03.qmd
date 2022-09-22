@@ -33,12 +33,12 @@ Make sure to do the following as you complete the assignment:
 
     -   Throughout the assignment periodically **render** your Quarto document to produce the updated PDF, **commit** the changes in the Git pane, and **push** the updated files to GitHub.
 
-    -   Aim to push changes to GitHub at least three times as you work on the assignment.
+    -   Benchmark: Push changes to GitHub at least three times as you work on the assignment.
 
 ## Today's lab
 
--   Remember to use a reproducible workflow with regular commits (and informative commit messages).
+-   Focused on mathematical inference for simple linear regression and checking model conditions.
 
-    -   Push all updated files after each commit!
+-   Remember to mark all pages in your Gradescope submission. The first page should be marked for the "Workflow & formatting" and "Reproducible report" sections.
 
 -   Use lectures and AEs from [Week 04](../weeks/week-04.qmd) as reference as you complete the lab.\

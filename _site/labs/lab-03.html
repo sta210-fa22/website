@@ -387,7 +387,6 @@ Important
 <p>By the end of the lab you will…</p>
 <ul>
 <li>be able to use mathematical models to conduct inference for the slope</li>
-<li>be able to identify and calculate the appropriate interval for a given prediction tasks</li>
 <li>be able to assess conditions for simple linear regression</li>
 </ul>
 </section>
@@ -405,10 +404,10 @@ Important
 <p>The dataset for this lab comes from the <a href="https://github.com/jldbc/coffee-quality-database">Coffee Quality Database</a> and was obtained from the <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-07-07/readme.md">#TidyTuesday GitHub repo</a>. It includes information about the origin, producer, measures of various characteristics, and the quality measure for over 1,000 coffees. The coffees can be reasonably be treated as a random sample.</p>
 <p>This lab will focus on the following variables:</p>
 <ul>
-<li><code>sweetness</code>: Sweetness grade (0 - 10)</li>
-<li><code>flavor</code>: Flavor grade (0 - 10)</li>
+<li><code>sweetness</code>: Sweetness grade, 0 (least sweet) - 10 (most sweet)</li>
+<li><code>flavor</code>: Flavor grade, 0 (worst flavor) - 10 (best flavor)</li>
 </ul>
-<p>You can find the definitions for all variables in the data set <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-07-07/readme.md">here</a>. <a href="http://www.scaa.org/?page=resources&amp;d=cupping-protocols&amp;mod=article_inline">Click here</a> for more details about how these measures are obtained.</p>
+<p><a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-07-07/readme.md">Click here</a> for the definitions of all variables in the data set. <a href="http://www.scaa.org/?page=resources&amp;d=cupping-protocols&amp;mod=article_inline">Click here</a> for more details about how these measures are obtained.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>coffee <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/coffee-grades.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -429,14 +428,14 @@ Important
 <div class="callout-body-container callout-body">
 <p>Make sure to do the following as you complete the assignment:</p>
 <ul>
-<li><p>Write all code and narrative in your Quarto file.</p></li>
-<li><p>Write all narrative in complete sentences.</p></li>
-<li><p>Use informative axis titles and labels on all graphs.</p></li>
-<li><p>Implement version control in your reproducible workflow. This means throughout the assignment, you should periodically <strong>render</strong> your Quarto document to produce the updated PDF, <strong>commit</strong> the changes in the Git pane, and <strong>push</strong> the updated files to GitHub. You should aim to push changes to GitHub at least three times as you work on the assignment.</p></li>
+<li>Write all code and narrative in your Quarto file. We should be able to read all your code in the rendered PDF.</li>
+<li>Write all narrative in complete sentences.</li>
+<li>Use informative axis titles and labels on all graphs.</li>
+<li>Implement version control in your reproducible workflow. This means throughout the assignment, you should periodically <strong>render</strong> your Quarto document to produce the updated PDF, <strong>commit</strong> the changes in the Git pane, and <strong>push</strong> the updated files to GitHub. You should aim to push changes to GitHub at least three times as you work on the assignment.</li>
 </ul>
 </div>
 </div>
-<p><strong>Goal</strong>: The goal of this analysis is to use linear regression understand the association between the sweetness and flavor grades for coffee.</p>
+<p><strong>Goal</strong>: The goal of this analysis is to use linear regression to understand variability in coffee flavor grades based on the sweetness grade.</p>
 <section id="exercise-1" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-1">Exercise 1</h3>
 <p>Visualize the relationship between the sweetness and flavor grades. Write two observations from the plot.</p>
@@ -454,7 +453,7 @@ Important
 </section>
 <section id="exercise-4" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-4">Exercise 4</h3>
-<p>Fill in the name of your model object to obtain the estimated regression standard error, <span class="math inline">\(\hat{\sigma}_\epsilon\)</span>.</p>
+<p>Fill in the name of your model object from Exercise 2 to obtain the estimated regression standard error, <span class="math inline">\(\hat{\sigma}_\epsilon\)</span>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(_____<span class="sc">$</span>fit)<span class="sc">$</span>sigma</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -481,7 +480,7 @@ Important
 <h3 class="anchored" data-anchor-id="exercise-7">Exercise 7</h3>
 <p>We’d like to check the model conditions to assess the reliability of the results in Exercises 4 - 6.</p>
 <ul>
-<li><p>Make a scatterplot of the residuals vs.&nbsp;fitted values. Add a dotted line at <span class="math inline">\(residuals = 0\)</span>.</p>
+<li><p>Make a scatterplot of the residuals vs.&nbsp;fitted values. Add a horizontal dotted line at <span class="math inline">\(residuals = 0\)</span>.</p>
 <div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -492,7 +491,7 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>You need to get the augmented data. See the l<a href="https://sta210-fa22.netlify.app/slides/08-slr-conditions.html#/residuals-vs.-fitted-values-code">ecture notes</a> for example code.</p>
+<p>You need to get the augmented data. See the <a href="https://sta210-fa22.netlify.app/slides/08-slr-conditions.html#/residuals-vs.-fitted-values-code">lecture notes</a> for example code.</p>
 </div>
 </div></li>
 <li><p>Make a histogram of the residuals.</p></li>
@@ -507,16 +506,16 @@ Tip
 </section>
 <section id="exercise-9" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-9">Exercise 9</h3>
-<p>Is the normality condition satisfied? Briefly explain your response referencing any graphs, data, tables, etc. used to make the assessment.</p>
+<p>Is the normality condition satisfied? Briefly explain your response.</p>
 </section>
 <section id="exercise-10" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-10">Exercise 10</h3>
-<p>Is the independence condition satisfied? Briefly explain your response referencing any graphs, data, tables, etc. used to make the assessment.</p>
+<p>Is the independence condition satisfied? Briefly explain your response.</p>
 </section>
 </section>
 <section id="submission" class="level1">
 <h1>Submission</h1>
-<p>In this class, we’ll be submitting PDF documents to Gradescope.</p>
+<p>In this class, the final PDF documents will be submitted to Gradescope.</p>
 <div class="callout-warning callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -538,7 +537,7 @@ Warning
 <li>Click on your <em>STA 210</em> course.</li>
 <li>Click on the assignment, and you’ll be prompted to submit it.</li>
 <li>Mark the pages associated with each exercise. All of the pages of your lab should be associated with at least one question (i.e., should be “checked”).</li>
-<li>Select the first page of your .PDF submission to be associated with the <em>“Workflow &amp; formatting”</em> section.</li>
+<li>Select the first page of your .PDF submission to be associated with the <em>“Workflow &amp; formatting”</em> &amp; <em>“Reproducible report”</em> sections.</li>
 </ul>
 <section id="grading-50-pts" class="level2">
 <h2 class="anchored" data-anchor-id="grading-50-pts">Grading (50 pts)</h2>

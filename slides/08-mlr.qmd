@@ -180,6 +180,7 @@ p6 <- ggplot(data = levittown, aes(x = property_tax, y = sale_price)) +
 #| ref.label: levittown-pairs
 #| out.width: "80%"
 #| fig.width: 12
+#| echo: false
 ```
 
 ## Code

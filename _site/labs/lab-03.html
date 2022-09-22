@@ -329,7 +329,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise 3</a></li>
   <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4">Exercise 4</a></li>
   <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5">Exercise 5</a></li>
-  <li><a href="#exercise-5-1" id="toc-exercise-5-1" class="nav-link" data-scroll-target="#exercise-5-1">Exercise 5</a></li>
   <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6">Exercise 6</a></li>
   <li><a href="#exercise-7" id="toc-exercise-7" class="nav-link" data-scroll-target="#exercise-7">Exercise 7</a></li>
   <li><a href="#exercise-8" id="toc-exercise-8" class="nav-link" data-scroll-target="#exercise-8">Exercise 8</a></li>
@@ -403,7 +402,7 @@ Important
 </section>
 <section id="the-data" class="level2">
 <h2 class="anchored" data-anchor-id="the-data">The Data</h2>
-<p>The dataset for this lab comes from the <a href="https://github.com/jldbc/coffee-quality-database">Coffee Quality Database</a> and was obtained from the <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-07-07/readme.md">#TidyTuesday GitHub repo</a>. It includes information about the origin, producer, measures of various characteristics, and the quality measure for over 1000 coffees. The coffees can be reasonably be treated as a random sample.</p>
+<p>The dataset for this lab comes from the <a href="https://github.com/jldbc/coffee-quality-database">Coffee Quality Database</a> and was obtained from the <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-07-07/readme.md">#TidyTuesday GitHub repo</a>. It includes information about the origin, producer, measures of various characteristics, and the quality measure for over 1,000 coffees. The coffees can be reasonably be treated as a random sample.</p>
 <p>This lab will focus on the following variables:</p>
 <ul>
 <li><code>sweetness</code>: Sweetness grade (0 - 10)</li>
@@ -417,7 +416,6 @@ Important
 </section>
 <section id="exercises" class="level1">
 <h1>Exercises</h1>
-<p><strong>Goal</strong>: The goal of this analysis is to use linear regression understand the association between the sweetness and flavor grade for coffee.</p>
 <hr>
 <div class="callout-important callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
@@ -429,7 +427,7 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Do the following as you complete the assignment:</p>
+<p>Make sure to do the following as you complete the assignment:</p>
 <ul>
 <li><p>Write all code and narrative in your Quarto file.</p></li>
 <li><p>Write all narrative in complete sentences.</p></li>
@@ -438,13 +436,14 @@ Important
 </ul>
 </div>
 </div>
+<p><strong>Goal</strong>: The goal of this analysis is to use linear regression understand the association between the sweetness and flavor grades for coffee.</p>
 <section id="exercise-1" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-1">Exercise 1</h3>
-<p>Visualize the relationship between the sweetness and flavor grades. What do you observe from the plot? Use the plot the describe the relationship between the two variables.</p>
+<p>Visualize the relationship between the sweetness and flavor grades. Write two observations from the plot.</p>
 </section>
 <section id="exercise-2" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-2">Exercise 2</h3>
-<p>Fit the linear model using sweetness grade to understand variability in the flavor grade. Neatly display the model using three digits, and include the <strong>99%</strong> confidence interval in the output.</p>
+<p>Fit the linear model using sweetness grade to understand variability in the flavor grade. Neatly display the model using three digits, and include the <strong>98%</strong> confidence interval for the model coefficients in the output.</p>
 </section>
 <section id="exercise-3" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-3">Exercise 3</h3>
@@ -463,24 +462,24 @@ Important
 </section>
 <section id="exercise-5" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-5">Exercise 5</h3>
-<p>Do the data provide evidence of a statistically significant linear relationship between sweetness and flavor grades? Conduct a hypothesis test based on mathematical models for inference to answer this question. In your response</p>
+<p>Do the data provide evidence of a statistically significant linear relationship between sweetness and flavor grades? Conduct a hypothesis test using mathematical models to answer this question. In your response</p>
 <ul>
 <li>State the null and alternative hypotheses in words and in mathematical notation.</li>
 <li>What is the test statistic? State with the test statistic means in the context of this problem.</li>
 <li>What distribution was used to calculate the p-value? Be specific.</li>
-<li>State the conclusion in the context of the data using a threshold of <span class="math inline">\(\alpha = 0.01\)</span> to make your decision.</li>
-</ul>
-</section>
-<section id="exercise-5-1" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-5-1">Exercise 5</h3>
-<ul>
-<li><p>What is critical value used to calculate the 99% confidence interval displayed in Exercise 2? Show the code and output used to get your response.</p></li>
-<li><p>Is the confidence interval consistent with the conclusions from the hypothesis test? Briefly explain why or why not.</p></li>
+<li>State the conclusion in the context of the data using a threshold of <span class="math inline">\(\alpha = 0.02\)</span> to make your decision.</li>
 </ul>
 </section>
 <section id="exercise-6" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-6">Exercise 6</h3>
-<p>We’d like to check the model conditions to assess the reliability of the inference conducted in Exercise 4 and</p>
+<ul>
+<li><p>What is critical value used to calculate the 98% confidence interval displayed in Exercise 2? Show the code and output used to get your response.</p></li>
+<li><p>Is the confidence interval consistent with the conclusions from the hypothesis test? Briefly explain why or why not.</p></li>
+</ul>
+</section>
+<section id="exercise-7" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-7">Exercise 7</h3>
+<p>We’d like to check the model conditions to assess the reliability of the results in Exercises 4 - 6.</p>
 <ul>
 <li><p>Make a scatterplot of the residuals vs.&nbsp;fitted values. Add a dotted line at <span class="math inline">\(residuals = 0\)</span>.</p>
 <div class="callout-tip callout callout-style-default callout-captioned">
@@ -499,13 +498,12 @@ Tip
 <li><p>Make a histogram of the residuals.</p></li>
 </ul>
 </section>
-<section id="exercise-7" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-7">Exercise 7</h3>
-<p>Is the linearity condition satisfied? Briefly explain your response referencing any graphs, data, tables, etc. used to make the assessment.</p>
-</section>
 <section id="exercise-8" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-8">Exercise 8</h3>
-<p>Is the constant variance condition satisfied? Briefly explain your response referencing any graphs, data, tables, etc. used to make the assessment.</p>
+<ul>
+<li><p>Is the linearity condition satisfied? Briefly explain your response using the plot of residuals vs.&nbsp;fitted to support your assessment.</p></li>
+<li><p>Is the constant variance condition satisfied? Briefly explain your response using the plot of residuals vs.&nbsp;fitted to support your assessment.</p></li>
+</ul>
 </section>
 <section id="exercise-9" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-9">Exercise 9</h3>

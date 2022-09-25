@@ -343,6 +343,27 @@
     "text": "Prediction\nWhat is the predicted sale price for a house in Levittown, NY with 4 bedrooms, 2 bathrooms, 1,000 square feet of living area, 6,000 square foot lot size, built in 1947 with $7,403 in property taxes?\n\nReport the predicted value and appropriate interval.\n\n\n# create tibble for new observation \n\n# prediction + interval\n\n\nInterpret the interval in the context of the data.\n\n\n\n\n\n\n\nImportant\n\n\n\nTo submit the AE:\n\nRender the document to produce the PDF with all of your work from today’s class.\nPush all your work to your ae-05- repo on GitHub. (You do not submit AEs on Gradescope)."
   },
   {
+    "objectID": "ae/ae-06-prediction.html",
+    "href": "ae/ae-06-prediction.html",
+    "title": "AE 06: Prediction for MLR",
+    "section": "",
+    "text": "Important\n\n\n\nGo to the course GitHub organization and locate your ae-06- to get started.\nThe AE is due on GitHub by Thursday, September 29 at 11:59pm.\nThe data set contains the sales price and characteristics of 85 homes in Levittown, NY that sold between June 2010 and May 2011. Levittown was built right after WWII and was the first planned suburban community built using mass production techniques.\nThe variables used in this analysis are\nThe goal of the analysis is to use the characteristics of a house to understand variability in the sales price."
+  },
+  {
+    "objectID": "ae/ae-06-prediction.html#linear-model",
+    "href": "ae/ae-06-prediction.html#linear-model",
+    "title": "AE 06: Prediction for MLR",
+    "section": "Linear model",
+    "text": "Linear model\n\nprice_fit <- linear_reg() |>\n  set_engine(\"lm\") |>\n  fit(sale_price ~ bedrooms + bathrooms + living_area + lot_size +\n        year_built + property_tax, data = levittown)\n\ntidy(price_fit) |>\n  kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-7148818.957\n3820093.694\n-1.871\n0.065\n\n\nbedrooms\n-12291.011\n9346.727\n-1.315\n0.192\n\n\nbathrooms\n51699.236\n13094.170\n3.948\n0.000\n\n\nliving_area\n65.903\n15.979\n4.124\n0.000\n\n\nlot_size\n-0.897\n4.194\n-0.214\n0.831\n\n\nyear_built\n3760.898\n1962.504\n1.916\n0.059\n\n\nproperty_tax\n1.476\n2.832\n0.521\n0.604"
+  },
+  {
+    "objectID": "ae/ae-06-prediction.html#prediction",
+    "href": "ae/ae-06-prediction.html#prediction",
+    "title": "AE 06: Prediction for MLR",
+    "section": "Prediction",
+    "text": "Prediction\nWhat is the predicted sale price for an individual house in Levittown, NY with 4 bedrooms, 2 bathrooms, 1,000 square feet of living area, 6,000 square foot lot size, built in 1947 with $7,403 in property taxes?\nReport the predicted value and appropriate interval.\n\n\n\n\n\n\nNote\n\n\n\nFill in the code, then make #| eval: true before rendering the document.\n\n\n\n# create tibble for new observation \nnew_house <- tibble(\n  bedrooms = ____, \n  bathrooms = ____, \n  _____\n  )\n\n# prediction + interval\nprediction(_________)\n\n\nInterpret the interval in the context of the data.\n\n\n\n\n\n\n\nImportant\n\n\n\nTo submit the AE:\n\nRender the document to produce the PDF with all of your work from today’s class.\nPush all your work to your ae-06- repo on GitHub. (You do not submit AEs on Gradescope)."
+  },
+  {
     "objectID": "ae/ae-04-sim-testing.html",
     "href": "ae/ae-04-sim-testing.html",
     "title": "AE 04: Simulation-based hypothesis testing",
@@ -796,6 +817,265 @@
     "title": "Multiple linear regression (MLR)",
     "section": "Recap",
     "text": "Recap\n\n\nIntroduced multiple linear regression\nInterpreted a coefficient \\(\\hat{\\beta}_j\\)\nUsed the model to calculate predicted values and the corresponding intervals\n\n\n\n\n\n🔗 Week 04"
+  },
+  {
+    "objectID": "slides/09-mlr-predictors.html#announcements---update",
+    "href": "slides/09-mlr-predictors.html#announcements---update",
+    "title": "MLR: Types of predictors",
+    "section": "Announcements - UPDATE",
+    "text": "Announcements - UPDATE\n\nLab 02 due\n\nToday at 11:59pm (Thursday labs)\nTue, Sep 20 at 11:59pm (Friday labs)\n\nHW 01: due Wed, Sep 21 at 11:59pm\nStatistics experience - due Fri, Dec 09 at 11:59pm\nLab 01 solutions posted in Resources folder in Sakai\nSee Week 04 for this week’s activities."
+  },
+  {
+    "objectID": "slides/09-mlr-predictors.html#topics",
+    "href": "slides/09-mlr-predictors.html#topics",
+    "title": "MLR: Types of predictors",
+    "section": "Topics",
+    "text": "Topics\n\nPrediction for multiple linear regression\nTypes of predictors for multiple linear regression\nMean-centering quantitative predictors\nUsing indicator variables for categorical predictors\nUsing interaction terms"
+  },
+  {
+    "objectID": "slides/09-mlr-predictors.html#computational-setup",
+    "href": "slides/09-mlr-predictors.html#computational-setup",
+    "title": "MLR: Types of predictors",
+    "section": "Computational setup",
+    "text": "Computational setup\n\n# load packages\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(openintro)\nlibrary(patchwork)\nlibrary(knitr)\nlibrary(kableExtra)\nlibrary(colorblindr)\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 20))"
+  },
+  {
+    "objectID": "slides/09-mlr-predictors.html#the-data",
+    "href": "slides/09-mlr-predictors.html#the-data",
+    "title": "MLR: Types of predictors",
+    "section": "The data",
+    "text": "The data\n\nlevittown <- read_csv(here::here(\"slides/data/homeprices.csv\"))\nlevittown\n\n# A tibble: 85 × 7\n   bedrooms bathrooms living_area lot_size year_built property_tax sale_price\n      <dbl>     <dbl>       <dbl>    <dbl>      <dbl>        <dbl>      <dbl>\n 1        4       1          1380     6000       1948         8360     350000\n 2        4       2          1761     7400       1951         5754     360000\n 3        4       2          1564     6000       1948         8982     350000\n 4        5       2          2904     9898       1949        11664     375000\n 5        5       2.5        1942     7788       1948         8120     370000\n 6        4       2          1830     6000       1948         8197     335000\n 7        4       1          1585     6000       1948         6223     295000\n 8        4       1           941     6800       1951         2448     250000\n 9        4       1.5        1481     6000       1948         9087     299990\n10        3       2          1630     5998       1948         9430     375000\n# … with 75 more rows"
+  },
+  {
+    "objectID": "slides/09-mlr-predictors.html#variables",
+    "href": "slides/09-mlr-predictors.html#variables",
+    "title": "MLR: Types of predictors",
+    "section": "Variables",
+    "text": "Variables\nPredictors:\n\n\nbedrooms: Number of bedrooms\nbathrooms: Number of bathrooms\nliving_area: Total living area of the house (in square feet)\nlot_size: Total area of the lot (in square feet)\nyear_built: Year the house was built\nproperty_tax: Annual property taxes (in USD)\n\n\nResponse: sale_price: Sales price (in USD)"
+  },
+  {
+    "objectID": "slides/09-mlr-predictors.html#model-fit",
+    "href": "slides/09-mlr-predictors.html#model-fit",
+    "title": "MLR: Types of predictors",
+    "section": "Model fit",
+    "text": "Model fit\n\n\n\n\n \n  \n    term \n    estimate \n    std.error \n    statistic \n    p.value \n  \n \n\n  \n    (Intercept) \n    -7148818.957 \n    3820093.694 \n    -1.871 \n    0.065 \n  \n  \n    bedrooms \n    -12291.011 \n    9346.727 \n    -1.315 \n    0.192 \n  \n  \n    bathrooms \n    51699.236 \n    13094.170 \n    3.948 \n    0.000 \n  \n  \n    living_area \n    65.903 \n    15.979 \n    4.124 \n    0.000 \n  \n  \n    lot_size \n    -0.897 \n    4.194 \n    -0.214 \n    0.831 \n  \n  \n    year_built \n    3760.898 \n    1962.504 \n    1.916 \n    0.059 \n  \n  \n    property_tax \n    1.476 \n    2.832 \n    0.521 \n    0.604"
+  },
+  {
+    "objectID": "slides/09-mlr-predictors.html#prediction-1",
+    "href": "slides/09-mlr-predictors.html#prediction-1",
+    "title": "MLR: Types of predictors",
+    "section": "Prediction",
+    "text": "Prediction\n\nWhat is the predicted sale price for a house in Levittown, NY with 3 bedrooms, 1 bathroom, 1,050 square feet of living area, 6,000 square foot lot size, built in 1948 with $6,306 in property taxes?\n\n\n\n-7148818.957 - 12291.011 * 3 + 51699.236 * 1 + \n  65.903 * 1050 - 0.897 * 6000 + 3760.898 * 1948 + \n  1.476 * 6306\n\n[1] 265360.4\n\n\n\nThe predicted sale price for a house in Levittown, NY with 3 bedrooms, 1 bathroom, 1050 square feet of living area, 6000 square foot lot size, built in 1948 with $6306 in property taxes is $265,360."
+  },
+  {
+    "objectID": "slides/09-mlr-predictors.html#prediction-revisit",
+    "href": "slides/09-mlr-predictors.html#prediction-revisit",
+    "title": "MLR: Types of predictors",
+    "section": "Prediction, revisit",
+    "text": "Prediction, revisit\nJust like with simple linear regression, we can use the predict() function in R to calculate the appropriate intervals for our predicted values:\n\nnew_house <- tibble(\n  bedrooms = 3, bathrooms = 1, \n  living_area = 1050, lot_size = 6000, \n  year_built = 1948, property_tax = 6306\n  )\n\npredict(price_fit, new_house)\n\n# A tibble: 1 × 1\n    .pred\n    <dbl>\n1 265360."
+  },
+  {
+    "objectID": "slides/09-mlr-predictors.html#confidence-interval-for-hatmu_y",
+    "href": "slides/09-mlr-predictors.html#confidence-interval-for-hatmu_y",
+    "title": "MLR: Types of predictors",
+    "section": "Confidence interval for \\(\\hat{\\mu}_y\\)",
+    "text": "Confidence interval for \\(\\hat{\\mu}_y\\)\n\nCalculate a 95% confidence interval for the estimated mean price of houses in Levittown, NY with 3 bedrooms, 1 bathroom, 1050 square feet of living area, 6000 square foot lot size, built in 1948 with $6306 in property taxes.\n\n\n\npredict(price_fit, new_house, type = \"conf_int\", level = 0.95)\n\n# A tibble: 1 × 2\n  .pred_lower .pred_upper\n        <dbl>       <dbl>\n1     238482.     292239."
+  },
+  {
+    "objectID": "slides/09-mlr-predictors.html#prediction-interval-for-haty",
+    "href": "slides/09-mlr-predictors.html#prediction-interval-for-haty",
+    "title": "MLR: Types of predictors",
+    "section": "Prediction interval for \\(\\hat{y}\\)",
+    "text": "Prediction interval for \\(\\hat{y}\\)\n\nCalculate a 95% prediction interval for an individual house in Levittown, NY with 3 bedrooms, 1 bathroom, 1050 square feet of living area, 6000 square foot lot size, built in 1948 with $6306 in property taxes.\n\n\n\npredict(price_fit, new_house, type = \"pred_int\", level = 0.95)\n\n# A tibble: 1 × 2\n  .pred_lower .pred_upper\n        <dbl>       <dbl>\n1     167277.     363444."
+  },
+  {
+    "objectID": "slides/09-mlr-predictors.html#cautions",
+    "href": "slides/09-mlr-predictors.html#cautions",
+    "title": "MLR: Types of predictors",
+    "section": "Cautions",
+    "text": "Cautions\n\nDo not extrapolate! Because there are multiple predictor variables, there is the potential to extrapolate in many directions\nThe multiple regression model only shows association, not causality\n\nTo show causality, you must have a carefully designed experiment or carefully account for confounding variables in an observational study"
+  },
+  {
+    "objectID": "slides/09-mlr-predictors.html#data-peer-to-peer-lender",
+    "href": "slides/09-mlr-predictors.html#data-peer-to-peer-lender",
+    "title": "MLR: Types of predictors",
+    "section": "Data: Peer-to-peer lender",
+    "text": "Data: Peer-to-peer lender\nToday’s data is a sample of 50 loans made through a peer-to-peer lending club. The data is in the loan50 data frame in the openintro R package.\n\nloan50 |>\n  select(annual_income, debt_to_income, verified_income, interest_rate)\n\n# A tibble: 50 × 4\n   annual_income debt_to_income verified_income interest_rate\n           <dbl>          <dbl> <fct>                   <dbl>\n 1         59000         0.558  Not Verified            10.9 \n 2         60000         1.31   Not Verified             9.92\n 3         75000         1.06   Verified                26.3 \n 4         75000         0.574  Not Verified             9.92\n 5        254000         0.238  Not Verified             9.43\n 6         67000         1.08   Source Verified          9.92\n 7         28800         0.0997 Source Verified         17.1 \n 8         80000         0.351  Not Verified             6.08\n 9         34000         0.698  Not Verified             7.97\n10         80000         0.167  Source Verified         12.6 \n# … with 40 more rows"
+  },
+  {
+    "objectID": "slides/09-mlr-predictors.html#variables-1",
+    "href": "slides/09-mlr-predictors.html#variables-1",
+    "title": "MLR: Types of predictors",
+    "section": "Variables",
+    "text": "Variables\nPredictors:\n\n\nannual_income: Annual income\ndebt_to_income: Debt-to-income ratio, i.e. the percentage of a borrower’s total debt divided by their total income\nverified_income: Whether borrower’s income source and amount have been verified (Not Verified, Source Verified, Verified)\n\n\nOutcome: interest_rate: Interest rate for the loan"
+  },
+  {
+    "objectID": "slides/09-mlr-predictors.html#outcome-interest_rate",
+    "href": "slides/09-mlr-predictors.html#outcome-interest_rate",
+    "title": "MLR: Types of predictors",
+    "section": "Outcome: interest_rate",
+    "text": "Outcome: interest_rate\n\n\n\n\n\n \n  \n    min \n    median \n    max \n    iqr \n  \n \n\n  \n    5.31 \n    9.93 \n    26.3 \n    5.755"
+  },
+  {
+    "objectID": "slides/09-mlr-predictors.html#predictors",
+    "href": "slides/09-mlr-predictors.html#predictors",
+    "title": "MLR: Types of predictors",
+    "section": "Predictors",
+    "text": "Predictors"
+  },
+  {
+    "objectID": "slides/09-mlr-predictors.html#data-manipulation-1-rescale-income",
+    "href": "slides/09-mlr-predictors.html#data-manipulation-1-rescale-income",
+    "title": "MLR: Types of predictors",
+    "section": "Data manipulation 1: Rescale income",
+    "text": "Data manipulation 1: Rescale income\n\nloan50 <- loan50 |>\n  mutate(annual_income_th = annual_income / 1000)\n\nggplot(loan50, aes(x = annual_income_th)) +\n  geom_histogram(binwidth = 20) +\n  labs(title = \"Annual income (in $1000s)\", \n       x = \"\")"
+  },
+  {
+    "objectID": "slides/09-mlr-predictors.html#outcome-vs.-predictors",
+    "href": "slides/09-mlr-predictors.html#outcome-vs.-predictors",
+    "title": "MLR: Types of predictors",
+    "section": "Outcome vs. predictors",
+    "text": "Outcome vs. predictors"
+  },
+  {
+    "objectID": "slides/09-mlr-predictors.html#fit-regression-model",
+    "href": "slides/09-mlr-predictors.html#fit-regression-model",
+    "title": "MLR: Types of predictors",
+    "section": "Fit regression model",
+    "text": "Fit regression model\n\nint_fit <- linear_reg() |>\n  set_engine(\"lm\") |>\n  fit(interest_rate ~ debt_to_income + verified_income  + annual_income_th,\n      data = loan50)"
+  },
+  {
+    "objectID": "slides/09-mlr-predictors.html#summarize-model-results",
+    "href": "slides/09-mlr-predictors.html#summarize-model-results",
+    "title": "MLR: Types of predictors",
+    "section": "Summarize model results",
+    "text": "Summarize model results\n\n\n\n\n \n  \n    term \n    estimate \n    std.error \n    statistic \n    p.value \n    conf.low \n    conf.high \n  \n \n\n  \n    (Intercept) \n    10.726 \n    1.507 \n    7.116 \n    0.000 \n    7.690 \n    13.762 \n  \n  \n    debt_to_income \n    0.671 \n    0.676 \n    0.993 \n    0.326 \n    -0.690 \n    2.033 \n  \n  \n    verified_incomeSource Verified \n    2.211 \n    1.399 \n    1.581 \n    0.121 \n    -0.606 \n    5.028 \n  \n  \n    verified_incomeVerified \n    6.880 \n    1.801 \n    3.820 \n    0.000 \n    3.253 \n    10.508 \n  \n  \n    annual_income_th \n    -0.021 \n    0.011 \n    -1.804 \n    0.078 \n    -0.043 \n    0.002 \n  \n\n\n\n\n\n\n\n\nDescribe the subset of borrowers who are expected to get an interest rate of 10.726% based on our model. Is this interpretation meaningful? Why or why not?"
+  },
+  {
+    "objectID": "slides/09-mlr-predictors.html#mean-centering",
+    "href": "slides/09-mlr-predictors.html#mean-centering",
+    "title": "MLR: Types of predictors",
+    "section": "Mean-centering",
+    "text": "Mean-centering\nIf we are interested in interpreting the intercept, we can mean-center the quantitative predictors in the model.\nWe can mean-center a quantitative predictor \\(X_j\\) using the following:\n\\[X_{j_{Cent}} = X_{j}- \\bar{X}_{j}\\]\n\nIf we mean-center all quantitative variables, then the intercept is interpreted as the expected value of the response variable when all quantitative variables are at their mean value."
+  },
+  {
+    "objectID": "slides/09-mlr-predictors.html#data-manipulation-2-mean-center-numeric-predictors",
+    "href": "slides/09-mlr-predictors.html#data-manipulation-2-mean-center-numeric-predictors",
+    "title": "MLR: Types of predictors",
+    "section": "Data manipulation 2: Mean-center numeric predictors",
+    "text": "Data manipulation 2: Mean-center numeric predictors\n\nloan50 <- loan50 |>\n  mutate(\n    debt_inc_cent = debt_to_income - mean(debt_to_income), \n    annual_income_th_cent = annual_income_th - mean(annual_income_th)\n    )"
+  },
+  {
+    "objectID": "slides/09-mlr-predictors.html#visualize-mean-centered-predictors",
+    "href": "slides/09-mlr-predictors.html#visualize-mean-centered-predictors",
+    "title": "MLR: Types of predictors",
+    "section": "Visualize mean-centered predictors",
+    "text": "Visualize mean-centered predictors"
+  },
+  {
+    "objectID": "slides/09-mlr-predictors.html#using-mean-centered-variables-in-the-model",
+    "href": "slides/09-mlr-predictors.html#using-mean-centered-variables-in-the-model",
+    "title": "MLR: Types of predictors",
+    "section": "Using mean-centered variables in the model",
+    "text": "Using mean-centered variables in the model\n\nHow do you expect the model to change if we use the debt_inc_cent and annual_income_cent in the model?\n\n\n\n\n\n\n \n  \n    term \n    estimate \n    std.error \n    statistic \n    p.value \n    conf.low \n    conf.high \n  \n \n\n  \n    (Intercept) \n    9.444 \n    0.977 \n    9.663 \n    0.000 \n    7.476 \n    11.413 \n  \n  \n    debt_inc_cent \n    0.671 \n    0.676 \n    0.993 \n    0.326 \n    -0.690 \n    2.033 \n  \n  \n    verified_incomeSource Verified \n    2.211 \n    1.399 \n    1.581 \n    0.121 \n    -0.606 \n    5.028 \n  \n  \n    verified_incomeVerified \n    6.880 \n    1.801 \n    3.820 \n    0.000 \n    3.253 \n    10.508 \n  \n  \n    annual_income_th_cent \n    -0.021 \n    0.011 \n    -1.804 \n    0.078 \n    -0.043 \n    0.002"
+  },
+  {
+    "objectID": "slides/09-mlr-predictors.html#original-vs.-mean-centered-model",
+    "href": "slides/09-mlr-predictors.html#original-vs.-mean-centered-model",
+    "title": "MLR: Types of predictors",
+    "section": "Original vs. mean-centered model",
+    "text": "Original vs. mean-centered model\n\n\n\n\n\n\n \n  \n    term \n    estimate \n  \n \n\n  \n    (Intercept) \n    10.726 \n  \n  \n    debt_to_income \n    0.671 \n  \n  \n    verified_incomeSource Verified \n    2.211 \n  \n  \n    verified_incomeVerified \n    6.880 \n  \n  \n    annual_income_th \n    -0.021 \n  \n\n\n\n\n\n\n\n\n\n\n \n  \n    term \n    estimate \n  \n \n\n  \n    (Intercept) \n    9.444 \n  \n  \n    debt_inc_cent \n    0.671 \n  \n  \n    verified_incomeSource Verified \n    2.211 \n  \n  \n    verified_incomeVerified \n    6.880 \n  \n  \n    annual_income_th_cent \n    -0.021"
+  },
+  {
+    "objectID": "slides/09-mlr-predictors.html#indicator-variables-1",
+    "href": "slides/09-mlr-predictors.html#indicator-variables-1",
+    "title": "MLR: Types of predictors",
+    "section": "Indicator variables",
+    "text": "Indicator variables\n\nSuppose there is a categorical variable with \\(K\\) categories (levels)\nWe can make \\(K\\) indicator variables - one indicator for each category\nAn indicator variable takes values 1 or 0\n\n1 if the observation belongs to that category\n0 if the observation does not belong to that category"
+  },
+  {
+    "objectID": "slides/09-mlr-predictors.html#data-manipulation-3-create-indicator-variables-for-verified_income",
+    "href": "slides/09-mlr-predictors.html#data-manipulation-3-create-indicator-variables-for-verified_income",
+    "title": "MLR: Types of predictors",
+    "section": "Data manipulation 3: Create indicator variables for verified_income",
+    "text": "Data manipulation 3: Create indicator variables for verified_income\n\nloan50 <- loan50 |>\n  mutate(\n    not_verified = if_else(verified_income == \"Not Verified\", 1, 0),\n    source_verified = if_else(verified_income == \"Source Verified\", 1, 0),\n    verified = if_else(verified_income == \"Verified\", 1, 0)\n  )\n\n\n\n\n# A tibble: 3 × 4\n  verified_income not_verified source_verified verified\n  <fct>                  <dbl>           <dbl>    <dbl>\n1 Not Verified               1               0        0\n2 Verified                   0               0        1\n3 Source Verified            0               1        0"
+  },
+  {
+    "objectID": "slides/09-mlr-predictors.html#indicators-in-the-model",
+    "href": "slides/09-mlr-predictors.html#indicators-in-the-model",
+    "title": "MLR: Types of predictors",
+    "section": "Indicators in the model",
+    "text": "Indicators in the model\n\nWe will use \\(K-1\\) of the indicator variables in the model.\nThe baseline is the category that doesn’t have a term in the model.\nThe coefficients of the indicator variables in the model are interpreted as the expected change in the response compared to the baseline, holding all other variables constant.\nThis approach is also called dummy coding.\n\n\n\nloan50 |>\n  select(verified_income, source_verified, verified) |>\n  slice(1, 3, 6)\n\n# A tibble: 3 × 3\n  verified_income source_verified verified\n  <fct>                     <dbl>    <dbl>\n1 Not Verified                  0        0\n2 Verified                      0        1\n3 Source Verified               1        0"
+  },
+  {
+    "objectID": "slides/09-mlr-predictors.html#interpreting-verified_income",
+    "href": "slides/09-mlr-predictors.html#interpreting-verified_income",
+    "title": "MLR: Types of predictors",
+    "section": "Interpreting verified_income",
+    "text": "Interpreting verified_income\n\n\n\n\n \n  \n    term \n    estimate \n    std.error \n    statistic \n    p.value \n    conf.low \n    conf.high \n  \n \n\n  \n    (Intercept) \n    9.444 \n    0.977 \n    9.663 \n    0.000 \n    7.476 \n    11.413 \n  \n  \n    debt_inc_cent \n    0.671 \n    0.676 \n    0.993 \n    0.326 \n    -0.690 \n    2.033 \n  \n  \n    verified_incomeSource Verified \n    2.211 \n    1.399 \n    1.581 \n    0.121 \n    -0.606 \n    5.028 \n  \n  \n    verified_incomeVerified \n    6.880 \n    1.801 \n    3.820 \n    0.000 \n    3.253 \n    10.508 \n  \n  \n    annual_income_th_cent \n    -0.021 \n    0.011 \n    -1.804 \n    0.078 \n    -0.043 \n    0.002 \n  \n\n\n\n\n\n\n\n\nThe baseline category is Not verified.\nPeople with source verified income are expected to take a loan with an interest rate that is 2.211% higher, on average, than the rate on loans to those whose income is not verified, holding all else constant.\nPeople with verified income are expected to take a loan with an interest rate that is 6.880% higher, on average, than the rate on loans to those whose income is not verified, holding all else constant."
+  },
+  {
+    "objectID": "slides/09-mlr-predictors.html#interaction-terms-1",
+    "href": "slides/09-mlr-predictors.html#interaction-terms-1",
+    "title": "MLR: Types of predictors",
+    "section": "Interaction terms",
+    "text": "Interaction terms\n\nSometimes the relationship between a predictor variable and the response depends on the value of another predictor variable.\nThis is an interaction effect.\nTo account for this, we can include interaction terms in the model."
+  },
+  {
+    "objectID": "slides/09-mlr-predictors.html#interest-rate-vs.-annual-income",
+    "href": "slides/09-mlr-predictors.html#interest-rate-vs.-annual-income",
+    "title": "MLR: Types of predictors",
+    "section": "Interest rate vs. annual income",
+    "text": "Interest rate vs. annual income\nThe lines are not parallel indicating there is an interaction effect. The slope of annual income differs based on the income verification."
+  },
+  {
+    "objectID": "slides/09-mlr-predictors.html#interaction-term-in-model",
+    "href": "slides/09-mlr-predictors.html#interaction-term-in-model",
+    "title": "MLR: Types of predictors",
+    "section": "Interaction term in model",
+    "text": "Interaction term in model\n\nint_cent_int_fit <- linear_reg() |>\n  set_engine(\"lm\") |>\n  fit(interest_rate ~ debt_inc_cent  +  debt_inc_cent + \n        annual_income_th_cent + verified_income * annual_income_th_cent,\n      data = loan50)\n\n\n\n\n\n \n  \n    term \n    estimate \n    std.error \n    statistic \n    p.value \n  \n \n\n  \n    (Intercept) \n    9.484 \n    0.989 \n    9.586 \n    0.000 \n  \n  \n    debt_inc_cent \n    0.691 \n    0.685 \n    1.009 \n    0.319 \n  \n  \n    annual_income_th_cent \n    -0.007 \n    0.020 \n    -0.341 \n    0.735 \n  \n  \n    verified_incomeSource Verified \n    2.157 \n    1.418 \n    1.522 \n    0.135 \n  \n  \n    verified_incomeVerified \n    7.181 \n    1.870 \n    3.840 \n    0.000 \n  \n  \n    annual_income_th_cent:verified_incomeSource Verified \n    -0.016 \n    0.026 \n    -0.643 \n    0.523 \n  \n  \n    annual_income_th_cent:verified_incomeVerified \n    -0.032 \n    0.033 \n    -0.979 \n    0.333"
+  },
+  {
+    "objectID": "slides/09-mlr-predictors.html#interpreting-interaction-terms",
+    "href": "slides/09-mlr-predictors.html#interpreting-interaction-terms",
+    "title": "MLR: Types of predictors",
+    "section": "Interpreting interaction terms",
+    "text": "Interpreting interaction terms\n\nWhat the interaction means: The effect of annual income on the interest rate differs by -0.016 when the income is source verified compared to when it is not verified, holding all else constant.\nInterpreting annual_income for source verified: If the income is source verified, we expect the interest rate to decrease by 0.023% (-0.007 + -0.016) for each additional thousand dollars in annual income, holding all else constant."
+  },
+  {
+    "objectID": "slides/09-mlr-predictors.html#data-manipulation-4-create-interaction-variables",
+    "href": "slides/09-mlr-predictors.html#data-manipulation-4-create-interaction-variables",
+    "title": "MLR: Types of predictors",
+    "section": "Data manipulation 4: Create interaction variables",
+    "text": "Data manipulation 4: Create interaction variables\nDefining the interaction variable in the model formula as verified_income * annual_income_th_cent is an implicit data manipulation step as well\n\n\nRows: 50\nColumns: 9\n$ `(Intercept)`                                          <dbl> 1, 1, 1, 1, 1, …\n$ debt_inc_cent                                          <dbl> -0.16511719, 0.…\n$ annual_income_th_cent                                  <dbl> -27.17, -26.17,…\n$ `verified_incomeNot Verified`                          <dbl> 1, 1, 0, 1, 1, …\n$ `verified_incomeSource Verified`                       <dbl> 0, 0, 0, 0, 0, …\n$ verified_incomeVerified                                <dbl> 0, 0, 1, 0, 0, …\n$ `annual_income_th_cent:verified_incomeNot Verified`    <dbl> -27.17, -26.17,…\n$ `annual_income_th_cent:verified_incomeSource Verified` <dbl> 0.00, 0.00, 0.0…\n$ `annual_income_th_cent:verified_incomeVerified`        <dbl> 0.00, 0.00, -11…"
+  },
+  {
+    "objectID": "slides/09-mlr-predictors.html#recap",
+    "href": "slides/09-mlr-predictors.html#recap",
+    "title": "MLR: Types of predictors",
+    "section": "Recap",
+    "text": "Recap\n\nMean-centering quantitative predictors\nUsing indicator variables for categorical predictors\nUsing interaction terms"
+  },
+  {
+    "objectID": "slides/09-mlr-predictors.html#looking-backward",
+    "href": "slides/09-mlr-predictors.html#looking-backward",
+    "title": "MLR: Types of predictors",
+    "section": "Looking backward",
+    "text": "Looking backward\nData manipulation, with dplyr (from tidyverse):\n\nloan50 |>\n  select(interest_rate, annual_income, debt_to_income, verified_income) |>\n  mutate(\n    # 1. rescale income\n    annual_income_th = annual_income / 1000,\n    # 2. mean-center quantitative predictors\n    debt_inc_cent = debt_to_income - mean(debt_to_income),\n    annual_income_th_cent = annual_income_th - mean(annual_income_th),\n    # 3. create dummy variables for verified_income\n    source_verified = if_else(verified_income == \"Source Verified\", 1, 0),\n    verified = if_else(verified_income == \"Verified\", 1, 0),\n    # 4. create interaction variables\n    `annual_income_th_cent:verified_incomeSource Verified` = annual_income_th_cent * source_verified,\n    `annual_income_th_cent:verified_incomeVerified` = annual_income_th_cent * verified\n  )"
+  },
+  {
+    "objectID": "slides/09-mlr-predictors.html#looking-forward",
+    "href": "slides/09-mlr-predictors.html#looking-forward",
+    "title": "MLR: Types of predictors",
+    "section": "Looking forward",
+    "text": "Looking forward\nFeature engineering, with recipes (from tidymodels):\n\nloan_rec <- recipe( ~ ., data = loan50) |>\n  # 1. rescale income\n  step_mutate(annual_income_th = annual_income / 1000) |>\n  # 2. mean-center quantitative predictors\n  step_center(all_numeric_predictors()) |>\n  # 3. create dummy variables for verified_income\n  step_dummy(verified_income) |>\n  # 4. create interaction variables\n  step_interact(terms = ~ annual_income_th:verified_income)"
+  },
+  {
+    "objectID": "slides/09-mlr-predictors.html#recipe",
+    "href": "slides/09-mlr-predictors.html#recipe",
+    "title": "MLR: Types of predictors",
+    "section": "Recipe",
+    "text": "Recipe\n\nloan_rec\n\nRecipe\n\nInputs:\n\n      role #variables\n predictor         24\n\nOperations:\n\nVariable mutation for annual_income / 1000\nCentering for all_numeric_predictors()\nDummy variables from verified_income\nInteractions with annual_income_th:verified_income\n\n\n\n\n\n🔗 Week 05"
   },
   {
     "objectID": "slides/lab-01.html#computing-toolkit-for-reproducibility",

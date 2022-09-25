@@ -268,12 +268,12 @@ $$
 ```{r}
 #| echo: false
 
-price_fit <- linear_reg() %>%
-  set_engine("lm") %>%
+price_fit <- linear_reg() |>
+  set_engine("lm") |>
   fit(sale_price ~ bedrooms + bathrooms + living_area + lot_size +
         year_built + property_tax, data = levittown)
 
-tidy(price_fit) %>%
+tidy(price_fit) |>
   kable(digits = 3)
 ```
 

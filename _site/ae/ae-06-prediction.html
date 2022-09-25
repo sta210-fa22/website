@@ -6,10 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Sep 26 - 30">
-<meta name="description" content="Exam 01">
+<meta name="dcterms.date" content="2022-09-26">
 
-<title>STA 210 - Fall 2022 - Week 05</title>
+<title>STA 210 - Fall 2022 - AE 06: Prediction for MLR</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -17,6 +16,69 @@ span.underline{text-decoration: underline;}
 div.column{display: inline-block; vertical-align: top; width: 50%;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -27,8 +89,6 @@ ul.task-list{list-style: none;}
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../weeks/week-06.html" rel="next">
-<link href="../weeks/week-04.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -67,7 +127,7 @@ ul.task-list{list-style: none;}
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Week 05</h1>
+      <h1 class="quarto-secondary-nav-title">AE 06: Prediction for MLR</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -119,12 +179,12 @@ ul.task-list{list-style: none;}
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Schedule</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">Schedule</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../schedule.html" class="sidebar-item-text sidebar-link">Full schedule</a>
@@ -152,7 +212,7 @@ ul.task-list{list-style: none;}
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../weeks/week-05.html" class="sidebar-item-text sidebar-link active">Week 05</a>
+  <a href="../weeks/week-05.html" class="sidebar-item-text sidebar-link">Week 05</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -256,21 +316,34 @@ ul.task-list{list-style: none;}
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#prepare" id="toc-prepare" class="nav-link active" data-scroll-target="#prepare">Prepare</a></li>
-  <li><a href="#participate" id="toc-participate" class="nav-link" data-scroll-target="#participate">Participate</a></li>
-  <li><a href="#practice" id="toc-practice" class="nav-link" data-scroll-target="#practice">Practice</a></li>
-  <li><a href="#perform" id="toc-perform" class="nav-link" data-scroll-target="#perform">Perform</a></li>
+  <li><a href="#linear-model" id="toc-linear-model" class="nav-link active" data-scroll-target="#linear-model">Linear model</a></li>
+  <li><a href="#prediction" id="toc-prediction" class="nav-link" data-scroll-target="#prediction">Prediction</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/sta210-fa22/website/edit/main/weeks/week-05.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/sta210-fa22/website/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/sta210-fa22/website/edit/main/ae/ae-06-prediction.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/sta210-fa22/website/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header">
-<h1 class="title d-none d-lg-block display-7">Week 05</h1>
-<p class="subtitle lead">MLR: Types of Predictors</p>
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">AE 06: Prediction for MLR</h1>
+<p class="subtitle lead">Houses in Levittown</p>
+</div>
 
-<p class="author">Sep 26 - 30</p>
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 26, 2022</p>
+    </div>
+  </div>
+    
+  </div>
+  
 
 </header>
 
@@ -284,72 +357,155 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>Announcements:</strong></p>
-<ul>
-<li>No labs this week - work on Exam 01</li>
-<li>No office hours Wed - Fri</li>
-<li>No Ed Discussion Wed - Fri</li>
-</ul>
-<p><strong>Due dates:</strong></p>
-<ul>
-<li>AE 06: due Thu, Sep 29, 11:59pm</li>
-<li>Exam 01: Wed, Sep 28 - Fri, Sep 30 at 11:59pm</li>
-</ul>
+<p>Go to the <a href="https://github.com/sta210-fa22">course GitHub organization</a> and locate your <code>ae-06</code>- to get started.</p>
+<p>The AE is due on GitHub by Thursday, September 29 at 11:59pm.</p>
 </div>
 </div>
-<section id="prepare" class="level1">
-<h1>Prepare</h1>
-<p>No readings this week.</p>
-</section>
-<section id="participate" class="level1">
-<h1>Participate</h1>
-<table class="table">
-<colgroup>
-<col style="width: 60%">
-<col style="width: 40%">
-</colgroup>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(GGally)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The data set contains the sales price and characteristics of 85 homes in Levittown, NY that sold between June 2010 and May 2011. Levittown was built right after WWII and was the first planned suburban community built using mass production techniques.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>levittown <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/homeprices.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The variables used in this analysis are</p>
+<ul>
+<li><code>bedrooms</code>: Number of bedrooms</li>
+<li><code>bathrooms</code>: Number of bathrooms</li>
+<li><code>living_area</code>: Total living area of the house (in square feet)</li>
+<li><code>lot_size</code>: Total area of the lot (in square feet)</li>
+<li><code>year_built</code>: Year the house was built</li>
+<li><code>property_tax</code>: Annual property taxes (in USD)</li>
+<li><code>sale_price</code>: Sales price (in USD)</li>
+</ul>
+<p>The goal of the analysis is to use the characteristics of a house to understand variability in the sales price.</p>
+<section id="linear-model" class="level2">
+<h2 class="anchored" data-anchor-id="linear-model">Linear model</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>price_fit <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">|&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(sale_price <span class="sc">~</span> bedrooms <span class="sc">+</span> bathrooms <span class="sc">+</span> living_area <span class="sc">+</span> lot_size <span class="sc">+</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>        year_built <span class="sc">+</span> property_tax, <span class="at">data =</span> levittown)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(price_fit) <span class="sc">|&gt;</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped">
 <thead>
 <tr class="header">
-<th>Topic</th>
-<th>Date</th>
+<th style="text-align: left;">term</th>
+<th style="text-align: right;">estimate</th>
+<th style="text-align: right;">std.error</th>
+<th style="text-align: right;">statistic</th>
+<th style="text-align: right;">p.value</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>💻 <a href="../slides/09-mlr-predictors.html">MLR: Types of predictors</a></td>
-<td>Sep 26</td>
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">-7148818.957</td>
+<td style="text-align: right;">3820093.694</td>
+<td style="text-align: right;">-1.871</td>
+<td style="text-align: right;">0.065</td>
 </tr>
 <tr class="even">
-<td>💻 Exam 01 review</td>
-<td>Sep 28</td>
+<td style="text-align: left;">bedrooms</td>
+<td style="text-align: right;">-12291.011</td>
+<td style="text-align: right;">9346.727</td>
+<td style="text-align: right;">-1.315</td>
+<td style="text-align: right;">0.192</td>
 </tr>
-</tbody>
-</table>
-</section>
-<section id="practice" class="level1">
-<h1>Practice</h1>
-<p><a href="../ae/ae-06-prediction.html">AE 06: MLR Prediction</a></p>
-</section>
-<section id="perform" class="level1">
-<h1>Perform</h1>
-<table class="table">
-<colgroup>
-<col style="width: 60%">
-<col style="width: 40%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Assignment</th>
-<th>Due date</th>
-</tr>
-</thead>
-<tbody>
 <tr class="odd">
-<td>📝 Exam 01</td>
-<td>Fri, Sep 30, 11:59pm</td>
+<td style="text-align: left;">bathrooms</td>
+<td style="text-align: right;">51699.236</td>
+<td style="text-align: right;">13094.170</td>
+<td style="text-align: right;">3.948</td>
+<td style="text-align: right;">0.000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">living_area</td>
+<td style="text-align: right;">65.903</td>
+<td style="text-align: right;">15.979</td>
+<td style="text-align: right;">4.124</td>
+<td style="text-align: right;">0.000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">lot_size</td>
+<td style="text-align: right;">-0.897</td>
+<td style="text-align: right;">4.194</td>
+<td style="text-align: right;">-0.214</td>
+<td style="text-align: right;">0.831</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">year_built</td>
+<td style="text-align: right;">3760.898</td>
+<td style="text-align: right;">1962.504</td>
+<td style="text-align: right;">1.916</td>
+<td style="text-align: right;">0.059</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">property_tax</td>
+<td style="text-align: right;">1.476</td>
+<td style="text-align: right;">2.832</td>
+<td style="text-align: right;">0.521</td>
+<td style="text-align: right;">0.604</td>
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+</section>
+<section id="prediction" class="level2">
+<h2 class="anchored" data-anchor-id="prediction">Prediction</h2>
+<p>What is the predicted sale price for an individual house in Levittown, NY with 4 bedrooms, 2 bathrooms, 1,000 square feet of living area, 6,000 square foot lot size, built in 1947 with $7,403 in property taxes?</p>
+<p>Report the predicted value and appropriate interval.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Fill in the code, then make <code>#| eval: true</code> before rendering the document.</p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create tibble for new observation </span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>new_house <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">bedrooms =</span> ____, </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">bathrooms =</span> ____, </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  _____</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># prediction + interval</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="fu">prediction</span>(_________)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Interpret the interval in the context of the data.</li>
+</ul>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>To submit the AE:</p>
+<ul>
+<li>Render the document to produce the PDF with all of your work from today’s class.</li>
+<li>Push all your work to your <code>ae-06-</code> repo on GitHub. (You do not submit AEs on Gradescope).</li>
+</ul>
+</div>
+</div>
 
 
 </section>
@@ -452,18 +608,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../weeks/week-04.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Week 04</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="../weeks/week-06.html" class="pagination-link">
-        <span class="nav-page-text">Week 06</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

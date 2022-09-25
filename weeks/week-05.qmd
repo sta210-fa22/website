@@ -17,7 +17,7 @@ title-block-style: none
 
 **Due dates:**
 
--   AE 06: due Sat, Sep 24, 11:59pm
+-   AE 06: due Thu, Sep 29, 11:59pm
 -   Exam 01: Wed, Sep 28 - Fri, Sep 30 at 11:59pm
 :::
 

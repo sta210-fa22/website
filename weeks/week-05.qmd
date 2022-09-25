@@ -37,7 +37,7 @@ No readings this week.
 
 # Practice
 
-[AE 06: MLR Prediction](../ae/ae-06-prediction.qmd)
+[AE 06: Prediction for MLR](../ae/ae-06-prediction.qmd)
 
 # Perform
 

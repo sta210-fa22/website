@@ -41,19 +41,19 @@ knitr::opts_chunk$set(
 
 ## Announcements - UPDATE
 
--   Lab 02 due
+-   Lab 03 due
 
     -   Today at 11:59pm (Thursday labs)
 
-    -   Tue, Sep 20 at 11:59pm (Friday labs)
+    -   Tue, Sep 27 at 11:59pm (Friday labs)
 
--   HW 01: due Wed, Sep 21 at 11:59pm
+-   Exam 01: Sep 28 - 30
 
--   [Statistics experience](https://sta210-fa22.netlify.app/hw/stats-experience.html) - due Fri, Dec 09 at 11:59pm
+    -   Exam 01 review on Sep 28
 
--   Lab 01 solutions posted in Resources folder in Sakai
+    -   [Videos for Weeks 01 - 05](https://prodduke-my.sharepoint.com/:x:/g/personal/mt324_duke_edu/EfXF6q4ev7dNq53PBcDetSgBrNry2EB85vWv2xrUzGahbg?e=i3gLl6) available until Sep 28 at 11:59pm
 
--   See [Week 04](https://sta210-fa22.netlify.app/weeks/week-04.html) for this week's activities.
+-   See [Week 05](https://sta210-fa22.netlify.app/weeks/week-05.html) for this week's activities.
 
 ## Topics
 

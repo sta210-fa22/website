@@ -1,6 +1,6 @@
 ---
 title: "Week 05"
-subtitle: "Model comparsion"
+subtitle: "MLR: Types of Predictors"
 description: "Exam 01"
 author: "Sep 26 - 30"
 date: ""
@@ -8,10 +8,41 @@ tbl-colwidths: [60,40]
 title-block-style: none
 ---
 
+::: callout-important
+**Announcements:**
+
+-   No labs this week  - work on Exam 01
+-   No office hours Wed - Fri
+-   No Ed Discussion Wed - Fri
+
+**Due dates:**
+
+-   AE 06: due Sat, Sep 24, 11:59pm
+-   Exam 01: Wed, Sep 28 - Fri, Sep 30 at 11:59pm
+:::
+
 # Prepare
+
+No readings this week.
 
 # Participate
 
++---------------------------------------------------+--------------+
+| Topic                                             | Date         |
++===================================================+==============+
+| 💻 MLR: Types of predictors                       | Sep 26       |
++---------------------------------------------------+--------------+
+| 💻 Exam 01 review                                 | Sep 28       |
++---------------------------------------------------+--------------+
+
 # Practice
 
+AE 06: MLR Prediction
+
 # Perform
+
++--------------------------------------------+-------------------------+
+| Assignment                                 | Due date                |
++============================================+=========================+
+| 📝 Exam 01                                 | Fri, Sep 30, 11:59pm    |
++--------------------------------------------+-------------------------+

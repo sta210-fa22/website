@@ -16,7 +16,6 @@ The AE is due on GitHub by Thursday, September 29 at 11:59pm.
 library(tidyverse)
 library(tidymodels)
 library(knitr)
-library(GGally)
 ```
 
 The data set contains the sales price and characteristics of 85 homes in Levittown, NY that sold between June 2010 and May 2011. Levittown was built right after WWII and was the first planned suburban community built using mass production techniques.

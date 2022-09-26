@@ -2237,7 +2237,7 @@
     "href": "slides/08-slr-conditions.html#linearity",
     "title": "SLR: Conditions",
     "section": "Linearity",
-    "text": "Linearity\n✅ The residuals vs. fitted values plot should not show a random scatter of residuals (no distinguishable pattern or structure)"
+    "text": "Linearity\n✅ The residuals vs. fitted values plot should show a random scatter of residuals (no distinguishable pattern or structure)"
   },
   {
     "objectID": "slides/08-slr-conditions.html#residuals-vs.-fitted-values-code",

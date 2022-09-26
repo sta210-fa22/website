@@ -170,7 +170,7 @@ ggplot(dat, aes(x, y)) +
 
 ## Linearity
 
-✅ The residuals vs. fitted values plot should not show a random scatter of residuals (no distinguishable pattern or structure)
+✅ The residuals vs. fitted values plot should show a random scatter of residuals (no distinguishable pattern or structure)
 
 ```{r res-vs-fit}
 #| echo: false

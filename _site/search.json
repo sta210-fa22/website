@@ -819,11 +819,11 @@
     "text": "Recap\n\n\nIntroduced multiple linear regression\nInterpreted a coefficient \\(\\hat{\\beta}_j\\)\nUsed the model to calculate predicted values and the corresponding intervals\n\n\n\n\n\n🔗 Week 04"
   },
   {
-    "objectID": "slides/09-mlr-predictors.html#announcements---update",
-    "href": "slides/09-mlr-predictors.html#announcements---update",
+    "objectID": "slides/09-mlr-predictors.html#announcements",
+    "href": "slides/09-mlr-predictors.html#announcements",
     "title": "MLR: Types of predictors",
-    "section": "Announcements - UPDATE",
-    "text": "Announcements - UPDATE\n\nLab 03 due\n\nToday at 11:59pm (Thursday labs)\nTue, Sep 27 at 11:59pm (Friday labs)\n\nExam 01: Sep 28 - 30\n\nExam 01 review on Sep 28\nVideos for Weeks 01 - 05 available until Sep 28 at 11:59pm\n\nSee Week 05 for this week’s activities."
+    "section": "Announcements",
+    "text": "Announcements\n\nLab 03 due\n\nToday at 11:59pm (Thursday labs)\nTue, Sep 27 at 11:59pm (Friday labs)\n\nExam 01: Sep 28 - 30\n\nExam 01 review on Sep 28\nVideos for Weeks 01 - 05 available until Sep 28 at 11:59pm\n\nSee Week 05 for this week’s activities."
   },
   {
     "objectID": "slides/09-mlr-predictors.html#topics",

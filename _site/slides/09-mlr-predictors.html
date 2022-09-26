@@ -644,8 +644,6 @@
 <h2>Data: Peer-to-peer lender</h2>
 <p>Today’s data is a sample of 50 loans made through a peer-to-peer lending club. The data is in the <code>loan50</code> data frame in the <strong>openintro</strong> R package.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>loan50 <span class="sc">|&gt;</span></span>
-<span id="cb12-2"><a href="#cb12-2"></a>  <span class="fu">select</span>(annual_income, debt_to_income, verified_income, interest_rate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 50 × 4
    annual_income debt_to_income verified_income interest_rate
@@ -679,7 +677,7 @@
 <section id="outcome-interest_rate" class="slide level2">
 <h2>Outcome: <code>interest_rate</code></h2>
 
-<img data-src="09-mlr-predictors_files/figure-revealjs/unnamed-chunk-9-1.png" style="width:80.0%" class="r-stretch quarto-figure-center"><div class="cell" data-layout-align="center">
+<img data-src="09-mlr-predictors_files/figure-revealjs/unnamed-chunk-9-1.png" width="3000" class="r-stretch quarto-figure-center"><div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 
 <table>
@@ -707,31 +705,31 @@
 <section id="predictors" class="slide level2 small">
 <h2>Predictors</h2>
 
-<img data-src="09-mlr-predictors_files/figure-revealjs/unnamed-chunk-11-1.png" style="width:80.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="09-mlr-predictors_files/figure-revealjs/unnamed-chunk-11-1.png" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="data-manipulation-1-rescale-income" class="slide level2">
 <h2>Data manipulation 1: Rescale income</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>loan50 <span class="ot">&lt;-</span> loan50 <span class="sc">|&gt;</span></span>
-<span id="cb14-2"><a href="#cb14-2"></a>  <span class="fu">mutate</span>(<span class="at">annual_income_th =</span> annual_income <span class="sc">/</span> <span class="dv">1000</span>)</span>
-<span id="cb14-3"><a href="#cb14-3"></a></span>
-<span id="cb14-4"><a href="#cb14-4"></a><span class="fu">ggplot</span>(loan50, <span class="fu">aes</span>(<span class="at">x =</span> annual_income_th)) <span class="sc">+</span></span>
-<span id="cb14-5"><a href="#cb14-5"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">20</span>) <span class="sc">+</span></span>
-<span id="cb14-6"><a href="#cb14-6"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Annual income (in $1000s)"</span>, </span>
-<span id="cb14-7"><a href="#cb14-7"></a>       <span class="at">x =</span> <span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>loan50 <span class="ot">&lt;-</span> loan50 <span class="sc">|&gt;</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a>  <span class="fu">mutate</span>(<span class="at">annual_income_th =</span> annual_income <span class="sc">/</span> <span class="dv">1000</span>)</span>
+<span id="cb13-3"><a href="#cb13-3"></a></span>
+<span id="cb13-4"><a href="#cb13-4"></a><span class="fu">ggplot</span>(loan50, <span class="fu">aes</span>(<span class="at">x =</span> annual_income_th)) <span class="sc">+</span></span>
+<span id="cb13-5"><a href="#cb13-5"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">20</span>) <span class="sc">+</span></span>
+<span id="cb13-6"><a href="#cb13-6"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Annual income (in $1000s)"</span>, </span>
+<span id="cb13-7"><a href="#cb13-7"></a>       <span class="at">x =</span> <span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="09-mlr-predictors_files/figure-revealjs/unnamed-chunk-12-1.png" style="width:80.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="09-mlr-predictors_files/figure-revealjs/unnamed-chunk-12-1.png" width="3000" class="r-stretch quarto-figure-center"></section>
 <section id="outcome-vs.-predictors" class="slide level2 small">
 <h2>Outcome vs.&nbsp;predictors</h2>
 
-<img data-src="09-mlr-predictors_files/figure-revealjs/unnamed-chunk-13-1.png" style="width:80.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="09-mlr-predictors_files/figure-revealjs/unnamed-chunk-13-1.png" width="3000" class="r-stretch quarto-figure-center"></section>
 <section id="fit-regression-model" class="slide level2">
 <h2>Fit regression model</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>int_fit <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">|&gt;</span></span>
-<span id="cb15-2"><a href="#cb15-2"></a>  <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb15-3"><a href="#cb15-3"></a>  <span class="fu">fit</span>(interest_rate <span class="sc">~</span> debt_to_income <span class="sc">+</span> verified_income  <span class="sc">+</span> annual_income_th,</span>
-<span id="cb15-4"><a href="#cb15-4"></a>      <span class="at">data =</span> loan50)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>int_fit <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">|&gt;</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a>  <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb14-3"><a href="#cb14-3"></a>  <span class="fu">fit</span>(interest_rate <span class="sc">~</span> debt_to_income <span class="sc">+</span> verified_income  <span class="sc">+</span> annual_income_th,</span>
+<span id="cb14-4"><a href="#cb14-4"></a>      <span class="at">data =</span> loan50)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="summarize-model-results" class="slide level2 midi">
@@ -826,17 +824,17 @@
 <section id="data-manipulation-2-mean-center-numeric-predictors" class="slide level2">
 <h2>Data manipulation 2: Mean-center numeric predictors</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>loan50 <span class="ot">&lt;-</span> loan50 <span class="sc">|&gt;</span></span>
-<span id="cb16-2"><a href="#cb16-2"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb16-3"><a href="#cb16-3"></a>    <span class="at">debt_inc_cent =</span> debt_to_income <span class="sc">-</span> <span class="fu">mean</span>(debt_to_income), </span>
-<span id="cb16-4"><a href="#cb16-4"></a>    <span class="at">annual_income_th_cent =</span> annual_income_th <span class="sc">-</span> <span class="fu">mean</span>(annual_income_th)</span>
-<span id="cb16-5"><a href="#cb16-5"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>loan50 <span class="ot">&lt;-</span> loan50 <span class="sc">|&gt;</span></span>
+<span id="cb15-2"><a href="#cb15-2"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb15-3"><a href="#cb15-3"></a>    <span class="at">debt_inc_cent =</span> debt_to_income <span class="sc">-</span> <span class="fu">mean</span>(debt_to_income), </span>
+<span id="cb15-4"><a href="#cb15-4"></a>    <span class="at">annual_income_th_cent =</span> annual_income_th <span class="sc">-</span> <span class="fu">mean</span>(annual_income_th)</span>
+<span id="cb15-5"><a href="#cb15-5"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="visualize-mean-centered-predictors" class="slide level2">
 <h2>Visualize mean-centered predictors</h2>
 
-<img data-src="09-mlr-predictors_files/figure-revealjs/unnamed-chunk-17-1.png" style="width:80.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="09-mlr-predictors_files/figure-revealjs/unnamed-chunk-17-1.png" width="3000" class="r-stretch quarto-figure-center"></section>
 <section id="using-mean-centered-variables-in-the-model" class="slide level2 smaller">
 <h2>Using mean-centered variables in the model</h2>
 <div class="question">
@@ -1011,12 +1009,12 @@
 <section id="data-manipulation-3-create-indicator-variables-for-verified_income" class="slide level2">
 <h2>Data manipulation 3: Create indicator variables for <code>verified_income</code></h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>loan50 <span class="ot">&lt;-</span> loan50 <span class="sc">|&gt;</span></span>
-<span id="cb17-2"><a href="#cb17-2"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb17-3"><a href="#cb17-3"></a>    <span class="at">not_verified =</span> <span class="fu">if_else</span>(verified_income <span class="sc">==</span> <span class="st">"Not Verified"</span>, <span class="dv">1</span>, <span class="dv">0</span>),</span>
-<span id="cb17-4"><a href="#cb17-4"></a>    <span class="at">source_verified =</span> <span class="fu">if_else</span>(verified_income <span class="sc">==</span> <span class="st">"Source Verified"</span>, <span class="dv">1</span>, <span class="dv">0</span>),</span>
-<span id="cb17-5"><a href="#cb17-5"></a>    <span class="at">verified =</span> <span class="fu">if_else</span>(verified_income <span class="sc">==</span> <span class="st">"Verified"</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
-<span id="cb17-6"><a href="#cb17-6"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>loan50 <span class="ot">&lt;-</span> loan50 <span class="sc">|&gt;</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb16-3"><a href="#cb16-3"></a>    <span class="at">not_verified =</span> <span class="fu">if_else</span>(verified_income <span class="sc">==</span> <span class="st">"Not Verified"</span>, <span class="dv">1</span>, <span class="dv">0</span>),</span>
+<span id="cb16-4"><a href="#cb16-4"></a>    <span class="at">source_verified =</span> <span class="fu">if_else</span>(verified_income <span class="sc">==</span> <span class="st">"Source Verified"</span>, <span class="dv">1</span>, <span class="dv">0</span>),</span>
+<span id="cb16-5"><a href="#cb16-5"></a>    <span class="at">verified =</span> <span class="fu">if_else</span>(verified_income <span class="sc">==</span> <span class="st">"Verified"</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb16-6"><a href="#cb16-6"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <div class="cell" data-layout-align="center">
@@ -1041,9 +1039,9 @@
 </ul>
 <div class="fragment">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>loan50 <span class="sc">|&gt;</span></span>
-<span id="cb19-2"><a href="#cb19-2"></a>  <span class="fu">select</span>(verified_income, source_verified, verified) <span class="sc">|&gt;</span></span>
-<span id="cb19-3"><a href="#cb19-3"></a>  <span class="fu">slice</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>loan50 <span class="sc">|&gt;</span></span>
+<span id="cb18-2"><a href="#cb18-2"></a>  <span class="fu">select</span>(verified_income, source_verified, verified) <span class="sc">|&gt;</span></span>
+<span id="cb18-3"><a href="#cb18-3"></a>  <span class="fu">slice</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 3
   verified_income source_verified verified
@@ -1150,15 +1148,15 @@
 <h2>Interest rate vs.&nbsp;annual income</h2>
 <p>The lines are not parallel indicating there is an <strong>interaction effect</strong>. The slope of annual income differs based on the income verification.</p>
 
-<img data-src="09-mlr-predictors_files/figure-revealjs/unnamed-chunk-25-1.png" style="width:80.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="09-mlr-predictors_files/figure-revealjs/unnamed-chunk-25-1.png" width="3000" class="r-stretch quarto-figure-center"></section>
 <section id="interaction-term-in-model" class="slide level2 smaller">
 <h2>Interaction term in model</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>int_cent_int_fit <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">|&gt;</span></span>
-<span id="cb21-2"><a href="#cb21-2"></a>  <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb21-3"><a href="#cb21-3"></a>  <span class="fu">fit</span>(interest_rate <span class="sc">~</span> debt_inc_cent  <span class="sc">+</span>  debt_inc_cent <span class="sc">+</span> </span>
-<span id="cb21-4"><a href="#cb21-4"></a>        annual_income_th_cent <span class="sc">+</span> verified_income <span class="sc">*</span> annual_income_th_cent,</span>
-<span id="cb21-5"><a href="#cb21-5"></a>      <span class="at">data =</span> loan50)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>int_cent_int_fit <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">|&gt;</span></span>
+<span id="cb20-2"><a href="#cb20-2"></a>  <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb20-3"><a href="#cb20-3"></a>  <span class="fu">fit</span>(interest_rate <span class="sc">~</span> debt_inc_cent  <span class="sc">+</span>  debt_inc_cent <span class="sc">+</span> </span>
+<span id="cb20-4"><a href="#cb20-4"></a>        annual_income_th_cent <span class="sc">+</span> verified_income <span class="sc">*</span> annual_income_th_cent,</span>
+<span id="cb20-5"><a href="#cb20-5"></a>      <span class="at">data =</span> loan50)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -1272,42 +1270,42 @@ $ `annual_income_th_cent:verified_incomeVerified`        &lt;dbl&gt; 0.00, 0.00,
 <h2>Looking backward</h2>
 <p>Data manipulation, with <strong>dplyr</strong> (from <strong>tidyverse</strong>):</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>loan50 <span class="sc">|&gt;</span></span>
-<span id="cb23-2"><a href="#cb23-2"></a>  <span class="fu">select</span>(interest_rate, annual_income, debt_to_income, verified_income) <span class="sc">|&gt;</span></span>
-<span id="cb23-3"><a href="#cb23-3"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb23-4"><a href="#cb23-4"></a>    <span class="co"># 1. rescale income</span></span>
-<span id="cb23-5"><a href="#cb23-5"></a>    <span class="at">annual_income_th =</span> annual_income <span class="sc">/</span> <span class="dv">1000</span>,</span>
-<span id="cb23-6"><a href="#cb23-6"></a>    <span class="co"># 2. mean-center quantitative predictors</span></span>
-<span id="cb23-7"><a href="#cb23-7"></a>    <span class="at">debt_inc_cent =</span> debt_to_income <span class="sc">-</span> <span class="fu">mean</span>(debt_to_income),</span>
-<span id="cb23-8"><a href="#cb23-8"></a>    <span class="at">annual_income_th_cent =</span> annual_income_th <span class="sc">-</span> <span class="fu">mean</span>(annual_income_th),</span>
-<span id="cb23-9"><a href="#cb23-9"></a>    <span class="co"># 3. create dummy variables for verified_income</span></span>
-<span id="cb23-10"><a href="#cb23-10"></a>    <span class="at">source_verified =</span> <span class="fu">if_else</span>(verified_income <span class="sc">==</span> <span class="st">"Source Verified"</span>, <span class="dv">1</span>, <span class="dv">0</span>),</span>
-<span id="cb23-11"><a href="#cb23-11"></a>    <span class="at">verified =</span> <span class="fu">if_else</span>(verified_income <span class="sc">==</span> <span class="st">"Verified"</span>, <span class="dv">1</span>, <span class="dv">0</span>),</span>
-<span id="cb23-12"><a href="#cb23-12"></a>    <span class="co"># 4. create interaction variables</span></span>
-<span id="cb23-13"><a href="#cb23-13"></a>    <span class="st">`</span><span class="at">annual_income_th_cent:verified_incomeSource Verified</span><span class="st">`</span> <span class="ot">=</span> annual_income_th_cent <span class="sc">*</span> source_verified,</span>
-<span id="cb23-14"><a href="#cb23-14"></a>    <span class="st">`</span><span class="at">annual_income_th_cent:verified_incomeVerified</span><span class="st">`</span> <span class="ot">=</span> annual_income_th_cent <span class="sc">*</span> verified</span>
-<span id="cb23-15"><a href="#cb23-15"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>loan50 <span class="sc">|&gt;</span></span>
+<span id="cb22-2"><a href="#cb22-2"></a>  <span class="fu">select</span>(interest_rate, annual_income, debt_to_income, verified_income) <span class="sc">|&gt;</span></span>
+<span id="cb22-3"><a href="#cb22-3"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb22-4"><a href="#cb22-4"></a>    <span class="co"># 1. rescale income</span></span>
+<span id="cb22-5"><a href="#cb22-5"></a>    <span class="at">annual_income_th =</span> annual_income <span class="sc">/</span> <span class="dv">1000</span>,</span>
+<span id="cb22-6"><a href="#cb22-6"></a>    <span class="co"># 2. mean-center quantitative predictors</span></span>
+<span id="cb22-7"><a href="#cb22-7"></a>    <span class="at">debt_inc_cent =</span> debt_to_income <span class="sc">-</span> <span class="fu">mean</span>(debt_to_income),</span>
+<span id="cb22-8"><a href="#cb22-8"></a>    <span class="at">annual_income_th_cent =</span> annual_income_th <span class="sc">-</span> <span class="fu">mean</span>(annual_income_th),</span>
+<span id="cb22-9"><a href="#cb22-9"></a>    <span class="co"># 3. create dummy variables for verified_income</span></span>
+<span id="cb22-10"><a href="#cb22-10"></a>    <span class="at">source_verified =</span> <span class="fu">if_else</span>(verified_income <span class="sc">==</span> <span class="st">"Source Verified"</span>, <span class="dv">1</span>, <span class="dv">0</span>),</span>
+<span id="cb22-11"><a href="#cb22-11"></a>    <span class="at">verified =</span> <span class="fu">if_else</span>(verified_income <span class="sc">==</span> <span class="st">"Verified"</span>, <span class="dv">1</span>, <span class="dv">0</span>),</span>
+<span id="cb22-12"><a href="#cb22-12"></a>    <span class="co"># 4. create interaction variables</span></span>
+<span id="cb22-13"><a href="#cb22-13"></a>    <span class="st">`</span><span class="at">annual_income_th_cent:verified_incomeSource Verified</span><span class="st">`</span> <span class="ot">=</span> annual_income_th_cent <span class="sc">*</span> source_verified,</span>
+<span id="cb22-14"><a href="#cb22-14"></a>    <span class="st">`</span><span class="at">annual_income_th_cent:verified_incomeVerified</span><span class="st">`</span> <span class="ot">=</span> annual_income_th_cent <span class="sc">*</span> verified</span>
+<span id="cb22-15"><a href="#cb22-15"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="looking-forward" class="slide level2 small">
 <h2>Looking forward</h2>
 <p><strong>Feature engineering</strong>, with <strong>recipes</strong> (from <strong>tidymodels</strong>):</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>loan_rec <span class="ot">&lt;-</span> <span class="fu">recipe</span>( <span class="sc">~</span> ., <span class="at">data =</span> loan50) <span class="sc">|&gt;</span></span>
-<span id="cb24-2"><a href="#cb24-2"></a>  <span class="co"># 1. rescale income</span></span>
-<span id="cb24-3"><a href="#cb24-3"></a>  <span class="fu">step_mutate</span>(<span class="at">annual_income_th =</span> annual_income <span class="sc">/</span> <span class="dv">1000</span>) <span class="sc">|&gt;</span></span>
-<span id="cb24-4"><a href="#cb24-4"></a>  <span class="co"># 2. mean-center quantitative predictors</span></span>
-<span id="cb24-5"><a href="#cb24-5"></a>  <span class="fu">step_center</span>(<span class="fu">all_numeric_predictors</span>()) <span class="sc">|&gt;</span></span>
-<span id="cb24-6"><a href="#cb24-6"></a>  <span class="co"># 3. create dummy variables for verified_income</span></span>
-<span id="cb24-7"><a href="#cb24-7"></a>  <span class="fu">step_dummy</span>(verified_income) <span class="sc">|&gt;</span></span>
-<span id="cb24-8"><a href="#cb24-8"></a>  <span class="co"># 4. create interaction variables</span></span>
-<span id="cb24-9"><a href="#cb24-9"></a>  <span class="fu">step_interact</span>(<span class="at">terms =</span> <span class="sc">~</span> annual_income_th<span class="sc">:</span>verified_income)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>loan_rec <span class="ot">&lt;-</span> <span class="fu">recipe</span>( <span class="sc">~</span> ., <span class="at">data =</span> loan50) <span class="sc">|&gt;</span></span>
+<span id="cb23-2"><a href="#cb23-2"></a>  <span class="co"># 1. rescale income</span></span>
+<span id="cb23-3"><a href="#cb23-3"></a>  <span class="fu">step_mutate</span>(<span class="at">annual_income_th =</span> annual_income <span class="sc">/</span> <span class="dv">1000</span>) <span class="sc">|&gt;</span></span>
+<span id="cb23-4"><a href="#cb23-4"></a>  <span class="co"># 2. mean-center quantitative predictors</span></span>
+<span id="cb23-5"><a href="#cb23-5"></a>  <span class="fu">step_center</span>(<span class="fu">all_numeric_predictors</span>()) <span class="sc">|&gt;</span></span>
+<span id="cb23-6"><a href="#cb23-6"></a>  <span class="co"># 3. create dummy variables for verified_income</span></span>
+<span id="cb23-7"><a href="#cb23-7"></a>  <span class="fu">step_dummy</span>(verified_income) <span class="sc">|&gt;</span></span>
+<span id="cb23-8"><a href="#cb23-8"></a>  <span class="co"># 4. create interaction variables</span></span>
+<span id="cb23-9"><a href="#cb23-9"></a>  <span class="fu">step_interact</span>(<span class="at">terms =</span> <span class="sc">~</span> annual_income_th<span class="sc">:</span>verified_income)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="recipe" class="slide level2">
 <h2>Recipe</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a>loan_rec</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>loan_rec</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Recipe
 

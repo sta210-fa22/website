@@ -125,7 +125,7 @@ tidy(price_fit) |>
   kable(digits = 3)
 ```
 
-## Prediction  {.midi}
+## Prediction {.midi}
 
 ::: question
 What is the predicted sale price for a house in Levittown, NY with 3 bedrooms, 1 bathroom, 1,050 square feet of living area, 6,000 square foot lot size, built in 1948 with \$6,306 in property taxes?
@@ -320,7 +320,7 @@ int_fit <- linear_reg() |>
       data = loan50)
 ```
 
-## Summarize model results  {.midi}
+## Summarize model results {.midi}
 
 ```{r}
 #| echo: false
@@ -403,7 +403,7 @@ tidy(int_cent_fit, conf.int = T) |>
   kable(digits = 3)
 ```
 
-## Original vs. mean-centered model  {.small}
+## Original vs. mean-centered model {.small}
 
 ::: columns
 ::: {.column width="50%"}
@@ -460,7 +460,7 @@ loan50 |>
   slice(1, 3, 6)
 ```
 
-## Indicators in the model  {.midi}
+## Indicators in the model {.midi}
 
 -   We will use $K-1$ of the indicator variables in the model.
 -   The **baseline** is the category that doesn't have a term in the model.

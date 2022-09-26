@@ -11,7 +11,7 @@ title-block-style: none
 ::: callout-important
 **Announcements:**
 
--   No labs this week  - work on Exam 01
+-   No labs this week - work on Exam 01
 -   No office hours Wed - Fri
 -   No Ed Discussion Wed - Fri
 
@@ -27,13 +27,10 @@ No readings this week.
 
 # Participate
 
-+----------------------------------------------------------------+--------------+
-| Topic                                                          | Date         |
-+================================================================+==============+
-| 💻 [MLR: Types of predictors](../slides/09-mlr-predictors.qmd) | Sep 26       |
-+----------------------------------------------------------------+--------------+
-| 💻 Exam 01 review                                              | Sep 28       |
-+----------------------------------------------------------------+--------------+
+| Topic                                                          | Date   |
+|----------------------------------------------------------------|--------|
+| 💻 [MLR: Types of predictors](../slides/09-mlr-predictors.qmd) | Sep 26 |
+| 💻 Exam 01 review                                              | Sep 28 |
 
 # Practice
 
@@ -41,8 +38,6 @@ No readings this week.
 
 # Perform
 
-+--------------------------------------------+-------------------------+
-| Assignment                                 | Due date                |
-+============================================+=========================+
-| 📝 Exam 01                                 | Fri, Sep 30, 11:59pm    |
-+--------------------------------------------+-------------------------+
+| Assignment | Due date             |
+|------------|----------------------|
+| 📝 Exam 01 | Fri, Sep 30, 11:59pm |

@@ -51,7 +51,7 @@ tidy(price_fit) |>
 
 ## Prediction
 
-What is the predicted sale price for an individual house in Levittown, NY with 4 bedrooms, 2 bathrooms, 1,000 square feet of living area, 6,000 square foot lot size, built in 1947 with \$7,403 in property taxes?
+What is the predicted sale price for an individual house in Levittown, NY with 4 bedrooms, 2 bathrooms, 1,800 square feet of living area, 6,000 square foot lot size, built in 1947 with \$7,403 in property taxes?
 
 Report the predicted value and appropriate interval.
 

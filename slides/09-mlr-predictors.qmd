@@ -577,7 +577,7 @@ model_matrix(framed$terms, framed$data) |>
 
 -   Using interaction terms
 
-## Looking backward {.small}
+## Looking backward {.midi}
 
 Data manipulation, with **dplyr** (from **tidyverse**):
 
@@ -602,7 +602,7 @@ loan50 |>
   )
 ```
 
-## Looking forward {.small}
+## Looking forward {.midi}
 
 **Feature engineering**, with **recipes** (from **tidymodels**):
 

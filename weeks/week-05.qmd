@@ -12,7 +12,8 @@ title-block-style: none
 **Announcements:**
 
 -   No labs this week - work on Exam 01
--   No office hours Wed - Fri
+-   No TA office hours Wed - Fri
+    -   Prof. Tackett office hours Thu 10 - 11am
 -   No Ed Discussion Wed - Fri
 
 **Due dates:**
@@ -30,11 +31,14 @@ No readings this week.
 | Topic                                                          | Date   |
 |----------------------------------------------------------------|--------|
 | 💻 [MLR: Types of predictors](../slides/09-mlr-predictors.qmd) | Sep 26 |
-| 💻 Exam 01 review                                              | Sep 28 |
+| 💻 [Exam 01 review](../slides/10-exam-01-review.qmd)           | Sep 28 |
 
 # Practice
 
-[AE 06: Prediction for MLR](../ae/ae-06-prediction.qmd)
+|                                                             |
+|-------------------------------------------------------------|
+| 📋 [AE 06: Prediction for MLR](../ae/ae-06-prediction.qmd)  |
+| 📋 [AE 07: Exam 01 review](../ae/ae-07-exam-01-review.qmd)  |
 
 # Perform
 

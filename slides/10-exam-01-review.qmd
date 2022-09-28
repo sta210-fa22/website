@@ -52,11 +52,11 @@ knitr::opts_chunk$set(
 
 -   See [Week 05](https://sta210-fa22.netlify.app/weeks/week-05.html) for this week's activities.
 
-## Exam 01 {.midi}
+## Exam 01
 
 -   Released today \~ 7pm (will receive email) and due Friday at 11:59pm
 
--   Exam instructions can be found in the README of the `exam-01` Repo.
+-   Exam instructions can be found in the README of the `exam-01` Repo
 
     -   Exercise prompts will be in `exam-01.qmd`
 
@@ -66,12 +66,12 @@ knitr::opts_chunk$set(
 
     -   Thu, 10 - 11am (Prof. Tackett)
 
--   Any clarification questions for the exam?
+-   Have clarification questions about exam instructions during the exam?
 
     -   Email Prof. Tackett with "STA 210 Exam" in the subject line
 
 # Application Exercise
 
 ::: appex
-📋 [AE 07: Exam 01 Review](../ae/ae-07-exam-01-review.qmd)
+📋 [AE 07: Exam 01 Review](https://sta210-fa22.netlify.app/ae/ae-07-exam-01-review.html)
 :::

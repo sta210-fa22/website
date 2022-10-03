@@ -554,7 +554,7 @@ $ `annual_income_th_cent:verified_incomeVerified`        &lt;dbl&gt; 0.00, 0.00,
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>int_cent_int_fit <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">|&gt;</span></span>
 <span id="cb7-2"><a href="#cb7-2"></a>  <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb7-3"><a href="#cb7-3"></a>  <span class="fu">fit</span>(interest_rate <span class="sc">~</span> debt_inc_cent  <span class="sc">+</span>  debt_inc_cent <span class="sc">+</span> </span>
+<span id="cb7-3"><a href="#cb7-3"></a>  <span class="fu">fit</span>(interest_rate <span class="sc">~</span> debt_inc_cent  <span class="sc">+</span>  verified_income <span class="sc">+</span> </span>
 <span id="cb7-4"><a href="#cb7-4"></a>        annual_income_th_cent <span class="sc">+</span> verified_income <span class="sc">*</span> annual_income_th_cent,</span>
 <span id="cb7-5"><a href="#cb7-5"></a>      <span class="at">data =</span> loan50)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -587,13 +587,6 @@ $ `annual_income_th_cent:verified_incomeVerified`        &lt;dbl&gt; 0.00, 0.00,
    <td style="text-align:right;"> 0.319 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> annual_income_th_cent </td>
-   <td style="text-align:right;"> -0.007 </td>
-   <td style="text-align:right;"> 0.020 </td>
-   <td style="text-align:right;"> -0.341 </td>
-   <td style="text-align:right;"> 0.735 </td>
-  </tr>
-  <tr>
    <td style="text-align:left;"> verified_incomeSource Verified </td>
    <td style="text-align:right;"> 2.157 </td>
    <td style="text-align:right;"> 1.418 </td>
@@ -608,14 +601,21 @@ $ `annual_income_th_cent:verified_incomeVerified`        &lt;dbl&gt; 0.00, 0.00,
    <td style="text-align:right;"> 0.000 </td>
   </tr>
   <tr>
-   <td style="text-align:left;background-color: #dce5b2 !important;"> annual_income_th_cent:verified_incomeSource Verified </td>
+   <td style="text-align:left;"> annual_income_th_cent </td>
+   <td style="text-align:right;"> -0.007 </td>
+   <td style="text-align:right;"> 0.020 </td>
+   <td style="text-align:right;"> -0.341 </td>
+   <td style="text-align:right;"> 0.735 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;background-color: #dce5b2 !important;"> verified_incomeSource Verified:annual_income_th_cent </td>
    <td style="text-align:right;background-color: #dce5b2 !important;"> -0.016 </td>
    <td style="text-align:right;background-color: #dce5b2 !important;"> 0.026 </td>
    <td style="text-align:right;background-color: #dce5b2 !important;"> -0.643 </td>
    <td style="text-align:right;background-color: #dce5b2 !important;"> 0.523 </td>
   </tr>
   <tr>
-   <td style="text-align:left;background-color: #dce5b2 !important;"> annual_income_th_cent:verified_incomeVerified </td>
+   <td style="text-align:left;background-color: #dce5b2 !important;"> verified_incomeVerified:annual_income_th_cent </td>
    <td style="text-align:right;background-color: #dce5b2 !important;"> -0.032 </td>
    <td style="text-align:right;background-color: #dce5b2 !important;"> 0.033 </td>
    <td style="text-align:right;background-color: #dce5b2 !important;"> -0.979 </td>

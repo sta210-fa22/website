@@ -536,8 +536,7 @@ p1 + p2 +
 #| echo: true
 int_cent_int_fit <- linear_reg() |>
   set_engine("lm") |>
-  fit(interest_rate ~ debt_inc_cent  +  debt_inc_cent + 
-        annual_income_th_cent + verified_income * annual_income_th_cent,
+  fit(interest_rate ~ debt_inc_cent + verified_income + annual_income_th_cent + verified_income * annual_income_th_cent,
       data = loan50)
 ```
 

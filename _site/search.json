@@ -137,7 +137,7 @@
     "href": "weeks/week-06.html",
     "title": "Week 06",
     "section": "",
-    "text": "Participate\n\n\nPractice\n\n\nPerform"
+    "text": "Prepare\n\n\n\n\n\n\n\nReading\nCorresponding lecture\n\n\n\n\n📖 Tidy Modeling in R - Chapter 8: Feature engineering with recipes\nOct 05\n\n\n\n\n\nParticipate\n\n\n\n\n\n\n\nTopic\nDate\n\n\n\n\n💻 Feature engineering\nOct 03\n\n\n💻 Modeling workflow\nOct 05\n\n\n\n\n\nPractice\n\n\nPerform\n\n\n\n\n\n\n\nAssignment\nDue date\n\n\n\n\n📝 Lab 04\nWed, Oct 12, 11:59pm (Thu lab)\nThu, Oct 13, 11:59pm (Fri lab)"
   },
   {
     "objectID": "weeks/week-12.html",
@@ -2352,6 +2352,286 @@
     "text": "Recap\nUsed residual plots to check conditions for SLR:\n\n\n\n\nLinearity\nConstant variance\n\n\n\n\n\nNormality\nIndependence\n\n\n\n\n\n\nWhich of these conditions are required for fitting a SLR? Which for simulation-based inference for the slope for an SLR? Which for inference with mathematical models?\n\n\n\n\n03:00\n\n\n\n\n\n\n🔗 Week 04"
   },
   {
+    "objectID": "slides/11-feature-engineering.html#topics",
+    "href": "slides/11-feature-engineering.html#topics",
+    "title": "Feature engineering",
+    "section": "Topics",
+    "text": "Topics\n\nUnderstanding categorical predictors and interaction terms\nFeature engineering"
+  },
+  {
+    "objectID": "slides/11-feature-engineering.html#computational-setup",
+    "href": "slides/11-feature-engineering.html#computational-setup",
+    "title": "Feature engineering",
+    "section": "Computational setup",
+    "text": "Computational setup\n\n# load packages\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(openintro)\nlibrary(patchwork)\nlibrary(knitr)\nlibrary(kableExtra)\nlibrary(colorblindr)\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 20))"
+  },
+  {
+    "objectID": "slides/11-feature-engineering.html#data-peer-to-peer-lender",
+    "href": "slides/11-feature-engineering.html#data-peer-to-peer-lender",
+    "title": "Feature engineering",
+    "section": "Data: Peer-to-peer lender",
+    "text": "Data: Peer-to-peer lender\nToday’s data is a sample of 50 loans made through a peer-to-peer lending club. The data is in the loan50 data frame in the openintro R package.\n\n\n# A tibble: 50 × 4\n   annual_income debt_to_income verified_income interest_rate\n           <dbl>          <dbl> <fct>                   <dbl>\n 1         59000         0.558  Not Verified            10.9 \n 2         60000         1.31   Not Verified             9.92\n 3         75000         1.06   Verified                26.3 \n 4         75000         0.574  Not Verified             9.92\n 5        254000         0.238  Not Verified             9.43\n 6         67000         1.08   Source Verified          9.92\n 7         28800         0.0997 Source Verified         17.1 \n 8         80000         0.351  Not Verified             6.08\n 9         34000         0.698  Not Verified             7.97\n10         80000         0.167  Source Verified         12.6 \n# … with 40 more rows"
+  },
+  {
+    "objectID": "slides/11-feature-engineering.html#variables",
+    "href": "slides/11-feature-engineering.html#variables",
+    "title": "Feature engineering",
+    "section": "Variables",
+    "text": "Variables\nPredictors:\n\n\nannual_income: Annual income\ndebt_to_income: Debt-to-income ratio, i.e. the percentage of a borrower’s total debt divided by their total income\nverified_income: Whether borrower’s income source and amount have been verified (Not Verified, Source Verified, Verified)\n\n\nOutcome: interest_rate: Interest rate for the loan"
+  },
+  {
+    "objectID": "slides/11-feature-engineering.html#outcome-interest_rate",
+    "href": "slides/11-feature-engineering.html#outcome-interest_rate",
+    "title": "Feature engineering",
+    "section": "Outcome: interest_rate",
+    "text": "Outcome: interest_rate\n\n\n\n\n\n \n  \n    min \n    median \n    max \n    iqr \n  \n \n\n  \n    5.31 \n    9.93 \n    26.3 \n    5.755"
+  },
+  {
+    "objectID": "slides/11-feature-engineering.html#predictors",
+    "href": "slides/11-feature-engineering.html#predictors",
+    "title": "Feature engineering",
+    "section": "Predictors",
+    "text": "Predictors"
+  },
+  {
+    "objectID": "slides/11-feature-engineering.html#data-manipulation-1-rescale-income",
+    "href": "slides/11-feature-engineering.html#data-manipulation-1-rescale-income",
+    "title": "Feature engineering",
+    "section": "Data manipulation 1: Rescale income",
+    "text": "Data manipulation 1: Rescale income\n\nloan50 <- loan50 |>\n  mutate(annual_income_th = annual_income / 1000)\n\nggplot(loan50, aes(x = annual_income_th)) +\n  geom_histogram(binwidth = 20) +\n  labs(title = \"Annual income (in $1000s)\", \n       x = \"\")"
+  },
+  {
+    "objectID": "slides/11-feature-engineering.html#data-manipulation-2-mean-center-numeric-predictors",
+    "href": "slides/11-feature-engineering.html#data-manipulation-2-mean-center-numeric-predictors",
+    "title": "Feature engineering",
+    "section": "Data manipulation 2: Mean-center numeric predictors",
+    "text": "Data manipulation 2: Mean-center numeric predictors\n\nloan50 <- loan50 |>\n  mutate(\n    debt_inc_cent = debt_to_income - mean(debt_to_income), \n    annual_income_th_cent = annual_income_th - mean(annual_income_th)\n    )"
+  },
+  {
+    "objectID": "slides/11-feature-engineering.html#data-manipulation-3-create-indicator-variables-for-verified_income",
+    "href": "slides/11-feature-engineering.html#data-manipulation-3-create-indicator-variables-for-verified_income",
+    "title": "Feature engineering",
+    "section": "Data manipulation 3: Create indicator variables for verified_income",
+    "text": "Data manipulation 3: Create indicator variables for verified_income\n\nloan50 <- loan50 |>\n  mutate(\n    not_verified = if_else(verified_income == \"Not Verified\", 1, 0),\n    source_verified = if_else(verified_income == \"Source Verified\", 1, 0),\n    verified = if_else(verified_income == \"Verified\", 1, 0)\n  )"
+  },
+  {
+    "objectID": "slides/11-feature-engineering.html#interest-rate-vs.-annual-income",
+    "href": "slides/11-feature-engineering.html#interest-rate-vs.-annual-income",
+    "title": "Feature engineering",
+    "section": "Interest rate vs. annual income",
+    "text": "Interest rate vs. annual income\nThe lines are not parallel indicating there is an interaction effect. The slope of annual income differs based on the income verification."
+  },
+  {
+    "objectID": "slides/11-feature-engineering.html#data-manipulation-4-create-interaction-variables",
+    "href": "slides/11-feature-engineering.html#data-manipulation-4-create-interaction-variables",
+    "title": "Feature engineering",
+    "section": "Data manipulation 4: Create interaction variables",
+    "text": "Data manipulation 4: Create interaction variables\nDefining the interaction variable in the model formula as verified_income * annual_income_th_cent is an implicit data manipulation step as well\n\n\nRows: 50\nColumns: 9\n$ `(Intercept)`                                          <dbl> 1, 1, 1, 1, 1, …\n$ debt_inc_cent                                          <dbl> -0.16511719, 0.…\n$ annual_income_th_cent                                  <dbl> -27.17, -26.17,…\n$ `verified_incomeNot Verified`                          <dbl> 1, 1, 0, 1, 1, …\n$ `verified_incomeSource Verified`                       <dbl> 0, 0, 0, 0, 0, …\n$ verified_incomeVerified                                <dbl> 0, 0, 1, 0, 0, …\n$ `annual_income_th_cent:verified_incomeNot Verified`    <dbl> -27.17, -26.17,…\n$ `annual_income_th_cent:verified_incomeSource Verified` <dbl> 0.00, 0.00, 0.0…\n$ `annual_income_th_cent:verified_incomeVerified`        <dbl> 0.00, 0.00, -11…"
+  },
+  {
+    "objectID": "slides/11-feature-engineering.html#interaction-term-in-the-model",
+    "href": "slides/11-feature-engineering.html#interaction-term-in-the-model",
+    "title": "Feature engineering",
+    "section": "Interaction term in the model",
+    "text": "Interaction term in the model\n\nint_cent_int_fit <- linear_reg() |>\n  set_engine(\"lm\") |>\n  fit(interest_rate ~ debt_inc_cent  +  debt_inc_cent + \n        annual_income_th_cent + verified_income * annual_income_th_cent,\n      data = loan50)\n\n\n\n\n\n \n  \n    term \n    estimate \n    std.error \n    statistic \n    p.value \n  \n \n\n  \n    (Intercept) \n    9.484 \n    0.989 \n    9.586 \n    0.000 \n  \n  \n    debt_inc_cent \n    0.691 \n    0.685 \n    1.009 \n    0.319 \n  \n  \n    annual_income_th_cent \n    -0.007 \n    0.020 \n    -0.341 \n    0.735 \n  \n  \n    verified_incomeSource Verified \n    2.157 \n    1.418 \n    1.522 \n    0.135 \n  \n  \n    verified_incomeVerified \n    7.181 \n    1.870 \n    3.840 \n    0.000 \n  \n  \n    annual_income_th_cent:verified_incomeSource Verified \n    -0.016 \n    0.026 \n    -0.643 \n    0.523 \n  \n  \n    annual_income_th_cent:verified_incomeVerified \n    -0.032 \n    0.033 \n    -0.979 \n    0.333"
+  },
+  {
+    "objectID": "slides/11-feature-engineering.html#interpreting-interaction-terms",
+    "href": "slides/11-feature-engineering.html#interpreting-interaction-terms",
+    "title": "Feature engineering",
+    "section": "Interpreting interaction terms",
+    "text": "Interpreting interaction terms\n\nWhat the interaction means: The effect of annual income on the interest rate differs by -0.016 when the income is source verified compared to when it is not verified, holding all else constant.\nInterpreting annual_income for source verified: If the income is source verified, we expect the interest rate to decrease by 0.023% (-0.007 + -0.016) for each additional thousand dollars in annual income, holding all else constant."
+  },
+  {
+    "objectID": "slides/11-feature-engineering.html#understanding-the-model",
+    "href": "slides/11-feature-engineering.html#understanding-the-model",
+    "title": "Feature engineering",
+    "section": "Understanding the model",
+    "text": "Understanding the model\n\\[\n\\begin{aligned}\n\\hat{interest\\_rate} &= 9.484 + 0.691 \\times debt\\_inc\\_cent\\\\ &- 0.007 \\times annual\\_income\\_th\\_cent \\\\ &+ 2.157 \\times SourceVerified + 7.181 \\times Verified \\\\ &- 0.016 \\times annual\\_inc\\_th\\_cent \\times SourceVerified\\\\ &- 0.032 \\times annual\\_inc\\_th\\_cent \\times Verified\n\\end{aligned}\n\\]\n\n\nWhat is \\(p\\), the number of non-intercept terms in the model?\nWrite the equation of the model to predict interest rate for applicants with Not Verified income.\nWrite the equation of the model to predict interest rate for applicants with Verified income."
+  },
+  {
+    "objectID": "slides/11-feature-engineering.html#topics-1",
+    "href": "slides/11-feature-engineering.html#topics-1",
+    "title": "Feature engineering",
+    "section": "Topics",
+    "text": "Topics\n\n\nReview: Training and testing splits\nFeature engineering with recipes"
+  },
+  {
+    "objectID": "slides/11-feature-engineering.html#computational-setup-1",
+    "href": "slides/11-feature-engineering.html#computational-setup-1",
+    "title": "Feature engineering",
+    "section": "Computational setup",
+    "text": "Computational setup\n\n# load packages\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(gghighlight)\nlibrary(knitr)\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_minimal(base_size = 20))"
+  },
+  {
+    "objectID": "slides/11-feature-engineering.html#the-office",
+    "href": "slides/11-feature-engineering.html#the-office",
+    "title": "Feature engineering",
+    "section": "The Office",
+    "text": "The Office"
+  },
+  {
+    "objectID": "slides/11-feature-engineering.html#data",
+    "href": "slides/11-feature-engineering.html#data",
+    "title": "Feature engineering",
+    "section": "Data",
+    "text": "Data\nThe data come from data.world, by way of TidyTuesday\n\noffice_ratings <- read_csv(\"data/office_ratings.csv\")\noffice_ratings\n\n# A tibble: 188 × 6\n   season episode title             imdb_rating total_votes air_date  \n    <dbl>   <dbl> <chr>                   <dbl>       <dbl> <date>    \n 1      1       1 Pilot                     7.6        3706 2005-03-24\n 2      1       2 Diversity Day             8.3        3566 2005-03-29\n 3      1       3 Health Care               7.9        2983 2005-04-05\n 4      1       4 The Alliance              8.1        2886 2005-04-12\n 5      1       5 Basketball                8.4        3179 2005-04-19\n 6      1       6 Hot Girl                  7.8        2852 2005-04-26\n 7      2       1 The Dundies               8.7        3213 2005-09-20\n 8      2       2 Sexual Harassment         8.2        2736 2005-09-27\n 9      2       3 Office Olympics           8.4        2742 2005-10-04\n10      2       4 The Fire                  8.4        2713 2005-10-11\n# … with 178 more rows"
+  },
+  {
+    "objectID": "slides/11-feature-engineering.html#imdb-ratings",
+    "href": "slides/11-feature-engineering.html#imdb-ratings",
+    "title": "Feature engineering",
+    "section": "IMDB ratings",
+    "text": "IMDB ratings"
+  },
+  {
+    "objectID": "slides/11-feature-engineering.html#imdb-ratings-vs.-number-of-votes",
+    "href": "slides/11-feature-engineering.html#imdb-ratings-vs.-number-of-votes",
+    "title": "Feature engineering",
+    "section": "IMDB ratings vs. number of votes",
+    "text": "IMDB ratings vs. number of votes"
+  },
+  {
+    "objectID": "slides/11-feature-engineering.html#outliers",
+    "href": "slides/11-feature-engineering.html#outliers",
+    "title": "Feature engineering",
+    "section": "Outliers",
+    "text": "Outliers"
+  },
+  {
+    "objectID": "slides/11-feature-engineering.html#imdb-ratings-vs.-air-date",
+    "href": "slides/11-feature-engineering.html#imdb-ratings-vs.-air-date",
+    "title": "Feature engineering",
+    "section": "IMDB ratings vs. air date",
+    "text": "IMDB ratings vs. air date"
+  },
+  {
+    "objectID": "slides/11-feature-engineering.html#imdb-ratings-vs.-seasons",
+    "href": "slides/11-feature-engineering.html#imdb-ratings-vs.-seasons",
+    "title": "Feature engineering",
+    "section": "IMDB ratings vs. seasons",
+    "text": "IMDB ratings vs. seasons"
+  },
+  {
+    "objectID": "slides/11-feature-engineering.html#spending-our-data",
+    "href": "slides/11-feature-engineering.html#spending-our-data",
+    "title": "Feature engineering",
+    "section": "Spending our data",
+    "text": "Spending our data\n\nThere are several steps to create a useful model: parameter estimation, model selection, performance assessment, etc.\nDoing all of this on the entire data we have available leaves us with no other data to assess our choices\nWe can allocate specific subsets of data for different tasks, as opposed to allocating the largest possible amount to the model parameter estimation only (which is what we've done so far)"
+  },
+  {
+    "objectID": "slides/11-feature-engineering.html#train-test",
+    "href": "slides/11-feature-engineering.html#train-test",
+    "title": "Feature engineering",
+    "section": "Train / test",
+    "text": "Train / test\nStep 1: Create an initial split:\n\nset.seed(123)\noffice_split <- initial_split(office_ratings) # prop = 3/4 by default\n\n\n\nStep 2: Save training data\n\noffice_train <- training(office_split)\ndim(office_train)\n\n[1] 141   6\n\n\n\n\n\nStep 3: Save testing data\n\noffice_test  <- testing(office_split)\ndim(office_test)\n\n[1] 47  6"
+  },
+  {
+    "objectID": "slides/11-feature-engineering.html#training-data",
+    "href": "slides/11-feature-engineering.html#training-data",
+    "title": "Feature engineering",
+    "section": "Training data",
+    "text": "Training data\n\noffice_train\n\n# A tibble: 141 × 6\n   season episode title               imdb_rating total_votes air_date  \n    <dbl>   <dbl> <chr>                     <dbl>       <dbl> <date>    \n 1      8      18 Last Day in Florida         7.8        1429 2012-03-08\n 2      9      14 Vandalism                   7.6        1402 2013-01-31\n 3      2       8 Performance Review          8.2        2416 2005-11-15\n 4      9       5 Here Comes Treble           7.1        1515 2012-10-25\n 5      3      22 Beach Games                 9.1        2783 2007-05-10\n 6      7       1 Nepotism                    8.4        1897 2010-09-23\n 7      3      15 Phyllis' Wedding            8.3        2283 2007-02-08\n 8      9      21 Livin' the Dream            8.9        2041 2013-05-02\n 9      9      18 Promos                      8          1445 2013-04-04\n10      8      12 Pool Party                  8          1612 2012-01-19\n# … with 131 more rows"
+  },
+  {
+    "objectID": "slides/11-feature-engineering.html#feature-engineering-1",
+    "href": "slides/11-feature-engineering.html#feature-engineering-1",
+    "title": "Feature engineering",
+    "section": "Feature engineering",
+    "text": "Feature engineering\n\nWe prefer simple (parsimonious) models when possible, but parsimony does not mean sacrificing accuracy (or predictive performance) in the interest of simplicity\nVariables that go into the model and how they are represented are just as critical to success of the model\nFeature engineering allows us to get creative with our predictors in an effort to make them more useful for our model (to increase its predictive performance)"
+  },
+  {
+    "objectID": "slides/11-feature-engineering.html#feature-engineering-with-dplyr",
+    "href": "slides/11-feature-engineering.html#feature-engineering-with-dplyr",
+    "title": "Feature engineering",
+    "section": "Feature engineering with dplyr",
+    "text": "Feature engineering with dplyr\n\n\n\n\noffice_train |>\n  mutate(\n    season = as_factor(season),\n    month = lubridate::month(air_date),\n    wday = lubridate::wday(air_date)\n  )\n\n# A tibble: 141 × 8\n  season episode title               imdb_rating total_…¹ air_date   month  wday\n  <fct>    <dbl> <chr>                     <dbl>    <dbl> <date>     <dbl> <dbl>\n1 8           18 Last Day in Florida         7.8     1429 2012-03-08     3     5\n2 9           14 Vandalism                   7.6     1402 2013-01-31     1     5\n3 2            8 Performance Review          8.2     2416 2005-11-15    11     3\n4 9            5 Here Comes Treble           7.1     1515 2012-10-25    10     5\n5 3           22 Beach Games                 9.1     2783 2007-05-10     5     5\n6 7            1 Nepotism                    8.4     1897 2010-09-23     9     5\n# … with 135 more rows, and abbreviated variable name ¹​total_votes\n\n\n\n\nCan you identify any potential problems with this approach?"
+  },
+  {
+    "objectID": "slides/11-feature-engineering.html#modeling-workflow",
+    "href": "slides/11-feature-engineering.html#modeling-workflow",
+    "title": "Feature engineering",
+    "section": "Modeling workflow",
+    "text": "Modeling workflow\n\nCreate a recipe for feature engineering steps to be applied to the training data\nFit the model to the training data after these steps have been applied\nUsing the model estimates from the training data, predict outcomes for the test data\nEvaluate the performance of the model on the test data"
+  },
+  {
+    "objectID": "slides/11-feature-engineering.html#initiate-a-recipe",
+    "href": "slides/11-feature-engineering.html#initiate-a-recipe",
+    "title": "Feature engineering",
+    "section": "Initiate a recipe",
+    "text": "Initiate a recipe\n\noffice_rec <- recipe(\n  imdb_rating ~ .,    # formula\n  data = office_train # data for cataloging names and types of variables\n  )\n\noffice_rec\n\nRecipe\n\nInputs:\n\n      role #variables\n   outcome          1\n predictor          5"
+  },
+  {
+    "objectID": "slides/11-feature-engineering.html#step-1-alter-roles",
+    "href": "slides/11-feature-engineering.html#step-1-alter-roles",
+    "title": "Feature engineering",
+    "section": "Step 1: Alter roles",
+    "text": "Step 1: Alter roles\ntitle isn’t a predictor, but we might want to keep it around as an ID\n\noffice_rec <- office_rec |>\n  update_role(title, new_role = \"ID\")\n\noffice_rec\n\nRecipe\n\nInputs:\n\n      role #variables\n        ID          1\n   outcome          1\n predictor          4"
+  },
+  {
+    "objectID": "slides/11-feature-engineering.html#step-2-add-features",
+    "href": "slides/11-feature-engineering.html#step-2-add-features",
+    "title": "Feature engineering",
+    "section": "Step 2: Add features",
+    "text": "Step 2: Add features\nNew features for day of week and month\n\noffice_rec <- office_rec |>\n  step_date(air_date, features = c(\"dow\", \"month\"))\n\noffice_rec\n\nRecipe\n\nInputs:\n\n      role #variables\n        ID          1\n   outcome          1\n predictor          4\n\nOperations:\n\nDate features from air_date"
+  },
+  {
+    "objectID": "slides/11-feature-engineering.html#step-3-add-more-features",
+    "href": "slides/11-feature-engineering.html#step-3-add-more-features",
+    "title": "Feature engineering",
+    "section": "Step 3: Add more features",
+    "text": "Step 3: Add more features\nIdentify holidays in air_date, then remove air_date\n\noffice_rec <- office_rec |>\n  step_holiday(\n    air_date, \n    holidays = c(\"USThanksgivingDay\", \"USChristmasDay\", \"USNewYearsDay\", \"USIndependenceDay\"), \n    keep_original_cols = FALSE\n  )\n\noffice_rec\n\nRecipe\n\nInputs:\n\n      role #variables\n        ID          1\n   outcome          1\n predictor          4\n\nOperations:\n\nDate features from air_date\nHoliday features from air_date"
+  },
+  {
+    "objectID": "slides/11-feature-engineering.html#step-4-convert-numbers-to-factors",
+    "href": "slides/11-feature-engineering.html#step-4-convert-numbers-to-factors",
+    "title": "Feature engineering",
+    "section": "Step 4: Convert numbers to factors",
+    "text": "Step 4: Convert numbers to factors\nConvert season to factor\n\noffice_rec <- office_rec |>\n  step_num2factor(season, levels = as.character(1:9))\n\noffice_rec\n\nRecipe\n\nInputs:\n\n      role #variables\n        ID          1\n   outcome          1\n predictor          4\n\nOperations:\n\nDate features from air_date\nHoliday features from air_date\nFactor variables from season"
+  },
+  {
+    "objectID": "slides/11-feature-engineering.html#step-5-make-dummy-variables",
+    "href": "slides/11-feature-engineering.html#step-5-make-dummy-variables",
+    "title": "Feature engineering",
+    "section": "Step 5: Make dummy variables",
+    "text": "Step 5: Make dummy variables\nConvert all nominal (categorical) predictors to factors\n\noffice_rec <- office_rec |>\n  step_dummy(all_nominal_predictors())\n\noffice_rec\n\nRecipe\n\nInputs:\n\n      role #variables\n        ID          1\n   outcome          1\n predictor          4\n\nOperations:\n\nDate features from air_date\nHoliday features from air_date\nFactor variables from season\nDummy variables from all_nominal_predictors()"
+  },
+  {
+    "objectID": "slides/11-feature-engineering.html#step-6-remove-zero-variance-predictors",
+    "href": "slides/11-feature-engineering.html#step-6-remove-zero-variance-predictors",
+    "title": "Feature engineering",
+    "section": "Step 6: Remove zero variance predictors",
+    "text": "Step 6: Remove zero variance predictors\nRemove all predictors that contain only a single value\n\noffice_rec <- office_rec |>\n  step_zv(all_predictors())\n\noffice_rec\n\nRecipe\n\nInputs:\n\n      role #variables\n        ID          1\n   outcome          1\n predictor          4\n\nOperations:\n\nDate features from air_date\nHoliday features from air_date\nFactor variables from season\nDummy variables from all_nominal_predictors()\nZero variance filter on all_predictors()"
+  },
+  {
+    "objectID": "slides/11-feature-engineering.html#putting-it-all-together",
+    "href": "slides/11-feature-engineering.html#putting-it-all-together",
+    "title": "Feature engineering",
+    "section": "Putting it all together",
+    "text": "Putting it all together\n\noffice_rec <- recipe(imdb_rating ~ ., data = office_train) |>\n  # make title's role ID\n  update_role(title, new_role = \"ID\") |>\n  # extract day of week and month of air_date\n  step_date(air_date, features = c(\"dow\", \"month\")) |>\n  # identify holidays and add indicators\n  step_holiday(\n    air_date, \n    holidays = c(\"USThanksgivingDay\", \"USChristmasDay\", \"USNewYearsDay\", \"USIndependenceDay\"), \n    keep_original_cols = FALSE\n  ) |>\n  # turn season into factor\n  step_num2factor(season, levels = as.character(1:9)) |>\n  # make dummy variables\n  step_dummy(all_nominal_predictors()) |>\n  # remove zero variance predictors\n  step_zv(all_predictors())"
+  },
+  {
+    "objectID": "slides/11-feature-engineering.html#putting-it-all-together-1",
+    "href": "slides/11-feature-engineering.html#putting-it-all-together-1",
+    "title": "Feature engineering",
+    "section": "Putting it all together",
+    "text": "Putting it all together\n\noffice_rec\n\nRecipe\n\nInputs:\n\n      role #variables\n        ID          1\n   outcome          1\n predictor          4\n\nOperations:\n\nDate features from air_date\nHoliday features from air_date\nFactor variables from season\nDummy variables from all_nominal_predictors()\nZero variance filter on all_predictors()"
+  },
+  {
+    "objectID": "slides/11-feature-engineering.html#next-step",
+    "href": "slides/11-feature-engineering.html#next-step",
+    "title": "Feature engineering",
+    "section": "Next step…",
+    "text": "Next step…\nWe will complete the workflow to fit a model predicting IMDB ratings that includes the following predictors:\n\nepisode\ntotal_votes\nindicator variables for season\nindicator variables for day of week aired (created using air_date)\nindicator variables for month aired (created using air_date)\n\n\n\nWhat feature will not end up in the final model? Why is it not included?"
+  },
+  {
+    "objectID": "slides/11-feature-engineering.html#recap",
+    "href": "slides/11-feature-engineering.html#recap",
+    "title": "Feature engineering",
+    "section": "Recap",
+    "text": "Recap\n\n\nReview: Training and testing splits\nFeature engineering with recipes\n\n\n\n\n\n🔗 Week 06"
+  },
+  {
     "objectID": "slides/05-slr-sim-inference.html#announcements",
     "href": "slides/05-slr-sim-inference.html#announcements",
     "title": "SLR: Simulation-based inference",
@@ -2993,7 +3273,7 @@
     "href": "schedule.html#weekly-schedule",
     "title": "Schedule",
     "section": "Weekly schedule",
-    "text": "Weekly schedule\n\n\n\n\n\n\nWeek\n\n\nDates\n\n\nTopic\n\n\nAssignments\n\n\n\n\n\n\nWeek 01\n\n\nAug 29 - Sep 02\n\n\nWelcome to Regression Analysis\n\n\nCompelete STA 210 Student Survey\n\n\n\n\nWeek 02\n\n\nSep 05 - 09\n\n\nSLR: Tidymodels + Model evaluation\n\n\nLab 01, Statistics experience assigned\n\n\n\n\nWeek 03\n\n\nSep 12 - 16\n\n\nSLR: Inference\n\n\nLab 02, HW 01, Statistics experience assigned\n\n\n\n\nWeek 04\n\n\nSep 19 - 23\n\n\nMultiple Linear Regression (MLR)\n\n\nLab 03\n\n\n\n\nWeek 05\n\n\nSep 26 - 30\n\n\nMLR: Types of Predictors\n\n\nExam 01\n\n\n\n\nWeek 06\n\n\nOct 03 - 07\n\n\nFeature Engineering\n\n\nLab 04, HW 02\n\n\n\n\nWeek 07\n\n\nOct 10 - 14\n\n\nVariable transformations\n\n\nIntroduce project\n\n\n\n\nWeek 08\n\n\nOct 17 - 21\n\n\nModel evaluation\n\n\nLab 05\n\n\n\n\nWeek 09\n\n\nOct 24 - 28\n\n\nMLR: Inference\n\n\nLab 06, HW 03\n\n\n\n\nWeek 10\n\n\nOct 31 - Nov 04\n\n\nOdds + Odds Ratios\n\n\nLab 07\n\n\n\n\nWeek 11\n\n\nNov 07 - 11\n\n\nLogistic regression (LR)\n\n\nProject peer review, HW 04\n\n\n\n\nWeek 12\n\n\nNov 14 - 18\n\n\nLR: Inference\n\n\nLab 08\n\n\n\n\nWeek 13\n\n\nNov 21 - 25\n\n\nMixed effects models\n\n\n\n\n\n\n\nWeek 14\n\n\nNov 28 - Dec 02\n\n\nMixed effects models\n\n\nExam 02\n\n\n\n\nWeek 15\n\n\nDec 05 - 09\n\n\nLooking ahead\n\n\nStatistics experience due\n\n\n\n\nWeek 16\n\n\nDec 12 - 19\n\n\nFinal exam period\n\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Weekly schedule\n\n\n\n\n\n\nWeek\n\n\nDates\n\n\nTopic\n\n\nAssignments\n\n\n\n\n\n\nWeek 01\n\n\nAug 29 - Sep 02\n\n\nWelcome to Regression Analysis\n\n\nCompelete STA 210 Student Survey\n\n\n\n\nWeek 02\n\n\nSep 05 - 09\n\n\nSLR: Tidymodels + Model evaluation\n\n\nLab 01, Statistics experience assigned\n\n\n\n\nWeek 03\n\n\nSep 12 - 16\n\n\nSLR: Inference\n\n\nLab 02, HW 01, Statistics experience assigned\n\n\n\n\nWeek 04\n\n\nSep 19 - 23\n\n\nMultiple Linear Regression (MLR)\n\n\nLab 03\n\n\n\n\nWeek 05\n\n\nSep 26 - 30\n\n\nMLR: Types of Predictors\n\n\nExam 01\n\n\n\n\nWeek 06\n\n\nOct 03 - 07\n\n\nFeature Engineering\n\n\nLab 04\n\n\n\n\nWeek 07\n\n\nOct 10 - 14\n\n\nVariable transformations\n\n\nIntroduce project, HW 02\n\n\n\n\nWeek 08\n\n\nOct 17 - 21\n\n\nModel evaluation\n\n\nLab 05\n\n\n\n\nWeek 09\n\n\nOct 24 - 28\n\n\nMLR: Inference\n\n\nLab 06, HW 03\n\n\n\n\nWeek 10\n\n\nOct 31 - Nov 04\n\n\nOdds + Odds Ratios\n\n\nLab 07\n\n\n\n\nWeek 11\n\n\nNov 07 - 11\n\n\nLogistic regression (LR)\n\n\nProject peer review, HW 04\n\n\n\n\nWeek 12\n\n\nNov 14 - 18\n\n\nLR: Inference\n\n\nLab 08\n\n\n\n\nWeek 13\n\n\nNov 21 - 25\n\n\nMixed effects models\n\n\n\n\n\n\n\nWeek 14\n\n\nNov 28 - Dec 02\n\n\nMixed effects models\n\n\nExam 02\n\n\n\n\nWeek 15\n\n\nDec 05 - 09\n\n\nLooking ahead\n\n\nStatistics experience due\n\n\n\n\nWeek 16\n\n\nDec 12 - 19\n\n\nFinal exam period\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "schedule.html#notes",

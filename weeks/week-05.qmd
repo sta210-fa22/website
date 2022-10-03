@@ -36,10 +36,10 @@ No readings this week.
 
 # Practice
 
-|                                                             |
-|-------------------------------------------------------------|
-| 📋 [AE 06: Prediction for MLR](../ae/ae-06-prediction.qmd)  |
-| 📋 [AE 07: Exam 01 review](../ae/ae-07-exam-01-review.qmd)  |
+|                                                            |
+|------------------------------------------------------------|
+| 📋 [AE 06: Prediction for MLR](../ae/ae-06-prediction.qmd) |
+| 📋 [AE 07: Exam 01 review](../ae/ae-07-exam-01-review.qmd) |
 
 # Perform
 

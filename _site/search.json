@@ -2352,6 +2352,13 @@
     "text": "Recap\nUsed residual plots to check conditions for SLR:\n\n\n\n\nLinearity\nConstant variance\n\n\n\n\n\nNormality\nIndependence\n\n\n\n\n\n\nWhich of these conditions are required for fitting a SLR? Which for simulation-based inference for the slope for an SLR? Which for inference with mathematical models?\n\n\n\n\n03:00\n\n\n\n\n\n\n🔗 Week 04"
   },
   {
+    "objectID": "slides/11-feature-engineering.html#announcements",
+    "href": "slides/11-feature-engineering.html#announcements",
+    "title": "Feature engineering",
+    "section": "Announcements",
+    "text": "Announcements\nClick here for slides from presentation about the Academic Resource Center."
+  },
+  {
     "objectID": "slides/11-feature-engineering.html#topics",
     "href": "slides/11-feature-engineering.html#topics",
     "title": "Feature engineering",
@@ -2517,7 +2524,7 @@
     "href": "slides/11-feature-engineering.html#spending-our-data",
     "title": "Feature engineering",
     "section": "Spending our data",
-    "text": "Spending our data\n\nThere are several steps to create a useful model: parameter estimation, model selection, performance assessment, etc.\nDoing all of this on the entire data we have available leaves us with no other data to assess our choices\nWe can allocate specific subsets of data for different tasks, as opposed to allocating the largest possible amount to the model parameter estimation only (which is what we've done so far)"
+    "text": "Spending our data\n\nThere are several steps to create a useful model: parameter estimation, model selection, performance assessment, etc.\nDoing all of this on the entire data we have available leaves us with no other data to assess our choices\nWe can allocate specific subsets of data for different tasks, as opposed to allocating the largest possible amount to the model parameter estimation only (which is what we’ve done so far)"
   },
   {
     "objectID": "slides/11-feature-engineering.html#train-test",
@@ -2552,7 +2559,7 @@
     "href": "slides/11-feature-engineering.html#modeling-workflow",
     "title": "Feature engineering",
     "section": "Modeling workflow",
-    "text": "Modeling workflow\n\nCreate a recipe for feature engineering steps to be applied to the training data\nFit the model to the training data after these steps have been applied\nUsing the model estimates from the training data, predict outcomes for the test data\nEvaluate the performance of the model on the test data"
+    "text": "Modeling workflow\n\n\n\nCreate a recipe for feature engineering steps to be applied to the training data\nFit the model to the training data after these steps have been applied\nUsing the model estimates from the training data, predict outcomes for the test data\nEvaluate the performance of the model on the test data"
   },
   {
     "objectID": "slides/11-feature-engineering.html#initiate-a-recipe",

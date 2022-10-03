@@ -2447,7 +2447,7 @@
     "href": "slides/11-feature-engineering.html#understanding-the-model",
     "title": "Feature engineering",
     "section": "Understanding the model",
-    "text": "Understanding the model\n\\[\n\\begin{aligned}\n\\hat{interest\\_rate} &= 9.484 + 0.691 \\times debt\\_inc\\_cent\\\\ &- 0.007 \\times annual\\_income\\_th\\_cent \\\\ &+ 2.157 \\times SourceVerified + 7.181 \\times Verified \\\\ &- 0.016 \\times annual\\_inc\\_th\\_cent \\times SourceVerified\\\\ &- 0.032 \\times annual\\_inc\\_th\\_cent \\times Verified\n\\end{aligned}\n\\]\n\n\nWhat is \\(p\\), the number of non-intercept terms in the model?\nWrite the equation of the model to predict interest rate for applicants with Not Verified income.\nWrite the equation of the model to predict interest rate for applicants with Verified income."
+    "text": "Understanding the model\n\\[\n\\begin{aligned}\n\\hat{interest\\_rate} &= 9.484 + 0.691 \\times debt\\_inc\\_cent\\\\ &- 0.007 \\times annual\\_income\\_th\\_cent \\\\ &+ 2.157 \\times SourceVerified + 7.181 \\times Verified \\\\ &- 0.016 \\times annual\\_inc\\_th\\_cent \\times SourceVerified\\\\ &- 0.032 \\times annual\\_inc\\_th\\_cent \\times Verified\n\\end{aligned}\n\\]\n\n\nWhat is \\(p\\), the number of predictor terms in the model?\nWrite the equation of the model to predict interest rate for applicants with Not Verified income.\nWrite the equation of the model to predict interest rate for applicants with Verified income."
   },
   {
     "objectID": "slides/11-feature-engineering.html#topics-1",

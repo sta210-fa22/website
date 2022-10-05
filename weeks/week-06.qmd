@@ -41,7 +41,6 @@ title-block-style: none
 |                                                                                                     |
 |-----------------------------------------------------------------------------------------------------|
 | 📋 [AE 08: Feature engineering](https://sta210-fa22.netlify.app/ae/ae-08-feature-engineering.html)  |
-|                                                                                                     |
 
 +--------------+--------------------------------+
 | Assignment   | Due date                       |

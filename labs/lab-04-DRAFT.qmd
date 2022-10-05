@@ -202,7 +202,7 @@ And what about that `.groups` argument in summarize? You could try running your 
 Now it's time for a hand off...
 
 ::: {.callout-important appearance="simple"}
-⌨️ **Team Member 2: Hands on the keyboard. Write the answers to Exercises 3  - 5.**
+⌨️ **Team Member 2: Hands on the keyboard. Write the answers to Exercises 3 - 5.**
 
 🙅🏽 All other team members: Hands off the keyboard until otherwise instructed!
 :::
@@ -327,7 +327,7 @@ office_wflow <- workflow() |>
 Now it's time for another hand off...
 
 ::: {.callout-important appearance="simple"}
-⌨️ **Team Member 4: Hands on the keyboard. Write the answers to Exercises 9  - 11.**
+⌨️ **Team Member 4: Hands on the keyboard. Write the answers to Exercises 9 - 11.**
 
 🙅🏽 All other team members: Hands off the keyboard until otherwise instructed!
 :::

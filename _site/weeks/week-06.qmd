@@ -13,9 +13,9 @@ title-block-style: none
 
 -   AE 08 due Sat, Oct 08, 11:59pm
 -   Lab 04:
-    -   due Wed, Oct 12, 11:59pm (Thu lab)
+    -   due Thu, Oct 13, 11:59pm (Thu lab)
 
-    -   due Thu, Oct 13, 11:59pm (Fri lab)
+    -   due Fri, Oct 14, 11:59pm (Fri lab)
 :::
 
 # Prepare
@@ -40,7 +40,7 @@ title-block-style: none
 +------------+--------------------------------+
 | Assignment | Due date                       |
 +============+================================+
-| 📝 Lab 04  | Wed, Oct 12, 11:59pm (Thu lab) |
+| 📝 Lab 04  | Thu, Oct 13, 11:59pm (Thu lab) |
 |            |                                |
-|            | Thu, Oct 13, 11:59pm (Fri lab) |
+|            | Fri, Oct 14, 11:59pm (Fri lab) |
 +------------+--------------------------------+

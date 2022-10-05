@@ -286,7 +286,7 @@ office_rec
 
 office_rec_trained <- prep(office_rec)
 bake(office_rec_trained, office_train) |>
-  view()
+  glimpse()
 ```
 
 ## Step 6: Remove zero variance predictors {.midi}

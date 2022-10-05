@@ -1,15 +1,13 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
-<head>
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.36">
 
-<meta charset="utf-8" />
-<meta name="generator" content="quarto-1.0.36" />
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>STA 210 - Fall 2022 – STA 210: Regression Analysis</title>
+<title>STA 210 - Fall 2022 - STA 210: Regression Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,7 +17,23 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 </style>
 
-<!-- htmldependencies:E3FAD763 -->
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -43,19 +57,14 @@ ul.task-list{list-style: none;}
 
 </head>
 
-<body>
+<body class="nav-sidebar docked">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav" 
-        data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" 
-        aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation"
-        onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"
-  >
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"></h1>
-      <button type="button" 
-        class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+      <h1 class="quarto-secondary-nav-title">STA 210: Regression Analysis</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
     </div>
@@ -66,8 +75,8 @@ ul.task-list{list-style: none;}
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-center sidebar-header">
-      <a href="/" class="sidebar-logo-link">
-      <img src="/images/logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none"/>
+      <a href="./" class="sidebar-logo-link">
+      <img src="./images/logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
       <div class="sidebar-tools-main tools-wide">
     <a href="https://github.com/sta210-fa22" title="GitHub organization" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
@@ -101,7 +110,7 @@ ul.task-list{list-style: none;}
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="/syllabus.html" class="sidebar-item-text sidebar-link">Syllabus</a>
+  <a href="./syllabus.html" class="sidebar-item-text sidebar-link">Syllabus</a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -114,94 +123,94 @@ ul.task-list{list-style: none;}
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="/schedule.html" class="sidebar-item-text sidebar-link">Full schedule</a>
+  <a href="./schedule.html" class="sidebar-item-text sidebar-link">Full schedule</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="/weeks/week-01.html" class="sidebar-item-text sidebar-link">Week 01</a>
+  <a href="./weeks/week-01.html" class="sidebar-item-text sidebar-link">Week 01</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="/weeks/week-02.html" class="sidebar-item-text sidebar-link">Week 02</a>
+  <a href="./weeks/week-02.html" class="sidebar-item-text sidebar-link">Week 02</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="/weeks/week-03.html" class="sidebar-item-text sidebar-link">Week 03</a>
+  <a href="./weeks/week-03.html" class="sidebar-item-text sidebar-link">Week 03</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="/weeks/week-04.html" class="sidebar-item-text sidebar-link">Week 04</a>
+  <a href="./weeks/week-04.html" class="sidebar-item-text sidebar-link">Week 04</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="/weeks/week-05.html" class="sidebar-item-text sidebar-link">Week 05</a>
+  <a href="./weeks/week-05.html" class="sidebar-item-text sidebar-link">Week 05</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="/weeks/week-06.html" class="sidebar-item-text sidebar-link">Week 06</a>
+  <a href="./weeks/week-06.html" class="sidebar-item-text sidebar-link">Week 06</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="/weeks/week-07.html" class="sidebar-item-text sidebar-link">Week 07</a>
+  <a href="./weeks/week-07.html" class="sidebar-item-text sidebar-link">Week 07</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="/weeks/week-08.html" class="sidebar-item-text sidebar-link">Week 08</a>
+  <a href="./weeks/week-08.html" class="sidebar-item-text sidebar-link">Week 08</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="/weeks/week-09.html" class="sidebar-item-text sidebar-link">Week 09</a>
+  <a href="./weeks/week-09.html" class="sidebar-item-text sidebar-link">Week 09</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="/weeks/week-10.html" class="sidebar-item-text sidebar-link">Week 10</a>
+  <a href="./weeks/week-10.html" class="sidebar-item-text sidebar-link">Week 10</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="/weeks/week-11.html" class="sidebar-item-text sidebar-link">Week 11</a>
+  <a href="./weeks/week-11.html" class="sidebar-item-text sidebar-link">Week 11</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="/weeks/week-12.html" class="sidebar-item-text sidebar-link">Week 12</a>
+  <a href="./weeks/week-12.html" class="sidebar-item-text sidebar-link">Week 12</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="/weeks/week-13.html" class="sidebar-item-text sidebar-link">Week 13</a>
+  <a href="./weeks/week-13.html" class="sidebar-item-text sidebar-link">Week 13</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="/weeks/week-14.html" class="sidebar-item-text sidebar-link">Week 14</a>
+  <a href="./weeks/week-14.html" class="sidebar-item-text sidebar-link">Week 14</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="/weeks/week-15.html" class="sidebar-item-text sidebar-link">Week 15</a>
+  <a href="./weeks/week-15.html" class="sidebar-item-text sidebar-link">Week 15</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="/weeks/week-16.html" class="sidebar-item-text sidebar-link">Week 16</a>
+  <a href="./weeks/week-16.html" class="sidebar-item-text sidebar-link">Week 16</a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="/support.html" class="sidebar-item-text sidebar-link">Support</a>
+  <a href="./support.html" class="sidebar-item-text sidebar-link">Support</a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -214,24 +223,24 @@ ul.task-list{list-style: none;}
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="/computing-access.html" class="sidebar-item-text sidebar-link">Access</a>
+  <a href="./computing-access.html" class="sidebar-item-text sidebar-link">Access</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="/computing-troubleshooting.html" class="sidebar-item-text sidebar-link">Troubleshooting</a>
+  <a href="./computing-troubleshooting.html" class="sidebar-item-text sidebar-link">Troubleshooting</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="/computing-r-resources.html" class="sidebar-item-text sidebar-link">R resources</a>
+  <a href="./computing-r-resources.html" class="sidebar-item-text sidebar-link">R resources</a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="/links.html" class="sidebar-item-text sidebar-link">Useful links</a>
+  <a href="./links.html" class="sidebar-item-text sidebar-link">Useful links</a>
   </div>
 </li>
     </ul>
@@ -239,14 +248,26 @@ ul.task-list{list-style: none;}
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <div id="quarto-toc-target"></div>
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#class-meetings" id="toc-class-meetings" class="nav-link" data-scroll-target="#class-meetings">Class meetings</a></li>
+  <li><a href="#teaching-team" id="toc-teaching-team" class="nav-link" data-scroll-target="#teaching-team">Teaching team</a>
+  <ul class="collapse">
+  <li><a href="#instructor" id="toc-instructor" class="nav-link" data-scroll-target="#instructor">Instructor</a></li>
+  <li><a href="#teaching-assistants" id="toc-teaching-assistants" class="nav-link" data-scroll-target="#teaching-assistants">Teaching assistants</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/sta210-fa22/website/edit/main/index.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/sta210-fa22/website/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">STA 210: Regression Analysis</h1>
+<h1 class="title d-none d-lg-block">STA 210: Regression Analysis</h1>
 </div>
 
 
@@ -259,31 +280,19 @@ ul.task-list{list-style: none;}
   
 
 </header>
-<nav id="TOC" role="doc-toc">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#overview" id="toc-overview">Overview</a></li>
-  <li><a href="#class-meetings" id="toc-class-meetings">Class meetings</a></li>
-  <li><a href="#teaching-team" id="toc-teaching-team">Teaching team</a>
-  <ul>
-  <li><a href="#instructor" id="toc-instructor">Instructor</a></li>
-  <li><a href="#teaching-assistants" id="toc-teaching-assistants">Teaching assistants</a></li>
-  </ul></li>
-  </ul>
-</nav>
+
 <section id="overview" class="level2">
-<h2>Overview</h2>
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
 <p>Learn approaches for analyzing multivariate data sets, emphasizing analysis of variance, linear regression, and logistic regression. Learn techniques for checking the appropriateness of proposed models, such as residual analyses and case influence diagnostics, and techniques for selecting models. Gain experience dealing with the challenges that arise in practice through assignments that utilize real-world data. This class emphasizes data analysis over mathematical theory.</p>
 </section>
 <section id="class-meetings" class="level2">
-<h2>Class meetings</h2>
-<table style="width:100%;">
+<h2 class="anchored" data-anchor-id="class-meetings">Class meetings</h2>
+<table class="table">
 <colgroup>
-<col style="width: 18%" />
-<col style="width: 18%" />
-<col style="width: 35%" />
-<col style="width: 27%" />
+<col style="width: 18%">
+<col style="width: 18%">
+<col style="width: 35%">
+<col style="width: 27%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -326,11 +335,11 @@ ul.task-list{list-style: none;}
 </table>
 </section>
 <section id="teaching-team" class="level2">
-<h2>Teaching team</h2>
+<h2 class="anchored" data-anchor-id="teaching-team">Teaching team</h2>
 <section id="instructor" class="level3">
-<h3>Instructor</h3>
+<h3 class="anchored" data-anchor-id="instructor">Instructor</h3>
 <p><a href="https://www2.stat.duke.edu/~mt324">Maria Tackett</a> is an Assistant Professor of the Practice in the Department of Statistical Science at Duke University. Her work focuses on understanding how active learning strategies can be used to promote engagement and student motivation in undergraduate statistics courses. She also studies how classroom practices in introductory math and statistics courses impact students’ sense of community, self-efficacy, and learning outcomes.</p>
-<table>
+<table class="table">
 <thead>
 <tr class="header">
 <th>Office hours</th>
@@ -354,8 +363,8 @@ ul.task-list{list-style: none;}
 </table>
 </section>
 <section id="teaching-assistants" class="level3">
-<h3>Teaching assistants</h3>
-<table>
+<h3 class="anchored" data-anchor-id="teaching-assistants">Teaching assistants</h3>
+<table class="table">
 <thead>
 <tr class="header">
 <th>Name</th>
@@ -383,7 +392,7 @@ ul.task-list{list-style: none;}
 </tr>
 <tr class="even">
 <td><p><a href="mailto:glenn.palmer@duke.edu">Glenn Palmer</a></p>
-<p><em>Head TA<br />
+<p><em>Head TA<br>
 TA for Lab 03</em></p></td>
 <td>Fri 1:25 - 3:25pm</td>
 <td>Old Chemistry 203B</td>
@@ -423,17 +432,13 @@ TA for Lab 03</em></p></td>
 </tbody>
 </table>
 <p><a href="https://docs.google.com/spreadsheets/d/1Ay1GxqU2HDpFwnNLZxv0baIAa1lJwUVdtvmprPdkefk/edit?usp=sharing">Click here</a> for full list of office hours.</p>
-<div id="quarto-navigation-envelope" class="hidden">
-<p><span class="hidden" data-render-id="quarto-int-sidebar-title">STA 210 - Fall 2022</span> <span class="hidden" data-render-id="quarto-int-navbar-title">STA 210 - Fall 2022</span> <span class="hidden" data-render-id="quarto-int-sidebar:/syllabus.html">Syllabus</span> <span class="hidden" data-render-id="quarto-int-sidebar:quarto-sidebar-section-1">Schedule</span> <span class="hidden" data-render-id="quarto-int-sidebar:/schedule.html">Full schedule</span> <span class="hidden" data-render-id="quarto-int-sidebar:/weeks/week-01.html">Week 01</span> <span class="hidden" data-render-id="quarto-int-sidebar:/weeks/week-02.html">Week 02</span> <span class="hidden" data-render-id="quarto-int-sidebar:/weeks/week-03.html">Week 03</span> <span class="hidden" data-render-id="quarto-int-sidebar:/weeks/week-04.html">Week 04</span> <span class="hidden" data-render-id="quarto-int-sidebar:/weeks/week-05.html">Week 05</span> <span class="hidden" data-render-id="quarto-int-sidebar:/weeks/week-06.html">Week 06</span> <span class="hidden" data-render-id="quarto-int-sidebar:/weeks/week-07.html">Week 07</span> <span class="hidden" data-render-id="quarto-int-sidebar:/weeks/week-08.html">Week 08</span> <span class="hidden" data-render-id="quarto-int-sidebar:/weeks/week-09.html">Week 09</span> <span class="hidden" data-render-id="quarto-int-sidebar:/weeks/week-10.html">Week 10</span> <span class="hidden" data-render-id="quarto-int-sidebar:/weeks/week-11.html">Week 11</span> <span class="hidden" data-render-id="quarto-int-sidebar:/weeks/week-12.html">Week 12</span> <span class="hidden" data-render-id="quarto-int-sidebar:/weeks/week-13.html">Week 13</span> <span class="hidden" data-render-id="quarto-int-sidebar:/weeks/week-14.html">Week 14</span> <span class="hidden" data-render-id="quarto-int-sidebar:/weeks/week-15.html">Week 15</span> <span class="hidden" data-render-id="quarto-int-sidebar:/weeks/week-16.html">Week 16</span> <span class="hidden" data-render-id="quarto-int-sidebar:/support.html">Support</span> <span class="hidden" data-render-id="quarto-int-sidebar:quarto-sidebar-section-2">Computing</span> <span class="hidden" data-render-id="quarto-int-sidebar:/computing-access.html">Access</span> <span class="hidden" data-render-id="quarto-int-sidebar:/computing-troubleshooting.html">Troubleshooting</span> <span class="hidden" data-render-id="quarto-int-sidebar:/computing-r-resources.html">R resources</span> <span class="hidden" data-render-id="quarto-int-sidebar:/links.html">Useful links</span> <span class="hidden" data-render-id="footer-left">© Copyright 2022, Maria Tackett</span> <span class="hidden" data-render-id="footer-right">This site is built with <a href="https://quarto.org/">Quarto</a></span></p>
-</div>
-<div id="quarto-meta-markdown" class="hidden">
-<p><span class="hidden" data-render-id="quarto-metatitle">STA 210 - Fall 2022 - STA 210: Regression Analysis</span> <span class="hidden" data-render-id="quarto-metasitename">STA 210 - Fall 2022</span></p>
-</div>
+
+
 </section>
 </section>
 
 </main> <!-- /main -->
-<script id = "quarto-html-after-body" type="application/javascript">
+<script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -533,17 +538,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">
-      <div class='footer-contents'>&copy; Copyright 2022, Maria Tackett
-</div>  
-    </div>   
-    <div class="nav-footer-right">
-      <div class='footer-contents'>This site is built with [Quarto](https://quarto.org/)
-</div>  
-    </div>
+    <div class="nav-footer-left">© Copyright 2022, Maria Tackett</div>   
+    <div class="nav-footer-right">This site is built with <a href="https://quarto.org/">Quarto</a></div>
   </div>
 </footer>
 
-</body>
 
-</html>
+
+</body></html>

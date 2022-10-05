@@ -395,7 +395,12 @@
 <h2>Announcements</h2>
 <ul>
 <li><a href="https://sakai.duke.edu/access/content/group/e6f58eb4-029a-4130-bfa3-e5555d967a43/ARC_Presentation_STATS210.pptx">Click here</a> for slides from presentation about the Academic Resource Center.</li>
-<li>Group labs start this week</li>
+<li>Group labs start this week.</li>
+<li>Upcoming events:
+<ul>
+<li><p><a href="https://statds.org/events/ucsas2022/">UConn Sports Analytics Symposium</a>: October 08 (online options available)</p></li>
+<li><p><a href="https://sakai.duke.edu/access/content/group/e6f58eb4-029a-4130-bfa3-e5555d967a43/HackDuke%20Code%20for%20Good%202022%20Flyer%202.png">Code for Good</a> hosted by Hack Duke: October 22 - 23</p></li>
+</ul></li>
 <li>Click here for <a href="../weeks/week-06.qmd">Week 06</a> activities.</li>
 </ul>
 </section>
@@ -668,7 +673,7 @@ Holiday features from air_date</code></pre>
 </div>
 </div>
 </section>
-<section id="step-3-prep-and-bake" class="slide level2">
+<section id="step-3-prep-and-bake" class="slide level2 midi">
 <h2>Step 3: Prep and bake</h2>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>office_rec_trained <span class="ot">&lt;-</span> <span class="fu">prep</span>(office_rec)</span>
@@ -691,7 +696,7 @@ $ air_date_USIndependenceDay &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
 </div>
 </div>
 </section>
-<section id="step-4-convert-numbers-to-factors" class="slide level2">
+<section id="step-4-convert-numbers-to-factors" class="slide level2 midi">
 <h2>Step 4: Convert numbers to factors</h2>
 <p>Convert <code>season</code> to factor</p>
 <div class="cell" data-layout-align="center">
@@ -717,7 +722,7 @@ Factor variables from season</code></pre>
 </div>
 </div>
 </section>
-<section id="step-4-prep-and-bake" class="slide level2">
+<section id="step-4-prep-and-bake" class="slide level2 midi">
 <h2>Step 4: Prep and bake</h2>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>office_rec_trained <span class="ot">&lt;-</span> <span class="fu">prep</span>(office_rec)</span>
@@ -740,7 +745,7 @@ $ air_date_USIndependenceDay &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
 </div>
 </div>
 </section>
-<section id="step-5-make-dummy-variables" class="slide level2">
+<section id="step-5-make-dummy-variables" class="slide level2 midi">
 <h2>Step 5: Make dummy variables</h2>
 <p>Convert all nominal (categorical) predictors to factors</p>
 <div class="cell" data-layout-align="center">
@@ -767,7 +772,7 @@ Dummy variables from all_nominal_predictors()</code></pre>
 </div>
 </div>
 </section>
-<section id="step-5-prep-and-bake" class="slide level2">
+<section id="step-5-prep-and-bake" class="slide level2 midi">
 <h2>Step 5: Prep and bake</h2>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a>office_rec_trained <span class="ot">&lt;-</span> <span class="fu">prep</span>(office_rec)</span>
@@ -812,7 +817,7 @@ $ air_date_month_Dec         &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
 </div>
 </div>
 </section>
-<section id="step-6-remove-zero-variance-predictors" class="slide level2">
+<section id="step-6-remove-zero-variance-predictors" class="slide level2 midi">
 <h2>Step 6: Remove zero variance predictors</h2>
 <p>Remove all predictors that contain only a single value</p>
 <div class="cell" data-layout-align="center">
@@ -840,7 +845,7 @@ Zero variance filter on all_predictors()</code></pre>
 </div>
 </div>
 </section>
-<section id="step-6-prep-and-bake" class="slide level2">
+<section id="step-6-prep-and-bake" class="slide level2 midi">
 <h2>Step 6: Prep and bake</h2>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a>office_rec_trained <span class="ot">&lt;-</span> <span class="fu">prep</span>(office_rec)</span>
@@ -1044,6 +1049,12 @@ Computational engine: lm </code></pre>
 <section id="evaluate-model" class="title-slide slide level1 center">
 <h1>Evaluate model</h1>
 
+</section>
+<section id="application-exercise" class="slide level2">
+<h2>Application exercise</h2>
+<div class="appex">
+<p>📋 <a href="https://sta210-fa22.netlify.app/ae/ae-08-feature-engineering.html">AE 08: Feature engineering</a></p>
+</div>
 </section>
 <section id="make-predictions-for-training-data" class="slide level2">
 <h2>Make predictions for training data</h2>

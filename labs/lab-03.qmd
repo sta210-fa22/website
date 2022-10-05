@@ -1,5 +1,5 @@
 ---
-title: "Coffee grades"
+title: "Lab 03: Coffee grades"
 subtitle: "Inference for simple linear regression using mathematical models"
 execute:
   freeze: auto

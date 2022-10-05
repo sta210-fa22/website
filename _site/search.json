@@ -317,70 +317,70 @@
   {
     "objectID": "ae/ae-08-feature-engineering.html",
     "href": "ae/ae-08-feature-engineering.html",
-    "title": "AE 08: Feature Engineering",
+    "title": "AE 08: Feature Engineering- Model workflow",
     "section": "",
     "text": "Important\n\n\n\nGo to the course GitHub organization and locate your ae-08- to get started.\nThe AE is due on GitHub by Saturday, October 08 at 11:59pm."
   },
   {
     "objectID": "ae/ae-08-feature-engineering.html#packages",
     "href": "ae/ae-08-feature-engineering.html#packages",
-    "title": "AE 08: Feature Engineering",
+    "title": "AE 08: Feature Engineering- Model workflow",
     "section": "Packages",
     "text": "Packages\n\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(viridis)\nlibrary(knitr)"
   },
   {
     "objectID": "ae/ae-08-feature-engineering.html#load-data",
     "href": "ae/ae-08-feature-engineering.html#load-data",
-    "title": "AE 08: Feature Engineering",
+    "title": "AE 08: Feature Engineering- Model workflow",
     "section": "Load data",
     "text": "Load data\n\noffice_ratings <- read_csv(\"data/office_ratings.csv\")"
   },
   {
     "objectID": "ae/ae-08-feature-engineering.html#exploratory-data-analysis",
     "href": "ae/ae-08-feature-engineering.html#exploratory-data-analysis",
-    "title": "AE 08: Feature Engineering",
+    "title": "AE 08: Feature Engineering- Model workflow",
     "section": "Exploratory data analysis",
     "text": "Exploratory data analysis\nBelow are two of the exploratory data analysis plots from lecture.\n\nggplot(office_ratings, aes(x = imdb_rating)) +\n  geom_histogram(binwidth = 0.25) +\n  labs(\n    title = \"The Office ratings\",\n    x = \"IMDB rating\"\n  )\n\n\n\n\n\noffice_ratings |>\n  mutate(season = as_factor(season)) |>\n  ggplot(aes(x = season, y = imdb_rating, color = season)) +\n  geom_boxplot() +\n  geom_jitter() +\n  guides(color = \"none\") +\n  labs(\n    title = \"The Office ratings\",\n    x = \"Season\",\n    y = \"IMDB rating\"\n  ) +\n  scale_color_viridis_d()"
   },
   {
     "objectID": "ae/ae-08-feature-engineering.html#testtrain-split",
     "href": "ae/ae-08-feature-engineering.html#testtrain-split",
-    "title": "AE 08: Feature Engineering",
+    "title": "AE 08: Feature Engineering- Model workflow",
     "section": "Test/train split",
     "text": "Test/train split\n\nset.seed(123)\noffice_split <- initial_split(office_ratings) # prop = 3/4 by default\noffice_train <- training(office_split)\noffice_test  <- testing(office_split)"
   },
   {
     "objectID": "ae/ae-08-feature-engineering.html#build-a-recipe",
     "href": "ae/ae-08-feature-engineering.html#build-a-recipe",
-    "title": "AE 08: Feature Engineering",
+    "title": "AE 08: Feature Engineering- Model workflow",
     "section": "Build a recipe",
     "text": "Build a recipe\n\noffice_rec <- recipe(imdb_rating ~ ., data = office_train) |>\n  # make title's role ID\n  update_role(title, new_role = \"ID\") |>\n  # extract day of week and month of air_date\n  step_date(air_date, features = c(\"dow\", \"month\")) |>\n  # identify holidays and add indicators\n  step_holiday(\n    air_date, \n    holidays = c(\"USThanksgivingDay\", \"USChristmasDay\", \"USNewYearsDay\", \"USIndependenceDay\"), \n    keep_original_cols = FALSE\n  ) |>\n  # turn season into factor\n  step_num2factor(season, levels = as.character(1:9)) |>\n  # make dummy variables\n  step_dummy(all_nominal_predictors()) |>\n  # remove zero variance predictors\n  step_zv(all_predictors())\n\n\noffice_rec\n\nRecipe\n\nInputs:\n\n      role #variables\n        ID          1\n   outcome          1\n predictor          4\n\nOperations:\n\nDate features from air_date\nHoliday features from air_date\nFactor variables from season\nDummy variables from all_nominal_predictors()\nZero variance filter on all_predictors()"
   },
   {
     "objectID": "ae/ae-08-feature-engineering.html#workflows-and-model-fitting",
     "href": "ae/ae-08-feature-engineering.html#workflows-and-model-fitting",
-    "title": "AE 08: Feature Engineering",
+    "title": "AE 08: Feature Engineering- Model workflow",
     "section": "Workflows and model fitting",
     "text": "Workflows and model fitting\n\nSpecify model\n\noffice_spec <- linear_reg() |>\n  set_engine(\"lm\")\n\noffice_spec\n\nLinear Regression Model Specification (regression)\n\nComputational engine: lm \n\n\n\n\nBuild workflow\n\noffice_wflow <- workflow() |>\n  add_model(office_spec) |>\n  add_recipe(office_rec)\n\n\noffice_wflow\n\n══ Workflow ════════════════════════════════════════════════════════════════════\nPreprocessor: Recipe\nModel: linear_reg()\n\n── Preprocessor ────────────────────────────────────────────────────────────────\n5 Recipe Steps\n\n• step_date()\n• step_holiday()\n• step_num2factor()\n• step_dummy()\n• step_zv()\n\n── Model ───────────────────────────────────────────────────────────────────────\nLinear Regression Model Specification (regression)\n\nComputational engine: lm \n\n\n\n\nFit model to training data\n\noffice_fit <- office_wflow |>\n  fit(data = office_train)\n\ntidy(office_fit) |>\n  kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n6.396\n0.510\n12.532\n0.000\n\n\nepisode\n-0.004\n0.017\n-0.230\n0.818\n\n\ntotal_votes\n0.000\n0.000\n9.074\n0.000\n\n\nseason_X2\n0.811\n0.327\n2.482\n0.014\n\n\nseason_X3\n1.042\n0.343\n3.040\n0.003\n\n\nseason_X4\n1.090\n0.295\n3.695\n0.000\n\n\nseason_X5\n1.082\n0.348\n3.109\n0.002\n\n\nseason_X6\n1.004\n0.367\n2.735\n0.007\n\n\nseason_X7\n1.018\n0.352\n2.894\n0.005\n\n\nseason_X8\n0.497\n0.348\n1.430\n0.155\n\n\nseason_X9\n0.621\n0.345\n1.802\n0.074\n\n\nair_date_dow_Tue\n0.382\n0.422\n0.904\n0.368\n\n\nair_date_dow_Thu\n0.284\n0.389\n0.731\n0.466\n\n\nair_date_month_Feb\n-0.060\n0.132\n-0.452\n0.652\n\n\nair_date_month_Mar\n-0.075\n0.156\n-0.481\n0.631\n\n\nair_date_month_Apr\n0.095\n0.177\n0.539\n0.591\n\n\nair_date_month_May\n0.156\n0.213\n0.734\n0.464\n\n\nair_date_month_Sep\n-0.078\n0.223\n-0.348\n0.728\n\n\nair_date_month_Oct\n-0.176\n0.174\n-1.014\n0.313\n\n\nair_date_month_Nov\n-0.156\n0.149\n-1.046\n0.298\n\n\nair_date_month_Dec\n0.170\n0.149\n1.143\n0.255"
   },
   {
     "objectID": "ae/ae-08-feature-engineering.html#evaluate-model-on-training-data",
     "href": "ae/ae-08-feature-engineering.html#evaluate-model-on-training-data",
-    "title": "AE 08: Feature Engineering",
+    "title": "AE 08: Feature Engineering- Model workflow",
     "section": "Evaluate model on training data",
     "text": "Evaluate model on training data\n\nMake predictions\n\n\n\n\n\n\nImportant\n\n\n\nFill in the code and make #| eval: true before rendering the document.\n\n\n\noffice_train_pred <- predict(office_fit, ______) |>\n  bind_cols(_____)\n\n\n\nCalculate \\(R^2\\)\n\n\n\n\n\n\nImportant\n\n\n\nFill in the code and make #| eval: true before rendering the document.\n\n\n\nrsq(office_train_pred, truth = _____, estimate = _____)\n\n\nWhat is preferred - high or low values of \\(R^2\\)?\n\n\n\nCalculate RMSE\n\n\n\n\n\n\nImportant\n\n\n\nFill in the code and make #| eval: true before rendering the document.\n\n\n\nrmse(______, ________, ________)\n\n\nWhat is preferred - high or low values of RMSE?\nIs this RMSE considered high or low? Hint: Consider the range of the response variable to answer this question.\n\noffice_train |>\n  summarise(min = min(imdb_rating), max = max(imdb_rating))\n\n# A tibble: 1 × 2\n    min   max\n  <dbl> <dbl>\n1   6.7   9.7"
   },
   {
     "objectID": "ae/ae-08-feature-engineering.html#evaluate-model-on-testing-data",
     "href": "ae/ae-08-feature-engineering.html#evaluate-model-on-testing-data",
-    "title": "AE 08: Feature Engineering",
+    "title": "AE 08: Feature Engineering- Model workflow",
     "section": "Evaluate model on testing data",
     "text": "Evaluate model on testing data\nAnswer the following before evaluating the model performance on testing data:\n\nDo you expect \\(R^2\\) on the testing data to be higher or lower than the \\(R^2\\) calculated using training data? Why?\nDo you expect RMSE on the testing data to be higher or lower than the \\(R^2\\) calculated using training data? Why?\n\n\nMake predictions\n\n# fill in code to make predictions from testing data\n\n\n\nCalculate \\(R^2\\)\n\n# fill in code to calculate $R^2$ for testing data\n\n\n\nCalculate RMSE\n\n# fill in code to calculate RMSE for testing data"
   },
   {
     "objectID": "ae/ae-08-feature-engineering.html#compare-training-and-testing-data-results",
     "href": "ae/ae-08-feature-engineering.html#compare-training-and-testing-data-results",
-    "title": "AE 08: Feature Engineering",
+    "title": "AE 08: Feature Engineering- Model workflow",
     "section": "Compare training and testing data results",
     "text": "Compare training and testing data results\n\nCompare the \\(R^2\\) for the training and testing data. Is this what you expected?\nCompare the RMSE for the training and testing data. Is this what you expected?"
   },

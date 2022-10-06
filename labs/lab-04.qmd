@@ -36,11 +36,11 @@ By the end of the lab you will...
 
 [**Click here**](https://prodduke-my.sharepoint.com/:x:/g/personal/mt324_duke_edu/EYAMe-DTHh5BpK-R0rLvUNYBKrYc88n8COENMulIBS3pCw?e=uPiWFd) to see the team assignments for STA 210. This will be your team for labs and the final project. Before you get started on the lab, complete the following:
 
-✅ Come up with a team name. You can\'t use the same name as another team, so I encourage you to be creative! Your TA will get your team name by the end of lab.
+✅ Come up with a team name. You can't use the same name as another team, so I encourage you to be creative! Your TA will get your team name by the end of lab.
 
 ✅ Fill out the team agreement. This will help you figure out a plan for communication,and working together during labs and outside of lab times. You can find the team agreement in the GitHub repo **team-agreement-\[github_team_name\]**.
 
--   Have **one person** from the team clone the repo and start a new RStudio project. This person will type the team\'s responses as you discuss the sections of the agreement. No one else in the team should type at this point but should be contributing to the discussion.
+-   Have **one person** from the team clone the repo and start a new RStudio project. This person will type the team's responses as you discuss the sections of the agreement. No one else in the team should type at this point but should be contributing to the discussion.
 
 -   Be sure to push the completed agreement to GitHub. Each team member can refer to the document in this repo or download the PDF of the agreement for future reference. *You do [not]{.underline} need to submit the agreement on Gradescope.*
 
@@ -414,7 +414,7 @@ Check your intuition in Exercise 13 by actually calculating the R-squared and RM
 :::
 
 ::: pull
-**Team Members 1, 3, 4:** Once Team Member 2 is done rendering, committing, and pushing, confirm that the changes are visible on GitHub in your team\'s lab repo. Then, in RStudio, click the **Pull** button in the Git pane to get the updated document. You should see the responses to Exercises 12 - 14 in your `.qmd` file.
+**Team Members 1, 3, 4:** Once Team Member 2 is done rendering, committing, and pushing, confirm that the changes are visible on GitHub in your team's lab repo. Then, in RStudio, click the **Pull** button in the Git pane to get the updated document. You should see the responses to Exercises 12 - 14 in your `.qmd` file.
 :::
 
 ## Wrapping up
@@ -430,7 +430,7 @@ Check your intuition in Exercise 13 by actually calculating the R-squared and RM
 :::
 
 ::: pull
-**Team Members 1, 2, 4:** Once Team Member 3 is done rendering, committing, and pushing, confirm that the changes are visible on GitHub in your team\'s lab repo. Then, in RStudio, click the **Pull** button in the Git pane to get the updated document. You should see the final version of your `.qmd` file.
+**Team Members 1, 2, 4:** Once Team Member 3 is done rendering, committing, and pushing, confirm that the changes are visible on GitHub in your team's lab repo. Then, in RStudio, click the **Pull** button in the Git pane to get the updated document. You should see the final version of your `.qmd` file.
 :::
 
 ## Submission

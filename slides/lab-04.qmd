@@ -70,7 +70,7 @@ knitr:
 countdown::countdown(minutes = 5, font_size = "2em")
 ```
 
-## Tips for working in a team {.midi}
+## Tips for working on a team {.midi}
 
 -   Do not pressure each other to finish early; use the time wisely to really learn the material and produce a quality report.
 
@@ -82,7 +82,7 @@ countdown::countdown(minutes = 5, font_size = "2em")
 
 Please take a few minutes to complete the STA 210 Mid Semester Survey
 
-## Resources for Lab 04
+## Resources for Lab 04 {.midi}
 
 -   Lecture notes:
 
@@ -92,3 +92,13 @@ Please take a few minutes to complete the STA 210 Mid Semester Survey
 -   [Recipes package function reference](https://recipes.tidymodels.org/reference/index.html)
 
 -   Tidy Modeling in R - [Chapter 8: Feature engineering with recipes](https://www.tmwr.org/recipes.html)
+
+::: callout-note
+If you haven't already, you will need to install the **schrute** R package for the lab. Run the code below in the **console**.
+:::
+
+```{r}
+#| eval: false
+
+install.packages("schrute")
+```

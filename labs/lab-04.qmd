@@ -32,6 +32,18 @@ By the end of the lab you will...
 -   evaluate model performance on training and testing data
 -   practice collaborating with others using a single Github repo
 
+# Meet your team!
+
+[**Click here**](https://prodduke-my.sharepoint.com/:x:/g/personal/mt324_duke_edu/EYAMe-DTHh5BpK-R0rLvUNYBKrYc88n8COENMulIBS3pCw?e=uPiWFd) to see the team assignments for STA 210. This will be your team for labs and the final project. Before you get started on the lab, complete the following:
+
+✅ Come up with a team name. You can\'t use the same name as another team, so I encourage you to be creative! Your TA will get your team name by the end of lab.
+
+✅ Fill out the team agreement. This will help you figure out a plan for communication,and working together during labs and outside of lab times. You can find the team agreement in the GitHub repo **team-agreement-\[github_team_name\]**.
+
+-   Have **one person** from the team clone the repo and start a new RStudio project. This person will type the team\'s responses as you discuss the sections of the agreement. No one else in the team should type at this point but should be contributing to the discussion.
+
+-   Be sure to push the completed agreement to GitHub. Each team member can refer to the document in this repo or download the PDF of the agreement for future reference. *You do [not]{.underline} need to submit the agreement on Gradescope.*
+
 ## Getting started
 
 -   A repository has already been created for you and your teammates. Everyone in your team has access to the same repo.
@@ -88,12 +100,14 @@ The data for this lab comes from the [schrute](https://bradlindblad.github.io/sc
 Let's start by taking a peek at the data.
 
 ```{r}
+#| eval: true
 glimpse(theoffice)
 ```
 
 There are `r nrow(theoffice)` observations and `r ncol(theoffice)` columns in this data set. The variable names are as follows.
 
 ```{r}
+#| eval: true
 names(theoffice)
 ```
 
@@ -109,6 +123,7 @@ theoffice <- theoffice |>
 Let's take a look at the data to confirm we're happy with how each of the variables are encoded.
 
 ```{r}
+#| eval: true
 glimpse(theoffice)
 ```
 
@@ -221,9 +236,9 @@ office_episodes <- office_episodes |>
 
 #### Exercise 4
 
-Print out the dimensions (`dim()`) of the new dataset you created as well as the `names()` of the columns in the dataset.
+Print out the dimensions (`dim()`) of the new data set you created as well as the `names()` of the columns in the data set.
 
-Your new dataset, `office_episodes,` should have 186 rows and 14 columns. The column names should be `season`, `episode`, `episode_name`, `imdb_rating`, `total_votes`, `air_date`, `lines_jim`, `lines_pam`, `lines_michael`, `lines_dwight`, `halloween`, `valentine`, `christmas`, and `michael`. If you are not matching these numbers or columns, go back and try to figure out where you went wrong. Or ask your TA for help!
+Your new data set, `office_episodes,` should have 186 rows and 14 columns. The column names should be `season`, `episode`, `episode_name`, `imdb_rating`, `total_votes`, `air_date`, `lines_jim`, `lines_pam`, `lines_michael`, `lines_dwight`, `halloween`, `valentine`, `christmas`, and `michael`. If you are not matching these numbers or columns, go back and try to figure out where you went wrong. Or ask your TA for help!
 
 ### Exploratory data analysis
 
@@ -233,7 +248,7 @@ This would be a good place to conduct some exploratory data analysis (EDA). For 
 
 #### Exercise 5
 
-Split the data into training (75%) and testing (25%). Save the training and testing data as `office_train` and `office_test` respectively.
+Split the data into training (75%) and testing (25%). Save the training and testing data as `office_train` and `office_test` respectively. Use seed 123.
 
 *Naming suggestion:* Call the initial split `office_split`, the training data `office_train`, and testing data `office_test`.
 
@@ -283,7 +298,7 @@ office_spec <- ___
 Create a recipe that performs feature engineering using the following steps (in the given order):
 
 -   `update_role()`: updates the role of `episode_name` to not be a predictor (be an ID)
--   `step_rm()`: removes `air_date` as a predictor
+-   `step_rm()`: removes `air_date` and `season` as predictors
 -   `step_dummy()`: creates dummy variables for `all_nominal_predictors()`
 -   `step_zv()`: removes all zero variance predictors
 
@@ -350,13 +365,13 @@ ___
 
 #### Exercise 10
 
-Calculate predicted `imdb_rating` for the training data using the `predict()` function. Then, bind two columns from the training data to this result: `imdb_rating` and `episode_name`. The resulting data frame should have three columns: `.pred`, `imdb_rating`, and `episode_name`.
+Calculate predicted `imdb_rating` for the training data using the `predict()` function. Then, bind the columns from the training data to this result.
 
-Then, using this data frame, create a scatterplot of predicted and observed IMDB ratings for the training data.
+Using this data frame, create a scatterplot of predicted and observed IMDB ratings for the training data.
 
 *Naming suggestion:* Call the resulting data frame `office_train_pred`.
 
-*Stretch goal.* Add episode names, using `geom_text()`, for episodes with much higher and much lower observed IMDB ratings compared to others.
+*Stretch goal.* Add episode names, using [`geom_text()`](https://ggplot2.tidyverse.org/reference/geom_text.html), for episodes with much higher and much lower observed IMDB ratings compared to others.
 
 #### Exercise 11
 
@@ -394,6 +409,30 @@ Based on your visualization on Exercise 12, speculate on whether you expect the 
 
 Check your intuition in Exercise 13 by actually calculating the R-squared and RMSE for this model for predictions on the training data. Comment on whether your intuition is confirmed or not.
 
+::: render-commit-push
+**Team Member 2:** Render the document and confirm that the changes are visible in the PDF. Then, commit (with an informative commit message) both the `.qmd` and PDF documents, and finally push the changes to GitHub. Make sure to commit and push all changed files so that your Git pane is empty afterwards.
+:::
+
+::: pull
+**Team Members 1, 3, 4:** Once Team Member 2 is done rendering, committing, and pushing, confirm that the changes are visible on GitHub in your team\'s lab repo. Then, in RStudio, click the **Pull** button in the Git pane to get the updated document. You should see the responses to Exercises 12 - 14 in your `.qmd` file.
+:::
+
+## Wrapping up
+
+::: {.callout-important appearance="simple"}
+⌨️ **Team Member 3: Hands on the keyboard. Make any edits as needed.**
+
+🙅🏽 All other team members: Hands off the keyboard until otherwise instructed!
+:::
+
+::: render-commit-push
+**Team Member 3:** Render the document and confirm that the changes are visible in the PDF. Then, commit (with an informative commit message) both the `.qmd` and PDF documents, and finally push the changes to GitHub. Make sure to commit and push all changed files so that your Git pane is empty afterwards.
+:::
+
+::: pull
+**Team Members 1, 2, 4:** Once Team Member 3 is done rendering, committing, and pushing, confirm that the changes are visible on GitHub in your team\'s lab repo. Then, in RStudio, click the **Pull** button in the Git pane to get the updated document. You should see the final version of your `.qmd` file.
+:::
+
 ## Submission
 
 ::: callout-warning
@@ -402,12 +441,12 @@ Before you wrap up the assignment, make sure all documents are updated on your G
 Remember -- you must turn in a PDF file to the Gradescope page before the submission deadline for full credit.
 :::
 
-To submit your assignment:
+One team member submit the assignment:
 
--   Go to [http://www.gradescope.com](http://www.gradescope.com/) and click *Log in* in the top right corner.
--   Click *School Credentials* ➡️ *Duke NetID* and log in using your NetID credentials.
+-   Go to [http://www.gradescope.com](http://www.gradescope.com/) and log in using your NetID credentials.
 -   Click on your *STA 210* course.
 -   Click on the assignment, and you'll be prompted to submit it.
+-   Select all team members' names, so they receive credit on the assignment. [Click here](https://help.gradescope.com/article/m5qz2xsnjy-student-add-group-members) for video on adding team members to assignment on Gradescope.
 -   Mark the pages associated with each exercise. All of the pages of your lab should be associated with at least one question (i.e., should be "checked").
 -   Select the first page of your PDF submission to be associated with the *"Workflow & formatting"* section.
 
@@ -415,9 +454,10 @@ To submit your assignment:
 
 Total points available: 50 points.
 
-| Component             | Points |
-|-----------------------|--------|
-| Ex 1 - 10             | 45     |
-| Workflow & formatting | 5[^2]  |
+| Component              | Points |
+|------------------------|--------|
+| Ex 1 - 14              | 42     |
+| Workflow & formatting  | 5[^2]  |
+| Complete team contract | 3      |
 
-[^2]: The "Workflow & formatting" grade is to assess the reproducible workflow. This includes having at least 3 informative commit messages and updating the name and date in the YAML.
+[^2]: The "Workflow & formatting" grade is to assess the reproducible workflow. This includes having at least one meaningful commit from each team member and updating the team name and date in the YAML.

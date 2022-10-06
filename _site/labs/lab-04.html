@@ -319,6 +319,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul class="collapse">
   <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link" data-scroll-target="#learning-goals">Learning goals</a></li>
   </ul></li>
+  <li><a href="#meet-your-team" id="toc-meet-your-team" class="nav-link" data-scroll-target="#meet-your-team">Meet your team!</a>
+  <ul class="collapse">
   <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting started</a></li>
   <li><a href="#workflow-using-git-and-github-as-a-team" id="toc-workflow-using-git-and-github-as-a-team" class="nav-link" data-scroll-target="#workflow-using-git-and-github-as-a-team">Workflow: Using Git and GitHub as a team</a></li>
   <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
@@ -330,10 +332,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#modeling-prep" id="toc-modeling-prep" class="nav-link" data-scroll-target="#modeling-prep">Modeling prep</a></li>
   <li><a href="#model-fit-and-evaluation" id="toc-model-fit-and-evaluation" class="nav-link" data-scroll-target="#model-fit-and-evaluation">Model fit and evaluation</a></li>
   </ul></li>
+  <li><a href="#wrapping-up" id="toc-wrapping-up" class="nav-link" data-scroll-target="#wrapping-up">Wrapping up</a></li>
   <li><a href="#submission" id="toc-submission" class="nav-link" data-scroll-target="#submission">Submission</a></li>
   <li><a href="#grading" id="toc-grading" class="nav-link" data-scroll-target="#grading">Grading</a></li>
+  </ul></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/sta210-fa22/website/edit/main/labs/lab-04-DRAFT.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/sta210-fa22/website/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/sta210-fa22/website/edit/main/labs/lab-04.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/sta210-fa22/website/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -388,6 +392,15 @@ Important
 </ul>
 </section>
 </section>
+<section id="meet-your-team" class="level1">
+<h1>Meet your team!</h1>
+<p><a href="https://prodduke-my.sharepoint.com/:x:/g/personal/mt324_duke_edu/EYAMe-DTHh5BpK-R0rLvUNYBKrYc88n8COENMulIBS3pCw?e=uPiWFd"><strong>Click here</strong></a> to see the team assignments for STA 210. This will be your team for labs and the final project. Before you get started on the lab, complete the following:</p>
+<p>✅ Come up with a team name. You can't use the same name as another team, so I encourage you to be creative! Your TA will get your team name by the end of lab.</p>
+<p>✅ Fill out the team agreement. This will help you figure out a plan for communication,and working together during labs and outside of lab times. You can find the team agreement in the GitHub repo <strong>team-agreement-[github_team_name]</strong>.</p>
+<ul>
+<li><p>Have <strong>one person</strong> from the team clone the repo and start a new RStudio project. This person will type the team's responses as you discuss the sections of the agreement. No one else in the team should type at this point but should be contributing to the discussion.</p></li>
+<li><p>Be sure to push the completed agreement to GitHub. Each team member can refer to the document in this repo or download the PDF of the agreement for future reference. <em>You do <u>not</u> need to submit the agreement on Gradescope.</em></p></li>
+</ul>
 <section id="getting-started" class="level2">
 <h2 class="anchored" data-anchor-id="getting-started">Getting started</h2>
 <ul>
@@ -449,20 +462,57 @@ Important
 <p>Let’s start by taking a peek at the data.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(theoffice)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 55,130
+Columns: 12
+$ index            &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16…
+$ season           &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…
+$ episode          &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…
+$ episode_name     &lt;chr&gt; "Pilot", "Pilot", "Pilot", "Pilot", "Pilot", "Pilot",…
+$ director         &lt;chr&gt; "Ken Kwapis", "Ken Kwapis", "Ken Kwapis", "Ken Kwapis…
+$ writer           &lt;chr&gt; "Ricky Gervais;Stephen Merchant;Greg Daniels", "Ricky…
+$ character        &lt;chr&gt; "Michael", "Jim", "Michael", "Jim", "Michael", "Micha…
+$ text             &lt;chr&gt; "All right Jim. Your quarterlies look very good. How …
+$ text_w_direction &lt;chr&gt; "All right Jim. Your quarterlies look very good. How …
+$ imdb_rating      &lt;dbl&gt; 7.6, 7.6, 7.6, 7.6, 7.6, 7.6, 7.6, 7.6, 7.6, 7.6, 7.6…
+$ total_votes      &lt;int&gt; 3706, 3706, 3706, 3706, 3706, 3706, 3706, 3706, 3706,…
+$ air_date         &lt;chr&gt; "2005-03-24", "2005-03-24", "2005-03-24", "2005-03-24…</code></pre>
+</div>
 </div>
 <p>There are 55130 observations and 12 columns in this data set. The variable names are as follows.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(theoffice)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(theoffice)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "index"            "season"           "episode"          "episode_name"    
+ [5] "director"         "writer"           "character"        "text"            
+ [9] "text_w_direction" "imdb_rating"      "total_votes"      "air_date"        </code></pre>
+</div>
 </div>
 <p>Each row in the data set is a line spoken by a character in a given episode of the show. This means some information at the episode level (e.g., <code>imdb_rating</code>, <code>air_date</code>, etc. are repeated across the rows that belong to a single episode.</p>
 <p>The <code>air_date</code> variable is coded as a factor, which is undesirable for the analysis. We’ll want to parse that variable later into its components during feature engineering. So, for now, let’s convert it to date.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>theoffice <span class="ot">&lt;-</span> theoffice <span class="sc">|&gt;</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">air_date =</span> <span class="fu">ymd</span>(<span class="fu">as.character</span>(air_date)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>theoffice <span class="ot">&lt;-</span> theoffice <span class="sc">|&gt;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">air_date =</span> <span class="fu">ymd</span>(<span class="fu">as.character</span>(air_date)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Let’s take a look at the data to confirm we’re happy with how each of the variables are encoded.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(theoffice)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(theoffice)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 55,130
+Columns: 12
+$ index            &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16…
+$ season           &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…
+$ episode          &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…
+$ episode_name     &lt;chr&gt; "Pilot", "Pilot", "Pilot", "Pilot", "Pilot", "Pilot",…
+$ director         &lt;chr&gt; "Ken Kwapis", "Ken Kwapis", "Ken Kwapis", "Ken Kwapis…
+$ writer           &lt;chr&gt; "Ricky Gervais;Stephen Merchant;Greg Daniels", "Ricky…
+$ character        &lt;chr&gt; "Michael", "Jim", "Michael", "Jim", "Michael", "Micha…
+$ text             &lt;chr&gt; "All right Jim. Your quarterlies look very good. How …
+$ text_w_direction &lt;chr&gt; "All right Jim. Your quarterlies look very good. How …
+$ imdb_rating      &lt;dbl&gt; 7.6, 7.6, 7.6, 7.6, 7.6, 7.6, 7.6, 7.6, 7.6, 7.6, 7.6…
+$ total_votes      &lt;int&gt; 3706, 3706, 3706, 3706, 3706, 3706, 3706, 3706, 3706,…
+$ air_date         &lt;chr&gt; "2005-03-24", "2005-03-24", "2005-03-24", "2005-03-24…</code></pre>
+</div>
 </div>
 </section>
 <section id="exercises" class="level2">
@@ -489,13 +539,13 @@ Important
 </ul>
 <p>Below is code to help you get started.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>theoffice <span class="ot">&lt;-</span> theoffice <span class="sc">|&gt;</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">text =</span> <span class="fu">___</span>(text),</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">halloween_mention =</span> <span class="fu">if_else</span>(<span class="fu">str_detect</span>(text, <span class="st">"___"</span>), ___, ___),</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">valentine_mention =</span> ___,</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">___ =</span> ___</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>theoffice <span class="ot">&lt;-</span> theoffice <span class="sc">|&gt;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">text =</span> <span class="fu">___</span>(text),</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">halloween_mention =</span> <span class="fu">if_else</span>(<span class="fu">str_detect</span>(text, <span class="st">"___"</span>), ___, ___),</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">valentine_mention =</span> ___,</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">___ =</span> ___</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="exercise-2" class="level4">
@@ -523,20 +573,20 @@ Important
 <li>Finish up your <code>summarize()</code> statement by dropping the groups, so the resulting data frame is no longer grouped. Additionally, remove <code>n_lines</code> (we won’t use that variable in our analysis, we only calculated it as an intermediary step).</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>office_episodes <span class="ot">&lt;-</span> theoffice <span class="sc">|&gt;</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(___) <span class="sc">|&gt;</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_lines =</span> <span class="fu">n</span>(),</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">lines_jim =</span> <span class="fu">sum</span>(character <span class="sc">==</span> <span class="st">"___"</span>) <span class="sc">/</span> n_lines,</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">lines_pam =</span> ___,</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">lines_michael =</span> ___,</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">lines_dwight =</span> ___,</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">halloween =</span> <span class="fu">if_else</span>(<span class="fu">sum</span>(___) <span class="sc">&gt;=</span> <span class="dv">1</span>, <span class="st">"yes"</span>, <span class="st">"no"</span>),</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">valentine =</span> <span class="fu">if_else</span>(___, <span class="st">"___"</span>, <span class="st">"___"</span>),</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">christmas =</span> <span class="fu">if_else</span>(___, <span class="st">"___"</span>, <span class="st">"___"</span>),</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>n_lines)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>office_episodes <span class="ot">&lt;-</span> theoffice <span class="sc">|&gt;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(___) <span class="sc">|&gt;</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_lines =</span> <span class="fu">n</span>(),</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">lines_jim =</span> <span class="fu">sum</span>(character <span class="sc">==</span> <span class="st">"___"</span>) <span class="sc">/</span> n_lines,</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">lines_pam =</span> ___,</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">lines_michael =</span> ___,</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">lines_dwight =</span> ___,</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">halloween =</span> <span class="fu">if_else</span>(<span class="fu">sum</span>(___) <span class="sc">&gt;=</span> <span class="dv">1</span>, <span class="st">"yes"</span>, <span class="st">"no"</span>),</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">valentine =</span> <span class="fu">if_else</span>(___, <span class="st">"___"</span>, <span class="st">"___"</span>),</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">christmas =</span> <span class="fu">if_else</span>(___, <span class="st">"___"</span>, <span class="st">"___"</span>),</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>n_lines)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
@@ -575,14 +625,14 @@ Note
 <h4 class="anchored" data-anchor-id="exercise-3">Exercise 3</h4>
 <p>The Michael Scott character (played by Steve Carrell) left the show at the end of Season 7. Add an indicator variable, <code>michael</code>, that takes on the value <code>"yes"</code> if Michael Scott (Steve Carrell) was in the show, and <code>"no"</code> if not.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>office_episodes <span class="ot">&lt;-</span> office_episodes <span class="sc">|&gt;</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">michael =</span> <span class="fu">if_else</span>(season <span class="sc">&gt;</span> ___, <span class="st">"___"</span>, <span class="st">"___"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>office_episodes <span class="ot">&lt;-</span> office_episodes <span class="sc">|&gt;</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">michael =</span> <span class="fu">if_else</span>(season <span class="sc">&gt;</span> ___, <span class="st">"___"</span>, <span class="st">"___"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="exercise-4" class="level4">
 <h4 class="anchored" data-anchor-id="exercise-4">Exercise 4</h4>
-<p>Print out the dimensions (<code>dim()</code>) of the new dataset you created as well as the <code>names()</code> of the columns in the dataset.</p>
-<p>Your new dataset, <code>office_episodes,</code> should have 186 rows and 14 columns. The column names should be <code>season</code>, <code>episode</code>, <code>episode_name</code>, <code>imdb_rating</code>, <code>total_votes</code>, <code>air_date</code>, <code>lines_jim</code>, <code>lines_pam</code>, <code>lines_michael</code>, <code>lines_dwight</code>, <code>halloween</code>, <code>valentine</code>, <code>christmas</code>, and <code>michael</code>. If you are not matching these numbers or columns, go back and try to figure out where you went wrong. Or ask your TA for help!</p>
+<p>Print out the dimensions (<code>dim()</code>) of the new data set you created as well as the <code>names()</code> of the columns in the data set.</p>
+<p>Your new data set, <code>office_episodes,</code> should have 186 rows and 14 columns. The column names should be <code>season</code>, <code>episode</code>, <code>episode_name</code>, <code>imdb_rating</code>, <code>total_votes</code>, <code>air_date</code>, <code>lines_jim</code>, <code>lines_pam</code>, <code>lines_michael</code>, <code>lines_dwight</code>, <code>halloween</code>, <code>valentine</code>, <code>christmas</code>, and <code>michael</code>. If you are not matching these numbers or columns, go back and try to figure out where you went wrong. Or ask your TA for help!</p>
 </section>
 </section>
 <section id="exploratory-data-analysis" class="level3">
@@ -593,13 +643,13 @@ Note
 <h3 class="anchored" data-anchor-id="modeling-prep">Modeling prep</h3>
 <section id="exercise-5" class="level4">
 <h4 class="anchored" data-anchor-id="exercise-5">Exercise 5</h4>
-<p>Split the data into training (75%) and testing (25%). Save the training and testing data as <code>office_train</code> and <code>office_test</code> respectively.</p>
+<p>Split the data into training (75%) and testing (25%). Save the training and testing data as <code>office_train</code> and <code>office_test</code> respectively. Use seed 123.</p>
 <p><em>Naming suggestion:</em> Call the initial split <code>office_split</code>, the training data <code>office_train</code>, and testing data <code>office_test</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>office_split <span class="ot">&lt;-</span> <span class="fu">___</span>(office_episodes)</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>office_train <span class="ot">&lt;-</span> <span class="fu">___</span>(office_split)</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>office_test <span class="ot">&lt;-</span> <span class="fu">___</span>(___)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>office_split <span class="ot">&lt;-</span> <span class="fu">___</span>(office_episodes)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>office_train <span class="ot">&lt;-</span> <span class="fu">___</span>(office_split)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>office_test <span class="ot">&lt;-</span> <span class="fu">___</span>(___)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="render-commit-push">
 <p><strong>Team Member 2:</strong> Render the document and confirm that the changes are visible in the PDF. Then, commit (with an informative commit message) both the <code>.qmd</code> and PDF documents, and finally push the changes to GitHub. Make sure to commit and push all changed files so that your Git pane is empty afterwards.</p>
@@ -626,7 +676,7 @@ Note
 <p>Specify a linear regression model with engine <code>"lm"</code> and call it <code>office_spec</code>.</p>
 <p><em>Naming suggestion:</em> Call the model specification <code>office_spec</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>office_spec <span class="ot">&lt;-</span> ___</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>office_spec <span class="ot">&lt;-</span> ___</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="exercise-7" class="level4">
@@ -634,14 +684,14 @@ Note
 <p>Create a recipe that performs feature engineering using the following steps (in the given order):</p>
 <ul>
 <li><code>update_role()</code>: updates the role of <code>episode_name</code> to not be a predictor (be an ID)</li>
-<li><code>step_rm()</code>: removes <code>air_date</code> as a predictor</li>
+<li><code>step_rm()</code>: removes <code>air_date</code> and <code>season</code> as predictors</li>
 <li><code>step_dummy()</code>: creates dummy variables for <code>all_nominal_predictors()</code></li>
 <li><code>step_zv()</code>: removes all zero variance predictors</li>
 </ul>
 <p><em>Naming suggestion:</em> Call the recipe <code>office_rec</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>office_rec <span class="ot">&lt;-</span> <span class="fu">recipe</span>(imdb_rating <span class="sc">~</span> ., <span class="at">data =</span> office_train) <span class="sc">|&gt;</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  ___</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>office_rec <span class="ot">&lt;-</span> <span class="fu">recipe</span>(imdb_rating <span class="sc">~</span> ., <span class="at">data =</span> office_train) <span class="sc">|&gt;</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  ___</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="exercise-8" class="level4">
@@ -649,9 +699,9 @@ Note
 <p>Build a model workflow for fitting the model specified earlier and using the recipe you developed to preprocess the data.</p>
 <p><em>Naming suggestion:</em> Call the model workflow <code>office_wflow</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>office_wflow <span class="ot">&lt;-</span> <span class="fu">workflow</span>() <span class="sc">|&gt;</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_model</span>(___) <span class="sc">|&gt;</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_recipe</span>(___)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>office_wflow <span class="ot">&lt;-</span> <span class="fu">workflow</span>() <span class="sc">|&gt;</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_model</span>(___) <span class="sc">|&gt;</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_recipe</span>(___)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
@@ -681,18 +731,18 @@ Note
 <p>Fit the model to training data, neatly display the model output, and interpret two of the slope coefficients.</p>
 <p><em>Naming suggestion:</em> Call the model fit <code>office_fit</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>office_fit <span class="ot">&lt;-</span> office_wflow <span class="sc">|&gt;</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(<span class="at">data =</span> ___)</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>___</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>office_fit <span class="ot">&lt;-</span> office_wflow <span class="sc">|&gt;</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(<span class="at">data =</span> ___)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>___</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="exercise-10" class="level4">
 <h4 class="anchored" data-anchor-id="exercise-10">Exercise 10</h4>
-<p>Calculate predicted <code>imdb_rating</code> for the training data using the <code>predict()</code> function. Then, bind two columns from the training data to this result: <code>imdb_rating</code> and <code>episode_name</code>. The resulting data frame should have three columns: <code>.pred</code>, <code>imdb_rating</code>, and <code>episode_name</code>.</p>
-<p>Then, using this data frame, create a scatterplot of predicted and observed IMDB ratings for the training data.</p>
+<p>Calculate predicted <code>imdb_rating</code> for the training data using the <code>predict()</code> function. Then, bind the columns from the training data to this result.</p>
+<p>Using this data frame, create a scatterplot of predicted and observed IMDB ratings for the training data.</p>
 <p><em>Naming suggestion:</em> Call the resulting data frame <code>office_train_pred</code>.</p>
-<p><em>Stretch goal.</em> Add episode names, using <code>geom_text()</code>, for episodes with much higher and much lower observed IMDB ratings compared to others.</p>
+<p><em>Stretch goal.</em> Add episode names, using <a href="https://ggplot2.tidyverse.org/reference/geom_text.html"><code>geom_text()</code></a>, for episodes with much higher and much lower observed IMDB ratings compared to others.</p>
 </section>
 <section id="exercise-11" class="level4">
 <h4 class="anchored" data-anchor-id="exercise-11">Exercise 11</h4>
@@ -729,8 +779,34 @@ Note
 <section id="exercise-14" class="level4">
 <h4 class="anchored" data-anchor-id="exercise-14">Exercise 14</h4>
 <p>Check your intuition in Exercise 13 by actually calculating the R-squared and RMSE for this model for predictions on the training data. Comment on whether your intuition is confirmed or not.</p>
+<div class="render-commit-push">
+<p><strong>Team Member 2:</strong> Render the document and confirm that the changes are visible in the PDF. Then, commit (with an informative commit message) both the <code>.qmd</code> and PDF documents, and finally push the changes to GitHub. Make sure to commit and push all changed files so that your Git pane is empty afterwards.</p>
+</div>
+<div class="pull">
+<p><strong>Team Members 1, 3, 4:</strong> Once Team Member 2 is done rendering, committing, and pushing, confirm that the changes are visible on GitHub in your team's lab repo. Then, in RStudio, click the <strong>Pull</strong> button in the Git pane to get the updated document. You should see the responses to Exercises 12 - 14 in your <code>.qmd</code> file.</p>
+</div>
 </section>
 </section>
+</section>
+<section id="wrapping-up" class="level2">
+<h2 class="anchored" data-anchor-id="wrapping-up">Wrapping up</h2>
+<div class="callout-important callout callout-style-simple">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>⌨️ <strong>Team Member 3: Hands on the keyboard. Make any edits as needed.</strong></p>
+<p>🙅🏽 All other team members: Hands off the keyboard until otherwise instructed!</p>
+</div>
+</div>
+</div>
+<div class="render-commit-push">
+<p><strong>Team Member 3:</strong> Render the document and confirm that the changes are visible in the PDF. Then, commit (with an informative commit message) both the <code>.qmd</code> and PDF documents, and finally push the changes to GitHub. Make sure to commit and push all changed files so that your Git pane is empty afterwards.</p>
+</div>
+<div class="pull">
+<p><strong>Team Members 1, 2, 4:</strong> Once Team Member 3 is done rendering, committing, and pushing, confirm that the changes are visible on GitHub in your team's lab repo. Then, in RStudio, click the <strong>Pull</strong> button in the Git pane to get the updated document. You should see the final version of your <code>.qmd</code> file.</p>
+</div>
 </section>
 <section id="submission" class="level2">
 <h2 class="anchored" data-anchor-id="submission">Submission</h2>
@@ -748,12 +824,12 @@ Warning
 <p>Remember – you must turn in a PDF file to the Gradescope page before the submission deadline for full credit.</p>
 </div>
 </div>
-<p>To submit your assignment:</p>
+<p>One team member submit the assignment:</p>
 <ul>
-<li>Go to <a href="http://www.gradescope.com/">http://www.gradescope.com</a> and click <em>Log in</em> in the top right corner.</li>
-<li>Click <em>School Credentials</em> ➡️ <em>Duke NetID</em> and log in using your NetID credentials.</li>
+<li>Go to <a href="http://www.gradescope.com/">http://www.gradescope.com</a> and log in using your NetID credentials.</li>
 <li>Click on your <em>STA 210</em> course.</li>
 <li>Click on the assignment, and you’ll be prompted to submit it.</li>
+<li>Select all team members’ names, so they receive credit on the assignment. <a href="https://help.gradescope.com/article/m5qz2xsnjy-student-add-group-members">Click here</a> for video on adding team members to assignment on Gradescope.</li>
 <li>Mark the pages associated with each exercise. All of the pages of your lab should be associated with at least one question (i.e., should be “checked”).</li>
 <li>Select the first page of your PDF submission to be associated with the <em>“Workflow &amp; formatting”</em> section.</li>
 </ul>
@@ -770,17 +846,22 @@ Warning
 </thead>
 <tbody>
 <tr class="odd">
-<td>Ex 1 - 10</td>
-<td>45</td>
+<td>Ex 1 - 14</td>
+<td>42</td>
 </tr>
 <tr class="even">
 <td>Workflow &amp; formatting</td>
 <td>5<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></td>
 </tr>
+<tr class="odd">
+<td>Complete team contract</td>
+<td>3</td>
+</tr>
 </tbody>
 </table>
 
 
+</section>
 </section>
 
 
@@ -788,7 +869,7 @@ Warning
 
 <ol>
 <li id="fn1" role="doc-endnote"><p>Don’t trust yourself to keep your hands off the keyboard? Put them in your picket or cross your arms. No matter how silly it might feel, resist the urge to touch your keyboard until otherwise instructed!<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2" role="doc-endnote"><p>The “Workflow &amp; formatting” grade is to assess the reproducible workflow. This includes having at least 3 informative commit messages and updating the name and date in the YAML.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>The “Workflow &amp; formatting” grade is to assess the reproducible workflow. This includes having at least one meaningful commit from each team member and updating the team name and date in the YAML.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -3308,7 +3308,7 @@
     "href": "slides/13-variable-transformations.html#compare-models-on-testing-data",
     "title": "Variable transformations",
     "section": "Compare models on testing data",
-    "text": "Compare models on testing data\n\n\n\n\n\n\n\n\n\n\n\nRate vs. Age\nlog(Rate) vs. Age\nRate vs. log(Age)\n\n\n\n\n0.549\n0.596\n0.559"
+    "text": "Compare models on testing data\n\n\n\n\n\n\n\n\n\n\n\nRate vs. Age\nlog(Rate) vs. Age\nRate vs. log(Age)\n\n\n\n\n0.549\n0.596\n0.559\n\n\n\n\n.question[ Which model would you choose?]"
   },
   {
     "objectID": "slides/13-variable-transformations.html#learn-more",

@@ -495,6 +495,12 @@ m3_test_aug <- predict(resp_logx_fit, resp_test) |>
 |------------------------|------------------------|------------------------|
 | `r round(rsq(m1_test_aug, truth = Rate, estimate = .pred)$.estimate,3)` | `r round(rsq(m2_test_aug, truth = log_rate, estimate = .pred)$.estimate,3)` | `r round(rsq(m3_test_aug, truth = Rate, estimate =.pred)$.estimate,3)` |
 
+<br> 
+
+.question[
+Which model would you choose?
+]
+
 ## Learn more
 
 See [Log Transformations in Linear Regression](https://github.com/sta210-sp20/supplemental-notes/blob/master/log-transformations.pdf) for more details about interpreting regression models with log-transformed variables.

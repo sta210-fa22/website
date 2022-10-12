@@ -41,6 +41,7 @@ knitr::opts_chunk$set(
     -   Thu, Oct 13, 11:59pm (Thu labs)
     -   Fri, Oct 14, 11:59pm (Fri labs)
 -   HW 02 due Wed, Oct 19, 11:59pm (released later today)
+-   Office hours resume tomorrow (Thursday)
 -   Click here for [Week 07](../weeks/week-07.qmd) activities.
 
 ## Topics
@@ -191,7 +192,7 @@ $$\widehat{\log(Y)} = \hat{\beta}_0+ \hat{\beta}_1 X$$
 
 ## Log transformation on $Y$
 
-We want to interpret the model in terms of the original variable \$Y\$, not $\log(Y)$, so we need to write the model in terms of $Y$
+We want to interpret the model in terms of the original variable $Y$, not $\log(Y)$, so we need to write the model in terms of $Y$
 
 $$\hat{Y} = \exp\{\hat{\beta}_0 + \hat{\beta}_1 X\} = \exp\{\hat{\beta}_0\}\exp\{\hat{\beta}_1X\}$$<br>\
 $$\widehat{\text{Median}({Y|X})} = \exp\{\hat{\beta}_0\}\exp\{\hat{\beta}_1 X\}$$
@@ -312,8 +313,10 @@ median(log_x) == log(median_x)
 
 . . .
 
-$$\begin{aligned}\exp\{\text{Mean}(\log(Y|X))\} \neq \text{Mean}(Y|X) \\[5pt]
-\Rightarrow \exp\{\beta_0 + \beta_1 X\} \neq \text{Mean}(Y|X) \end{aligned}$$
+$$
+\begin{aligned}\exp\{\text{Mean}(\log(Y|X))\} \neq \text{Mean}(Y|X) \\[5pt]
+\Rightarrow \exp\{\beta_0 + \beta_1 X\} \neq \text{Mean}(Y|X) \end{aligned}
+$$
 
 ## Mean and median of $\log(y)$
 
@@ -491,12 +494,14 @@ m3_test_aug <- predict(resp_logx_fit, resp_test) |>
 ```
 
 | Rate vs. Age                                                            | log(Rate) vs. Age                                                           | Rate vs. log(Age)                                                      |
-|-------------------------------------------------------------------------|-----------------------------------------------------------------------------|------------------------------------------------------------------------|
+|------------------------|-------------------------|-----------------------|
 | `r round(rsq(m1_test_aug, truth = Rate, estimate = .pred)$.estimate,3)` | `r round(rsq(m2_test_aug, truth = log_rate, estimate = .pred)$.estimate,3)` | `r round(rsq(m3_test_aug, truth = Rate, estimate =.pred)$.estimate,3)` |
 
 <br>
 
-.question\[ Which model would you choose?\]
+::: question
+Which model would you choose?
+:::
 
 ## Learn more
 

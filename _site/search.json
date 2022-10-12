@@ -3119,7 +3119,7 @@
     "href": "slides/13-variable-transformations.html#announcements",
     "title": "Variable transformations",
     "section": "Announcements",
-    "text": "Announcements\n\nClick here to fill out mid-semester survey by Friday.\nLab 04 due:\n\nThu, Oct 13, 11:59pm (Thu labs)\nFri, Oct 14, 11:59pm (Fri labs)\n\nHW 02 due Wed, Oct 19, 11:59pm (released later today)\nClick here for Week 07 activities."
+    "text": "Announcements\n\nClick here to fill out mid-semester survey by Friday.\nLab 04 due:\n\nThu, Oct 13, 11:59pm (Thu labs)\nFri, Oct 14, 11:59pm (Fri labs)\n\nHW 02 due Wed, Oct 19, 11:59pm (released later today)\nOffice hours resume tomorrow (Thursday)\nClick here for Week 07 activities."
   },
   {
     "objectID": "slides/13-variable-transformations.html#topics",
@@ -3196,7 +3196,7 @@
     "href": "slides/13-variable-transformations.html#log-transformation-on-y-1",
     "title": "Variable transformations",
     "section": "Log transformation on \\(Y\\)",
-    "text": "Log transformation on \\(Y\\)\nWe want to interpret the model in terms of the original variable $Y$, not \\(\\log(Y)\\), so we need to write the model in terms of \\(Y\\)\n\\[\\hat{Y} = \\exp\\{\\hat{\\beta}_0 + \\hat{\\beta}_1 X\\} = \\exp\\{\\hat{\\beta}_0\\}\\exp\\{\\hat{\\beta}_1X\\}\\]\n\n\\[\\widehat{\\text{Median}({Y|X})} = \\exp\\{\\hat{\\beta}_0\\}\\exp\\{\\hat{\\beta}_1 X\\}\\]"
+    "text": "Log transformation on \\(Y\\)\nWe want to interpret the model in terms of the original variable \\(Y\\), not \\(\\log(Y)\\), so we need to write the model in terms of \\(Y\\)\n\\[\\hat{Y} = \\exp\\{\\hat{\\beta}_0 + \\hat{\\beta}_1 X\\} = \\exp\\{\\hat{\\beta}_0\\}\\exp\\{\\hat{\\beta}_1X\\}\\]\n\n\\[\\widehat{\\text{Median}({Y|X})} = \\exp\\{\\hat{\\beta}_0\\}\\exp\\{\\hat{\\beta}_1 X\\}\\]"
   },
   {
     "objectID": "slides/13-variable-transformations.html#model-interpretation",
@@ -3231,7 +3231,7 @@
     "href": "slides/13-variable-transformations.html#mean-and-median-of-logy",
     "title": "Variable transformations",
     "section": "Mean and median of \\(\\log(Y)\\)",
-    "text": "Mean and median of \\(\\log(Y)\\)\n\nRecall that \\(Y = \\beta_0 + \\beta_1 X\\) is the mean value of the response at the given value of the predictor \\(X\\). This doesn’t hold when we log-transform the response variable.\nMathematically, the mean of the logged values is not necessarily equal to the log of the mean value. Therefore at a given value of \\(X\\)\n\n\n$$\n\\[\\begin{aligned}\\exp\\{\\text{Mean}(\\log(Y|X))\\} \\neq \\text{Mean}(Y|X) \\\\[5pt]\n\n\n\\Rightarrow \\exp\\{\\beta_0 + \\beta_1 X\\} \\neq \\text{Mean}(Y|X) \\end{aligned}\\]\n$$"
+    "text": "Mean and median of \\(\\log(Y)\\)\n\nRecall that \\(Y = \\beta_0 + \\beta_1 X\\) is the mean value of the response at the given value of the predictor \\(X\\). This doesn’t hold when we log-transform the response variable.\nMathematically, the mean of the logged values is not necessarily equal to the log of the mean value. Therefore at a given value of \\(X\\)\n\n\n$$\n\\[\\begin{aligned}\\exp\\{\\text{Mean}(\\log(Y|X))\\} \\neq \\text{Mean}(Y|X) \\\\[5pt]\n\\Rightarrow \\exp\\{\\beta_0 + \\beta_1 X\\} \\neq \\text{Mean}(Y|X) \\end{aligned}\\]\n$$"
   },
   {
     "objectID": "slides/13-variable-transformations.html#mean-and-median-of-logy-1",
@@ -3308,7 +3308,7 @@
     "href": "slides/13-variable-transformations.html#compare-models-on-testing-data",
     "title": "Variable transformations",
     "section": "Compare models on testing data",
-    "text": "Compare models on testing data\n\n\n\n\n\n\n\n\n\n\n\nRate vs. Age\nlog(Rate) vs. Age\nRate vs. log(Age)\n\n\n\n\n0.549\n0.596\n0.559\n\n\n\n\n.question[ Which model would you choose?]"
+    "text": "Compare models on testing data\n\n\n\n\n\n\n\n\n\n\n\nRate vs. Age\nlog(Rate) vs. Age\nRate vs. log(Age)\n\n\n\n\n0.549\n0.596\n0.559\n\n\n\n\n\nWhich model would you choose?"
   },
   {
     "objectID": "slides/13-variable-transformations.html#learn-more",

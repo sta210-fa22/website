@@ -477,7 +477,6 @@ Which is the preferred metric to compare the models - $R^2$ or RMSE?
 
 ## Compare models on testing data
 
-
 ```{r}
 #| echo: false
 
@@ -491,15 +490,13 @@ m3_test_aug <- predict(resp_logx_fit, resp_test) |>
   bind_cols(resp_test) 
 ```
 
-| Rate vs. Age                                                            | log(Rate) vs. Age                                                       | Rate vs. log(Age)                                                       |
-|------------------------|------------------------|------------------------|
+| Rate vs. Age                                                            | log(Rate) vs. Age                                                           | Rate vs. log(Age)                                                      |
+|-------------------------------------------------------------------------|-----------------------------------------------------------------------------|------------------------------------------------------------------------|
 | `r round(rsq(m1_test_aug, truth = Rate, estimate = .pred)$.estimate,3)` | `r round(rsq(m2_test_aug, truth = log_rate, estimate = .pred)$.estimate,3)` | `r round(rsq(m3_test_aug, truth = Rate, estimate =.pred)$.estimate,3)` |
 
-<br> 
+<br>
 
-.question[
-Which model would you choose?
-]
+.question\[ Which model would you choose?\]
 
 ## Learn more
 

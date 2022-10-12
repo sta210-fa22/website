@@ -15,7 +15,7 @@ No readings this week.
 # Participate
 
 | Topic                                                                    | Date   |
-|--------------------------------------------------------------------------|--------|
+|----------------------------------------------------------|-------------|
 | 💻 [Variable transformations](../slides/13-variable-transformations.qmd) | Oct 12 |
 
 # Practice
@@ -24,6 +24,6 @@ No Application Exercises this week.
 
 # Perform
 
-| Assignment | Due date             |
-|------------|----------------------|
-| 📝 HW 02   | Wed, Oct 19, 11:59pm |
+| Assignment                  | Due date             |
+|-----------------------------|----------------------|
+| 📝 [HW 02](../hw/hw-02.qmd) | Wed, Oct 19, 11:59pm |

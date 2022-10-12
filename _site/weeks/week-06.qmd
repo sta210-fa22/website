@@ -11,11 +11,12 @@ title-block-style: none
 ::: callout-important
 **Due dates:**
 
--   AE 08 due Sat, Oct 08, 11:59pm
 -   Lab 04:
     -   due Thu, Oct 13, 11:59pm (Thu lab)
 
     -   due Fri, Oct 14, 11:59pm (Fri lab)
+-   HW 02:
+    -   due Wed, Oct 19, 11:59pm
 :::
 
 # Prepare

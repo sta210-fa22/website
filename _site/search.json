@@ -200,7 +200,7 @@
     "href": "weeks/week-07.html",
     "title": "Week 07",
     "section": "",
-    "text": "Participate\n\n\nPractice\n\n\nPerform"
+    "text": "Participate\n\n\n\n\n\n\n\nTopic\nDate\n\n\n\n\n💻 Variable transformations\nOct 12\n\n\n\n\n\nPractice\nNo Application Exercises this week.\n\n\nPerform\n\n\n\n\n\n\n\nAssignment\nDue date\n\n\n\n\n📝 HW 02\nWed, Oct 19, 11:59pm"
   },
   {
     "objectID": "weeks/week-06.html",
@@ -3113,6 +3113,209 @@
     "title": "Feature engineering",
     "section": "Recap",
     "text": "Recap\n\n\nReview: Training and testing splits\nFeature engineering with recipes\n\n\n\n\n\n🔗 Week 06"
+  },
+  {
+    "objectID": "slides/13-variable-transformations.html#announcements",
+    "href": "slides/13-variable-transformations.html#announcements",
+    "title": "Variable transformations",
+    "section": "Announcements",
+    "text": "Announcements\n\nClick here to fill out mid-semester survey by Friday.\nLab 04 due:\n\nThu, Oct 13, 11:59pm (Thu labs)\nFri, Oct 14, 11:59pm (Fri labs)\n\nHW 02 due Wed, Oct 19, 11:59pm (released later today)\nClick here for Week 07 activities."
+  },
+  {
+    "objectID": "slides/13-variable-transformations.html#topics",
+    "href": "slides/13-variable-transformations.html#topics",
+    "title": "Variable transformations",
+    "section": "Topics",
+    "text": "Topics\n\nLog transformation on the response variable\nLog transformation on the predictor variable"
+  },
+  {
+    "objectID": "slides/13-variable-transformations.html#computational-set-up",
+    "href": "slides/13-variable-transformations.html#computational-set-up",
+    "title": "Variable transformations",
+    "section": "Computational set up",
+    "text": "Computational set up\n\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(knitr)\nlibrary(Sleuth3) \nlibrary(patchwork)\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 20))"
+  },
+  {
+    "objectID": "slides/13-variable-transformations.html#respiratory-rate-vs.-age",
+    "href": "slides/13-variable-transformations.html#respiratory-rate-vs.-age",
+    "title": "Variable transformations",
+    "section": "Respiratory Rate vs. Age",
+    "text": "Respiratory Rate vs. Age\n\nA high respiratory rate can potentially indicate a respiratory infection in children. In order to determine what indicates a “high” rate, we first want to understand the relationship between a child’s age and their respiratory rate.\nThe data contain the respiratory rate for 618 children ages 15 days to 3 years. It was obtained from the Sleuth3 R package and is originally form a 1994 publication “Reference Values for Respiratory Rate in the First 3 Years of Life”.\nVariables:\n\nAge: age in months\nRate: respiratory rate (breaths per minute)"
+  },
+  {
+    "objectID": "slides/13-variable-transformations.html#rate-vs.-age",
+    "href": "slides/13-variable-transformations.html#rate-vs.-age",
+    "title": "Variable transformations",
+    "section": "Rate vs. Age",
+    "text": "Rate vs. Age\n\n\nWhat do you notice in this plot?"
+  },
+  {
+    "objectID": "slides/13-variable-transformations.html#training-test-sets",
+    "href": "slides/13-variable-transformations.html#training-test-sets",
+    "title": "Variable transformations",
+    "section": "Training + test sets",
+    "text": "Training + test sets\n\nset.seed(101222)\n# iniital split \nresp_split <- initial_split(respiratory)\n\n# training set\nresp_train <- training(resp_split)\n\n# test set\nresp_test <- testing(resp_split)"
+  },
+  {
+    "objectID": "slides/13-variable-transformations.html#model-1-rate-vs.-age",
+    "href": "slides/13-variable-transformations.html#model-1-rate-vs.-age",
+    "title": "Variable transformations",
+    "section": "Model 1: Rate vs. Age",
+    "text": "Model 1: Rate vs. Age\n\nresp_fit <- linear_reg() |>\n  set_engine(\"lm\") |>\n  fit(Rate ~ Age, data = resp_train)\n\ntidy(resp_fit) |>\n  kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n46.458\n0.589\n78.924\n0\n\n\nAge\n-0.659\n0.034\n-19.498\n0"
+  },
+  {
+    "objectID": "slides/13-variable-transformations.html#model-1-residuals",
+    "href": "slides/13-variable-transformations.html#model-1-residuals",
+    "title": "Variable transformations",
+    "section": "Model 1: Residuals",
+    "text": "Model 1: Residuals\n\n\nWhat do you notice in this plot?"
+  },
+  {
+    "objectID": "slides/13-variable-transformations.html#consider-different-transformations",
+    "href": "slides/13-variable-transformations.html#consider-different-transformations",
+    "title": "Variable transformations",
+    "section": "Consider different transformations…",
+    "text": "Consider different transformations…"
+  },
+  {
+    "objectID": "slides/13-variable-transformations.html#identifying-a-need-to-transform-y",
+    "href": "slides/13-variable-transformations.html#identifying-a-need-to-transform-y",
+    "title": "Variable transformations",
+    "section": "Identifying a need to transform \\(Y\\)",
+    "text": "Identifying a need to transform \\(Y\\)\n\nTypically, a “fan-shaped” residual plot indicates the need for a transformation of the response variable \\(Y\\)\n\nThere are multiple ways to transform a variable, e.g., \\(\\sqrt{Y}\\), \\(1/Y\\), \\(\\log(Y)\\).\n\\(\\log(Y)\\) the most straightforward to interpret, so we use that transformation when possible\n\n\n\n\nWhen building a model:\n\nChoose a transformation and build the model on the transformed data\nReassess the residual plots\nIf the residuals plots did not sufficiently improve, try a new transformation!"
+  },
+  {
+    "objectID": "slides/13-variable-transformations.html#log-transformation-on-y",
+    "href": "slides/13-variable-transformations.html#log-transformation-on-y",
+    "title": "Variable transformations",
+    "section": "Log transformation on \\(Y\\)",
+    "text": "Log transformation on \\(Y\\)\n\nIf we apply a log transformation to the response variable, we want to estimate the parameters for the statistical model\n\n\\[\n\\log(Y) = \\beta_0+ \\beta_1 X + \\epsilon, \\hspace{10mm} \\epsilon \\sim N(0,\\sigma^2_\\epsilon)\n\\]\n\nThe regression equation is\n\n\\[\\widehat{\\log(Y)} = \\hat{\\beta}_0+ \\hat{\\beta}_1 X\\]"
+  },
+  {
+    "objectID": "slides/13-variable-transformations.html#log-transformation-on-y-1",
+    "href": "slides/13-variable-transformations.html#log-transformation-on-y-1",
+    "title": "Variable transformations",
+    "section": "Log transformation on \\(Y\\)",
+    "text": "Log transformation on \\(Y\\)\nWe want to interpret the model in terms of the original variable $Y$, not \\(\\log(Y)\\), so we need to write the model in terms of \\(Y\\)\n\\[\\hat{Y} = \\exp\\{\\hat{\\beta}_0 + \\hat{\\beta}_1 X\\} = \\exp\\{\\hat{\\beta}_0\\}\\exp\\{\\hat{\\beta}_1X\\}\\]\n\n\\[\\widehat{\\text{Median}({Y|X})} = \\exp\\{\\hat{\\beta}_0\\}\\exp\\{\\hat{\\beta}_1 X\\}\\]"
+  },
+  {
+    "objectID": "slides/13-variable-transformations.html#model-interpretation",
+    "href": "slides/13-variable-transformations.html#model-interpretation",
+    "title": "Variable transformations",
+    "section": "Model interpretation",
+    "text": "Model interpretation\n\\[\\hat{Y} = \\exp\\{\\hat{\\beta}_0 + \\hat{\\beta}_1 X\\} = \\exp\\{\\hat{\\beta}_0\\}\\exp\\{\\hat{\\beta}_1X\\}\\]\n\n\nIntercept: When \\(X=0\\), the median of \\(Y\\) is expected to be \\(\\exp\\{\\hat{\\beta}_0\\}\\)\nSlope: For every one unit increase in \\(X\\), the median of \\(Y\\) is expected to multiply by a factor of \\(\\exp\\{\\hat{\\beta}_1\\}\\)\n\n\nWhy is the interpretation in terms of a multiplicative change?"
+  },
+  {
+    "objectID": "slides/13-variable-transformations.html#why-medianyx-instead-of-mu_yx",
+    "href": "slides/13-variable-transformations.html#why-medianyx-instead-of-mu_yx",
+    "title": "Variable transformations",
+    "section": "Why \\(Median(Y|X)\\) instead of \\(\\mu_{Y|X}\\)",
+    "text": "Why \\(Median(Y|X)\\) instead of \\(\\mu_{Y|X}\\)\nSuppose we have a set of values\n\nx <- c(3, 5, 6, 8, 10, 14, 19)\n\n\n\n\n\nLet’s calculate \\(\\overline{\\log(x)}\\)\n\nlog_x <- log(x)\nmean(log_x)\n\n[1] 2.066476\n\n\n\nLet’s calculate \\(\\log(\\bar{x})\\)\n\nxbar <- mean(x)\nlog(xbar)\n\n[1] 2.228477\n\n\n\n\n\n\n\nNote: \\(\\overline{\\log(x)} \\neq \\log(\\bar{x})\\)"
+  },
+  {
+    "objectID": "slides/13-variable-transformations.html#why-medianyx-instead-of-mu_yx-1",
+    "href": "slides/13-variable-transformations.html#why-medianyx-instead-of-mu_yx-1",
+    "title": "Variable transformations",
+    "section": "Why \\(Median(Y|X)\\) instead of \\(\\mu_{Y|X}\\)",
+    "text": "Why \\(Median(Y|X)\\) instead of \\(\\mu_{Y|X}\\)\n\nx <- c(3, 5, 6, 8, 10, 14, 19)\n\n\n\n\n\nLet’s calculate \\(\\text{Median}(\\log(x))\\)\n\nlog_x <- log(x)\nmedian(log_x)\n\n[1] 2.079442\n\n\n\nLet’s calculate \\(\\log(\\text{Median}(x))\\)\n\nmedian_x <- median(x)\nlog(median_x)\n\n[1] 2.079442\n\n\n\n\n\n\n\nNote: \\(\\text{Median}(\\log(x)) = \\log(\\text{Median}(x))\\)"
+  },
+  {
+    "objectID": "slides/13-variable-transformations.html#mean-median-and-log",
+    "href": "slides/13-variable-transformations.html#mean-median-and-log",
+    "title": "Variable transformations",
+    "section": "Mean, Median, and log",
+    "text": "Mean, Median, and log\n\nx <- c(3, 5, 6, 8, 10, 14, 19)\n\n\\[\\overline{\\log(x)} \\neq \\log(\\bar{x})\\]\n\nmean(log_x) == log(xbar)\n\n[1] FALSE\n\n\n\n\\[\\text{Median}(\\log(x)) = \\log(\\text{Median}(x))\\]\n\nmedian(log_x) == log(median_x)\n\n[1] TRUE"
+  },
+  {
+    "objectID": "slides/13-variable-transformations.html#mean-and-median-of-logy",
+    "href": "slides/13-variable-transformations.html#mean-and-median-of-logy",
+    "title": "Variable transformations",
+    "section": "Mean and median of \\(\\log(Y)\\)",
+    "text": "Mean and median of \\(\\log(Y)\\)\n\nRecall that \\(Y = \\beta_0 + \\beta_1 X\\) is the mean value of the response at the given value of the predictor \\(X\\). This doesn’t hold when we log-transform the response variable.\nMathematically, the mean of the logged values is not necessarily equal to the log of the mean value. Therefore at a given value of \\(X\\)\n\n\n$$\n\\[\\begin{aligned}\\exp\\{\\text{Mean}(\\log(Y|X))\\} \\neq \\text{Mean}(Y|X) \\\\[5pt]\n\n\n\\Rightarrow \\exp\\{\\beta_0 + \\beta_1 X\\} \\neq \\text{Mean}(Y|X) \\end{aligned}\\]\n$$"
+  },
+  {
+    "objectID": "slides/13-variable-transformations.html#mean-and-median-of-logy-1",
+    "href": "slides/13-variable-transformations.html#mean-and-median-of-logy-1",
+    "title": "Variable transformations",
+    "section": "Mean and median of \\(\\log(y)\\)",
+    "text": "Mean and median of \\(\\log(y)\\)\n\nHowever, the median of the logged values is equal to the log of the median value. Therefore,\n\n\\[\\exp\\{\\text{Median}(\\log(Y|X))\\} = \\text{Median}(Y|X)\\]\n\n\nIf the distribution of \\(\\log(Y)\\) is symmetric about the regression line, for a given value \\(X\\), we can expect \\(Mean(Y)\\) and \\(Median(Y)\\) to be approximately equal."
+  },
+  {
+    "objectID": "slides/13-variable-transformations.html#model-2-lograte-vs.-age",
+    "href": "slides/13-variable-transformations.html#model-2-lograte-vs.-age",
+    "title": "Variable transformations",
+    "section": "Model 2: log(Rate) vs. Age",
+    "text": "Model 2: log(Rate) vs. Age\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n3.831\n0.015\n259.086\n0\n\n\nAge\n-0.018\n0.001\n-21.243\n0\n\n\n\n\n\n\n\nInterpret the slope and intercept in the context of the data.\n\n\n\n\n04:00"
+  },
+  {
+    "objectID": "slides/13-variable-transformations.html#model-2-residuals",
+    "href": "slides/13-variable-transformations.html#model-2-residuals",
+    "title": "Variable transformations",
+    "section": "Model 2: Residuals",
+    "text": "Model 2: Residuals"
+  },
+  {
+    "objectID": "slides/13-variable-transformations.html#compare-residual-plots",
+    "href": "slides/13-variable-transformations.html#compare-residual-plots",
+    "title": "Variable transformations",
+    "section": "Compare residual plots",
+    "text": "Compare residual plots"
+  },
+  {
+    "objectID": "slides/13-variable-transformations.html#log-transformation-on-x",
+    "href": "slides/13-variable-transformations.html#log-transformation-on-x",
+    "title": "Variable transformations",
+    "section": "Log Transformation on \\(X\\)",
+    "text": "Log Transformation on \\(X\\)\n\n\n\n\n\n\n\nTry a transformation on \\(X\\) if the scatterplot shows some curvature but the variance is constant for all values of \\(X\\)"
+  },
+  {
+    "objectID": "slides/13-variable-transformations.html#rate-vs.-logage",
+    "href": "slides/13-variable-transformations.html#rate-vs.-logage",
+    "title": "Variable transformations",
+    "section": "Rate vs. log(Age)",
+    "text": "Rate vs. log(Age)"
+  },
+  {
+    "objectID": "slides/13-variable-transformations.html#model-with-transformation-on-x",
+    "href": "slides/13-variable-transformations.html#model-with-transformation-on-x",
+    "title": "Variable transformations",
+    "section": "Model with Transformation on \\(X\\)",
+    "text": "Model with Transformation on \\(X\\)\nSuppose we have the following regression equation:\n\\[\\hat{Y} = \\hat{\\beta}_0 + \\hat{\\beta}_1 \\log(X)\\]\n\n\nIntercept: When \\(X = 1\\) \\((\\log(X) = 0)\\), \\(Y\\) is expected to be \\(\\hat{\\beta}_0\\) (i.e. the mean of \\(Y\\) is \\(\\hat{\\beta}_0\\))\nSlope: When \\(X\\) is multiplied by a factor of \\(\\mathbf{C}\\), the mean of \\(Y\\) is expected to increase by \\(\\boldsymbol{\\hat{\\beta}_1}\\mathbf{\\log(C)}\\) units\n\nExample: when \\(X\\) is multiplied by a factor of 2, \\(Y\\) is expected to increase by \\(\\boldsymbol{\\hat{\\beta}_1}\\mathbf{\\log(2)}\\) units"
+  },
+  {
+    "objectID": "slides/13-variable-transformations.html#model-3-rate-vs.-logage",
+    "href": "slides/13-variable-transformations.html#model-3-rate-vs.-logage",
+    "title": "Variable transformations",
+    "section": "Model 3: Rate vs. log(Age)",
+    "text": "Model 3: Rate vs. log(Age)\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n49.397\n0.755\n65.436\n0\n\n\nlog_age\n-5.668\n0.311\n-18.248\n0\n\n\n\n\n\n\n\nInterpret the slope and intercept in the context of the data.\n\n\n\n\n04:00"
+  },
+  {
+    "objectID": "slides/13-variable-transformations.html#model-3-residuals",
+    "href": "slides/13-variable-transformations.html#model-3-residuals",
+    "title": "Variable transformations",
+    "section": "Model 3: Residuals",
+    "text": "Model 3: Residuals"
+  },
+  {
+    "objectID": "slides/13-variable-transformations.html#choose-a-model",
+    "href": "slides/13-variable-transformations.html#choose-a-model",
+    "title": "Variable transformations",
+    "section": "Choose a model",
+    "text": "Choose a model\nRecall the goal of the analysis:\nIn order to determine what indicates a “high” rate, we first want to understand the relationship between a child’s age and their respiratory rate.\n\n\nWhich is the preferred metric to compare the models - \\(R^2\\) or RMSE?"
+  },
+  {
+    "objectID": "slides/13-variable-transformations.html#compare-models-on-testing-data",
+    "href": "slides/13-variable-transformations.html#compare-models-on-testing-data",
+    "title": "Variable transformations",
+    "section": "Compare models on testing data",
+    "text": "Compare models on testing data\n\n\n\n\n\n\n\n\n\n\n\nRate vs. Age\nlog(Rate) vs. Age\nRate vs. log(Age)\n\n\n\n\n0.549\n0.596\n0.559"
+  },
+  {
+    "objectID": "slides/13-variable-transformations.html#learn-more",
+    "href": "slides/13-variable-transformations.html#learn-more",
+    "title": "Variable transformations",
+    "section": "Learn more",
+    "text": "Learn more\nSee Log Transformations in Linear Regression for more details about interpreting regression models with log-transformed variables.\n\n\n\n🔗 Week 07"
   },
   {
     "objectID": "slides/05-slr-sim-inference.html#announcements",

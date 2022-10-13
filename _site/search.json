@@ -319,14 +319,14 @@
     "href": "hw/hw-02.html#exercise-1",
     "title": "HW 02: Multiple linear regression",
     "section": "Exercise 1",
-    "text": "Exercise 1\nOur first goal is to fit a model predicting body mass (which is more difficult to measure) from bill length, bill depth, flipper length, species, and sex. Only include main effects, i.e., no interaction terms, in this model.\nSplit the data into training (75%) and testing (25%) sets."
+    "text": "Exercise 1\nOur first goal is to fit a model predicting body mass (which is more difficult to measure) from bill length, bill depth, flipper length, species, and sex.\nWe will start by preparing the data.\n\nUse the drop_na() function to remove any observations from the penguins data frame that has missing values. Your resulting data frame should have 333 observations.\nSplit the data into training (75%) and testing (25%) sets. Use a seed of 123."
   },
   {
     "objectID": "hw/hw-02.html#exercise-2",
     "href": "hw/hw-02.html#exercise-2",
     "title": "HW 02: Multiple linear regression",
     "section": "Exercise 2",
-    "text": "Exercise 2\n\nUse the training data to fit a model predicting body mass (which is more difficult to measure) from the other variables listed above. Fit the model in a way such that the intercept has a meaningful interpretation.\nNeatly display the model using 3 digits.\nWrite estimated regression equation. Use the variable names in your equation."
+    "text": "Exercise 2\n\nUse the training data to fit a model predicting body mass (which is more difficult to measure) from the other variables listed above. Only include main effects, i.e., no interaction terms, in this model. Fit the model in a way such that the intercept has a meaningful interpretation.\nNeatly display the model using 3 digits.\nWrite estimated regression equation. Use the variable names in your equation."
   },
   {
     "objectID": "hw/hw-02.html#exercise-3",
@@ -382,7 +382,7 @@
     "href": "hw/hw-02.html#exercise-10",
     "title": "HW 02: Multiple linear regression",
     "section": "Exercise 10",
-    "text": "Exercise 10\nData on countries' Gross Domestic Product (GDP) and percentage of urban population was collected and made available by The World Bank in 2020. A description of the variables as defined by The World Bank are provided below.\n\nGDP: \"GDP per capita is gross domestic product divided by midyear population. GDP is the sum of gross value added by all resident producers in the economy plus any product taxes and minus any subsidies not included in the value of the products. It is calculated without making deductions for depreciation of fabricated assets or for depletion and degradation of natural resources. Data are in current U.S. dollars.\"\nUrban Population (% of total): \"Urban population refers to people living in urban areas as defined by national statistical offices. It is calculated using World Bank population estimates and urban ratios from the United Nations World Urbanization Prospects.\"\n\nThe linear model of the relationship between GDP and urban population is as follows\n\\[\n\\widehat{\\log(GDP)} = 6.11 + 0.042 \\times urban\n\\]\n\nInterpret the slope in terms of the GDP in the context of the data.\nInterpret the intercept in terms of the GDP in the context of the data.\n\n\nBefore submitting, make sure you render your document and commit (with a meaningful commit message) and push all updates."
+    "text": "Exercise 10\nData on countries’ Gross Domestic Product (GDP) and percentage of urban population was collected and made available by The World Bank in 2020. A description of the variables as defined by The World Bank are provided below.\n\nGDP: “GDP per capita is gross domestic product divided by midyear population. GDP is the sum of gross value added by all resident producers in the economy plus any product taxes and minus any subsidies not included in the value of the products. It is calculated without making deductions for depreciation of fabricated assets or for depletion and degradation of natural resources. Data are in current U.S. dollars.”\nUrban Population (% of total): “Urban population refers to people living in urban areas as defined by national statistical offices. It is calculated using World Bank population estimates and urban ratios from the United Nations World Urbanization Prospects.”\n\nThe linear model of the relationship between GDP and urban population is as follows\n\\[\n\\widehat{\\log(GDP)} = 6.11 + 0.042 \\times urban\n\\]\n\nInterpret the slope in terms of the GDP in the context of the data.\nInterpret the intercept in terms of the GDP in the context of the data.\n\n\nBefore submitting, make sure you render your document and commit (with a meaningful commit message) and push all updates."
   },
   {
     "objectID": "hw/stats-experience.html",

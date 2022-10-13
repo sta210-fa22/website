@@ -10,21 +10,21 @@ library(broom)
 
 # Timeline
 
-[Topic ideas]
+[Topic ideas](#topic-ideas)
 
 -   due Monday, October 17 (Thursday labs)
 
 -   due Tuesday, October 18 (Friday labs)
 
-[Project proposal] due Friday, November 4
+[Project proposal](#project-proposal) due Friday, November 4
 
-[Round 1 submission (optional)] due Friday, November 18
+[Round 1 submission (optional)](#draft-report) due Friday, November 18
 
-[Written report] due Friday, December 9 (accepted until December 11)
+[Written report](#written-report) due Friday, December 9 (accepted until December 11)
 
-[Video presentation + slides] and [Reproducibility + organization] due Wednesday, December 14
+[Video presentation + slides](#video-presentation-slides) and [Reproducibility + organization](#reproducibility-organization) due Wednesday, December 14
 
-[Presentation comments] due Friday, December 16
+[Presentation comments](#presentation-comments) due Friday, December 16
 
 ## Introduction
 
@@ -87,7 +87,7 @@ For each data set, include the following:
 -   Use the `glimpse` function to provide an overview of the data set
 
 ::: callout-important
-All work will go inside the `topic-ideas` folder. Write your responses in `topic-ideas.qmd` and put the data sets in the `data` folder within `topic-ideas`. \
+All work will go inside the `topic-ideas` folder. Write your responses in `topic-ideas.qmd` and put the data sets in the `data` folder within `topic-ideas`.\
 \
 Submit the PDF of the topic ideas to Gradescope. Mark all pages associated with each data set.
 :::
@@ -96,7 +96,7 @@ Submit the PDF of the topic ideas to Gradescope. Mark all pages associated with 
 
 The Topic Ideas portion of the project is worth 10 points. It will be graded based on meeting the criteria stated above for 2 proposed data sets.
 
-## Project proposal  {#project-proposal}
+## Project proposal {#project-proposal}
 
 The purpose of the project proposal is to help you think about your analysis strategy early and thoroughly explore the data.
 
@@ -118,7 +118,7 @@ In this section, you will describe the data set. This includes
 -   description of the observations in the data set
 -   description of how the data were originally collected (not how you found the data but how the original curator of the data collected it).
 
-### Section 3 - Exploratory data analysis 
+### Section 3 - Exploratory data analysis
 
 In this section, you will explore the data. This includes using visualizations and summary statistics to describe the following:
 
@@ -231,7 +231,7 @@ This is an assessment of the overall presentation and formatting of the written 
 
 The report neatly written and organized with clear section headers and appropriately sized figures with informative labels. Numerical results are displayed with a reasonable number of digits, and all visualizations are neatly formatted. All citations and links are properly formatted. If there is an appendix, it is reasonably organized and easy for the reader to find relevant information. All code, warnings, and messages are suppressed. The main body of the written report (not including the appendix) is no longer than 10 pages.
 
-## Video presentation + slides
+## Video presentation + slides {#video-presentation-slides}
 
 ### Slides
 
@@ -290,7 +290,7 @@ You may start posting questions and comments on Thursday, December 15. **All com
 
 <i>This portion of the project will be assessed individually.</i>
 
-## Reproducibility + organization
+## Reproducibility + organization {#reproducibility-organization}
 
 All written work (with exception of presentation slides) should be reproducible, and the GitHub repo should be neatly organized.
 

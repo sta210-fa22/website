@@ -23,17 +23,15 @@ title-block-style: none
     -   due Wed, Oct 19, 11:59pm
 :::
 
-#  Prepare
+# Prepare
 
 No readings this week.
 
 # Participate
 
-+--------------------------------------------------------------------------+-----------+
-| Topic                                                                    | Date      |
-+==========================================================================+===========+
-| 💻 [Variable transformations](../slides/13-variable-transformations.qmd) | Oct 12    |
-+--------------------------------------------------------------------------+-----------+
+| Topic                                                                    | Date   |
+|--------------------------------------------------------------------------|--------|
+| 💻 [Variable transformations](../slides/13-variable-transformations.qmd) | Oct 12 |
 
 # Practice
 
@@ -46,9 +44,8 @@ No Application Exercises this week.
 +====================================================+========================================+
 | [Project topic ideas](../project-instructions.qmd) | -   due Mon, Oct 17, 11:59pm (Thu lab) |
 |                                                    |                                        |
-|                                                    | ```{=html}                             |
 |                                                    | <!-- -->                               |
-|                                                    | ```                                    |
+|                                                    |                                        |
 |                                                    | -   due Tue, Oct 18, 11:59pm (Fri lab) |
 +----------------------------------------------------+----------------------------------------+
 | 📝 [HW 02](../hw/hw-02.qmd)                        | Wed, Oct 19, 11:59pm                   |

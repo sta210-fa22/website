@@ -347,21 +347,21 @@
     "href": "hw/hw-02.html#exercise-5",
     "title": "HW 02: Multiple linear regression",
     "section": "Exercise 5",
-    "text": "Exercise 5\nNext, we will focus on a model using bill length and species to predict bill depth.\nUse the training data to make a visualization of the relationship between bill length and bill depth by species. Does the visualization give evidence of a potential interaction term? Briefly explain your response."
+    "text": "Exercise 5\nNext, we will focus on a model using bill length and species to predict body mass.\nUse the training data to make a visualization of the relationship between bill length and body mass by species. Does the visualization give evidence of a potential interaction term? Briefly explain your response."
   },
   {
     "objectID": "hw/hw-02.html#exercise-6",
     "href": "hw/hw-02.html#exercise-6",
     "title": "HW 02: Multiple linear regression",
     "section": "Exercise 6",
-    "text": "Exercise 6\nFit a model using bill length, species, and the interaction between the two variables to predict bill depth. Fit the model in a way such that the intercept has a meaningful interpretation.\nNeatly display the model using 3 digits."
+    "text": "Exercise 6\nUse the training data to fit a model using bill length, species, and the interaction between the two variables to predict body mass. Fit the model in a way such that the intercept has a meaningful interpretation.\nNeatly display the model using 3 digits.\n\n\n\n\n\n\nTip\n\n\n\nYou can use the step_interact() to add interactions in the recipe."
   },
   {
     "objectID": "hw/hw-02.html#exercise-7",
     "href": "hw/hw-02.html#exercise-7",
     "title": "HW 02: Multiple linear regression",
     "section": "Exercise 7",
-    "text": "Exercise 7\nUse the test data to compare the model fit in Exercise 2 to the model fit in Exercise 6. Which model is the “best” for predicting bill depth? Briefly explain your response showing the code and output to support your choice."
+    "text": "Exercise 7\nUse the test data to compare the model fit in Exercise 2 to the model fit in Exercise 6. Which model is the “best” for predicting body mass? Briefly explain your response showing the code and output to support your choice."
   },
   {
     "objectID": "hw/hw-02.html#exercise-8",

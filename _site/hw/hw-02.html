@@ -481,17 +481,30 @@ These data can be found in the <strong>palmerpenguins</strong> package. We’re 
 </section>
 <section id="exercise-5" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
-<p>Next, we will focus on a model using bill length and species to predict bill depth.</p>
-<p>Use the training data to make a visualization of the relationship between bill length and bill depth by species. Does the visualization give evidence of a potential interaction term? Briefly explain your response.</p>
+<p>Next, we will focus on a model using bill length and species to predict body mass.</p>
+<p>Use the training data to make a visualization of the relationship between bill length and body mass by species. Does the visualization give evidence of a potential interaction term? Briefly explain your response.</p>
 </section>
 <section id="exercise-6" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-6">Exercise 6</h2>
-<p>Fit a model using bill length, species, and the interaction between the two variables to predict bill depth. Fit the model in a way such that the intercept has a meaningful interpretation.</p>
+<p>Use the training data to fit a model using bill length, species, and the interaction between the two variables to predict body mass. Fit the model in a way such that the intercept has a meaningful interpretation.</p>
 <p>Neatly display the model using 3 digits.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You can use the <a href="https://recipes.tidymodels.org/reference/step_interact.html"><code>step_interact()</code></a> to add interactions in the recipe.</p>
+</div>
+</div>
 </section>
 <section id="exercise-7" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-7">Exercise 7</h2>
-<p>Use the test data to compare the model fit in Exercise 2 to the model fit in Exercise 6. Which model is the “best” for predicting bill depth? Briefly explain your response showing the code and output to support your choice.</p>
+<p>Use the test data to compare the model fit in Exercise 2 to the model fit in Exercise 6. Which model is the “best” for predicting body mass? Briefly explain your response showing the code and output to support your choice.</p>
 </section>
 </section>
 <section id="part-2-perceived-threat-of-covid-19" class="level1">

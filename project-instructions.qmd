@@ -87,6 +87,8 @@ For each data set, include the following:
 -   Use the `glimpse` function to provide an overview of the data set
 
 ::: callout-important
+All work will go inside the `topic-ideas` folder. Write your responses in `topic-ideas.qmd` and put the data sets in the `data` folder within `topic-ideas`. \
+\
 Submit the PDF of the topic ideas to Gradescope. Mark all pages associated with each data set.
 :::
 

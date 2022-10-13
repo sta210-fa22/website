@@ -75,6 +75,12 @@ website:
           text: R resources
       - href: links.qmd
         text: Useful links
+      - section: Project
+        contents:
+        - href: project-instructions.qmd
+          text: Instructions
+        - href: project-tips.qmd
+          text: Tips + resources
 
 format:
   html:

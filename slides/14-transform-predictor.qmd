@@ -35,15 +35,10 @@ knitr::opts_chunk$set(
 )
 ```
 
-## Announcements - UPDATE
+## Announcements 
 
--   [Click here](https://duke.qualtrics.com/jfe/form/SV_cwh38yvzlVjWvA2) to fill out mid-semester survey by Friday.
--   Lab 04 due:
-    -   Thu, Oct 13, 11:59pm (Thu labs)
-    -   Fri, Oct 14, 11:59pm (Fri labs)
--   HW 02 due Wed, Oct 19, 11:59pm (released later today)
--   Office hours resume tomorrow (Thursday)
--   Click here for [Week 07](../weeks/week-07.qmd) activities.
+-   [HW 02](https://sta210-fa22.netlify.app/hw/hw-02.html) due Wed, Oct 19, 11:59pm
+-   Click here for [Week 08](../weeks/week-08.qmd) activities.
 
 ## Mid semester survey
 

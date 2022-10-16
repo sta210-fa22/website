@@ -1778,11 +1778,11 @@
     "text": "Resources for Lab 04\n\nLecture notes:\n\nFeature engineering\nFeature engineering: Model workflow\n\nRecipes package function reference\nTidy Modeling in R - Chapter 8: Feature engineering with recipes\n\n\n\n\n\n\n\nNote\n\n\nIf you haven’t already, you will need to install the schrute R package for the lab. Run the code below in the console.\n\n\n\n\ninstall.packages(\"schrute\")\n\n\n\n\n🔗 Week 06"
   },
   {
-    "objectID": "slides/14-transform-predictor.html#announcements---update",
-    "href": "slides/14-transform-predictor.html#announcements---update",
+    "objectID": "slides/14-transform-predictor.html#announcements",
+    "href": "slides/14-transform-predictor.html#announcements",
     "title": "Variable transformations",
-    "section": "Announcements - UPDATE",
-    "text": "Announcements - UPDATE\n\nClick here to fill out mid-semester survey by Friday.\nLab 04 due:\n\nThu, Oct 13, 11:59pm (Thu labs)\nFri, Oct 14, 11:59pm (Fri labs)\n\nHW 02 due Wed, Oct 19, 11:59pm (released later today)\nOffice hours resume tomorrow (Thursday)\nClick here for Week 07 activities."
+    "section": "Announcements",
+    "text": "Announcements\n\nHW 02 due Wed, Oct 19, 11:59pm\nClick here for Week 08 activities."
   },
   {
     "objectID": "slides/14-transform-predictor.html#mid-semester-survey",

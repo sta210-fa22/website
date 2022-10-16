@@ -2,7 +2,10 @@
 title: Final project tips + resources
 ---
 
-```{r include = F}
+```{r}
+#| message: false
+#| warning: false
+#| echo: false
 library(tidyverse)
 library(knitr)
 library(broom)
@@ -39,7 +42,7 @@ library(broom)
 
 -   Ask questions if any of the expectations are unclear.
 
--   *Code*: In your write up your code should be hidden (`echo = FALSE`) so that your document is neat and easy to read. However your document should include all your code such that if I re-knit your Rmd file I should be able to obtain the results you presented.
+-   *Code*: In your write up your code should be hidden (`echo = FALSE`) so that your document is neat and easy to read. However your document should include all your code such that if I re-knit your Qmd file I should be able to obtain the results you presented.
 
     -   **Exception:** If you want to highlight something specific about a piece of code, you're welcome to show that portion.
 
@@ -53,7 +56,7 @@ library(broom)
 
 #### Suppress Code, Warnings, & Messages
 
--   Include the following code in a code chunk at the top of your .Rmd file to suppress all code, warnings, and other messages. Use the code chunk header `{r set-up, include = FALSE}` to suppress this set up code.
+-   Include the following code in a code chunk at the top of your .qmd file to suppress all code, warnings, and other messages. Use the code chunk header `{r set-up, include = FALSE}` to suppress this set up code.
 
 ``` r
 knitr::opts_chunk$set(echo = FALSE,
@@ -69,7 +72,6 @@ knitr::opts_chunk$set(echo = FALSE,
 
 -   Include all references in a section called "References" at the end of the report.
 -   This course does not have specific requirements for formatting citations and references.
--   See [Section 4.5](https://bookdown.org/yihui/rmarkdown-cookbook/bibliography.html) of the R Markdown Cookbook to learn about the citation functionality in R Markdown.
 
 #### Appendix
 
@@ -136,9 +138,9 @@ ggplot(data = mpg, aes(x = manufacturer)) +
 -   *Optional: Applied a theme - Use same theme throughout paper / presentation*
 
 ```{r}
-mpg %>%
-  count(manufacturer) %>%
-  mutate(manufacturer = str_to_title(manufacturer)) %>%
+mpg |>
+  count(manufacturer) |>
+  mutate(manufacturer = str_to_title(manufacturer)) |>
   ggplot(aes(x = fct_reorder(manufacturer,n), y = n)) +
   geom_bar(stat = "identity", fill = "steelblue") +
   coord_flip() +
@@ -156,7 +158,7 @@ mpg %>%
 
 ```{r}
 model <- lm(mpg ~ hp, data = mtcars)
-tidy(model) %>%
+tidy(model) |>
   kable(digits = 3)
 ```
 
@@ -175,9 +177,11 @@ tidy(model) %>%
 
 ### Additional resources
 
+-   [Exploring RStudio's Visual Markdown Editor](https://www.rstudio.com/blog/exploring-rstudio-visual-markdown-editor/)
 -   [R for Data Science](https://r4ds.had.co.nz/)
--   [R Markdown Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/)
--   [Slides in R using Xaringan](https://slides.yihui.org/xaringan/#1)
+-   Quarto documentation:
+    -   [Quarto PDF Basics](https://quarto.org/docs/output-formats/pdf-basics.html)
+    -   [Presentations in Quarto](https://quarto.org/docs/presentations/revealjs/)
 -   Data visualization
     -   [ggplot2 Reference](https://ggplot2.tidyverse.org/reference/index.html)
     -   [ggplot2: Elegant Graphics for Data Analysis](https://ggplot2-book.org/)

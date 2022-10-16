@@ -151,7 +151,7 @@
     "href": "weeks/week-08.html",
     "title": "Week 08",
     "section": "",
-    "text": "Reading\nCorresponding lecture\n\n\n\n\n📖 Tidy Modeling in R - Chapter 8: Feature engineering with recipes\nOct 19\n\n\n\n\nParticipate\n\n\n\n\n\n\n\nTopic\nDate\n\n\n\n\n💻 Variable transformations\nOct 17\n\n\n💻 Model comparisons\nOct 17\n\n\n💻 Cross validation\nOct 19\n\n\n\n\n\nPractice\n\n\nPerform\n\n\n\n\n\n\n\nAssignment\nDue date\n\n\n\n\nLab 05\n\ndue Mon, Oct 24, 11:59pm (Thu lab)\ndue Tue, Oct 25, 11:59pm (Fri lab)"
+    "text": "Reading\nCorresponding lecture\n\n\n\n\n📖 Tidy Modeling in R - Chapter 8: Feature engineering with recipes\nOct 19\n\n\n\n\nParticipate\n\n\n\n\n\n\n\nTopic\nDate\n\n\n\n\n💻 Variable transformations: Log-transformed predictor\nOct 17\n\n\n💻 Model comparison\nOct 17\n\n\n💻 Cross validation\nOct 19\n\n\n\n\n\nPractice\n\n\nPerform\n\n\n\n\n\n\n\nAssignment\nDue date\n\n\n\n\nLab 05\n\ndue Mon, Oct 24, 11:59pm (Thu lab)\ndue Tue, Oct 25, 11:59pm (Fri lab)"
   },
   {
     "objectID": "weeks/week-09.html",
@@ -1776,6 +1776,153 @@
     "title": "Lab 04",
     "section": "Resources for Lab 04",
     "text": "Resources for Lab 04\n\nLecture notes:\n\nFeature engineering\nFeature engineering: Model workflow\n\nRecipes package function reference\nTidy Modeling in R - Chapter 8: Feature engineering with recipes\n\n\n\n\n\n\n\nNote\n\n\nIf you haven’t already, you will need to install the schrute R package for the lab. Run the code below in the console.\n\n\n\n\ninstall.packages(\"schrute\")\n\n\n\n\n🔗 Week 06"
+  },
+  {
+    "objectID": "slides/14-transform-predictor.html#announcements---update",
+    "href": "slides/14-transform-predictor.html#announcements---update",
+    "title": "Variable transformations",
+    "section": "Announcements - UPDATE",
+    "text": "Announcements - UPDATE\n\nClick here to fill out mid-semester survey by Friday.\nLab 04 due:\n\nThu, Oct 13, 11:59pm (Thu labs)\nFri, Oct 14, 11:59pm (Fri labs)\n\nHW 02 due Wed, Oct 19, 11:59pm (released later today)\nOffice hours resume tomorrow (Thursday)\nClick here for Week 07 activities."
+  },
+  {
+    "objectID": "slides/14-transform-predictor.html#mid-semester-survey",
+    "href": "slides/14-transform-predictor.html#mid-semester-survey",
+    "title": "Variable transformations",
+    "section": "Mid semester survey",
+    "text": "Mid semester survey"
+  },
+  {
+    "objectID": "slides/14-transform-predictor.html#topics",
+    "href": "slides/14-transform-predictor.html#topics",
+    "title": "Variable transformations",
+    "section": "Topics",
+    "text": "Topics\n\nLog transformation on the response variable\nLog transformation on the predictor variable"
+  },
+  {
+    "objectID": "slides/14-transform-predictor.html#computational-set-up",
+    "href": "slides/14-transform-predictor.html#computational-set-up",
+    "title": "Variable transformations",
+    "section": "Computational set up",
+    "text": "Computational set up\n\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(knitr)\nlibrary(Sleuth3) \nlibrary(patchwork)\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 20))"
+  },
+  {
+    "objectID": "slides/14-transform-predictor.html#respiratory-rate-vs.-age",
+    "href": "slides/14-transform-predictor.html#respiratory-rate-vs.-age",
+    "title": "Variable transformations",
+    "section": "Respiratory Rate vs. Age",
+    "text": "Respiratory Rate vs. Age\n\nA high respiratory rate can potentially indicate a respiratory infection in children. In order to determine what indicates a “high” rate, we first want to understand the relationship between a child’s age and their respiratory rate.\nThe data contain the respiratory rate for 618 children ages 15 days to 3 years. It was obtained from the Sleuth3 R package and is originally form a 1994 publication “Reference Values for Respiratory Rate in the First 3 Years of Life”.\nVariables:\n\nAge: age in months\nRate: respiratory rate (breaths per minute)"
+  },
+  {
+    "objectID": "slides/14-transform-predictor.html#rate-vs.-age",
+    "href": "slides/14-transform-predictor.html#rate-vs.-age",
+    "title": "Variable transformations",
+    "section": "Rate vs. Age",
+    "text": "Rate vs. Age"
+  },
+  {
+    "objectID": "slides/14-transform-predictor.html#training-test-sets",
+    "href": "slides/14-transform-predictor.html#training-test-sets",
+    "title": "Variable transformations",
+    "section": "Training + test sets",
+    "text": "Training + test sets\n\nset.seed(101222)\n# iniital split \nresp_split <- initial_split(respiratory)\n\n# training set\nresp_train <- training(resp_split)\n\n# test set\nresp_test <- testing(resp_split)"
+  },
+  {
+    "objectID": "slides/14-transform-predictor.html#model-1-rate-vs.-age",
+    "href": "slides/14-transform-predictor.html#model-1-rate-vs.-age",
+    "title": "Variable transformations",
+    "section": "Model 1: Rate vs. Age",
+    "text": "Model 1: Rate vs. Age\n\nresp_fit <- linear_reg() |>\n  set_engine(\"lm\") |>\n  fit(Rate ~ Age, data = resp_train)\n\ntidy(resp_fit) |>\n  kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n46.458\n0.589\n78.924\n0\n\n\nAge\n-0.659\n0.034\n-19.498\n0"
+  },
+  {
+    "objectID": "slides/14-transform-predictor.html#model-1-residuals",
+    "href": "slides/14-transform-predictor.html#model-1-residuals",
+    "title": "Variable transformations",
+    "section": "Model 1: Residuals",
+    "text": "Model 1: Residuals"
+  },
+  {
+    "objectID": "slides/14-transform-predictor.html#consider-different-transformations",
+    "href": "slides/14-transform-predictor.html#consider-different-transformations",
+    "title": "Variable transformations",
+    "section": "Consider different transformations…",
+    "text": "Consider different transformations…"
+  },
+  {
+    "objectID": "slides/14-transform-predictor.html#model-2-lograte-vs.-age",
+    "href": "slides/14-transform-predictor.html#model-2-lograte-vs.-age",
+    "title": "Variable transformations",
+    "section": "Model 2: log(Rate) vs. Age",
+    "text": "Model 2: log(Rate) vs. Age\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n3.831\n0.015\n259.086\n0\n\n\nAge\n-0.018\n0.001\n-21.243\n0\n\n\n\n\n\n\n\nSlope: For each additional month in a child’s age, the median respiratory rate is expected to multiply by a factor of 0.982 [exp(-0.018)].\nIntercept: The median respiratory rate for children who are 0 months old is expected to be 29.4 [exp(3.381)]."
+  },
+  {
+    "objectID": "slides/14-transform-predictor.html#model-2-residuals",
+    "href": "slides/14-transform-predictor.html#model-2-residuals",
+    "title": "Variable transformations",
+    "section": "Model 2: Residuals",
+    "text": "Model 2: Residuals"
+  },
+  {
+    "objectID": "slides/14-transform-predictor.html#compare-residual-plots",
+    "href": "slides/14-transform-predictor.html#compare-residual-plots",
+    "title": "Variable transformations",
+    "section": "Compare residual plots",
+    "text": "Compare residual plots"
+  },
+  {
+    "objectID": "slides/14-transform-predictor.html#log-transformation-on-x",
+    "href": "slides/14-transform-predictor.html#log-transformation-on-x",
+    "title": "Variable transformations",
+    "section": "Log Transformation on \\(X\\)",
+    "text": "Log Transformation on \\(X\\)\n\n\n\n\n\n\n\nTry a transformation on \\(X\\) if the scatterplot shows some curvature but the variance is constant for all values of \\(X\\)"
+  },
+  {
+    "objectID": "slides/14-transform-predictor.html#rate-vs.-logage",
+    "href": "slides/14-transform-predictor.html#rate-vs.-logage",
+    "title": "Variable transformations",
+    "section": "Rate vs. log(Age)",
+    "text": "Rate vs. log(Age)"
+  },
+  {
+    "objectID": "slides/14-transform-predictor.html#model-with-transformation-on-x",
+    "href": "slides/14-transform-predictor.html#model-with-transformation-on-x",
+    "title": "Variable transformations",
+    "section": "Model with Transformation on \\(X\\)",
+    "text": "Model with Transformation on \\(X\\)\nSuppose we have the following regression equation:\n\\[\\hat{Y} = \\hat{\\beta}_0 + \\hat{\\beta}_1 \\log(X)\\]\n\n\nIntercept: When \\(X = 1\\) \\((\\log(X) = 0)\\), \\(Y\\) is expected to be \\(\\hat{\\beta}_0\\) (i.e. the mean of \\(Y\\) is \\(\\hat{\\beta}_0\\))\nSlope: When \\(X\\) is multiplied by a factor of \\(\\mathbf{C}\\), the mean of \\(Y\\) is expected to increase by \\(\\boldsymbol{\\hat{\\beta}_1}\\mathbf{\\log(C)}\\) units\n\nExample: when \\(X\\) is multiplied by a factor of 2, \\(Y\\) is expected to increase by \\(\\boldsymbol{\\hat{\\beta}_1}\\mathbf{\\log(2)}\\) units"
+  },
+  {
+    "objectID": "slides/14-transform-predictor.html#model-3-rate-vs.-logage",
+    "href": "slides/14-transform-predictor.html#model-3-rate-vs.-logage",
+    "title": "Variable transformations",
+    "section": "Model 3: Rate vs. log(Age)",
+    "text": "Model 3: Rate vs. log(Age)\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n49.397\n0.755\n65.436\n0\n\n\nlog_age\n-5.668\n0.311\n-18.248\n0\n\n\n\n\n\n\n\nInterpret the slope and intercept in the context of the data.\n\n\n\n\n04:00"
+  },
+  {
+    "objectID": "slides/14-transform-predictor.html#model-3-residuals",
+    "href": "slides/14-transform-predictor.html#model-3-residuals",
+    "title": "Variable transformations",
+    "section": "Model 3: Residuals",
+    "text": "Model 3: Residuals"
+  },
+  {
+    "objectID": "slides/14-transform-predictor.html#choose-a-model",
+    "href": "slides/14-transform-predictor.html#choose-a-model",
+    "title": "Variable transformations",
+    "section": "Choose a model",
+    "text": "Choose a model\nRecall the goal of the analysis:\nIn order to determine what indicates a “high” rate, we first want to understand the relationship between a child’s age and their respiratory rate.\n\n\nWhich is the preferred metric to compare the models - \\(R^2\\) or RMSE?"
+  },
+  {
+    "objectID": "slides/14-transform-predictor.html#compare-models-on-testing-data",
+    "href": "slides/14-transform-predictor.html#compare-models-on-testing-data",
+    "title": "Variable transformations",
+    "section": "Compare models on testing data",
+    "text": "Compare models on testing data\n\n\n\n\n\n\n\n\n\n\n\nRate vs. Age\nlog(Rate) vs. Age\nRate vs. log(Age)\n\n\n\n\n0.549\n0.596\n0.559\n\n\n\n\n\nWhich model would you choose?"
+  },
+  {
+    "objectID": "slides/14-transform-predictor.html#learn-more",
+    "href": "slides/14-transform-predictor.html#learn-more",
+    "title": "Variable transformations",
+    "section": "Learn more",
+    "text": "Learn more\nSee Log Transformations in Linear Regression for more details about interpreting regression models with log-transformed variables.\n\n\n\n🔗 Week 08"
   },
   {
     "objectID": "slides/03-slr-tidymodels.html#announcements",
@@ -4050,7 +4197,7 @@
     "href": "schedule.html#weekly-schedule",
     "title": "Schedule",
     "section": "Weekly schedule",
-    "text": "Weekly schedule\n\n\n\n\n\n\nWeek\n\n\nDates\n\n\nTopic\n\n\nAssignments\n\n\n\n\n\n\nWeek 01\n\n\nAug 29 - Sep 02\n\n\nWelcome to Regression Analysis\n\n\nCompelete STA 210 Student Survey\n\n\n\n\nWeek 02\n\n\nSep 05 - 09\n\n\nSLR: Tidymodels + Model evaluation\n\n\nLab 01, Statistics experience assigned\n\n\n\n\nWeek 03\n\n\nSep 12 - 16\n\n\nSLR: Inference\n\n\nLab 02, HW 01, Statistics experience assigned\n\n\n\n\nWeek 04\n\n\nSep 19 - 23\n\n\nMultiple Linear Regression (MLR)\n\n\nLab 03\n\n\n\n\nWeek 05\n\n\nSep 26 - 30\n\n\nMLR: Types of Predictors\n\n\nExam 01\n\n\n\n\nWeek 06\n\n\nOct 03 - 07\n\n\nFeature Engineering\n\n\nLab 04\n\n\n\n\nWeek 07\n\n\nOct 10 - 14\n\n\nVariable transformations\n\n\nIntroduce project, HW 02\n\n\n\n\nWeek 08\n\n\nOct 17 - 21\n\n\nModel evaluation\n\n\nLab 05\n\n\n\n\nWeek 09\n\n\nOct 24 - 28\n\n\nMLR: Inference\n\n\nLab 06, HW 03\n\n\n\n\nWeek 10\n\n\nOct 31 - Nov 04\n\n\nOdds + Odds Ratios\n\n\nLab 07\n\n\n\n\nWeek 11\n\n\nNov 07 - 11\n\n\nLogistic regression (LR)\n\n\nProject peer review, HW 04\n\n\n\n\nWeek 12\n\n\nNov 14 - 18\n\n\nLR: Inference\n\n\nLab 08\n\n\n\n\nWeek 13\n\n\nNov 21 - 25\n\n\nMixed effects models\n\n\n\n\n\n\n\nWeek 14\n\n\nNov 28 - Dec 02\n\n\nMixed effects models\n\n\nExam 02\n\n\n\n\nWeek 15\n\n\nDec 05 - 09\n\n\nLooking ahead\n\n\nStatistics experience due\n\n\n\n\nWeek 16\n\n\nDec 12 - 19\n\n\nFinal exam period\n\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Weekly schedule\n\n\n\n\n\n\nWeek\n\n\nDates\n\n\nTopic\n\n\nAssignments\n\n\n\n\n\n\nWeek 01\n\n\nAug 29 - Sep 02\n\n\nWelcome to Regression Analysis\n\n\nCompelete STA 210 Student Survey\n\n\n\n\nWeek 02\n\n\nSep 05 - 09\n\n\nSLR: Tidymodels + Model evaluation\n\n\nLab 01, Statistics experience assigned\n\n\n\n\nWeek 03\n\n\nSep 12 - 16\n\n\nSLR: Inference\n\n\nLab 02, HW 01, Statistics experience assigned\n\n\n\n\nWeek 04\n\n\nSep 19 - 23\n\n\nMultiple Linear Regression (MLR)\n\n\nLab 03\n\n\n\n\nWeek 05\n\n\nSep 26 - 30\n\n\nMLR: Types of Predictors\n\n\nExam 01\n\n\n\n\nWeek 06\n\n\nOct 03 - 07\n\n\nFeature Engineering\n\n\nLab 04\n\n\n\n\nWeek 07\n\n\nOct 10 - 14\n\n\nVariable transformations\n\n\nIntroduce project, HW 02\n\n\n\n\nWeek 08\n\n\nOct 17 - 21\n\n\nModel comparison + evaluation\n\n\nLab 05\n\n\n\n\nWeek 09\n\n\nOct 24 - 28\n\n\nMLR: Inference\n\n\nLab 06, HW 03\n\n\n\n\nWeek 10\n\n\nOct 31 - Nov 04\n\n\nOdds + Odds Ratios\n\n\nLab 07\n\n\n\n\nWeek 11\n\n\nNov 07 - 11\n\n\nLogistic regression (LR)\n\n\nProject peer review, HW 04\n\n\n\n\nWeek 12\n\n\nNov 14 - 18\n\n\nLR: Inference\n\n\nLab 08\n\n\n\n\nWeek 13\n\n\nNov 21 - 25\n\n\nMixed effects models\n\n\n\n\n\n\n\nWeek 14\n\n\nNov 28 - Dec 02\n\n\nMixed effects models\n\n\nExam 02\n\n\n\n\nWeek 15\n\n\nDec 05 - 09\n\n\nLooking ahead\n\n\nStatistics experience due\n\n\n\n\nWeek 16\n\n\nDec 12 - 19\n\n\nFinal exam period\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "schedule.html#notes",

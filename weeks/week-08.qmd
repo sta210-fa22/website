@@ -26,7 +26,7 @@ title-block-style: none
 | Topic                                                                                          | Date   |
 |------------------------------------------------------------------------------------------------|--------|
 | 💻 [Variable transformations: Log-transformed predictor](../slides/14-transform-predictor.qmd) | Oct 17 |
-| 💻 Model comparison                                                                            | Oct 17 |
+| 💻 [Model comparison](../slides/15-model-comparison.qmd)                                       | Oct 17 |
 | 💻 Cross validation                                                                            | Oct 19 |
 
 # Practice

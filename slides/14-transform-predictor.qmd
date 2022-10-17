@@ -35,7 +35,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-## Announcements 
+## Announcements
 
 -   [HW 02](https://sta210-fa22.netlify.app/hw/hw-02.html) due Wed, Oct 19, 11:59pm
 -   [Data Science Career Panel](https://renci.org/event/2022-ncds-fall-career-panel-analyzing-data-science-careers/) - October 19, 12 - 1pm, online
@@ -61,7 +61,7 @@ Thank you to everyone who filled out a mid-semester survey!
 -   Do assigned readings
 -   Attend office hours
 
-## Mid-semester survey {.midi}
+## Mid-semester survey {.small}
 
 **Other notes:**
 
@@ -78,7 +78,7 @@ Thank you to everyone who filled out a mid-semester survey!
 
     -   There is an example in the lecture notes, application exercises, and/or readings.
 
-## Regrade requests 
+## Regrade requests
 
 -   Dates they are available in email from Gradescope
 -   Review solutions and ask during office hours first

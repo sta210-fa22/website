@@ -172,7 +172,7 @@ p6 <- ggplot(tips, aes(x = Age, y = Tip, fill = Age)) +
 p4 + p5 + p6
 ```
 
-## Fit and summarize model  {.midi}
+## Fit and summarize model {.midi}
 
 ```{r}
 #| echo: true

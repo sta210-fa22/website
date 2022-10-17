@@ -1782,14 +1782,28 @@
     "href": "slides/14-transform-predictor.html#announcements",
     "title": "Variable transformations",
     "section": "Announcements",
-    "text": "Announcements\n\nHW 02 due Wed, Oct 19, 11:59pm\nClick here for Week 08 activities."
+    "text": "Announcements\n\nHW 02 due Wed, Oct 19, 11:59pm\nData Science Career Panel - October 19, 12 - 1pm, online\nClick here for Week 08 activities."
   },
   {
     "objectID": "slides/14-transform-predictor.html#mid-semester-survey",
     "href": "slides/14-transform-predictor.html#mid-semester-survey",
     "title": "Variable transformations",
-    "section": "Mid semester survey",
-    "text": "Mid semester survey"
+    "section": "Mid-semester survey",
+    "text": "Mid-semester survey\nThank you to everyone who filled out a mid-semester survey!\nMost helpful with learning\n\nLectures / application exercises\nOffice hours\n\nSomething to do more of to help with learning\n\nReviewing assignments / common mistakes\nMore examples /application exercises\n\nSomething the students can do more of / keep doing\n\nReview lecture notes\nDo assigned readings\nAttend office hours"
+  },
+  {
+    "objectID": "slides/14-transform-predictor.html#mid-semester-survey-1",
+    "href": "slides/14-transform-predictor.html#mid-semester-survey-1",
+    "title": "Variable transformations",
+    "section": "Mid-semester survey",
+    "text": "Mid-semester survey\nOther notes:\n\nWe will review office hours schedule to make sure they are scheduled during times that don’t have major conflicts\nGrading\n\nWording in statistics matters! For example - these are two different statements:\n\nCorrect: For every one month in age, we expect the respiratory rate to decrease by 0.659 breaths per minute, on average.\nIncorrect: For every one month in age, the respiratory rate will decrease by 0.659 breaths per minute.\n\nFull credit is awarded for (1) using the most appropriate methods (e.g., appropriate summary statistics given a distribution), (2) comprehensively and accurately justifying response, (3) consistency in response and explanation.\nThere is an example in the lecture notes, application exercises, and/or readings."
+  },
+  {
+    "objectID": "slides/14-transform-predictor.html#regrade-requests",
+    "href": "slides/14-transform-predictor.html#regrade-requests",
+    "title": "Variable transformations",
+    "section": "Regrade requests",
+    "text": "Regrade requests\n\nDates they are available in email from Gradescope\nReview solutions and ask during office hours first\nDo not submit regrade requests to dispute point values\nQuestion is completely regraded by Prof. Tackett or Head TA\nPolicy in syllabus"
   },
   {
     "objectID": "slides/14-transform-predictor.html#topics",

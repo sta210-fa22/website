@@ -38,9 +38,53 @@ knitr::opts_chunk$set(
 ## Announcements 
 
 -   [HW 02](https://sta210-fa22.netlify.app/hw/hw-02.html) due Wed, Oct 19, 11:59pm
+-   [Data Science Career Panel](https://renci.org/event/2022-ncds-fall-career-panel-analyzing-data-science-careers/) - October 19, 12 - 1pm, online
 -   Click here for [Week 08](../weeks/week-08.qmd) activities.
 
-## Mid semester survey
+## Mid-semester survey {.midi}
+
+Thank you to everyone who filled out a mid-semester survey!
+
+**Most helpful with learning**
+
+-   Lectures / application exercises
+-   Office hours
+
+**Something to do more of to help with learning**
+
+-   Reviewing assignments / common mistakes
+-   More examples /application exercises
+
+**Something the students can do more of / keep doing**
+
+-   Review lecture notes
+-   Do assigned readings
+-   Attend office hours
+
+## Mid-semester survey {.midi}
+
+**Other notes:**
+
+-   We will review office hours schedule to make sure they are scheduled during times that don't have major conflicts
+
+-   **Grading**
+
+    -   Wording in statistics matters! For example - these are two different statements:
+
+        -   **Correct:** For every one month in age, we expect the respiratory rate to decrease by 0.659 breaths per minute, on average.
+        -   **Incorrect:** For every one month in age, the respiratory rate will decrease by 0.659 breaths per minute.
+
+    -   Full credit is awarded for (1) using the most appropriate methods (e.g., appropriate summary statistics given a distribution), (2) comprehensively and accurately justifying response, (3) consistency in response and explanation.
+
+    -   There is an example in the lecture notes, application exercises, and/or readings.
+
+## Regrade requests 
+
+-   Dates they are available in email from Gradescope
+-   Review solutions and ask during office hours first
+-   Do not submit regrade requests to dispute point values
+-   Question is completely regraded by Prof. Tackett or Head TA
+-   [Policy](https://sta210-fa22.netlify.app/syllabus.html#regrade-requests) in syllabus
 
 ## Topics
 

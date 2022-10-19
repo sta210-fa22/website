@@ -102,7 +102,7 @@ tidy(tip_fit) |>
   kable(digits = 3)
 ```
 
-### Model 2: Tips vs. Age, Party & Meal 
+### Model 2: Tips vs. Age, Party, Meal & Day
 
 ```{r}
 tip_fit_2 <- linear_reg() |>

@@ -8,19 +8,14 @@ Learn approaches for analyzing multivariate data sets, emphasizing analysis of v
 
 ## Class meetings
 
-+--------------+--------------+----------------------------+---------------------+
-| **Lecture**  | Section 001  | Mon & Wed 10:15 - 11:30 am | Reuben-Cooke 130    |
-+--------------+--------------+----------------------------+---------------------+
-|              | Section 002  | Mon & Wed 3:30 - 4:45pm    | Social Sciences 136 |
-+--------------+--------------+----------------------------+---------------------+
-| **Lab**      | Lab 01       | Thu 3:30 - 4:45pm          | Perkins Link #5     |
-+--------------+--------------+----------------------------+---------------------+
-|              | Lab 02       | Thu 5:15 - 6:30pm          | Perkins Link #5     |
-+--------------+--------------+----------------------------+---------------------+
-|              | Lab 03       | Fri 12 - 1:15pm            | Perkins Link #5     |
-+--------------+--------------+----------------------------+---------------------+
-|              | Lab 04       | Fri 1:45 - 3pm             | Old Chemistry 003   |
-+--------------+--------------+----------------------------+---------------------+
+|             |             |                            |                     |
+|-------------|-------------|----------------------------|---------------------|
+| **Lecture** | Section 001 | Mon & Wed 10:15 - 11:30 am | Reuben-Cooke 130    |
+|             | Section 002 | Mon & Wed 3:30 - 4:45pm    | Social Sciences 136 |
+| **Lab**     | Lab 01      | Thu 3:30 - 4:45pm          | Perkins Link #5     |
+|             | Lab 02      | Thu 5:15 - 6:30pm          | Perkins Link #5     |
+|             | Lab 03      | Fri 12 - 1:15pm            | Perkins Link #5     |
+|             | Lab 04      | Fri 1:45 - 3pm             | Old Chemistry 003   |
 
 ## Teaching team
 
@@ -28,15 +23,11 @@ Learn approaches for analyzing multivariate data sets, emphasizing analysis of v
 
 [Maria Tackett](https://www2.stat.duke.edu/~mt324) is an Assistant Professor of the Practice in the Department of Statistical Science at Duke University. Her work focuses on understanding how active learning strategies can be used to promote engagement and student motivation in undergraduate statistics courses. She also studies how classroom practices in introductory math and statistics courses impact students' sense of community, self-efficacy, and learning outcomes.
 
-+----------------------+--------------------------------------------------------------------------------------+
 | Office hours         | Location                                                                             |
-+======================+======================================================================================+
+|----------------------|--------------------------------------------------------------------------------------|
 | Mondays 1 - 2pm      | Old Chem 118B only                                                                   |
-+----------------------+--------------------------------------------------------------------------------------+
 | Thursdays 10 - 11am  | [Zoom](https://sakai.duke.edu/portal/site/e6f58eb4-029a-4130-bfa3-e5555d967a43) only |
-+----------------------+--------------------------------------------------------------------------------------+
 | *or by appointment.* |                                                                                      |
-+----------------------+--------------------------------------------------------------------------------------+
 
 ### Teaching assistants
 

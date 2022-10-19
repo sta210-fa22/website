@@ -151,7 +151,7 @@
     "href": "weeks/week-08.html",
     "title": "Week 08",
     "section": "",
-    "text": "Reading\nCorresponding lecture\n\n\n\n\n📖 Tidy Modeling in R - Chapter 8: Feature engineering with recipes\nOct 19\n\n\n\n\nParticipate\n\n\n\n\n\n\n\nTopic\nDate\n\n\n\n\n💻 Variable transformations: Log-transformed predictor\nOct 17\n\n\n💻 Model comparison\nOct 17\n\n\n💻 Cross validation\nOct 19\n\n\n\n\n\nPractice\n\n\nPerform\n\n\n\n\n\n\n\nAssignment\nDue date\n\n\n\n\nLab 05\n\ndue Mon, Oct 24, 11:59pm (Thu lab)\ndue Tue, Oct 25, 11:59pm (Fri lab)"
+    "text": "Reading\nCorresponding lecture\n\n\n\n\n📖 Tidy Modeling in R - Chapter 8: Feature engineering with recipes\nOct 19\n\n\n\n\nParticipate\n\n\n\n\n\n\n\nTopic\nDate\n\n\n\n\n💻 Variable transformations: Log-transformed predictor\nOct 17\n\n\n💻 Model comparison\nOct 19\n\n\n\n\n\nPractice\n📋 AE 09: Model comparison\n\n\nPerform\n\n\n\n\n\n\n\nAssignment\nDue date\n\n\n\n\nLab 05\n\ndue Mon, Oct 24, 11:59pm (Thu lab)\ndue Tue, Oct 25, 11:59pm (Fri lab)"
   },
   {
     "objectID": "weeks/week-09.html",
@@ -628,6 +628,62 @@
     "title": "AE 06: Prediction for MLR",
     "section": "Prediction",
     "text": "Prediction\nWhat is the predicted sale price for an individual house in Levittown, NY with 4 bedrooms, 2 bathrooms, 1,800 square feet of living area, 6,000 square foot lot size, built in 1947 with $7,403 in property taxes?\nReport the predicted value and appropriate interval.\n\n\n\n\n\n\nNote\n\n\n\nFill in the code, then make #| eval: true before rendering the document.\n\n\n\n# create tibble for new observation \nnew_house <- tibble(\n  bedrooms = ____, \n  bathrooms = ____, \n  _____\n  )\n\n# prediction + interval\nprediction(_________)\n\n\nInterpret the interval in the context of the data.\n\n\n\n\n\n\n\nImportant\n\n\n\nTo submit the AE:\n\nRender the document to produce the PDF with all of your work from today’s class.\nPush all your work to your ae-06- repo on GitHub. (You do not submit AEs on Gradescope)."
+  },
+  {
+    "objectID": "ae/ae-09-model-comparison.html",
+    "href": "ae/ae-09-model-comparison.html",
+    "title": "AE 09: Model comparison",
+    "section": "",
+    "text": "Important\n\n\n\nGo to the course GitHub organization and locate your ae-09- to get started.\nThe AE is due on GitHub by Saturday, October 22 at 11:59pm."
+  },
+  {
+    "objectID": "ae/ae-09-model-comparison.html#packages",
+    "href": "ae/ae-09-model-comparison.html#packages",
+    "title": "AE 09: Model comparison",
+    "section": "Packages",
+    "text": "Packages\n\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(viridis)\nlibrary(knitr)\nlibrary(patchwork)"
+  },
+  {
+    "objectID": "ae/ae-09-model-comparison.html#load-data",
+    "href": "ae/ae-09-model-comparison.html#load-data",
+    "title": "AE 09: Model comparison",
+    "section": "Load data",
+    "text": "Load data\n\ntips <- read_csv(\"data/tip-data.csv\") |>\n  filter(!is.na(Party))\n\n\n# relevel factors\ntips <- tips |>\n  mutate(\n    Meal = fct_relevel(Meal, \"Lunch\", \"Dinner\", \"Late Night\"),\n    Age  = fct_relevel(Age, \"Yadult\", \"Middle\", \"SenCit\")\n  )"
+  },
+  {
+    "objectID": "ae/ae-09-model-comparison.html#exploratory-data-analysis",
+    "href": "ae/ae-09-model-comparison.html#exploratory-data-analysis",
+    "title": "AE 09: Model comparison",
+    "section": "Exploratory data analysis",
+    "text": "Exploratory data analysis\n\nResponse variable\n\nggplot(tips, aes(x = Tip)) +\n  geom_histogram(binwidth = 1) +\n  labs(title = \"Distribution of tips\")\n\n\n\n\n\n\nPredictor variables\n\np1 <- ggplot(tips, aes(x = Party)) +\n  geom_histogram(binwidth = 1) +\n  labs(title = \"Number of people in party\")\n\np2 <- ggplot(tips, aes(x = Meal, fill = Meal)) +\n  geom_bar() +\n  labs(title = \"Meal type\") +\n  scale_fill_viridis_d()\n\np3 <- ggplot(tips, aes(x = Age, fill = Age)) +\n  geom_bar() +\n  labs(title = \"Age of payer\") +\n  scale_fill_viridis_d(option = \"E\", end = 0.8)\n\np1 + (p2 / p3)\n\n\n\n\n\n\nResponse vs. predictors\n\np4 <- ggplot(tips, aes(x = Party, y = Tip)) +\n  geom_point(color = \"#5B888C\")\n\np5 <- ggplot(tips, aes(x = Meal, y = Tip, fill = Meal)) +\n  geom_boxplot(show.legend = FALSE) +\n  scale_fill_viridis_d()\n\np6 <- ggplot(tips, aes(x = Age, y = Tip, fill = Age)) +\n  geom_boxplot(show.legend = FALSE) +\n  scale_fill_viridis_d(option = \"E\", end = 0.8)\n\np4 + p5 + p6"
+  },
+  {
+    "objectID": "ae/ae-09-model-comparison.html#models",
+    "href": "ae/ae-09-model-comparison.html#models",
+    "title": "AE 09: Model comparison",
+    "section": "Models",
+    "text": "Models\n\nModel 1: Tips vs. Age & Party\n\ntip_fit <- linear_reg() |>\n  set_engine(\"lm\") |>\n  fit(Tip ~ Party + Age, data = tips)\n\ntidy(tip_fit) |>\n  kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-0.170\n0.366\n-0.465\n0.643\n\n\nParty\n1.837\n0.124\n14.758\n0.000\n\n\nAgeMiddle\n1.009\n0.408\n2.475\n0.014\n\n\nAgeSenCit\n1.388\n0.485\n2.862\n0.005\n\n\n\n\n\n\n\nModel 2: Tips vs. Age, Party & Meal\n\ntip_fit_2 <- linear_reg() |>\n  set_engine(\"lm\") |>\n  fit(Tip ~ Party +  Age + Meal +  Day, \n      data = tips)\n\ntidy(tip_fit_2) |>\n  kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-0.354\n0.968\n-0.365\n0.715\n\n\nParty\n1.792\n0.126\n14.179\n0.000\n\n\nAgeMiddle\n0.506\n0.427\n1.185\n0.238\n\n\nAgeSenCit\n1.017\n0.494\n2.058\n0.041\n\n\nMealDinner\n0.636\n0.457\n1.390\n0.167\n\n\nMealLate Night\n-0.729\n0.754\n-0.967\n0.335\n\n\nDaySaturday\n0.812\n0.783\n1.038\n0.301\n\n\nDaySunday\n0.097\n0.877\n0.111\n0.912\n\n\nDayThursday\n0.069\n0.897\n0.077\n0.939\n\n\nDayTuesday\n0.414\n0.670\n0.618\n0.537\n\n\nDayWednesday\n0.936\n1.098\n0.853\n0.395\n\n\n\n\n\n\n\n\n\n\n\nWhy did we not use recipe() and worfklow() to fit Model 1 or Model 2?"
+  },
+  {
+    "objectID": "ae/ae-09-model-comparison.html#r2-and-adjusted-r2",
+    "href": "ae/ae-09-model-comparison.html#r2-and-adjusted-r2",
+    "title": "AE 09: Model comparison",
+    "section": "\\(R^2\\) and Adjusted \\(R^2\\)",
+    "text": "\\(R^2\\) and Adjusted \\(R^2\\)\nFill in the code below to calculate \\(R^2\\) and Adjusted \\(R^2\\) for Model 1. Put eval: true once the code is updated.\n\nglance(______) |>\n  select(r.squared, adj.r.squared)\n\nCalculate \\(R^2\\) and Adjusted \\(R^2\\) for Model 2.\n\n# r-sq and adj. r-sq for model 2\n\n\n\n\n\n\n\nWe would like to choose the model that better fits the data.\n\nWhich model would we choose based on \\(R^2\\)?\nWhich model would we choose based on Adjusted \\(R^2\\)?\nWhich statistic should we use to choose the final model - \\(R^2\\) or Adjusted \\(R^2\\)? Why?"
+  },
+  {
+    "objectID": "ae/ae-09-model-comparison.html#aic-bic",
+    "href": "ae/ae-09-model-comparison.html#aic-bic",
+    "title": "AE 09: Model comparison",
+    "section": "AIC & BIC",
+    "text": "AIC & BIC\nUse the glance() function to calculate AIC and BIC for Models 1 and 2.\n\n## AIC and BIC for Model 1\n\n\n## AIC and BIC for Model 2\n\n\n\n\n\n\n\nWe would like to choose the model that better fits the data.\n\nWhich model would we choose based on AIC?\nWhich model would we choose based on BIC?"
+  },
+  {
+    "objectID": "ae/ae-09-model-comparison.html#evaluating-analysis-process",
+    "href": "ae/ae-09-model-comparison.html#evaluating-analysis-process",
+    "title": "AE 09: Model comparison",
+    "section": "Evaluating analysis process",
+    "text": "Evaluating analysis process\n\n\n\n\n\n\nWe fit and evaluated these models using the entire data set. What is a limitation to using the entire data set to fit and evaluate models?"
   },
   {
     "objectID": "ae/ae-04-sim-testing.html",
@@ -4442,7 +4498,7 @@
     "href": "schedule.html#weekly-schedule",
     "title": "Schedule",
     "section": "Weekly schedule",
-    "text": "Weekly schedule\n\n\n\n\n\n\nWeek\n\n\nDates\n\n\nTopic\n\n\nAssignments\n\n\n\n\n\n\nWeek 01\n\n\nAug 29 - Sep 02\n\n\nWelcome to Regression Analysis\n\n\nCompelete STA 210 Student Survey\n\n\n\n\nWeek 02\n\n\nSep 05 - 09\n\n\nSLR: Tidymodels + Model evaluation\n\n\nLab 01, Statistics experience assigned\n\n\n\n\nWeek 03\n\n\nSep 12 - 16\n\n\nSLR: Inference\n\n\nLab 02, HW 01, Statistics experience assigned\n\n\n\n\nWeek 04\n\n\nSep 19 - 23\n\n\nMultiple Linear Regression (MLR)\n\n\nLab 03\n\n\n\n\nWeek 05\n\n\nSep 26 - 30\n\n\nMLR: Types of Predictors\n\n\nExam 01\n\n\n\n\nWeek 06\n\n\nOct 03 - 07\n\n\nFeature Engineering\n\n\nLab 04\n\n\n\n\nWeek 07\n\n\nOct 10 - 14\n\n\nVariable transformations\n\n\nIntroduce project, HW 02\n\n\n\n\nWeek 08\n\n\nOct 17 - 21\n\n\nModel comparison + evaluation\n\n\nLab 05\n\n\n\n\nWeek 09\n\n\nOct 24 - 28\n\n\nMLR: Inference\n\n\nLab 06, HW 03\n\n\n\n\nWeek 10\n\n\nOct 31 - Nov 04\n\n\nOdds + Odds Ratios\n\n\nLab 07\n\n\n\n\nWeek 11\n\n\nNov 07 - 11\n\n\nLogistic regression (LR)\n\n\nProject peer review, HW 04\n\n\n\n\nWeek 12\n\n\nNov 14 - 18\n\n\nLR: Inference\n\n\nLab 08\n\n\n\n\nWeek 13\n\n\nNov 21 - 25\n\n\nMixed effects models\n\n\n\n\n\n\n\nWeek 14\n\n\nNov 28 - Dec 02\n\n\nMixed effects models\n\n\nExam 02\n\n\n\n\nWeek 15\n\n\nDec 05 - 09\n\n\nLooking ahead\n\n\nStatistics experience due\n\n\n\n\nWeek 16\n\n\nDec 12 - 19\n\n\nFinal exam period\n\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Weekly schedule\n\n\n\n\n\n\nWeek\n\n\nDates\n\n\nTopic\n\n\nAssignments\n\n\n\n\n\n\nWeek 01\n\n\nAug 29 - Sep 02\n\n\nWelcome to Regression Analysis\n\n\nCompelete STA 210 Student Survey\n\n\n\n\nWeek 02\n\n\nSep 05 - 09\n\n\nSLR: Tidymodels + Model evaluation\n\n\nLab 01, Statistics experience assigned\n\n\n\n\nWeek 03\n\n\nSep 12 - 16\n\n\nSLR: Inference\n\n\nLab 02, HW 01, Statistics experience assigned\n\n\n\n\nWeek 04\n\n\nSep 19 - 23\n\n\nMultiple Linear Regression (MLR)\n\n\nLab 03\n\n\n\n\nWeek 05\n\n\nSep 26 - 30\n\n\nMLR: Types of Predictors\n\n\nExam 01\n\n\n\n\nWeek 06\n\n\nOct 03 - 07\n\n\nFeature Engineering\n\n\nLab 04\n\n\n\n\nWeek 07\n\n\nOct 10 - 14\n\n\nVariable transformations\n\n\nIntroduce project, HW 02\n\n\n\n\nWeek 08\n\n\nOct 17 - 21\n\n\nMLR: Transformations + Model comparison\n\n\nLab 05\n\n\n\n\nWeek 09\n\n\nOct 24 - 28\n\n\nMLR: Cross validation + Inference\n\n\nLab 06, HW 03\n\n\n\n\nWeek 10\n\n\nOct 31 - Nov 04\n\n\nOdds + Odds Ratios\n\n\nLab 07\n\n\n\n\nWeek 11\n\n\nNov 07 - 11\n\n\nLogistic regression (LR)\n\n\nProject peer review, HW 04\n\n\n\n\nWeek 12\n\n\nNov 14 - 18\n\n\nLR: Inference\n\n\nLab 08\n\n\n\n\nWeek 13\n\n\nNov 21 - 25\n\n\nMixed effects models\n\n\n\n\n\n\n\nWeek 14\n\n\nNov 28 - Dec 02\n\n\nMixed effects models\n\n\nExam 02\n\n\n\n\nWeek 15\n\n\nDec 05 - 09\n\n\nLooking ahead\n\n\nStatistics experience due\n\n\n\n\nWeek 16\n\n\nDec 12 - 19\n\n\nFinal exam period\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "schedule.html#notes",

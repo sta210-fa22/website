@@ -1,6 +1,6 @@
 ---
 title: "Week 09"
-subtitle: "MLR: Inference"
+subtitle: "MLR: Cross validation + Inference"
 description: "Lab 06, HW 03"
 author: "Oct 24 - 28"
 date: ""

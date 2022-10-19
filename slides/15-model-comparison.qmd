@@ -34,6 +34,12 @@ knitr::opts_chunk$set(
 )
 ```
 
+## Announcements
+
+-   [HW 02](https://sta210-fa22.netlify.app/hw/hw-02.html) due TODAY 11:59pm
+-   [Data Science Career Panel](https://renci.org/event/2022-ncds-fall-career-panel-analyzing-data-science-careers/) - TODAY 12 - 1pm, online
+-   Click here for [Week 08](../weeks/week-08.qmd) activities.
+
 ## Topics
 
 ::: nonincremental
@@ -303,11 +309,16 @@ $$R^2_{adj} = 1 - \frac{SS_{Error}/(n-p-1)}{SS_{Total}/(n-1)}$$
 -   Adjusted $R^2$ can be used as a quick assessment to compare the fit of multiple models; however, it should not be the only assessment!
 -   Use $R^2$ when describing the relationship between the response and predictor variables
 
-# Application exercise
+## Application exercise
 
 ::: appex
 📋 [AE 09: Model comparison](https://sta210-fa22.netlify.app/ae/ae-09-model-comparison.html)
 :::
+
+```{r}
+#| echo: false
+countdown::countdown(minutes = 5)
+```
 
 ## Comparing models with $R^2_{adj}$ {.smaller}
 
@@ -411,11 +422,16 @@ $$
 
 -   If $n \geq 8$, the **penalty** for BIC is larger than that of AIC, so BIC tends to favor *more parsimonious* models (i.e. models with fewer terms)
 
-# Application exercise
+## Application exercise
 
 ::: appex
 📋 [AE 09: Model comparison](https://sta210-fa22.netlify.app/ae/ae-09-model-comparison.html)
 :::
+
+```{r}
+#| echo: false
+countdown::countdown(minutes = 5)
+```
 
 ## Comparing models with AIC and BIC
 

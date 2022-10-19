@@ -662,7 +662,7 @@
     "href": "ae/ae-09-model-comparison.html#models",
     "title": "AE 09: Model comparison",
     "section": "Models",
-    "text": "Models\n\nModel 1: Tips vs. Age & Party\n\ntip_fit <- linear_reg() |>\n  set_engine(\"lm\") |>\n  fit(Tip ~ Party + Age, data = tips)\n\ntidy(tip_fit) |>\n  kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-0.170\n0.366\n-0.465\n0.643\n\n\nParty\n1.837\n0.124\n14.758\n0.000\n\n\nAgeMiddle\n1.009\n0.408\n2.475\n0.014\n\n\nAgeSenCit\n1.388\n0.485\n2.862\n0.005\n\n\n\n\n\n\n\nModel 2: Tips vs. Age, Party, Meal & Day\n\ntip_fit_2 <- linear_reg() |>\n  set_engine(\"lm\") |>\n  fit(Tip ~ Party +  Age + Meal +  Day, \n      data = tips)\n\ntidy(tip_fit_2) |>\n  kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-0.354\n0.968\n-0.365\n0.715\n\n\nParty\n1.792\n0.126\n14.179\n0.000\n\n\nAgeMiddle\n0.506\n0.427\n1.185\n0.238\n\n\nAgeSenCit\n1.017\n0.494\n2.058\n0.041\n\n\nMealDinner\n0.636\n0.457\n1.390\n0.167\n\n\nMealLate Night\n-0.729\n0.754\n-0.967\n0.335\n\n\nDaySaturday\n0.812\n0.783\n1.038\n0.301\n\n\nDaySunday\n0.097\n0.877\n0.111\n0.912\n\n\nDayThursday\n0.069\n0.897\n0.077\n0.939\n\n\nDayTuesday\n0.414\n0.670\n0.618\n0.537\n\n\nDayWednesday\n0.936\n1.098\n0.853\n0.395\n\n\n\n\n\n\n\n\n\n\n\nWhy did we not use recipe() and worfklow() to fit Model 1 or Model 2?"
+    "text": "Models\n\nModel 1: Tips vs. Age & Party\n\ntip_fit <- linear_reg() |>\n  set_engine(\"lm\") |>\n  fit(Tip ~ Party + Age, data = tips)\n\ntidy(tip_fit) |>\n  kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-0.170\n0.366\n-0.465\n0.643\n\n\nParty\n1.837\n0.124\n14.758\n0.000\n\n\nAgeMiddle\n1.009\n0.408\n2.475\n0.014\n\n\nAgeSenCit\n1.388\n0.485\n2.862\n0.005\n\n\n\n\n\n\n\nModel 2: Tips vs. Age, Party, Meal & Day\n\ntip_fit_2 <- linear_reg() |>\n  set_engine(\"lm\") |>\n  fit(Tip ~ Party +  Age + Meal +  Day, \n      data = tips)\n\ntidy(tip_fit_2) |>\n  kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-0.354\n0.968\n-0.365\n0.715\n\n\nParty\n1.792\n0.126\n14.179\n0.000\n\n\nAgeMiddle\n0.506\n0.427\n1.185\n0.238\n\n\nAgeSenCit\n1.017\n0.494\n2.058\n0.041\n\n\nMealDinner\n0.636\n0.457\n1.390\n0.167\n\n\nMealLate Night\n-0.729\n0.754\n-0.967\n0.335\n\n\nDaySaturday\n0.812\n0.783\n1.038\n0.301\n\n\nDaySunday\n0.097\n0.877\n0.111\n0.912\n\n\nDayThursday\n0.069\n0.897\n0.077\n0.939\n\n\nDayTuesday\n0.414\n0.670\n0.618\n0.537\n\n\nDayWednesday\n0.936\n1.098\n0.853\n0.395\n\n\n\n\n\n\n\n\n\n\n\nWhy did we not use the full recipe() workflow to fit Model 1 or Model 2?"
   },
   {
     "objectID": "ae/ae-09-model-comparison.html#r2-and-adjusted-r2",
@@ -2520,6 +2520,13 @@
     "text": "For this week…\n\nRead the syllabus\nSee Week 01 on the schedule for lecture slides, assignments, and readings.\nComplete the STA 210 Student Survey (will ask for a GitHub username)\n\nClick here for information on registering for a GitHub account and choosing a username.\nYou will go over this in lab this week.\n\nReserve an STA 210 Docker Container\n\n\n\n\n🔗 Week 01"
   },
   {
+    "objectID": "slides/15-model-comparison.html#announcements",
+    "href": "slides/15-model-comparison.html#announcements",
+    "title": "Model comparison",
+    "section": "Announcements",
+    "text": "Announcements\n\nHW 02 due TODAY 11:59pm\nData Science Career Panel - TODAY 12 - 1pm, online\nClick here for Week 08 activities."
+  },
+  {
     "objectID": "slides/15-model-comparison.html#topics",
     "href": "slides/15-model-comparison.html#topics",
     "title": "Model comparison",
@@ -2660,6 +2667,13 @@
     "text": "Using \\(R^2\\) and Adjusted \\(R^2\\)\n\nAdjusted \\(R^2\\) can be used as a quick assessment to compare the fit of multiple models; however, it should not be the only assessment!\nUse \\(R^2\\) when describing the relationship between the response and predictor variables"
   },
   {
+    "objectID": "slides/15-model-comparison.html#application-exercise",
+    "href": "slides/15-model-comparison.html#application-exercise",
+    "title": "Model comparison",
+    "section": "Application exercise",
+    "text": "Application exercise\n\n📋 AE 09: Model comparison\n\n\n\n\n05:00"
+  },
+  {
     "objectID": "slides/15-model-comparison.html#comparing-models-with-r2_adj",
     "href": "slides/15-model-comparison.html#comparing-models-with-r2_adj",
     "title": "Model comparison",
@@ -2700,6 +2714,13 @@
     "title": "Model comparison",
     "section": "Using AIC & BIC",
     "text": "Using AIC & BIC\n\\[\n\\begin{aligned} & AIC = n\\log(SS_{Error}) - n \\log(n) + \\color{red}{2(p+1)} \\\\\n& BIC = n\\log(SS_{Error}) - n\\log(n) + \\color{red}{\\log(n)\\times(p+1)}\n\\end{aligned}\n\\]\n\nChoose model with the smaller value of AIC or BIC\nIf \\(n \\geq 8\\), the penalty for BIC is larger than that of AIC, so BIC tends to favor more parsimonious models (i.e. models with fewer terms)"
+  },
+  {
+    "objectID": "slides/15-model-comparison.html#application-exercise-1",
+    "href": "slides/15-model-comparison.html#application-exercise-1",
+    "title": "Model comparison",
+    "section": "Application exercise",
+    "text": "Application exercise\n\n📋 AE 09: Model comparison\n\n\n\n\n05:00"
   },
   {
     "objectID": "slides/15-model-comparison.html#comparing-models-with-aic-and-bic",

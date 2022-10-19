@@ -115,7 +115,7 @@ tidy(tip_fit_2) |>
 ```
 
 ::: {.callout-note appearance="minimal" icon="false"}
-Why did we not use `recipe()` and `worfklow()` to fit Model 1 or Model 2?
+Why did we not use the full `recipe()` workflow to fit Model 1 or Model 2?
 :::
 
 ## $R^2$ and Adjusted $R^2$

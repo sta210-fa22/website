@@ -38,7 +38,7 @@ knitr::opts_chunk$set(
 
 -   [HW 02](https://sta210-fa22.netlify.app/hw/hw-02.html) due TODAY 11:59pm
 -   [Data Science Career Panel](https://renci.org/event/2022-ncds-fall-career-panel-analyzing-data-science-careers/) - TODAY 12 - 1pm, online
--   Click here for [Week 08](../weeks/week-08.qmd) activities.
+-   Click here for [Week 08](../weeks/week-08.html) activities.
 
 ## Topics
 

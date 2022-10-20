@@ -1,5 +1,5 @@
 ---
-title: "Lab 05: Candy"
+title: "Lab 05: Candy Competition"
 subtitle: "Recipes + Model comparison"
 execute:
   freeze: auto

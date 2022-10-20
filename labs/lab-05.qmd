@@ -18,7 +18,7 @@ Due:
 
 ## Introduction
 
-In today's lab you will analyze data on candy obtained from an online experiment conducted at [FiveThirtyEight](https://fivethirtyeight.com/).
+In today's lab you will analyze data about candy that was collected from an online experiment conducted at [FiveThirtyEight](https://fivethirtyeight.com/).
 
 ### Learning goals
 
@@ -84,7 +84,7 @@ The data set contains the characteristics and win percentage from 85 candies in 
 
 Use the code below to get a glimpse of the `candy_rankings` data frame in the **fivethirtyeight** R package.
 
-```{r eval = F}
+```{r eval = T}
 glimpse(candy_rankings)
 ```
 
@@ -97,17 +97,17 @@ The goal of this analysis is to multiple linear regression to understand the fac
 Split the data into training (80%) and test (20%) sets. Name the data sets `candy_train` and `candy_test`, respectively. Use `set.seed(1)`.
 
 ::: callout-tip
-Use argument `prop =` in the `initial_split` function to specify the proportion in the training data.
+Use the `prop =` argument in the `initial_split()` function to specify the proportion of observations in the training data.
 :::
 
 ### Exercise 2
 
-Below is a recipe for a model using the characteristics of candy to understand variability in the win percentage. Each line of the recipe code is labeled Line 1 - Line 8. Describe what each line of code does. The explanation should be written comprehensively and specifically enough that someone could replicate the data manipulation steps.
+Below is a recipe for a model that uses the characteristics of candy to understand variability in the win percentage. The lines of the `recipe` code are labeled *Line 1* - *Line 8.* Describe what each line of code does. The explanation should be written comprehensively and specifically enough that someone could replicate the data manipulation steps based on your description.
 
-For example, if a line of code is `step_center(X)`, a comprehensive and specific explanation is like the following: "This line of code mean centers the variable $X$ by subtracting $\bar{X}$ from each value of $X$ in the training data."
+For example, if a line of code is `step_center(X)`, a comprehensive and specific explanation something similar to the following: "This line of code mean centers the variable $X$ by subtracting $\bar{X}$ from each value of $X$ in the training data."
 
 ::: callout-tip
-Use the [Recipes Function Reference](https://recipes.tidymodels.org/reference/index.html) page as a resource to learn more about the recipe functions.
+Use the [Recipes Function Reference](https://recipes.tidymodels.org/reference/index.html) page as a resource to learn more about the `step_` functions.
 :::
 
 ```{r}
@@ -126,33 +126,27 @@ candy_rec <- recipe(winpercent ~ ., data = candy_train) |>
 #Line 6
   step_interact(terms =~ pricepercent:chocolate) |> 
 #Line 7
-  step_rm(fruity, caramel, peanutyalmondy, nougat, hard, bar, pluribus, cripsedricewafer) |> 
+  step_rm(fruity, caramel, peanutyalmondy, nougat, hard, bar, pluribus, crispedricewafer) |> 
 #Line 8
   step_zv() 
 ```
 
 ### Exercise 3
 
-How many terms (not including the intercept) will be in the model produced by the recipe in Exercise 2?
+Fill in the code to use `prep` and `bake` for a preview of what will happen when the recipe in Exercise 2 is applied.
+
+```{r}
+candy_rec |>
+  prep() |>
+  bake(_____) |>
+  glimpse()
+```
+
+How many terms (not including the intercept) will be in the model produced by this recipe?
 
 ### Exercise 4
 
 Specify the model, build the model workflow using the recipe in Exercise 2, and fit the model to the training data. Neatly display the model using 3 digits.
-
-```{r}
-candy_spec <- linear_reg() |>
-  set_engine("lm")
-
-candy_workflow <- workflow() |>
-  add_model(candy_spec) |>
-  add_recipe(candy_rec) 
-
-candy_fit <- candy_workflow |>
-  fit(data = candy_train)
-
-tidy(candy_fit) |>
-  kable(digits = 3)
-```
 
 ### Exercise 5
 
@@ -168,13 +162,13 @@ Interpret the following in the context of the data:
 
 Let's consider another model. Use the `recipe()` workflow to fit a new model that meets the following criteria:
 
--   Includes variables `chocolate`, `pricepercent`, `cripsedricewafer`, `pluribus, sugarpercent`
+-   Includes variables `chocolate`, `pricepercent`, `crispedricewafer`, `pluribus, sugarpercent`
 
--   Rescales `pricepercent` so it ranges 0 to 100 (instead of 0 to 1)
+-   Rescales `pricepercent` so it ranges from 0 to 100 (instead of 0 to 1)
 
--   Makes `sugarpercent` a factor where the levels equal the four quartiles - 0 - 25, 25 - 50, 50 - 75, 75 - 100
+-   Makes `sugarpercent` a factor where the levels equal the four quartiles: 0 - 25, 25 - 50, 50 - 75, 75 - 100
 
--   Includes interaction between `pricepercent` and `pluribus`
+-   Includes the interaction between `pricepercent` and `pluribus`
 
 Neatly display the model using 3 digits.
 

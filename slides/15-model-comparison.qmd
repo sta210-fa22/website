@@ -73,6 +73,7 @@ Which variables help us predict the amount customers tip at a restaurant?
 
 ```{r}
 #| echo: false
+#| message: false
 tips <- read_csv(here::here("slides", "data/tip-data.csv")) |>
   filter(!is.na(Party))
 ```

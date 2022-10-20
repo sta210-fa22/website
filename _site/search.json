@@ -151,7 +151,7 @@
     "href": "weeks/week-08.html",
     "title": "Week 08",
     "section": "",
-    "text": "Reading\nCorresponding lecture\n\n\n\n\n📖 Tidy Modeling in R - Chapter 8: Feature engineering with recipes\nOct 19\n\n\n\n\nParticipate\n\n\n\n\n\n\n\nTopic\nDate\n\n\n\n\n💻 Variable transformations: Log-transformed predictor\nOct 17\n\n\n💻 Model comparison\nOct 19\n\n\n\n\n\nPractice\n📋 AE 09: Model comparison\n\n\nPerform\n\n\n\n\n\n\n\nAssignment\nDue date\n\n\n\n\nLab 05\n\ndue Mon, Oct 24, 11:59pm (Thu lab)\ndue Tue, Oct 25, 11:59pm (Fri lab)"
+    "text": "Reading\nCorresponding lecture\n\n\n\n\n📖 Tidy Modeling in R - Chapter 8: Feature engineering with recipes\nOct 19\n\n\n\n\nParticipate\n\n\n\n\n\n\n\nTopic\nDate\n\n\n\n\n💻 Variable transformations: Log-transformed predictor\nOct 17\n\n\n💻 Model comparison\nOct 19\n\n\n💻 Lab 05\nOct 20 - 21\n\n\n\n\n\nPractice\n📋 AE 09: Model comparison\n\n\nPerform\n\n\n\n\n\n\n\nAssignment\nDue date\n\n\n\n\nLab 05\n\ndue Mon, Oct 24, 11:59pm (Thu lab)\ndue Tue, Oct 25, 11:59pm (Fri lab)"
   },
   {
     "objectID": "weeks/week-09.html",
@@ -1832,6 +1832,41 @@
     "title": "Lab 04",
     "section": "Resources for Lab 04",
     "text": "Resources for Lab 04\n\nLecture notes:\n\nFeature engineering\nFeature engineering: Model workflow\n\nRecipes package function reference\nTidy Modeling in R - Chapter 8: Feature engineering with recipes\n\n\n\n\n\n\n\nNote\n\n\nIf you haven’t already, you will need to install the schrute R package for the lab. Run the code below in the console.\n\n\n\n\ninstall.packages(\"schrute\")\n\n\n\n\n🔗 Week 06"
+  },
+  {
+    "objectID": "slides/lab-05.html#goals",
+    "href": "slides/lab-05.html#goals",
+    "title": "Lab 05",
+    "section": "Goals",
+    "text": "Goals\n\nReview interaction effects\nLab 05: Halloween candy"
+  },
+  {
+    "objectID": "slides/lab-05.html#diamonds-data",
+    "href": "slides/lab-05.html#diamonds-data",
+    "title": "Lab 05",
+    "section": "Diamonds data",
+    "text": "Diamonds data\nThe data contain the price and other attributes of a random sample of 1000 diamonds. This sample was drawn from the diamonds data frame in the tidyverse R package.\nThe variables in this example are\n\nprice: Price in US dollars\ncarat: Weight of the diamond (units = carats)\ncut: Quality of the cut of the diamond (Fair, Good, Ideal)\n\nThe goal is to use the carat and cut to understand variability in the price."
+  },
+  {
+    "objectID": "slides/lab-05.html#exploratory-data-analysis",
+    "href": "slides/lab-05.html#exploratory-data-analysis",
+    "title": "Lab 05",
+    "section": "Exploratory data analysis",
+    "text": "Exploratory data analysis\n\n\nDoes the plot show evidence of an interaction effect between carats and cut?"
+  },
+  {
+    "objectID": "slides/lab-05.html#model",
+    "href": "slides/lab-05.html#model",
+    "title": "Lab 05",
+    "section": "Model",
+    "text": "Model\n\n\n\n\n\n\n\nterm\nestimate\n\n\n\n\n(Intercept)\n-2473.555\n\n\ncarat\n6383.913\n\n\ncutGood\n60.018\n\n\ncutIdeal\n0.044\n\n\ncarat:cutGood\n982.952\n\n\ncarat:cutIdeal\n2132.642\n\n\n\n\n\n\n\n\n\nInterpret the coefficient of cutGood in the context of the data.\nInterpret the coefficient of carat:cutGood in the context of the data.\nSuppose we fit a model for Fair cut diamonds. What is the intercept? What is the slope of carat ?\nSuppose we fit a model for Ideal cut diamonds. What is the intercept? What is the slope of carat?"
+  },
+  {
+    "objectID": "slides/lab-05.html#resources-for-lab-05",
+    "href": "slides/lab-05.html#resources-for-lab-05",
+    "title": "Lab 05",
+    "section": "Resources for Lab 05",
+    "text": "Resources for Lab 05\n\nLecture notes:\n\nFeature engineering\nFeature engineering: Model workflow\nModel comparison\n\nRecipes package function reference\nTidy Modeling in R - Chapter 8: Feature engineering with recipes\n\n\n\n\n🔗 Week 08"
   },
   {
     "objectID": "slides/14-transform-predictor.html#announcements",
@@ -3666,6 +3701,34 @@
     "title": "Feature engineering",
     "section": "Recap",
     "text": "Recap\n\n\nReview: Training and testing splits\nFeature engineering with recipes\n\n\n\n\n\n🔗 Week 06"
+  },
+  {
+    "objectID": "slides/ANOVA-Table.html",
+    "href": "slides/ANOVA-Table.html",
+    "title": "Understanding ANOVA output",
+    "section": "",
+    "text": "We will use the Tips data set.\nThe variables of interest in this analysis are"
+  },
+  {
+    "objectID": "slides/ANOVA-Table.html#model-fit",
+    "href": "slides/ANOVA-Table.html#model-fit",
+    "title": "Understanding ANOVA output",
+    "section": "Model fit",
+    "text": "Model fit\n\ntip_fit <- linear_reg() |>\n  set_engine(\"lm\") |>\n  fit(Tip ~ Party + Age, data = tips)\n\ntidy(tip_fit) |>\n  kable(digits = 3)\n\n\n\n \n  \n    term \n    estimate \n    std.error \n    statistic \n    p.value \n  \n \n\n  \n    (Intercept) \n    -0.170 \n    0.366 \n    -0.465 \n    0.643 \n  \n  \n    Party \n    1.837 \n    0.124 \n    14.758 \n    0.000 \n  \n  \n    AgeMiddle \n    1.009 \n    0.408 \n    2.475 \n    0.014 \n  \n  \n    AgeSenCit \n    1.388 \n    0.485 \n    2.862 \n    0.005"
+  },
+  {
+    "objectID": "slides/ANOVA-Table.html#anova",
+    "href": "slides/ANOVA-Table.html#anova",
+    "title": "Understanding ANOVA output",
+    "section": "ANOVA",
+    "text": "ANOVA\n\nanova(tip_fit$fit) |>\n  tidy() |>\n  kable(digits = 2)\n\n\n\n \n  \n    term \n    df \n    sumsq \n    meansq \n    statistic \n    p.value \n  \n \n\n  \n    Party \n    1 \n    1188.64 \n    1188.64 \n    285.71 \n    0.00 \n  \n  \n    Age \n    2 \n    38.03 \n    19.01 \n    4.57 \n    0.01 \n  \n  \n    Residuals \n    165 \n    686.44 \n    4.16 \n    NA \n    NA"
+  },
+  {
+    "objectID": "slides/ANOVA-Table.html#parts-of-the-anova-table",
+    "href": "slides/ANOVA-Table.html#parts-of-the-anova-table",
+    "title": "Understanding ANOVA output",
+    "section": "Parts of the ANOVA table",
+    "text": "Parts of the ANOVA table\nR uses a sequential method to calculate sum of squares for the variables in the model. In other words, the sum of squares attributed to each variable is the sum of squares after accounting for the other variables already in the model. The order of the sequence is determined by the order of the variables in the model fit code. It is also reflected in the order the variables appear in the ANOVA output.\nSo let’s take a look at the sum of squares for Party, the first variable in the model. This value is calculated as the total variation in Tips accounted for by Party.\n\nparty_fit <- linear_reg() |>\n  set_engine(\"lm\") |>\n  fit(Tip ~ Party, data = tips)\n\nanova(party_fit$fit) |>\n  tidy() |>\n  kable(digits = 2)\n\n\n\n \n  \n    term \n    df \n    sumsq \n    meansq \n    statistic \n    p.value \n  \n \n\n  \n    Party \n    1 \n    1188.64 \n    1188.64 \n    274 \n    0 \n  \n  \n    Residuals \n    167 \n    724.47 \n    4.34 \n    NA \n    NA \n  \n\n\n\n\n\nNext, let’s add Age to the model. The sum of squares associated with Age is the total variation in Tips accounted for by Age after accounting for variation explained by Party. In other words, it is the additional model variation in the model with Party and Age compared to a model that only includes Party. We can calculate this additional variation as follows:\n\nanova(party_fit$fit, tip_fit$fit) |>\n  tidy() |>\n  kable(digits = 2)\n\n\n\n \n  \n    term \n    df.residual \n    rss \n    df \n    sumsq \n    statistic \n    p.value \n  \n \n\n  \n    Tip ~ Party \n    167 \n    724.47 \n    NA \n    NA \n    NA \n    NA \n  \n  \n    Tip ~ Party + Age \n    165 \n    686.44 \n    2 \n    38.03 \n    4.57 \n    0.01 \n  \n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nWhen we input two model is the anova() function, e.g., anova(Model 1, Model 2), the output produced is the sum of squares accounted for by the new variable(s) in Model 2 after accounting for the variables in Model 1. In this case, it is the additional sum of squares accounted for by Age after accounting for Party."
   },
   {
     "objectID": "slides/13-variable-transformations.html#announcements",

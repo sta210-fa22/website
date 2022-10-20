@@ -174,11 +174,11 @@ Neatly display the model using 3 digits.
 
 ### Exercise 7
 
-Calculate $R^2$, Adjusted $R^2$, AIC, and BIC for the models fit in Exercise 3 and the Exercise 6.
+Calculate $R^2$, Adjusted $R^2$, AIC, and BIC for the models fit in Exercise 4 and the Exercise 6.
 
 ### Exercise 8
 
-Consider the model from Exercise 3 "Model 1" and the model fit in Exercise 6 "Model 2". State the model you would select based on the criteria below. Briefly explain your response.
+Consider the model from Exercise 4 "Model 1" and the model fit in Exercise 6 "Model 2". State the model you would select based on each of the criteria below. Briefly explain your response.
 
 -   $R^2$
 

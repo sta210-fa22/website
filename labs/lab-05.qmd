@@ -128,7 +128,7 @@ candy_rec <- recipe(winpercent ~ ., data = candy_train) |>
 #Line 7
   step_rm(fruity, caramel, peanutyalmondy, nougat, hard, bar, pluribus, crispedricewafer) |> 
 #Line 8
-  step_zv() 
+  step_zv(all_predictors()) 
 ```
 
 ### Exercise 3
@@ -164,9 +164,9 @@ Let's consider another model. Use the `recipe()` workflow to fit a new model tha
 
 -   Includes variables `chocolate`, `pricepercent`, `crispedricewafer`, `pluribus, sugarpercent`
 
--   Rescales `pricepercent` so it ranges from 0 to 100 (instead of 0 to 1)
+-   Update `pricepercent` so it ranges from 0 to 100 (instead of 0 to 1)
 
--   Makes `sugarpercent` a factor where the levels equal the four quartiles: 0 - 25, 25 - 50, 50 - 75, 75 - 100
+-   Makes `sugarpercent` a factor where the levels equal the four quartiles: 0 - 0.25, 0.25 - 0.50, 0.50 - 0.75, 0.75 - 1
 
 -   Includes the interaction between `pricepercent` and `pluribus`
 

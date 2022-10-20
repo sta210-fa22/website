@@ -592,7 +592,7 @@ Tip
 <span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co">#Line 7</span></span>
 <span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_rm</span>(fruity, caramel, peanutyalmondy, nougat, hard, bar, pluribus, crispedricewafer) <span class="sc">|&gt;</span> </span>
 <span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co">#Line 8</span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_zv</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_zv</span>(<span class="fu">all_predictors</span>()) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="exercise-3" class="level3">
@@ -624,8 +624,8 @@ Tip
 <p>Let’s consider another model. Use the <code>recipe()</code> workflow to fit a new model that meets the following criteria:</p>
 <ul>
 <li><p>Includes variables <code>chocolate</code>, <code>pricepercent</code>, <code>crispedricewafer</code>, <code>pluribus, sugarpercent</code></p></li>
-<li><p>Rescales <code>pricepercent</code> so it ranges from 0 to 100 (instead of 0 to 1)</p></li>
-<li><p>Makes <code>sugarpercent</code> a factor where the levels equal the four quartiles: 0 - 25, 25 - 50, 50 - 75, 75 - 100</p></li>
+<li><p>Update <code>pricepercent</code> so it ranges from 0 to 100 (instead of 0 to 1)</p></li>
+<li><p>Makes <code>sugarpercent</code> a factor where the levels equal the four quartiles: 0 - 0.25, 0.25 - 0.50, 0.50 - 0.75, 0.75 - 1</p></li>
 <li><p>Includes the interaction between <code>pricepercent</code> and <code>pluribus</code></p></li>
 </ul>
 <p>Neatly display the model using 3 digits.</p>

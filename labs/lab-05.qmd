@@ -194,7 +194,7 @@ Use RMSE to evaluate the predictive performance of each model on the testing dat
 
 ### Exercise 10
 
--   Which model do you choose after taking into account the model comparison results in Exercises 9 and 10? Briefly explain your response.
+-   Which model do you choose after taking into account all the model evaluation statistics in Exercises 9 and 10? Briefly explain your response.
 
 -   Use the model you selected to describe what generally makes a good candy, i.e., one with a high win percentage.
 

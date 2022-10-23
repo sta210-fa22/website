@@ -42,7 +42,9 @@ knitr::opts_chunk$set(
 
     -   due Tuesday, 11:59pm (Fri labs)
 
--   Click here for [Week 09](https://sta210-fa22.netlify.app/weeks/week-09.html) activities.
+-   [Click here](ANOVA-table.html) for explanation about sum of squares in R ANOVA output.
+
+-   See [Week 09](https://sta210-fa22.netlify.app/weeks/week-09.html) activities.
 
 ## Topics
 
@@ -239,7 +241,7 @@ office_fit_rs1
 -   We've fit a bunch of models
 -   Now it's time to use them to collect metrics (e.g., \$R\^2\$, AIC, RMSE, etc. ) on each model and use them to evaluate model fit and how it varies across folds
 
-## Collect $R^2$ and RMSE from CV 
+## Collect $R^2$ and RMSE from CV
 
 ```{r}
 # Produces summary across all CV
@@ -250,7 +252,7 @@ collect_metrics(office_fit_rs1)
 
 Note: These are calculated using the *assessment* data
 
-## Deeper look into $R^2$ and RMSE 
+## Deeper look into $R^2$ and RMSE
 
 ```{r}
 cv_metrics1 <- collect_metrics(office_fit_rs1, summarize = FALSE) 
@@ -258,7 +260,7 @@ cv_metrics1 <- collect_metrics(office_fit_rs1, summarize = FALSE)
 cv_metrics1
 ```
 
-## Better tabulation of $R^2$ and RMSE from CV 
+## Better tabulation of $R^2$ and RMSE from CV
 
 ```{r}
 cv_metrics1 |>

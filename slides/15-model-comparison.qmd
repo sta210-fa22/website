@@ -227,6 +227,10 @@ anova(tip_fit$fit) |>
   kable(digits = 2)
 ```
 
+[^1]
+
+[^1]: [Click here](ANOVA-table.html) for explanation about the way R calculates sum of squares for each variable.
+
 ## ANOVA output, with totals
 
 ```{r}
@@ -480,7 +484,7 @@ glance(tip_fit_2) |>
 
 ## Parsimony and Occam's razor {.smaller}
 
--   The principle of **parsimony** is attributed to William of Occam (early 14th-century English nominalist philosopher), who insisted that, given a set of equally good explanations for a given phenomenon, *the correct explanation is the simplest explanation*[^1]
+-   The principle of **parsimony** is attributed to William of Occam (early 14th-century English nominalist philosopher), who insisted that, given a set of equally good explanations for a given phenomenon, *the correct explanation is the simplest explanation*[^2]
 
 -   Called **Occam's razor** because he "shaved" his explanations down to the bare minimum
 
@@ -494,7 +498,7 @@ glance(tip_fit_2) |>
     -   simple explanations should be preferred to complex explanations
     :::
 
-[^1]: Source: The R Book by Michael J. Crawley.
+[^2]: Source: The R Book by Michael J. Crawley.
 
 ## In pursuit of Occam's razor
 
@@ -512,9 +516,9 @@ glance(tip_fit_2) |>
 >
 > <br>
 >
-> Radford Neal - Bayesian Learning for Neural Networks[^2]
+> Radford Neal - Bayesian Learning for Neural Networks[^3]
 
-[^2]: Suggested blog post: [Occam](https://statmodeling.stat.columbia.edu/2012/06/26/occam-2/) by Andrew Gelman
+[^3]: Suggested blog post: [Occam](https://statmodeling.stat.columbia.edu/2012/06/26/occam-2/) by Andrew Gelman
 
 ## Other concerns with our approach {.midi}
 

@@ -2223,7 +2223,7 @@
     "href": "slides/16-cross-validation.html#announcements",
     "title": "Cross validation",
     "section": "Announcements",
-    "text": "Announcements\n\nLab 05\n\ndue TODAY, 11:59pm (Thu labs)\ndue Tuesday, 11:59pm (Fri labs)\n\nClick here for Week 09 activities."
+    "text": "Announcements\n\nLab 05\n\ndue TODAY, 11:59pm (Thu labs)\ndue Tuesday, 11:59pm (Fri labs)\n\nClick here for explanation about sum of squares in R ANOVA output.\nSee Week 09 activities."
   },
   {
     "objectID": "slides/16-cross-validation.html#topics",
@@ -3042,7 +3042,7 @@
     "href": "slides/15-model-comparison.html#anova-output",
     "title": "Model comparison",
     "section": "ANOVA output",
-    "text": "ANOVA output\n\nanova(tip_fit$fit) |>\n  tidy() |>\n  kable(digits = 2)\n\n\n\n \n  \n    term \n    df \n    sumsq \n    meansq \n    statistic \n    p.value \n  \n \n\n  \n    Party \n    1 \n    1188.64 \n    1188.64 \n    285.71 \n    0.00 \n  \n  \n    Age \n    2 \n    38.03 \n    19.01 \n    4.57 \n    0.01 \n  \n  \n    Residuals \n    165 \n    686.44 \n    4.16 \n    NA \n    NA"
+    "text": "ANOVA output\n\nanova(tip_fit$fit) |>\n  tidy() |>\n  kable(digits = 2)\n\n\n\n \n  \n    term \n    df \n    sumsq \n    meansq \n    statistic \n    p.value \n  \n \n\n  \n    Party \n    1 \n    1188.64 \n    1188.64 \n    285.71 \n    0.00 \n  \n  \n    Age \n    2 \n    38.03 \n    19.01 \n    4.57 \n    0.01 \n  \n  \n    Residuals \n    165 \n    686.44 \n    4.16 \n    NA \n    NA \n  \n\n\n\n\n\n1\nClick here for explanation about the way R calculates sum of squares for each variable."
   },
   {
     "objectID": "slides/15-model-comparison.html#anova-output-with-totals",
@@ -4097,30 +4097,30 @@
   {
     "objectID": "slides/ANOVA-Table.html",
     "href": "slides/ANOVA-Table.html",
-    "title": "Understanding ANOVA output",
+    "title": "ANOVA Output in R",
     "section": "",
-    "text": "We will use the Tips data set.\nThe variables of interest in this analysis are"
+    "text": "We will use the Tips data set for this example.\nThe variables of interest in this analysis are"
   },
   {
     "objectID": "slides/ANOVA-Table.html#model-fit",
     "href": "slides/ANOVA-Table.html#model-fit",
-    "title": "Understanding ANOVA output",
+    "title": "ANOVA Output in R",
     "section": "Model fit",
-    "text": "Model fit\n\ntip_fit <- linear_reg() |>\n  set_engine(\"lm\") |>\n  fit(Tip ~ Party + Age, data = tips)\n\ntidy(tip_fit) |>\n  kable(digits = 3)\n\n\n\n \n  \n    term \n    estimate \n    std.error \n    statistic \n    p.value \n  \n \n\n  \n    (Intercept) \n    -0.170 \n    0.366 \n    -0.465 \n    0.643 \n  \n  \n    Party \n    1.837 \n    0.124 \n    14.758 \n    0.000 \n  \n  \n    AgeMiddle \n    1.009 \n    0.408 \n    2.475 \n    0.014 \n  \n  \n    AgeSenCit \n    1.388 \n    0.485 \n    2.862 \n    0.005"
+    "text": "Model fit\n\ntip_fit <- linear_reg() |>\n  set_engine(\"lm\") |>\n  fit(Tip ~ Party + Age, data = tips)\n\ntidy(tip_fit) |>\n  kable(digits = 2)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-0.17\n0.37\n-0.46\n0.64\n\n\nParty\n1.84\n0.12\n14.76\n0.00\n\n\nAgeMiddle\n1.01\n0.41\n2.47\n0.01\n\n\nAgeSenCit\n1.39\n0.48\n2.86\n0.00"
   },
   {
     "objectID": "slides/ANOVA-Table.html#anova",
     "href": "slides/ANOVA-Table.html#anova",
-    "title": "Understanding ANOVA output",
+    "title": "ANOVA Output in R",
     "section": "ANOVA",
-    "text": "ANOVA\n\nanova(tip_fit$fit) |>\n  tidy() |>\n  kable(digits = 2)\n\n\n\n \n  \n    term \n    df \n    sumsq \n    meansq \n    statistic \n    p.value \n  \n \n\n  \n    Party \n    1 \n    1188.64 \n    1188.64 \n    285.71 \n    0.00 \n  \n  \n    Age \n    2 \n    38.03 \n    19.01 \n    4.57 \n    0.01 \n  \n  \n    Residuals \n    165 \n    686.44 \n    4.16 \n    NA \n    NA"
+    "text": "ANOVA\nBelow is the ANOVA output for the model fit above.\n\nanova(tip_fit$fit) |>\n  tidy() |>\n  kable(digits = 2)\n\n\n\n\n\n\n\n\n\n\n\n\nterm\ndf\nsumsq\nmeansq\nstatistic\np.value\n\n\n\n\nParty\n1\n1188.64\n1188.64\n285.71\n0.00\n\n\nAge\n2\n38.03\n19.01\n4.57\n0.01\n\n\nResiduals\n165\n686.44\n4.16\nNA\nNA\n\n\n\n\n\nWe will focus on the sum of squares in this document. The sum of squares are as follows:\n$$\n\\[\\begin{aligned}\n&SS_{Party} = 1188.64 \\\\\n&SS_{Age|Party} = 38.03 \\\\\n&SS_{Error} = SS_{Residuals} = 686.44 \\\\\n&SS_{Total} = 1913.11\n\\end{aligned}\\]\n$$"
   },
   {
-    "objectID": "slides/ANOVA-Table.html#parts-of-the-anova-table",
-    "href": "slides/ANOVA-Table.html#parts-of-the-anova-table",
-    "title": "Understanding ANOVA output",
-    "section": "Parts of the ANOVA table",
-    "text": "Parts of the ANOVA table\nR uses a sequential method to calculate sum of squares for the variables in the model. In other words, the sum of squares attributed to each variable is the sum of squares after accounting for the other variables already in the model. The order of the sequence is determined by the order of the variables in the model fit code. It is also reflected in the order the variables appear in the ANOVA output.\nSo let’s take a look at the sum of squares for Party, the first variable in the model. This value is calculated as the total variation in Tips accounted for by Party.\n\nparty_fit <- linear_reg() |>\n  set_engine(\"lm\") |>\n  fit(Tip ~ Party, data = tips)\n\nanova(party_fit$fit) |>\n  tidy() |>\n  kable(digits = 2)\n\n\n\n \n  \n    term \n    df \n    sumsq \n    meansq \n    statistic \n    p.value \n  \n \n\n  \n    Party \n    1 \n    1188.64 \n    1188.64 \n    274 \n    0 \n  \n  \n    Residuals \n    167 \n    724.47 \n    4.34 \n    NA \n    NA \n  \n\n\n\n\n\nNext, let’s add Age to the model. The sum of squares associated with Age is the total variation in Tips accounted for by Age after accounting for variation explained by Party. In other words, it is the additional model variation in the model with Party and Age compared to a model that only includes Party. We can calculate this additional variation as follows:\n\nanova(party_fit$fit, tip_fit$fit) |>\n  tidy() |>\n  kable(digits = 2)\n\n\n\n \n  \n    term \n    df.residual \n    rss \n    df \n    sumsq \n    statistic \n    p.value \n  \n \n\n  \n    Tip ~ Party \n    167 \n    724.47 \n    NA \n    NA \n    NA \n    NA \n  \n  \n    Tip ~ Party + Age \n    165 \n    686.44 \n    2 \n    38.03 \n    4.57 \n    0.01 \n  \n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nWhen we input two model is the anova() function, e.g., anova(Model 1, Model 2), the output produced is the sum of squares accounted for by the new variable(s) in Model 2 after accounting for the variables in Model 1. In this case, it is the additional sum of squares accounted for by Age after accounting for Party."
+    "objectID": "slides/ANOVA-Table.html#sum-of-squares-in-anova-table",
+    "href": "slides/ANOVA-Table.html#sum-of-squares-in-anova-table",
+    "title": "ANOVA Output in R",
+    "section": "Sum of squares in ANOVA table",
+    "text": "Sum of squares in ANOVA table\nR uses a sequential method to calculate sum of squares for the variables in the model. This means that the sum of squares attributed to each variable is the variation in the response explained by that variable after accounting for the total variation explained by the other variables already in the model.\nThe order of the sequence is determined by the order of the variables in the model fit code. This order is reflected in the order the variables appear in the ANOVA output. The sequential sum of squares attributed to each variable will change if the order of the variables in the model changes; however, the sum of squares attributed to the model overall will not change, regardless of the order of the variables.\nLet’s take a look at the sum of squares for Party, the first variable in the model. This value is calculated as the total variation in Tips explained by Party only. We can calculate this value by looking at the ANOVA table for simple linear regression model where Party is the only predictor.\n\nparty_fit <- linear_reg() |>\n  set_engine(\"lm\") |>\n  fit(Tip ~ Party, data = tips)\n\nanova(party_fit$fit) |>\n  tidy() |>\n  kable(digits = 2)\n\n\n\n\nterm\ndf\nsumsq\nmeansq\nstatistic\np.value\n\n\n\n\nParty\n1\n1188.64\n1188.64\n274\n0\n\n\nResiduals\n167\n724.47\n4.34\nNA\nNA\n\n\n\n\n\nNotice that the sum of squares in this table is the value of \\(SS_{Party}\\) above.\nNext, let’s add Age to the model. The sum of squares associated with Age is the additional variation in Tips explained by Age after accounting for variation explained by Party. This can be understood as the additional model variation in the model with Party and Age compared to a model that only includes Party. We can calculate this additional variation as follows:\n\nanova(party_fit$fit, tip_fit$fit) |>\n  tidy() |>\n  kable(digits = 2)\n\n\n\n\nterm\ndf.residual\nrss\ndf\nsumsq\nstatistic\np.value\n\n\n\n\nTip ~ Party\n167\n724.47\nNA\nNA\nNA\nNA\n\n\nTip ~ Party + Age\n165\n686.44\n2\n38.03\n4.57\n0.01\n\n\n\n\n\nNotice that the sum of squares in this table is the value of \\(SS_{Age|Party}\\) above.\n\n\n\n\n\n\nNote\n\n\n\nWhen we input two model is the anova() function, e.g., anova(Model 1, Model 2), the output produced is the additional sum of squares accounted for by the new variable(s) in Model 2 after accounting for the variables in Model 1. In this case, it is the additional sum of squares accounted for by Age after accounting for Party.\n\n\nWhen we use the ANOVA table, we are most interested in the variation in the response explained by the entire model, not the contribution from each variable. Therefore, we will primarily consider the \\(SS_{Model}\\), Sum of Squares Model. Because sum of squares are additive, it can be calculated as\n\\[\n\\begin{aligned}\nSS_{Model} &= SS_{Total} - SS_{Error} \\\\\n&= 1913.11 - 686.44 \\\\\n& = 1226.67\n\\end{aligned}\n\\]It can also be calculated as\n\\[\n\\begin{aligned}\nSS_{Model} &= SS_{Party} + SS_{Age | Party} \\\\\n& = 1188.64 + 38.03 \\\\\n& = 1226.67\n\\end{aligned}\n\\]"
   },
   {
     "objectID": "slides/13-variable-transformations.html#announcements",

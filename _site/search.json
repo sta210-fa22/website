@@ -2093,6 +2093,13 @@
     "text": "Learn more\nSee Log Transformations in Linear Regression for more details about interpreting regression models with log-transformed variables.\n\n\n\n🔗 Week 08"
   },
   {
+    "objectID": "slides/16-cross-validation.html#announcements",
+    "href": "slides/16-cross-validation.html#announcements",
+    "title": "Cross validation",
+    "section": "Announcements",
+    "text": "Announcements\n\nLab 05\n\ndue TODAY, 11:59pm (Thu labs)\ndue Tuesday, 11:59pm (Fri labs)\n\nClick here for Week 09 activities."
+  },
+  {
     "objectID": "slides/16-cross-validation.html#topics",
     "href": "slides/16-cross-validation.html#topics",
     "title": "Cross validation",
@@ -2128,11 +2135,11 @@
     "text": "Specify model\n\noffice_spec <- linear_reg() |>\n  set_engine(\"lm\")\n\noffice_spec\n\nLinear Regression Model Specification (regression)\n\nComputational engine: lm"
   },
   {
-    "objectID": "slides/16-cross-validation.html#from-yesterdays-lab",
-    "href": "slides/16-cross-validation.html#from-yesterdays-lab",
+    "objectID": "slides/16-cross-validation.html#from-lab-04",
+    "href": "slides/16-cross-validation.html#from-lab-04",
     "title": "Cross validation",
-    "section": "From yesterday’s lab",
-    "text": "From yesterday’s lab\n\nCreate a recipe that uses the new variables we generated\nDenotes episode_name as an ID variable and doesn’t use air_date as a predictor\nCreate dummy variables for all nominal predictors\nRemove all zero variance predictors"
+    "section": "From Lab 04",
+    "text": "From Lab 04\nCreate a recipe that uses the newly generated variables\n\nDenotes episode_name as an ID variable and doesn’t use air_date or season as predictors\nCreate dummy variables for all nominal predictors\nRemove all zero variance predictors"
   },
   {
     "objectID": "slides/16-cross-validation.html#create-recipe",
@@ -2140,6 +2147,13 @@
     "title": "Cross validation",
     "section": "Create recipe",
     "text": "Create recipe\n\noffice_rec1 <- recipe(imdb_rating ~ ., data = office_train) |>\n  update_role(episode_name, new_role = \"id\") |>\n  step_rm(air_date, season) |>\n  step_dummy(all_nominal_predictors()) |>\n  step_zv(all_predictors())\n\noffice_rec1\n\nRecipe\n\nInputs:\n\n      role #variables\n        id          1\n   outcome          1\n predictor         12\n\nOperations:\n\nVariables removed air_date, season\nDummy variables from all_nominal_predictors()\nZero variance filter on all_predictors()"
+  },
+  {
+    "objectID": "slides/16-cross-validation.html#preview-recipe",
+    "href": "slides/16-cross-validation.html#preview-recipe",
+    "title": "Cross validation",
+    "section": "Preview recipe",
+    "text": "Preview recipe\n\nprep(office_rec1) |>\n  bake(office_train) |>\n  glimpse()\n\nRows: 139\nColumns: 12\n$ episode       <dbl> 20, 16, 8, 7, 23, 3, 16, 21, 18, 14, 27, 28, 12, 1, 23, …\n$ episode_name  <fct> \"Welcome Party\", \"Moving On\", \"Performance Review\", \"The…\n$ total_votes   <dbl> 1489, 1572, 2416, 1406, 2783, 1802, 2283, 2041, 1445, 14…\n$ lines_jim     <dbl> 0.12703583, 0.05588822, 0.09523810, 0.07482993, 0.078291…\n$ lines_pam     <dbl> 0.10423453, 0.10978044, 0.10989011, 0.15306122, 0.081850…\n$ lines_michael <dbl> 0.0000000, 0.0000000, 0.3772894, 0.0000000, 0.3736655, 0…\n$ lines_dwight  <dbl> 0.07166124, 0.08782435, 0.15384615, 0.18027211, 0.135231…\n$ imdb_rating   <dbl> 7.2, 8.2, 8.2, 7.7, 9.1, 8.2, 8.3, 8.9, 8.0, 7.8, 8.7, 8…\n$ halloween_yes <dbl> 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…\n$ valentine_yes <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0,…\n$ christmas_yes <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0,…\n$ michael_yes   <dbl> 0, 0, 1, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1,…"
   },
   {
     "objectID": "slides/16-cross-validation.html#create-workflow",
@@ -2261,11 +2275,11 @@
     "text": "Cross validation jargon\n\nReferred to as v-fold or k-fold cross validation\nAlso commonly abbreviated as CV"
   },
   {
-    "objectID": "slides/16-cross-validation.html#cross-validation-for-reals",
-    "href": "slides/16-cross-validation.html#cross-validation-for-reals",
+    "objectID": "slides/16-cross-validation.html#cross-validation-in-practice",
+    "href": "slides/16-cross-validation.html#cross-validation-in-practice",
     "title": "Cross validation",
-    "section": "Cross validation, for reals",
-    "text": "Cross validation, for reals\n\n\nTo illustrate how CV works, we used v = 3:\n\n\nAnalysis sets are 2/3 of the training set\nEach assessment set is a distinct 1/3\nThe final resampling estimate of performance averages each of the 3 replicates\n\n\nThis was useful for illustrative purposes, but v = 3 is a poor choice in practice\nValues of v are most often 5 or 10; we generally prefer 10-fold cross-validation as a default"
+    "section": "Cross validation in practice",
+    "text": "Cross validation in practice\n\n\nTo illustrate how CV works, we used v = 3:\n\n\nAnalysis sets are 2/3 of the training set\nEach assessment set is a distinct 1/3\nThe final resampling estimate of performance averages each of the 3 replicates\n\n\nThis was useful for illustrative purposes, but v = 3 is a poor choice in practice\nValues of v are most often 5 or 10; we generally prefer 10-fold cross-validation as a default"
   },
   {
     "objectID": "slides/16-cross-validation.html#recap",
@@ -4835,33 +4849,5 @@
     "title": "Schedule",
     "section": "Notes",
     "text": "Notes\n\nHomework will be due on Wednesdays at 11:59pm. You will have one week to complete each homework assignment.\nLab:\n\nLab sections 01 & 02 (Thursdays): Labs will be due on Mondays at 11:59pm.\nLab sections 03 & 04 (Fridays): Labs will be due on Tuesdays at 11:59pm.\n\nProject dates will be added when the project is assigned."
-  },
-  {
-    "objectID": "slides/16-cross-validation.html#announcements",
-    "href": "slides/16-cross-validation.html#announcements",
-    "title": "Cross validation",
-    "section": "Announcements",
-    "text": "Announcements\n\nLab 05\n\ndue TODAY, 11:59pm (Thu labs)\ndue Tuesday, 11:59pm (Fri labs)\n\nClick here for Week 09 activities."
-  },
-  {
-    "objectID": "slides/16-cross-validation.html#from-lab-04",
-    "href": "slides/16-cross-validation.html#from-lab-04",
-    "title": "Cross validation",
-    "section": "From Lab 04",
-    "text": "From Lab 04\nCreate a recipe that uses the newly generated variables\n\nDenotes episode_name as an ID variable and doesn’t use air_date or season as predictors\nCreate dummy variables for all nominal predictors\nRemove all zero variance predictors"
-  },
-  {
-    "objectID": "slides/16-cross-validation.html#preview-recipe",
-    "href": "slides/16-cross-validation.html#preview-recipe",
-    "title": "Cross validation",
-    "section": "Preview recipe",
-    "text": "Preview recipe\n\nprep(office_rec1) |>\n  bake(office_train) |>\n  glimpse()\n\nRows: 139\nColumns: 12\n$ episode       <dbl> 20, 16, 8, 7, 23, 3, 16, 21, 18, 14, 27, 28, 12, 1, 23, …\n$ episode_name  <fct> \"Welcome Party\", \"Moving On\", \"Performance Review\", \"The…\n$ total_votes   <dbl> 1489, 1572, 2416, 1406, 2783, 1802, 2283, 2041, 1445, 14…\n$ lines_jim     <dbl> 0.12703583, 0.05588822, 0.09523810, 0.07482993, 0.078291…\n$ lines_pam     <dbl> 0.10423453, 0.10978044, 0.10989011, 0.15306122, 0.081850…\n$ lines_michael <dbl> 0.0000000, 0.0000000, 0.3772894, 0.0000000, 0.3736655, 0…\n$ lines_dwight  <dbl> 0.07166124, 0.08782435, 0.15384615, 0.18027211, 0.135231…\n$ imdb_rating   <dbl> 7.2, 8.2, 8.2, 7.7, 9.1, 8.2, 8.3, 8.9, 8.0, 7.8, 8.7, 8…\n$ halloween_yes <dbl> 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…\n$ valentine_yes <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0,…\n$ christmas_yes <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0,…\n$ michael_yes   <dbl> 0, 0, 1, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1,…"
-  },
-  {
-    "objectID": "slides/16-cross-validation.html#cross-validation-in-practice",
-    "href": "slides/16-cross-validation.html#cross-validation-in-practice",
-    "title": "Cross validation",
-    "section": "Cross validation in practice",
-    "text": "Cross validation in practice\n\n\nTo illustrate how CV works, we used v = 3:\n\n\nAnalysis sets are 2/3 of the training set\nEach assessment set is a distinct 1/3\nThe final resampling estimate of performance averages each of the 3 replicates\n\n\nThis was useful for illustrative purposes, but v = 3 is a poor choice in practice\nValues of v are most often 5 or 10; we generally prefer 10-fold cross-validation as a default"
   }
 ]

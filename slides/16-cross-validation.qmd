@@ -119,7 +119,7 @@ office_rec1 <- recipe(imdb_rating ~ ., data = office_train) |>
 office_rec1
 ```
 
-## Preview recipe 
+## Preview recipe
 
 ```{r}
 prep(office_rec1) |>
@@ -254,7 +254,7 @@ cv_metrics1 |>
   kable(col.names = c("Fold", "RMSE", "R-squared"))
 ```
 
-## How does RMSE compare to y?  {.small}
+## How does RMSE compare to y? {.small}
 
 ::: columns
 ::: {.column width="50%"}

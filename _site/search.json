@@ -595,6 +595,132 @@
     "text": "Compare training and testing data results\n\nCompare the \\(R^2\\) for the training and testing data. Is this what you expected?\nCompare the RMSE for the training and testing data. Is this what you expected?"
   },
   {
+    "objectID": "ae/ae-10-cross-validation.html",
+    "href": "ae/ae-10-cross-validation.html",
+    "title": "AE 10: Cross validation",
+    "section": "",
+    "text": "Important\n\n\n\nGo to the course GitHub organization and locate your ae-10- to get started.\nThe AE is due on GitHub by Thursday, October 27 at 11:59pm."
+  },
+  {
+    "objectID": "ae/ae-10-cross-validation.html#function",
+    "href": "ae/ae-10-cross-validation.html#function",
+    "title": "AE 10: Cross validation",
+    "section": "Function",
+    "text": "Function\n\n# function to calculate model fit statistics\ncalc_model_stats <- function(x) {\n  glance(extract_fit_parsnip(x)) |>\n    select(adj.r.squared, AIC, BIC)\n}"
+  },
+  {
+    "objectID": "ae/ae-10-cross-validation.html#packages",
+    "href": "ae/ae-10-cross-validation.html#packages",
+    "title": "AE 10: Cross validation",
+    "section": "Packages",
+    "text": "Packages\n\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(knitr)"
+  },
+  {
+    "objectID": "ae/ae-10-cross-validation.html#load-data",
+    "href": "ae/ae-10-cross-validation.html#load-data",
+    "title": "AE 10: Cross validation",
+    "section": "Load data",
+    "text": "Load data\n\noffice_episodes <- read_csv(\"data/office_episodes.csv\")"
+  },
+  {
+    "objectID": "ae/ae-10-cross-validation.html#split-data-into-training-and-testing",
+    "href": "ae/ae-10-cross-validation.html#split-data-into-training-and-testing",
+    "title": "AE 10: Cross validation",
+    "section": "Split data into training and testing",
+    "text": "Split data into training and testing\nSplit your data into testing and training sets.\n\nset.seed(123)\noffice_split <- initial_split(office_episodes)\noffice_train <- training(office_split)\noffice_test <- testing(office_split)"
+  },
+  {
+    "objectID": "ae/ae-10-cross-validation.html#specify-model",
+    "href": "ae/ae-10-cross-validation.html#specify-model",
+    "title": "AE 10: Cross validation",
+    "section": "Specify model",
+    "text": "Specify model\nSpecify a linear regression model. Call it office_spec.\n\noffice_spec <- linear_reg() |>\n  set_engine(\"lm\")\n\noffice_spec\n\nLinear Regression Model Specification (regression)\n\nComputational engine: lm"
+  },
+  {
+    "objectID": "ae/ae-10-cross-validation.html#create-recipe",
+    "href": "ae/ae-10-cross-validation.html#create-recipe",
+    "title": "AE 10: Cross validation",
+    "section": "Create recipe",
+    "text": "Create recipe\nCreate the recipe from class. Call it office_rec1.\n\noffice_rec1 <- recipe(imdb_rating ~ ., data = office_train) |>\n  update_role(episode_name, new_role = \"id\") |>\n  step_rm(air_date, season) |>\n  step_dummy(all_nominal_predictors()) |>\n  step_zv(all_predictors())\n\noffice_rec1\n\nRecipe\n\nInputs:\n\n      role #variables\n        id          1\n   outcome          1\n predictor         12\n\nOperations:\n\nVariables removed air_date, season\nDummy variables from all_nominal_predictors()\nZero variance filter on all_predictors()"
+  },
+  {
+    "objectID": "ae/ae-10-cross-validation.html#preview-recipe",
+    "href": "ae/ae-10-cross-validation.html#preview-recipe",
+    "title": "AE 10: Cross validation",
+    "section": "Preview recipe",
+    "text": "Preview recipe\n\nprep(office_rec1) |>\n  bake(office_train) |>\n  glimpse()\n\nRows: 139\nColumns: 12\n$ episode       <dbl> 20, 16, 8, 7, 23, 3, 16, 21, 18, 14, 27, 28, 12, 1, 23, …\n$ episode_name  <fct> \"Welcome Party\", \"Moving On\", \"Performance Review\", \"The…\n$ total_votes   <dbl> 1489, 1572, 2416, 1406, 2783, 1802, 2283, 2041, 1445, 14…\n$ lines_jim     <dbl> 0.12703583, 0.05588822, 0.09523810, 0.07482993, 0.078291…\n$ lines_pam     <dbl> 0.10423453, 0.10978044, 0.10989011, 0.15306122, 0.081850…\n$ lines_michael <dbl> 0.0000000, 0.0000000, 0.3772894, 0.0000000, 0.3736655, 0…\n$ lines_dwight  <dbl> 0.07166124, 0.08782435, 0.15384615, 0.18027211, 0.135231…\n$ imdb_rating   <dbl> 7.2, 8.2, 8.2, 7.7, 9.1, 8.2, 8.3, 8.9, 8.0, 7.8, 8.7, 8…\n$ halloween_yes <dbl> 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…\n$ valentine_yes <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0,…\n$ christmas_yes <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0,…\n$ michael_yes   <dbl> 0, 0, 1, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1,…"
+  },
+  {
+    "objectID": "ae/ae-10-cross-validation.html#create-workflow",
+    "href": "ae/ae-10-cross-validation.html#create-workflow",
+    "title": "AE 10: Cross validation",
+    "section": "Create workflow",
+    "text": "Create workflow\nCreate the workflow that brings together the model specification and recipe. Call it office_wflow1.\n\noffice_wflow1 <- workflow() |>\n  add_model(office_spec) |>\n  add_recipe(office_rec1)\n\noffice_wflow1\n\n══ Workflow ════════════════════════════════════════════════════════════════════\nPreprocessor: Recipe\nModel: linear_reg()\n\n── Preprocessor ────────────────────────────────────────────────────────────────\n3 Recipe Steps\n\n• step_rm()\n• step_dummy()\n• step_zv()\n\n── Model ───────────────────────────────────────────────────────────────────────\nLinear Regression Model Specification (regression)\n\nComputational engine: lm"
+  },
+  {
+    "objectID": "ae/ae-10-cross-validation.html#create-folds",
+    "href": "ae/ae-10-cross-validation.html#create-folds",
+    "title": "AE 10: Cross validation",
+    "section": "Create folds",
+    "text": "Create folds\nCreate 10-folds.\n\n# make 10 folds\nset.seed(345)\nfolds <- vfold_cv(office_train, v = 10)"
+  },
+  {
+    "objectID": "ae/ae-10-cross-validation.html#conduct-cross-validation",
+    "href": "ae/ae-10-cross-validation.html#conduct-cross-validation",
+    "title": "AE 10: Cross validation",
+    "section": "Conduct cross validation",
+    "text": "Conduct cross validation\nConduct cross validation on the 10 folds.\n\nset.seed(456)\n# Fit model and calculate statistics for each fold\noffice_fit_rs1 <- office_wflow1 |>\n  fit_resamples(resamples = folds, \n                control = control_resamples(extract = calc_model_stats))"
+  },
+  {
+    "objectID": "ae/ae-10-cross-validation.html#summarize-assessment-cv-metrics",
+    "href": "ae/ae-10-cross-validation.html#summarize-assessment-cv-metrics",
+    "title": "AE 10: Cross validation",
+    "section": "Summarize assessment CV metrics",
+    "text": "Summarize assessment CV metrics\nSummarize assessment metrics from your CV resamples.\n\ncollect_metrics(office_fit_rs1, summarize = TRUE)\n\n# A tibble: 2 × 6\n  .metric .estimator  mean     n std_err .config             \n  <chr>   <chr>      <dbl> <int>   <dbl> <chr>               \n1 rmse    standard   0.339    10  0.0227 Preprocessor1_Model1\n2 rsq     standard   0.567    10  0.0458 Preprocessor1_Model1"
+  },
+  {
+    "objectID": "ae/ae-10-cross-validation.html#summarize-model-fit-cv-metrics",
+    "href": "ae/ae-10-cross-validation.html#summarize-model-fit-cv-metrics",
+    "title": "AE 10: Cross validation",
+    "section": "Summarize model fit CV metrics",
+    "text": "Summarize model fit CV metrics\n\nmap_df(office_fit_rs1$.extracts, ~ .x[[1]][[1]]) |>\n  summarise(mean_adj_rsq = mean(adj.r.squared), \n            mean_aic = mean(AIC), \n            mean_bic = mean(BIC))\n\n# A tibble: 1 × 3\n  mean_adj_rsq mean_aic mean_bic\n         <dbl>    <dbl>    <dbl>\n1        0.583     90.8     125."
+  },
+  {
+    "objectID": "ae/ae-10-cross-validation.html#model-2-recipe",
+    "href": "ae/ae-10-cross-validation.html#model-2-recipe",
+    "title": "AE 10: Cross validation",
+    "section": "Model 2: Recipe",
+    "text": "Model 2: Recipe\n\n# add code here"
+  },
+  {
+    "objectID": "ae/ae-10-cross-validation.html#model-2-workflow",
+    "href": "ae/ae-10-cross-validation.html#model-2-workflow",
+    "title": "AE 10: Cross validation",
+    "section": "Model 2: Workflow",
+    "text": "Model 2: Workflow\n\n# add code here"
+  },
+  {
+    "objectID": "ae/ae-10-cross-validation.html#model-2-conduct-cv",
+    "href": "ae/ae-10-cross-validation.html#model-2-conduct-cv",
+    "title": "AE 10: Cross validation",
+    "section": "Model 2: Conduct CV",
+    "text": "Model 2: Conduct CV\n\n\n\n\n\n\nNote\n\n\n\nNote: We will use the same folds as the ones used for Model 1. Why should we use the same folds to evaluate and compare both models?\n\n\n\n# add code here"
+  },
+  {
+    "objectID": "ae/ae-10-cross-validation.html#model-2-summarize-assessment-cv-metrics",
+    "href": "ae/ae-10-cross-validation.html#model-2-summarize-assessment-cv-metrics",
+    "title": "AE 10: Cross validation",
+    "section": "Model 2: Summarize assessment CV metrics",
+    "text": "Model 2: Summarize assessment CV metrics\n\n# add code here"
+  },
+  {
+    "objectID": "ae/ae-10-cross-validation.html#model-2-summarize-model-fit-cv-metrics",
+    "href": "ae/ae-10-cross-validation.html#model-2-summarize-model-fit-cv-metrics",
+    "title": "AE 10: Cross validation",
+    "section": "Model 2: Summarize model fit CV metrics",
+    "text": "Model 2: Summarize model fit CV metrics\n\n# add code here"
+  },
+  {
     "objectID": "ae/ae-03-bootstrap.html",
     "href": "ae/ae-03-bootstrap.html",
     "title": "AE 03: Bootstrap confidence intervals",

@@ -596,7 +596,7 @@ Computational engine: lm </code></pre>
 <h2>Resampling for model assessment</h2>
 <p><strong>Resampling is only conducted on the</strong> <u><strong>training</strong></u> <strong>set</strong>. The test set is not involved. For each iteration of resampling, the data are partitioned into two subsamples:</p>
 <ul>
-<li>The model is fit with the <strong>analysis set</strong>.</li>
+<li>The model is fit with the <strong>analysis set</strong>. Model fit statistics such as <span class="math inline">\(R^2_{Adj}\)</span>, AIC, and BIC are calculated based on this fit.</li>
 <li>The model is evaluated with the <strong>assessment set</strong>.</li>
 </ul>
 </section>
@@ -620,7 +620,7 @@ Computational engine: lm </code></pre>
 <p>More specifically, <strong>v-fold cross validation</strong> – commonly used resampling technique:</p>
 <ul>
 <li>Randomly split your <strong>training</strong> <strong>data</strong> into <em>v</em> partitions</li>
-<li>Use <em>v-1</em> partitions for analysis, and the remaining 1 partition for analysis</li>
+<li>Use <em>v-1</em> partitions for analysis, and the remaining 1 partition for analysis (model fit + model fit statistics)</li>
 <li>Repeat <em>v</em> times, updating which partition is used for assessment each time</li>
 </ul>
 <div class="fragment">
@@ -660,24 +660,32 @@ Computational engine: lm </code></pre>
 </div>
 
 <img data-src="images/16/three-CV-iter.svg" class="r-stretch quarto-figure-center"></section>
-<section id="fit-resamples" class="slide level2">
+<section id="fit-resamples" class="slide level2 midi">
 <h2>Fit resamples</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">set.seed</span>(<span class="dv">456</span>)</span>
-<span id="cb15-2"><a href="#cb15-2"></a></span>
-<span id="cb15-3"><a href="#cb15-3"></a>office_fit_rs1 <span class="ot">&lt;-</span> office_wflow1 <span class="sc">|&gt;</span></span>
-<span id="cb15-4"><a href="#cb15-4"></a>  <span class="fu">fit_resamples</span>(folds)</span>
-<span id="cb15-5"><a href="#cb15-5"></a></span>
-<span id="cb15-6"><a href="#cb15-6"></a>office_fit_rs1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="co"># Function to get Adj R-sq, AIC, BIC</span></span>
+<span id="cb15-2"><a href="#cb15-2"></a>calc_model_stats <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb15-3"><a href="#cb15-3"></a>  <span class="fu">glance</span>(<span class="fu">extract_fit_parsnip</span>(x)) <span class="sc">|&gt;</span></span>
+<span id="cb15-4"><a href="#cb15-4"></a>    <span class="fu">select</span>(adj.r.squared, AIC, BIC)</span>
+<span id="cb15-5"><a href="#cb15-5"></a>}</span>
+<span id="cb15-6"><a href="#cb15-6"></a></span>
+<span id="cb15-7"><a href="#cb15-7"></a><span class="fu">set.seed</span>(<span class="dv">456</span>)</span>
+<span id="cb15-8"><a href="#cb15-8"></a></span>
+<span id="cb15-9"><a href="#cb15-9"></a><span class="co"># Fit model and calculate statistics for each fold</span></span>
+<span id="cb15-10"><a href="#cb15-10"></a>office_fit_rs1 <span class="ot">&lt;-</span> office_wflow1 <span class="sc">|&gt;</span></span>
+<span id="cb15-11"><a href="#cb15-11"></a>  <span class="fu">fit_resamples</span>(<span class="at">resamples =</span> folds, </span>
+<span id="cb15-12"><a href="#cb15-12"></a>                <span class="at">control =</span> <span class="fu">control_resamples</span>(<span class="at">extract =</span> calc_model_stats))</span>
+<span id="cb15-13"><a href="#cb15-13"></a></span>
+<span id="cb15-14"><a href="#cb15-14"></a>office_fit_rs1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># Resampling results
 # 3-fold cross-validation 
-# A tibble: 3 × 4
-  splits          id    .metrics         .notes          
-  &lt;list&gt;          &lt;chr&gt; &lt;list&gt;           &lt;list&gt;          
-1 &lt;split [92/47]&gt; Fold1 &lt;tibble [2 × 4]&gt; &lt;tibble [0 × 3]&gt;
-2 &lt;split [93/46]&gt; Fold2 &lt;tibble [2 × 4]&gt; &lt;tibble [0 × 3]&gt;
-3 &lt;split [93/46]&gt; Fold3 &lt;tibble [2 × 4]&gt; &lt;tibble [0 × 3]&gt;</code></pre>
+# A tibble: 3 × 5
+  splits          id    .metrics         .notes           .extracts       
+  &lt;list&gt;          &lt;chr&gt; &lt;list&gt;           &lt;list&gt;           &lt;list&gt;          
+1 &lt;split [92/47]&gt; Fold1 &lt;tibble [2 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble [1 × 2]&gt;
+2 &lt;split [93/46]&gt; Fold2 &lt;tibble [2 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble [1 × 2]&gt;
+3 &lt;split [93/46]&gt; Fold3 &lt;tibble [2 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble [1 × 2]&gt;</code></pre>
 </div>
 </div>
 </section>
@@ -685,13 +693,14 @@ Computational engine: lm </code></pre>
 <h2>Cross validation, now what?</h2>
 <ul>
 <li>We’ve fit a bunch of models</li>
-<li>Now it’s time to use them to collect metrics (e.g., R-squared, RMSE) on each model and use them to evaluate model fit and how it varies across folds</li>
+<li>Now it’s time to use them to collect metrics (e.g., $R^2$, AIC, RMSE, etc. ) on each model and use them to evaluate model fit and how it varies across folds</li>
 </ul>
 </section>
-<section id="collect-cv-metrics" class="slide level2">
-<h2>Collect CV metrics</h2>
+<section id="collect-r2-and-rmse-from-cv" class="slide level2">
+<h2>Collect <span class="math inline">\(R^2\)</span> and RMSE from CV</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu">collect_metrics</span>(office_fit_rs1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="co"># Produces summary across all CV</span></span>
+<span id="cb17-2"><a href="#cb17-2"></a><span class="fu">collect_metrics</span>(office_fit_rs1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 6
   .metric .estimator  mean     n std_err .config             
@@ -700,9 +709,11 @@ Computational engine: lm </code></pre>
 2 rsq     standard   0.539     3  0.0378 Preprocessor1_Model1</code></pre>
 </div>
 </div>
+<p><br></p>
+<p>Note: These are calculated using the <em>assessment</em> data</p>
 </section>
-<section id="deeper-look-into-cv-metrics" class="slide level2">
-<h2>Deeper look into CV metrics</h2>
+<section id="deeper-look-into-r2-and-rmse" class="slide level2">
+<h2>Deeper look into <span class="math inline">\(R^2\)</span> and RMSE</h2>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>cv_metrics1 <span class="ot">&lt;-</span> <span class="fu">collect_metrics</span>(office_fit_rs1, <span class="at">summarize =</span> <span class="cn">FALSE</span>) </span>
 <span id="cb19-2"><a href="#cb19-2"></a></span>
@@ -720,8 +731,8 @@ Computational engine: lm </code></pre>
 </div>
 </div>
 </section>
-<section id="better-tabulation-of-cv-metrics" class="slide level2">
-<h2>Better tabulation of CV metrics</h2>
+<section id="better-tabulation-of-r2-and-rmse-from-cv" class="slide level2">
+<h2>Better tabulation of <span class="math inline">\(R^2\)</span> and RMSE from CV</h2>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>cv_metrics1 <span class="sc">|&gt;</span></span>
 <span id="cb21-2"><a href="#cb21-2"></a>  <span class="fu">mutate</span>(<span class="at">.estimate =</span> <span class="fu">round</span>(.estimate, <span class="dv">3</span>)) <span class="sc">|&gt;</span></span>
@@ -798,6 +809,23 @@ Computational engine: lm </code></pre>
 </div>
 </div>
 </div>
+</section>
+<section id="collect-r2_adj-aic-bic-from-cv" class="slide level2">
+<h2>Collect <span class="math inline">\(R^2_{Adj}\)</span>, AIC, BIC from CV</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="fu">map_df</span>(office_fit_rs1<span class="sc">$</span>.extracts, <span class="sc">~</span> .x[[<span class="dv">1</span>]][[<span class="dv">1</span>]]) <span class="sc">|&gt;</span></span>
+<span id="cb26-2"><a href="#cb26-2"></a>  <span class="fu">bind_cols</span>(<span class="at">Fold =</span> office_fit_rs1<span class="sc">$</span>id)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 4
+  adj.r.squared   AIC   BIC Fold 
+          &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;
+1         0.585  70.3 101.  Fold1
+2         0.615  63.0  93.4 Fold2
+3         0.553  77.6 108.  Fold3</code></pre>
+</div>
+</div>
+<p><br></p>
+<p>Note: These are based on the model fit from the <em>analysis</em> data</p>
 </section>
 <section id="cross-validation-jargon" class="slide level2">
 <h2>Cross validation jargon</h2>

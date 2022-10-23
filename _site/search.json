@@ -2181,7 +2181,7 @@
     "href": "slides/16-cross-validation.html#resampling-for-model-assessment",
     "title": "Cross validation",
     "section": "Resampling for model assessment",
-    "text": "Resampling for model assessment\nResampling is only conducted on the training set. The test set is not involved. For each iteration of resampling, the data are partitioned into two subsamples:\n\nThe model is fit with the analysis set.\nThe model is evaluated with the assessment set."
+    "text": "Resampling for model assessment\nResampling is only conducted on the training set. The test set is not involved. For each iteration of resampling, the data are partitioned into two subsamples:\n\nThe model is fit with the analysis set. Model fit statistics such as \\(R^2_{Adj}\\), AIC, and BIC are calculated based on this fit.\nThe model is evaluated with the assessment set."
   },
   {
     "objectID": "slides/16-cross-validation.html#resampling-for-model-assessment-1",
@@ -2202,7 +2202,7 @@
     "href": "slides/16-cross-validation.html#cross-validation-1",
     "title": "Cross validation",
     "section": "Cross validation",
-    "text": "Cross validation\nMore specifically, v-fold cross validation – commonly used resampling technique:\n\nRandomly split your training data into v partitions\nUse v-1 partitions for analysis, and the remaining 1 partition for analysis\nRepeat v times, updating which partition is used for assessment each time\n\n\nLet’s give an example where v = 3…"
+    "text": "Cross validation\nMore specifically, v-fold cross validation – commonly used resampling technique:\n\nRandomly split your training data into v partitions\nUse v-1 partitions for analysis, and the remaining 1 partition for analysis (model fit + model fit statistics)\nRepeat v times, updating which partition is used for assessment each time\n\n\nLet’s give an example where v = 3…"
   },
   {
     "objectID": "slides/16-cross-validation.html#cross-validation-step-1",
@@ -2230,35 +2230,35 @@
     "href": "slides/16-cross-validation.html#fit-resamples",
     "title": "Cross validation",
     "section": "Fit resamples",
-    "text": "Fit resamples\n\nset.seed(456)\n\noffice_fit_rs1 <- office_wflow1 |>\n  fit_resamples(folds)\n\noffice_fit_rs1\n\n# Resampling results\n# 3-fold cross-validation \n# A tibble: 3 × 4\n  splits          id    .metrics         .notes          \n  <list>          <chr> <list>           <list>          \n1 <split [92/47]> Fold1 <tibble [2 × 4]> <tibble [0 × 3]>\n2 <split [93/46]> Fold2 <tibble [2 × 4]> <tibble [0 × 3]>\n3 <split [93/46]> Fold3 <tibble [2 × 4]> <tibble [0 × 3]>"
+    "text": "Fit resamples\n\n# Function to get Adj R-sq, AIC, BIC\ncalc_model_stats <- function(x) {\n  glance(extract_fit_parsnip(x)) |>\n    select(adj.r.squared, AIC, BIC)\n}\n\nset.seed(456)\n\n# Fit model and calculate statistics for each fold\noffice_fit_rs1 <- office_wflow1 |>\n  fit_resamples(resamples = folds, \n                control = control_resamples(extract = calc_model_stats))\n\noffice_fit_rs1\n\n# Resampling results\n# 3-fold cross-validation \n# A tibble: 3 × 5\n  splits          id    .metrics         .notes           .extracts       \n  <list>          <chr> <list>           <list>           <list>          \n1 <split [92/47]> Fold1 <tibble [2 × 4]> <tibble [0 × 3]> <tibble [1 × 2]>\n2 <split [93/46]> Fold2 <tibble [2 × 4]> <tibble [0 × 3]> <tibble [1 × 2]>\n3 <split [93/46]> Fold3 <tibble [2 × 4]> <tibble [0 × 3]> <tibble [1 × 2]>"
   },
   {
     "objectID": "slides/16-cross-validation.html#cross-validation-now-what",
     "href": "slides/16-cross-validation.html#cross-validation-now-what",
     "title": "Cross validation",
     "section": "Cross validation, now what?",
-    "text": "Cross validation, now what?\n\nWe’ve fit a bunch of models\nNow it’s time to use them to collect metrics (e.g., R-squared, RMSE) on each model and use them to evaluate model fit and how it varies across folds"
+    "text": "Cross validation, now what?\n\nWe’ve fit a bunch of models\nNow it’s time to use them to collect metrics (e.g., $R^2$, AIC, RMSE, etc. ) on each model and use them to evaluate model fit and how it varies across folds"
   },
   {
-    "objectID": "slides/16-cross-validation.html#collect-cv-metrics",
-    "href": "slides/16-cross-validation.html#collect-cv-metrics",
+    "objectID": "slides/16-cross-validation.html#collect-r2-and-rmse-from-cv",
+    "href": "slides/16-cross-validation.html#collect-r2-and-rmse-from-cv",
     "title": "Cross validation",
-    "section": "Collect CV metrics",
-    "text": "Collect CV metrics\n\ncollect_metrics(office_fit_rs1)\n\n# A tibble: 2 × 6\n  .metric .estimator  mean     n std_err .config             \n  <chr>   <chr>      <dbl> <int>   <dbl> <chr>               \n1 rmse    standard   0.353     3  0.0117 Preprocessor1_Model1\n2 rsq     standard   0.539     3  0.0378 Preprocessor1_Model1"
+    "section": "Collect \\(R^2\\) and RMSE from CV",
+    "text": "Collect \\(R^2\\) and RMSE from CV\n\n# Produces summary across all CV\ncollect_metrics(office_fit_rs1)\n\n# A tibble: 2 × 6\n  .metric .estimator  mean     n std_err .config             \n  <chr>   <chr>      <dbl> <int>   <dbl> <chr>               \n1 rmse    standard   0.353     3  0.0117 Preprocessor1_Model1\n2 rsq     standard   0.539     3  0.0378 Preprocessor1_Model1\n\n\n\nNote: These are calculated using the assessment data"
   },
   {
-    "objectID": "slides/16-cross-validation.html#deeper-look-into-cv-metrics",
-    "href": "slides/16-cross-validation.html#deeper-look-into-cv-metrics",
+    "objectID": "slides/16-cross-validation.html#deeper-look-into-r2-and-rmse",
+    "href": "slides/16-cross-validation.html#deeper-look-into-r2-and-rmse",
     "title": "Cross validation",
-    "section": "Deeper look into CV metrics",
-    "text": "Deeper look into CV metrics\n\ncv_metrics1 <- collect_metrics(office_fit_rs1, summarize = FALSE) \n\ncv_metrics1\n\n# A tibble: 6 × 5\n  id    .metric .estimator .estimate .config             \n  <chr> <chr>   <chr>          <dbl> <chr>               \n1 Fold1 rmse    standard       0.355 Preprocessor1_Model1\n2 Fold1 rsq     standard       0.525 Preprocessor1_Model1\n3 Fold2 rmse    standard       0.373 Preprocessor1_Model1\n4 Fold2 rsq     standard       0.481 Preprocessor1_Model1\n5 Fold3 rmse    standard       0.332 Preprocessor1_Model1\n6 Fold3 rsq     standard       0.610 Preprocessor1_Model1"
+    "section": "Deeper look into \\(R^2\\) and RMSE",
+    "text": "Deeper look into \\(R^2\\) and RMSE\n\ncv_metrics1 <- collect_metrics(office_fit_rs1, summarize = FALSE) \n\ncv_metrics1\n\n# A tibble: 6 × 5\n  id    .metric .estimator .estimate .config             \n  <chr> <chr>   <chr>          <dbl> <chr>               \n1 Fold1 rmse    standard       0.355 Preprocessor1_Model1\n2 Fold1 rsq     standard       0.525 Preprocessor1_Model1\n3 Fold2 rmse    standard       0.373 Preprocessor1_Model1\n4 Fold2 rsq     standard       0.481 Preprocessor1_Model1\n5 Fold3 rmse    standard       0.332 Preprocessor1_Model1\n6 Fold3 rsq     standard       0.610 Preprocessor1_Model1"
   },
   {
-    "objectID": "slides/16-cross-validation.html#better-tabulation-of-cv-metrics",
-    "href": "slides/16-cross-validation.html#better-tabulation-of-cv-metrics",
+    "objectID": "slides/16-cross-validation.html#better-tabulation-of-r2-and-rmse-from-cv",
+    "href": "slides/16-cross-validation.html#better-tabulation-of-r2-and-rmse-from-cv",
     "title": "Cross validation",
-    "section": "Better tabulation of CV metrics",
-    "text": "Better tabulation of CV metrics\n\ncv_metrics1 |>\n  mutate(.estimate = round(.estimate, 3)) |>\n  pivot_wider(id_cols = id, names_from = .metric, values_from = .estimate) |>\n  kable(col.names = c(\"Fold\", \"RMSE\", \"R-squared\"))\n\n\n\n\nFold\nRMSE\nR-squared\n\n\n\n\nFold1\n0.355\n0.525\n\n\nFold2\n0.373\n0.481\n\n\nFold3\n0.332\n0.610"
+    "section": "Better tabulation of \\(R^2\\) and RMSE from CV",
+    "text": "Better tabulation of \\(R^2\\) and RMSE from CV\n\ncv_metrics1 |>\n  mutate(.estimate = round(.estimate, 3)) |>\n  pivot_wider(id_cols = id, names_from = .metric, values_from = .estimate) |>\n  kable(col.names = c(\"Fold\", \"RMSE\", \"R-squared\"))\n\n\n\n\nFold\nRMSE\nR-squared\n\n\n\n\nFold1\n0.355\n0.525\n\n\nFold2\n0.373\n0.481\n\n\nFold3\n0.332\n0.610"
   },
   {
     "objectID": "slides/16-cross-validation.html#how-does-rmse-compare-to-y",
@@ -2266,6 +2266,13 @@
     "title": "Cross validation",
     "section": "How does RMSE compare to y?",
     "text": "How does RMSE compare to y?\n\n\nCross validation RMSE stats:\n\ncv_metrics1 |>\n  filter(.metric == \"rmse\") |>\n  summarise(\n    min = min(.estimate),\n    max = max(.estimate),\n    mean = mean(.estimate),\n    sd = sd(.estimate)\n  )\n\n# A tibble: 1 × 4\n    min   max  mean     sd\n  <dbl> <dbl> <dbl>  <dbl>\n1 0.332 0.373 0.353 0.0202\n\n\n\nTraining data IMDB score stats:\n\noffice_episodes |>\n  \n  summarise(\n    min = min(imdb_rating),\n    max = max(imdb_rating),\n    mean = mean(imdb_rating),\n    sd = sd(imdb_rating)\n  )\n\n# A tibble: 1 × 4\n    min   max  mean    sd\n  <dbl> <dbl> <dbl> <dbl>\n1   6.7   9.7  8.25 0.535"
+  },
+  {
+    "objectID": "slides/16-cross-validation.html#collect-r2_adj-aic-bic-from-cv",
+    "href": "slides/16-cross-validation.html#collect-r2_adj-aic-bic-from-cv",
+    "title": "Cross validation",
+    "section": "Collect \\(R^2_{Adj}\\), AIC, BIC from CV",
+    "text": "Collect \\(R^2_{Adj}\\), AIC, BIC from CV\n\nmap_df(office_fit_rs1$.extracts, ~ .x[[1]][[1]]) |>\n  bind_cols(Fold = office_fit_rs1$id)\n\n# A tibble: 3 × 4\n  adj.r.squared   AIC   BIC Fold \n          <dbl> <dbl> <dbl> <chr>\n1         0.585  70.3 101.  Fold1\n2         0.615  63.0  93.4 Fold2\n3         0.553  77.6 108.  Fold3\n\n\n\nNote: These are based on the model fit from the analysis data"
   },
   {
     "objectID": "slides/16-cross-validation.html#cross-validation-jargon",

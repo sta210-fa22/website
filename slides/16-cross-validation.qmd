@@ -156,7 +156,7 @@ office_wflow1
 
 **Resampling is only conducted on the** <u>**training**</u> **set**. The test set is not involved. For each iteration of resampling, the data are partitioned into two subsamples:
 
--   The model is fit with the **analysis set**.
+-   The model is fit with the **analysis set**. Model fit statistics such as $R^2_{Adj}$, AIC, and BIC are calculated based on this fit.
 -   The model is evaluated with the **assessment set**.
 
 ## Resampling for model assessment
@@ -179,7 +179,7 @@ Source: Kuhn and Silge. [Tidy modeling with R](https://www.tmwr.org/).
 More specifically, **v-fold cross validation** -- commonly used resampling technique:
 
 -   Randomly split your **training** **data** into *v* partitions
--   Use *v-1* partitions for analysis, and the remaining 1 partition for analysis
+-   Use *v-1* partitions for analysis, and the remaining 1 partition for analysis (model fit + model fit statistics)
 -   Repeat *v* times, updating which partition is used for assessment each time
 
 . . .
@@ -213,15 +213,23 @@ folds
 
 ![](images/16/three-CV-iter.svg){fig-align="center"}
 
-## Fit resamples
+## Fit resamples {.midi}
 
 ```{r}
 #| echo: true
 
+# Function to get Adj R-sq, AIC, BIC
+calc_model_stats <- function(x) {
+  glance(extract_fit_parsnip(x)) |>
+    select(adj.r.squared, AIC, BIC)
+}
+
 set.seed(456)
 
+# Fit model and calculate statistics for each fold
 office_fit_rs1 <- office_wflow1 |>
-  fit_resamples(folds)
+  fit_resamples(resamples = folds, 
+                control = control_resamples(extract = calc_model_stats))
 
 office_fit_rs1
 ```
@@ -229,15 +237,20 @@ office_fit_rs1
 ## Cross validation, now what?
 
 -   We've fit a bunch of models
--   Now it's time to use them to collect metrics (e.g., R-squared, RMSE) on each model and use them to evaluate model fit and how it varies across folds
+-   Now it's time to use them to collect metrics (e.g., \$R\^2\$, AIC, RMSE, etc. ) on each model and use them to evaluate model fit and how it varies across folds
 
-## Collect CV metrics
+## Collect $R^2$ and RMSE from CV 
 
 ```{r}
+# Produces summary across all CV
 collect_metrics(office_fit_rs1)
 ```
 
-## Deeper look into CV metrics
+<br>
+
+Note: These are calculated using the *assessment* data
+
+## Deeper look into $R^2$ and RMSE 
 
 ```{r}
 cv_metrics1 <- collect_metrics(office_fit_rs1, summarize = FALSE) 
@@ -245,7 +258,7 @@ cv_metrics1 <- collect_metrics(office_fit_rs1, summarize = FALSE)
 cv_metrics1
 ```
 
-## Better tabulation of CV metrics
+## Better tabulation of $R^2$ and RMSE from CV 
 
 ```{r}
 cv_metrics1 |>
@@ -287,6 +300,17 @@ office_episodes |>
 ```
 :::
 :::
+
+## Collect $R^2_{Adj}$, AIC, BIC from CV
+
+```{r}
+map_df(office_fit_rs1$.extracts, ~ .x[[1]][[1]]) |>
+  bind_cols(Fold = office_fit_rs1$id)
+```
+
+<br>
+
+Note: These are based on the model fit from the *analysis* data
 
 ## Cross validation jargon
 

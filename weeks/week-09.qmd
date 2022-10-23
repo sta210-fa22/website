@@ -1,17 +1,40 @@
 ---
 title: "Week 09"
 subtitle: "MLR: Cross validation + Inference"
-description: "Lab 06, HW 03"
+description: "HW 03"
 author: "Oct 24 - 28"
 date: ""
 tbl-colwidths: [60,40]
 title-block-style: none
 ---
 
+::: callout-important
+-   AE 10 due Thu, Oct 27, 11:59pm
+-   HW 03: due Wed, Nov 02, 11:59pm
+-   Project Proposal: due Fri, Nov 04: 11:59pm
+:::
+
 # Prepare
+
+| Reading                                                                                                                                                                                  | Corresponding lecture |
+|------------------------------------------------------|-----------------|
+| 📖 Tidy Modeling in R - [Chapter 10: Resampling for evaluating performance](Reading  Corresponding lecture  📖 Tidy Modeling in R - Chapter 8: Feature engineering with recipes  Oct 19) | Oct 24                |
 
 # Participate
 
+|                                |              |
+|--------------------------------|--------------|
+| 💻 MLR: Cross validation       | Oct 24       |
+| 💻 MLR: Inference + conditions | Oct 26       |
+| 💻 Lab: Project proposal       | Oct 27 & 28  |
+
 # Practice
 
+📋 AE 10: Cross validation
+
 # Perform
+
+|                      |                           |
+|----------------------|---------------------------|
+| 📝 HW 03             | due Wed, Nov 02, 11:59pm  |
+| 📝 Project Proposal  | due Fri, Nov 04, 11:59pm  |

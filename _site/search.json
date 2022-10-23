@@ -221,7 +221,7 @@
     "href": "weeks/week-09.html",
     "title": "Week 09",
     "section": "",
-    "text": "Participate\n\n\nPractice\n\n\nPerform"
+    "text": "Prepare\n\n\n\n\n\n\n\nReading\nCorresponding lecture\n\n\n\n\n📖 Tidy Modeling in R - Chapter 10: Resampling for evaluating performance\nOct 24\n\n\n\n\n\nParticipate\n\n\n\n\n\n\n\n💻 MLR: Cross validation\nOct 24\n\n\n💻 MLR: Inference + conditions\nOct 26\n\n\n💻 Lab: Project proposal\nOct 27 & 28\n\n\n\n\n\nPractice\n📋 AE 10: Cross validation\n\n\nPerform\n\n\n\n\n\n\n\n📝 HW 03\ndue Wed, Nov 02, 11:59pm\n\n\n📝 Project Proposal\ndue Fri, Nov 04, 11:59pm"
   },
   {
     "objectID": "weeks/week-04.html",
@@ -2091,6 +2091,188 @@
     "title": "Variable transformations",
     "section": "Learn more",
     "text": "Learn more\nSee Log Transformations in Linear Regression for more details about interpreting regression models with log-transformed variables.\n\n\n\n🔗 Week 08"
+  },
+  {
+    "objectID": "slides/16-cross-validation.html#topics",
+    "href": "slides/16-cross-validation.html#topics",
+    "title": "Cross validation",
+    "section": "Topics",
+    "text": "Topics\n\n\nCross validation for model evaluation\nCross validation for model comparison"
+  },
+  {
+    "objectID": "slides/16-cross-validation.html#computational-setup",
+    "href": "slides/16-cross-validation.html#computational-setup",
+    "title": "Cross validation",
+    "section": "Computational setup",
+    "text": "Computational setup\n\n# load packages\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(knitr)\nlibrary(schrute)"
+  },
+  {
+    "objectID": "slides/16-cross-validation.html#data-goal",
+    "href": "slides/16-cross-validation.html#data-goal",
+    "title": "Cross validation",
+    "section": "Data & goal",
+    "text": "Data & goal\n\n\nData: The data come from the shrute package, and has been transformed using instructions from Lab 4\nGoal: Predict imdb_rating from other variables in the dataset\n\n\n\noffice_episodes <- read_csv(here::here(\"slides\", \"data/office_episodes.csv\"))\noffice_episodes\n\n# A tibble: 186 × 14\n   season episode episode_name      imdb_rating total_votes air_date   lines_jim\n    <dbl>   <dbl> <chr>                   <dbl>       <dbl> <date>         <dbl>\n 1      1       1 Pilot                     7.6        3706 2005-03-24    0.157 \n 2      1       2 Diversity Day             8.3        3566 2005-03-29    0.123 \n 3      1       3 Health Care               7.9        2983 2005-04-05    0.172 \n 4      1       4 The Alliance              8.1        2886 2005-04-12    0.202 \n 5      1       5 Basketball                8.4        3179 2005-04-19    0.0913\n 6      1       6 Hot Girl                  7.8        2852 2005-04-26    0.159 \n 7      2       1 The Dundies               8.7        3213 2005-09-20    0.125 \n 8      2       2 Sexual Harassment         8.2        2736 2005-09-27    0.0565\n 9      2       3 Office Olympics           8.4        2742 2005-10-04    0.196 \n10      2       4 The Fire                  8.4        2713 2005-10-11    0.160 \n# … with 176 more rows, and 7 more variables: lines_pam <dbl>,\n#   lines_michael <dbl>, lines_dwight <dbl>, halloween <chr>, valentine <chr>,\n#   christmas <chr>, michael <chr>"
+  },
+  {
+    "objectID": "slides/16-cross-validation.html#split-data-into-training-and-testing",
+    "href": "slides/16-cross-validation.html#split-data-into-training-and-testing",
+    "title": "Cross validation",
+    "section": "Split data into training and testing",
+    "text": "Split data into training and testing\n\nset.seed(123)\noffice_split <- initial_split(office_episodes)\noffice_train <- training(office_split)\noffice_test <- testing(office_split)"
+  },
+  {
+    "objectID": "slides/16-cross-validation.html#specify-model",
+    "href": "slides/16-cross-validation.html#specify-model",
+    "title": "Cross validation",
+    "section": "Specify model",
+    "text": "Specify model\n\noffice_spec <- linear_reg() %>%\n  set_engine(\"lm\")\n\noffice_spec\n\nLinear Regression Model Specification (regression)\n\nComputational engine: lm"
+  },
+  {
+    "objectID": "slides/16-cross-validation.html#from-yesterdays-lab",
+    "href": "slides/16-cross-validation.html#from-yesterdays-lab",
+    "title": "Cross validation",
+    "section": "From yesterday’s lab",
+    "text": "From yesterday’s lab\n\nCreate a recipe that uses the new variables we generated\nDenotes episode_name as an ID variable and doesn’t use air_date as a predictor\nCreate dummy variables for all nominal predictors\nRemove all zero variance predictors"
+  },
+  {
+    "objectID": "slides/16-cross-validation.html#create-recipe",
+    "href": "slides/16-cross-validation.html#create-recipe",
+    "title": "Cross validation",
+    "section": "Create recipe",
+    "text": "Create recipe\n\noffice_rec1 <- recipe(imdb_rating ~ ., data = office_train) %>%\n  update_role(episode_name, new_role = \"id\") %>%\n  step_rm(air_date) %>%\n  step_dummy(all_nominal_predictors()) %>%\n  step_zv(all_predictors())\n\noffice_rec1\n\nRecipe\n\nInputs:\n\n      role #variables\n        id          1\n   outcome          1\n predictor         12\n\nOperations:\n\nVariables removed air_date\nDummy variables from all_nominal_predictors()\nZero variance filter on all_predictors()"
+  },
+  {
+    "objectID": "slides/16-cross-validation.html#create-workflow",
+    "href": "slides/16-cross-validation.html#create-workflow",
+    "title": "Cross validation",
+    "section": "Create workflow",
+    "text": "Create workflow\n\noffice_wflow1 <- workflow() %>%\n  add_model(office_spec) %>%\n  add_recipe(office_rec1)\n\noffice_wflow1\n\n══ Workflow ════════════════════════════════════════════════════════════════════\nPreprocessor: Recipe\nModel: linear_reg()\n\n── Preprocessor ────────────────────────────────────────────────────────────────\n3 Recipe Steps\n\n• step_rm()\n• step_dummy()\n• step_zv()\n\n── Model ───────────────────────────────────────────────────────────────────────\nLinear Regression Model Specification (regression)\n\nComputational engine: lm"
+  },
+  {
+    "objectID": "slides/16-cross-validation.html#fit-model-to-training-data",
+    "href": "slides/16-cross-validation.html#fit-model-to-training-data",
+    "title": "Cross validation",
+    "section": "Fit model to training data",
+    "text": "Fit model to training data\n\nActually, not so fast!"
+  },
+  {
+    "objectID": "slides/16-cross-validation.html#spending-our-data",
+    "href": "slides/16-cross-validation.html#spending-our-data",
+    "title": "Cross validation",
+    "section": "Spending our data",
+    "text": "Spending our data\n\nWe have already established that the idea of data spending where the test set was recommended for obtaining an unbiased estimate of performance.\nHowever, we usually need to understand the effectiveness of the model before using the test set.\nTypically we can’t decide on which final model to take to the test set without making model assessments.\nRemedy: Resampling to make model assessments on training data in a way that can generalize to new data."
+  },
+  {
+    "objectID": "slides/16-cross-validation.html#resampling-for-model-assessment",
+    "href": "slides/16-cross-validation.html#resampling-for-model-assessment",
+    "title": "Cross validation",
+    "section": "Resampling for model assessment",
+    "text": "Resampling for model assessment\nResampling is only conducted on the training set. The test set is not involved. For each iteration of resampling, the data are partitioned into two subsamples:\n\nThe model is fit with the analysis set.\nThe model is evaluated with the assessment set."
+  },
+  {
+    "objectID": "slides/16-cross-validation.html#resampling-for-model-assessment-1",
+    "href": "slides/16-cross-validation.html#resampling-for-model-assessment-1",
+    "title": "Cross validation",
+    "section": "Resampling for model assessment",
+    "text": "Resampling for model assessment\n\n\nSource: Kuhn and Silge. Tidy modeling with R."
+  },
+  {
+    "objectID": "slides/16-cross-validation.html#analysis-and-assessment-sets",
+    "href": "slides/16-cross-validation.html#analysis-and-assessment-sets",
+    "title": "Cross validation",
+    "section": "Analysis and assessment sets",
+    "text": "Analysis and assessment sets\n\nAnalysis set is analogous to training set.\nAssessment set is analogous to test set.\nThe terms analysis and assessment avoids confusion with initial split of the data.\nThese data sets are mutually exclusive."
+  },
+  {
+    "objectID": "slides/16-cross-validation.html#cross-validation-1",
+    "href": "slides/16-cross-validation.html#cross-validation-1",
+    "title": "Cross validation",
+    "section": "Cross validation",
+    "text": "Cross validation\nMore specifically, v-fold cross validation – commonly used resampling technique:\n\nRandomly split your training data into v partitions\nUse 1 partition for assessment, and the remaining v-1 partitions for analysis\nRepeat v times, updating which partition is used for assessment each time\n\n\nLet’s give an example where v = 3…"
+  },
+  {
+    "objectID": "slides/16-cross-validation.html#cross-validation-step-1",
+    "href": "slides/16-cross-validation.html#cross-validation-step-1",
+    "title": "Cross validation",
+    "section": "Cross validation, step 1",
+    "text": "Cross validation, step 1\nRandomly split your training data into 3 partitions:"
+  },
+  {
+    "objectID": "slides/16-cross-validation.html#split-data",
+    "href": "slides/16-cross-validation.html#split-data",
+    "title": "Cross validation",
+    "section": "Split data",
+    "text": "Split data\n\nset.seed(345)\nfolds <- vfold_cv(office_train, v = 3)\nfolds\n\n#  3-fold cross-validation \n# A tibble: 3 × 2\n  splits          id   \n  <list>          <chr>\n1 <split [92/47]> Fold1\n2 <split [93/46]> Fold2\n3 <split [93/46]> Fold3"
+  },
+  {
+    "objectID": "slides/16-cross-validation.html#cross-validation-steps-2-and-3",
+    "href": "slides/16-cross-validation.html#cross-validation-steps-2-and-3",
+    "title": "Cross validation",
+    "section": "Cross validation, steps 2 and 3",
+    "text": "Cross validation, steps 2 and 3\n\n\nUse 1 partition for assessment, and the remaining v-1 partitions for analysis\nRepeat v times, updating which partition is used for assessment each time"
+  },
+  {
+    "objectID": "slides/16-cross-validation.html#fit-resamples",
+    "href": "slides/16-cross-validation.html#fit-resamples",
+    "title": "Cross validation",
+    "section": "Fit resamples",
+    "text": "Fit resamples\n\nset.seed(456)\n\noffice_fit_rs1 <- office_wflow1 %>%\n  fit_resamples(folds)\n\noffice_fit_rs1\n\n# Resampling results\n# 3-fold cross-validation \n# A tibble: 3 × 4\n  splits          id    .metrics         .notes          \n  <list>          <chr> <list>           <list>          \n1 <split [92/47]> Fold1 <tibble [2 × 4]> <tibble [0 × 3]>\n2 <split [93/46]> Fold2 <tibble [2 × 4]> <tibble [0 × 3]>\n3 <split [93/46]> Fold3 <tibble [2 × 4]> <tibble [0 × 3]>"
+  },
+  {
+    "objectID": "slides/16-cross-validation.html#cross-validation-now-what",
+    "href": "slides/16-cross-validation.html#cross-validation-now-what",
+    "title": "Cross validation",
+    "section": "Cross validation, now what?",
+    "text": "Cross validation, now what?\n\nWe’ve fit a bunch of models\nNow it’s time to use them to collect metrics (e.g., R-squared, RMSE) on each model and use them to evaluate model fit and how it varies across folds"
+  },
+  {
+    "objectID": "slides/16-cross-validation.html#collect-cv-metrics",
+    "href": "slides/16-cross-validation.html#collect-cv-metrics",
+    "title": "Cross validation",
+    "section": "Collect CV metrics",
+    "text": "Collect CV metrics\n\ncollect_metrics(office_fit_rs1)\n\n# A tibble: 2 × 6\n  .metric .estimator  mean     n std_err .config             \n  <chr>   <chr>      <dbl> <int>   <dbl> <chr>               \n1 rmse    standard   0.351     3  0.0111 Preprocessor1_Model1\n2 rsq     standard   0.546     3  0.0378 Preprocessor1_Model1"
+  },
+  {
+    "objectID": "slides/16-cross-validation.html#deeper-look-into-cv-metrics",
+    "href": "slides/16-cross-validation.html#deeper-look-into-cv-metrics",
+    "title": "Cross validation",
+    "section": "Deeper look into CV metrics",
+    "text": "Deeper look into CV metrics\n\ncv_metrics1 <- collect_metrics(office_fit_rs1, summarize = FALSE) \n\ncv_metrics1\n\n# A tibble: 6 × 5\n  id    .metric .estimator .estimate .config             \n  <chr> <chr>   <chr>          <dbl> <chr>               \n1 Fold1 rmse    standard       0.356 Preprocessor1_Model1\n2 Fold1 rsq     standard       0.520 Preprocessor1_Model1\n3 Fold2 rmse    standard       0.367 Preprocessor1_Model1\n4 Fold2 rsq     standard       0.498 Preprocessor1_Model1\n5 Fold3 rmse    standard       0.330 Preprocessor1_Model1\n6 Fold3 rsq     standard       0.621 Preprocessor1_Model1"
+  },
+  {
+    "objectID": "slides/16-cross-validation.html#better-tabulation-of-cv-metrics",
+    "href": "slides/16-cross-validation.html#better-tabulation-of-cv-metrics",
+    "title": "Cross validation",
+    "section": "Better tabulation of CV metrics",
+    "text": "Better tabulation of CV metrics\n\ncv_metrics1 %>%\n  mutate(.estimate = round(.estimate, 3)) %>%\n  pivot_wider(id_cols = id, names_from = .metric, values_from = .estimate) %>%\n  kable(col.names = c(\"Fold\", \"RMSE\", \"R-squared\"))\n\n\n\n\nFold\nRMSE\nR-squared\n\n\n\n\nFold1\n0.356\n0.520\n\n\nFold2\n0.367\n0.498\n\n\nFold3\n0.330\n0.621"
+  },
+  {
+    "objectID": "slides/16-cross-validation.html#how-does-rmse-compare-to-y",
+    "href": "slides/16-cross-validation.html#how-does-rmse-compare-to-y",
+    "title": "Cross validation",
+    "section": "How does RMSE compare to y?",
+    "text": "How does RMSE compare to y?\nCross validation RMSE stats:\n\ncv_metrics1 %>%\n  filter(.metric == \"rmse\") %>%\n  summarise(\n    min = min(.estimate),\n    max = max(.estimate),\n    mean = mean(.estimate),\n    sd = sd(.estimate)\n  )\n\n# A tibble: 1 × 4\n    min   max  mean     sd\n  <dbl> <dbl> <dbl>  <dbl>\n1 0.330 0.367 0.351 0.0192\n\n\nTraining data IMDB score stats:\n\noffice_episodes %>%\n  summarise(\n    min = min(imdb_rating),\n    max = max(imdb_rating),\n    mean = mean(imdb_rating),\n    sd = sd(imdb_rating)\n  )\n\n# A tibble: 1 × 4\n    min   max  mean    sd\n  <dbl> <dbl> <dbl> <dbl>\n1   6.7   9.7  8.25 0.535"
+  },
+  {
+    "objectID": "slides/16-cross-validation.html#cross-validation-jargon",
+    "href": "slides/16-cross-validation.html#cross-validation-jargon",
+    "title": "Cross validation",
+    "section": "Cross validation jargon",
+    "text": "Cross validation jargon\n\nReferred to as v-fold or k-fold cross validation\nAlso commonly abbreviated as CV"
+  },
+  {
+    "objectID": "slides/16-cross-validation.html#cross-validation-for-reals",
+    "href": "slides/16-cross-validation.html#cross-validation-for-reals",
+    "title": "Cross validation",
+    "section": "Cross validation, for reals",
+    "text": "Cross validation, for reals\n\nTo illustrate how CV works, we used v = 3:\n\n\nAnalysis sets are 2/3 of the training set\nEach assessment set is a distinct 1/3\nThe final resampling estimate of performance averages each of the 3 replicates\n\n\nThis was useful for illustrative purposes, but v = 3 is a poor choice in practice\nValues of v are most often 5 or 10; we generally prefer 10-fold cross-validation as a default"
+  },
+  {
+    "objectID": "slides/16-cross-validation.html#recap",
+    "href": "slides/16-cross-validation.html#recap",
+    "title": "Cross validation",
+    "section": "Recap",
+    "text": "Recap\n\n\nCross validation for model evaluation\nCross validation for model comparison\n\n\n\n\n\nsta210-s22.github.io/website"
   },
   {
     "objectID": "slides/03-slr-tidymodels.html#announcements",
@@ -4645,7 +4827,7 @@
     "href": "schedule.html#weekly-schedule",
     "title": "Schedule",
     "section": "Weekly schedule",
-    "text": "Weekly schedule\n\n\n\n\n\n\nWeek\n\n\nDates\n\n\nTopic\n\n\nAssignments\n\n\n\n\n\n\nWeek 01\n\n\nAug 29 - Sep 02\n\n\nWelcome to Regression Analysis\n\n\nCompelete STA 210 Student Survey\n\n\n\n\nWeek 02\n\n\nSep 05 - 09\n\n\nSLR: Tidymodels + Model evaluation\n\n\nLab 01, Statistics experience assigned\n\n\n\n\nWeek 03\n\n\nSep 12 - 16\n\n\nSLR: Inference\n\n\nLab 02, HW 01, Statistics experience assigned\n\n\n\n\nWeek 04\n\n\nSep 19 - 23\n\n\nMultiple Linear Regression (MLR)\n\n\nLab 03\n\n\n\n\nWeek 05\n\n\nSep 26 - 30\n\n\nMLR: Types of Predictors\n\n\nExam 01\n\n\n\n\nWeek 06\n\n\nOct 03 - 07\n\n\nFeature Engineering\n\n\nLab 04\n\n\n\n\nWeek 07\n\n\nOct 10 - 14\n\n\nVariable transformations\n\n\nIntroduce project, HW 02\n\n\n\n\nWeek 08\n\n\nOct 17 - 21\n\n\nMLR: Transformations + Model comparison\n\n\nLab 05\n\n\n\n\nWeek 09\n\n\nOct 24 - 28\n\n\nMLR: Cross validation + Inference\n\n\nLab 06, HW 03\n\n\n\n\nWeek 10\n\n\nOct 31 - Nov 04\n\n\nOdds + Odds Ratios\n\n\nLab 07\n\n\n\n\nWeek 11\n\n\nNov 07 - 11\n\n\nLogistic regression (LR)\n\n\nProject peer review, HW 04\n\n\n\n\nWeek 12\n\n\nNov 14 - 18\n\n\nLR: Inference\n\n\nLab 08\n\n\n\n\nWeek 13\n\n\nNov 21 - 25\n\n\nMixed effects models\n\n\n\n\n\n\n\nWeek 14\n\n\nNov 28 - Dec 02\n\n\nMixed effects models\n\n\nExam 02\n\n\n\n\nWeek 15\n\n\nDec 05 - 09\n\n\nLooking ahead\n\n\nStatistics experience due\n\n\n\n\nWeek 16\n\n\nDec 12 - 19\n\n\nFinal exam period\n\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Weekly schedule\n\n\n\n\n\n\nWeek\n\n\nDates\n\n\nTopic\n\n\nAssignments\n\n\n\n\n\n\nWeek 01\n\n\nAug 29 - Sep 02\n\n\nWelcome to Regression Analysis\n\n\nCompelete STA 210 Student Survey\n\n\n\n\nWeek 02\n\n\nSep 05 - 09\n\n\nSLR: Tidymodels + Model evaluation\n\n\nLab 01, Statistics experience assigned\n\n\n\n\nWeek 03\n\n\nSep 12 - 16\n\n\nSLR: Inference\n\n\nLab 02, HW 01, Statistics experience assigned\n\n\n\n\nWeek 04\n\n\nSep 19 - 23\n\n\nMultiple Linear Regression (MLR)\n\n\nLab 03\n\n\n\n\nWeek 05\n\n\nSep 26 - 30\n\n\nMLR: Types of Predictors\n\n\nExam 01\n\n\n\n\nWeek 06\n\n\nOct 03 - 07\n\n\nFeature Engineering\n\n\nLab 04\n\n\n\n\nWeek 07\n\n\nOct 10 - 14\n\n\nVariable transformations\n\n\nIntroduce project, HW 02\n\n\n\n\nWeek 08\n\n\nOct 17 - 21\n\n\nMLR: Transformations + Model comparison\n\n\nLab 05\n\n\n\n\nWeek 09\n\n\nOct 24 - 28\n\n\nMLR: Cross validation + Inference\n\n\nHW 03\n\n\n\n\nWeek 10\n\n\nOct 31 - Nov 04\n\n\nOdds + Odds Ratios\n\n\nLab 06\n\n\n\n\nWeek 11\n\n\nNov 07 - 11\n\n\nLogistic regression (LR)\n\n\nProject peer review, HW 04\n\n\n\n\nWeek 12\n\n\nNov 14 - 18\n\n\nLR: Inference\n\n\nLab 07\n\n\n\n\nWeek 13\n\n\nNov 21 - 25\n\n\nMixed effects models\n\n\n\n\n\n\n\nWeek 14\n\n\nNov 28 - Dec 02\n\n\nMixed effects models\n\n\nExam 02\n\n\n\n\nWeek 15\n\n\nDec 05 - 09\n\n\nLooking ahead\n\n\nStatistics experience due\n\n\n\n\nWeek 16\n\n\nDec 12 - 19\n\n\nFinal exam period\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "schedule.html#notes",

@@ -39,7 +39,7 @@ The variables of interest in this analysis are
 -   `Meal`: Time of day (Lunch, Dinner, Late Night)
 -   `Age`: Age category of person paying the bill (Yadult, Middle, SenCit)
 
-## Model fit 
+## Model fit
 
 ```{r}
 tip_fit <- linear_reg() |>
@@ -50,7 +50,7 @@ tidy(tip_fit) |>
   kable(digits = 3)
 ```
 
-## ANOVA 
+## ANOVA
 
 ```{r}
 anova(tip_fit$fit) |>

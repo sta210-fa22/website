@@ -2223,7 +2223,14 @@
     "href": "slides/16-cross-validation.html#announcements",
     "title": "Cross validation",
     "section": "Announcements",
-    "text": "Announcements\n\nLab 05\n\ndue TODAY, 11:59pm (Thu labs)\ndue Tuesday, 11:59pm (Fri labs)\n\nClick here for explanation about sum of squares in R ANOVA output.\nSee Week 09 activities."
+    "text": "Announcements\n\nLab 05\n\ndue TODAY, 11:59pm (Thu labs)\ndue Tuesday, 11:59pm (Fri labs)\n\nOffice hours update:\n\nMonday, 1 - 2pm: in-person only (Old Chem 118B)\n\nClick here for explanation about sum of squares in R ANOVA output.\nSee Week 09 activities."
+  },
+  {
+    "objectID": "slides/16-cross-validation.html#spring-2023-statistics-classes",
+    "href": "slides/16-cross-validation.html#spring-2023-statistics-classes",
+    "title": "Cross validation",
+    "section": "Spring 2023 Statistics classes",
+    "text": "Spring 2023 Statistics classes\n\nSTA 211: Mathematics of Regression\n\nPre-req: STA 210 + Math 216/218/221\n\nSTA 240: Probability for Statistical Inference, Modeling, and Data Analysis\n\nPre-req: Calc 2\n\nSTA 313: Advanced Data Visualization\n\nPre-req: STA 199 or STA 210\n\nSTA 323: Statistical Computing\n\nPre-req: STA 210 and STA 230 / 240\n\nSTA 360: Bayesian Inference and Modern Statistical Methods\n\nPre-req: STA 210, STA 230/240, CS 101, Calc 2, Math 216/218/221,\nCo-req: STA 211"
   },
   {
     "objectID": "slides/16-cross-validation.html#topics",
@@ -2244,7 +2251,7 @@
     "href": "slides/16-cross-validation.html#data-goal",
     "title": "Cross validation",
     "section": "Data & goal",
-    "text": "Data & goal\n\n\nData: The data come from the shrute package, and has been transformed using instructions from Lab 04\nGoal: Predict imdb_rating from other variables in the dataset\n\n\n\noffice_episodes <- read_csv(here::here(\"slides/data/office_episodes.csv\"))\noffice_episodes\n\n# A tibble: 186 × 14\n   season episode episode_name      imdb_rating total_votes air_date   lines_jim\n    <dbl>   <dbl> <chr>                   <dbl>       <dbl> <date>         <dbl>\n 1      1       1 Pilot                     7.6        3706 2005-03-24    0.157 \n 2      1       2 Diversity Day             8.3        3566 2005-03-29    0.123 \n 3      1       3 Health Care               7.9        2983 2005-04-05    0.172 \n 4      1       4 The Alliance              8.1        2886 2005-04-12    0.202 \n 5      1       5 Basketball                8.4        3179 2005-04-19    0.0913\n 6      1       6 Hot Girl                  7.8        2852 2005-04-26    0.159 \n 7      2       1 The Dundies               8.7        3213 2005-09-20    0.125 \n 8      2       2 Sexual Harassment         8.2        2736 2005-09-27    0.0565\n 9      2       3 Office Olympics           8.4        2742 2005-10-04    0.196 \n10      2       4 The Fire                  8.4        2713 2005-10-11    0.160 \n# … with 176 more rows, and 7 more variables: lines_pam <dbl>,\n#   lines_michael <dbl>, lines_dwight <dbl>, halloween <chr>, valentine <chr>,\n#   christmas <chr>, michael <chr>"
+    "text": "Data & goal\n\n\nData: The data come from the shrute package, and has been transformed using instructions from Lab 04\nGoal: Predict imdb_rating from other variables in the dataset\n\n\n\noffice_episodes <- read_csv(here::here(\"slides/data/office_episodes.csv\"))\noffice_episodes\n\n# A tibble: 186 × 14\n   season episode episode_n…¹ imdb_…² total…³ air_date   lines…⁴ lines…⁵ lines…⁶\n    <dbl>   <dbl> <chr>         <dbl>   <dbl> <date>       <dbl>   <dbl>   <dbl>\n 1      1       1 Pilot           7.6    3706 2005-03-24  0.157   0.179    0.354\n 2      1       2 Diversity …     8.3    3566 2005-03-29  0.123   0.0591   0.369\n 3      1       3 Health Care     7.9    2983 2005-04-05  0.172   0.131    0.230\n 4      1       4 The Allian…     8.1    2886 2005-04-12  0.202   0.0905   0.280\n 5      1       5 Basketball      8.4    3179 2005-04-19  0.0913  0.0609   0.452\n 6      1       6 Hot Girl        7.8    2852 2005-04-26  0.159   0.130    0.306\n 7      2       1 The Dundies     8.7    3213 2005-09-20  0.125   0.160    0.375\n 8      2       2 Sexual Har…     8.2    2736 2005-09-27  0.0565  0.0954   0.353\n 9      2       3 Office Oly…     8.4    2742 2005-10-04  0.196   0.117    0.295\n10      2       4 The Fire        8.4    2713 2005-10-11  0.160   0.0690   0.216\n# … with 176 more rows, 5 more variables: lines_dwight <dbl>, halloween <chr>,\n#   valentine <chr>, christmas <chr>, michael <chr>, and abbreviated variable\n#   names ¹​episode_name, ²​imdb_rating, ³​total_votes, ⁴​lines_jim, ⁵​lines_pam,\n#   ⁶​lines_michael"
   },
   {
     "objectID": "slides/16-cross-validation.html#split-data-into-training-and-testing",

@@ -17,13 +17,13 @@ title-block-style: none
 # Prepare
 
 | Reading                                                                                                           | Corresponding lecture |
-|-----------------------------------------------------|-------------------|
+|-------------------------------------------------------------------------------------------------------------------|-----------------------|
 | 📖 Tidy Modeling in R - [Chapter 10: Resampling for evaluating performance](https://www.tmwr.org/resampling.html) | Oct 24                |
 
 # Participate
 
 |                                                                |             |
-|--------------------------------------------------------|----------------|
+|----------------------------------------------------------------|-------------|
 | 💻 [MLR: Cross validation](../slides/16-cross-validation.html) | Oct 24      |
 | 💻 MLR: Inference + conditions                                 | Oct 26      |
 | 💻 Lab: Project proposal                                       | Oct 27 & 28 |

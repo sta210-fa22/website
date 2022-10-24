@@ -42,9 +42,36 @@ knitr::opts_chunk$set(
 
     -   due Tuesday, 11:59pm (Fri labs)
 
+-   Office hours update:
+
+    -   Monday, 1 - 2pm: in-person only (Old Chem 118B)
+
 -   [Click here](ANOVA-table.html) for explanation about sum of squares in R ANOVA output.
 
 -   See [Week 09](https://sta210-fa22.netlify.app/weeks/week-09.html) activities.
+
+## Spring 2023 Statistics classes  {.midi}
+
+-   STA 211: Mathematics of Regression
+
+    -   Pre-req: STA 210 + Math 216/218/221
+
+-   STA 240: Probability for Statistical Inference, Modeling, and Data Analysis
+
+    -   Pre-req: Calc 2
+
+-   STA 313: Advanced Data Visualization
+
+    -   Pre-req: STA 199 or STA 210
+
+-   STA 323: Statistical Computing
+
+    -   Pre-req: STA 210 and STA 230 / 240
+
+-   STA 360: Bayesian Inference and Modern Statistical Methods
+
+    -   Pre-req: STA 210, STA 230/240, CS 101, Calc 2, Math 216/218/221,
+    -   Co-req: STA 211
 
 ## Topics
 

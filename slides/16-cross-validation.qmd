@@ -50,7 +50,7 @@ knitr::opts_chunk$set(
 
 -   See [Week 09](https://sta210-fa22.netlify.app/weeks/week-09.html) activities.
 
-## Spring 2023 Statistics classes  {.midi}
+## Spring 2023 Statistics classes {.midi}
 
 -   STA 211: Mathematics of Regression
 

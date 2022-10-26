@@ -221,7 +221,7 @@
     "href": "weeks/week-09.html",
     "title": "Week 09",
     "section": "",
-    "text": "Prepare\n\n\n\n\n\n\n\nReading\nCorresponding lecture\n\n\n\n\n📖 Tidy Modeling in R - Chapter 10: Resampling for evaluating performance\nOct 24\n\n\n\n\n\nParticipate\n\n\n\n\n\n\n\n💻 MLR: Cross validation\nOct 24\n\n\n💻 MLR: Inference + conditions\nOct 26\n\n\n💻 Lab: Project proposal\nOct 27 & 28\n\n\n\n\n\nPractice\n📋 AE 10: Cross validation\n\n\nPerform\n\n\n\n\n\n\n\n📝 HW 03\ndue Wed, Nov 02, 11:59pm\n\n\n📝 Project Proposal\ndue Fri, Nov 04, 11:59pm"
+    "text": "Prepare\n\n\n\n\n\n\n\nReading\nCorresponding lecture\n\n\n\n\n📖 Tidy Modeling in R - Chapter 10: Resampling for evaluating performance\nOct 24\n\n\n\n\n\nParticipate\n\n\n\n\n\n\n\n💻 MLR: Cross validation\nOct 24\n\n\n💻 MLR: Inference\nOct 26\n\n\n💻 MLR: Conditions\nOct 26\n\n\n💻 Lab: Project proposal\nOct 27 & 28\n\n\n\n\n\nPractice\n\n\n\n\n\n\n📋 AE 10: Cross validation\n\n\n📋 AE 11: MLR Inference + conditions\n\n\n\n\n\nPerform\n\n\n\n\n\n\n\n📝 Project Proposal\ndue Fri, Nov 04, 11:59pm"
   },
   {
     "objectID": "weeks/week-04.html",
@@ -873,6 +873,41 @@
     "title": "AE 09: Model comparison",
     "section": "Evaluating analysis process",
     "text": "Evaluating analysis process\n\n\n\n\n\n\nWe fit and evaluated these models using the entire data set. What is a limitation to using the entire data set to fit and evaluate models?"
+  },
+  {
+    "objectID": "ae/ae-11-mlr-inference.html",
+    "href": "ae/ae-11-mlr-inference.html",
+    "title": "AE 11: MLR Inference + conditions",
+    "section": "",
+    "text": "Important\n\n\n\nGo to the course GitHub organization and locate your ae-11- to get started.\nThe AE is due on GitHub by Saturday, October 29 at 11:59pm."
+  },
+  {
+    "objectID": "ae/ae-11-mlr-inference.html#packages",
+    "href": "ae/ae-11-mlr-inference.html#packages",
+    "title": "AE 11: MLR Inference + conditions",
+    "section": "Packages",
+    "text": "Packages\n\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(knitr)"
+  },
+  {
+    "objectID": "ae/ae-11-mlr-inference.html#data",
+    "href": "ae/ae-11-mlr-inference.html#data",
+    "title": "AE 11: MLR Inference + conditions",
+    "section": "Data",
+    "text": "Data\n\nrail_trail <- read_csv(\"data/rail_trail.csv\")"
+  },
+  {
+    "objectID": "ae/ae-11-mlr-inference.html#exercise-1",
+    "href": "ae/ae-11-mlr-inference.html#exercise-1",
+    "title": "AE 11: MLR Inference + conditions",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nBelow is the model predicting volume from hightemp and season.\n\nrt_mlr_main_fit <- linear_reg() %>%\n  set_engine(\"lm\") %>%\n  fit(volume ~ hightemp + season, data = rail_trail)\n\ntidy(rt_mlr_main_fit) |>\n  kable(digits = 2)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-125.23\n71.66\n-1.75\n0.08\n\n\nhightemp\n7.54\n1.17\n6.43\n0.00\n\n\nseasonSpring\n5.13\n34.32\n0.15\n0.88\n\n\nseasonSummer\n-76.84\n47.71\n-1.61\n0.11\n\n\n\n\n\nAdd an interaction effect between hightemp and season to the model. Do the data provide evidence of a significant interaction effect? Comment on the significance of the interaction terms.\n\n## add code"
+  },
+  {
+    "objectID": "ae/ae-11-mlr-inference.html#exercise-2",
+    "href": "ae/ae-11-mlr-inference.html#exercise-2",
+    "title": "AE 11: MLR Inference + conditions",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nBelow is the model predicting volume from all available predictors.\n\nrt_full_fit <- linear_reg() %>%\n  set_engine(\"lm\") %>%\n  fit(volume ~ ., data = rail_trail)\n\ntidy(rt_full_fit) |>\nkable(digits = 2)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n17.62\n76.58\n0.23\n0.82\n\n\nhightemp\n7.07\n2.42\n2.92\n0.00\n\n\navgtemp\n-2.04\n3.14\n-0.65\n0.52\n\n\nseasonSpring\n35.91\n32.99\n1.09\n0.28\n\n\nseasonSummer\n24.15\n52.81\n0.46\n0.65\n\n\ncloudcover\n-7.25\n3.84\n-1.89\n0.06\n\n\nprecip\n-95.70\n42.57\n-2.25\n0.03\n\n\nday_typeWeekend\n35.90\n22.43\n1.60\n0.11\n\n\n\n\n\nFill in the code to plot the histogram of residuals with an overlay of the normal distribution based on the results of the model.\n\n\n\n\n\n\nImportant\n\n\n\nUpdate to eval: true once the code is updated.\n\n\n\nrt_full_aug <- augment(_______)\n\nggplot(rt_full_aug, aes(.resid)) +\n  geom_histogram(aes(y = after_stat(density)), binwidth = 50) +\n  stat_function(\n    fun = dnorm, \n    args = list(mean = mean(rt_full_aug$____), sd = ______), \n    lwd = 2, \n    color = \"red\"\n  )"
   },
   {
     "objectID": "ae/ae-04-sim-testing.html",
@@ -3486,6 +3521,153 @@
     "text": "Exam 01\n\nReleased today ~ 7pm (will receive email) and due Friday at 11:59pm\nExam instructions can be found in the README of the exam-01 Repo\n\nExercise prompts will be in exam-01.qmd\n\nCovers everything we’ve done thus far - Weeks 01 - 05\nOffice Hours:\n\nThu, 10 - 11am (Prof. Tackett)\n\nHave clarification questions about exam instructions during the exam?\n\nEmail Prof. Tackett with “STA 210 Exam” in the subject line"
   },
   {
+    "objectID": "slides/17-mlr-inference.html#announcements",
+    "href": "slides/17-mlr-inference.html#announcements",
+    "title": "MLR Inference",
+    "section": "Announcements",
+    "text": "Announcements\nSee Week 09 activities."
+  },
+  {
+    "objectID": "slides/17-mlr-inference.html#topics",
+    "href": "slides/17-mlr-inference.html#topics",
+    "title": "MLR Inference",
+    "section": "Topics",
+    "text": "Topics\n\nConduct a hypothesis test for \\(\\beta_j\\)\nCalculate a confidence interval for \\(\\beta_j\\)\nInference pitfalls"
+  },
+  {
+    "objectID": "slides/17-mlr-inference.html#computational-setup",
+    "href": "slides/17-mlr-inference.html#computational-setup",
+    "title": "MLR Inference",
+    "section": "Computational setup",
+    "text": "Computational setup\n\n# load packages\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(knitr)      # for tables\nlibrary(patchwork)  # for laying out plots\nlibrary(rms)        # for vif\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 20))"
+  },
+  {
+    "objectID": "slides/17-mlr-inference.html#data-rail_trail",
+    "href": "slides/17-mlr-inference.html#data-rail_trail",
+    "title": "MLR Inference",
+    "section": "Data: rail_trail",
+    "text": "Data: rail_trail\n\n\nThe Pioneer Valley Planning Commission (PVPC) collected data for ninety days from April 5, 2005 to November 15, 2005.\nData collectors set up a laser sensor, with breaks in the laser beam recording when a rail-trail user passed the data collection station.\n\n\n\n\n# A tibble: 90 × 7\n   volume hightemp avgtemp season cloudcover precip day_type\n    <dbl>    <dbl>   <dbl> <chr>       <dbl>  <dbl> <chr>   \n 1    501       83    66.5 Summer       7.60 0      Weekday \n 2    419       73    61   Summer       6.30 0.290  Weekday \n 3    397       74    63   Spring       7.5  0.320  Weekday \n 4    385       95    78   Summer       2.60 0      Weekend \n 5    200       44    48   Spring      10    0.140  Weekday \n 6    375       69    61.5 Spring       6.60 0.0200 Weekday \n 7    417       66    52.5 Spring       2.40 0      Weekday \n 8    629       66    52   Spring       0    0      Weekend \n 9    533       80    67.5 Summer       3.80 0      Weekend \n10    547       79    62   Summer       4.10 0      Weekday \n# … with 80 more rows\n\n\nSource: Pioneer Valley Planning Commission via the mosaicData package."
+  },
+  {
+    "objectID": "slides/17-mlr-inference.html#variables",
+    "href": "slides/17-mlr-inference.html#variables",
+    "title": "MLR Inference",
+    "section": "Variables",
+    "text": "Variables\nOutcome:\nvolume estimated number of trail users that day (number of breaks recorded)\n\nPredictors\n\n\nhightemp daily high temperature (in degrees Fahrenheit)\navgtemp average of daily low and daily high temperature (in degrees Fahrenheit)\nseason one of “Fall”, “Spring”, or “Summer”\ncloudcover measure of cloud cover (in oktas)\nprecip measure of precipitation (in inches)\nday_type one of “weekday” or “weekend”"
+  },
+  {
+    "objectID": "slides/17-mlr-inference.html#review-simple-linear-regression-slr",
+    "href": "slides/17-mlr-inference.html#review-simple-linear-regression-slr",
+    "title": "MLR Inference",
+    "section": "Review: Simple linear regression (SLR)",
+    "text": "Review: Simple linear regression (SLR)\n\nggplot(rail_trail, aes(x = hightemp, y = volume)) + \n  geom_point(alpha = 0.5) +\n  geom_smooth(method = \"lm\", se = FALSE) +\n  labs(x = \"High temp (F)\", y = \"Number of riders\")"
+  },
+  {
+    "objectID": "slides/17-mlr-inference.html#slr-model-summary",
+    "href": "slides/17-mlr-inference.html#slr-model-summary",
+    "title": "MLR Inference",
+    "section": "SLR model summary",
+    "text": "SLR model summary\n\nrt_slr_fit <- linear_reg() |>\n  set_engine(\"lm\") |>\n  fit(volume ~ hightemp, data = rail_trail)\n\ntidy(rt_slr_fit) |> kable()\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-17.079280\n59.3953040\n-0.2875527\n0.7743652\n\n\nhightemp\n5.701878\n0.8480074\n6.7238541\n0.0000000"
+  },
+  {
+    "objectID": "slides/17-mlr-inference.html#slr-hypothesis-test",
+    "href": "slides/17-mlr-inference.html#slr-hypothesis-test",
+    "title": "MLR Inference",
+    "section": "SLR hypothesis test",
+    "text": "SLR hypothesis test\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-17.08\n59.40\n-0.29\n0.77\n\n\nhightemp\n5.70\n0.85\n6.72\n0.00\n\n\n\n\n\n\nSet hypotheses: \\(H_0: \\beta_1 = 0\\) vs. \\(H_A: \\beta_1 \\ne 0\\)\n\n\n\nCalculate test statistic and p-value: The test statistic is $t = 6.72$. The p-value is calculated using a \\(t\\) distribution with 88 degrees of freedom. The p-value is \\(\\approx 0\\) .\n\n\n\n\nState the conclusion: The p-value is small, so we reject \\(H_0\\). The data provide strong evidence that high temperature is a helpful predictor for the number of daily riders, i.e. there is a linear relationship between high temperature and number of daily riders."
+  },
+  {
+    "objectID": "slides/17-mlr-inference.html#multiple-linear-regression",
+    "href": "slides/17-mlr-inference.html#multiple-linear-regression",
+    "title": "MLR Inference",
+    "section": "Multiple linear regression",
+    "text": "Multiple linear regression\n\nrt_mlr_main_fit <- linear_reg() |>\n  set_engine(\"lm\") |>\n  fit(volume ~ hightemp + season, data = rail_trail)\n\ntidy(rt_mlr_main_fit) |> kable(digits = 2)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-125.23\n71.66\n-1.75\n0.08\n\n\nhightemp\n7.54\n1.17\n6.43\n0.00\n\n\nseasonSpring\n5.13\n34.32\n0.15\n0.88\n\n\nseasonSummer\n-76.84\n47.71\n-1.61\n0.11"
+  },
+  {
+    "objectID": "slides/17-mlr-inference.html#mlr-hypothesis-test-hightemp",
+    "href": "slides/17-mlr-inference.html#mlr-hypothesis-test-hightemp",
+    "title": "MLR Inference",
+    "section": "MLR hypothesis test: hightemp",
+    "text": "MLR hypothesis test: hightemp\n\nSet hypotheses: \\(H_0: \\beta_{hightemp} = 0\\) vs. \\(H_A: \\beta_{hightemp} \\ne 0\\), given weekday is in the model\n\n\n\nCalculate test statistic and p-value: The test statistic is \\(t = 6.43\\). The p-value is calculated using a \\(t\\) distribution with 86 (n - p - 1) degrees of freedom. The p-value is \\(\\approx 0\\).\n\n\n\n\nState the conclusion: The p-value is small, so we reject \\(H_0\\). The data provide strong evidence that high temperature for the day is a useful predictor in a model that already contains whether the given day is a weekday as a predictor for number of daily riders."
+  },
+  {
+    "objectID": "slides/17-mlr-inference.html#the-model-for-season-spring",
+    "href": "slides/17-mlr-inference.html#the-model-for-season-spring",
+    "title": "MLR Inference",
+    "section": "The model for season = Spring",
+    "text": "The model for season = Spring\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-125.23\n71.66\n-1.75\n0.08\n\n\nhightemp\n7.54\n1.17\n6.43\n0.00\n\n\nseasonSpring\n5.13\n34.32\n0.15\n0.88\n\n\nseasonSummer\n-76.84\n47.71\n-1.61\n0.11\n\n\n\n\n\n\n\n\\[\n\\begin{aligned}\n\\widehat{volume} &= -125.23 + 7.54 \\times \\texttt{hightemp} + 5.13 \\times \\texttt{seasonSpring} - 76.84 \\times \\texttt{seasonSummer} \\\\\n&= -125.23 + 7.54 \\times \\texttt{hightemp} + 5.13 \\times 1 - 76.84 \\times 0 \\\\\n&= -120.10 + 7.54 \\times \\texttt{hightemp}\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "slides/17-mlr-inference.html#the-model-for-season-summer",
+    "href": "slides/17-mlr-inference.html#the-model-for-season-summer",
+    "title": "MLR Inference",
+    "section": "The model for season = Summer",
+    "text": "The model for season = Summer\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-125.23\n71.66\n-1.75\n0.08\n\n\nhightemp\n7.54\n1.17\n6.43\n0.00\n\n\nseasonSpring\n5.13\n34.32\n0.15\n0.88\n\n\nseasonSummer\n-76.84\n47.71\n-1.61\n0.11\n\n\n\n\n\n\n\n\\[\n\\begin{aligned}\n\\widehat{volume} &= -125.23 + 7.54 \\times \\texttt{hightemp} + 5.13 \\times \\texttt{seasonSpring} - 76.84 \\times \\texttt{seasonSummer} \\\\\n&= -125.23 + 7.54 \\times \\texttt{hightemp} + 5.13 \\times 0 - 76.84 \\times 1 \\\\\n&= -202.07 + 7.54 \\times \\texttt{hightemp}\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "slides/17-mlr-inference.html#the-model-for-season-fall",
+    "href": "slides/17-mlr-inference.html#the-model-for-season-fall",
+    "title": "MLR Inference",
+    "section": "The model for season = Fall",
+    "text": "The model for season = Fall\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-125.23\n71.66\n-1.75\n0.08\n\n\nhightemp\n7.54\n1.17\n6.43\n0.00\n\n\nseasonSpring\n5.13\n34.32\n0.15\n0.88\n\n\nseasonSummer\n-76.84\n47.71\n-1.61\n0.11\n\n\n\n\n\n\n\n\\[\n\\begin{aligned}\n\\widehat{volume} &= -125.23 + 7.54 \\times \\texttt{hightemp} + 5.13 \\times \\texttt{seasonSpring} - 76.84 \\times \\texttt{seasonSummer} \\\\\n&= -125.23 + 7.54 \\times \\texttt{hightemp} + 5.13 \\times 0 - 76.84 \\times 0 \\\\\n&= -125.23 + 7.54 \\times \\texttt{hightemp}\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "slides/17-mlr-inference.html#the-models",
+    "href": "slides/17-mlr-inference.html#the-models",
+    "title": "MLR Inference",
+    "section": "The models",
+    "text": "The models\nSame slope, different intercepts\n\nseason = Spring: \\(-120.10 + 7.54 \\times \\texttt{hightemp}\\)\nseason = Summer: \\(-202.07 + 7.54 \\times \\texttt{hightemp}\\)\nseason = Fall: \\(-125.23 + 7.54 \\times \\texttt{hightemp}\\)"
+  },
+  {
+    "objectID": "slides/17-mlr-inference.html#application-exercise",
+    "href": "slides/17-mlr-inference.html#application-exercise",
+    "title": "MLR Inference",
+    "section": "Application exercise",
+    "text": "Application exercise\n\n📋 AE 11: MLR Inference\n\n\nEx 1. Add an interaction effect between hightemp and season to the model. Do the data provide evidence of a significant interaction effect? Comment on the significance of the interaction terms.\n\n\n\n\n08:00"
+  },
+  {
+    "objectID": "slides/17-mlr-inference.html#confidence-interval-for-beta_j-1",
+    "href": "slides/17-mlr-inference.html#confidence-interval-for-beta_j-1",
+    "title": "MLR Inference",
+    "section": "Confidence interval for \\(\\beta_j\\)",
+    "text": "Confidence interval for \\(\\beta_j\\)\n\nThe \\(C%\\) confidence interval for \\(\\beta_j\\) \\[\\hat{\\beta}_j \\pm t^* SE(\\hat{\\beta}_j)\\] where \\(t^*\\) follows a \\(t\\) distribution with \\(n - p - 1\\) degrees of freedom.\nGenerically, we are \\(C%\\) confident that the interval LB to UB contains the population coefficient of \\(x_j\\).\nIn context, we are \\(C%\\) confident that for every one unit increase in \\(x_j\\), we expect \\(y\\) to change by LB to UB units, holding all else constant."
+  },
+  {
+    "objectID": "slides/17-mlr-inference.html#confidence-interval-for-beta_j-2",
+    "href": "slides/17-mlr-inference.html#confidence-interval-for-beta_j-2",
+    "title": "MLR Inference",
+    "section": "Confidence interval for \\(\\beta_j\\)",
+    "text": "Confidence interval for \\(\\beta_j\\)\n\ntidy(rt_mlr_main_fit, conf.int = TRUE) |>\n  kable(digits= 2)\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-125.23\n71.66\n-1.75\n0.08\n-267.68\n17.22\n\n\nhightemp\n7.54\n1.17\n6.43\n0.00\n5.21\n9.87\n\n\nseasonSpring\n5.13\n34.32\n0.15\n0.88\n-63.10\n73.36\n\n\nseasonSummer\n-76.84\n47.71\n-1.61\n0.11\n-171.68\n18.00"
+  },
+  {
+    "objectID": "slides/17-mlr-inference.html#ci-for-hightemp",
+    "href": "slides/17-mlr-inference.html#ci-for-hightemp",
+    "title": "MLR Inference",
+    "section": "CI for hightemp",
+    "text": "CI for hightemp\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-125.23\n71.66\n-1.75\n0.08\n-267.68\n17.22\n\n\nhightemp\n7.54\n1.17\n6.43\n0.00\n5.21\n9.87\n\n\nseasonSpring\n5.13\n34.32\n0.15\n0.88\n-63.10\n73.36\n\n\nseasonSummer\n-76.84\n47.71\n-1.61\n0.11\n-171.68\n18.00\n\n\n\n\n\n\nWe are 95% confident that for every degree Fahrenheit the day is warmer, the number of riders increases by 5.21 to 9.87, on average, holding season constant."
+  },
+  {
+    "objectID": "slides/17-mlr-inference.html#ci-for-seasonspring",
+    "href": "slides/17-mlr-inference.html#ci-for-seasonspring",
+    "title": "MLR Inference",
+    "section": "CI for seasonSpring",
+    "text": "CI for seasonSpring\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-125.23\n71.66\n-1.75\n0.08\n-267.68\n17.22\n\n\nhightemp\n7.54\n1.17\n6.43\n0.00\n5.21\n9.87\n\n\nseasonSpring\n5.13\n34.32\n0.15\n0.88\n-63.10\n73.36\n\n\nseasonSummer\n-76.84\n47.71\n-1.61\n0.11\n-171.68\n18.00\n\n\n\n\n\n\nWe are 95% confident that the number of riders on a Spring day is lower by 63.1 to higher by 73.4 compared to a Fall day, on average, holding high temperature for the day constant.\n\n\nIs season a significant predictor of the number of riders, after accounting for high temperature?"
+  },
+  {
+    "objectID": "slides/17-mlr-inference.html#large-sample-sizes",
+    "href": "slides/17-mlr-inference.html#large-sample-sizes",
+    "title": "MLR Inference",
+    "section": "Large sample sizes",
+    "text": "Large sample sizes\n\n\n\n\n\n\nDanger\n\n\nIf the sample size is large enough, the test will likely result in rejecting \\(H_0: \\beta_j = 0\\) even \\(x_j\\) has a very small effect on \\(y\\).\n\n\nConsider the practical significance of the result not just the statistical significance.\nUse the confidence interval to draw conclusions instead of relying only p-values."
+  },
+  {
+    "objectID": "slides/17-mlr-inference.html#small-sample-sizes",
+    "href": "slides/17-mlr-inference.html#small-sample-sizes",
+    "title": "MLR Inference",
+    "section": "Small sample sizes",
+    "text": "Small sample sizes\n\n\n\n\n\n\nDanger\n\n\nIf the sample size is small, there may not be enough evidence to reject \\(H_0: \\beta_j=0\\).\n\n\nWhen you fail to reject the null hypothesis, DON’T immediately conclude that the variable has no association with the response.\nThere may be a linear association that is just not strong enough to detect given your data, or there may be a non-linear association.\n\n\n\n\n\n\n\n\n🔗 Week 09"
+  },
+  {
     "objectID": "slides/04-slr-evaluation.html#announcements",
     "href": "slides/04-slr-evaluation.html#announcements",
     "title": "SLR: Prediction + model evaluation",
@@ -3715,6 +3897,244 @@
     "title": "SLR: Prediction + model evaluation",
     "section": "Next week",
     "text": "Next week\nInference on the slope using\n\nSimulation-based methods\nMathematical models\n\n\n\n\n🔗 Week 02"
+  },
+  {
+    "objectID": "slides/18-mlr-conditions.html#topics",
+    "href": "slides/18-mlr-conditions.html#topics",
+    "title": "MLR conditions + multicollinearity",
+    "section": "Topics",
+    "text": "Topics\n\nConditions for inference\nMulticollinearity"
+  },
+  {
+    "objectID": "slides/18-mlr-conditions.html#computational-setup",
+    "href": "slides/18-mlr-conditions.html#computational-setup",
+    "title": "MLR conditions + multicollinearity",
+    "section": "Computational setup",
+    "text": "Computational setup\n\n# load packages\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(knitr)      # for tables\nlibrary(patchwork)  # for laying out plots\nlibrary(rms)        # for vif\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 20))"
+  },
+  {
+    "objectID": "slides/18-mlr-conditions.html#data-rail_trail",
+    "href": "slides/18-mlr-conditions.html#data-rail_trail",
+    "title": "MLR conditions + multicollinearity",
+    "section": "Data: rail_trail",
+    "text": "Data: rail_trail\n\n\nThe Pioneer Valley Planning Commission (PVPC) collected data for ninety days from April 5, 2005 to November 15, 2005.\nData collectors set up a laser sensor, with breaks in the laser beam recording when a rail-trail user passed the data collection station.\n\n\n\nrail_trail <- read_csv(here::here(\"slides\", \"data/rail_trail.csv\"))\nrail_trail\n\n# A tibble: 90 × 7\n   volume hightemp avgtemp season cloudcover precip day_type\n    <dbl>    <dbl>   <dbl> <chr>       <dbl>  <dbl> <chr>   \n 1    501       83    66.5 Summer       7.60 0      Weekday \n 2    419       73    61   Summer       6.30 0.290  Weekday \n 3    397       74    63   Spring       7.5  0.320  Weekday \n 4    385       95    78   Summer       2.60 0      Weekend \n 5    200       44    48   Spring      10    0.140  Weekday \n 6    375       69    61.5 Spring       6.60 0.0200 Weekday \n 7    417       66    52.5 Spring       2.40 0      Weekday \n 8    629       66    52   Spring       0    0      Weekend \n 9    533       80    67.5 Summer       3.80 0      Weekend \n10    547       79    62   Summer       4.10 0      Weekday \n# … with 80 more rows\n\n\nSource: Pioneer Valley Planning Commission via the mosaicData package."
+  },
+  {
+    "objectID": "slides/18-mlr-conditions.html#variables",
+    "href": "slides/18-mlr-conditions.html#variables",
+    "title": "MLR conditions + multicollinearity",
+    "section": "Variables",
+    "text": "Variables\nOutcome:\nvolume estimated number of trail users that day (number of breaks recorded)\nPredictors\n\n\nhightemp daily high temperature (in degrees Fahrenheit)\navgtemp average of daily low and daily high temperature (in degrees Fahrenheit)\nseason one of “Fall”, “Spring”, or “Summer”\ncloudcover measure of cloud cover (in oktas)\nprecip measure of precipitation (in inches)\nday_type one of “weekday” or “weekend”"
+  },
+  {
+    "objectID": "slides/18-mlr-conditions.html#full-model",
+    "href": "slides/18-mlr-conditions.html#full-model",
+    "title": "MLR conditions + multicollinearity",
+    "section": "Full model",
+    "text": "Full model\nIncluding all available predictors\nFit:\n\nrt_full_fit <- linear_reg() |>\n  set_engine(\"lm\") |>\n  fit(volume ~ ., data = rail_trail)\n\n\nSummarize:\n\ntidy(rt_full_fit)\n\n# A tibble: 8 × 5\n  term            estimate std.error statistic p.value\n  <chr>              <dbl>     <dbl>     <dbl>   <dbl>\n1 (Intercept)        17.6      76.6      0.230 0.819  \n2 hightemp            7.07      2.42     2.92  0.00450\n3 avgtemp            -2.04      3.14    -0.648 0.519  \n4 seasonSpring       35.9      33.0      1.09  0.280  \n5 seasonSummer       24.2      52.8      0.457 0.649  \n6 cloudcover         -7.25      3.84    -1.89  0.0627 \n7 precip            -95.7      42.6     -2.25  0.0273 \n8 day_typeWeekend    35.9      22.4      1.60  0.113  \n\n\n\n\nAugment:\n\nrt_full_aug <- augment(rt_full_fit$fit)"
+  },
+  {
+    "objectID": "slides/18-mlr-conditions.html#model-conditions",
+    "href": "slides/18-mlr-conditions.html#model-conditions",
+    "title": "MLR conditions + multicollinearity",
+    "section": "Model conditions",
+    "text": "Model conditions\n\nLinearity: There is a linear relationship between the response and predictor variables.\nConstant Variance: The variability about the least squares line is generally constant.\nNormality: The distribution of the residuals is approximately normal.\nIndependence: The residuals are independent from each other."
+  },
+  {
+    "objectID": "slides/18-mlr-conditions.html#residuals-vs.-predicted-values",
+    "href": "slides/18-mlr-conditions.html#residuals-vs.-predicted-values",
+    "title": "MLR conditions + multicollinearity",
+    "section": "Residuals vs. predicted values",
+    "text": "Residuals vs. predicted values\n\nggplot(data = rt_full_aug, aes(x = .fitted, y = .resid)) +\n  geom_point(alpha = 0.7) +\n  geom_hline(yintercept = 0, color = \"red\", linetype = \"dashed\") +\n  labs(x = \"Predicted values\", y = \"Residuals\")"
+  },
+  {
+    "objectID": "slides/18-mlr-conditions.html#linearity-residuals-vs.-predicted",
+    "href": "slides/18-mlr-conditions.html#linearity-residuals-vs.-predicted",
+    "title": "MLR conditions + multicollinearity",
+    "section": "Linearity: Residuals vs. predicted",
+    "text": "Linearity: Residuals vs. predicted\n\nDoes the linearity condition appear to be met?"
+  },
+  {
+    "objectID": "slides/18-mlr-conditions.html#linearity-residuals-vs.-predicted-1",
+    "href": "slides/18-mlr-conditions.html#linearity-residuals-vs.-predicted-1",
+    "title": "MLR conditions + multicollinearity",
+    "section": "Linearity: Residuals vs. predicted",
+    "text": "Linearity: Residuals vs. predicted\nLook at individual plots of residuals vs. each predictor, particularly if there are potential issues in the plot of residuals vs. predicted values."
+  },
+  {
+    "objectID": "slides/18-mlr-conditions.html#linearity-residuals-vs.-each-predictor",
+    "href": "slides/18-mlr-conditions.html#linearity-residuals-vs.-each-predictor",
+    "title": "MLR conditions + multicollinearity",
+    "section": "Linearity: Residuals vs. each predictor",
+    "text": "Linearity: Residuals vs. each predictor"
+  },
+  {
+    "objectID": "slides/18-mlr-conditions.html#checking-linearity",
+    "href": "slides/18-mlr-conditions.html#checking-linearity",
+    "title": "MLR conditions + multicollinearity",
+    "section": "Checking linearity",
+    "text": "Checking linearity\n\nThe plots of residuals vs. hightemp and avgtemp appear to have a parabolic pattern.\nThe linearity condition is not satisfied given these plots."
+  },
+  {
+    "objectID": "slides/18-mlr-conditions.html#checking-constant-variance",
+    "href": "slides/18-mlr-conditions.html#checking-constant-variance",
+    "title": "MLR conditions + multicollinearity",
+    "section": "Checking constant variance",
+    "text": "Checking constant variance\n\nDoes the constant variance condition appear to be satisfied?"
+  },
+  {
+    "objectID": "slides/18-mlr-conditions.html#checking-constant-variance-1",
+    "href": "slides/18-mlr-conditions.html#checking-constant-variance-1",
+    "title": "MLR conditions + multicollinearity",
+    "section": "Checking constant variance",
+    "text": "Checking constant variance\n\nThe vertical spread of the residuals is not constant across the plot.\nThe constant variance condition is not satisfied."
+  },
+  {
+    "objectID": "slides/18-mlr-conditions.html#checking-normality",
+    "href": "slides/18-mlr-conditions.html#checking-normality",
+    "title": "MLR conditions + multicollinearity",
+    "section": "Checking normality",
+    "text": "Checking normality"
+  },
+  {
+    "objectID": "slides/18-mlr-conditions.html#overlaying-a-density-plot-on-a-histogram",
+    "href": "slides/18-mlr-conditions.html#overlaying-a-density-plot-on-a-histogram",
+    "title": "MLR conditions + multicollinearity",
+    "section": "Overlaying a density plot on a histogram",
+    "text": "Overlaying a density plot on a histogram\n\n📋 AE 11: MLR Inference\n\n\n\n\nEx 2. Fill in the code to recreate the following visualization in R based on the results of the model."
+  },
+  {
+    "objectID": "slides/18-mlr-conditions.html#checking-independence",
+    "href": "slides/18-mlr-conditions.html#checking-independence",
+    "title": "MLR conditions + multicollinearity",
+    "section": "Checking independence",
+    "text": "Checking independence\n\nWe can often check the independence condition based on the context of the data and how the observations were collected.\nIf the data were collected in a particular order, examine a scatterplot of the residuals versus order in which the data were collected.\nIf there is a grouping variable lurking in the background, check the residuals based on that grouping variable."
+  },
+  {
+    "objectID": "slides/18-mlr-conditions.html#checking-independence-1",
+    "href": "slides/18-mlr-conditions.html#checking-independence-1",
+    "title": "MLR conditions + multicollinearity",
+    "section": "Checking independence",
+    "text": "Checking independence\nResiduals vs. order of data collection:\n\nggplot(rt_full_aug, aes(y = .resid, x = 1:nrow(rt_full_aug))) +\n  geom_point() +\n  geom_hline(yintercept = 0, color = \"red\", linetype = \"dashed\") +\n  labs(x = \"Order of data collection\", y = \"Residuals\")"
+  },
+  {
+    "objectID": "slides/18-mlr-conditions.html#checking-independence-2",
+    "href": "slides/18-mlr-conditions.html#checking-independence-2",
+    "title": "MLR conditions + multicollinearity",
+    "section": "Checking independence",
+    "text": "Checking independence\nResiduals vs. predicted values by season:"
+  },
+  {
+    "objectID": "slides/18-mlr-conditions.html#checking-independence-3",
+    "href": "slides/18-mlr-conditions.html#checking-independence-3",
+    "title": "MLR conditions + multicollinearity",
+    "section": "Checking independence",
+    "text": "Checking independence\nResiduals vs. predicted values by day_type:"
+  },
+  {
+    "objectID": "slides/18-mlr-conditions.html#checking-independence-4",
+    "href": "slides/18-mlr-conditions.html#checking-independence-4",
+    "title": "MLR conditions + multicollinearity",
+    "section": "Checking independence",
+    "text": "Checking independence\n\nNo clear pattern in the residuals vs. order of data collection plot and the model predicts similarly for seasons and day types.\nIndependence condition appears to be satisfied, as far as we can evaluate it."
+  },
+  {
+    "objectID": "slides/18-mlr-conditions.html#why-multicollinearity-is-a-problem",
+    "href": "slides/18-mlr-conditions.html#why-multicollinearity-is-a-problem",
+    "title": "MLR conditions + multicollinearity",
+    "section": "Why multicollinearity is a problem",
+    "text": "Why multicollinearity is a problem\n\nWe can’t include two variables that have a perfect linear association with each other\nIf we did so, we could not find unique estimates for the model coefficients"
+  },
+  {
+    "objectID": "slides/18-mlr-conditions.html#example",
+    "href": "slides/18-mlr-conditions.html#example",
+    "title": "MLR conditions + multicollinearity",
+    "section": "Example",
+    "text": "Example\nSuppose the true population regression equation is \\(y = 3 + 4x\\)\n\nSuppose we try estimating that equation using a model with variables \\(x\\) and \\(z = x/10\\)\n\n\\[\n\\begin{aligned}\\hat{y}&= \\hat{\\beta}_0 + \\hat{\\beta}_1x  + \\hat{\\beta}_2z\\\\\n&= \\hat{\\beta}_0 + \\hat{\\beta}_1x  + \\hat{\\beta}_2\\frac{x}{10}\\\\\n&= \\hat{\\beta}_0 + \\bigg(\\hat{\\beta}_1 + \\frac{\\hat{\\beta}_2}{10}\\bigg)x\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "slides/18-mlr-conditions.html#example-1",
+    "href": "slides/18-mlr-conditions.html#example-1",
+    "title": "MLR conditions + multicollinearity",
+    "section": "Example",
+    "text": "Example\n\\[\\hat{y} = \\hat{\\beta}_0 + \\bigg(\\hat{\\beta}_1 + \\frac{\\hat{\\beta}_2}{10}\\bigg)x\\]\n\nWe can set \\(\\hat{\\beta}_1\\) and \\(\\hat{\\beta}_2\\) to any two numbers such that \\(\\hat{\\beta}_1 + \\frac{\\hat{\\beta}_2}{10} = 4\\)\nTherefore, we are unable to choose the “best” combination of \\(\\hat{\\beta}_1\\) and \\(\\hat{\\beta}_2\\)"
+  },
+  {
+    "objectID": "slides/18-mlr-conditions.html#why-multicollinearity-is-a-problem-1",
+    "href": "slides/18-mlr-conditions.html#why-multicollinearity-is-a-problem-1",
+    "title": "MLR conditions + multicollinearity",
+    "section": "Why multicollinearity is a problem",
+    "text": "Why multicollinearity is a problem\n\nWhen we have almost perfect collinearities (i.e. highly correlated predictor variables), the standard errors for our regression coefficients inflate\nIn other words, we lose precision in our estimates of the regression coefficients\nThis impedes our ability to use the model for inference or prediction"
+  },
+  {
+    "objectID": "slides/18-mlr-conditions.html#detecting-multicollinearity",
+    "href": "slides/18-mlr-conditions.html#detecting-multicollinearity",
+    "title": "MLR conditions + multicollinearity",
+    "section": "Detecting Multicollinearity",
+    "text": "Detecting Multicollinearity\nMulticollinearity may occur when…\n\nThere are very high correlations \\((r > 0.9)\\) among two or more predictor variables, especially when the sample size is small\n\n\n\nOne (or more) predictor variables is an almost perfect linear combination of the others\nInclude a quadratic in the model mean-centering the variable first\nIncluding interactions between two or more continuous variables"
+  },
+  {
+    "objectID": "slides/18-mlr-conditions.html#detecting-multicollinearity-in-the-eda",
+    "href": "slides/18-mlr-conditions.html#detecting-multicollinearity-in-the-eda",
+    "title": "MLR conditions + multicollinearity",
+    "section": "Detecting multicollinearity in the EDA",
+    "text": "Detecting multicollinearity in the EDA\n\nLook at a correlation matrix of the predictor variables, including all indicator variables\n\nLook out for values close to 1 or -1\n\nLook at a scatterplot matrix of the predictor variables\n\nLook out for plots that show a relatively linear relationship"
+  },
+  {
+    "objectID": "slides/18-mlr-conditions.html#detecting-multicollinearity-vif",
+    "href": "slides/18-mlr-conditions.html#detecting-multicollinearity-vif",
+    "title": "MLR conditions + multicollinearity",
+    "section": "Detecting Multicollinearity (VIF)",
+    "text": "Detecting Multicollinearity (VIF)\nVariance Inflation Factor (VIF): Measure of multicollinearity in the regression model\n\\[VIF(\\hat{\\beta}_j) = \\frac{1}{1-R^2_{X_j|X_{-j}}}\\]\nwhere \\(R^2_{X_j|X_{-j}}\\) is the proportion of variation \\(X\\) that is explained by the linear combination of the other explanatory variables in the model."
+  },
+  {
+    "objectID": "slides/18-mlr-conditions.html#detecting-multicollinearity-vif-1",
+    "href": "slides/18-mlr-conditions.html#detecting-multicollinearity-vif-1",
+    "title": "MLR conditions + multicollinearity",
+    "section": "Detecting Multicollinearity (VIF)",
+    "text": "Detecting Multicollinearity (VIF)\nTypically \\(VIF > 10\\) indicates concerning multicollinearity - Variables with similar values of VIF are typically the ones correlated with each other\n\nUse the vif() function in the rms R package to calculate VIF"
+  },
+  {
+    "objectID": "slides/18-mlr-conditions.html#vif-for-rail-trail-model",
+    "href": "slides/18-mlr-conditions.html#vif-for-rail-trail-model",
+    "title": "MLR conditions + multicollinearity",
+    "section": "VIF for rail trail model",
+    "text": "VIF for rail trail model\n\nvif(rt_full_fit$fit)\n\n       hightemp         avgtemp    seasonSpring    seasonSummer      cloudcover \n      10.259978       13.086175        2.751577        5.841985        1.587485 \n         precip day_typeWeekend \n       1.295352        1.125741 \n\n\n\n\nhightemp and avgtemp are correlated. We need to remove one of these variables and refit the model."
+  },
+  {
+    "objectID": "slides/18-mlr-conditions.html#model-without-hightemp",
+    "href": "slides/18-mlr-conditions.html#model-without-hightemp",
+    "title": "MLR conditions + multicollinearity",
+    "section": "Model without hightemp",
+    "text": "Model without hightemp\n\nm1 <- linear_reg() |>\n  set_engine(\"lm\") |>\n  fit(volume ~ . - hightemp, data = rail_trail)\n  \nm1 |>\n  tidy() |>\n  kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n76.071\n77.204\n0.985\n0.327\n\n\navgtemp\n6.003\n1.583\n3.792\n0.000\n\n\nseasonSpring\n34.555\n34.454\n1.003\n0.319\n\n\nseasonSummer\n13.531\n55.024\n0.246\n0.806\n\n\ncloudcover\n-12.807\n3.488\n-3.672\n0.000\n\n\nprecip\n-110.736\n44.137\n-2.509\n0.014\n\n\nday_typeWeekend\n48.420\n22.993\n2.106\n0.038"
+  },
+  {
+    "objectID": "slides/18-mlr-conditions.html#model-without-avgtemp",
+    "href": "slides/18-mlr-conditions.html#model-without-avgtemp",
+    "title": "MLR conditions + multicollinearity",
+    "section": "Model without avgtemp",
+    "text": "Model without avgtemp\n\nm2 <- linear_reg() |>\n  set_engine(\"lm\") |>\n  fit(volume ~ . - avgtemp, data = rail_trail)\n  \nm2 |>\n  tidy() |>\n  kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n8.421\n74.992\n0.112\n0.911\n\n\nhightemp\n5.696\n1.164\n4.895\n0.000\n\n\nseasonSpring\n31.239\n32.082\n0.974\n0.333\n\n\nseasonSummer\n9.424\n47.504\n0.198\n0.843\n\n\ncloudcover\n-8.353\n3.435\n-2.431\n0.017\n\n\nprecip\n-98.904\n42.137\n-2.347\n0.021\n\n\nday_typeWeekend\n37.062\n22.280\n1.663\n0.100"
+  },
+  {
+    "objectID": "slides/18-mlr-conditions.html#choosing-a-model",
+    "href": "slides/18-mlr-conditions.html#choosing-a-model",
+    "title": "MLR conditions + multicollinearity",
+    "section": "Choosing a model",
+    "text": "Choosing a model\nModel with hightemp removed:\n\n\n\n\n\nadj.r.squared\nAIC\nBIC\n\n\n\n\n0.42\n1087.5\n1107.5\n\n\n\n\n\nModel with avgtemp removed:\n\n\n\n\n\nadj.r.squared\nAIC\nBIC\n\n\n\n\n0.47\n1079.05\n1099.05\n\n\n\n\n\nBased on Adjusted \\(R^2\\), AIC, and BIC, the model with avgtemp removed is a better fit. Therefore, we choose to remove avgtemp from the model and leave hightemp in the model to deal with the multicollinearity."
+  },
+  {
+    "objectID": "slides/18-mlr-conditions.html#final-model",
+    "href": "slides/18-mlr-conditions.html#final-model",
+    "title": "MLR conditions + multicollinearity",
+    "section": "Final model",
+    "text": "Final model\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n8.421\n74.992\n0.112\n0.911\n\n\nhightemp\n5.696\n1.164\n4.895\n0.000\n\n\nseasonSpring\n31.239\n32.082\n0.974\n0.333\n\n\nseasonSummer\n9.424\n47.504\n0.198\n0.843\n\n\ncloudcover\n-8.353\n3.435\n-2.431\n0.017\n\n\nprecip\n-98.904\n42.137\n-2.347\n0.021\n\n\nday_typeWeekend\n37.062\n22.280\n1.663\n0.100"
+  },
+  {
+    "objectID": "slides/18-mlr-conditions.html#recap",
+    "href": "slides/18-mlr-conditions.html#recap",
+    "title": "MLR conditions + multicollinearity",
+    "section": "Recap",
+    "text": "Recap\n\nConditions for inference\nMulticollinearity\n\n\n\n\n🔗 Week 09"
   },
   {
     "objectID": "slides/08-slr-conditions.html#announcements",
@@ -4981,7 +5401,7 @@
     "href": "schedule.html#weekly-schedule",
     "title": "Schedule",
     "section": "Weekly schedule",
-    "text": "Weekly schedule\n\n\n\n\n\n\nWeek\n\n\nDates\n\n\nTopic\n\n\nAssignments\n\n\n\n\n\n\nWeek 01\n\n\nAug 29 - Sep 02\n\n\nWelcome to Regression Analysis\n\n\nCompelete STA 210 Student Survey\n\n\n\n\nWeek 02\n\n\nSep 05 - 09\n\n\nSLR: Tidymodels + Model evaluation\n\n\nLab 01, Statistics experience assigned\n\n\n\n\nWeek 03\n\n\nSep 12 - 16\n\n\nSLR: Inference\n\n\nLab 02, HW 01, Statistics experience assigned\n\n\n\n\nWeek 04\n\n\nSep 19 - 23\n\n\nMultiple Linear Regression (MLR)\n\n\nLab 03\n\n\n\n\nWeek 05\n\n\nSep 26 - 30\n\n\nMLR: Types of Predictors\n\n\nExam 01\n\n\n\n\nWeek 06\n\n\nOct 03 - 07\n\n\nFeature Engineering\n\n\nLab 04\n\n\n\n\nWeek 07\n\n\nOct 10 - 14\n\n\nVariable transformations\n\n\nIntroduce project, HW 02\n\n\n\n\nWeek 08\n\n\nOct 17 - 21\n\n\nMLR: Transformations + Model comparison\n\n\nLab 05\n\n\n\n\nWeek 09\n\n\nOct 24 - 28\n\n\nMLR: Cross validation + Inference\n\n\nHW 03\n\n\n\n\nWeek 10\n\n\nOct 31 - Nov 04\n\n\nOdds + Odds Ratios\n\n\nLab 06\n\n\n\n\nWeek 11\n\n\nNov 07 - 11\n\n\nLogistic regression (LR)\n\n\nProject peer review, HW 04\n\n\n\n\nWeek 12\n\n\nNov 14 - 18\n\n\nLR: Inference\n\n\nLab 07\n\n\n\n\nWeek 13\n\n\nNov 21 - 25\n\n\nMixed effects models\n\n\n\n\n\n\n\nWeek 14\n\n\nNov 28 - Dec 02\n\n\nMixed effects models\n\n\nExam 02\n\n\n\n\nWeek 15\n\n\nDec 05 - 09\n\n\nLooking ahead\n\n\nStatistics experience due\n\n\n\n\nWeek 16\n\n\nDec 12 - 19\n\n\nFinal exam period\n\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Weekly schedule\n\n\n\n\n\n\nWeek\n\n\nDates\n\n\nTopic\n\n\nAssignments\n\n\n\n\n\n\nWeek 01\n\n\nAug 29 - Sep 02\n\n\nWelcome to Regression Analysis\n\n\nCompelete STA 210 Student Survey\n\n\n\n\nWeek 02\n\n\nSep 05 - 09\n\n\nSLR: Tidymodels + Model evaluation\n\n\nLab 01, Statistics experience assigned\n\n\n\n\nWeek 03\n\n\nSep 12 - 16\n\n\nSLR: Inference\n\n\nLab 02, HW 01, Statistics experience assigned\n\n\n\n\nWeek 04\n\n\nSep 19 - 23\n\n\nMultiple Linear Regression (MLR)\n\n\nLab 03\n\n\n\n\nWeek 05\n\n\nSep 26 - 30\n\n\nMLR: Types of Predictors\n\n\nExam 01\n\n\n\n\nWeek 06\n\n\nOct 03 - 07\n\n\nFeature Engineering\n\n\nLab 04\n\n\n\n\nWeek 07\n\n\nOct 10 - 14\n\n\nVariable transformations\n\n\nIntroduce project, HW 02\n\n\n\n\nWeek 08\n\n\nOct 17 - 21\n\n\nMLR: Transformations + Model comparison\n\n\nLab 05\n\n\n\n\nWeek 09\n\n\nOct 24 - 28\n\n\nMLR: Cross validation + Inference\n\n\nProject proposal\n\n\n\n\nWeek 10\n\n\nOct 31 - Nov 04\n\n\nOdds + Odds Ratios\n\n\nHW 03 + Lab 06\n\n\n\n\nWeek 11\n\n\nNov 07 - 11\n\n\nLogistic regression (LR)\n\n\nProject peer review, HW 04\n\n\n\n\nWeek 12\n\n\nNov 14 - 18\n\n\nLR: Inference\n\n\nLab 07\n\n\n\n\nWeek 13\n\n\nNov 21 - 25\n\n\nMixed effects models\n\n\n\n\n\n\n\nWeek 14\n\n\nNov 28 - Dec 02\n\n\nMixed effects models\n\n\nExam 02\n\n\n\n\nWeek 15\n\n\nDec 05 - 09\n\n\nLooking ahead\n\n\nStatistics experience due\n\n\n\n\nWeek 16\n\n\nDec 12 - 19\n\n\nFinal exam period\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "schedule.html#notes",

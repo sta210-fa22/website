@@ -1,7 +1,7 @@
 ---
 title: "Week 10"
 subtitle: "Odds + Odds Ratios"
-description: "Lab 06"
+description: "HW 03 + Lab 06"
 author: "Oct 31 - Nov 04"
 date: ""
 tbl-colwidths: [60,40]

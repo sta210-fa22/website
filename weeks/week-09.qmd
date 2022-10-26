@@ -1,7 +1,7 @@
 ---
 title: "Week 09"
 subtitle: "MLR: Cross validation + Inference"
-description: "HW 03"
+description: "Project proposal"
 author: "Oct 24 - 28"
 date: ""
 tbl-colwidths: [60,40]
@@ -10,31 +10,36 @@ title-block-style: none
 
 ::: callout-important
 -   AE 10 due Thu, Oct 27, 11:59pm
--   HW 03: due Wed, Nov 02, 11:59pm
+-   AE 11: due Sat, Oct 29, 11:59pm
 -   Project Proposal: due Fri, Nov 04: 11:59pm
+
+*HW 03 moved to next week*
 :::
 
 # Prepare
 
 | Reading                                                                                                           | Corresponding lecture |
-|-------------------------------------------------------------------------------------------------------------------|-----------------------|
+|--------------------------------------------------------|----------------|
 | 📖 Tidy Modeling in R - [Chapter 10: Resampling for evaluating performance](https://www.tmwr.org/resampling.html) | Oct 24                |
 
 # Participate
 
 |                                                                |             |
-|----------------------------------------------------------------|-------------|
+|--------------------------------------------------------|----------------|
 | 💻 [MLR: Cross validation](../slides/16-cross-validation.html) | Oct 24      |
-| 💻 MLR: Inference + conditions                                 | Oct 26      |
+| 💻 [MLR: Inference](../slides/17-mlr-inference.html)           | Oct 26      |
+| 💻 [MLR: Conditions](../slides/18-mlr-conditions.html)         | Oct 26      |
 | 💻 Lab: Project proposal                                       | Oct 27 & 28 |
 
 # Practice
 
-📋 AE 10: Cross validation
+|                                                                        |
+|------------------------------------------------------------------------|
+| 📋 [AE 10: Cross validation](../ae/ae-10-cross-validation.html)        |
+| 📋 [AE 11: MLR Inference + conditions](../ae/ae-11-mlr-inference.html) |
 
 # Perform
 
 |                     |                          |
 |---------------------|--------------------------|
-| 📝 HW 03            | due Wed, Nov 02, 11:59pm |
 | 📝 Project Proposal | due Fri, Nov 04, 11:59pm |

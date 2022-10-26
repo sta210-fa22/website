@@ -108,8 +108,8 @@ The introduction section includes
 
 -   an introduction to the subject matter you're investigating
 -   the motivation for your research question (citing any relevant literature)
--   the research question you are exploring
--   your hypotheses regarding the research question of interest
+-   the primary research question you are interested in exploring
+-   your team's hypotheses regarding the research question
 
 ### Section 2 - Data description
 
@@ -122,13 +122,13 @@ In this section, you will describe the data set. This includes
 
 In this section, you will explore the data. This includes using visualizations and summary statistics to describe the following:
 
--   distribution of the response variable
--   distribution of the potential predictor variables
--   relationship between the response and predictors
--   relationship between predictors
--   potential interaction effects
+-   univariate distribution of the response variable
+-   univariate distributions of the potential predictor variables
+-   relationships between the response and predictors
+-   relationships between predictors
+-   potential interaction effects you're interested in exploring
 
-You can also use this section to describe any data cleaning you need to do to prepare for modeling, such as imputing missing values, collapsing levels for categorical predictors, creating new variables, etc.
+In this section, you will also describe any data cleaning you need to do to prepare for modeling, such as imputing missing values, collapsing levels for categorical predictors, creating new variables, summarizing data, etc.
 
 ### Section 4 - Analysis approach
 
@@ -139,21 +139,27 @@ In this section, you will provide a brief overview of your analysis approach. Th
 
 ### Data dictionary (aka code book)
 
-Submit a data dictionary for all the variables in your data set in the `README` of your project repo.
+Submit a data dictionary for all the variables in your data set in the `README` of the `data` folder. You do [not]{.underline} need to include the data dictionary in the PDF.
 
 ### Submission
 
-Push all of your final changes to the GitHub repo, and submit the PDF of your proposal to **Gradescope**.
+::: callout-important
+All work will go inside the `proposal` folder. Write your responses in `proposal.qmd` and put the data set and the data dictionary in the `data` folder.\
+\
+Submit the PDF of the proposal to Gradescope. Mark all pages of the document.
+:::
 
 ### Grading
 
-The proposal is with 15 points and will be graded based on accurately and comprehensively addressing the criteria stated above.
+The proposal is with 15 points and will be graded based on accurately and comprehensively addressing the criteria stated above. Points will be assigned based on a holistic review of the project proposal.
 
--   **Meets expectations (full credit)**: All required elements are completed and are accurate. The narrative is written clearly, all tables and visualizations are nicely formatted, and the work would be presentable in a professional setting.
+-   **Excellent (14 - 15 points) :** All required elements are completed and are accurate. There is a thorough exploration of the data and the team has demonstrated a careful and thoughtful approach exploring the data and preparing it for analysis. The narrative is written clearly, all tables and visualizations are nicely formatted, and the work would be presentable in a professional setting.
 
--   **Close to expectations (half credit)**: There are some elements missing and/or inaccurate. There are some issues with formatting.
+-   **Strong: (11 - 13 points)** Requirements are mostly met, but there are some elements that are incomplete or inaccurate. Some minor revision of the work required before team is ready for modeling.
 
--   **Does not meet expectations (no credit)**: Major elements missing. Work is not neatly formatted and would not be presentable in a professional setting.
+-   **Satisfactory (8  - 10 points):** Requirements partially met, but there are some elements that are incomplete and/or inaccurate. Major revision of the work required before team is ready for modeling.
+
+-   **Needs Improvement (7 or fewer points points):** Requirements are largely unmet, and there are large elements that are incomplete and/or inaccurate. Substantial revisions of the work required before team is ready for modeling.
 
 ## Round 1 submission (optional) {#draft-report}
 

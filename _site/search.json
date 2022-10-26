@@ -3546,7 +3546,7 @@
     "href": "slides/17-mlr-inference.html#modeling-workflow",
     "title": "MLR Inference",
     "section": "Modeling workflow",
-    "text": "Modeling workflow\n\nSplit data into training and test sets\nUse cross validation to fit, evaluate, and compare candidate models. Choose a final model based on summary of cross validation results.\nRefit the model using the entire training set and get final evaluation on the test set (make sure you have not overfit the model).\n\nAdjust as needed if there is evidence of overfit.\n\nUse model fit on training data for inference and prediction."
+    "text": "Modeling workflow\n\nSplit data into training and test sets.\nUse cross validation on the training set to fit, evaluate, and compare candidate models. Choose a final model based on summary of cross validation results.\nRefit the model using the entire training set and do “final” evaluation on the test set (make sure you have not overfit the model).\n\nAdjust as needed if there is evidence of overfit.\n\nUse model fit on training set for inference and prediction."
   },
   {
     "objectID": "slides/17-mlr-inference.html#data-rail_trail",

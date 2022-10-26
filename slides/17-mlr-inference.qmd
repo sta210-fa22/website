@@ -69,17 +69,17 @@ library(rms)        # for vif
 ggplot2::theme_set(ggplot2::theme_bw(base_size = 20))
 ```
 
-## Modeling workflow 
+## Modeling workflow
 
--   Split data into training and test sets
+-   Split data into training and test sets.
 
--   Use cross validation to fit, evaluate, and compare candidate models. Choose a final model based on summary of cross validation results.
+-   Use cross validation on the training set to fit, evaluate, and compare candidate models. Choose a final model based on summary of cross validation results.
 
--   Refit the model using the entire training set and get final evaluation on the test set (make sure you have not overfit the model).
+-   Refit the model using the entire training set and do "final" evaluation on the test set (make sure you have not overfit the model).
 
     -   Adjust as needed if there is evidence of overfit.
 
--   Use model fit on training data for inference and prediction.
+-   Use model fit on training set for inference and prediction.
 
 ## Data: `rail_trail` {.smaller}
 

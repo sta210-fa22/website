@@ -69,7 +69,7 @@ kable(digits = 2)
 
 Fill in the code to plot the histogram of residuals with an overlay of the normal distribution based on the results of the model.
 
-::: callout-important
+::: callout-note
 Update to `eval: true` once the code is updated.
 :::
 

@@ -3525,7 +3525,7 @@
     "href": "slides/17-mlr-inference.html#announcements",
     "title": "MLR Inference",
     "section": "Announcements",
-    "text": "Announcements\nSee Week 09 activities."
+    "text": "Announcements\n\nSee Gradescope for feedback on project topic ideas.\n\nRead comments carefully. Even if a data set is marked “usable”, there may be suggestions about extensive data cleaning required to make it appropriate for the project.\nAttend office hours or talk with TAs in lab if you have questions.\n\nSee Week 09 activities."
   },
   {
     "objectID": "slides/17-mlr-inference.html#topics",
@@ -3540,6 +3540,13 @@
     "title": "MLR Inference",
     "section": "Computational setup",
     "text": "Computational setup\n\n# load packages\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(knitr)      # for tables\nlibrary(patchwork)  # for laying out plots\nlibrary(rms)        # for vif\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 20))"
+  },
+  {
+    "objectID": "slides/17-mlr-inference.html#modeling-workflow",
+    "href": "slides/17-mlr-inference.html#modeling-workflow",
+    "title": "MLR Inference",
+    "section": "Modeling workflow",
+    "text": "Modeling workflow\n\nSplit data into training and test sets\nUse cross validation to fit, evaluate, and compare candidate models. Choose a final model based on summary of cross validation results.\nRefit the model using the entire training set and get final evaluation on the test set (make sure you have not overfit the model).\n\nAdjust as needed if there is evidence of overfit.\n\nUse model fit on training data for inference and prediction."
   },
   {
     "objectID": "slides/17-mlr-inference.html#data-rail_trail",
@@ -3574,7 +3581,7 @@
     "href": "slides/17-mlr-inference.html#slr-hypothesis-test",
     "title": "MLR Inference",
     "section": "SLR hypothesis test",
-    "text": "SLR hypothesis test\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-17.08\n59.40\n-0.29\n0.77\n\n\nhightemp\n5.70\n0.85\n6.72\n0.00\n\n\n\n\n\n\nSet hypotheses: \\(H_0: \\beta_1 = 0\\) vs. \\(H_A: \\beta_1 \\ne 0\\)\n\n\n\nCalculate test statistic and p-value: The test statistic is $t = 6.72$. The p-value is calculated using a \\(t\\) distribution with 88 degrees of freedom. The p-value is \\(\\approx 0\\) .\n\n\n\n\nState the conclusion: The p-value is small, so we reject \\(H_0\\). The data provide strong evidence that high temperature is a helpful predictor for the number of daily riders, i.e. there is a linear relationship between high temperature and number of daily riders."
+    "text": "SLR hypothesis test\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-17.08\n59.40\n-0.29\n0.77\n\n\nhightemp\n5.70\n0.85\n6.72\n0.00\n\n\n\n\n\n\nSet hypotheses: \\(H_0: \\beta_1 = 0\\) vs. \\(H_A: \\beta_1 \\ne 0\\)\n\n\n\nCalculate test statistic and p-value: The test statistic is \\(t= 6.72\\) . The p-value is calculated using a \\(t\\) distribution with 88 degrees of freedom. The p-value is \\(\\approx 0\\) .\n\n\n\n\nState the conclusion: The p-value is small, so we reject \\(H_0\\). The data provide strong evidence that high temperature is a helpful predictor for the number of daily riders, i.e. there is a linear relationship between high temperature and number of daily riders."
   },
   {
     "objectID": "slides/17-mlr-inference.html#multiple-linear-regression",
@@ -3588,7 +3595,7 @@
     "href": "slides/17-mlr-inference.html#mlr-hypothesis-test-hightemp",
     "title": "MLR Inference",
     "section": "MLR hypothesis test: hightemp",
-    "text": "MLR hypothesis test: hightemp\n\nSet hypotheses: \\(H_0: \\beta_{hightemp} = 0\\) vs. \\(H_A: \\beta_{hightemp} \\ne 0\\), given weekday is in the model\n\n\n\nCalculate test statistic and p-value: The test statistic is \\(t = 6.43\\). The p-value is calculated using a \\(t\\) distribution with 86 (n - p - 1) degrees of freedom. The p-value is \\(\\approx 0\\).\n\n\n\n\nState the conclusion: The p-value is small, so we reject \\(H_0\\). The data provide strong evidence that high temperature for the day is a useful predictor in a model that already contains whether the given day is a weekday as a predictor for number of daily riders."
+    "text": "MLR hypothesis test: hightemp\n\nSet hypotheses: \\(H_0: \\beta_{hightemp} = 0\\) vs. \\(H_A: \\beta_{hightemp} \\ne 0\\), given season is in the model\n\n\n\nCalculate test statistic and p-value: The test statistic is \\(t = 6.43\\). The p-value is calculated using a \\(t\\) distribution with 86 (n - p - 1) degrees of freedom. The p-value is \\(\\approx 0\\).\n\n\n\n\nState the conclusion: The p-value is small, so we reject \\(H_0\\). The data provide strong evidence that high temperature for the day is a useful predictor in a model that already contains the season as a predictor for number of daily riders."
   },
   {
     "objectID": "slides/17-mlr-inference.html#the-model-for-season-spring",

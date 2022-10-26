@@ -394,7 +394,14 @@
 
 <section id="announcements" class="slide level2">
 <h2>Announcements</h2>
-<p>See <a href="https://sta210-fa22.netlify.app/weeks/week-09.html">Week 09</a> activities.</p>
+<ul>
+<li><p>See Gradescope for feedback on project topic ideas.</p>
+<ul>
+<li>Read comments carefully. Even if a data set is marked “usable”, there may be suggestions about extensive data cleaning required to make it appropriate for the project.</li>
+<li>Attend office hours or talk with TAs in lab if you have questions.</li>
+</ul></li>
+<li><p>See <a href="https://sta210-fa22.netlify.app/weeks/week-09.html">Week 09</a> activities.</p></li>
+</ul>
 </section>
 <section id="topics" class="slide level2">
 <h2>Topics</h2>
@@ -417,6 +424,18 @@
 <span id="cb1-8"><a href="#cb1-8"></a><span class="co"># set default theme and larger font size for ggplot2</span></span>
 <span id="cb1-9"><a href="#cb1-9"></a>ggplot2<span class="sc">::</span><span class="fu">theme_set</span>(ggplot2<span class="sc">::</span><span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">20</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
+<section id="modeling-workflow" class="slide level2">
+<h2>Modeling workflow</h2>
+<ul>
+<li><p>Split data into training and test sets</p></li>
+<li><p>Use cross validation to fit, evaluate, and compare candidate models. Choose a final model based on summary of cross validation results.</p></li>
+<li><p>Refit the model using the entire training set and get final evaluation on the test set (make sure you have not overfit the model).</p>
+<ul>
+<li>Adjust as needed if there is evidence of overfit.</li>
+</ul></li>
+<li><p>Use model fit on training data for inference and prediction.</p></li>
+</ul>
 </section>
 <section id="data-rail_trail" class="slide level2 smaller">
 <h2>Data: <code>rail_trail</code></h2>
@@ -556,7 +575,7 @@
 </ol>
 <div class="fragment">
 <ol start="2" type="1">
-<li><strong>Calculate test statistic and p-value:</strong> The test statistic is $t = 6.72$. The p-value is calculated using a <span class="math inline">\(t\)</span> distribution with 88 degrees of freedom. The p-value is <span class="math inline">\(\approx 0\)</span> .</li>
+<li><strong>Calculate test statistic and p-value:</strong> The test statistic is <span class="math inline">\(t= 6.72\)</span> . The p-value is calculated using a <span class="math inline">\(t\)</span> distribution with 88 degrees of freedom. The p-value is <span class="math inline">\(\approx 0\)</span> .</li>
 </ol>
 </div>
 <div class="fragment">
@@ -621,7 +640,7 @@
 <section id="mlr-hypothesis-test-hightemp" class="slide level2 midi">
 <h2>MLR hypothesis test: hightemp</h2>
 <ol type="1">
-<li><strong>Set hypotheses:</strong> <span class="math inline">\(H_0: \beta_{hightemp} = 0\)</span> vs.&nbsp;<span class="math inline">\(H_A: \beta_{hightemp} \ne 0\)</span>, given <code>weekday</code> is in the model</li>
+<li><strong>Set hypotheses:</strong> <span class="math inline">\(H_0: \beta_{hightemp} = 0\)</span> vs.&nbsp;<span class="math inline">\(H_A: \beta_{hightemp} \ne 0\)</span>, given <code>season</code> is in the model</li>
 </ol>
 <div class="fragment">
 <ol start="2" type="1">
@@ -630,7 +649,7 @@
 </div>
 <div class="fragment">
 <ol start="3" type="1">
-<li><strong>State the conclusion:</strong> The p-value is small, so we reject <span class="math inline">\(H_0\)</span>. The data provide strong evidence that high temperature for the day is a useful predictor in a model that already contains whether the given day is a weekday as a predictor for number of daily riders.</li>
+<li><strong>State the conclusion:</strong> The p-value is small, so we reject <span class="math inline">\(H_0\)</span>. The data provide strong evidence that high temperature for the day is a useful predictor in a model that already contains the season as a predictor for number of daily riders.</li>
 </ol>
 </div>
 </section>
@@ -827,7 +846,7 @@
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div class="countdown" id="timer_63588c0b" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_63593e5c" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">08</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 </div>

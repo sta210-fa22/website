@@ -11,7 +11,7 @@ Go to the [course GitHub organization](https://github.com/sta210-fa22) and locat
 The AE is due on GitHub by Saturday, October 29 at 11:59pm.
 :::
 
-## Packages 
+## Packages
 
 ```{r}
 #| message: false

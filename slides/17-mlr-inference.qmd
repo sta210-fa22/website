@@ -38,7 +38,12 @@ library(countdown)
 
 ## Announcements
 
-See [Week 09](https://sta210-fa22.netlify.app/weeks/week-09.html) activities.
+-   See Gradescope for feedback on project topic ideas.
+
+    -   Read comments carefully. Even if a data set is marked "usable", there may be suggestions about extensive data cleaning required to make it appropriate for the project.
+    -   Attend office hours or talk with TAs in lab if you have questions.
+
+-   See [Week 09](https://sta210-fa22.netlify.app/weeks/week-09.html) activities.
 
 ## Topics
 
@@ -63,6 +68,18 @@ library(rms)        # for vif
 # set default theme and larger font size for ggplot2
 ggplot2::theme_set(ggplot2::theme_bw(base_size = 20))
 ```
+
+## Modeling workflow 
+
+-   Split data into training and test sets
+
+-   Use cross validation to fit, evaluate, and compare candidate models. Choose a final model based on summary of cross validation results.
+
+-   Refit the model using the entire training set and get final evaluation on the test set (make sure you have not overfit the model).
+
+    -   Adjust as needed if there is evidence of overfit.
+
+-   Use model fit on training data for inference and prediction.
 
 ## Data: `rail_trail` {.smaller}
 
@@ -131,7 +148,7 @@ tidy(rt_slr_fit) |> kable(digits = 2)
 
 . . .
 
-2.  **Calculate test statistic and p-value:** The test statistic is \$t = 6.72\$. The p-value is calculated using a $t$ distribution with 88 degrees of freedom. The p-value is $\approx 0$ .
+2.  **Calculate test statistic and p-value:** The test statistic is $t= 6.72$ . The p-value is calculated using a $t$ distribution with 88 degrees of freedom. The p-value is $\approx 0$ .
 
 . . .
 
@@ -149,7 +166,7 @@ tidy(rt_mlr_main_fit) |> kable(digits = 2)
 
 ## MLR hypothesis test: hightemp {.midi}
 
-1.  **Set hypotheses:** $H_0: \beta_{hightemp} = 0$ vs. $H_A: \beta_{hightemp} \ne 0$, given `weekday` is in the model
+1.  **Set hypotheses:** $H_0: \beta_{hightemp} = 0$ vs. $H_A: \beta_{hightemp} \ne 0$, given `season` is in the model
 
 . . .
 
@@ -157,7 +174,7 @@ tidy(rt_mlr_main_fit) |> kable(digits = 2)
 
 . . .
 
-3.  **State the conclusion:** The p-value is small, so we reject $H_0$. The data provide strong evidence that high temperature for the day is a useful predictor in a model that already contains whether the given day is a weekday as a predictor for number of daily riders.
+3.  **State the conclusion:** The p-value is small, so we reject $H_0$. The data provide strong evidence that high temperature for the day is a useful predictor in a model that already contains the season as a predictor for number of daily riders.
 
 ## The model for `season = Spring` {.smaller}
 
@@ -245,7 +262,7 @@ countdown(minutes = 8)
 
 # Confidence interval for $\beta_j$
 
-## Confidence interval for $\beta_j$  {.midi}
+## Confidence interval for $\beta_j$ {.midi}
 
 -   The $C%$ confidence interval for $\beta_j$ $$\hat{\beta}_j \pm t^* SE(\hat{\beta}_j)$$ where $t^*$ follows a $t$ distribution with $n - p - 1$ degrees of freedom.
 

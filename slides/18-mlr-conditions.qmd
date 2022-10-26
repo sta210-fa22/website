@@ -291,8 +291,8 @@ p1 <- ggplot(rt_full_aug, aes(x = season, fill = season, y = .resid)) +
   scale_fill_viridis_d(end = 0.9)
 
 p2 <- ggplot(rt_full_aug, aes(x = .fitted, color = season, y = .resid)) +
-  geom_point(alpha = 0.5, show.legend = FALSE) +
-  geom_hline(yintercept = 0, color = "red", linetype = "dashed") +
+  geom_point(alpha = 0.7, show.legend = FALSE) +
+  geom_hline(yintercept = 0, linetype = "dashed") +
   labs(x = "Predicted value", y = "Residuals") +
   scale_color_viridis_d(end = 0.9)
 
@@ -313,8 +313,8 @@ p1 <- ggplot(rt_full_aug, aes(x = day_type, fill = day_type, y = .resid)) +
   scale_fill_viridis_d()
 
 p2 <- ggplot(rt_full_aug, aes(x = .fitted, color = day_type, y = .resid)) +
-  geom_point(alpha = 0.5, show.legend = FALSE) +
-  geom_hline(yintercept = 0, color = "red", linetype = "dashed") +
+  geom_point(alpha = 0.7, show.legend = FALSE) +
+  geom_hline(yintercept = 0, linetype = "dashed") +
   labs(x = "Predicted value", y = "Residuals") + 
   scale_color_viridis_d()
 
@@ -370,9 +370,8 @@ Multicollinearity may occur when...
 
 -   There are very high correlations $(r > 0.9)$ among two or more predictor variables, especially when the sample size is small
 
-```{=html}
 <!-- -->
-```
+
 -   One (or more) predictor variables is an almost perfect linear combination of the others
 
 -   Include a quadratic in the model mean-centering the variable first
@@ -460,7 +459,7 @@ glance(m2) |>
 
 Based on Adjusted $R^2$, AIC, and BIC, the model with **avgtemp** removed is a better fit. Therefore, we choose to remove **avgtemp** from the model and leave **hightemp** in the model to deal with the multicollinearity.
 
-## Final model 
+## Final model
 
 ```{r}
 #| echo: false

@@ -186,12 +186,12 @@ tidy(m1) |>
 ::: question
 -   Interpret the intercept in the context of the data.
 
--   Interpret the effect of `Opening` in the context of the data.
+-   Interpret the effect of a 10% increase in `Opening` in the context of the data.
 :::
 
-# Project proposal 
+# Project proposal
 
-## Project proposal 
+## Project proposal
 
 -   Choose one of the usable data sets proposed in the Topic Ideas
 

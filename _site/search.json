@@ -221,7 +221,7 @@
     "href": "weeks/week-09.html",
     "title": "Week 09",
     "section": "",
-    "text": "Prepare\n\n\n\n\n\n\n\nReading\nCorresponding lecture\n\n\n\n\n📖 Tidy Modeling in R - Chapter 10: Resampling for evaluating performance\nOct 24\n\n\n\n\n\nParticipate\n\n\n\n\n\n\n\n💻 MLR: Cross validation\nOct 24\n\n\n💻 MLR: Inference\nOct 26\n\n\n💻 MLR: Conditions\nOct 26\n\n\n💻 Lab: Project proposal\nOct 27 & 28\n\n\n\n\n\nPractice\n\n\n\n\n\n\n📋 AE 10: Cross validation\n\n\n📋 AE 11: MLR Inference + conditions\n\n\n\n\n\nPerform\n\n\n\n\n\n\n\n📝 Project Proposal\ndue Fri, Nov 04, 11:59pm"
+    "text": "Prepare\n\n\n\n\n\n\n\nReading\nCorresponding lecture\n\n\n\n\n📖 Tidy Modeling in R - Chapter 10: Resampling for evaluating performance\nOct 24\n\n\n\n\n\nParticipate\n                                                                | ||——————————————————–|—————-|\n💻 MLR: Cross validation | Oct 24 |\n💻 MLR: Inference | Oct 26 |\n💻 MLR: Conditions | Oct 26 |\n💻 Lab: Project proposal | Oct 27 & 28 |\n\n\nPractice\n\n\n\n\n\n\n📋 AE 10: Cross validation\n\n\n📋 AE 11: MLR Inference + conditions\n\n\n\n\n\nPerform\n\n\n\n\n\n\n\n📝 Project Proposal\ndue Fri, Nov 04, 11:59pm"
   },
   {
     "objectID": "weeks/week-04.html",
@@ -3904,6 +3904,41 @@
     "title": "SLR: Prediction + model evaluation",
     "section": "Next week",
     "text": "Next week\nInference on the slope using\n\nSimulation-based methods\nMathematical models\n\n\n\n\n🔗 Week 02"
+  },
+  {
+    "objectID": "slides/lab-project-proposal.html#goals",
+    "href": "slides/lab-project-proposal.html#goals",
+    "title": "Lab: Project Proposal",
+    "section": "Goals",
+    "text": "Goals\n\nReview models with log-transformed response or predictor variables\nProject proposal"
+  },
+  {
+    "objectID": "slides/lab-project-proposal.html#exploratory-data-analysis",
+    "href": "slides/lab-project-proposal.html#exploratory-data-analysis",
+    "title": "Lab: Project Proposal",
+    "section": "Exploratory data analysis",
+    "text": "Exploratory data analysis\nBelow are the distributions and measure of center for the response and each predictor variable.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmean\nmedian\n\n\n\n\n77.03\n42.67\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmean\nmedian\n\n\n\n\n23.33\n15.83\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmean\nmedian\n\n\n\n\n2751.55\n2756"
+  },
+  {
+    "objectID": "slides/lab-project-proposal.html#log-transformed-response-variable",
+    "href": "slides/lab-project-proposal.html#log-transformed-response-variable",
+    "title": "Lab: Project Proposal",
+    "section": "Log-transformed response variable",
+    "text": "Log-transformed response variable\nWe’ll start by considering the following model with a log-transformed response variable. Note that OpeningCent and ScreenCent are the mean-centered version of Opening and Screens.\n\\[\n\\log(TotalGross) = \\beta_0 + \\beta_1 \\times OpeningCent + \\beta_2 \\times ScreensCent + \\epsilon \\hspace{8mm} \\epsilon \\sim N(0, \\sigma^2_{\\epsilon})\n\\]\n\nThe model output is below:\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n3.8470\n0.0420\n91.6190\n0\n\n\nOpeningCent\n0.0251\n0.0026\n9.6891\n0\n\n\nScreensCent\n0.0005\n0.0001\n6.1691\n0\n\n\n\n\n\n\n\n\n\n\nInterpret the intercept in the context of the data.\nInterpret the effect of Opening in the context of the data."
+  },
+  {
+    "objectID": "slides/lab-project-proposal.html#log-transformed-predictor-variable",
+    "href": "slides/lab-project-proposal.html#log-transformed-predictor-variable",
+    "title": "Lab: Project Proposal",
+    "section": "Log-transformed predictor variable",
+    "text": "Log-transformed predictor variable\nNext let’s consider the following model with a log-transformed predictor. Note that OpeningCent and ScreenCent are the mean-centered version of Opening and Screens.\n\\[TotalGross = \\beta_0 + \\beta_1 \\times \\log(OpeningCent) + \\beta_2 \\times ScreensCent + \\epsilon \\hspace{8mm} \\epsilon \\sim N(0, \\sigma^2_{\\epsilon})\n\\]\n\nThe model output is below:\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n57.8738\n27.3014\n2.1198\n0.0400\n\n\nlog(OpeningCent)\n31.2932\n11.0651\n2.8281\n0.0071\n\n\nScreensCent\n0.0483\n0.0368\n1.3119\n0.1967\n\n\n\n\n\n\n\n\n\n\nInterpret the intercept in the context of the data.\nInterpret the effect of Opening in the context of the data."
+  },
+  {
+    "objectID": "slides/lab-project-proposal.html#project-proposal-1",
+    "href": "slides/lab-project-proposal.html#project-proposal-1",
+    "title": "Lab: Project Proposal",
+    "section": "Project proposal",
+    "text": "Project proposal\n\nChoose one of the usable data sets proposed in the Topic Ideas\nClick here for proposal instructions\n\n\n\n\n🔗 Week 09"
   },
   {
     "objectID": "slides/18-mlr-conditions.html#topics",

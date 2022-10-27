@@ -44,7 +44,7 @@ library(knitr)
 
 # Models with log-transformed variables
 
-# Movies data {.midi}
+## Movies data {.midi}
 
 The goal of this analysis is to predict the total gross revenue of a movie using opening weekend statistics. The data set includes movies released in the U.S. in 2009 that opened on 500 or more theater screens. The data were obtained from *Handbook of Regression Analysis.*
 

@@ -3913,6 +3913,13 @@
     "text": "Goals\n\nReview models with log-transformed response or predictor variables\nProject proposal"
   },
   {
+    "objectID": "slides/lab-project-proposal.html#movies-data",
+    "href": "slides/lab-project-proposal.html#movies-data",
+    "title": "Lab: Project Proposal",
+    "section": "Movies data",
+    "text": "Movies data\nThe goal of this analysis is to predict the total gross revenue of a movie using opening weekend statistics. The data set includes movies released in the U.S. in 2009 that opened on 500 or more theater screens. The data were obtained from Handbook of Regression Analysis.\nThe variables we’ll use are\n\nTotalGross: Total US gross revenue in millions of dollars\nOpening: opening weekend gross revenue in millions of dollars\nScreens: the number of screens on which the movie opened"
+  },
+  {
     "objectID": "slides/lab-project-proposal.html#exploratory-data-analysis",
     "href": "slides/lab-project-proposal.html#exploratory-data-analysis",
     "title": "Lab: Project Proposal",

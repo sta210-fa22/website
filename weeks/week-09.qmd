@@ -28,7 +28,7 @@ title-block-style: none
 | 💻 [MLR: Cross validation](../slides/16-cross-validation.html) | Oct 24      |
 | 💻 [MLR: Inference](../slides/17-mlr-inference.html)           | Oct 26      |
 | 💻 [MLR: Conditions](../slides/18-mlr-conditions.html)         | Oct 26      |
-| 💻 [Lab: Project proposal](../slides/lab-project-propsal.html)                                       | Oct 27 & 28 |
+| 💻 [Lab: Project proposal](../slides/lab-project-proposal.html#/title-slide)                                       | Oct 27 & 28 |
 
 # Practice
 

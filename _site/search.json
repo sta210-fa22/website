@@ -235,7 +235,7 @@
     "href": "weeks/week-10.html",
     "title": "Week 10",
     "section": "",
-    "text": "Participate\n\n\nPractice\n\n\nPerform"
+    "text": "Participate\n\n\n\n\n\n\n\nTopic\nDate\n\n\n\n\n💻 MLR: Conditions\nOct 31\n\n\n💻 Probabilities, Odds, & Odds Ratios\nNov 02\n\n\n\n\n\nPractice\n\n\nPerform\n\n\n\n\n\n\n\n📝 Project Proposal\ndue Fri, Nov 04, 11:59pm\n\n\n📝 HW 03\ndue Mon, Nov 07, 11:59pm\n\n\n📝 Lab 06\n\ndue Mon, Nov 06, 11:59pm (Thu labs)\ndue Tue, Nov 07, 11:59pm (Fri labs)\n\n\n\n📝 Statistics Experience\ndue Fri, Dec 09, 11:59pm"
   },
   {
     "objectID": "weeks/week-11.html",
@@ -3948,6 +3948,13 @@
     "text": "Project proposal\n\nChoose one of the usable data sets proposed in the Topic Ideas\nClick here for proposal instructions\n\n\n\n\n🔗 Week 09"
   },
   {
+    "objectID": "slides/18-mlr-conditions.html#announcements",
+    "href": "slides/18-mlr-conditions.html#announcements",
+    "title": "MLR conditions + multicollinearity",
+    "section": "Announcements",
+    "text": "Announcements\n\nProject proposal due Fri, Nov 04\nHW 03 due Mon, Nov 07 at 11:59pm\n\nReleased later today"
+  },
+  {
     "objectID": "slides/18-mlr-conditions.html#topics",
     "href": "slides/18-mlr-conditions.html#topics",
     "title": "MLR conditions + multicollinearity",
@@ -4183,7 +4190,7 @@
     "href": "slides/18-mlr-conditions.html#recap",
     "title": "MLR conditions + multicollinearity",
     "section": "Recap",
-    "text": "Recap\n\nConditions for inference\nMulticollinearity\n\n\n\n\n🔗 Week 09"
+    "text": "Recap\n\nConditions for inference\nMulticollinearity\n\n\n\n\n🔗 Week 10"
   },
   {
     "objectID": "slides/08-slr-conditions.html#announcements",

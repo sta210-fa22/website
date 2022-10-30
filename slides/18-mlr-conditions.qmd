@@ -1,9 +1,9 @@
 ---
 title: "MLR conditions + multicollinearity"
 author: "Prof. Maria Tackett"
-date: "2022-10-26"
+date: "2022-10-31"
 date-format: "MMM DD, YYYY"
-footer: "[🔗 Week 09](https://sta210-fa22.netlify.app/weeks/week-09.html)"
+footer: "[🔗 Week 10](https://sta210-fa22.netlify.app/weeks/week-10.html)"
 logo: "../images/logo.png"
 format: 
   revealjs:
@@ -35,6 +35,14 @@ knitr::opts_chunk$set(
 
 library(countdown)
 ```
+
+## Announcements
+
+-   Project proposal due Fri, Nov 04
+
+-   HW 03 due Mon, Nov 07 at 11:59pm
+
+    -   Released later today
 
 ## Topics
 

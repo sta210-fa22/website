@@ -3,6 +3,9 @@ title: "AE 11: MLR Inference + conditions"
 subtitle: "Trail riders"
 date: "Oct 26, 2022"
 editor: visual
+execute: 
+  warning: false
+  message: false
 ---
 
 ::: callout-important

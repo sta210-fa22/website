@@ -235,7 +235,7 @@
     "href": "weeks/week-10.html",
     "title": "Week 10",
     "section": "",
-    "text": "Participate\n\n\n\n\n\n\n\nTopic\nDate\n\n\n\n\n💻 MLR: Conditions\nOct 31\n\n\n💻 Probabilities, Odds, & Odds Ratios\nNov 02\n\n\n\n\n\nPractice\n\n\nPerform\n\n\n\n\n\n\n\n📝 Project Proposal\ndue Fri, Nov 04, 11:59pm\n\n\n📝 HW 03\ndue Mon, Nov 07, 11:59pm\n\n\n📝 Lab 06\n\ndue Mon, Nov 06, 11:59pm (Thu labs)\ndue Tue, Nov 07, 11:59pm (Fri labs)\n\n\n\n📝 Statistics Experience\ndue Fri, Dec 09, 11:59pm"
+    "text": "Participate\n\n\n\n\n\n\n\nTopic\nDate\n\n\n\n\n💻 MLR: Conditions\nOct 31\n\n\n💻 Probabilities, Odds, & Odds Ratios\nNov 02\n\n\n\n\n\nPractice\n\n\n\n\n\n\n\n📋 AE 12: Multiple Linear Regression Review\nOct 31\n\n\n\n+=====================================================================+================+ +———————————————————————+—————-+\n\n\nPerform\n\n\n\n\n\n\n\n📝 Project Proposal\ndue Fri, Nov 04, 11:59pm\n\n\n📝 HW 03\ndue Mon, Nov 07, 11:59pm\n\n\n📝 Lab 06\n\ndue Mon, Nov 06, 11:59pm (Thu labs)\ndue Tue, Nov 07, 11:59pm (Fri labs)\n\n\n\n📝 Statistics Experience\ndue Fri, Dec 09, 11:59pm"
   },
   {
     "objectID": "weeks/week-11.html",
@@ -817,6 +817,41 @@
     "title": "AE 06: Prediction for MLR",
     "section": "Prediction",
     "text": "Prediction\nWhat is the predicted sale price for an individual house in Levittown, NY with 4 bedrooms, 2 bathrooms, 1,800 square feet of living area, 6,000 square foot lot size, built in 1947 with $7,403 in property taxes?\nReport the predicted value and appropriate interval.\n\n\n\n\n\n\nNote\n\n\n\nFill in the code, then make #| eval: true before rendering the document.\n\n\n\n# create tibble for new observation \nnew_house <- tibble(\n  bedrooms = ____, \n  bathrooms = ____, \n  _____\n  )\n\n# prediction + interval\nprediction(_________)\n\n\nInterpret the interval in the context of the data.\n\n\n\n\n\n\n\nImportant\n\n\n\nTo submit the AE:\n\nRender the document to produce the PDF with all of your work from today’s class.\nPush all your work to your ae-06- repo on GitHub. (You do not submit AEs on Gradescope)."
+  },
+  {
+    "objectID": "ae/ae-12-mlr-review.html",
+    "href": "ae/ae-12-mlr-review.html",
+    "title": "AE 12: Multiple linear regression review",
+    "section": "",
+    "text": "Important\n\n\n\nGo to the course GitHub organization and locate your ae-12- to get started.\nThe AE is due on GitHub by Thursday, November 03, 11:59pm.\nThe data for this analysis includes information about LEGO sets from themes produced January 1, 2018 and September 11, 2020. The data were originally scraped from Brickset.com, an online LEGO set guide.\nYou will work with data on about 400 randomly selected LEGO sets produced during this time period. The primary variables are interest in this analysis are\nThe goal of this analysis is to predict the Amazon price based on the year, number of pieces, theme, and size of pieces. We will only include observations that have recorded values for all relevant variables."
+  },
+  {
+    "objectID": "ae/ae-12-mlr-review.html#exploratory-data-analysis",
+    "href": "ae/ae-12-mlr-review.html#exploratory-data-analysis",
+    "title": "AE 12: Multiple linear regression review",
+    "section": "Exploratory data analysis",
+    "text": "Exploratory data analysis\n\nResponse variable\n\nggplot(data = legos, aes(x = Amazon_Price)) +\n  geom_histogram() + \n    labs(title = \"Price of Lego sets on Amazon\",\n         x = \"Price in US dollars\")\n\n\n\n\n\n\nPredictor variables\n\np_pieces <- ggplot(data = legos, aes(x = Pieces)) +\n  geom_histogram() + \n    labs(title = \"Number of pieces\",\n         x = \"\")\n\np_year <- ggplot(data = legos, aes(x = Year)) +\n  geom_histogram() + \n    labs(title = \"Year of production\",\n         x = \"\") + \n  scale_x_continuous(breaks = c(2018, 2019, 2020))\n\np_size <- ggplot(data = legos, aes(x = Size)) +\n  geom_bar() + \n    labs(title = \"Piece size\",\n         x = \"\")\n\np_pieces / (p_year + p_size)\n\n\n\n\n\nWhat (if any) feature engineering might we want to include in a recipe for a model for Year, Pieces, and Size?\n\n\nlegos |>\n  count(Theme) |>\nggplot(aes(x = fct_reorder(Theme, n), y = n)) +\n  geom_col() + \n    labs(title = \"Lego Set Theme\", \n         x = \"Theme\", \n         y = \"Number of LEGO sets\") + \n  coord_flip()\n\n\n\n\n\nWhy should we avoid putting Theme in a model as is?\nHow can we use step_other() in the recipe to make Theme more usable in the model?"
+  },
+  {
+    "objectID": "ae/ae-12-mlr-review.html#model-fitting",
+    "href": "ae/ae-12-mlr-review.html#model-fitting",
+    "title": "AE 12: Multiple linear regression review",
+    "section": "Model Fitting",
+    "text": "Model Fitting\n\nTraining and test sets\nWrite code to data into training (75%) and testing (25%) sets.\n\nset.seed(1031)\n\n# add code to make training and test sets\n\n\n\nModel workflow\nFit the model using Pieces, Size, Year, and Theme to understand variability in Amazon_Price. To do so, specify the model and use training data to create a recipe applying the feature engineering steps mentioned above. Then, build the model workflow and fit the model.\n\n# add code to specify model \n\n\n# add code to create recipe\n\n\n# add code to build workflow\n\n\n# add code to fit model"
+  },
+  {
+    "objectID": "ae/ae-12-mlr-review.html#check-conditions-multicollinearity",
+    "href": "ae/ae-12-mlr-review.html#check-conditions-multicollinearity",
+    "title": "AE 12: Multiple linear regression review",
+    "section": "Check conditions + multicollinearity",
+    "text": "Check conditions + multicollinearity\nWhen we fit a model using recipe and workflow, we need to extract the model object before using the augment function. Fill in the name of the model fit in the code below.\n\n\n\n\n\n\nUpdate the option to eval: true, so the code chunk evaluates when the document is rendered.\n\n\n\n\nlego_fit_model <- extract_fit_parsnip(______)\nlego_aug <- augment(lego_fit_model)\n\n\nResiduals vs predicted values\nUse the code below to make a plot of residuals vs. predicted values\n\n\n\n\n\n\nUpdate the option to eval: true, so the code chunk evaluates when the document is rendered.\n\n\n\n\nggplot(data = lego_aug, aes(x = .fitted, y= .resid)) +\n  geom_point() + \n  geom_hline(yintercept = 0, color = \"red\", linetype = \"dashed\") + \n  labs(x = \"Predicted\", \n       y = \"Residuals\", \n       title = \"Residuals vs. Predicted\")\n\n\n\nDistribution of residuals\nFill in the code below to make a histogram of the residuals with an overlay of the normal distribution.\n\n\n\n\n\n\nUpdate the option to eval: true, so the code chunk evaluates when the document is rendered.\n\n\n\n\nggplot(lego_aug, aes(.resid)) +\n  geom_histogram(aes(y = after_stat(density))) +\n  stat_function(\n    fun = dnorm, \n    args = list(mean = mean(lego_aug$_____), sd = sd(_____)), \n    color = \"red\"\n  )\n\nUse the plots and information about the data to comment on whether each condition is satisfied.\n\nLinearity: [Add response]\nConstant variance: [Add response]\nNormality: [Add response]\nIndependence: [Add response]\n\n\n\nMulticollinearity\nFun the code to use the vif() function from the rms package to check multicollinearity.\n\n\n\n\n\n\nUpdate the option to eval: true, so the code chunk evaluates when the document is rendered.\n\n\n\n\nvif(lego_fit_model$fit)\n\n\nAre there issues with multicollinearity in the model?"
+  },
+  {
+    "objectID": "ae/ae-12-mlr-review.html#next-steps",
+    "href": "ae/ae-12-mlr-review.html#next-steps",
+    "title": "AE 12: Multiple linear regression review",
+    "section": "Next steps",
+    "text": "Next steps\n\nBased on the assessment of the model conditions and multicollinearity, what is the next step you might take in the model building process?\n\n\n\n\n\n\n\nImportant\n\n\n\nTo submit the AE:\n\nRender the document to produce the PDF with all of your work from today’s class.\nPush all your work to your ae-12- repo on GitHub. (You do not submit AEs on Gradescope)."
   },
   {
     "objectID": "ae/ae-09-model-comparison.html",

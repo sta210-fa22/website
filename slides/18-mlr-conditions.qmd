@@ -44,6 +44,8 @@ library(countdown)
 
     -   Released later today
 
+-   See[Week 10](../weeks/week-10.html) activities
+
 ## Topics
 
 -   Conditions for inference
@@ -480,3 +482,9 @@ tidy(m2) |>
 -   Conditions for inference
 
 -   Multicollinearity
+
+# Application exercise
+
+::: appex
+📋 [AE 12: Multiple Linear Regression Review](../ae/ae-12-mlr-review.html)
+:::

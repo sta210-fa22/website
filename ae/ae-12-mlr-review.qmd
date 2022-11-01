@@ -21,6 +21,7 @@ library(tidyverse)
 library(tidymodels)
 library(patchwork)
 library(rms)
+library(knitr)
 ```
 
 The data for this analysis includes information about LEGO sets from themes produced January 1, 2018 and September 11, 2020. The data were originally scraped from Brickset.com, an online LEGO set guide.
@@ -62,12 +63,6 @@ p_pieces <- ggplot(data = legos, aes(x = Pieces)) +
   geom_histogram() + 
     labs(title = "Number of pieces",
          x = "")
-
-p_year <- ggplot(data = legos, aes(x = Year)) +
-  geom_histogram() + 
-    labs(title = "Year of production",
-         x = "") + 
-  scale_x_continuous(breaks = c(2018, 2019, 2020))
 
 p_size <- ggplot(data = legos, aes(x = Size)) +
   geom_bar() + 

@@ -371,6 +371,97 @@
     "text": "Grading (50 points)\n\n\n\nComponent\nPoints\n\n\n\n\nEx 1 - 11\n47\n\n\nWorkflow & formatting\n32"
   },
   {
+    "objectID": "hw/hw-03.html",
+    "href": "hw/hw-03.html",
+    "title": "HW 03: Multiple linear regression, Part 2",
+    "section": "",
+    "text": "In this analysis you will use multiple linear regression to fit and evaluate models using characteristics of LEGO sets to understand variability in the price."
+  },
+  {
+    "objectID": "hw/hw-03.html#exercise-1",
+    "href": "hw/hw-03.html#exercise-1",
+    "title": "HW 03: Multiple linear regression, Part 2",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nIn this analysis, we dropped observations that have missing values for any of the relevant variables. What is a disadvantage of dropping observations that have missing values, instead of using a method to impute, i.e., fill in, the missing data? How might dropping these observations impact the generalizability of conclusions?"
+  },
+  {
+    "objectID": "hw/hw-03.html#exercise-2",
+    "href": "hw/hw-03.html#exercise-2",
+    "title": "HW 03: Multiple linear regression, Part 2",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nVisualize the distributions of the predictor variables Pieces, Size, Year, and Pages. Neatly arrange the plots using the patchwork package."
+  },
+  {
+    "objectID": "hw/hw-03.html#exercise-3",
+    "href": "hw/hw-03.html#exercise-3",
+    "title": "HW 03: Multiple linear regression, Part 2",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nWhat are some feature engineering steps you might use to prepare the variables in the previous exercise for the model? Describe th step and the function you would use. The list should incorporate at least three different step_ functions.\n\n\n\n\n\n\nTip\n\n\n\nUse the recipes reference page for a list of step_ functions."
+  },
+  {
+    "objectID": "hw/hw-03.html#exercise-4",
+    "href": "hw/hw-03.html#exercise-4",
+    "title": "HW 03: Multiple linear regression, Part 2",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nThe distribution of Theme is shown below. The bars are ordered by the frequency they occur in the data set.\n\nlegos |>\n  count(Theme) |>\nggplot(aes(x = fct_reorder(Theme, n), y = n)) +\n  geom_col() + \n    labs(title = \"Lego Set Theme\", \n         x = \"Theme\", \n         y = \"Number of LEGO sets\") + \n  coord_flip()\n\n\n\n\nWhat is one reason we should avoid putting the variable Theme in a model as is?"
+  },
+  {
+    "objectID": "hw/hw-03.html#exercise-5",
+    "href": "hw/hw-03.html#exercise-5",
+    "title": "HW 03: Multiple linear regression, Part 2",
+    "section": "Exercise 5",
+    "text": "Exercise 5\nWe will use v-fold cross validation to compare two models. We’ll start by preparing the data, creating the folds, and defining the model specification that will be used for both models.\n\nSplit the data into training (75%) and testing (25%) sets. Use a seed of 5.\nSplit the training data into 10 folds. Use a seed of 5.\nSpecify the model."
+  },
+  {
+    "objectID": "hw/hw-03.html#exercise-6",
+    "href": "hw/hw-03.html#exercise-6",
+    "title": "HW 03: Multiple linear regression, Part 2",
+    "section": "Exercise 6",
+    "text": "Exercise 6\nUse the training data to create a recipe for the first model. The model uses the variables Size, Theme, and Pages to predict Amazon_Price. Conduct the following feature engineering steps:\n\nUse step_other() to collapse Theme into fewer categories. Define the threshold such that any levels of Theme with fewer than 20 observations is defined as “Other”.\nMean-center Pages.\nMake dummy variables for all categorical predictors.\nRemove any predictors with zero variance.\n\nThen create the workflow that brings together this recipe and the model specification from the previous exercise."
+  },
+  {
+    "objectID": "hw/hw-03.html#exercise-7",
+    "href": "hw/hw-03.html#exercise-7",
+    "title": "HW 03: Multiple linear regression, Part 2",
+    "section": "Exercise 7",
+    "text": "Exercise 7\nConduct 10-fold cross validation using the workflow from the previous exercise. Calculate and display mean RMSE across the 10 folds.\n\n\n\n\n\n\nNote\n\n\n\nWe will just use RMSE to compare models for this assignment; however, in practice, it is best to take into account multiple model fit statistics to get a more holistic evaluation and comparison of the models."
+  },
+  {
+    "objectID": "hw/hw-03.html#exercise-8",
+    "href": "hw/hw-03.html#exercise-8",
+    "title": "HW 03: Multiple linear regression, Part 2",
+    "section": "Exercise 8",
+    "text": "Exercise 8\nNow let’s consider a new model that includes all the variables used in model from Exercise 6 along with Year and Pieces.\n\nUse the training data to create a recipe that uses all the feature engineering steps in Exercise 6 with the addition of the following steps:\n\nCreate a new variable called since2018 that calculates the number of years since 2018.\nRemove Year as a potential predictor.\nMean-center Pieces.\n\nCreate the workflow that brings together this recipe and the model specification from Exercise 5.\nConduct 10-fold cross validation using this model workflow. Calculate and display mean RMSE across the 10 folds."
+  },
+  {
+    "objectID": "hw/hw-03.html#exercise-9",
+    "href": "hw/hw-03.html#exercise-9",
+    "title": "HW 03: Multiple linear regression, Part 2",
+    "section": "Exercise 9",
+    "text": "Exercise 9\nCompare the cross validation results from Exercises 7 and 8. Which model do you select based on RMSE? Briefly explain your choice."
+  },
+  {
+    "objectID": "hw/hw-03.html#exercise-10",
+    "href": "hw/hw-03.html#exercise-10",
+    "title": "HW 03: Multiple linear regression, Part 2",
+    "section": "Exercise 10",
+    "text": "Exercise 10\nRefit the selected model on the entire training data. Neatly display the model using 3 digits.\nThen, calculate VIF for the model and use it to comment on whether there are potential issues with multicollinearity.\n\n\n\n\n\n\nTip\n\n\n\nWhen we fit a model using recipe and workflow, we need to extract the model object before using augment or vif functions. Fill in the name of the selected model in both blanks in the code below to extract the model object and calculate VIF\n\nlegos_fit_model <- extract_fit_parsnip(______)\nvif(legos_fit_model$fit)"
+  },
+  {
+    "objectID": "hw/hw-03.html#exercise-11",
+    "href": "hw/hw-03.html#exercise-11",
+    "title": "HW 03: Multiple linear regression, Part 2",
+    "section": "Exercise 11",
+    "text": "Exercise 11\nCalculate RMSE on the training data and on the testing data. Use it to comment on how well the model performs on new data and whether there are signs of model overfit."
+  },
+  {
+    "objectID": "hw/hw-03.html#exercise-12",
+    "href": "hw/hw-03.html#exercise-12",
+    "title": "HW 03: Multiple linear regression, Part 2",
+    "section": "Exercise 12",
+    "text": "Exercise 12\nThough we do not check the model conditions in this assignment, complete this exercise assuming the model conditions are met.\nDescribe the effect of Theme on the price of LEGO sets, including an indication of which levels are statistically significant. Use a threshold of 0.05 to determine significance.\n\nBefore submitting, make sure you render your document and commit (with a meaningful commit message) and push all updates."
+  },
+  {
     "objectID": "hw/hw-02.html",
     "href": "hw/hw-02.html",
     "title": "HW 02: Multiple linear regression",
@@ -830,7 +921,7 @@
     "href": "ae/ae-12-mlr-review.html#exploratory-data-analysis",
     "title": "AE 12: Multiple linear regression review",
     "section": "Exploratory data analysis",
-    "text": "Exploratory data analysis\n\nResponse variable\n\nggplot(data = legos, aes(x = Amazon_Price)) +\n  geom_histogram() + \n    labs(title = \"Price of Lego sets on Amazon\",\n         x = \"Price in US dollars\")\n\n\n\n\n\n\nPredictor variables\n\np_pieces <- ggplot(data = legos, aes(x = Pieces)) +\n  geom_histogram() + \n    labs(title = \"Number of pieces\",\n         x = \"\")\n\np_year <- ggplot(data = legos, aes(x = Year)) +\n  geom_histogram() + \n    labs(title = \"Year of production\",\n         x = \"\") + \n  scale_x_continuous(breaks = c(2018, 2019, 2020))\n\np_size <- ggplot(data = legos, aes(x = Size)) +\n  geom_bar() + \n    labs(title = \"Piece size\",\n         x = \"\") + \n  coord_flip()\n\np_pieces /  p_size\n\n\n\n\n\nWhat (if any) feature engineering might we want to include in a recipe for a model for Pieces and Size?\n\n\nlegos |>\n  count(Theme) |>\nggplot(aes(x = fct_reorder(Theme, n), y = n)) +\n  geom_col() + \n    labs(title = \"Lego Set Theme\", \n         x = \"Theme\", \n         y = \"Number of LEGO sets\") + \n  coord_flip()\n\n\n\n\n\nWhy should we avoid putting Theme in a model as is?\nHow can we use step_other() in the recipe to make Theme more usable in the model?"
+    "text": "Exploratory data analysis\n\nResponse variable\n\nggplot(data = legos, aes(x = Amazon_Price)) +\n  geom_histogram() + \n    labs(title = \"Price of Lego sets on Amazon\",\n         x = \"Price in US dollars\")\n\n\n\n\n\n\nPredictor variables\n\np_pieces <- ggplot(data = legos, aes(x = Pieces)) +\n  geom_histogram() + \n    labs(title = \"Number of pieces\",\n         x = \"\")\n\np_size <- ggplot(data = legos, aes(x = Size)) +\n  geom_bar() + \n    labs(title = \"Piece size\",\n         x = \"\") + \n  coord_flip()\n\np_pieces /  p_size\n\n\n\n\n\nWhat (if any) feature engineering might we want to include in a recipe for a model for Pieces and Size?\n\n\nlegos |>\n  count(Theme) |>\nggplot(aes(x = fct_reorder(Theme, n), y = n)) +\n  geom_col() + \n    labs(title = \"Lego Set Theme\", \n         x = \"Theme\", \n         y = \"Number of LEGO sets\") + \n  coord_flip()\n\n\n\n\n\nWhy should we avoid putting Theme in a model as is?\nHow can we use step_other() in the recipe to make Theme more usable in the model?"
   },
   {
     "objectID": "ae/ae-12-mlr-review.html#model-fitting",

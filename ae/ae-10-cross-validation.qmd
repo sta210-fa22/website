@@ -11,7 +11,7 @@ Go to the [course GitHub organization](https://github.com/sta210-fa22) and locat
 The AE is due on GitHub by Thursday, October 27 at 11:59pm.
 :::
 
-## Function 
+## Function
 
 ```{r}
 # function to calculate model fit statistics
@@ -85,7 +85,7 @@ office_rec1 <- recipe(imdb_rating ~ ., data = office_train) |>
 office_rec1
 ```
 
-## Preview recipe 
+## Preview recipe
 
 ```{r}
 #| label: preview-recipe
@@ -109,7 +109,7 @@ office_wflow1 <- workflow() |>
 office_wflow1
 ```
 
-# Cross validation 
+# Cross validation
 
 ## Create folds
 
@@ -123,7 +123,7 @@ set.seed(345)
 folds <- vfold_cv(office_train, v = 10)
 ```
 
-## Conduct cross validation 
+## Conduct cross validation
 
 Conduct cross validation on the 10 folds.
 
@@ -169,7 +169,7 @@ Create a different (simpler, involving fewer variables) recipe and call it `offi
 # add code here
 ```
 
-## Model 2: Workflow 
+## Model 2: Workflow
 
 ```{r}
 #| label: model2-workflow
@@ -177,7 +177,7 @@ Create a different (simpler, involving fewer variables) recipe and call it `offi
 # add code here
 ```
 
-## Model 2: Conduct CV 
+## Model 2: Conduct CV
 
 ::: callout-note
 Note: We will use the same folds as the ones used for Model 1. Why should we use the same folds to evaluate and compare both models?
@@ -205,7 +205,7 @@ Note: We will use the same folds as the ones used for Model 1. Why should we use
 # add code here
 ```
 
-# Compare models 
+# Compare models
 
 Describe how the two models compare to each other based on cross validation metrics.
 

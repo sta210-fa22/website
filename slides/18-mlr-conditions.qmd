@@ -44,7 +44,7 @@ library(countdown)
 
     -   Released later today
 
--   See[Week 10](../weeks/week-10.html) activities
+-   See [Week 10](../weeks/week-10.html) activities
 
 ## Topics
 

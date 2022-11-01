@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.0.36">
 
   <meta name="author" content="Prof.&nbsp;Maria Tackett">
-  <title>STA 210 - Fall 2022 - MLR conditions + multicollinearity</title>
+  <title>STA 210 - Fall 2022 - Logistic regression</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -385,7 +385,8 @@
     <div class="slides">
 
 <section id="title-slide" class="center">
-  <h1 class="title">MLR conditions + multicollinearity</h1>
+  <h1 class="title">Logistic regression</h1>
+  <p class="subtitle">Introducution</p>
   <p class="author">Prof.&nbsp;Maria Tackett</p>
   <p class="date">Oct 31, 2022</p>
 </section>
@@ -393,10 +394,13 @@
 <section id="announcements" class="slide level2">
 <h2>Announcements</h2>
 <ul>
-<li><p>Project proposal due Fri, Nov 04</p></li>
-<li><p>HW 03 due Mon, Nov 07 at 11:59pm</p>
+<li><p>Project proposal due Fri, Nov 04 at 11:59pm</p></li>
+<li><p>HW 03 due Mon, Nov 07 at 11:59pm</p></li>
+<li><p>Team Feedback #1 due Tue, Nov 08 at 11:59pm</p>
 <ul>
-<li>Released later today</li>
+<li>Received email from Teammates around 10am</li>
+<li>Check your junk/spam folder if you do not see the email.</li>
+<li>Email me if you still don’t see it.</li>
 </ul></li>
 <li><p>See <a href="../weeks/week-10.html">Week 10</a> activities</p></li>
 </ul>
@@ -404,8 +408,9 @@
 <section id="topics" class="slide level2">
 <h2>Topics</h2>
 <ul>
-<li><p>Conditions for inference</p></li>
-<li><p>Multicollinearity</p></li>
+<li><p>Logistic regression for binary response variable</p></li>
+<li><p>Relationship between odds and probabilities</p></li>
+<li><p>Use logistic regression model to calculate predicted odds and probabilities</p></li>
 </ul>
 </section>
 <section id="computational-setup" class="slide level2">
@@ -414,323 +419,317 @@
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># load packages</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="fu">library</span>(tidymodels)</span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="fu">library</span>(knitr)      <span class="co"># for tables</span></span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="fu">library</span>(patchwork)  <span class="co"># for laying out plots</span></span>
-<span id="cb1-6"><a href="#cb1-6"></a><span class="fu">library</span>(rms)        <span class="co"># for vif</span></span>
-<span id="cb1-7"><a href="#cb1-7"></a></span>
-<span id="cb1-8"><a href="#cb1-8"></a><span class="co"># set default theme and larger font size for ggplot2</span></span>
-<span id="cb1-9"><a href="#cb1-9"></a>ggplot2<span class="sc">::</span><span class="fu">theme_set</span>(ggplot2<span class="sc">::</span><span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">20</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="data-rail_trail" class="slide level2 smaller">
-<h2>Data: <code>rail_trail</code></h2>
-<div>
-<ul>
-<li>The Pioneer Valley Planning Commission (PVPC) collected data for ninety days from April 5, 2005 to November 15, 2005.</li>
-<li>Data collectors set up a laser sensor, with breaks in the laser beam recording when a rail-trail user passed the data collection station.</li>
-</ul>
-</div>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>rail_trail <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"slides"</span>, <span class="st">"data/rail_trail.csv"</span>))</span>
-<span id="cb2-2"><a href="#cb2-2"></a>rail_trail</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 90 × 7
-   volume hightemp avgtemp season cloudcover precip day_type
-    &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;   
- 1    501       83    66.5 Summer       7.60 0      Weekday 
- 2    419       73    61   Summer       6.30 0.290  Weekday 
- 3    397       74    63   Spring       7.5  0.320  Weekday 
- 4    385       95    78   Summer       2.60 0      Weekend 
- 5    200       44    48   Spring      10    0.140  Weekday 
- 6    375       69    61.5 Spring       6.60 0.0200 Weekday 
- 7    417       66    52.5 Spring       2.40 0      Weekday 
- 8    629       66    52   Spring       0    0      Weekend 
- 9    533       80    67.5 Summer       3.80 0      Weekend 
-10    547       79    62   Summer       4.10 0      Weekday 
-# … with 80 more rows</code></pre>
-</div>
-</div>
-<p>Source: <a href="http://www.fvgreenway.org/pdfs/Northampton-Bikepath-Volume-Counts%20_05_LTA.pdf">Pioneer Valley Planning Commission</a> via the <strong>mosaicData</strong> package.</p>
-</section>
-<section id="variables" class="slide level2 smaller">
-<h2>Variables</h2>
-<p><strong>Outcome</strong>:</p>
-<p><code>volume</code> estimated number of trail users that day (number of breaks recorded)</p>
-<p><strong>Predictors</strong></p>
-<div>
-<ul>
-<li><code>hightemp</code> daily high temperature (in degrees Fahrenheit)</li>
-<li><code>avgtemp</code> average of daily low and daily high temperature (in degrees Fahrenheit)</li>
-<li><code>season</code> one of “Fall”, “Spring”, or “Summer”</li>
-<li><code>cloudcover</code> measure of cloud cover (in oktas)</li>
-<li><code>precip</code> measure of precipitation (in inches)</li>
-<li><code>day_type</code> one of “weekday” or “weekend”</li>
-</ul>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="fu">library</span>(Stat2Data)</span>
+<span id="cb1-6"><a href="#cb1-6"></a></span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="co"># set default theme and larger font size for ggplot2</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a>ggplot2<span class="sc">::</span><span class="fu">theme_set</span>(ggplot2<span class="sc">::</span><span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">20</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section>
-<section id="conditions-for-inference" class="title-slide slide level1 center">
-<h1>Conditions for inference</h1>
+<section id="predicting-categorical-outcomes" class="title-slide slide level1 center">
+<h1>Predicting categorical outcomes</h1>
 
 </section>
-<section id="full-model" class="slide level2 smaller">
-<h2>Full model</h2>
-<p>Including all available predictors</p>
-<p><strong>Fit:</strong></p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>rt_full_fit <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">|&gt;</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a>  <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a>  <span class="fu">fit</span>(volume <span class="sc">~</span> ., <span class="at">data =</span> rail_trail)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="fragment">
-<p><strong>Summarize:</strong></p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">tidy</span>(rt_full_fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 8 × 5
-  term            estimate std.error statistic p.value
-  &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;
-1 (Intercept)        17.6      76.6      0.230 0.819  
-2 hightemp            7.07      2.42     2.92  0.00450
-3 avgtemp            -2.04      3.14    -0.648 0.519  
-4 seasonSpring       35.9      33.0      1.09  0.280  
-5 seasonSummer       24.2      52.8      0.457 0.649  
-6 cloudcover         -7.25      3.84    -1.89  0.0627 
-7 precip            -95.7      42.6     -2.25  0.0273 
-8 day_typeWeekend    35.9      22.4      1.60  0.113  </code></pre>
-</div>
-</div>
-</div>
-<div class="fragment">
-<p><strong>Augment:</strong></p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>rt_full_aug <span class="ot">&lt;-</span> <span class="fu">augment</span>(rt_full_fit<span class="sc">$</span>fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</section>
-<section id="model-conditions" class="slide level2">
-<h2>Model conditions</h2>
-<ol type="1">
-<li><p><strong>Linearity:</strong> There is a linear relationship between the response and predictor variables.</p></li>
-<li><p><strong>Constant Variance:</strong> The variability about the least squares line is generally constant.</p></li>
-<li><p><strong>Normality:</strong> The distribution of the residuals is approximately normal.</p></li>
-<li><p><strong>Independence:</strong> The residuals are independent from each other.</p></li>
-</ol>
-</section>
-<section id="residuals-vs.-predicted-values" class="slide level2">
-<h2>Residuals vs.&nbsp;predicted values</h2>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> rt_full_aug, <span class="fu">aes</span>(<span class="at">x =</span> .fitted, <span class="at">y =</span> .resid)) <span class="sc">+</span></span>
-<span id="cb8-2"><a href="#cb8-2"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
-<span id="cb8-3"><a href="#cb8-3"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
-<span id="cb8-4"><a href="#cb8-4"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Predicted values"</span>, <span class="at">y =</span> <span class="st">"Residuals"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-</div>
-<img data-src="18-mlr-conditions_files/figure-revealjs/main_res_pred-1.png" style="width:90.0%" class="r-stretch quarto-figure-center"></section>
-<section id="linearity-residuals-vs.-predicted" class="slide level2">
-<h2>Linearity: Residuals vs.&nbsp;predicted</h2>
-<div class="question">
-<p>Does the linearity condition appear to be met?</p>
-</div>
-
-<img data-src="18-mlr-conditions_files/figure-revealjs/unnamed-chunk-8-1.png" style="width:90.0%" class="r-stretch quarto-figure-center"></section>
-<section id="linearity-residuals-vs.-predicted-1" class="slide level2">
-<h2>Linearity: Residuals vs.&nbsp;predicted</h2>
-<p>Look at individual plots of residuals vs.&nbsp;each predictor, particularly if there are potential issues in the plot of residuals vs.&nbsp;predicted values.</p>
-</section>
-<section id="linearity-residuals-vs.-each-predictor" class="slide level2">
-<h2>Linearity: Residuals vs.&nbsp;each predictor</h2>
-
-<img data-src="18-mlr-conditions_files/figure-revealjs/unnamed-chunk-9-1.png" style="width:90.0%" class="r-stretch quarto-figure-center"></section>
-<section id="checking-linearity" class="slide level2">
-<h2>Checking linearity</h2>
+<section id="types-of-outcome-variables" class="slide level2">
+<h2>Types of outcome variables</h2>
+<p><strong>Quantitative outcome variable</strong>:</p>
 <ul>
-<li><p>The plots of residuals vs.&nbsp;<code>hightemp</code> and <code>avgtemp</code> appear to have a parabolic pattern.</p></li>
-<li><p>The linearity condition is not satisfied given these plots.</p></li>
+<li>Sales price of a house in Levittown, NY</li>
+<li><strong>Model</strong>: Expected sales price given the number of bedrooms, lot size, etc.</li>
 </ul>
-</section>
-<section id="checking-constant-variance" class="slide level2">
-<h2>Checking constant variance</h2>
-<div class="question">
-<p>Does the constant variance condition appear to be satisfied?</p>
-</div>
-
-<img data-src="18-mlr-conditions_files/figure-revealjs/unnamed-chunk-10-1.png" style="width:90.0%" class="r-stretch quarto-figure-center"></section>
-<section id="checking-constant-variance-1" class="slide level2">
-<h2>Checking constant variance</h2>
+<div class="fragment">
+<p><strong>Categorical outcone variable</strong>:</p>
 <ul>
-<li><p>The vertical spread of the residuals is not constant across the plot.</p></li>
-<li><p>The constant variance condition is not satisfied.</p></li>
+<li>High risk of coronary heart disease</li>
+<li><strong>Model</strong>: Probability an adult is high risk of heart disease given their age, total cholesterol, etc.</li>
 </ul>
-</section>
-<section id="checking-normality" class="slide level2">
-<h2>Checking normality</h2>
-
-<img data-src="18-mlr-conditions_files/figure-revealjs/unnamed-chunk-11-1.png" style="width:90.0%" class="r-stretch quarto-figure-center"></section>
-<section id="overlaying-a-density-plot-on-a-histogram" class="slide level2">
-<h2>Overlaying a density plot on a histogram</h2>
-<div class="appex">
-<p>📋 <a href="../ae/ae-11-mlr-inference.html">AE 11: MLR Inference</a></p>
 </div>
+</section>
+<section id="models-for-categorical-outcomes" class="slide level2">
+<h2>Models for categorical outcomes</h2>
 <div class="columns">
-<div class="column" style="width:30%;">
-<div class="question">
-<p><strong>Ex 2.</strong> Fill in the code to recreate the following visualization in R based on the results of the model.</p>
+<div class="column" style="width:50%;">
+<p><strong>Logistic regression</strong></p>
+<p>2 Outcomes</p>
+<p>1: Yes, 0: No</p>
+</div><div class="column" style="width:50%;">
+<p><strong>Multinomial logistic regression</strong></p>
+<p>3+ Outcomes</p>
+<p>1: Democrat, 2: Republican, 3: Independent</p>
 </div>
-</div><div class="column" style="width:70%;">
+</div>
+</section>
+<section id="election-forecasts" class="slide level2">
+<h2>2022 election forecasts</h2>
+
+<img data-src="images/19/fivethirtyeight-2022-senate.png" class="r-stretch quarto-figure-center"><p>Source: <a href="https://projects.fivethirtyeight.com/2022-election-forecast/">FiveThirtyEight 2022 Election Forecasts</a></p>
+</section>
+<section id="nba-finals-predictions" class="slide level2">
+<h2>2020 NBA finals predictions</h2>
+
+<img data-src="images/19/nba-predictions.png" class="r-stretch quarto-figure-center"><p>Source: <a href="https://projects.fivethirtyeight.com/2020-nba-predictions/games/?ex_cid=rrpromo">FiveThirtyEight 2019-20 NBA Predictions</a></p>
+</section>
+<section id="do-teenagers-get-7-hours-of-sleep" class="slide level2 smaller">
+<h2>Do teenagers get 7+ hours of sleep?</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p>Students in grades 9 - 12 surveyed about health risk behaviors including whether they usually get 7 or more hours of sleep.</p>
+<p><code>Sleep7</code></p>
+<p>1: yes</p>
+<p>0: no</p>
+</div><div class="column" style="width:60%;">
 <div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="18-mlr-conditions_files/figure-revealjs/density-1.png" style="width:100.0%"></p>
-</figure>
-</div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">data</span>(YouthRisk2009) <span class="co">#from Stat2Data package</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>sleep <span class="ot">&lt;-</span> YouthRisk2009 <span class="sc">|&gt;</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a>  <span class="fu">as_tibble</span>() <span class="sc">|&gt;</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Age), <span class="sc">!</span><span class="fu">is.na</span>(Sleep7))</span>
+<span id="cb2-5"><a href="#cb2-5"></a>sleep <span class="sc">|&gt;</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a>  <span class="fu">relocate</span>(Age, Sleep7)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 446 × 6
+     Age Sleep7 Sleep           SmokeLife SmokeDaily MarijuaEver
+   &lt;int&gt;  &lt;int&gt; &lt;fct&gt;           &lt;fct&gt;     &lt;fct&gt;            &lt;int&gt;
+ 1    16      1 8 hours         Yes       Yes                  1
+ 2    17      0 5 hours         Yes       Yes                  1
+ 3    18      0 5 hours         Yes       Yes                  1
+ 4    17      1 7 hours         Yes       No                   1
+ 5    15      0 4 or less hours No        No                   0
+ 6    17      0 6 hours         No        No                   0
+ 7    17      1 7 hours         No        No                   0
+ 8    16      1 8 hours         Yes       No                   0
+ 9    16      1 8 hours         No        No                   0
+10    18      0 4 or less hours Yes       Yes                  1
+# … with 436 more rows</code></pre>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="checking-independence" class="slide level2">
-<h2>Checking independence</h2>
-<ul>
-<li><p>We can often check the independence condition based on the context of the data and how the observations were collected.</p></li>
-<li><p>If the data were collected in a particular order, examine a scatterplot of the residuals versus order in which the data were collected.</p></li>
-<li><p>If there is a grouping variable lurking in the background, check the residuals based on that grouping variable.</p></li>
-</ul>
-</section>
-<section id="checking-independence-1" class="slide level2 midi">
-<h2>Checking independence</h2>
-<p>Residuals vs.&nbsp;order of data collection:</p>
+<section id="plot-the-data" class="slide level2">
+<h2>Plot the data</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">ggplot</span>(rt_full_aug, <span class="fu">aes</span>(<span class="at">y =</span> .resid, <span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(rt_full_aug))) <span class="sc">+</span></span>
-<span id="cb9-2"><a href="#cb9-2"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb9-3"><a href="#cb9-3"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
-<span id="cb9-4"><a href="#cb9-4"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Order of data collection"</span>, <span class="at">y =</span> <span class="st">"Residuals"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">ggplot</span>(sleep, <span class="fu">aes</span>(<span class="at">x =</span> Age, <span class="at">y =</span> Sleep7)) <span class="sc">+</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb4-3"><a href="#cb4-3"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Getting 7+ hours of sleep"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="18-mlr-conditions_files/figure-revealjs/unnamed-chunk-13-1.png" style="width:90.0%" class="r-stretch quarto-figure-center"></section>
-<section id="checking-independence-2" class="slide level2">
-<h2>Checking independence</h2>
-<p>Residuals vs.&nbsp;predicted values by <code>season</code>:</p>
+<img data-src="19-logistic-intro_files/figure-revealjs/unnamed-chunk-4-1.png" style="width:90.0%" class="r-stretch quarto-figure-center"></section>
+<section id="lets-fit-a-linear-regression-model" class="slide level2">
+<h2>Let’s fit a linear regression model</h2>
+<p><strong>Outcome:</strong> <span class="math inline">\(Y\)</span> = 1: yes, 0: no</p>
 
-<img data-src="18-mlr-conditions_files/figure-revealjs/unnamed-chunk-14-1.png" style="width:90.0%" class="r-stretch quarto-figure-center"></section>
-<section id="checking-independence-3" class="slide level2">
-<h2>Checking independence</h2>
-<p>Residuals vs.&nbsp;predicted values by <code>day_type</code>:</p>
+<img data-src="19-logistic-intro_files/figure-revealjs/unnamed-chunk-5-1.png" style="width:90.0%" class="r-stretch quarto-figure-center"></section>
+<section id="lets-use-proportions" class="slide level2">
+<h2>Let’s use proportions</h2>
+<p><strong>Outcome:</strong> Probability of getting 7+ hours of sleep</p>
 
-<img data-src="18-mlr-conditions_files/figure-revealjs/unnamed-chunk-15-1.png" style="width:90.0%" class="r-stretch quarto-figure-center"></section>
-<section id="checking-independence-4" class="slide level2">
-<h2>Checking independence</h2>
-<ul>
-<li><p>No clear pattern in the residuals vs.&nbsp;order of data collection plot and the model predicts similarly for seasons and day types.</p></li>
-<li><p>Independence condition appears to be satisfied, as far as we can evaluate it.</p></li>
-</ul>
+<img data-src="19-logistic-intro_files/figure-revealjs/unnamed-chunk-6-1.png" style="width:90.0%" class="r-stretch quarto-figure-center"></section>
+<section id="what-happens-if-we-zoom-out" class="slide level2">
+<h2>What happens if we zoom out?</h2>
+<p><strong>Outcome:</strong> Probability of getting 7+ hours of sleep</p>
+
+<img data-src="19-logistic-intro_files/figure-revealjs/unnamed-chunk-7-1.png" style="width:90.0%" class="r-stretch quarto-figure-center"><p>🛑 <em>This model produces predictions outside of 0 and 1.</em></p>
+</section>
+<section id="lets-try-another-model" class="slide level2">
+<h2>Let’s try another model</h2>
+
+<img data-src="19-logistic-intro_files/figure-revealjs/logistic-model-plot-1.png" style="width:90.0%" class="r-stretch quarto-figure-center"><p><em>✅ This model (called a <strong>logistic regression model</strong>) only produces predictions between 0 and 1.</em></p>
+</section>
+<section id="the-code" class="slide level2">
+<h2>The code</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">ggplot</span>(sleep_age, <span class="fu">aes</span>(<span class="at">x =</span> Age, <span class="at">y =</span> prop)) <span class="sc">+</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb5-3"><a href="#cb5-3"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="at">lty =</span> <span class="dv">2</span>) <span class="sc">+</span> </span>
+<span id="cb5-4"><a href="#cb5-4"></a>  <span class="fu">stat_smooth</span>(<span class="at">method =</span><span class="st">"glm"</span>, <span class="at">method.args =</span> <span class="fu">list</span>(<span class="at">family =</span> <span class="st">"binomial"</span>), </span>
+<span id="cb5-5"><a href="#cb5-5"></a>              <span class="at">fullrange =</span> <span class="cn">TRUE</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb5-6"><a href="#cb5-6"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"P(7+ hours of sleep)"</span>) <span class="sc">+</span></span>
+<span id="cb5-7"><a href="#cb5-7"></a>  <span class="fu">xlim</span>(<span class="dv">1</span>, <span class="dv">40</span>) <span class="sc">+</span></span>
+<span id="cb5-8"><a href="#cb5-8"></a>  <span class="fu">ylim</span>(<span class="sc">-</span><span class="fl">0.5</span>, <span class="fl">1.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="different-types-of-models" class="slide level2">
+<h2>Different types of models</h2>
+<table>
+<colgroup>
+<col style="width: 27%">
+<col style="width: 21%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Method</th>
+<th>Outcome</th>
+<th>Model</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Linear regression</td>
+<td>Quantitative</td>
+<td><span class="math inline">\(Y = \beta_0 + \beta_1~ X\)</span></td>
+</tr>
+<tr class="even">
+<td>Linear regression (transform Y)</td>
+<td>Quantitative</td>
+<td><span class="math inline">\(\log(Y) = \beta_0 + \beta_1~ X\)</span></td>
+</tr>
+<tr class="odd">
+<td>Logistic regression</td>
+<td>Binary</td>
+<td><span class="math inline">\(\log\big(\frac{\pi}{1-\pi}\big) = \beta_0 + \beta_1 ~ X\)</span></td>
+</tr>
+</tbody>
+</table>
 </section></section>
 <section>
-<section id="multicollinearity" class="title-slide slide level1 center">
-<h1>Multicollinearity</h1>
+<section id="odds-and-probabilities" class="title-slide slide level1 center">
+<h1>Odds and probabilities</h1>
 
 </section>
-<section id="why-multicollinearity-is-a-problem" class="slide level2">
-<h2>Why multicollinearity is a problem</h2>
+<section id="binary-response-variable" class="slide level2">
+<h2>Binary response variable</h2>
+<div>
 <ul>
-<li><p>We can’t include two variables that have a perfect linear association with each other</p></li>
-<li><p>If we did so, we could not find unique estimates for the model coefficients</p></li>
+<li class="fragment"><span class="math inline">\(Y = 1: \text{ yes}, 0: \text{ no}\)</span></li>
+<li class="fragment"><span class="math inline">\(\pi\)</span>: <strong>probability</strong> that <span class="math inline">\(Y=1\)</span>, i.e., <span class="math inline">\(P(Y = 1)\)</span></li>
+<li class="fragment"><span class="math inline">\(\frac{\pi}{1-\pi}\)</span>: <strong>odds</strong> that <span class="math inline">\(Y = 1\)</span></li>
+<li class="fragment"><span class="math inline">\(\log\big(\frac{\pi}{1-\pi}\big)\)</span>: <strong>log odds</strong></li>
+<li class="fragment">Go from <span class="math inline">\(\pi\)</span> to <span class="math inline">\(\log\big(\frac{\pi}{1-\pi}\big)\)</span> using the <strong>logit transformation</strong></li>
 </ul>
+</div>
 </section>
-<section id="example" class="slide level2">
-<h2>Example</h2>
-<p>Suppose the true population regression equation is <span class="math inline">\(y = 3 + 4x\)</span></p>
+<section id="odds" class="slide level2">
+<h2>Odds</h2>
+<div>
+<p>Suppose there is a <strong>70% chance</strong> it will rain tomorrow</p>
 <ul>
-<li>Suppose we try estimating that equation using a model with variables <span class="math inline">\(x\)</span> and <span class="math inline">\(z = x/10\)</span></li>
+<li class="fragment">Probability it will rain is <span class="math inline">\(\mathbf{p = 0.7}\)</span></li>
+<li class="fragment">Probability it won’t rain is <span class="math inline">\(\mathbf{1 - p = 0.3}\)</span></li>
+<li class="fragment">Odds it will rain are <strong>7 to 3</strong>, <strong>7:3</strong>, <span class="math inline">\(\mathbf{\frac{0.7}{0.3} \approx 2.33}\)</span></li>
 </ul>
-<p><span class="math display">\[
-\begin{aligned}\hat{y}&amp;= \hat{\beta}_0 + \hat{\beta}_1x  + \hat{\beta}_2z\\
-&amp;= \hat{\beta}_0 + \hat{\beta}_1x  + \hat{\beta}_2\frac{x}{10}\\
-&amp;= \hat{\beta}_0 + \bigg(\hat{\beta}_1 + \frac{\hat{\beta}_2}{10}\bigg)x
-\end{aligned}
-\]</span></p>
+</div>
 </section>
-<section id="example-1" class="slide level2">
-<h2>Example</h2>
-<p><span class="math display">\[\hat{y} = \hat{\beta}_0 + \bigg(\hat{\beta}_1 + \frac{\hat{\beta}_2}{10}\bigg)x\]</span></p>
-<ul>
-<li><p>We can set <span class="math inline">\(\hat{\beta}_1\)</span> and <span class="math inline">\(\hat{\beta}_2\)</span> to any two numbers such that <span class="math inline">\(\hat{\beta}_1 + \frac{\hat{\beta}_2}{10} = 4\)</span></p></li>
-<li><p>Therefore, we are unable to choose the “best” combination of <span class="math inline">\(\hat{\beta}_1\)</span> and <span class="math inline">\(\hat{\beta}_2\)</span></p></li>
-</ul>
-</section>
-<section id="why-multicollinearity-is-a-problem-1" class="slide level2">
-<h2>Why multicollinearity is a problem</h2>
-<ul>
-<li><p>When we have almost perfect collinearities (i.e.&nbsp;highly correlated predictor variables), the standard errors for our regression coefficients inflate</p></li>
-<li><p>In other words, we lose precision in our estimates of the regression coefficients</p></li>
-<li><p>This impedes our ability to use the model for inference or prediction</p></li>
-</ul>
-</section>
-<section id="detecting-multicollinearity" class="slide level2 midi">
-<h2>Detecting Multicollinearity</h2>
-<p>Multicollinearity may occur when…</p>
-<ul>
-<li>There are very high correlations <span class="math inline">\((r &gt; 0.9)\)</span> among two or more predictor variables, especially when the sample size is small</li>
-</ul>
-<!-- -->
-<ul>
-<li><p>One (or more) predictor variables is an almost perfect linear combination of the others</p></li>
-<li><p>Include a quadratic in the model mean-centering the variable first</p></li>
-<li><p>Including interactions between two or more continuous variables</p></li>
-</ul>
-</section>
-<section id="detecting-multicollinearity-in-the-eda" class="slide level2">
-<h2>Detecting multicollinearity in the EDA</h2>
-<ul>
-<li>Look at a correlation matrix of the predictor variables, including all indicator variables
-<ul>
-<li>Look out for values close to 1 or -1</li>
-</ul></li>
-<li>Look at a scatterplot matrix of the predictor variables
-<ul>
-<li>Look out for plots that show a relatively linear relationship</li>
-</ul></li>
-</ul>
-</section>
-<section id="detecting-multicollinearity-vif" class="slide level2">
-<h2>Detecting Multicollinearity (VIF)</h2>
-<p><strong>Variance Inflation Factor (VIF)</strong>: Measure of multicollinearity in the regression model</p>
-<p><span class="math display">\[VIF(\hat{\beta}_j) = \frac{1}{1-R^2_{X_j|X_{-j}}}\]</span></p>
-<p>where <span class="math inline">\(R^2_{X_j|X_{-j}}\)</span> is the proportion of variation <span class="math inline">\(X\)</span> that is explained by the linear combination of the other explanatory variables in the model.</p>
-</section>
-<section id="detecting-multicollinearity-vif-1" class="slide level2">
-<h2>Detecting Multicollinearity (VIF)</h2>
-<p>Typically <span class="math inline">\(VIF &gt; 10\)</span> indicates concerning multicollinearity - Variables with similar values of VIF are typically the ones correlated with each other</p>
-<p><br></p>
-<p>Use the <code>vif()</code> function in the <strong>rms</strong> R package to calculate VIF</p>
-</section>
-<section id="vif-for-rail-trail-model" class="slide level2">
-<h2>VIF for rail trail model</h2>
+<section id="are-teenagers-getting-enough-sleep" class="slide level2">
+<h2>Are teenagers getting enough sleep?</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">vif</span>(rt_full_fit<span class="sc">$</span>fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>sleep <span class="sc">|&gt;</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a>  <span class="fu">count</span>(Sleep7) <span class="sc">|&gt;</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a>  <span class="fu">mutate</span>(<span class="at">p =</span> <span class="fu">round</span>(n <span class="sc">/</span> <span class="fu">sum</span>(n), <span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>       hightemp         avgtemp    seasonSpring    seasonSummer      cloudcover 
-      10.259978       13.086175        2.751577        5.841985        1.587485 
-         precip day_typeWeekend 
-       1.295352        1.125741 </code></pre>
+<pre><code># A tibble: 2 × 3
+  Sleep7     n     p
+   &lt;int&gt; &lt;int&gt; &lt;dbl&gt;
+1      0   150 0.336
+2      1   296 0.664</code></pre>
 </div>
 </div>
-<p><br></p>
 <div class="fragment">
-<p><code>hightemp</code> and <code>avgtemp</code> are correlated. We need to remove <u><strong>one</strong></u> of these variables and refit the model.</p>
+<p><span class="math inline">\(P(\text{7+ hours of sleep}) = P(Y = 1) = p = 0.664\)</span></p>
+</div>
+<div class="fragment">
+<p><span class="math inline">\(P(\text{&lt; 7 hours of sleep}) = P(Y = 0) = 1 - p = 0.336\)</span></p>
+</div>
+<div class="fragment">
+<p><span class="math inline">\(P(\text{odds of 7+ hours of sleep}) = \frac{0.664}{0.336} = 1.976\)</span></p>
 </div>
 </section>
-<section id="model-without-hightemp" class="slide level2 smaller">
-<h2>Model without <code>hightemp</code></h2>
+<section id="from-odds-to-probabilities" class="slide level2">
+<h2>From odds to probabilities</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>odds</strong></p>
+<p><span class="math display">\[\omega = \frac{\pi}{1-\pi}\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><strong>probability</strong></p>
+<p><span class="math display">\[\pi = \frac{\omega}{1 + \omega}\]</span></p>
+</div>
+</div>
+</section>
+<section id="logistic-regression" class="slide level2">
+<h2>Logistic regression</h2>
+</section>
+<section id="from-odds-to-probabilities-1" class="slide level2">
+<h2>From odds to probabilities</h2>
+<div>
+<ol type="1">
+<li class="fragment"><strong>Logistic model</strong>: log odds = <span class="math inline">\(\log\big(\frac{\pi}{1-\pi}\big) = \beta_0 + \beta_1~X\)</span></li>
+<li class="fragment"><strong>Odds =</strong> <span class="math inline">\(\exp\big\{\log\big(\frac{\pi}{1-\pi}\big)\big\} = \frac{\pi}{1-\pi}\)</span></li>
+<li class="fragment">Combining (1) and (2) with what we saw earlier</li>
+</ol>
+<p><span class="math display">\[\text{probability} = \pi = \frac{\exp\{\beta_0 + \beta_1~X\}}{1 + \exp\{\beta_0 + \beta_1~X\}}\]</span></p>
+</div>
+</section>
+<section id="logistic-regression-model" class="slide level2">
+<h2>Logistic regression model</h2>
+<p><strong>Logit form</strong>: <span class="math display">\[\log\big(\frac{\pi}{1-\pi}\big) = \beta_0 + \beta_1~X\]</span></p>
+<div class="fragment">
+<p><strong>Probability form</strong>:</p>
+<p><span class="math display">\[
+\pi = \frac{\exp\{\beta_0 + \beta_1~X\}}{1 + \exp\{\beta_0 + \beta_1~X\}}
+\]</span></p>
+</div>
+</section>
+<section id="risk-of-coronary-heart-disease" class="slide level2">
+<h2>Risk of coronary heart disease</h2>
+<p>This dataset is from an ongoing cardiovascular study on residents of the town of Framingham, Massachusetts. We want to use <code>age</code> to predict if a randomly selected adult is high risk of having coronary heart disease in the next 10 years.</p>
+<p><code>high_risk</code>:</p>
+<div>
+<ul>
+<li>1: High risk of having heart disease in next 10 years</li>
+<li>0: Not high risk of having heart disease in next 10 years</li>
+</ul>
+</div>
+<p><code>age</code>: Age at exam time (in years)</p>
+</section>
+<section id="data-heart" class="slide level2">
+<h2>Data: <code>heart</code></h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">|&gt;</span></span>
-<span id="cb12-2"><a href="#cb12-2"></a>  <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb12-3"><a href="#cb12-3"></a>  <span class="fu">fit</span>(volume <span class="sc">~</span> . <span class="sc">-</span> hightemp, <span class="at">data =</span> rail_trail)</span>
-<span id="cb12-4"><a href="#cb12-4"></a>  </span>
-<span id="cb12-5"><a href="#cb12-5"></a>m1 <span class="sc">|&gt;</span></span>
-<span id="cb12-6"><a href="#cb12-6"></a>  <span class="fu">tidy</span>() <span class="sc">|&gt;</span></span>
-<span id="cb12-7"><a href="#cb12-7"></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>heart_disease <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"slides"</span>, <span class="st">"data/framingham.csv"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a>  <span class="fu">select</span>(age, TenYearCHD) <span class="sc">|&gt;</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a>  <span class="fu">drop_na</span>() <span class="sc">|&gt;</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a>  <span class="fu">mutate</span>(<span class="at">high_risk =</span> <span class="fu">as.factor</span>(TenYearCHD)) <span class="sc">|&gt;</span></span>
+<span id="cb8-5"><a href="#cb8-5"></a>  <span class="fu">select</span>(age, high_risk)</span>
+<span id="cb8-6"><a href="#cb8-6"></a></span>
+<span id="cb8-7"><a href="#cb8-7"></a>heart_disease</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4,240 × 2
+     age high_risk
+   &lt;dbl&gt; &lt;fct&gt;    
+ 1    39 0        
+ 2    46 0        
+ 3    48 0        
+ 4    61 1        
+ 5    46 0        
+ 6    43 0        
+ 7    63 1        
+ 8    45 0        
+ 9    52 0        
+10    43 0        
+# … with 4,230 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="high-risk-vs.-age" class="slide level2">
+<h2>High risk vs.&nbsp;age</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">ggplot</span>(heart_disease, <span class="fu">aes</span>(<span class="at">x =</span> high_risk, <span class="at">y =</span> age)) <span class="sc">+</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb10-3"><a href="#cb10-3"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"High risk - 1: yes, 0: no"</span>,</span>
+<span id="cb10-4"><a href="#cb10-4"></a>       <span class="at">y =</span> <span class="st">"Age"</span>, </span>
+<span id="cb10-5"><a href="#cb10-5"></a>       <span class="at">title =</span> <span class="st">"Age vs. High risk of heart disease"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="19-logistic-intro_files/figure-revealjs/unnamed-chunk-12-1.png" style="width:90.0%" class="r-stretch quarto-figure-center"></section>
+<section id="lets-fit-the-model" class="slide level2">
+<h2>Let’s fit the model</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb11" data-code-line-numbers="1|2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>heart_disease_fit <span class="ot">&lt;-</span> <span class="fu">logistic_reg</span>() <span class="sc">|&gt;</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a>  <span class="fu">set_engine</span>(<span class="st">"glm"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb11-3"><a href="#cb11-3"></a>  <span class="fu">fit</span>(high_risk <span class="sc">~</span> age, <span class="at">data =</span> heart_disease, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
+<span id="cb11-4"><a href="#cb11-4"></a></span>
+<span id="cb11-5"><a href="#cb11-5"></a><span class="fu">tidy</span>(heart_disease_fit) <span class="sc">|&gt;</span> <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table>
 <thead>
@@ -745,68 +744,27 @@
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">(Intercept)</td>
-<td style="text-align: right;">76.071</td>
-<td style="text-align: right;">77.204</td>
-<td style="text-align: right;">0.985</td>
-<td style="text-align: right;">0.327</td>
+<td style="text-align: right;">-5.561</td>
+<td style="text-align: right;">0.284</td>
+<td style="text-align: right;">-19.599</td>
+<td style="text-align: right;">0</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">avgtemp</td>
-<td style="text-align: right;">6.003</td>
-<td style="text-align: right;">1.583</td>
-<td style="text-align: right;">3.792</td>
-<td style="text-align: right;">0.000</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">seasonSpring</td>
-<td style="text-align: right;">34.555</td>
-<td style="text-align: right;">34.454</td>
-<td style="text-align: right;">1.003</td>
-<td style="text-align: right;">0.319</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">seasonSummer</td>
-<td style="text-align: right;">13.531</td>
-<td style="text-align: right;">55.024</td>
-<td style="text-align: right;">0.246</td>
-<td style="text-align: right;">0.806</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">cloudcover</td>
-<td style="text-align: right;">-12.807</td>
-<td style="text-align: right;">3.488</td>
-<td style="text-align: right;">-3.672</td>
-<td style="text-align: right;">0.000</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">precip</td>
-<td style="text-align: right;">-110.736</td>
-<td style="text-align: right;">44.137</td>
-<td style="text-align: right;">-2.509</td>
-<td style="text-align: right;">0.014</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">day_typeWeekend</td>
-<td style="text-align: right;">48.420</td>
-<td style="text-align: right;">22.993</td>
-<td style="text-align: right;">2.106</td>
-<td style="text-align: right;">0.038</td>
+<td style="text-align: left;">age</td>
+<td style="text-align: right;">0.075</td>
+<td style="text-align: right;">0.005</td>
+<td style="text-align: right;">14.178</td>
+<td style="text-align: right;">0</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 </section>
-<section id="model-without-avgtemp" class="slide level2 smaller">
-<h2>Model without <code>avgtemp</code></h2>
+<section id="the-model" class="slide level2">
+<h2>The model</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">|&gt;</span></span>
-<span id="cb13-2"><a href="#cb13-2"></a>  <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb13-3"><a href="#cb13-3"></a>  <span class="fu">fit</span>(volume <span class="sc">~</span> . <span class="sc">-</span> avgtemp, <span class="at">data =</span> rail_trail)</span>
-<span id="cb13-4"><a href="#cb13-4"></a>  </span>
-<span id="cb13-5"><a href="#cb13-5"></a>m2 <span class="sc">|&gt;</span></span>
-<span id="cb13-6"><a href="#cb13-6"></a>  <span class="fu">tidy</span>() <span class="sc">|&gt;</span></span>
-<span id="cb13-7"><a href="#cb13-7"></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">tidy</span>(heart_disease_fit) <span class="sc">|&gt;</span> <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table>
 <thead>
@@ -821,184 +779,157 @@
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">(Intercept)</td>
-<td style="text-align: right;">8.421</td>
-<td style="text-align: right;">74.992</td>
-<td style="text-align: right;">0.112</td>
-<td style="text-align: right;">0.911</td>
+<td style="text-align: right;">-5.561</td>
+<td style="text-align: right;">0.284</td>
+<td style="text-align: right;">-19.599</td>
+<td style="text-align: right;">0</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">hightemp</td>
-<td style="text-align: right;">5.696</td>
-<td style="text-align: right;">1.164</td>
-<td style="text-align: right;">4.895</td>
-<td style="text-align: right;">0.000</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">seasonSpring</td>
-<td style="text-align: right;">31.239</td>
-<td style="text-align: right;">32.082</td>
-<td style="text-align: right;">0.974</td>
-<td style="text-align: right;">0.333</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">seasonSummer</td>
-<td style="text-align: right;">9.424</td>
-<td style="text-align: right;">47.504</td>
-<td style="text-align: right;">0.198</td>
-<td style="text-align: right;">0.843</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">cloudcover</td>
-<td style="text-align: right;">-8.353</td>
-<td style="text-align: right;">3.435</td>
-<td style="text-align: right;">-2.431</td>
-<td style="text-align: right;">0.017</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">precip</td>
-<td style="text-align: right;">-98.904</td>
-<td style="text-align: right;">42.137</td>
-<td style="text-align: right;">-2.347</td>
-<td style="text-align: right;">0.021</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">day_typeWeekend</td>
-<td style="text-align: right;">37.062</td>
-<td style="text-align: right;">22.280</td>
-<td style="text-align: right;">1.663</td>
-<td style="text-align: right;">0.100</td>
+<td style="text-align: left;">age</td>
+<td style="text-align: right;">0.075</td>
+<td style="text-align: right;">0.005</td>
+<td style="text-align: right;">14.178</td>
+<td style="text-align: right;">0</td>
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+<p><br>
+</p>
+<p><span class="math display">\[\log\Big(\frac{\hat{\pi}}{1-\hat{\pi}}\Big) = -5.561 + 0.075 \times \text{age}\]</span> where <span class="math inline">\(\hat{\pi}\)</span> is the predicted probability of being high risk</p>
+</section>
+<section id="predicted-log-odds" class="slide level2 midi">
+<h2>Predicted log odds</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">augment</span>(heart_disease_fit<span class="sc">$</span>fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4,240 × 8
+   high_risk   age .fitted .resid .std.resid     .hat .sigma   .cooksd
+   &lt;fct&gt;     &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;
+ 1 0            39  -2.65  -0.370     -0.370 0.000466  0.895 0.0000165
+ 2 0            46  -2.13  -0.475     -0.475 0.000322  0.895 0.0000192
+ 3 0            48  -1.98  -0.509     -0.509 0.000288  0.895 0.0000199
+ 4 1            61  -1.01   1.62       1.62  0.000706  0.895 0.000968 
+ 5 0            46  -2.13  -0.475     -0.475 0.000322  0.895 0.0000192
+ 6 0            43  -2.35  -0.427     -0.427 0.000384  0.895 0.0000183
+ 7 1            63  -0.858  1.56       1.56  0.000956  0.895 0.00113  
+ 8 0            45  -2.20  -0.458     -0.458 0.000342  0.895 0.0000189
+ 9 0            52  -1.68  -0.585     -0.585 0.000262  0.895 0.0000244
+10 0            43  -2.35  -0.427     -0.427 0.000384  0.895 0.0000183
+# … with 4,230 more rows</code></pre>
+</div>
+</div>
+<div class="fragment">
+<p><strong>For observation 1</strong></p>
+<p><span class="math display">\[\text{predicted odds} = \hat{\omega} = \frac{\hat{\pi}}{1-\hat{\pi}} = \exp\{-2.650\} = 0.071\]</span></p>
+</div>
+</section>
+<section id="predicted-probabilities" class="slide level2 midi">
+<h2>Predicted probabilities</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">predict</span>(heart_disease_fit, <span class="at">new_data =</span> heart_disease, <span class="at">type =</span> <span class="st">"prob"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4,240 × 2
+   .pred_0 .pred_1
+     &lt;dbl&gt;   &lt;dbl&gt;
+ 1   0.934  0.0660
+ 2   0.894  0.106 
+ 3   0.878  0.122 
+ 4   0.733  0.267 
+ 5   0.894  0.106 
+ 6   0.913  0.0870
+ 7   0.702  0.298 
+ 8   0.900  0.0996
+ 9   0.843  0.157 
+10   0.913  0.0870
+# … with 4,230 more rows</code></pre>
+</div>
+</div>
+<div class="fragment">
+<p><span class="math display">\[\text{predicted probabilities} = \hat{\pi} = \frac{\exp\{-2.650\}}{1 + \exp\{-2.650\}} = 0.066\]</span></p>
+</div>
+</section>
+<section id="predicted-classes" class="slide level2">
+<h2>Predicted classes</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu">predict</span>(heart_disease_fit, <span class="at">new_data =</span> heart_disease, <span class="at">type =</span> <span class="st">"class"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4,240 × 1
+   .pred_class
+   &lt;fct&gt;      
+ 1 0          
+ 2 0          
+ 3 0          
+ 4 0          
+ 5 0          
+ 6 0          
+ 7 0          
+ 8 0          
+ 9 0          
+10 0          
+# … with 4,230 more rows</code></pre>
 </div>
 </div>
 </section>
-<section id="choosing-a-model" class="slide level2 midi">
-<h2>Choosing a model</h2>
-<p>Model with <strong>hightemp</strong> removed:</p>
+<section id="default-prediction" class="slide level2">
+<h2>Default prediction</h2>
+<p>For a logistic regression, the default prediction is the <code>class</code>.</p>
 <div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: right;">adj.r.squared</th>
-<th style="text-align: right;">AIC</th>
-<th style="text-align: right;">BIC</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">0.42</td>
-<td style="text-align: right;">1087.5</td>
-<td style="text-align: right;">1107.5</td>
-</tr>
-</tbody>
-</table>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="fu">predict</span>(heart_disease_fit, <span class="at">new_data =</span> heart_disease)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4,240 × 1
+   .pred_class
+   &lt;fct&gt;      
+ 1 0          
+ 2 0          
+ 3 0          
+ 4 0          
+ 5 0          
+ 6 0          
+ 7 0          
+ 8 0          
+ 9 0          
+10 0          
+# … with 4,230 more rows</code></pre>
 </div>
 </div>
-<p>Model with <strong>avgtemp</strong> removed:</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: right;">adj.r.squared</th>
-<th style="text-align: right;">AIC</th>
-<th style="text-align: right;">BIC</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">0.47</td>
-<td style="text-align: right;">1079.05</td>
-<td style="text-align: right;">1099.05</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p>Based on Adjusted <span class="math inline">\(R^2\)</span>, AIC, and BIC, the model with <strong>avgtemp</strong> removed is a better fit. Therefore, we choose to remove <strong>avgtemp</strong> from the model and leave <strong>hightemp</strong> in the model to deal with the multicollinearity.</p>
 </section>
-<section id="final-model" class="slide level2">
-<h2>Final model</h2>
+<section id="observed-vs.-predicted" class="slide level2">
+<h2>Observed vs.&nbsp;predicted</h2>
+<div class="question">
+<p>What does the following table show?</p>
+</div>
 <div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">term</th>
-<th style="text-align: right;">estimate</th>
-<th style="text-align: right;">std.error</th>
-<th style="text-align: right;">statistic</th>
-<th style="text-align: right;">p.value</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">(Intercept)</td>
-<td style="text-align: right;">8.421</td>
-<td style="text-align: right;">74.992</td>
-<td style="text-align: right;">0.112</td>
-<td style="text-align: right;">0.911</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">hightemp</td>
-<td style="text-align: right;">5.696</td>
-<td style="text-align: right;">1.164</td>
-<td style="text-align: right;">4.895</td>
-<td style="text-align: right;">0.000</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">seasonSpring</td>
-<td style="text-align: right;">31.239</td>
-<td style="text-align: right;">32.082</td>
-<td style="text-align: right;">0.974</td>
-<td style="text-align: right;">0.333</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">seasonSummer</td>
-<td style="text-align: right;">9.424</td>
-<td style="text-align: right;">47.504</td>
-<td style="text-align: right;">0.198</td>
-<td style="text-align: right;">0.843</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">cloudcover</td>
-<td style="text-align: right;">-8.353</td>
-<td style="text-align: right;">3.435</td>
-<td style="text-align: right;">-2.431</td>
-<td style="text-align: right;">0.017</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">precip</td>
-<td style="text-align: right;">-98.904</td>
-<td style="text-align: right;">42.137</td>
-<td style="text-align: right;">-2.347</td>
-<td style="text-align: right;">0.021</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">day_typeWeekend</td>
-<td style="text-align: right;">37.062</td>
-<td style="text-align: right;">22.280</td>
-<td style="text-align: right;">1.663</td>
-<td style="text-align: right;">0.100</td>
-</tr>
-</tbody>
-</table>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="fu">predict</span>(heart_disease_fit, <span class="at">new_data =</span> heart_disease) <span class="sc">|&gt;</span></span>
+<span id="cb21-2"><a href="#cb21-2"></a>  <span class="fu">bind_cols</span>(heart_disease) <span class="sc">|&gt;</span></span>
+<span id="cb21-3"><a href="#cb21-3"></a>  <span class="fu">count</span>(high_risk, .pred_class)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 3
+  high_risk .pred_class     n
+  &lt;fct&gt;     &lt;fct&gt;       &lt;int&gt;
+1 0         0            3596
+2 1         0             644</code></pre>
+</div>
+</div>
+<div class="fragment">
+<div class="question">
+<p>The <code>.pred_class</code> is the class with the highest predicted probability. What is a limitation to using this method to determine the predicted class?</p>
 </div>
 </div>
 </section>
 <section id="recap" class="slide level2">
 <h2>Recap</h2>
 <ul>
-<li><p>Conditions for inference</p></li>
-<li><p>Multicollinearity</p></li>
+<li><p>Logistic regression for binary response variable</p></li>
+<li><p>Relationship between odds and probabilities</p></li>
+<li><p>Used logistic regression model to calculate predicted odds and probabilities</p></li>
 </ul>
 </section></section>
 <section id="application-exercise" class="title-slide slide level1 center">
 <h1>Application exercise</h1>
 <div class="appex">
-<p>📋 <a href="../ae/ae-12-mlr-review.html">AE 12: Multiple Linear Regression Review</a></p>
+<p>📋 <a href="../ae/ae-13-logistic-intro">AE 13: Logistic Regression Intro</a></p>
 </div>
 
 

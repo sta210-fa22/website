@@ -1,8 +1,8 @@
 ---
 title: "Logistic regression"
-subtitle: "Introducution"
+subtitle: "Introduction"
 author: "Prof. Maria Tackett"
-date: "2022-10-31"
+date: "2022-11-02"
 date-format: "MMM DD, YYYY"
 footer: "[🔗 Week 10](https://sta210-fa22.netlify.app/weeks/week-10.html)"
 logo: "../images/logo.png"

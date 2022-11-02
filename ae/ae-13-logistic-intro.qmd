@@ -79,7 +79,7 @@ heart_disease |>
 
 Fit a logistic regression model to understand the relationship between total cholesterol and risk for heart disease.
 
-Let $pi$ be the probability an adult is high risk. The statistical model is
+Let $\pi$ be the probability an adult is high risk of heart disease. The statistical model is
 
 $$\log\Big(\frac{\pi_i}{1-\pi_i}\Big) = \beta_0 + \beta_1 TotChol_i$$
 

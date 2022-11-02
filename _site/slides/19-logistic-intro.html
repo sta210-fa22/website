@@ -553,9 +553,9 @@
 <h2>Different types of models</h2>
 <table>
 <colgroup>
-<col style="width: 27%">
-<col style="width: 21%">
-<col style="width: 50%">
+<col style="width: 26%">
+<col style="width: 25%">
+<col style="width: 48%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -646,9 +646,11 @@
 <p><span class="math display">\[\pi = \frac{\omega}{1 + \omega}\]</span></p>
 </div>
 </div>
-</section>
-<section id="logistic-regression" class="slide level2">
-<h2>Logistic regression</h2>
+</section></section>
+<section>
+<section id="logistic-regression" class="title-slide slide level1 center">
+<h1>Logistic regression</h1>
+
 </section>
 <section id="from-odds-to-probabilities-1" class="slide level2">
 <h2>From odds to probabilities</h2>
@@ -674,6 +676,7 @@
 <section id="risk-of-coronary-heart-disease" class="slide level2">
 <h2>Risk of coronary heart disease</h2>
 <p>This dataset is from an ongoing cardiovascular study on residents of the town of Framingham, Massachusetts. We want to use <code>age</code> to predict if a randomly selected adult is high risk of having coronary heart disease in the next 10 years.</p>
+<p><br></p>
 <p><code>high_risk</code>:</p>
 <div>
 <ul>
@@ -683,16 +686,9 @@
 </div>
 <p><code>age</code>: Age at exam time (in years)</p>
 </section>
-<section id="data-heart" class="slide level2">
-<h2>Data: <code>heart</code></h2>
+<section id="data-heart_disease" class="slide level2">
+<h2>Data: <code>heart_disease</code></h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>heart_disease <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"slides"</span>, <span class="st">"data/framingham.csv"</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb8-2"><a href="#cb8-2"></a>  <span class="fu">select</span>(age, TenYearCHD) <span class="sc">|&gt;</span></span>
-<span id="cb8-3"><a href="#cb8-3"></a>  <span class="fu">drop_na</span>() <span class="sc">|&gt;</span></span>
-<span id="cb8-4"><a href="#cb8-4"></a>  <span class="fu">mutate</span>(<span class="at">high_risk =</span> <span class="fu">as.factor</span>(TenYearCHD)) <span class="sc">|&gt;</span></span>
-<span id="cb8-5"><a href="#cb8-5"></a>  <span class="fu">select</span>(age, high_risk)</span>
-<span id="cb8-6"><a href="#cb8-6"></a></span>
-<span id="cb8-7"><a href="#cb8-7"></a>heart_disease</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 4,240 × 2
      age high_risk
@@ -714,22 +710,22 @@
 <section id="high-risk-vs.-age" class="slide level2">
 <h2>High risk vs.&nbsp;age</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">ggplot</span>(heart_disease, <span class="fu">aes</span>(<span class="at">x =</span> high_risk, <span class="at">y =</span> age)) <span class="sc">+</span></span>
-<span id="cb10-2"><a href="#cb10-2"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb10-3"><a href="#cb10-3"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"High risk - 1: yes, 0: no"</span>,</span>
-<span id="cb10-4"><a href="#cb10-4"></a>       <span class="at">y =</span> <span class="st">"Age"</span>, </span>
-<span id="cb10-5"><a href="#cb10-5"></a>       <span class="at">title =</span> <span class="st">"Age vs. High risk of heart disease"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">ggplot</span>(heart_disease, <span class="fu">aes</span>(<span class="at">x =</span> high_risk, <span class="at">y =</span> age)) <span class="sc">+</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
+<span id="cb9-3"><a href="#cb9-3"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"High risk - 1: yes, 0: no"</span>,</span>
+<span id="cb9-4"><a href="#cb9-4"></a>       <span class="at">y =</span> <span class="st">"Age"</span>, </span>
+<span id="cb9-5"><a href="#cb9-5"></a>       <span class="at">title =</span> <span class="st">"Age vs. High risk of heart disease"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="19-logistic-intro_files/figure-revealjs/unnamed-chunk-12-1.png" style="width:90.0%" class="r-stretch quarto-figure-center"></section>
 <section id="lets-fit-the-model" class="slide level2">
 <h2>Let’s fit the model</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb11" data-code-line-numbers="1|2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>heart_disease_fit <span class="ot">&lt;-</span> <span class="fu">logistic_reg</span>() <span class="sc">|&gt;</span></span>
-<span id="cb11-2"><a href="#cb11-2"></a>  <span class="fu">set_engine</span>(<span class="st">"glm"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb11-3"><a href="#cb11-3"></a>  <span class="fu">fit</span>(high_risk <span class="sc">~</span> age, <span class="at">data =</span> heart_disease, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
-<span id="cb11-4"><a href="#cb11-4"></a></span>
-<span id="cb11-5"><a href="#cb11-5"></a><span class="fu">tidy</span>(heart_disease_fit) <span class="sc">|&gt;</span> <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10" data-code-line-numbers="1|2|3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>heart_disease_fit <span class="ot">&lt;-</span> <span class="fu">logistic_reg</span>() <span class="sc">|&gt;</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a>  <span class="fu">set_engine</span>(<span class="st">"glm"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb10-3"><a href="#cb10-3"></a>  <span class="fu">fit</span>(high_risk <span class="sc">~</span> age, <span class="at">data =</span> heart_disease, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
+<span id="cb10-4"><a href="#cb10-4"></a></span>
+<span id="cb10-5"><a href="#cb10-5"></a><span class="fu">tidy</span>(heart_disease_fit) <span class="sc">|&gt;</span> <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table>
 <thead>
@@ -764,7 +760,7 @@
 <section id="the-model" class="slide level2">
 <h2>The model</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">tidy</span>(heart_disease_fit) <span class="sc">|&gt;</span> <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">tidy</span>(heart_disease_fit) <span class="sc">|&gt;</span> <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table>
 <thead>
@@ -797,26 +793,26 @@
 </div>
 <p><br>
 </p>
-<p><span class="math display">\[\log\Big(\frac{\hat{\pi}}{1-\hat{\pi}}\Big) = -5.561 + 0.075 \times \text{age}\]</span> where <span class="math inline">\(\hat{\pi}\)</span> is the predicted probability of being high risk</p>
+<p><span class="math display">\[\log\Big(\frac{\hat{\pi}}{1-\hat{\pi}}\Big) = -5.561 + 0.075 \times \text{age}\]</span> where <span class="math inline">\(\hat{\pi}\)</span> is the predicted probability of being high risk of heart disease</p>
 </section>
 <section id="predicted-log-odds" class="slide level2 midi">
 <h2>Predicted log odds</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">augment</span>(heart_disease_fit<span class="sc">$</span>fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">augment</span>(heart_disease_fit<span class="sc">$</span>fit) <span class="sc">|&gt;</span> <span class="fu">select</span>(.fitted, .resid)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 4,240 × 8
-   high_risk   age .fitted .resid .std.resid     .hat .sigma   .cooksd
-   &lt;fct&gt;     &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;
- 1 0            39  -2.65  -0.370     -0.370 0.000466  0.895 0.0000165
- 2 0            46  -2.13  -0.475     -0.475 0.000322  0.895 0.0000192
- 3 0            48  -1.98  -0.509     -0.509 0.000288  0.895 0.0000199
- 4 1            61  -1.01   1.62       1.62  0.000706  0.895 0.000968 
- 5 0            46  -2.13  -0.475     -0.475 0.000322  0.895 0.0000192
- 6 0            43  -2.35  -0.427     -0.427 0.000384  0.895 0.0000183
- 7 1            63  -0.858  1.56       1.56  0.000956  0.895 0.00113  
- 8 0            45  -2.20  -0.458     -0.458 0.000342  0.895 0.0000189
- 9 0            52  -1.68  -0.585     -0.585 0.000262  0.895 0.0000244
-10 0            43  -2.35  -0.427     -0.427 0.000384  0.895 0.0000183
+<pre><code># A tibble: 4,240 × 2
+   .fitted .resid
+     &lt;dbl&gt;  &lt;dbl&gt;
+ 1  -2.65  -0.370
+ 2  -2.13  -0.475
+ 3  -1.98  -0.509
+ 4  -1.01   1.62 
+ 5  -2.13  -0.475
+ 6  -2.35  -0.427
+ 7  -0.858  1.56 
+ 8  -2.20  -0.458
+ 9  -1.68  -0.585
+10  -2.35  -0.427
 # … with 4,230 more rows</code></pre>
 </div>
 </div>
@@ -828,7 +824,7 @@
 <section id="predicted-probabilities" class="slide level2 midi">
 <h2>Predicted probabilities</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">predict</span>(heart_disease_fit, <span class="at">new_data =</span> heart_disease, <span class="at">type =</span> <span class="st">"prob"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">predict</span>(heart_disease_fit, <span class="at">new_data =</span> heart_disease, <span class="at">type =</span> <span class="st">"prob"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 4,240 × 2
    .pred_0 .pred_1
@@ -853,7 +849,7 @@
 <section id="predicted-classes" class="slide level2">
 <h2>Predicted classes</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu">predict</span>(heart_disease_fit, <span class="at">new_data =</span> heart_disease, <span class="at">type =</span> <span class="st">"class"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">predict</span>(heart_disease_fit, <span class="at">new_data =</span> heart_disease, <span class="at">type =</span> <span class="st">"class"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 4,240 × 1
    .pred_class
@@ -876,7 +872,7 @@
 <h2>Default prediction</h2>
 <p>For a logistic regression, the default prediction is the <code>class</code>.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="fu">predict</span>(heart_disease_fit, <span class="at">new_data =</span> heart_disease)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="fu">predict</span>(heart_disease_fit, <span class="at">new_data =</span> heart_disease)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 4,240 × 1
    .pred_class
@@ -901,9 +897,9 @@
 <p>What does the following table show?</p>
 </div>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="fu">predict</span>(heart_disease_fit, <span class="at">new_data =</span> heart_disease) <span class="sc">|&gt;</span></span>
-<span id="cb21-2"><a href="#cb21-2"></a>  <span class="fu">bind_cols</span>(heart_disease) <span class="sc">|&gt;</span></span>
-<span id="cb21-3"><a href="#cb21-3"></a>  <span class="fu">count</span>(high_risk, .pred_class)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="fu">predict</span>(heart_disease_fit, <span class="at">new_data =</span> heart_disease) <span class="sc">|&gt;</span></span>
+<span id="cb20-2"><a href="#cb20-2"></a>  <span class="fu">bind_cols</span>(heart_disease) <span class="sc">|&gt;</span></span>
+<span id="cb20-3"><a href="#cb20-3"></a>  <span class="fu">count</span>(high_risk, .pred_class)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 3
   high_risk .pred_class     n

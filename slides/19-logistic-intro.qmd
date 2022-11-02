@@ -233,7 +233,7 @@ ggplot(sleep_age, aes(x = Age, y = prop)) +
 ## Different types of models
 
 | Method                          | Outcome      | Model                                                     |
-|--------------------|----------------|-------------------------------------|
+|-------------------|------------------|-----------------------------------|
 | Linear regression               | Quantitative | $Y = \beta_0 + \beta_1~ X$                                |
 | Linear regression (transform Y) | Quantitative | $\log(Y) = \beta_0 + \beta_1~ X$                          |
 | Logistic regression             | Binary       | $\log\big(\frac{\pi}{1-\pi}\big) = \beta_0 + \beta_1 ~ X$ |
@@ -296,7 +296,7 @@ $$\pi = \frac{\omega}{1 + \omega}$$
 :::
 :::
 
-## Logistic regression
+# Logistic regression
 
 ## From odds to probabilities
 
@@ -324,6 +324,8 @@ $$
 
 This dataset is from an ongoing cardiovascular study on residents of the town of Framingham, Massachusetts. We want to use `age` to predict if a randomly selected adult is high risk of having coronary heart disease in the next 10 years.
 
+<br>
+
 `high_risk`:
 
 ::: nonincremental
@@ -333,9 +335,10 @@ This dataset is from an ongoing cardiovascular study on residents of the town of
 
 `age`: Age at exam time (in years)
 
-## Data: `heart`
+## Data: `heart_disease`
 
 ```{r}
+#| echo: false
 heart_disease <- read_csv(here::here("slides", "data/framingham.csv")) |>
   select(age, TenYearCHD) |>
   drop_na() |>
@@ -351,7 +354,7 @@ heart_disease
 #| echo: true
 
 ggplot(heart_disease, aes(x = high_risk, y = age)) +
-  geom_boxplot() +
+  geom_boxplot(fill = "steelblue") +
   labs(x = "High risk - 1: yes, 0: no",
        y = "Age", 
        title = "Age vs. High risk of heart disease")
@@ -361,7 +364,7 @@ ggplot(heart_disease, aes(x = high_risk, y = age)) +
 
 ```{r}
 #| echo: true
-#| code-line-numbers: "1|2"
+#| code-line-numbers: "1|2|3"
 heart_disease_fit <- logistic_reg() |>
   set_engine("glm") |>
   fit(high_risk ~ age, data = heart_disease, family = "binomial")
@@ -378,12 +381,12 @@ tidy(heart_disease_fit) |> kable(digits = 3)
 ```
 
 \
-$$\log\Big(\frac{\hat{\pi}}{1-\hat{\pi}}\Big) = -5.561 + 0.075 \times \text{age}$$ where $\hat{\pi}$ is the predicted probability of being high risk
+$$\log\Big(\frac{\hat{\pi}}{1-\hat{\pi}}\Big) = -5.561 + 0.075 \times \text{age}$$ where $\hat{\pi}$ is the predicted probability of being high risk of heart disease
 
 ## Predicted log odds {.midi}
 
 ```{r}
-augment(heart_disease_fit$fit)
+augment(heart_disease_fit$fit) |> select(.fitted, .resid)
 ```
 
 . . .

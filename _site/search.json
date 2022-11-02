@@ -4165,6 +4165,13 @@
     "text": "Different types of models\n\n\n\n\n\n\n\n\nMethod\nOutcome\nModel\n\n\n\n\nLinear regression\nQuantitative\n\\(Y = \\beta_0 + \\beta_1~ X\\)\n\n\nLinear regression (transform Y)\nQuantitative\n\\(\\log(Y) = \\beta_0 + \\beta_1~ X\\)\n\n\nLogistic regression\nBinary\n\\(\\log\\big(\\frac{\\pi}{1-\\pi}\\big) = \\beta_0 + \\beta_1 ~ X\\)"
   },
   {
+    "objectID": "slides/19-logistic-intro.html#application-exercise",
+    "href": "slides/19-logistic-intro.html#application-exercise",
+    "title": "Logistic regression",
+    "section": "Application exercise",
+    "text": "Application exercise\n\n📋 AE 13: Logistic Regression Intro\nLinear Regression vs. Logistic Regression"
+  },
+  {
     "objectID": "slides/19-logistic-intro.html#binary-response-variable",
     "href": "slides/19-logistic-intro.html#binary-response-variable",
     "title": "Logistic regression",

@@ -238,6 +238,14 @@ ggplot(sleep_age, aes(x = Age, y = prop)) +
 | Linear regression (transform Y) | Quantitative | $\log(Y) = \beta_0 + \beta_1~ X$                          |
 | Logistic regression             | Binary       | $\log\big(\frac{\pi}{1-\pi}\big) = \beta_0 + \beta_1 ~ X$ |
 
+## Application exercise
+
+::: appex
+📋 [AE 13: Logistic Regression Intro](../ae/ae-13-logistic-intro)
+
+Linear Regression vs. Logistic Regression
+:::
+
 # Odds and probabilities
 
 ## Binary response variable

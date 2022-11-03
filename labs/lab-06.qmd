@@ -1,5 +1,5 @@
 ---
-title: "Lab 05: Adelie Penguins"
+title: "Lab 06: Adelie Penguins"
 subtitle: "Logistic regression intro"
 execute:
   freeze: auto
@@ -75,7 +75,7 @@ These data can be found in the **palmerpenguins** package. We're going to be wor
 We will focus on the following variables:\
 
 | variable        | class   | description                                      |
-|:-------------|:-------------|:------------------------------------------|
+|:---------------|:---------------|:---------------------------------------|
 | `species`       | integer | Penguin species (Adelie, Gentoo, Chinstrap)      |
 | `island`        | integer | Island where recorded (Biscoe, Dream, Torgersen) |
 | `bill_depth_mm` | integer | Bill depth in mm                                 |

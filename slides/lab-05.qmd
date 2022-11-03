@@ -45,7 +45,7 @@ library(knitr)
 
 # Interaction terms
 
-## Diamonds data 
+## Diamonds data
 
 The data contain the price and other attributes of a random sample of 1000 diamonds. This sample was drawn from the `diamonds` data frame in the **tidyverse** R package.
 
@@ -84,7 +84,7 @@ ggplot(data = diamonds_samp, aes(x = carat, y = price, color = cut)) + geom_jitt
 Does the plot show evidence of an interaction effect between carats and cut?
 :::
 
-## Model  {.midi}
+## Model {.midi}
 
 ::: columns
 ::: {.column width="50%"}

@@ -210,6 +210,69 @@
     "text": "Grading\nTotal points available: 50 points.\n\n\n\nComponent\nPoints\n\n\n\n\nEx 1 - 10\n45\n\n\nWorkflow & formatting\n51"
   },
   {
+    "objectID": "labs/lab-06.html",
+    "href": "labs/lab-06.html",
+    "title": "Lab 05: Adelie Penguins",
+    "section": "",
+    "text": "Important\n\n\n\nDue:\n\nMonday, November 07 , 11:59pm (Thursday labs)\nTuesday, November 98, 11:59pm (Friday labs)"
+  },
+  {
+    "objectID": "labs/lab-06.html#introduction",
+    "href": "labs/lab-06.html#introduction",
+    "title": "Lab 05: Adelie Penguins",
+    "section": "Introduction",
+    "text": "Introduction\nIn this assignment, you'll get to put into practice the logistic regression skills you've developed to analyze data about Palmer Penguins.\n\nLearning goals\nBy the end of the lab you will be able to\n\nconduct exploratory data analysis for logistic regression\nfit logistic regression models and write the regression equation\nuse the model to calculate predicted probabilities\ncontinue developing a collaborative workflow with your teammates"
+  },
+  {
+    "objectID": "labs/lab-06.html#getting-started",
+    "href": "labs/lab-06.html#getting-started",
+    "title": "Lab 05: Adelie Penguins",
+    "section": "Getting started",
+    "text": "Getting started\n\nA repository has already been created for you and your teammates. Everyone in your team has access to the same repo.\nGo to the sta210-fa22 organization on GitHub. Click on the repo with the prefix lab-06. It contains the starter documents you need to complete the lab.\nEach person on the team should clone the repository and open a new project in RStudio. Throughout the lab, each person should get a chance to make commits and push to the repo."
+  },
+  {
+    "objectID": "labs/lab-06.html#workflow-using-git-and-github-as-a-team",
+    "href": "labs/lab-06.html#workflow-using-git-and-github-as-a-team",
+    "title": "Lab 05: Adelie Penguins",
+    "section": "Workflow: Using Git and GitHub as a team",
+    "text": "Workflow: Using Git and GitHub as a team\n\n\n\n\n\n\nImportant\n\n\n\nThere are no Team Member markers in this lab; however, you should use a similar workflow as in Lab 04. Only one person should type in the group’s Qmd file at a time. Once that person has finished typing the group’s responses, they should render, commit, and push the changes to GitHub. All other teammates can pull to see the updates in RStudio.\nEvery teammate must have at least one commit in the lab. Everyone is expected to contribute to discussion even when they are not typing."
+  },
+  {
+    "objectID": "labs/lab-06.html#packages",
+    "href": "labs/lab-06.html#packages",
+    "title": "Lab 05: Adelie Penguins",
+    "section": "Packages",
+    "text": "Packages\nThe following packages are used in the lab.\n\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(palmerpenguins)\nlibrary(knitr)\n\n# add other packages as needed"
+  },
+  {
+    "objectID": "labs/lab-06.html#data-palmer-penguins",
+    "href": "labs/lab-06.html#data-palmer-penguins",
+    "title": "Lab 05: Adelie Penguins",
+    "section": "Data: Palmer Penguins",
+    "text": "Data: Palmer Penguins\nWe will go back to the Palmer penguins data used in HW 02.\nData were collected and made available by Dr. Kristen Gorman and the Palmer Station, Antarctica LTER, a member of the Long Term Ecological Research Network. [@gorman2014]\n\nThese data can be found in the palmerpenguins package. We’re going to be working with the penguins dataset from this package. The dataset contains data for 344 penguins. There are 3 different species of penguins in this dataset, collected from 3 islands in the Palmer Archipelago, Antarctica. Click here to see the codebook.\nWe will focus on the following variables:\n\n\n\n\n\n\n\n\n\nvariable\nclass\ndescription\n\n\n\n\nspecies\ninteger\nPenguin species (Adelie, Gentoo, Chinstrap)\n\n\nisland\ninteger\nIsland where recorded (Biscoe, Dream, Torgersen)\n\n\nbill_depth_mm\ninteger\nBill depth in mm"
+  },
+  {
+    "objectID": "labs/lab-06.html#exercises",
+    "href": "labs/lab-06.html#exercises",
+    "title": "Lab 05: Adelie Penguins",
+    "section": "Exercises",
+    "text": "Exercises\nThe goal of this analysis is to use logistic regression to understand the relationship between bill depth, island, and whether a penguin is from the Adelie species. First, we need to create a new response variable to identify whether a penguin is from the Adelie species.\n\npenguins <- penguins |>\n  mutate(adelie = factor(if_else(species == \"Adelie\", 1, 0)))\n\nAnd let's check to make sure the new variable looks how we would expect before we continue with the analysis.\n\npenguins |> \n  count(adelie, species)\n\n# A tibble: 3 × 3\n  adelie species       n\n  <fct>  <fct>     <int>\n1 0      Chinstrap    68\n2 0      Gentoo      124\n3 1      Adelie      152\n\n\n\nExercise 1\nLet’s start by examining the relationship between adelie and island.\nVisualize the relationship between adelie and island. What is something you observe about the relationship between these two variables based on the plot?\n\n\n\n\n\n\nTip\n\n\n\nIf you need inspiration, click here for example plots and code to visualize the relationship between two categorical variables.\n\n\n\n\nExercise 2\nWhat does the values_fill argument do in the following chunk? The documentation for the function will be helpful in answering this question.\n\npenguins |>\n  count(island, adelie) |>\n  pivot_wider(names_from = adelie, values_from = n, values_fill = 0)\n\n# A tibble: 3 × 3\n  island      `0`   `1`\n  <fct>     <int> <int>\n1 Biscoe      124    44\n2 Dream        68    56\n3 Torgersen     0    52\n\n\n\n\nExercise 3\n\nCalculate the probability a randomly selected penguin is from the Adelie species if it was recorded on Biscoe island.\nCalculate the odds a randomly selected penguin is from the Adelie species if it was recorded on Biscoe island?\n\n\n\nExercise 4\nYou want to fit a model using island to predict the odds of being from the Adelie species. Let \\(\\pi\\) be the probability a penguin is from the Adelie species. The model has the form shown below.\n\\[\n\\log\\Big(\\frac{\\pi}{1-\\pi}\\Big) = \\beta_0 + \\beta_1~ Dream + \\beta_2 ~ Torgersen\n\\]\n\nFit the model and neatly display the model output using three digits.\n\n\n\nWhat are the odds of a penguin being from the Adelie species if it was recorded on Dream island?\nWhat are the odds of a penguin being from the Adelie species if it was recorded on Biscoe island?\n\n\n\nExercise 5\nNext, we’d like to add bill depth to the model. We’ll start by examining the relationship between bill_depth_mm and adelie.\nVisualize the relationship between these two variables. What is something you observe about the relationship between these two variables based on the plot?\n\n\nExercise 6\n\nNext, add bill depth to the previous model so that there are two predictors, island and bill_depth_mm. Neatly display the model output using three digits.\nWrite the regression equation for the model.\n\n\n\nExercise 7\n\nHow do you expect the log-odds of being from the Adelie species to change when going from a penguin with bill depth 17 mm to a penguin with bill depth 20 mm? Assume both penguins were recorded on the Dream island.\nHow do you expect the odds of being from the Adelie species to change when going from a penguin with bill depth 17 mm to a penguin with bill depth 20 mm? Assume both penguins were recorded on the Dream island.\n\n\n\nExercise 8\n\nHow do you expect the log-odds of being from the Adelie species to change when going from a penguin with bill depth 18 mm recorded on Biscoe island to a penguin with bill depth 21 mm recorded on Dream island?\nHow do you expect the odds of being from the Adelie species to change when going from a penguin with bill depth 18 mm recorded on Biscoe island to a penguin with bill depth 21 mm recorded on Dream island?"
+  },
+  {
+    "objectID": "labs/lab-06.html#submission",
+    "href": "labs/lab-06.html#submission",
+    "title": "Lab 05: Adelie Penguins",
+    "section": "Submission",
+    "text": "Submission\n\n\n\n\n\n\nWarning\n\n\n\nBefore you wrap up the assignment, make sure all documents are updated on your GitHub repo. We will be checking these to make sure you have been practicing how to commit and push changes.\nRemember – you must turn in a PDF file to the Gradescope page before the submission deadline for full credit.\n\n\nOne team member submit the assignment:\n\nGo to http://www.gradescope.com and log in using your NetID credentials.\nClick on your STA 210 course.\nClick on the assignment, and you’ll be prompted to submit it.\nSelect all team members’ names, so they receive credit on the assignment. Click here for video on adding team members to assignment on Gradescope.\nMark the pages associated with each exercise. All of the pages of your lab should be associated with at least one question (i.e., should be “checked”).\nSelect the first page of your PDF submission to be associated with the “Workflow & formatting” section."
+  },
+  {
+    "objectID": "labs/lab-06.html#grading",
+    "href": "labs/lab-06.html#grading",
+    "title": "Lab 05: Adelie Penguins",
+    "section": "Grading",
+    "text": "Grading\nTotal points available: 50 points.\n\n\n\nComponent\nPoints\n\n\n\n\nEx 1 - 8\n45\n\n\nWorkflow & formatting\n51"
+  },
+  {
     "objectID": "weeks/week-08.html",
     "href": "weeks/week-08.html",
     "title": "Week 08",
@@ -235,7 +298,7 @@
     "href": "weeks/week-10.html",
     "title": "Week 10",
     "section": "",
-    "text": "Prepare\n\n\n\n\n\n\n\nReading\nCorresponding lecture\n\n\n\n\n📖 IMS, Chap 9: Logistic Regression\nNov 02\n\n\n\n\n\nParticipate\n\n\n\n\n\n\n\nTopic\nDate\n\n\n\n\n💻 MLR: Conditions\nOct 31\n\n\n💻 Logistic Regression: Introduction\nNov 02\n\n\n\n\n\nPractice\n\n\n\n\n\n\n📋 AE 12: Multiple Linear Regression Review\n\n\n📋 AE 13: Logistic Regression Intro\n\n\n\n\n\nPerform\n\n\n\n\n\n\n\n📝 Project Proposal\ndue Fri, Nov 04, 11:59pm\n\n\n📝 HW 03\ndue Mon, Nov 07, 11:59pm\n\n\n📝 Lab 06\n\ndue Mon, Nov 06, 11:59pm (Thu labs)\ndue Tue, Nov 07, 11:59pm (Fri labs)\n\n\n\n📝 Statistics Experience\ndue Fri, Dec 09, 11:59pm"
+    "text": "Prepare\n\n\n\n\n\n\n\nReading\nCorresponding lecture\n\n\n\n\n📖 IMS, Chap 9: Logistic Regression\nNov 02\n\n\n\n\n\nParticipate\n\n\n\n\n\n\n\nTopic\nDate\n\n\n\n\n💻 MLR: Conditions\nOct 31\n\n\n💻 Logistic Regression: Introduction\nNov 02\n\n\n💻 Lab 06\nNov 03 - 04\n\n\n\n\n\nPractice\n\n\n\n\n\n\n📋 AE 12: Multiple Linear Regression Review\n\n\n📋 AE 13: Logistic Regression Intro\n\n\n\n\n\nPerform\n\n\n\n\n\n\n\n📝 Project Proposal\ndue Fri, Nov 04, 11:59pm\n\n\n📝 HW 03\ndue Mon, Nov 07, 11:59pm\n\n\n📝 Lab 06\n\ndue Mon, Nov 06, 11:59pm (Thu labs)\ndue Tue, Nov 07, 11:59pm (Fri labs)\n\n\n\n📝 Statistics Experience\ndue Fri, Dec 09, 11:59pm"
   },
   {
     "objectID": "weeks/week-11.html",
@@ -2779,6 +2842,20 @@
     "text": "Recap\n\nIntroduced the computing toolkit - RStudio and GitHub\nUsed tidymodels to fit and summarize regression models in R\nCompleted an application exercise on exploratory data analysis and modeling\n\n\n\n\n🔗 Week 02"
   },
   {
+    "objectID": "slides/lab-06.html#goals",
+    "href": "slides/lab-06.html#goals",
+    "title": "Lab 06",
+    "section": "Goals",
+    "text": "Goals\n\nComplete AE 13\nLab 06: Logistic regression intro"
+  },
+  {
+    "objectID": "slides/lab-06.html#resources-for-lab-06",
+    "href": "slides/lab-06.html#resources-for-lab-06",
+    "title": "Lab 06",
+    "section": "Resources for Lab 06",
+    "text": "Resources for Lab 06\n\nLecture notes\n\nLogistic Regression: Introduction\n\nIMS, Chap 9: Logistic Regression\n\n\n\n\n🔗 Week 10"
+  },
+  {
     "objectID": "slides/07-slr-math-models.html#announcements",
     "href": "slides/07-slr-math-models.html#announcements",
     "title": "SLR: Mathematical models for inference",
@@ -4085,7 +4162,7 @@
     "href": "slides/19-logistic-intro.html#types-of-outcome-variables",
     "title": "Logistic regression",
     "section": "Types of outcome variables",
-    "text": "Types of outcome variables\nQuantitative outcome variable:\n\nSales price of a house in Levittown, NY\nModel: Expected sales price given the number of bedrooms, lot size, etc.\n\n\nCategorical outcone variable:\n\nHigh risk of coronary heart disease\nModel: Probability an adult is high risk of heart disease given their age, total cholesterol, etc."
+    "text": "Types of outcome variables\nQuantitative outcome variable:\n\nSales price of a house in Levittown, NY\nModel: Expected sales price given the number of bedrooms, lot size, etc.\n\n\nCategorical outcome variable:\n\nHigh risk of coronary heart disease\nModel: Probability an adult is high risk of heart disease given their age, total cholesterol, etc."
   },
   {
     "objectID": "slides/19-logistic-intro.html#models-for-categorical-outcomes",

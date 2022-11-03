@@ -85,7 +85,7 @@ ggplot2::theme_set(ggplot2::theme_bw(base_size = 20))
 
 . . .
 
-**Categorical outcone variable**:
+**Categorical outcome variable**:
 
 -   High risk of coronary heart disease
 -   **Model**: Probability an adult is high risk of heart disease given their age, total cholesterol, etc.
@@ -233,7 +233,7 @@ ggplot(sleep_age, aes(x = Age, y = prop)) +
 ## Different types of models
 
 | Method                          | Outcome      | Model                                                     |
-|-------------------|------------------|-----------------------------------|
+|-------------------|------------------|----------------------------------|
 | Linear regression               | Quantitative | $Y = \beta_0 + \beta_1~ X$                                |
 | Linear regression (transform Y) | Quantitative | $\log(Y) = \beta_0 + \beta_1~ X$                          |
 | Logistic regression             | Binary       | $\log\big(\frac{\pi}{1-\pi}\big) = \beta_0 + \beta_1 ~ X$ |

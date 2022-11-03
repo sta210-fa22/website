@@ -21,6 +21,8 @@ knitr:
     width: 200
 ---
 
+# Welcome
+
 ```{r}
 # figure options
 knitr::opts_chunk$set(
@@ -35,8 +37,6 @@ library(viridis)
 library(tidymodels)
 library(knitr)
 ```
-
-# Welcome
 
 ## Goals
 

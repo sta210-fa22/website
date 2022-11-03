@@ -7,18 +7,19 @@ execute:
   eval: true
   warning: false
   message: false
+bibliography: references.bib
 ---
 
 ::: callout-important
 Due:
 
 -   Monday, November 07 , 11:59pm (Thursday labs)
--   Tuesday, November 98, 11:59pm (Friday labs)
+-   Tuesday, November 08, 11:59pm (Friday labs)
 :::
 
 ## Introduction
 
-In this assignment, you\'ll get to put into practice the logistic regression skills you\'ve developed to analyze data about Palmer Penguins.
+In this assignment, you'll get to put into practice the logistic regression skills you've developed to analyze data about Palmer Penguins.
 
 ### Learning goals
 
@@ -71,13 +72,13 @@ Data were collected and made available by [Dr. Kristen Gorman](https://www.uaf.
 \
 These data can be found in the **palmerpenguins** package. We're going to be working with the `penguins` dataset from this package. The dataset contains data for 344 penguins. There are 3 different species of penguins in this dataset, collected from 3 islands in the Palmer Archipelago, Antarctica. [Click here](https://allisonhorst.github.io/palmerpenguins/reference/penguins.html) to see the codebook.
 
-We will focus on the following variables: \
+We will focus on the following variables:\
 
-| variable      | class   | description                                      |
-|:--------------|:--------|:-------------------------------------------------|
-| species       | integer | Penguin species (Adelie, Gentoo, Chinstrap)      |
-| island        | integer | Island where recorded (Biscoe, Dream, Torgersen) |
-| bill_depth_mm | integer | Bill depth in mm                                 |
+| variable        | class   | description                                      |
+|:-------------|:-------------|:------------------------------------------|
+| `species`       | integer | Penguin species (Adelie, Gentoo, Chinstrap)      |
+| `island`        | integer | Island where recorded (Biscoe, Dream, Torgersen) |
+| `bill_depth_mm` | integer | Bill depth in mm                                 |
 
 ## Exercises
 
@@ -88,7 +89,7 @@ penguins <- penguins |>
   mutate(adelie = factor(if_else(species == "Adelie", 1, 0)))
 ```
 
-And let\'s check to make sure the new variable looks how we would expect before we continue with the analysis.
+And let's check to make sure the new variable looks how we would expect before we continue with the analysis.
 
 ```{r}
 penguins |> 
@@ -117,9 +118,9 @@ penguins |>
 
 ### Exercise 3
 
--   Calculate the probability a randomly selected penguin is from the Adelie species if it was recorded on Biscoe island.
+-   Calculate the **probability** a randomly selected penguin is from the Adelie species if it was recorded on Biscoe island.
 
--   Calculate the odds a randomly selected penguin is from the Adelie species if it was recorded on Biscoe island?
+-   Calculate the **odds** a randomly selected penguin is from the Adelie species if it was recorded on Biscoe island.
 
 ### Exercise 4
 
@@ -131,32 +132,35 @@ $$
 
 -   Fit the model and neatly display the model output using three digits.
 
-```{=html}
 <!-- -->
-```
--   What are the **odds** of a penguin being from the Adelie species if it was recorded on Dream island?
 
--   What are the **odds** of a penguin being from the Adelie species if it was recorded on Biscoe island?
+-   What are the predicted **odds** of a penguin being from the Adelie species if it was recorded on Biscoe island?
+
+-   What are the predicted **odds** of a penguin being from the Adelie species if it was recorded on Dream island?
 
 ### Exercise 5
 
-Next, we'd like to add bill depth to the model. We'll start by examining the relationship between `bill_depth_mm` and `adelie`.
+Next, we'd like to add bill depth to the model. We'll start by examining the relationship between these two variables.
 
-Visualize the relationship between these two variables. What is something you observe about the relationship between these two variables based on the plot?
+Visualize the relationship between `bill_depth_mm` and `adelie`. What is something you observe about the relationship between these two variables based on the plot?
 
 ### Exercise 6
 
--   Next, add bill depth to the previous model so that there are two predictors, `island` and `bill_depth_mm`. Neatly display the model output using three digits.
+-   Add bill depth to the previous model so that there are two predictors, `island` and `bill_depth_mm`. Neatly display the model output using three digits.
 
--   Write the regression equation for the model.
+-   Write the estimated regression equation.
 
 ### Exercise 7
+
+Use the model from Exercise 6.
 
 -   How do you expect the **log-odds** of being from the Adelie species to change when going from a penguin with bill depth 17 mm to a penguin with bill depth 20 mm? Assume both penguins were recorded on the Dream island.
 
 -   How do you expect the **odds** of being from the Adelie species to change when going from a penguin with bill depth 17 mm to a penguin with bill depth 20 mm? Assume both penguins were recorded on the Dream island.
 
 ### Exercise 8
+
+Use the model from Exercise 6.
 
 -   How do you expect the **log-odds** of being from the Adelie species to change when going from a penguin with bill depth 18 mm recorded on Biscoe island to a penguin with bill depth 21 mm recorded on Dream island?
 

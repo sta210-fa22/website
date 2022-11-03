@@ -78,6 +78,25 @@ code span.st { color: #4070a0; } /* String */
 code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 
@@ -393,13 +412,13 @@ Important
 <p>Due:</p>
 <ul>
 <li>Monday, November 07 , 11:59pm (Thursday labs)</li>
-<li>Tuesday, November 98, 11:59pm (Friday labs)</li>
+<li>Tuesday, November 08, 11:59pm (Friday labs)</li>
 </ul>
 </div>
 </div>
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>In this assignment, you'll get to put into practice the logistic regression skills you've developed to analyze data about Palmer Penguins.</p>
+<p>In this assignment, you’ll get to put into practice the logistic regression skills you’ve developed to analyze data about Palmer Penguins.</p>
 <section id="learning-goals" class="level3">
 <h3 class="anchored" data-anchor-id="learning-goals">Learning goals</h3>
 <p>By the end of the lab you will be able to</p>
@@ -451,16 +470,16 @@ Important
 <section id="data-palmer-penguins" class="level2">
 <h2 class="anchored" data-anchor-id="data-palmer-penguins">Data: Palmer Penguins</h2>
 <p>We will go back to the Palmer penguins data used in <a href="../hw/hw-02.html">HW 02.</a></p>
-<p>Data were collected and made available by <a href="https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php">Dr.&nbsp;Kristen Gorman</a> and the <a href="https://pal.lternet.edu/">Palmer Station, Antarctica LTER</a>, a member of the <a href="https://lternet.edu/">Long Term Ecological Research Network</a>. <span class="citation" data-cites="gorman2014">[@gorman2014]</span></p>
+<p>Data were collected and made available by <a href="https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php">Dr.&nbsp;Kristen Gorman</a> and the <a href="https://pal.lternet.edu/">Palmer Station, Antarctica LTER</a>, a member of the <a href="https://lternet.edu/">Long Term Ecological Research Network</a>. <span class="citation" data-cites="gorman2014">(<a href="#ref-gorman2014" role="doc-biblioref">Gorman, Williams, and Fraser 2014</a>)</span></p>
 <p><br>
 These data can be found in the <strong>palmerpenguins</strong> package. We’re going to be working with the <code>penguins</code> dataset from this package. The dataset contains data for 344 penguins. There are 3 different species of penguins in this dataset, collected from 3 islands in the Palmer Archipelago, Antarctica. <a href="https://allisonhorst.github.io/palmerpenguins/reference/penguins.html">Click here</a> to see the codebook.</p>
 <p>We will focus on the following variables:<br>
 </p>
 <table class="table">
 <colgroup>
-<col style="width: 20%">
-<col style="width: 12%">
-<col style="width: 67%">
+<col style="width: 19%">
+<col style="width: 19%">
+<col style="width: 60%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -471,17 +490,17 @@ These data can be found in the <strong>palmerpenguins</strong> package. We’re 
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">species</td>
+<td style="text-align: left;"><code>species</code></td>
 <td style="text-align: left;">integer</td>
 <td style="text-align: left;">Penguin species (Adelie, Gentoo, Chinstrap)</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">island</td>
+<td style="text-align: left;"><code>island</code></td>
 <td style="text-align: left;">integer</td>
 <td style="text-align: left;">Island where recorded (Biscoe, Dream, Torgersen)</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">bill_depth_mm</td>
+<td style="text-align: left;"><code>bill_depth_mm</code></td>
 <td style="text-align: left;">integer</td>
 <td style="text-align: left;">Bill depth in mm</td>
 </tr>
@@ -495,7 +514,7 @@ These data can be found in the <strong>palmerpenguins</strong> package. We’re 
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="ot">&lt;-</span> penguins <span class="sc">|&gt;</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">adelie =</span> <span class="fu">factor</span>(<span class="fu">if_else</span>(species <span class="sc">==</span> <span class="st">"Adelie"</span>, <span class="dv">1</span>, <span class="dv">0</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>And let's check to make sure the new variable looks how we would expect before we continue with the analysis.</p>
+<p>And let’s check to make sure the new variable looks how we would expect before we continue with the analysis.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">|&gt;</span> </span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(adelie, species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -546,8 +565,8 @@ Tip
 <section id="exercise-3" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-3">Exercise 3</h3>
 <ul>
-<li><p>Calculate the probability a randomly selected penguin is from the Adelie species if it was recorded on Biscoe island.</p></li>
-<li><p>Calculate the odds a randomly selected penguin is from the Adelie species if it was recorded on Biscoe island?</p></li>
+<li><p>Calculate the <strong>probability</strong> a randomly selected penguin is from the Adelie species if it was recorded on Biscoe island.</p></li>
+<li><p>Calculate the <strong>odds</strong> a randomly selected penguin is from the Adelie species if it was recorded on Biscoe island.</p></li>
 </ul>
 </section>
 <section id="exercise-4" class="level3">
@@ -561,24 +580,25 @@ Tip
 </ul>
 <!-- -->
 <ul>
-<li><p>What are the <strong>odds</strong> of a penguin being from the Adelie species if it was recorded on Dream island?</p></li>
-<li><p>What are the <strong>odds</strong> of a penguin being from the Adelie species if it was recorded on Biscoe island?</p></li>
+<li><p>What are the predicted <strong>odds</strong> of a penguin being from the Adelie species if it was recorded on Biscoe island?</p></li>
+<li><p>What are the predicted <strong>odds</strong> of a penguin being from the Adelie species if it was recorded on Dream island?</p></li>
 </ul>
 </section>
 <section id="exercise-5" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-5">Exercise 5</h3>
-<p>Next, we’d like to add bill depth to the model. We’ll start by examining the relationship between <code>bill_depth_mm</code> and <code>adelie</code>.</p>
-<p>Visualize the relationship between these two variables. What is something you observe about the relationship between these two variables based on the plot?</p>
+<p>Next, we’d like to add bill depth to the model. We’ll start by examining the relationship between these two variables.</p>
+<p>Visualize the relationship between <code>bill_depth_mm</code> and <code>adelie</code>. What is something you observe about the relationship between these two variables based on the plot?</p>
 </section>
 <section id="exercise-6" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-6">Exercise 6</h3>
 <ul>
-<li><p>Next, add bill depth to the previous model so that there are two predictors, <code>island</code> and <code>bill_depth_mm</code>. Neatly display the model output using three digits.</p></li>
-<li><p>Write the regression equation for the model.</p></li>
+<li><p>Add bill depth to the previous model so that there are two predictors, <code>island</code> and <code>bill_depth_mm</code>. Neatly display the model output using three digits.</p></li>
+<li><p>Write the estimated regression equation.</p></li>
 </ul>
 </section>
 <section id="exercise-7" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-7">Exercise 7</h3>
+<p>Use the model from Exercise 6.</p>
 <ul>
 <li><p>How do you expect the <strong>log-odds</strong> of being from the Adelie species to change when going from a penguin with bill depth 17 mm to a penguin with bill depth 20 mm? Assume both penguins were recorded on the Dream island.</p></li>
 <li><p>How do you expect the <strong>odds</strong> of being from the Adelie species to change when going from a penguin with bill depth 17 mm to a penguin with bill depth 20 mm? Assume both penguins were recorded on the Dream island.</p></li>
@@ -586,6 +606,7 @@ Tip
 </section>
 <section id="exercise-8" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-8">Exercise 8</h3>
+<p>Use the model from Exercise 6.</p>
 <ul>
 <li><p>How do you expect the <strong>log-odds</strong> of being from the Adelie species to change when going from a penguin with bill depth 18 mm recorded on Biscoe island to a penguin with bill depth 21 mm recorded on Dream island?</p></li>
 <li><p>How do you expect the <strong>odds</strong> of being from the Adelie species to change when going from a penguin with bill depth 18 mm recorded on Biscoe island to a penguin with bill depth 21 mm recorded on Dream island?</p></li>
@@ -641,10 +662,15 @@ Warning
 </table>
 
 
+
 </section>
 
 
-<div id="quarto-appendix" class="default"><section class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-gorman2014" class="csl-entry" role="doc-biblioentry">
+Gorman, Kristen B., Tony D. Williams, and William R. Fraser. 2014. <span>“Ecological Sexual Dimorphism and Environmental Variability Within a Community of Antarctic Penguins (Genus Pygoscelis).”</span> Edited by André Chiaradia. <em>PLoS ONE</em> 9 (3): e90081. <a href="https://doi.org/10.1371/journal.pone.0090081">https://doi.org/10.1371/journal.pone.0090081</a>.
+</div>
+</div></section><section class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
 <li id="fn1" role="doc-endnote"><p>The “Workflow &amp; formatting” grade is to assess the reproducible workflow. This includes having at least one meaningful commit from each team member and updating the team name and date in the YAML.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>

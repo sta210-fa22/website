@@ -55,4 +55,4 @@ library(knitr)
 
     -   [Logistic Regression: Introduction](../slides/19-logistic-intro.html)
 
--    IMS, Chap 9: [Logistic Regression](https://openintro-ims.netlify.app/model-logistic.html)
+-   IMS, Chap 9: [Logistic Regression](https://openintro-ims.netlify.app/model-logistic.html)

@@ -1,7 +1,7 @@
 ---
 title: "Week 13"
 subtitle: "Mixed effects models"
-description: ""
+description: "Project: Round 1 submission due (optional)"
 author: "Nov 21 - 25"
 date: ""
 tbl-colwidths: [60,40]

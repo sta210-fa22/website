@@ -1,7 +1,7 @@
 ---
 title: "Week 12"
 subtitle: "LR: Inference"
-description: "Lab 07"
+description: "HW 04"
 author: "Nov 14 - 18"
 date: ""
 tbl-colwidths: [60,40]

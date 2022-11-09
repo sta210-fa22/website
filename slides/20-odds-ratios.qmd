@@ -191,7 +191,7 @@ $$OR = \frac{\text{odds}_{College}}{\text{odds}_{HS}} = \frac{0.174}{0.133} = \m
 
 The odds of having high risk for heart disease are 1.30 times higher for those with a college degree than those with a high school diploma or GED.
 
-## OR: College vs. Some high school  {.midi}
+## OR: College vs. Some high school {.midi}
 
 ```{r}
 #| ref.label: education-high-risk-table
@@ -268,7 +268,7 @@ heart_disease |>
 
 # Logistic regression: categorical predictor
 
-## Categorical predictor  {.midi}
+## Categorical predictor {.midi}
 
 Recall: Education - 1 = Some High School, 2 = High School or GED, 3 = Some College or Vocational School, 4 = College
 

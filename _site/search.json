@@ -305,7 +305,7 @@
     "href": "weeks/week-11.html",
     "title": "Week 11",
     "section": "",
-    "text": "Prepare\n\n\n\n\n\n\n\nReading\nCorresponding lecture\n\n\n\n\n📖 IMS, Chap 9: Logistic Regression\nNov 07 & Nov 09\n\n\n\n\n\nParticipate\n\n\n\n\n\n\n\nTopic\nDate\n\n\n\n\n💻 Logistic regression: Odds ratios\nNov 07\n\n\n💻 Logistic regression: Prediction + classification\nNov 09\n\n\n💻 Lab 07\nNov 10 - 11\n\n\n\n\n\nPractice\n\n\nPerform\n\n\n\n\n\n\n\n📝 Lab 07\n\ndue Mon, Nov 14, 11:59pm (Thu labs)\ndue Tue, Nov 15, 11:59pm (Fri labs)\n\n\n\n📝 Statistics Experience\ndue Fri, Dec 09, 11:59pm"
+    "text": "Prepare\n\n\n\n\n\n\n\nReading\nCorresponding lecture\n\n\n\n\n📖 IMS, Chap 9: Logistic Regression\nNov 07 & Nov 09\n\n\n\n\n\nParticipate\n\n\n\n\n\n\n\nTopic\nDate\n\n\n\n\n💻 Logistic regression: Odds ratios\nNov 07\n\n\n💻 Logistic regression: Prediction + classification\nNov 09\n\n\n💻 Lab 07\nNov 10 - 11\n\n\n\n\n\nPractice\nNo AEs this week.\n\n\nPerform\n\n\n\n\n\n\n\n📝 Lab 07\n\ndue Mon, Nov 14, 11:59pm (Thu labs)\ndue Tue, Nov 15, 11:59pm (Fri labs)\n\n\n\n📝 Statistics Experience\ndue Fri, Dec 09, 11:59pm"
   },
   {
     "objectID": "weeks/week-05.html",
@@ -4863,6 +4863,237 @@
     "title": "MLR conditions + multicollinearity",
     "section": "Recap",
     "text": "Recap\n\nConditions for inference\nMulticollinearity"
+  },
+  {
+    "objectID": "slides/21-logistic-prediction.html#announcements",
+    "href": "slides/21-logistic-prediction.html#announcements",
+    "title": "Logistic Regression: Prediction + classification",
+    "section": "Announcements",
+    "text": "Announcements\n\nAaditya’s office hours permanently moved to Wed 6 - 8pm\n\nNew time reflected on website and Sakai\n\nSee Week 11 activities"
+  },
+  {
+    "objectID": "slides/21-logistic-prediction.html#topics",
+    "href": "slides/21-logistic-prediction.html#topics",
+    "title": "Logistic Regression: Prediction + classification",
+    "section": "Topics",
+    "text": "Topics\n\n\nBuilding predictive logistic regression models\nSensitivity and specificity\nMaking classification decisions"
+  },
+  {
+    "objectID": "slides/21-logistic-prediction.html#computational-setup",
+    "href": "slides/21-logistic-prediction.html#computational-setup",
+    "title": "Logistic Regression: Prediction + classification",
+    "section": "Computational setup",
+    "text": "Computational setup\n\n# load packages\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(openintro)\nlibrary(knitr)\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 20))"
+  },
+  {
+    "objectID": "slides/21-logistic-prediction.html#openintroemail",
+    "href": "slides/21-logistic-prediction.html#openintroemail",
+    "title": "Logistic Regression: Prediction + classification",
+    "section": "openintro::email",
+    "text": "openintro::email\nThese data represent incoming emails for the first three months of 2012 for an email account.\n\n\nOutcome: spam - Indicator for whether the email was spam.\nPredictors: spam, to_multiple, from, cc, sent_email, time, image, attach, dollar, winner, inherit, viagra, password, num_char, line_breaks, format, re_subj, exclaim_subj, urgent_subj, exclaim_mess, number.\n\n\nClick here for more detailed information on the variables."
+  },
+  {
+    "objectID": "slides/21-logistic-prediction.html#training-and-testing-split",
+    "href": "slides/21-logistic-prediction.html#training-and-testing-split",
+    "title": "Logistic Regression: Prediction + classification",
+    "section": "Training and testing split",
+    "text": "Training and testing split\n\n# Fix random numbers by setting the seed \n# Enables analysis to be reproducible when random numbers are used \nset.seed(1109)\n\n# Put 75% of the data into the training set \nemail_split <- initial_split(email)\n\n# Create data frames for the two sets\nemail_train <- training(email_split)\nemail_test  <- testing(email_split)"
+  },
+  {
+    "objectID": "slides/21-logistic-prediction.html#exploratory-data-analysis",
+    "href": "slides/21-logistic-prediction.html#exploratory-data-analysis",
+    "title": "Logistic Regression: Prediction + classification",
+    "section": "Exploratory data analysis",
+    "text": "Exploratory data analysis\nThe sample is unbalanced with respect to spam."
+  },
+  {
+    "objectID": "slides/21-logistic-prediction.html#reminder-modeling-workflow",
+    "href": "slides/21-logistic-prediction.html#reminder-modeling-workflow",
+    "title": "Logistic Regression: Prediction + classification",
+    "section": "Reminder: Modeling workflow",
+    "text": "Reminder: Modeling workflow\n\nCreate a recipe for feature engineering steps to be applied to the training data\nFit the model to the training data after these steps have been applied\n\nUse cross-validation if deciding between multiple models\n\nUsing the model estimates from the training data, predict outcomes for the test data\nEvaluate the performance of the model on the test data"
+  },
+  {
+    "objectID": "slides/21-logistic-prediction.html#initiate-a-recipe",
+    "href": "slides/21-logistic-prediction.html#initiate-a-recipe",
+    "title": "Logistic Regression: Prediction + classification",
+    "section": "Initiate a recipe",
+    "text": "Initiate a recipe\n\nemail_rec <- recipe(\n  spam ~ .,          # formula\n  data = email_train  # data to use for cataloging names and types of variables\n  )\nsummary(email_rec)\n\n\n\n# A tibble: 21 × 4\n   variable     type    role      source  \n   <chr>        <chr>   <chr>     <chr>   \n 1 to_multiple  nominal predictor original\n 2 from         nominal predictor original\n 3 cc           numeric predictor original\n 4 sent_email   nominal predictor original\n 5 time         date    predictor original\n 6 image        numeric predictor original\n 7 attach       numeric predictor original\n 8 dollar       numeric predictor original\n 9 winner       nominal predictor original\n10 inherit      numeric predictor original\n11 viagra       numeric predictor original\n12 password     numeric predictor original\n13 num_char     numeric predictor original\n14 line_breaks  numeric predictor original\n15 format       nominal predictor original\n16 re_subj      nominal predictor original\n17 exclaim_subj numeric predictor original\n18 urgent_subj  nominal predictor original\n19 exclaim_mess numeric predictor original\n20 number       nominal predictor original\n21 spam         nominal outcome   original"
+  },
+  {
+    "objectID": "slides/21-logistic-prediction.html#remove-certain-variables",
+    "href": "slides/21-logistic-prediction.html#remove-certain-variables",
+    "title": "Logistic Regression: Prediction + classification",
+    "section": "Remove certain variables",
+    "text": "Remove certain variables\n\nemail_rec <- email_rec |>\n  step_rm(from, sent_email)\n\n\n\nRecipe\n\nInputs:\n\n      role #variables\n   outcome          1\n predictor         20\n\nOperations:\n\nVariables removed from, sent_email"
+  },
+  {
+    "objectID": "slides/21-logistic-prediction.html#feature-engineer-date",
+    "href": "slides/21-logistic-prediction.html#feature-engineer-date",
+    "title": "Logistic Regression: Prediction + classification",
+    "section": "Feature engineer date",
+    "text": "Feature engineer date\n\nemail_rec <- email_rec |>\n  step_date(time, features = c(\"dow\", \"month\")) |>\n  step_rm(time)\n\n\n\nRecipe\n\nInputs:\n\n      role #variables\n   outcome          1\n predictor         20\n\nOperations:\n\nVariables removed from, sent_email\nDate features from time\nVariables removed time"
+  },
+  {
+    "objectID": "slides/21-logistic-prediction.html#discretize-numeric-variables",
+    "href": "slides/21-logistic-prediction.html#discretize-numeric-variables",
+    "title": "Logistic Regression: Prediction + classification",
+    "section": "Discretize numeric variables",
+    "text": "Discretize numeric variables\n\nemail_rec <- email_rec |>\n  step_cut(cc, attach, dollar, breaks = c(0, 1))\n\n\n\nRecipe\n\nInputs:\n\n      role #variables\n   outcome          1\n predictor         20\n\nOperations:\n\nVariables removed from, sent_email\nDate features from time\nVariables removed time\nCut numeric for cc, attach, dollar"
+  },
+  {
+    "objectID": "slides/21-logistic-prediction.html#create-dummy-variables",
+    "href": "slides/21-logistic-prediction.html#create-dummy-variables",
+    "title": "Logistic Regression: Prediction + classification",
+    "section": "Create dummy variables",
+    "text": "Create dummy variables\n\nemail_rec <- email_rec |>\n  step_dummy(all_nominal(), -all_outcomes())\n\n\n\nRecipe\n\nInputs:\n\n      role #variables\n   outcome          1\n predictor         20\n\nOperations:\n\nVariables removed from, sent_email\nDate features from time\nVariables removed time\nCut numeric for cc, attach, dollar\nDummy variables from all_nominal(), -all_outcomes()"
+  },
+  {
+    "objectID": "slides/21-logistic-prediction.html#remove-zero-variance-variables",
+    "href": "slides/21-logistic-prediction.html#remove-zero-variance-variables",
+    "title": "Logistic Regression: Prediction + classification",
+    "section": "Remove zero variance variables",
+    "text": "Remove zero variance variables\nVariables that contain only a single value\n\nemail_rec <- email_rec |>\n  step_zv(all_predictors())\n\n\n\nRecipe\n\nInputs:\n\n      role #variables\n   outcome          1\n predictor         20\n\nOperations:\n\nVariables removed from, sent_email\nDate features from time\nVariables removed time\nCut numeric for cc, attach, dollar\nDummy variables from all_nominal(), -all_outcomes()\nZero variance filter on all_predictors()"
+  },
+  {
+    "objectID": "slides/21-logistic-prediction.html#recipe-all-in-one-place",
+    "href": "slides/21-logistic-prediction.html#recipe-all-in-one-place",
+    "title": "Logistic Regression: Prediction + classification",
+    "section": "Recipe: All in one place",
+    "text": "Recipe: All in one place\n\nemail_rec <- recipe(spam ~ ., data = email_train) |>\n  step_rm(from, sent_email) |>\n  step_date(time, features = c(\"dow\", \"month\")) |>               \n  step_rm(time) |>\n  step_cut(cc, attach, dollar, breaks = c(0, 1)) |>\n  step_dummy(all_nominal_predictors()) |>\n  step_zv(all_predictors())"
+  },
+  {
+    "objectID": "slides/21-logistic-prediction.html#define-model",
+    "href": "slides/21-logistic-prediction.html#define-model",
+    "title": "Logistic Regression: Prediction + classification",
+    "section": "Define model",
+    "text": "Define model\n\nemail_spec <- logistic_reg() |> \n  set_engine(\"glm\")\nemail_spec\n\nLogistic Regression Model Specification (classification)\n\nComputational engine: glm"
+  },
+  {
+    "objectID": "slides/21-logistic-prediction.html#define-workflow",
+    "href": "slides/21-logistic-prediction.html#define-workflow",
+    "title": "Logistic Regression: Prediction + classification",
+    "section": "Define workflow",
+    "text": "Define workflow\nRemember: Workflows bring together models and recipes so that they can be easily applied to both the training and test data.\n\nemail_wflow <- workflow() |> \n  add_model(email_spec) |> \n  add_recipe(email_rec)\n\n\n\n══ Workflow ════════════════════════════════════════════════════════════════════\nPreprocessor: Recipe\nModel: logistic_reg()\n\n── Preprocessor ────────────────────────────────────────────────────────────────\n6 Recipe Steps\n\n• step_rm()\n• step_date()\n• step_rm()\n• step_cut()\n• step_dummy()\n• step_zv()\n\n── Model ───────────────────────────────────────────────────────────────────────\nLogistic Regression Model Specification (classification)\n\nComputational engine: glm"
+  },
+  {
+    "objectID": "slides/21-logistic-prediction.html#fit-model-to-training-data",
+    "href": "slides/21-logistic-prediction.html#fit-model-to-training-data",
+    "title": "Logistic Regression: Prediction + classification",
+    "section": "Fit model to training data",
+    "text": "Fit model to training data\n\nemail_fit <- email_wflow |> \n  fit(data = email_train)\n\ntidy(email_fit) |> print(n = 31)\n\n# A tibble: 27 × 5\n   term           estimate std.error statistic  p.value\n   <chr>             <dbl>     <dbl>     <dbl>    <dbl>\n 1 (Intercept)    -1.24      0.274     -4.51   6.43e- 6\n 2 image          -1.36      0.679     -2.00   4.59e- 2\n 3 inherit         0.352     0.185      1.90   5.69e- 2\n 4 viagra          1.96     40.6        0.0482 9.62e- 1\n 5 password       -0.941     0.387     -2.43   1.51e- 2\n 6 num_char        0.0572    0.0257     2.23   2.58e- 2\n 7 line_breaks    -0.00554   0.00147   -3.77   1.66e- 4\n 8 exclaim_subj   -0.245     0.303     -0.807  4.19e- 1\n 9 exclaim_mess    0.00916   0.00195    4.69   2.67e- 6\n10 to_multiple_X1 -2.91      0.388     -7.50   6.37e-14\n11 cc_X.1.68.     -0.105     0.446     -0.236  8.14e- 1\n12 attach_X.1.21.  2.33      0.385      6.06   1.37e- 9\n13 dollar_X.1.64.  0.0136    0.241      0.0565 9.55e- 1\n14 winner_yes      2.46      0.480      5.12   3.02e- 7\n15 format_X1      -1.02      0.173     -5.88   4.07e- 9\n16 re_subj_X1     -2.93      0.436     -6.72   1.81e-11\n17 urgent_subj_X1  4.37      1.25       3.51   4.54e- 4\n18 number_small   -0.728     0.178     -4.08   4.45e- 5\n19 number_big      0.261     0.255      1.03   3.05e- 1\n20 time_dow_Mon    0.123     0.320      0.386  7.00e- 1\n21 time_dow_Tue    0.309     0.294      1.05   2.94e- 1\n22 time_dow_Wed   -0.133     0.297     -0.447  6.55e- 1\n23 time_dow_Thu    0.104     0.303      0.343  7.32e- 1\n24 time_dow_Fri    0.280     0.292      0.960  3.37e- 1\n25 time_dow_Sat    0.439     0.323      1.36   1.74e- 1\n26 time_month_Feb  1.06      0.192      5.54   3.06e- 8\n27 time_month_Mar  0.575     0.198      2.91   3.60e- 3"
+  },
+  {
+    "objectID": "slides/21-logistic-prediction.html#make-predictions-for-test-data",
+    "href": "slides/21-logistic-prediction.html#make-predictions-for-test-data",
+    "title": "Logistic Regression: Prediction + classification",
+    "section": "Make predictions for test data",
+    "text": "Make predictions for test data\n\nemail_pred <- predict(email_fit, email_test, type = \"prob\") |> \n  bind_cols(email_test) \nemail_pred\n\n# A tibble: 981 × 23\n   .pred_0  .pred_1 spam  to_mul…¹ from     cc sent_…² time                image\n     <dbl>    <dbl> <fct> <fct>    <fct> <int> <fct>   <dttm>              <dbl>\n 1   0.921 0.0786   0     0        1         0 0       2012-01-01 01:16:41     0\n 2   0.961 0.0391   0     0        1         0 0       2012-01-01 05:00:01     0\n 3   0.999 0.000988 0     0        1         1 1       2012-01-01 14:38:32     0\n 4   0.999 0.000591 0     0        1         1 1       2012-01-01 18:40:14     0\n 5   0.991 0.00878  0     0        1         0 0       2012-01-02 00:42:16     0\n 6   0.910 0.0902   0     0        1         0 0       2012-01-01 21:05:45     0\n 7   1.00  0.000108 0     1        1         3 0       2012-01-02 08:41:11     0\n 8   0.975 0.0248   0     0        1         0 0       2012-01-02 20:07:17     0\n 9   0.952 0.0477   0     0        1         0 0       2012-01-02 23:31:03     0\n10   0.992 0.00819  0     1        1         0 0       2012-01-03 08:36:16     0\n# … with 971 more rows, 14 more variables: attach <dbl>, dollar <dbl>,\n#   winner <fct>, inherit <dbl>, viagra <dbl>, password <dbl>, num_char <dbl>,\n#   line_breaks <int>, format <fct>, re_subj <fct>, exclaim_subj <dbl>,\n#   urgent_subj <fct>, exclaim_mess <dbl>, number <fct>, and abbreviated\n#   variable names ¹​to_multiple, ²​sent_email"
+  },
+  {
+    "objectID": "slides/21-logistic-prediction.html#a-closer-look-at-predictions",
+    "href": "slides/21-logistic-prediction.html#a-closer-look-at-predictions",
+    "title": "Logistic Regression: Prediction + classification",
+    "section": "A closer look at predictions",
+    "text": "A closer look at predictions\n\nWhich of the following 10 emails will be misclassified?\n\n\nemail_pred |>\n  arrange(desc(.pred_1)) |>\n  select(contains(\"pred\"), spam) |> slice(1:10)\n\n# A tibble: 10 × 3\n   .pred_0 .pred_1 spam \n     <dbl>   <dbl> <fct>\n 1  0.0750   0.925 0    \n 2  0.110    0.890 0    \n 3  0.116    0.884 1    \n 4  0.127    0.873 1    \n 5  0.170    0.830 1    \n 6  0.189    0.811 1    \n 7  0.204    0.796 1    \n 8  0.208    0.792 1    \n 9  0.224    0.776 1    \n10  0.295    0.705 1"
+  },
+  {
+    "objectID": "slides/21-logistic-prediction.html#false-positive-and-negative",
+    "href": "slides/21-logistic-prediction.html#false-positive-and-negative",
+    "title": "Logistic Regression: Prediction + classification",
+    "section": "False positive and negative",
+    "text": "False positive and negative\n\n\n\n\n\n\n\n\n\nEmail is spam\nEmail is not spam\n\n\n\n\nEmail classified as spam\nTrue positive\nFalse positive (Type 1 error)\n\n\nEmail classified as not spam\nFalse negative (Type 2 error)\nTrue negative\n\n\n\n\n\n\nFalse negative rate = P(classified as not spam | Email spam) = FN / (TP + FN)\nFalse positive rate = P(classified as spam | Email not spam) = FP / (FP + TN)"
+  },
+  {
+    "objectID": "slides/21-logistic-prediction.html#sensitivity-and-specificity-1",
+    "href": "slides/21-logistic-prediction.html#sensitivity-and-specificity-1",
+    "title": "Logistic Regression: Prediction + classification",
+    "section": "Sensitivity and specificity",
+    "text": "Sensitivity and specificity\n\n\n\n\n\n\n\n\n\nEmail is spam\nEmail is not spam\n\n\n\n\nEmail classified as spam\nTrue positive\nFalse positive (Type 1 error)\n\n\nEmail classified as not spam\nFalse negative (Type 2 error)\nTrue negative\n\n\n\n\n\n\nSensitivity = P(classified as spam | Email spam) = TP / (TP + FN)\n\nSensitivity = 1 − False negative rate\n\nSpecificity = P(classified as not spam | Email not spam) = TN / (FP + TN)\n\nSpecificity = 1 − False positive rate\n\n\n\n\n\nIf you were designing a spam filter, would you want sensitivity and specificity to be high or low? What are the trade-offs associated with each decision?"
+  },
+  {
+    "objectID": "slides/21-logistic-prediction.html#evaluate-the-performance",
+    "href": "slides/21-logistic-prediction.html#evaluate-the-performance",
+    "title": "Logistic Regression: Prediction + classification",
+    "section": "Evaluate the performance",
+    "text": "Evaluate the performance\nReceiver operating characteristic (ROC) curve+ plots the true positive rate (sensitivity) vs. false positive rate (1 - specificity).\n\n\n\n\nemail_pred |>\n  roc_curve(\n    truth = spam,\n    .pred_1,\n    event_level = \"second\"\n  ) |>\n  autoplot()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n+ Originally developed for operators of military radar receivers, hence the name."
+  },
+  {
+    "objectID": "slides/21-logistic-prediction.html#roc-curve-under-the-hood",
+    "href": "slides/21-logistic-prediction.html#roc-curve-under-the-hood",
+    "title": "Logistic Regression: Prediction + classification",
+    "section": "ROC curve, under the hood",
+    "text": "ROC curve, under the hood\n\nemail_pred |>\n  roc_curve(\n    truth = spam,\n    .pred_1,\n    event_level = \"second\"\n  )\n\n# A tibble: 978 × 3\n    .threshold specificity sensitivity\n         <dbl>       <dbl>       <dbl>\n 1 -Inf            0                 1\n 2    3.36e-10     0                 1\n 3    2.27e- 9     0.00226           1\n 4    8.69e- 7     0.00339           1\n 5    9.89e- 7     0.00452           1\n 6    1.43e- 6     0.00565           1\n 7    9.16e- 6     0.00678           1\n 8    1.03e- 5     0.00791           1\n 9    2.58e- 5     0.00904           1\n10    3.35e- 5     0.0102            1\n# … with 968 more rows"
+  },
+  {
+    "objectID": "slides/21-logistic-prediction.html#roc-curve",
+    "href": "slides/21-logistic-prediction.html#roc-curve",
+    "title": "Logistic Regression: Prediction + classification",
+    "section": "ROC curve",
+    "text": "ROC curve"
+  },
+  {
+    "objectID": "slides/21-logistic-prediction.html#evaluate-the-performance-auc",
+    "href": "slides/21-logistic-prediction.html#evaluate-the-performance-auc",
+    "title": "Logistic Regression: Prediction + classification",
+    "section": "Evaluate the performance: AUC",
+    "text": "Evaluate the performance: AUC\n\nemail_pred |>\n  roc_auc(\n    truth = spam,\n    .pred_1,\n    event_level = \"second\"\n  )\n\n# A tibble: 1 × 3\n  .metric .estimator .estimate\n  <chr>   <chr>          <dbl>\n1 roc_auc binary         0.836\n\n\n\nThe area under the curve (AUC) can be used to assess how well the logistic model fits the data\n\nAUC=0.5: model is a very bad fit (no better than a coin flip)\nAUC close to 1: model is a good fit"
+  },
+  {
+    "objectID": "slides/21-logistic-prediction.html#cutoff-probability-0.5",
+    "href": "slides/21-logistic-prediction.html#cutoff-probability-0.5",
+    "title": "Logistic Regression: Prediction + classification",
+    "section": "Cutoff probability: 0.5",
+    "text": "Cutoff probability: 0.5\n\nOutputCode\n\n\nSuppose we decide to label an email as spam if the model predicts the probability of spam to be more than 0.5.\n\n\n\n\n\n\nEmail is not spam\nEmail is spam\n\n\n\n\nEmail classified as not spam\n877\n82\n\n\nEmail classified as spam\n8\n14\n\n\n\n\n\n\n\n\ncutoff_prob <- 0.5\nemail_pred |>\n  mutate(\n    spam_pred = as_factor(if_else(.pred_1 >= cutoff_prob, 1, 0)),\n    spam      = if_else(spam == 1, \"Email is spam\", \"Email is not spam\"),\n    spam_pred = if_else(spam_pred == 1, \"Email classified as spam\", \"Email classified as not spam\")\n    ) |>\n  count(spam_pred, spam) |>\n  pivot_wider(names_from = spam, values_from = n) |>\n  kable(col.names = c(\"\", \"Email is not spam\", \"Email is spam\"))"
+  },
+  {
+    "objectID": "slides/21-logistic-prediction.html#confusion-matrix",
+    "href": "slides/21-logistic-prediction.html#confusion-matrix",
+    "title": "Logistic Regression: Prediction + classification",
+    "section": "Confusion matrix",
+    "text": "Confusion matrix\nCross-tabulation of observed and predicted classes:\n\ncutoff_prob <- 0.5\nemail_pred |>\n  mutate(spam_predicted = as_factor(if_else(.pred_1 >= cutoff_prob, 1, 0))) |>\n  conf_mat(truth = spam, estimate = spam_predicted)\n\n          Truth\nPrediction   0   1\n         0 877  82\n         1   8  14"
+  },
+  {
+    "objectID": "slides/21-logistic-prediction.html#classification",
+    "href": "slides/21-logistic-prediction.html#classification",
+    "title": "Logistic Regression: Prediction + classification",
+    "section": "Classification",
+    "text": "Classification"
+  },
+  {
+    "objectID": "slides/21-logistic-prediction.html#cutoff-probability-0.25",
+    "href": "slides/21-logistic-prediction.html#cutoff-probability-0.25",
+    "title": "Logistic Regression: Prediction + classification",
+    "section": "Cutoff probability: 0.25",
+    "text": "Cutoff probability: 0.25\n\nOutputCode\n\n\nSuppose we decide to label an email as spam if the model predicts the probability of spam to be more than 0.25.\n\n\n\n\n\n\nEmail is not spam\nEmail is spam\n\n\n\n\nEmail classified as not spam\n830\n52\n\n\nEmail classified as spam\n55\n44\n\n\n\n\n\n\n\n\ncutoff_prob <- 0.25\nemail_pred |>\n  mutate(\n    spam_pred = as_factor(if_else(.pred_1 >= cutoff_prob, 1, 0)),\n    spam      = if_else(spam == 1, \"Email is spam\", \"Email is not spam\"),\n    spam_pred = if_else(spam_pred == 1, \"Email classified as spam\", \"Email classified as not spam\")\n    ) |>\n  count(spam_pred, spam) |>\n  pivot_wider(names_from = spam, values_from = n) |>\n  kable(col.names = c(\"\", \"Email is not spam\", \"Email is spam\"))"
+  },
+  {
+    "objectID": "slides/21-logistic-prediction.html#classification-1",
+    "href": "slides/21-logistic-prediction.html#classification-1",
+    "title": "Logistic Regression: Prediction + classification",
+    "section": "Classification",
+    "text": "Classification"
+  },
+  {
+    "objectID": "slides/21-logistic-prediction.html#cutoff-probability-0.75",
+    "href": "slides/21-logistic-prediction.html#cutoff-probability-0.75",
+    "title": "Logistic Regression: Prediction + classification",
+    "section": "Cutoff probability: 0.75",
+    "text": "Cutoff probability: 0.75\n\nOutputCode\n\n\nSuppose we decide to label an email as spam if the model predicts the probability of spam to be more than 0.75.\n\n\n\n\n\n\nEmail is not spam\nEmail is spam\n\n\n\n\nEmail classified as not spam\n883\n89\n\n\nEmail classified as spam\n2\n7\n\n\n\n\n\n\n\n\ncutoff_prob <- 0.75\nemail_pred |>\n  mutate(\n    spam_pred = as_factor(if_else(.pred_1 >= cutoff_prob, 1, 0)),\n    spam      = if_else(spam == 1, \"Email is spam\", \"Email is not spam\"),\n    spam_pred = if_else(spam_pred == 1, \"Email classified as spam\", \"Email classified as not spam\")\n    ) |>\n  count(spam_pred, spam) |>\n  pivot_wider(names_from = spam, values_from = n) |>\n  kable(col.names = c(\"\", \"Email is not spam\", \"Email is spam\"))"
+  },
+  {
+    "objectID": "slides/21-logistic-prediction.html#classification-2",
+    "href": "slides/21-logistic-prediction.html#classification-2",
+    "title": "Logistic Regression: Prediction + classification",
+    "section": "Classification",
+    "text": "Classification"
+  },
+  {
+    "objectID": "slides/21-logistic-prediction.html#use-roc-curve",
+    "href": "slides/21-logistic-prediction.html#use-roc-curve",
+    "title": "Logistic Regression: Prediction + classification",
+    "section": "Use ROC curve",
+    "text": "Use ROC curve\nUse the ROC curve to determine the best cutoff probability\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n# A tibble: 10 × 3\n   .threshold specificity sensitivity\n        <dbl>       <dbl>       <dbl>\n 1     0.0769       0.736       0.792\n 2     0.0770       0.736       0.781\n 3     0.0780       0.737       0.781\n 4     0.0785       0.737       0.771\n 5     0.0786       0.738       0.771\n 6     0.0787       0.739       0.771\n 7     0.0789       0.739       0.760\n 8     0.0802       0.740       0.760\n 9     0.0802       0.741       0.760\n10     0.0805       0.742       0.760\n\n\n\n\n\n\n\n🔗 Week 11"
   },
   {
     "objectID": "slides/08-slr-conditions.html#announcements",

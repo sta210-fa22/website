@@ -4872,6 +4872,13 @@
     "text": "Announcements\n\nAaditya’s office hours permanently moved to Wed 6 - 8pm\n\nNew time reflected on website and Sakai\n\nSee Week 11 activities"
   },
   {
+    "objectID": "slides/21-logistic-prediction.html#odds-ratios-practice",
+    "href": "slides/21-logistic-prediction.html#odds-ratios-practice",
+    "title": "Logistic Regression: Prediction + classification",
+    "section": "Odds ratios practice",
+    "text": "Odds ratios practice\nLet’s take a look at one of the models from Lab 06.\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-14.676\n1.881\n-7.804\n0.000\n\n\nislandDream\n-0.892\n0.359\n-2.481\n0.013\n\n\nislandTorgersen\n18.132\n822.821\n0.022\n0.982\n\n\nbill_depth_mm\n0.836\n0.113\n7.416\n0.000\n\n\n\n\n\n\n\nInterpret the coefficient of bill_depth_mm in terms of the odds a penguin is from Adelie species.\nInterpret the coefficient of islandDream in terms of the odds a penguin is from Adelie species.\n\n\n\n\n\n03:00"
+  },
+  {
     "objectID": "slides/21-logistic-prediction.html#topics",
     "href": "slides/21-logistic-prediction.html#topics",
     "title": "Logistic Regression: Prediction + classification",

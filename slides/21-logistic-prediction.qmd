@@ -44,6 +44,38 @@ library(countdown)
 
 -   See [Week 11](../weeks/week-11.html) activities
 
+## Odds ratios practice {.small}
+
+Let's take a look at one of the models from [Lab 06](../labs/lab-06.html).
+
+```{r}
+#| echo: false
+library(tidyverse)
+library(tidymodels)
+library(knitr)
+library(palmerpenguins)
+
+penguins <- penguins |>
+  mutate(adelie = factor(if_else(species == "Adelie", 1, 0)))
+
+logistic_reg() |>
+  set_engine("glm") |>
+  fit(adelie ~ island + bill_depth_mm, data = penguins) |>
+  tidy() |>
+  kable(digits = 3)
+```
+
+::: question
+-   Interpret the coefficient of `bill_depth_mm` in terms of the **odds** a penguin is from Adelie species.
+
+-   Interpret the coefficient of `islandDream` in terms of the **odds** a penguin is from Adelie species.
+:::
+
+```{r}
+#| echo: false
+countdown::countdown(minutes = 3)
+```
+
 ## Topics
 
 ::: nonincremental
@@ -265,7 +297,7 @@ email_pred |>
 ## False positive and negative {.midi}
 
 |                              | Email is spam                   | Email is not spam               |
-|------------------------|------------------------|------------------------|
+|-----------------------|-------------------------|-------------------------|
 | Email classified as spam     | True positive                   | False positive (*Type 1 error*) |
 | Email classified as not spam | False negative (*Type 2 error*) | True negative                   |
 
@@ -280,7 +312,7 @@ email_pred |>
 ## Sensitivity and specificity {.midi}
 
 |                              | Email is spam                   | Email is not spam               |
-|----------------------|-------------------------|-------------------------|
+|-----------------------|-------------------------|-------------------------|
 | Email classified as spam     | True positive                   | False positive (*Type 1 error*) |
 | Email classified as not spam | False negative (*Type 2 error*) | True negative                   |
 

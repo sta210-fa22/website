@@ -1,0 +1,51 @@
+---
+title: "Logistic Regression: Model comparison"
+author: "Prof. Maria Tackett"
+date: "2022-11-14"
+date-format: "MMM DD, YYYY"
+footer: "[🔗 Week 12](https://sta210-fa22.netlify.app/weeks/week-12.html)"
+logo: "../images/logo.png"
+format: 
+  revealjs:
+    theme: slides.scss
+    multiplex: false
+    transition: fade
+    slide-number: true
+    incremental: false 
+    chalkboard: true
+execute:
+  freeze: auto
+  echo: true
+  warning: false
+  message: false
+knitr:
+  opts_chunk: 
+    R.options:      
+    width: 200
+---
+
+```{r}
+#| include: false
+
+# figure options
+knitr::opts_chunk$set(
+  fig.width = 8, fig.asp = 0.618, out.width = "90%",
+  fig.retina = 3, dpi = 300, fig.align = "center"
+)
+
+library(countdown)
+```
+
+## Announcements
+
+-   Project timeline
+
+-   Exam 02 dates
+
+-   See [Week 12](../weeks/week-12.html) activities
+
+## Application exercise 
+
+::: appex
+📋 [AE 14: Logistic Regression - Model Comparison](../ae/ae-14-model-compare.html)
+:::

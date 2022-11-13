@@ -6,10 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Nov 14 - 18">
-<meta name="description" content="HW 04">
+<meta name="dcterms.date" content="2022-11-14">
 
-<title>STA 210 - Fall 2022 - Week 12</title>
+<title>STA 210 - Fall 2022 - AE 14: Logistic regression</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -17,6 +16,69 @@ span.underline{text-decoration: underline;}
 div.column{display: inline-block; vertical-align: top; width: 50%;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -27,8 +89,6 @@ ul.task-list{list-style: none;}
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../weeks/week-13.html" rel="next">
-<link href="../weeks/week-11.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -67,7 +127,7 @@ ul.task-list{list-style: none;}
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Week 12</h1>
+      <h1 class="quarto-secondary-nav-title">AE 14: Logistic regression</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -119,12 +179,12 @@ ul.task-list{list-style: none;}
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Schedule</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">Schedule</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../schedule.html" class="sidebar-item-text sidebar-link">Full schedule</a>
@@ -187,7 +247,7 @@ ul.task-list{list-style: none;}
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../weeks/week-12.html" class="sidebar-item-text sidebar-link active">Week 12</a>
+  <a href="../weeks/week-12.html" class="sidebar-item-text sidebar-link">Week 12</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -276,21 +336,39 @@ ul.task-list{list-style: none;}
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#prepare" id="toc-prepare" class="nav-link active" data-scroll-target="#prepare">Prepare</a></li>
-  <li><a href="#participate" id="toc-participate" class="nav-link" data-scroll-target="#participate">Participate</a></li>
-  <li><a href="#practice" id="toc-practice" class="nav-link" data-scroll-target="#practice">Practice</a></li>
-  <li><a href="#perform" id="toc-perform" class="nav-link" data-scroll-target="#perform">Perform</a></li>
+  <li><a href="#packages" id="toc-packages" class="nav-link active" data-scroll-target="#packages">Packages</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
+  <li><a href="#modeling-prep" id="toc-modeling-prep" class="nav-link" data-scroll-target="#modeling-prep">Modeling prep</a></li>
+  <li><a href="#model-1-everything-and-the-kitchen-sink" id="toc-model-1-everything-and-the-kitchen-sink" class="nav-link" data-scroll-target="#model-1-everything-and-the-kitchen-sink">Model 1: Everything and the kitchen sink</a></li>
+  <li><a href="#model-2-lets-be-a-bit-more-thoughtful" id="toc-model-2-lets-be-a-bit-more-thoughtful" class="nav-link" data-scroll-target="#model-2-lets-be-a-bit-more-thoughtful">Model 2: Let’s be a bit more thoughtful</a></li>
+  <li><a href="#putting-it-altogether" id="toc-putting-it-altogether" class="nav-link" data-scroll-target="#putting-it-altogether">Putting it altogether</a></li>
+  <li><a href="#acknowledgement" id="toc-acknowledgement" class="nav-link" data-scroll-target="#acknowledgement">Acknowledgement</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/sta210-fa22/website/edit/main/weeks/week-12.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/sta210-fa22/website/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/sta210-fa22/website/edit/main/ae/ae-14-model-compare.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/sta210-fa22/website/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header">
-<h1 class="title d-none d-lg-block display-7">Week 12</h1>
-<p class="subtitle lead">LR: Model Comparison + Inference</p>
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">AE 14: Logistic regression</h1>
+<p class="subtitle lead">Model comparsion</p>
+</div>
 
-<p class="author">Nov 14 - 18</p>
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 14, 2022</p>
+    </div>
+  </div>
+    
+  </div>
+  
 
 </header>
 
@@ -304,85 +382,107 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<ul>
-<li>AE 14: due Thu, Nov 14, 11:59pm</li>
-<li>HW 04: due Mon, Nov 21, 11:59pm</li>
-</ul>
+<p>Go to the <a href="https://github.com/sta210-fa22">course GitHub organization</a> and locate your <code>ae-14</code>- to get started.</p>
+<p>The AE is due on GitHub by Thursday, November 16 , 11:59pm.</p>
 </div>
 </div>
-<section id="prepare" class="level1">
-<h1>Prepare</h1>
-<table class="table">
-<colgroup>
-<col style="width: 60%">
-<col style="width: 40%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Reading</th>
-<th>Corresponding lecture</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>📖 IMS, Chp 26: <a href="https://openintro-ims.netlify.app/inf-model-logistic.html">Inference for logistic regression</a></td>
-<td>Nov 16</td>
-</tr>
-</tbody>
-</table>
+<section id="packages" class="level2">
+<h2 class="anchored" data-anchor-id="packages">Packages</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
-<section id="participate" class="level1">
-<h1>Participate</h1>
-<table class="table">
-<colgroup>
-<col style="width: 60%">
-<col style="width: 40%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td>💻 <a href="../slides/22-model-compare.html">Logistic regression: Model comparison</a></td>
-<td>Nov 14</td>
-</tr>
-<tr class="even">
-<td>💻 Logistic Regression: Inference + conditions</td>
-<td>Nov 16</td>
-</tr>
-</tbody>
-</table>
+<section id="data" class="level2">
+<h2 class="anchored" data-anchor-id="data">Data</h2>
+<p>For this application exercise we will work with a data set of 25,000 randomly sampled flights that departed one of three NYC airports (JFK, LGA, EWR) in 2013.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>flight_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/flight-data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The goal of this analysis is to fit a model that could be used to predict whether a flight will arrive on time (up to 30 minutes past the scheduled arrival time) or late (more than 30 minutes past the scheduled arrival time).</p>
+<ol type="1">
+<li>Convert <code>arr_delay</code> to factor with levels <code>"late"</code> (first level) and <code>"on_time"</code> (second level). This variable is our outcome and it indicates whether the flight’s arrival was more than 30 minutes.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
-<section id="practice" class="level1">
-<h1>Practice</h1>
-<table class="table">
-<colgroup>
-<col style="width: 60%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td>📋 <a href="../ae/ae-14-model-compare.html">AE 14: Logistic regression - Model Comparison</a></td>
-</tr>
-</tbody>
-</table>
+<section id="modeling-prep" class="level2">
+<h2 class="anchored" data-anchor-id="modeling-prep">Modeling prep</h2>
+<ol start="2" type="1">
+<li>Split the data into testing (75%) and training (25%), and save each subset.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">222</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># add code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="3" type="1">
+<li>Specify a logistic regression model that uses the <code>"glm"</code> engine.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Next, we’ll create two recipes and workflows and compare them to each other.</p>
 </section>
-<section id="perform" class="level1">
-<h1>Perform</h1>
-<table class="table">
-<colgroup>
-<col style="width: 60%">
-<col style="width: 40%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>📝 HW 04</th>
-<th>due Mon, Nov 21, 11:59pm</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>📝 <a href="../hw/stats-experience.html">Statistics experience</a></td>
-<td>due Fri, Dec 10, 11:59pm</td>
-</tr>
-</tbody>
-</table>
+<section id="model-1-everything-and-the-kitchen-sink" class="level2">
+<h2 class="anchored" data-anchor-id="model-1-everything-and-the-kitchen-sink">Model 1: Everything and the kitchen sink</h2>
+<ol start="4" type="1">
+<li>Define a recipe that predicts <code>arr_delay</code> using all variables except for <code>flight</code> and <code>time_hour</code>, which, in combination, can be used to identify a flight. Also make sure this recipe handles dummy coding as well as issues that can arise due to having categorical variables with some levels apparent in the training set but not in the testing set. Call this recipe <code>flights_rec1</code>.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="5" type="1">
+<li>Create a workflow that uses <code>flights_rec1</code> and the model you specified.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="6" type="1">
+<li>Fit the this model to the training data using your workflow and display a tidy summary of the model fit.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="7" type="1">
+<li>Predict <code>arr_delay</code> for the testing data using this model.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="8" type="1">
+<li>Plot the ROC curve and find the area under the curve. Comment on how well you think this model has done for predicting arrival delay.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="model-2-lets-be-a-bit-more-thoughtful" class="level2">
+<h2 class="anchored" data-anchor-id="model-2-lets-be-a-bit-more-thoughtful">Model 2: Let’s be a bit more thoughtful</h2>
+<ol start="9" type="1">
+<li>Define a new recipe, <code>flights_rec2</code>, that, in addition to what was done in <code>flights_rec1</code>, adds features for day of week and month based on <code>date</code> and also adds indicators for all US holidays (also based on <code>date</code>). A list of these holidays can be found in <code>timeDate::listHolidays("US")</code>. Once these features are added, <code>date</code> should be removed from the data. Then, create a new workflow, fit the same model (logistic regression) to the training data, and do predictions on the testing data. Finally, draw another ROC curve and find the area under the curve.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="putting-it-altogether" class="level2">
+<h2 class="anchored" data-anchor-id="putting-it-altogether">Putting it altogether</h2>
+<ol start="10" type="1">
+<li>Create an ROC curve that plots both models, in different colors, and adds a legend indicating which model is which.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="11" type="1">
+<li>Compare the predictive performance of this new model to the previous one. Based on the ROC curves and area under the curve statistic, which model does better?</li>
+</ol>
+</section>
+<section id="acknowledgement" class="level2">
+<h2 class="anchored" data-anchor-id="acknowledgement">Acknowledgement</h2>
+<p>This exercise was inspired by <a href="https://www.tidymodels.org/start/recipes/" class="uri">tidymodels.org/start/recipes</a> and adapted from <a href="https://sta210-s22.github.io/website/ae/ae-10-flight-delays">sta210-s22.github.io/website/ae/ae-10-flight-delays</a>.</p>
 
 
 </section>
@@ -485,18 +585,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../weeks/week-11.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Week 11</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="../weeks/week-13.html" class="pagination-link">
-        <span class="nav-page-text">Week 13</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

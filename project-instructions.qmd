@@ -120,7 +120,7 @@ In this section, you will describe the data set. This includes
 
 ### Section 3 - Exploratory data analysis
 
-In this section, you will explore the data. This includes using visualizations and summary statistics to describe the following:
+In this section, you will explore the data. This includes using <!-- narrative -->, visualizations and summary statistics to describe the following:
 
 -   univariate distribution of the response variable
 -   univariate distributions of the potential predictor variables

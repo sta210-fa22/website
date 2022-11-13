@@ -1,7 +1,7 @@
 ---
 title: "Week 15"
-subtitle: "Looking ahead"
-description: "[Statistics experience due](https://sta210-fa22.netlify.app/hw/stats-experience.html)"
+subtitle: "Exam 02 + Project"
+description: "Exam 02, Written report, [Statistics experience due](https://sta210-fa22.netlify.app/hw/stats-experience.html)"
 author: "Dec 05 - 09"
 date: ""
 tbl-colwidths: [60,40]

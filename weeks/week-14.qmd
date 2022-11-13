@@ -1,7 +1,7 @@
 ---
 title: "Week 14"
 subtitle: "Mixed effects models"
-description: "Exam 02"
+description: ""
 author: "Nov 28 - Dec 02"
 date: ""
 tbl-colwidths: [60,40]

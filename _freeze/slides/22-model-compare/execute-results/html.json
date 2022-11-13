@@ -1,8 +1,10 @@
 {
-  "hash": "55daa4f43122288d08f240dc003a30b3",
+  "hash": "35ee9941cb43ecafaf9632a89b972e1f",
   "result": {
-    "markdown": "---\ntitle: \"Logistic Regression: Model comparison\"\nauthor: \"Prof. Maria Tackett\"\ndate: \"2022-11-14\"\ndate-format: \"MMM DD, YYYY\"\nfooter: \"[🔗 Week 12](https://sta210-fa22.netlify.app/weeks/week-12.html)\"\nlogo: \"../images/logo.png\"\nformat: \n  revealjs:\n    theme: slides.scss\n    multiplex: false\n    transition: fade\n    slide-number: true\n    incremental: false \n    chalkboard: true\nexecute:\n  freeze: auto\n  echo: true\n  warning: false\n  message: false\nknitr:\n  opts_chunk: \n    R.options:      \n    width: 200\n---\n\n\n\n\n## Announcements\n\n-   Project timeline\n\n-   Exam 02 dates\n\n-   See [Week 12](../weeks/week-12.html) activities\n\n## Application exercise \n\n::: appex\n📋 [AE 14: Logistic Regression - Model Comparison](../ae/ae-14-model-compare.html)\n:::\n",
-    "supporting": [],
+    "markdown": "---\ntitle: \"Logistic Regression: Model comparison\"\nauthor: \"Prof. Maria Tackett\"\ndate: \"2022-11-14\"\ndate-format: \"MMM DD, YYYY\"\nfooter: \"[🔗 Week 12](https://sta210-fa22.netlify.app/weeks/week-12.html)\"\nlogo: \"../images/logo.png\"\nformat: \n  revealjs:\n    theme: slides.scss\n    multiplex: false\n    transition: fade\n    slide-number: true\n    incremental: false \n    chalkboard: true\nexecute:\n  freeze: auto\n  echo: true\n  warning: false\n  message: false\nknitr:\n  opts_chunk: \n    R.options:      \n    width: 200\n---\n\n\n\n\n## Announcements\n\n-   Project timelines:\n\n    -   [Round 1 submission (optional)](https://sta210-fa22.netlify.app/project-instructions.html#draft-report) due Tue, Nov 22, 11:59pm on GitHub - see instructions for submission details\n\n    -   Final written report due Fri, Dec 09, 11:59pm (accepted until Sun, Dec 11, 11:59pm)\n\n-   Upcoming dates:\n\n    -   Exam 02: Mon, Dec 05, 7pm - Thu, Dec 08, 12pm (noon)\n\n    -   S[tatistics experience](../hw/stats-experience.html) due Fri, Dec 09, 11:59pm\n\n-   See [Week 12](../weeks/week-12.html) activities\n\n## Application exercise \n\n::: appex\n📋 [AE 14: Logistic Regression - Model Comparison](../ae/ae-14-model-compare.html)\n:::\n",
+    "supporting": [
+      "22-model-compare_files"
+    ],
     "filters": [
       "rmarkdown/pagebreak.lua"
     ],

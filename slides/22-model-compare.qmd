@@ -38,9 +38,17 @@ library(countdown)
 
 ## Announcements
 
--   Project timeline
+-   Project timelines:
 
--   Exam 02 dates
+    -   [Round 1 submission (optional)](https://sta210-fa22.netlify.app/project-instructions.html#draft-report) due Tue, Nov 22, 11:59pm on GitHub - see instructions for submission details
+
+    -   Final written report due Fri, Dec 09, 11:59pm (accepted until Sun, Dec 11, 11:59pm)
+
+-   Upcoming dates:
+
+    -   Exam 02: Mon, Dec 05, 7pm - Thu, Dec 08, 12pm (noon)
+
+    -   S[tatistics experience](../hw/stats-experience.html) due Fri, Dec 09, 11:59pm
 
 -   See [Week 12](../weeks/week-12.html) activities
 

@@ -13,7 +13,7 @@ editor_options:
 ::: callout-important
 Go to the [course GitHub organization](https://github.com/sta210-fa22) and locate your `ae-14`- to get started.
 
-The AE is due on GitHub by Thursday, November 16 , 11:59pm.
+The AE is due on GitHub by Thursday, November 17 , 11:59pm.
 :::
 
 ## Packages

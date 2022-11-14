@@ -13,173 +13,146 @@ bibliography: references.bib
 
 # Introduction
 
-In this analysis you will use multiple linear regression to fit and evaluate models using characteristics of LEGO sets to understand variability in the price.
+In this assignment you will analyze results from multiple studies that utilize logistic regression.
 
 # Learning goals
 
 In this assignment, you will...
 
--   Use exploratory data analysis to inform feature engineering steps
--   Use cross validation to evaluate and compare models
--   Assess model conditions and multicollinearity
--   Use inference to draw conclusions
--   Continue developing a workflow for reproducible data analysis.
+-   Explore how logistic regression is used in real-world analyses
+-   Analyze and interpret results from studies using logistic regression
+-   Evaluate performance of logistic regression models
 
 # Getting started
 
-The repo for this assignment is available on GitHub at [github.com/sta210-fa22](https://github.com/sta210-fa22 "Course GitHub organization") and starts with the prefix **hw-03**. See [Lab 01](../labs/lab-01.qmd) for more detailed instructions on getting started.
+The repo for this assignment is available on GitHub at [github.com/sta210-fa22](https://github.com/sta210-fa22 "Course GitHub organization") and starts with the prefix **hw-04**. See [Lab 01](../labs/lab-01.html) for more detailed instructions on getting started.
 
-# Packages
+## Packages
 
-The following packages will be used in this assignment:
-
-```{r}
-#| eval: true
-library(tidyverse)
-library(tidymodels) 
-library(knitr) 
-library(rms)
-library(patchwork)
-# add other packages as needed
-```
-
-::: callout-important
-All narrative should be written in complete sentences, and all visualizations should have informative titles and axis labels.
-:::
-
-# Data: LEGOs
-
-The data for this analysis includes information about LEGO sets from themes produced January 1, 2018 and September 11, 2020. The data were originally scraped from Brickset.com, an online LEGO set guide and were obtained for this assignment from @peterson2021.
-
-You will work with data on about 400 randomly selected LEGO sets produced during this time period. The primary variables are interest in this analysis are
-
--   `Pieces`: Number of pieces in the set from brickset.com.
--   `Amazon_Price`: Amazon price of the set scraped from brickset.com (in U.S. dollars)
--   `Size`: General size of the interlocking bricks (Large = LEGO Duplo sets - which include large brick pieces safe for children ages 1 to 5, Small = LEGO sets which- include the traditional smaller brick pieces created for age groups 5 and - older, e.g., City, Friends)
--   `Theme`: Theme of the LEGO set
--   `Year` : Year the LEGO set was produced
--   `Pages`: Number of pages in the instruction booklet
-
-The data are contained in `lego-sample.csv`. Use the code below to read in the data and remove any observations that have missing values for the relevant variables.
-
-```{r}
-#| eval: true
-legos <- read_csv("data/lego-sample.csv") |>
-  select(Size, Pieces, Theme, Amazon_Price, Year, Pages) |>
-  drop_na()
-```
+No R packages are needed for this assignment.
 
 # Exercises
 
-::: callout-important
-All narrative should be written in complete sentences, and all visualizations should have informative titles and axis labels.
-:::
+## Impacts of tea consumption
 
-## Exercise 1
+The 2016 article ["Tea consumption reduces the incidence of neurocognitive disorders: Findings from the Singapore longitudinal aging study"](https://link.springer.com/article/10.1007/s12603-016-0687-0) [@feng2016] examined the association between tea consumption habits and neurocognitive disorders (NCD), such as Alzheimer's disease, in adults age 55 and older. Portions of the abstract are below:
 
-In this analysis, we dropped observations that have missing values for any of the relevant variables. What is a disadvantage of dropping observations that have missing values, instead of using a method to impute, i.e., fill in, the missing data? How might dropping these observations impact the generalizability of conclusions?
+> <u>Objectives</u>
+>
+> *To examine the relationships between tea consumption habits and incident neurocognitive disorders (NCD) and explore potential effect modification by gender and the apolipoprotein E (APOE) genotype.*
+>
+> <u>Participants</u>
 
-## Exercise 2
+> *957 community-living Chinese elderly who were cognitively intact at baseline.*
 
-Visualize the distributions of the predictor variables `Pieces`, `Size`, `Year`, and `Pages`. Neatly arrange the plots using the [patchwork](https://patchwork.data-imaginist.com/index.html) package.
+> <u>Measurements</u>
 
-## Exercise 3
+> *We collected tea consumption information at baseline from 2003 to 2005 and ascertained incident cases of neurocognitive disorders (NCD) from 2006 to 2010. Odds ratio (OR) of association were calculated in logistic regression models that adjusted for potential confounders.*
 
-What are some feature engineering steps you might use to prepare the variables in the previous exercise for the model? Describe th step and the function you would use. The list should incorporate at least three different `step_` functions.
+> <u>Results</u>
 
-::: callout-tip
-Use the [recipes reference page](https://recipes.tidymodels.org/reference/index.html) for a list of `step_` functions.
-:::
+> *A total of 72 incident NCD cases were identified from the cohort. Tea intake was associated with lower risk of incident NCD, independent of other risk factors. Reduced NCD risk was observed for both green tea (OR=0.43) and black/oolong tea (OR=0.53) and appeared to be influenced by the changing of tea consumption habit at follow-up. Using consistent nontea consumers as the reference, only consistent tea consumers had reduced risk of NCD (OR=0.39). Stratified analyses indicated that tea consumption was associated with reduced risk of NCD among females (OR=0.32) and APOE e4 carriers (OR=0.14) but not males and non APOE e4 carriers.*
 
-## Exercise 4
+### Exercise 1
 
-The distribution of `Theme` is shown below. The bars are ordered by the frequency they occur in the data set.
+The odds ratios reported in the abstract are the adjusted odds ratios, i.e., the odds ratios after adjusting for potential confounders such as age, pre-existing health conditions, diet, and behavioral factors. Interpret the following odds ratios from the abstract. Write the interpretations in the context of the data.
 
-```{r}
-#| eval: true
-legos |>
-  count(Theme) |>
-ggplot(aes(x = fct_reorder(Theme, n), y = n)) +
-  geom_col() + 
-    labs(title = "Lego Set Theme", 
-         x = "Theme", 
-         y = "Number of LEGO sets") + 
-  coord_flip()
-```
+-   OR = 0.39
+-   OR = 0.32
 
-What is one reason we should avoid putting the variable `Theme` in a model as is?
+### Exercise 2
 
-## Exercise 5
+An [online article](https://www.womansworld.com/posts/health/tea-cuts-dementia-risk) based on the results of Feng et al. states the following:
 
-We will use v-fold cross validation to compare two models. We'll start by preparing the data, creating the folds, and defining the model specification that will be used for both models.
+> *"And for people who carry a gene that puts them at higher risk for Alzheimer's disease (the APOE e4 gene), enjoying the beverage is even more important: Daily tea consumption could reduce their risk of cognitive decline by up to 86 percent."*
 
--   Split the data into training (75%) and testing (25%) sets. Use a seed of `5`.
+Is this statement supported by the results of the study? Briefly explain why or why not.
 
--   Split the training data into 10 folds. Use a seed of `5`.
+## Understanding unemployment
 
--   Specify the model.
+*In the 2014 article ["The Biggest Predictor of How Long You'll Be Unemployed Is When You Lose Your Job"](https://fivethirtyeight.com/features/the-biggest-predictor-of-how-long-youll-be-unemployed-is-when-you-lose-your-job/), author Ben Casselman analyzes the relationship between numerous factors such as age, race, and education and the odds an adult is unemployed for over a year.*
 
-## Exercise 6
+### Exercise 3
 
-Use the training data to create a recipe for the first model. The model uses the variables `Size`, `Theme`, and `Pages` to predict `Amazon_Price`. Conduct the following feature engineering steps:
+According to the article, among those unemployed for over a year, 16% are under 25 years old, 62% are 25 to 54 years old, and 22% are 55 and up. Based on this data...
 
--   Use [`step_other()`](https://recipes.tidymodels.org/reference/step_other.html) to collapse `Theme` into fewer categories. Define the threshold such that any levels of `Theme` with fewer than 20 observations is defined as "Other".
--   Mean-center `Pages`.
--   Make dummy variables for all categorical predictors.
--   Remove any predictors with zero variance.
+-   What are the odds a randomly selected person who has been unemployed over a year is 55 and up?
+-   What are the odds a randomly selected person who has been unemployed over a year is **not** 25 to 54 years old?
 
-Then create the workflow that brings together this recipe and the model specification from the previous exercise.
+### Exercise 4
 
-## Exercise 7
+Casselman fits a logistic regression model using the unemployment rate at the time the person lost their job to predict whether an adult is unemployed for over a year. He states the following from the model:
 
-Conduct 10-fold cross validation using the workflow from the previous exercise. Calculate and display mean **RMSE** across the 10 folds.
+> *"A one-point increase in the unemployment rate raises an individual's odds of becoming long-term unemployed by 35 percent."*
 
-::: callout-note
-We will just use RMSE to compare models for this assignment; however, in practice, it is best to take into account multiple model fit statistics to get a more holistic evaluation and comparison of the models.
-:::
+What is the coefficient for unemployment rate in this model? Show how you calculated the answer.
 
-## Exercise 8
+## Rearrest risk algorithms
 
-Now let's consider a new model that includes all the variables used in model from Exercise 6 along with `Year` and `Pieces`.
+*In the paper ["Employing Standardized Risk Assessment in Pretrial Release Decisions: Association With Criminal Justice Outcomes and Racial Equity"](https://web-s-ebscohost-com.proxy.lib.duke.edu/ehost/pdfviewer/pdfviewer?vid=0&sid=221ae3cd-b01e-4432-a4dc-4b259e895086%40redis)* @marlowe2020 *analyze the risk predictions produced by a black-box algorithm used to determine whether a defendant is considered "high risk" of being rearrested if they are released while awaiting trial. Such algorithms are used by judges in some states to help determine whether or not defendants are released while awaiting trial.*
 
--   Use the training data to create a recipe that uses all the feature engineering steps in Exercise 6 with the addition of the following steps:
+*The authors examine the algorithm's risk predictions and whether a person was rearrested for over 500 defendants released pretrial in a southern state. For each person, the algorithm produced one of the following predictions: "High Risk" or "Low Risk". The observed outcome was "Rearrested" or "Not Rearrested". Below are some results from the analysis:*
 
-    -   Create a new variable called `since2018` that calculates the number of years since 2018.
-    -   Remove `Year` as a potential predictor.
-    -   Mean-center `Pieces`.
-
--   Create the workflow that brings together this recipe and the model specification from Exercise 5.
-
--   Conduct 10-fold cross validation using this model workflow. Calculate and display mean **RMSE** across the 10 folds.
-
-## Exercise 9
-
-Compare the cross validation results from Exercises 7 and 8. Which model do you select based on RMSE? Briefly explain your choice.
-
-## Exercise 10
-
-Refit the selected model on the entire training data. Neatly display the model using 3 digits.
-
-Then, calculate VIF for the model and use it to comment on whether there are potential issues with multicollinearity.
+-   *Sensitivity: 86%*
+-   *Specificity: 24%*
+-   *Positive predictive power: 57%*
+-   *Negative predictive power: 60%*
 
 ::: callout-tip
-When we fit a model using `recipe` and `workflow`, we need to extract the model object before using `augment` or `vif` functions. Fill in the name of the selected model in both blanks in the code below to extract the model object and calculate VIF
-
-```{r}
-legos_fit_model <- extract_fit_parsnip(______)
-vif(legos_fit_model$fit)
-```
+-   **Positive Predictive Power**: P(Y = 1 \| Y classified as 1 from the model)
+-   **Negative Predictive Power**: P(Y = 0 \| Y classified as 0 from the model)
 :::
 
-## Exercise 11
+### Exercise 5
 
-Calculate RMSE on the training data and on the testing data. Use it to comment on how well the model performs on new data and whether there are signs of model overfit.
+Explain what each of the following mean in the context of the analysis:
 
-## Exercise 12
+-   Sensitivity
+-   Specificity
+-   Positive predictive power
+-   Negative predictive power
 
-*Though we do not check the model conditions in this assignment, complete this exercise assuming the model conditions are met.*
+### Exercise 6
 
-Describe the effect of `Theme` on the price of LEGO sets, including an indication of which levels are statistically significant. Use a threshold of 0.05 to determine significance.
+What is the false positive rate? What does this value mean in the context of the analysis?
+
+### Exercise 7
+
+The AUC for this algorithm is 0.55. Based on this value, do you think this algorithm a good fit for the population examined in the paper? Why or why not?
+
+## Identifying spam emails
+
+Suppose you fit a logistic regression to aid in spam classification for individual emails. The output from the logistic regression model is below:
+
+```{r echo = F, eval = T}
+    library(openintro)
+    library(tidyverse)
+    library(knitr)
+    library(broom)
+library(kableExtra)
+
+    glm(spam ~ to_multiple + winner + format + re_subj,
+      data = email, family = "binomial"
+    ) |>
+      tidy() |>
+      mutate(p.value = ifelse(p.value < .0001, "<0.0001", round(p.value, 4))) |>
+      kbl(
+        linesep = "", booktabs = TRUE,
+        digits = 2, align = "lrrrr"
+      ) 
+```
+
+### Exercise 8
+
+Use the model to answer the following:
+
+-   Write down the model using the coefficients from the model fit.
+
+-   Suppose we have an observation where `to_muliple = 0`, `winner  = 1 , format = 1`, and `re_subj = 0`. What is the predicted probability that this message is spam?
+
+-   Suppose you are a data scientist working on a spam filter. For a given message, how high must the probability a message is spam be before you think it would be reasonable to put it in a *spambox/ junk folder* (which the user is unlikely to check)? What are 2 tradeoffs you might consider?
+
+*Exercise 8 was adapted from an exercise in [Introduction to Modern Statistics](https://openintro-ims.netlify.app/)*
 
 ::: render-commit-push
 Before submitting, make sure you render your document and commit (with a meaningful commit message) and push all updates.
@@ -206,9 +179,7 @@ To submit your assignment:
 
 | Component             | Points |
 |-----------------------|--------|
-| Ex 1 - 12             | 47     |
+| Ex 1 - 8              | 47     |
 | Workflow & formatting | 3[^1]  |
 
 [^1]: The "Workflow & formatting" grade is to assess the reproducible workflow. This includes having at least 3 informative commit messages and updating the name and date in the YAML.
-
-## References

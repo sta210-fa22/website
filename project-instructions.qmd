@@ -165,21 +165,21 @@ The proposal is with 15 points and will be graded based on accurately and compre
 
 ## Round 1 submission (optional) {#draft-report}
 
-The Round 1 submission is an opportunity to receive feedback on your analysis and written report. The feedback will only be on the content that is submitted, so more "complete" drafts will receive more detailed feedback. At this stage, you will also be notified of the grade you would receive at that point. You will have the option to keep the grade (and thus you don't need to turn in an updated report) or resubmit the written report by the final submission deadline for grading.
+The Round 1 submission is an opportunity to receive detailed feedback on your analysis and [written report]. The feedback will only be on the content that is submitted, so more "complete" drafts will receive more detailed feedback. At this stage, you will also be notified of the grade you would receive at that point. You will have the option to keep the grade (and thus you don't need to turn in an updated report) or resubmit the written report by the final submission deadline for grading.
 
 To submit the draft:
 
 1\. Push the updated `written-report.qmd` and `written-report.pdf` to your GitHub repo.
 
-2\. Open an issue with the title "Round 1 Submission". You can use the template issue in the GitHub repo. Make sure I am tagged in the issue (\@matackett), so I receive notification of your Round 1 submission.
+2\. Open an issue with the title "Round 1 Submission". You can use the template issue in the GitHub repo. Make sure I am tagged in the issue (\@matackett), so I receive notification of your Round 1 submission. See [Creating an issue from a repository](https://docs.github.com/en/issues/tracking-your-work-with-issues/creating-an-issue#creating-an-issue-from-a-repository) for instructions on opening an issue. Please ask a member of the teaching team for assistance if you need help opening the issue.
 
 ::: callout-important
-You must complete both steps to submit the draft.
+You must complete <u>both</u> steps by **Tuesday, November 22, 11:59pm** to receive prelminary feedback. \
+\
+Reports submitted after that date will not receive preliminary feedback.
 :::
 
-The draft must be submitted by **Tuesday, November 22 at 11:59pm** to receive preliminary feedback. Reports submitted after that date will not receive preliminary feedback.
-
-Note that this is optional, so there is <u>**no**</u> penalty for turning in nothing for the Round 1 submission.
+Note that this is optional, so there is <u>**no**</u> grading penalty for turning in nothing for the Round 1 submission. Due to time constraints at the end of the semester, only high-level feedback will be given for the reports submitted at the final written report deadline in December.
 
 ## Written report {#written-report}
 
@@ -191,7 +191,7 @@ Before you finalize your write up, make sure the code chunks are not visible and
 
 **You will submit the PDF of your final report on Gradescope.**
 
-The PDF you submit must match the files in your GitHub repository *exactly*. The mandatory components of the report are below. You are free to add additional sections as necessary. The report, including visualizations, should be **no more than 10 pages long.** is no minimum page requirement; however, you should comprehensively address all of the analysis and report.
+The PDF you submit must match the files in your GitHub repository *exactly*. The mandatory components of the report are below. You are free to add additional sections as necessary. The report, including visualizations, should be **no more than 10 pages long.** There is no minimum page requirement; however, you should comprehensively address all of the analysis and report.
 
 Be selective in what you include in your final write-up. The goal is to write a cohesive narrative that demonstrates a thorough and comprehensive analysis rather than explain every step of the analysis.
 

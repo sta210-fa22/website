@@ -73,9 +73,6 @@ div.csl-indent {
   }
 }</script>
 
-<script src="../site_libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
-
 
 </head>
 
@@ -481,56 +478,54 @@ Tip
 <p>Suppose you fit a logistic regression to aid in spam classification for individual emails. The output from the logistic regression model is below:</p>
 <div class="cell">
 <div class="cell-output-display">
-
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> term </th>
-   <th style="text-align:right;"> estimate </th>
-   <th style="text-align:right;"> std.error </th>
-   <th style="text-align:right;"> statistic </th>
-   <th style="text-align:right;"> p.value </th>
-  </tr>
- </thead>
+<table class="table table-sm table-striped">
+<thead>
+<tr class="header">
+<th style="text-align: left;">term</th>
+<th style="text-align: right;">estimate</th>
+<th style="text-align: right;">std.error</th>
+<th style="text-align: right;">statistic</th>
+<th style="text-align: left;">p.value</th>
+</tr>
+</thead>
 <tbody>
-  <tr>
-   <td style="text-align:left;"> (Intercept) </td>
-   <td style="text-align:right;"> -0.81 </td>
-   <td style="text-align:right;"> 0.09 </td>
-   <td style="text-align:right;"> -9.34 </td>
-   <td style="text-align:right;"> &lt;0.0001 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> to_multiple1 </td>
-   <td style="text-align:right;"> -2.64 </td>
-   <td style="text-align:right;"> 0.30 </td>
-   <td style="text-align:right;"> -8.68 </td>
-   <td style="text-align:right;"> &lt;0.0001 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> winneryes </td>
-   <td style="text-align:right;"> 1.63 </td>
-   <td style="text-align:right;"> 0.32 </td>
-   <td style="text-align:right;"> 5.11 </td>
-   <td style="text-align:right;"> &lt;0.0001 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> format1 </td>
-   <td style="text-align:right;"> -1.59 </td>
-   <td style="text-align:right;"> 0.12 </td>
-   <td style="text-align:right;"> -13.28 </td>
-   <td style="text-align:right;"> &lt;0.0001 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> re_subj1 </td>
-   <td style="text-align:right;"> -3.05 </td>
-   <td style="text-align:right;"> 0.36 </td>
-   <td style="text-align:right;"> -8.40 </td>
-   <td style="text-align:right;"> &lt;0.0001 </td>
-  </tr>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">-0.81</td>
+<td style="text-align: right;">0.09</td>
+<td style="text-align: right;">-9.34</td>
+<td style="text-align: left;">&lt;0.0001</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">to_multiple1</td>
+<td style="text-align: right;">-2.64</td>
+<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">-8.68</td>
+<td style="text-align: left;">&lt;0.0001</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">winneryes</td>
+<td style="text-align: right;">1.63</td>
+<td style="text-align: right;">0.32</td>
+<td style="text-align: right;">5.11</td>
+<td style="text-align: left;">&lt;0.0001</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">format1</td>
+<td style="text-align: right;">-1.59</td>
+<td style="text-align: right;">0.12</td>
+<td style="text-align: right;">-13.28</td>
+<td style="text-align: left;">&lt;0.0001</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">re_subj1</td>
+<td style="text-align: right;">-3.05</td>
+<td style="text-align: right;">0.36</td>
+<td style="text-align: right;">-8.40</td>
+<td style="text-align: left;">&lt;0.0001</td>
+</tr>
 </tbody>
 </table>
-
 </div>
 </div>
 <section id="exercise-8" class="level3">

@@ -5264,6 +5264,286 @@
     "text": "Use ROC curve\nUse the ROC curve to determine the best cutoff probability\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n# A tibble: 10 × 3\n   .threshold specificity sensitivity\n        <dbl>       <dbl>       <dbl>\n 1     0.0769       0.736       0.792\n 2     0.0770       0.736       0.781\n 3     0.0780       0.737       0.781\n 4     0.0785       0.737       0.771\n 5     0.0786       0.738       0.771\n 6     0.0787       0.739       0.771\n 7     0.0789       0.739       0.760\n 8     0.0802       0.740       0.760\n 9     0.0802       0.741       0.760\n10     0.0805       0.742       0.760\n\n\n\n\n\n\n\n🔗 Week 11"
   },
   {
+    "objectID": "slides/23-logistic-inf.html#announcements",
+    "href": "slides/23-logistic-inf.html#announcements",
+    "title": "LR: Inference + conditions",
+    "section": "Announcements",
+    "text": "Announcements\n\nDue dates\n\nHW 04 due Mon, Nov 21, 11:59pm\nProject Round 1 submission (optional) due Tue, Nov 22, 11:59pm\nStatistics experience due Fri, Dec 09, 11:59pm\n\nNo class Monday - Click here to sign up for project meeting (optional)\n\nMust sign up by Sun, Nov 20 at 11:59pm\n\nSee Week 12 activities"
+  },
+  {
+    "objectID": "slides/23-logistic-inf.html#topics",
+    "href": "slides/23-logistic-inf.html#topics",
+    "title": "LR: Inference + conditions",
+    "section": "Topics",
+    "text": "Topics\n\n\nBuilding predictive logistic regression models\nSensitivity and specificity\nMaking classification decisions"
+  },
+  {
+    "objectID": "slides/23-logistic-inf.html#computational-setup",
+    "href": "slides/23-logistic-inf.html#computational-setup",
+    "title": "LR: Inference + conditions",
+    "section": "Computational setup",
+    "text": "Computational setup\n\n# load packages\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(openintro)\nlibrary(knitr)\nlibrary(kableExtra)  # for table embellishments\nlibrary(Stat2Data)   # for empirical logit\n\n# set default theme and larger font size for ggplot2\nggplot2::theme_set(ggplot2::theme_bw(base_size = 20))"
+  },
+  {
+    "objectID": "slides/23-logistic-inf.html#risk-of-coronary-heart-disease",
+    "href": "slides/23-logistic-inf.html#risk-of-coronary-heart-disease",
+    "title": "LR: Inference + conditions",
+    "section": "Risk of coronary heart disease",
+    "text": "Risk of coronary heart disease\nThis data set is from an ongoing cardiovascular study on residents of the town of Framingham, Massachusetts. We want to examine the relationship between various health characteristics and the risk of having heart disease.\n\nhigh_risk:\n\n1: High risk of having heart disease in next 10 years\n0: Not high risk of having heart disease in next 10 years\n\nage: Age at exam time (in years)\neducation: 1 = Some High School, 2 = High School or GED, 3 = Some College or Vocational School, 4 = College\ncurrentSmoker: 0 = nonsmoker, 1 = smoker"
+  },
+  {
+    "objectID": "slides/23-logistic-inf.html#data-prep",
+    "href": "slides/23-logistic-inf.html#data-prep",
+    "title": "LR: Inference + conditions",
+    "section": "Data prep",
+    "text": "Data prep\n\nheart_disease <- read_csv(here::here(\"slides\", \"data/framingham.csv\")) |>\n  select(age, education, TenYearCHD, totChol, currentSmoker) |>\n  drop_na() |>\n  mutate(\n    high_risk = as.factor(TenYearCHD),\n    education = as.factor(education),\n    currentSmoker = as.factor(currentSmoker)\n  )\n\nheart_disease\n\n# A tibble: 4,086 × 6\n     age education TenYearCHD totChol currentSmoker high_risk\n   <dbl> <fct>          <dbl>   <dbl> <fct>         <fct>    \n 1    39 4                  0     195 0             0        \n 2    46 2                  0     250 0             0        \n 3    48 1                  0     245 1             0        \n 4    61 3                  1     225 1             1        \n 5    46 3                  0     285 1             0        \n 6    43 2                  0     228 0             0        \n 7    63 1                  1     205 0             1        \n 8    45 2                  0     313 1             0        \n 9    52 1                  0     260 0             0        \n10    43 1                  0     225 1             0        \n# … with 4,076 more rows"
+  },
+  {
+    "objectID": "slides/23-logistic-inf.html#modeling-risk-of-coronary-heart-disease",
+    "href": "slides/23-logistic-inf.html#modeling-risk-of-coronary-heart-disease",
+    "title": "LR: Inference + conditions",
+    "section": "Modeling risk of coronary heart disease",
+    "text": "Modeling risk of coronary heart disease\nUsing age and education:\n\nrisk_fit <- logistic_reg() |>\n  set_engine(\"glm\") |>\n  fit(high_risk ~ age + education, \n      data = heart_disease, family = \"binomial\")"
+  },
+  {
+    "objectID": "slides/23-logistic-inf.html#model-output",
+    "href": "slides/23-logistic-inf.html#model-output",
+    "title": "LR: Inference + conditions",
+    "section": "Model output",
+    "text": "Model output\n\ntidy(risk_fit, conf.int = TRUE) |> \n  kable(format = \"markdown\", digits = 3)\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-5.508\n0.311\n-17.692\n0.000\n-6.125\n-4.904\n\n\nage\n0.076\n0.006\n13.648\n0.000\n0.065\n0.087\n\n\neducation2\n-0.245\n0.113\n-2.172\n0.030\n-0.469\n-0.026\n\n\neducation3\n-0.236\n0.135\n-1.753\n0.080\n-0.504\n0.024\n\n\neducation4\n-0.024\n0.150\n-0.161\n0.872\n-0.323\n0.264\n\n\n\n\n\n\\[\n\\small{\\log\\Big(\\frac{\\hat{\\pi}}{1-\\hat{\\pi}}\\Big) = -5.508 + 0.076 ~ \\text{age} - 0.245 ~ \\text{ed2} - 0.236 ~ \\text{ed3} - 0.024 ~ \\text{ed4}}\n\\]"
+  },
+  {
+    "objectID": "slides/23-logistic-inf.html#hypothesis-test-for-beta_j",
+    "href": "slides/23-logistic-inf.html#hypothesis-test-for-beta_j",
+    "title": "LR: Inference + conditions",
+    "section": "Hypothesis test for \\(\\beta_j\\)",
+    "text": "Hypothesis test for \\(\\beta_j\\)\nHypotheses: \\(H_0: \\beta_j = 0 \\hspace{2mm} \\text{ vs } \\hspace{2mm} H_a: \\beta_j \\neq 0\\)\n\nTest Statistic: \\[z = \\frac{\\hat{\\beta}_j - 0}{SE_{\\hat{\\beta}_j}}\\]\n\n\nP-value: \\(P(|Z| > |z|)\\), where \\(Z \\sim N(0, 1)\\), the Standard Normal distribution"
+  },
+  {
+    "objectID": "slides/23-logistic-inf.html#confidence-interval-for-beta_j",
+    "href": "slides/23-logistic-inf.html#confidence-interval-for-beta_j",
+    "title": "LR: Inference + conditions",
+    "section": "Confidence interval for \\(\\beta_j\\)",
+    "text": "Confidence interval for \\(\\beta_j\\)\nWe can calculate the C% confidence interval for \\(\\beta_j\\) as the following:\n\\[\n\\Large{\\hat{\\beta}_j \\pm z^* SE_{\\hat{\\beta}_j}}\n\\]\nwhere \\(z^*\\) is calculated from the \\(N(0,1)\\) distribution\n\n\n\n\n\n\n\nNote\n\n\nThis is an interval for the change in the log-odds for every one unit increase in \\(x_j\\)"
+  },
+  {
+    "objectID": "slides/23-logistic-inf.html#interpretation-in-terms-of-the-odds",
+    "href": "slides/23-logistic-inf.html#interpretation-in-terms-of-the-odds",
+    "title": "LR: Inference + conditions",
+    "section": "Interpretation in terms of the odds",
+    "text": "Interpretation in terms of the odds\nThe change in odds for every one unit increase in \\(x_j\\).\n\\[\n\\Large{e^{\\hat{\\beta}_j \\pm z^* SE_{\\hat{\\beta}_j}}}\n\\]\n\nInterpretation: We are \\(C\\%\\) confident that for every one unit increase in \\(x_j\\), the odds multiply by a factor of \\(e^{\\hat{\\beta}_j - z^* SE_{\\hat{\\beta}_j}}\\) to \\(e^{\\hat{\\beta}_j + z^* SE_{\\hat{\\beta}_j}}\\), holding all else constant."
+  },
+  {
+    "objectID": "slides/23-logistic-inf.html#coefficient-for-age",
+    "href": "slides/23-logistic-inf.html#coefficient-for-age",
+    "title": "LR: Inference + conditions",
+    "section": "Coefficient for age",
+    "text": "Coefficient for age\n\n\n\n\n \n  \n    term \n    estimate \n    std.error \n    statistic \n    p.value \n    conf.low \n    conf.high \n  \n \n\n  \n    (Intercept) \n    -5.508 \n    0.311 \n    -17.692 \n    0.000 \n    -6.125 \n    -4.904 \n  \n  \n    age \n    0.076 \n    0.006 \n    13.648 \n    0.000 \n    0.065 \n    0.087 \n  \n  \n    education2 \n    -0.245 \n    0.113 \n    -2.172 \n    0.030 \n    -0.469 \n    -0.026 \n  \n  \n    education3 \n    -0.236 \n    0.135 \n    -1.753 \n    0.080 \n    -0.504 \n    0.024 \n  \n  \n    education4 \n    -0.024 \n    0.150 \n    -0.161 \n    0.872 \n    -0.323 \n    0.264 \n  \n\n\n\n\n\n\nHypotheses:\n\\[\nH_0: \\beta_{1} = 0 \\hspace{2mm} \\text{ vs } \\hspace{2mm} H_a: \\beta_{1} \\neq 0\n\\]"
+  },
+  {
+    "objectID": "slides/23-logistic-inf.html#coefficient-for-age-1",
+    "href": "slides/23-logistic-inf.html#coefficient-for-age-1",
+    "title": "LR: Inference + conditions",
+    "section": "Coefficient for age",
+    "text": "Coefficient for age\n\n\n\n\n \n  \n    term \n    estimate \n    std.error \n    statistic \n    p.value \n    conf.low \n    conf.high \n  \n \n\n  \n    (Intercept) \n    -5.508 \n    0.311 \n    -17.692 \n    0.000 \n    -6.125 \n    -4.904 \n  \n  \n    age \n    0.076 \n    0.006 \n    13.648 \n    0.000 \n    0.065 \n    0.087 \n  \n  \n    education2 \n    -0.245 \n    0.113 \n    -2.172 \n    0.030 \n    -0.469 \n    -0.026 \n  \n  \n    education3 \n    -0.236 \n    0.135 \n    -1.753 \n    0.080 \n    -0.504 \n    0.024 \n  \n  \n    education4 \n    -0.024 \n    0.150 \n    -0.161 \n    0.872 \n    -0.323 \n    0.264 \n  \n\n\n\n\n\nTest statistic:\n\\[z = \\frac{0.07559 - 0}{0.00554} = 13.64\n\\]"
+  },
+  {
+    "objectID": "slides/23-logistic-inf.html#coefficient-for-age-2",
+    "href": "slides/23-logistic-inf.html#coefficient-for-age-2",
+    "title": "LR: Inference + conditions",
+    "section": "Coefficient for age",
+    "text": "Coefficient for age\n\n\n\n\n \n  \n    term \n    estimate \n    std.error \n    statistic \n    p.value \n    conf.low \n    conf.high \n  \n \n\n  \n    (Intercept) \n    -5.508 \n    0.311 \n    -17.692 \n    0.000 \n    -6.125 \n    -4.904 \n  \n  \n    age \n    0.076 \n    0.006 \n    13.648 \n    0.000 \n    0.065 \n    0.087 \n  \n  \n    education2 \n    -0.245 \n    0.113 \n    -2.172 \n    0.030 \n    -0.469 \n    -0.026 \n  \n  \n    education3 \n    -0.236 \n    0.135 \n    -1.753 \n    0.080 \n    -0.504 \n    0.024 \n  \n  \n    education4 \n    -0.024 \n    0.150 \n    -0.161 \n    0.872 \n    -0.323 \n    0.264 \n  \n\n\n\n\n\nP-value:\n\\[\nP(|Z| > |13.64|) \\approx 0\n\\]\n\n\n2 * pnorm(13.64,lower.tail = FALSE)\n\n[1] 2.315606e-42"
+  },
+  {
+    "objectID": "slides/23-logistic-inf.html#coefficient-for-age-3",
+    "href": "slides/23-logistic-inf.html#coefficient-for-age-3",
+    "title": "LR: Inference + conditions",
+    "section": "Coefficient for age",
+    "text": "Coefficient for age\n\n\n\n\n \n  \n    term \n    estimate \n    std.error \n    statistic \n    p.value \n    conf.low \n    conf.high \n  \n \n\n  \n    (Intercept) \n    -5.508 \n    0.311 \n    -17.692 \n    0.000 \n    -6.125 \n    -4.904 \n  \n  \n    age \n    0.076 \n    0.006 \n    13.648 \n    0.000 \n    0.065 \n    0.087 \n  \n  \n    education2 \n    -0.245 \n    0.113 \n    -2.172 \n    0.030 \n    -0.469 \n    -0.026 \n  \n  \n    education3 \n    -0.236 \n    0.135 \n    -1.753 \n    0.080 \n    -0.504 \n    0.024 \n  \n  \n    education4 \n    -0.024 \n    0.150 \n    -0.161 \n    0.872 \n    -0.323 \n    0.264 \n  \n\n\n\n\n\nConclusion:\nThe p-value is very small, so we reject \\(H_0\\). The data provide sufficient evidence that age is a statistically significant predictor of whether someone is high risk of having heart disease, after accounting for education."
+  },
+  {
+    "objectID": "slides/23-logistic-inf.html#ci-for-age",
+    "href": "slides/23-logistic-inf.html#ci-for-age",
+    "title": "LR: Inference + conditions",
+    "section": "CI for age",
+    "text": "CI for age\n\n\n\n\n \n  \n    term \n    estimate \n    std.error \n    statistic \n    p.value \n    conf.low \n    conf.high \n  \n \n\n  \n    (Intercept) \n    -5.508 \n    0.311 \n    -17.692 \n    0.000 \n    -6.125 \n    -4.904 \n  \n  \n    age \n    0.076 \n    0.006 \n    13.648 \n    0.000 \n    0.065 \n    0.087 \n  \n  \n    education2 \n    -0.245 \n    0.113 \n    -2.172 \n    0.030 \n    -0.469 \n    -0.026 \n  \n  \n    education3 \n    -0.236 \n    0.135 \n    -1.753 \n    0.080 \n    -0.504 \n    0.024 \n  \n  \n    education4 \n    -0.024 \n    0.150 \n    -0.161 \n    0.872 \n    -0.323 \n    0.264 \n  \n\n\n\n\n\n\nInterpret the 95% confidence interval for age in terms of the odds of being high risk for heart disease."
+  },
+  {
+    "objectID": "slides/23-logistic-inf.html#log-likelihood",
+    "href": "slides/23-logistic-inf.html#log-likelihood",
+    "title": "LR: Inference + conditions",
+    "section": "Log likelihood",
+    "text": "Log likelihood\n\\[\n\\log L = \\sum\\limits_{i=1}^n[y_i \\log(\\hat{\\pi}_i) + (1 - y_i)\\log(1 - \\hat{\\pi}_i)]\n\\]\n\nMeasure of how well the model fits the data\nHigher values of \\(\\log L\\) are better\nDeviance = \\(-2 \\log L\\)\n\n\\(-2 \\log L\\) follows a \\(\\chi^2\\) distribution with \\(n - p - 1\\) degrees of freedom"
+  },
+  {
+    "objectID": "slides/23-logistic-inf.html#comparing-nested-models",
+    "href": "slides/23-logistic-inf.html#comparing-nested-models",
+    "title": "LR: Inference + conditions",
+    "section": "Comparing nested models",
+    "text": "Comparing nested models\n\nSuppose there are two models:\n\nReduced Model includes predictors \\(x_1, \\ldots, x_q\\)\nFull Model includes predictors \\(x_1, \\ldots, x_q, x_{q+1}, \\ldots, x_p\\)\n\nWe want to test the hypotheses\n\\[\n\\begin{aligned}\nH_0&: \\beta_{q+1} = \\dots = \\beta_p = 0 \\\\\nH_A&: \\text{ at least 1 }\\beta_j \\text{ is not } 0\n\\end{aligned}\n\\]\nTo do so, we will use the Drop-in-deviance test, also known as the Nested Likelihood Ratio test"
+  },
+  {
+    "objectID": "slides/23-logistic-inf.html#drop-in-deviance-test",
+    "href": "slides/23-logistic-inf.html#drop-in-deviance-test",
+    "title": "LR: Inference + conditions",
+    "section": "Drop-in-deviance test",
+    "text": "Drop-in-deviance test\nHypotheses:\n\\[\n\\begin{aligned}\nH_0&: \\beta_{q+1} = \\dots = \\beta_p = 0 \\\\\nH_A&: \\text{ at least 1 }\\beta_j \\text{ is not } 0\n\\end{aligned}\n\\]\n\nTest Statistic: \\[G = (-2 \\log L_{reduced}) - (-2 \\log L_{full})\\]\n\n\nP-value: \\(P(\\chi^2 > G)\\), calculated using a \\(\\chi^2\\) distribution with degrees of freedom equal to the difference in the number of parameters in the full and reduced models"
+  },
+  {
+    "objectID": "slides/23-logistic-inf.html#chi2-distribution",
+    "href": "slides/23-logistic-inf.html#chi2-distribution",
+    "title": "LR: Inference + conditions",
+    "section": "\\(\\chi^2\\) distribution",
+    "text": "\\(\\chi^2\\) distribution"
+  },
+  {
+    "objectID": "slides/23-logistic-inf.html#model-with-age-and-education",
+    "href": "slides/23-logistic-inf.html#model-with-age-and-education",
+    "title": "LR: Inference + conditions",
+    "section": "Model with age and education",
+    "text": "Model with age and education\n\n\n\n\nShould we add currentSmoker to this model?\n\n\n\n\n\n \n  \n    term \n    estimate \n    std.error \n    statistic \n    p.value \n    conf.low \n    conf.high \n  \n \n\n  \n    (Intercept) \n    -5.508 \n    0.311 \n    -17.692 \n    0.000 \n    -6.125 \n    -4.904 \n  \n  \n    age \n    0.076 \n    0.006 \n    13.648 \n    0.000 \n    0.065 \n    0.087 \n  \n  \n    education2 \n    -0.245 \n    0.113 \n    -2.172 \n    0.030 \n    -0.469 \n    -0.026 \n  \n  \n    education3 \n    -0.236 \n    0.135 \n    -1.753 \n    0.080 \n    -0.504 \n    0.024 \n  \n  \n    education4 \n    -0.024 \n    0.150 \n    -0.161 \n    0.872 \n    -0.323 \n    0.264"
+  },
+  {
+    "objectID": "slides/23-logistic-inf.html#should-we-add-currentsmoker-to-the-model",
+    "href": "slides/23-logistic-inf.html#should-we-add-currentsmoker-to-the-model",
+    "title": "LR: Inference + conditions",
+    "section": "Should we add currentSmoker to the model?",
+    "text": "Should we add currentSmoker to the model?\nFirst model, reduced:\n\nrisk_fit_reduced <- logistic_reg() |>\n  set_engine(\"glm\") |>\n  fit(high_risk ~ age + education, \n      data = heart_disease, family = \"binomial\")\n\n\n\nSecond model, full:\n\nrisk_fit_full <- logistic_reg() |>\n  set_engine(\"glm\") |>\n  fit(high_risk ~ age + education + currentSmoker, \n      data = heart_disease, family = \"binomial\")"
+  },
+  {
+    "objectID": "slides/23-logistic-inf.html#should-we-add-currentsmoker-to-the-model-1",
+    "href": "slides/23-logistic-inf.html#should-we-add-currentsmoker-to-the-model-1",
+    "title": "LR: Inference + conditions",
+    "section": "Should we add currentSmoker to the model?",
+    "text": "Should we add currentSmoker to the model?\nCalculate deviance for each model:\n\n(dev_reduced <- glance(risk_fit_reduced)$deviance)\n\n[1] 3244.187\n\n(dev_full <- glance(risk_fit_full)$deviance)\n\n[1] 3221.901\n\n\n\nDrop-in-deviance test statistic:\n\n(test_stat <- dev_reduced - dev_full)\n\n[1] 22.2863"
+  },
+  {
+    "objectID": "slides/23-logistic-inf.html#should-we-add-currentsmoker-to-the-model-2",
+    "href": "slides/23-logistic-inf.html#should-we-add-currentsmoker-to-the-model-2",
+    "title": "LR: Inference + conditions",
+    "section": "Should we add currentSmoker to the model?",
+    "text": "Should we add currentSmoker to the model?\nCalculate the p-value using a pchisq(), with degrees of freedom equal to the number of new model terms in the second model:\n\npchisq(test_stat, 1, lower.tail = FALSE) \n\n[1] 2.348761e-06\n\n\n\nConclusion: The p-value is very small, so we reject \\(H_0\\). The data provide sufficient evidence that the coefficient of currentSmoker is not equal to 0. Therefore, we should add it to the model."
+  },
+  {
+    "objectID": "slides/23-logistic-inf.html#drop-in-deviance-test-in-r",
+    "href": "slides/23-logistic-inf.html#drop-in-deviance-test-in-r",
+    "title": "LR: Inference + conditions",
+    "section": "Drop-in-Deviance test in R",
+    "text": "Drop-in-Deviance test in R\n\nWe can use the anova function to conduct this test\nAdd test = \"Chisq\" to conduct the drop-in-deviance test\n\n\n\nanova(risk_fit_reduced$fit, risk_fit_full$fit, test = \"Chisq\") |>\n  tidy() |> kable(digits = 3)\n\n\n\n \n  \n    term \n    Resid..Df \n    Resid..Dev \n    df \n    Deviance \n    p.value \n  \n \n\n  \n    high_risk ~ age + education \n    4081 \n    3244.187 \n    NA \n    NA \n    NA \n  \n  \n    high_risk ~ age + education + currentSmoker \n    4080 \n    3221.901 \n    1 \n    22.286 \n    0"
+  },
+  {
+    "objectID": "slides/23-logistic-inf.html#model-selection",
+    "href": "slides/23-logistic-inf.html#model-selection",
+    "title": "LR: Inference + conditions",
+    "section": "Model selection",
+    "text": "Model selection\nUse AIC or BIC for model selection\n\\[\n\\begin{align}\n&AIC = - 2 * \\log L - \\color{purple}{n\\log(n)}+ 2(p +1)\\\\[5pt]\n&BIC =- 2 * \\log L - \\color{purple}{n\\log(n)} + log(n)\\times(p+1)\n\\end{align}\n\\]"
+  },
+  {
+    "objectID": "slides/23-logistic-inf.html#aic-from-the-glance-function",
+    "href": "slides/23-logistic-inf.html#aic-from-the-glance-function",
+    "title": "LR: Inference + conditions",
+    "section": "AIC from the glance() function",
+    "text": "AIC from the glance() function\nLet’s look at the AIC for the model that includes age, education, and currentSmoker\n\nglance(risk_fit_full)$AIC\n\n[1] 3233.901\n\n\n\nCalculating AIC\n\n- 2 * glance(risk_fit_full)$logLik + 2 * (5 + 1)\n\n[1] 3233.901"
+  },
+  {
+    "objectID": "slides/23-logistic-inf.html#comparing-the-models-using-aic",
+    "href": "slides/23-logistic-inf.html#comparing-the-models-using-aic",
+    "title": "LR: Inference + conditions",
+    "section": "Comparing the models using AIC",
+    "text": "Comparing the models using AIC\nLet’s compare the full and reduced models using AIC.\n\nglance(risk_fit_reduced)$AIC\n\n[1] 3254.187\n\nglance(risk_fit_full)$AIC\n\n[1] 3233.901\n\n\n\n\nBased on AIC, which model would you choose?"
+  },
+  {
+    "objectID": "slides/23-logistic-inf.html#comparing-the-models-using-bic",
+    "href": "slides/23-logistic-inf.html#comparing-the-models-using-bic",
+    "title": "LR: Inference + conditions",
+    "section": "Comparing the models using BIC",
+    "text": "Comparing the models using BIC\nLet’s compare the full and reduced models using BIC\n\nglance(risk_fit_reduced)$BIC\n\n[1] 3285.764\n\nglance(risk_fit_full)$BIC\n\n[1] 3271.793\n\n\n\n\nBased on BIC, which model would you choose?"
+  },
+  {
+    "objectID": "slides/23-logistic-inf.html#the-model",
+    "href": "slides/23-logistic-inf.html#the-model",
+    "title": "LR: Inference + conditions",
+    "section": "The model",
+    "text": "The model\nLet’s predict high_risk from age, total cholesterol, and whether the patient is a current smoker:\n\nrisk_fit <- logistic_reg() |>\n  set_engine(\"glm\") |>\n  fit(high_risk ~ age + totChol + currentSmoker, \n      data = heart_disease, family = \"binomial\")\n\ntidy(risk_fit, conf.int = TRUE) |> \n  kable(digits = 3)\n\n\n\n \n  \n    term \n    estimate \n    std.error \n    statistic \n    p.value \n    conf.low \n    conf.high \n  \n \n\n  \n    (Intercept) \n    -6.673 \n    0.378 \n    -17.647 \n    0.000 \n    -7.423 \n    -5.940 \n  \n  \n    age \n    0.082 \n    0.006 \n    14.344 \n    0.000 \n    0.071 \n    0.094 \n  \n  \n    totChol \n    0.002 \n    0.001 \n    1.940 \n    0.052 \n    0.000 \n    0.004 \n  \n  \n    currentSmoker1 \n    0.443 \n    0.094 \n    4.733 \n    0.000 \n    0.260 \n    0.627"
+  },
+  {
+    "objectID": "slides/23-logistic-inf.html#conditions-for-logistic-regression",
+    "href": "slides/23-logistic-inf.html#conditions-for-logistic-regression",
+    "title": "LR: Inference + conditions",
+    "section": "Conditions for logistic regression",
+    "text": "Conditions for logistic regression\n\nLinearity: The log-odds have a linear relationship with the predictors.\nRandomness: The data were obtained from a random process\nIndependence: The observations are independent from one another."
+  },
+  {
+    "objectID": "slides/23-logistic-inf.html#empirical-logit",
+    "href": "slides/23-logistic-inf.html#empirical-logit",
+    "title": "LR: Inference + conditions",
+    "section": "Empirical logit",
+    "text": "Empirical logit\nThe empirical logit is the log of the observed odds:\n\\[\n\\text{logit}(\\hat{p}) = \\log\\Big(\\frac{\\hat{p}}{1 - \\hat{p}}\\Big) = \\log\\Big(\\frac{\\# \\text{Yes}}{\\# \\text{No}}\\Big)\n\\]"
+  },
+  {
+    "objectID": "slides/23-logistic-inf.html#calculating-empirical-logit-categorical-predictor",
+    "href": "slides/23-logistic-inf.html#calculating-empirical-logit-categorical-predictor",
+    "title": "LR: Inference + conditions",
+    "section": "Calculating empirical logit (categorical predictor)",
+    "text": "Calculating empirical logit (categorical predictor)\nIf the predictor is categorical, we can calculate the empirical logit for each level of the predictor.\n\nheart_disease |>\n  count(currentSmoker, high_risk) |>\n  group_by(currentSmoker) |>\n  mutate(prop = n/sum(n)) |>\n  filter(high_risk == \"1\") |>\n  mutate(emp_logit = log(prop/(1-prop)))\n\n# A tibble: 2 × 5\n# Groups:   currentSmoker [2]\n  currentSmoker high_risk     n  prop emp_logit\n  <fct>         <fct>     <int> <dbl>     <dbl>\n1 0             1           301 0.145     -1.77\n2 1             1           318 0.158     -1.67"
+  },
+  {
+    "objectID": "slides/23-logistic-inf.html#calculating-empirical-logit-quantitative-predictor",
+    "href": "slides/23-logistic-inf.html#calculating-empirical-logit-quantitative-predictor",
+    "title": "LR: Inference + conditions",
+    "section": "Calculating empirical logit (quantitative predictor)",
+    "text": "Calculating empirical logit (quantitative predictor)\n\nDivide the range of the predictor into intervals with approximately equal number of cases. (If you have enough observations, use 5 - 10 intervals.)\nCalculate the mean value of the predictor in each interval.\nCompute the empirical logit for each interval.\n\n\nThen, create a plot of the empirical logit versus the mean value of the predictor in each interval."
+  },
+  {
+    "objectID": "slides/23-logistic-inf.html#empirical-logit-plot-in-r-quantitative-predictor",
+    "href": "slides/23-logistic-inf.html#empirical-logit-plot-in-r-quantitative-predictor",
+    "title": "LR: Inference + conditions",
+    "section": "Empirical logit plot in R (quantitative predictor)",
+    "text": "Empirical logit plot in R (quantitative predictor)\nCreated using dplyr and ggplot functions."
+  },
+  {
+    "objectID": "slides/23-logistic-inf.html#empirical-logit-plot-in-r-quantitative-predictor-1",
+    "href": "slides/23-logistic-inf.html#empirical-logit-plot-in-r-quantitative-predictor-1",
+    "title": "LR: Inference + conditions",
+    "section": "Empirical logit plot in R (quantitative predictor)",
+    "text": "Empirical logit plot in R (quantitative predictor)\nCreated using dplyr and ggplot functions.\n\nheart_disease |> \n  mutate(age_bin = cut_interval(age, n = 10)) |>\n  group_by(age_bin) |>\n  mutate(mean_age = mean(age)) |>\n  count(mean_age, high_risk) |>\n  mutate(prop = n/sum(n)) |>\n  filter(high_risk == \"1\") |>\n  mutate(emp_logit = log(prop/(1-prop))) |>\n  ggplot(aes(x = mean_age, y = emp_logit)) + \n  geom_point() + \n  geom_smooth(method = \"lm\", se = FALSE) +\n  labs(x = \"Mean Age\", \n       y = \"Empirical logit\")"
+  },
+  {
+    "objectID": "slides/23-logistic-inf.html#empirical-logit-plot-in-r-quantitative-predictor-2",
+    "href": "slides/23-logistic-inf.html#empirical-logit-plot-in-r-quantitative-predictor-2",
+    "title": "LR: Inference + conditions",
+    "section": "Empirical logit plot in R (quantitative predictor)",
+    "text": "Empirical logit plot in R (quantitative predictor)\nUsing the emplogitplot1 function from the Stat2Data R package\n\nemplogitplot1(high_risk ~ age, \n              data = heart_disease, \n              ngroups = 10)"
+  },
+  {
+    "objectID": "slides/23-logistic-inf.html#empirical-logit-plot-in-r-interactions",
+    "href": "slides/23-logistic-inf.html#empirical-logit-plot-in-r-interactions",
+    "title": "LR: Inference + conditions",
+    "section": "Empirical logit plot in R (interactions)",
+    "text": "Empirical logit plot in R (interactions)\nUsing the emplogitplot2 function from the Stat2Data R package\n\nemplogitplot2(high_risk ~ age + currentSmoker, data = heart_disease, \n              ngroups = 10, \n              putlegend = \"bottomright\")"
+  },
+  {
+    "objectID": "slides/23-logistic-inf.html#checking-linearity",
+    "href": "slides/23-logistic-inf.html#checking-linearity",
+    "title": "LR: Inference + conditions",
+    "section": "Checking linearity",
+    "text": "Checking linearity\n\n\n\nemplogitplot1(high_risk ~ age, \n              data = heart_disease, \n              ngroups = 10)\n\n\n\n\n\n\n\n\n\n\nemplogitplot1(high_risk ~ totChol, \n              data = heart_disease, \n              ngroups = 10)\n\n\n\n\n\n\n\n\n\n\n\n✅ The linearity condition is satisfied. There is a linear relationship between the empirical logit and the predictor variables."
+  },
+  {
+    "objectID": "slides/23-logistic-inf.html#checking-randomness",
+    "href": "slides/23-logistic-inf.html#checking-randomness",
+    "title": "LR: Inference + conditions",
+    "section": "Checking randomness",
+    "text": "Checking randomness\nWe can check the randomness condition based on the context of the data and how the observations were collected.\n\nWas the sample randomly selected?\nIf the sample was not randomly selected, ask whether there is reason to believe the observations in the sample differ systematically from the population of interest.\n\n\n✅ The randomness condition is satisfied. We do not have reason to believe that the participants in this study differ systematically from adults in the U.S. in regards to health characteristics and risk of heart disease."
+  },
+  {
+    "objectID": "slides/23-logistic-inf.html#checking-independence",
+    "href": "slides/23-logistic-inf.html#checking-independence",
+    "title": "LR: Inference + conditions",
+    "section": "Checking independence",
+    "text": "Checking independence\n\nWe can check the independence condition based on the context of the data and how the observations were collected.\nIndependence is most often violated if the data were collected over time or there is a strong spatial relationship between the observations.\n\n\n✅ The independence condition is satisfied. It is reasonable to conclude that the participants’ health characteristics are independent of one another.\n\n\n\n🔗 Week 12"
+  },
+  {
     "objectID": "slides/22-model-compare.html#announcements",
     "href": "slides/22-model-compare.html#announcements",
     "title": "Logistic Regression: Model comparison",

@@ -171,7 +171,7 @@ $$
 
 **Interpretation:** We are $C\%$ confident that for every one unit increase in $x_j$, the odds multiply by a factor of $e^{\hat{\beta}_j - z^* SE_{\hat{\beta}_j}}$ to $e^{\hat{\beta}_j + z^* SE_{\hat{\beta}_j}}$, holding all else constant.
 
-## Coefficient for `age`  {.smaller}
+## Coefficient for `age`  {.midi}
 
 ```{r}
 #| label: risk-model-age-highlight
@@ -187,10 +187,10 @@ tidy(risk_fit, conf.int = TRUE) |>
 **Hypotheses:**
 
 $$
-H_0: \beta_{1} = 0 \hspace{2mm} \text{ vs } \hspace{2mm} H_a: \beta_{1} \neq 0
+H_0: \beta_{age} = 0 \hspace{2mm} \text{ vs } \hspace{2mm} H_a: \beta_{age} \neq 0
 $$
 
-## Coefficient for `age` {.smaller}
+## Coefficient for `age` {.midi}
 
 ```{r}
 #| echo: false
@@ -202,7 +202,7 @@ $$
 $$z = \frac{0.07559 - 0}{0.00554} = 13.64
 $$
 
-## Coefficient for `age` {.smaller}
+## Coefficient for `age` {.midi}
 
 ```{r}
 #| echo: false
@@ -221,7 +221,7 @@ $$
 2 * pnorm(13.64,lower.tail = FALSE)
 ```
 
-## Coefficient for `age` {.smaller}
+## Coefficient for `age` {.midi}
 
 ```{r}
 #| echo: false

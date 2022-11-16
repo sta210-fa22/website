@@ -5376,27 +5376,6 @@
     "text": "Log likelihood\n\\[\n\\log L = \\sum\\limits_{i=1}^n[y_i \\log(\\hat{\\pi}_i) + (1 - y_i)\\log(1 - \\hat{\\pi}_i)]\n\\]\n\nMeasure of how well the model fits the data\nHigher values of \\(\\log L\\) are better\nDeviance = \\(-2 \\log L\\)\n\n\\(-2 \\log L\\) follows a \\(\\chi^2\\) distribution with \\(n - p - 1\\) degrees of freedom"
   },
   {
-    "objectID": "slides/23-logistic-inf.html#comparing-nested-models",
-    "href": "slides/23-logistic-inf.html#comparing-nested-models",
-    "title": "LR: Inference + conditions",
-    "section": "Comparing nested models",
-    "text": "Comparing nested models\n\nSuppose there are two models:\n\nReduced Model includes predictors \\(x_1, \\ldots, x_q\\)\nFull Model includes predictors \\(x_1, \\ldots, x_q, x_{q+1}, \\ldots, x_p\\)\n\nWe want to test the hypotheses\n\\[\n\\begin{aligned}\nH_0&: \\beta_{q+1} = \\dots = \\beta_p = 0 \\\\\nH_A&: \\text{ at least 1 }\\beta_j \\text{ is not } 0\n\\end{aligned}\n\\]\nTo do so, we will use the Drop-in-deviance test, also known as the Nested Likelihood Ratio test"
-  },
-  {
-    "objectID": "slides/23-logistic-inf.html#drop-in-deviance-test",
-    "href": "slides/23-logistic-inf.html#drop-in-deviance-test",
-    "title": "LR: Inference + conditions",
-    "section": "Drop-in-deviance test",
-    "text": "Drop-in-deviance test\nHypotheses:\n\\[\n\\begin{aligned}\nH_0&: \\beta_{q+1} = \\dots = \\beta_p = 0 \\\\\nH_A&: \\text{ at least 1 }\\beta_j \\text{ is not } 0\n\\end{aligned}\n\\]\n\nTest Statistic: \\[G = (-2 \\log L_{reduced}) - (-2 \\log L_{full})\\]\n\n\nP-value: \\(P(\\chi^2 > G)\\), calculated using a \\(\\chi^2\\) distribution with degrees of freedom equal to the difference in the number of parameters in the full and reduced models"
-  },
-  {
-    "objectID": "slides/23-logistic-inf.html#chi2-distribution",
-    "href": "slides/23-logistic-inf.html#chi2-distribution",
-    "title": "LR: Inference + conditions",
-    "section": "\\(\\chi^2\\) distribution",
-    "text": "\\(\\chi^2\\) distribution"
-  },
-  {
     "objectID": "slides/23-logistic-inf.html#model-with-age-and-education",
     "href": "slides/23-logistic-inf.html#model-with-age-and-education",
     "title": "LR: Inference + conditions",
@@ -5409,27 +5388,6 @@
     "title": "LR: Inference + conditions",
     "section": "Should we add currentSmoker to the model?",
     "text": "Should we add currentSmoker to the model?\nFirst model, reduced:\n\nrisk_fit_reduced <- logistic_reg() |>\n  set_engine(\"glm\") |>\n  fit(high_risk ~ age + education, \n      data = heart_disease, family = \"binomial\")\n\n\n\nSecond model, full:\n\nrisk_fit_full <- logistic_reg() |>\n  set_engine(\"glm\") |>\n  fit(high_risk ~ age + education + currentSmoker, \n      data = heart_disease, family = \"binomial\")"
-  },
-  {
-    "objectID": "slides/23-logistic-inf.html#should-we-add-currentsmoker-to-the-model-1",
-    "href": "slides/23-logistic-inf.html#should-we-add-currentsmoker-to-the-model-1",
-    "title": "LR: Inference + conditions",
-    "section": "Should we add currentSmoker to the model?",
-    "text": "Should we add currentSmoker to the model?\nCalculate deviance for each model:\n\n(dev_reduced <- glance(risk_fit_reduced)$deviance)\n\n[1] 3244.187\n\n(dev_full <- glance(risk_fit_full)$deviance)\n\n[1] 3221.901\n\n\n\nDrop-in-deviance test statistic:\n\n(test_stat <- dev_reduced - dev_full)\n\n[1] 22.2863"
-  },
-  {
-    "objectID": "slides/23-logistic-inf.html#should-we-add-currentsmoker-to-the-model-2",
-    "href": "slides/23-logistic-inf.html#should-we-add-currentsmoker-to-the-model-2",
-    "title": "LR: Inference + conditions",
-    "section": "Should we add currentSmoker to the model?",
-    "text": "Should we add currentSmoker to the model?\nCalculate the p-value using a pchisq(), with degrees of freedom equal to the number of new model terms in the second model:\n\npchisq(test_stat, 1, lower.tail = FALSE) \n\n[1] 2.348761e-06\n\n\n\nConclusion: The p-value is very small, so we reject \\(H_0\\). The data provide sufficient evidence that the coefficient of currentSmoker is not equal to 0. Therefore, we should add it to the model."
-  },
-  {
-    "objectID": "slides/23-logistic-inf.html#drop-in-deviance-test-in-r",
-    "href": "slides/23-logistic-inf.html#drop-in-deviance-test-in-r",
-    "title": "LR: Inference + conditions",
-    "section": "Drop-in-Deviance test in R",
-    "text": "Drop-in-Deviance test in R\n\nWe can use the anova function to conduct this test\nAdd test = \"Chisq\" to conduct the drop-in-deviance test\n\n\n\nanova(risk_fit_reduced$fit, risk_fit_full$fit, test = \"Chisq\") |>\n  tidy() |> kable(digits = 3)\n\n\n\n \n  \n    term \n    Resid..Df \n    Resid..Dev \n    df \n    Deviance \n    p.value \n  \n \n\n  \n    high_risk ~ age + education \n    4081 \n    3244.187 \n    NA \n    NA \n    NA \n  \n  \n    high_risk ~ age + education + currentSmoker \n    4080 \n    3221.901 \n    1 \n    22.286 \n    0"
   },
   {
     "objectID": "slides/23-logistic-inf.html#model-selection",
@@ -5541,7 +5499,49 @@
     "href": "slides/23-logistic-inf.html#checking-independence",
     "title": "LR: Inference + conditions",
     "section": "Checking independence",
-    "text": "Checking independence\n\nWe can check the independence condition based on the context of the data and how the observations were collected.\nIndependence is most often violated if the data were collected over time or there is a strong spatial relationship between the observations.\n\n\n✅ The independence condition is satisfied. It is reasonable to conclude that the participants’ health characteristics are independent of one another.\n\n\n\n🔗 Week 12"
+    "text": "Checking independence\n\nWe can check the independence condition based on the context of the data and how the observations were collected.\nIndependence is most often violated if the data were collected over time or there is a strong spatial relationship between the observations.\n\n\n✅ The independence condition is satisfied. It is reasonable to conclude that the participants’ health characteristics are independent of one another."
+  },
+  {
+    "objectID": "slides/23-logistic-inf.html#comparing-nested-models",
+    "href": "slides/23-logistic-inf.html#comparing-nested-models",
+    "title": "LR: Inference + conditions",
+    "section": "Comparing nested models",
+    "text": "Comparing nested models\n\nSuppose there are two models:\n\nReduced Model includes predictors \\(x_1, \\ldots, x_q\\)\nFull Model includes predictors \\(x_1, \\ldots, x_q, x_{q+1}, \\ldots, x_p\\)\n\nWe want to test the hypotheses\n\\[\n\\begin{aligned}\nH_0&: \\beta_{q+1} = \\dots = \\beta_p = 0 \\\\\nH_A&: \\text{ at least 1 }\\beta_j \\text{ is not } 0\n\\end{aligned}\n\\]\nTo do so, we will use the Drop-in-deviance test, also known as the Nested Likelihood Ratio test"
+  },
+  {
+    "objectID": "slides/23-logistic-inf.html#drop-in-deviance-test",
+    "href": "slides/23-logistic-inf.html#drop-in-deviance-test",
+    "title": "LR: Inference + conditions",
+    "section": "Drop-in-deviance test",
+    "text": "Drop-in-deviance test\nHypotheses:\n\\[\n\\begin{aligned}\nH_0&: \\beta_{q+1} = \\dots = \\beta_p = 0 \\\\\nH_A&: \\text{ at least 1 }\\beta_j \\text{ is not } 0\n\\end{aligned}\n\\]\n\nTest Statistic: \\[G = (-2 \\log L_{reduced}) - (-2 \\log L_{full})\\]\n\n\nP-value: \\(P(\\chi^2 > G)\\), calculated using a \\(\\chi^2\\) distribution with degrees of freedom equal to the difference in the number of parameters in the full and reduced models"
+  },
+  {
+    "objectID": "slides/23-logistic-inf.html#chi2-distribution",
+    "href": "slides/23-logistic-inf.html#chi2-distribution",
+    "title": "LR: Inference + conditions",
+    "section": "\\(\\chi^2\\) distribution",
+    "text": "\\(\\chi^2\\) distribution"
+  },
+  {
+    "objectID": "slides/23-logistic-inf.html#should-we-add-currentsmoker-to-the-model-1",
+    "href": "slides/23-logistic-inf.html#should-we-add-currentsmoker-to-the-model-1",
+    "title": "LR: Inference + conditions",
+    "section": "Should we add currentSmoker to the model?",
+    "text": "Should we add currentSmoker to the model?\nCalculate deviance for each model:\n\n(dev_reduced <- glance(risk_fit_reduced)$deviance)\n\n[1] 3244.187\n\n(dev_full <- glance(risk_fit_full)$deviance)\n\n[1] 3221.901\n\n\n\nDrop-in-deviance test statistic:\n\n(test_stat <- dev_reduced - dev_full)\n\n[1] 22.2863"
+  },
+  {
+    "objectID": "slides/23-logistic-inf.html#should-we-add-currentsmoker-to-the-model-2",
+    "href": "slides/23-logistic-inf.html#should-we-add-currentsmoker-to-the-model-2",
+    "title": "LR: Inference + conditions",
+    "section": "Should we add currentSmoker to the model?",
+    "text": "Should we add currentSmoker to the model?\nCalculate the p-value using a pchisq(), with degrees of freedom equal to the number of new model terms in the second model:\n\npchisq(test_stat, 1, lower.tail = FALSE) \n\n[1] 2.348761e-06\n\n\n\nConclusion: The p-value is very small, so we reject \\(H_0\\). The data provide sufficient evidence that the coefficient of currentSmoker is not equal to 0. Therefore, we should add it to the model."
+  },
+  {
+    "objectID": "slides/23-logistic-inf.html#drop-in-deviance-test-in-r",
+    "href": "slides/23-logistic-inf.html#drop-in-deviance-test-in-r",
+    "title": "LR: Inference + conditions",
+    "section": "Drop-in-Deviance test in R",
+    "text": "Drop-in-Deviance test in R\n\nWe can use the anova function to conduct this test\nAdd test = \"Chisq\" to conduct the drop-in-deviance test\n\n\n\nanova(risk_fit_reduced$fit, risk_fit_full$fit, test = \"Chisq\") |>\n  tidy() |> kable(digits = 3)\n\n\n\n \n  \n    term \n    Resid..Df \n    Resid..Dev \n    df \n    Deviance \n    p.value \n  \n \n\n  \n    high_risk ~ age + education \n    4081 \n    3244.187 \n    NA \n    NA \n    NA \n  \n  \n    high_risk ~ age + education + currentSmoker \n    4080 \n    3221.901 \n    1 \n    22.286 \n    0 \n  \n\n\n\n\n\n\n\n\n🔗 Week 12"
   },
   {
     "objectID": "slides/22-model-compare.html#announcements",

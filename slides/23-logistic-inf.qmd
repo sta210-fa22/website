@@ -259,69 +259,7 @@ $$
 
     -   $-2 \log L$ follows a $\chi^2$ distribution with $n - p - 1$ degrees of freedom
 
-## Comparing nested models
 
--   Suppose there are two models:
-
-    -   Reduced Model includes predictors $x_1, \ldots, x_q$
-    -   Full Model includes predictors $x_1, \ldots, x_q, x_{q+1}, \ldots, x_p$
-
--   We want to test the hypotheses
-
-    $$
-    \begin{aligned}
-    H_0&: \beta_{q+1} = \dots = \beta_p = 0 \\
-    H_A&: \text{ at least 1 }\beta_j \text{ is not } 0
-    \end{aligned}
-    $$
-
--   To do so, we will use the **Drop-in-deviance test**, also known as the Nested Likelihood Ratio test
-
-## Drop-in-deviance test
-
-**Hypotheses:**
-
-$$
-\begin{aligned}
-H_0&: \beta_{q+1} = \dots = \beta_p = 0 \\
-H_A&: \text{ at least 1 }\beta_j \text{ is not } 0
-\end{aligned}
-$$
-
-. . .
-
-**Test Statistic:** $$G = (-2 \log L_{reduced}) - (-2 \log L_{full})$$
-
-. . .
-
-**P-value:** $P(\chi^2 > G)$, calculated using a $\chi^2$ distribution with degrees of freedom equal to the difference in the number of parameters in the full and reduced models
-
-## $\chi^2$ distribution
-
-```{r}
-#| echo: false
-#| fig-height: 6
-
-x <- seq(from =0, to = 10, length = 100)
-
-# Evaluate the densities
-y_1 <- dchisq(x, 1)
-y_2 <- dchisq(x,2)
-y_3 <- dchisq(x,3)
-y_4 <- dchisq(x,5)
-
-# Plot the densities
-plot(x, y_1, col = 1, type = "l", ylab="",lwd=3, ylim = c(0, 0.5), 
-     main  = "Chi-square Distribution")
-lines(x,y_2, col = 2,lwd=3)
-lines(x, y_3, col = 3,lwd=3)
-lines(x, y_4, col = 4,lwd=3)
-
-# Add the legend
-legend("topright",
-       c("df = 1", "df = 2 ", "df = 3", "df = 5"), 
-       col = c(1, 2, 3, 4), lty = 1)
-```
 
 ## Model with age and education {.smaller}
 
@@ -376,49 +314,6 @@ risk_fit_full <- logistic_reg() |>
   set_engine("glm") |>
   fit(high_risk ~ age + education + currentSmoker, 
       data = heart_disease, family = "binomial")
-```
-
-## Should we add `currentSmoker` to the model?
-
-Calculate deviance for each model:
-
-```{r}
-(dev_reduced <- glance(risk_fit_reduced)$deviance)
-
-(dev_full <- glance(risk_fit_full)$deviance)
-```
-
-. . .
-
-Drop-in-deviance test statistic:
-
-```{r}
-(test_stat <- dev_reduced - dev_full)
-```
-
-## Should we add `currentSmoker` to the model?
-
-Calculate the p-value using a `pchisq()`, with degrees of freedom equal to the number of new model terms in the second model:
-
-```{r}
-pchisq(test_stat, 1, lower.tail = FALSE) 
-```
-
-. . .
-
-**Conclusion:** The p-value is very small, so we reject $H_0$. The data provide sufficient evidence that the coefficient of `currentSmoker` is not equal to 0. Therefore, we should add it to the model.
-
-## Drop-in-Deviance test in R
-
--   We can use the **`anova`** function to conduct this test
-
--   Add **`test = "Chisq"`** to conduct the drop-in-deviance test
-
-. . .
-
-```{r}
-anova(risk_fit_reduced$fit, risk_fit_full$fit, test = "Chisq") |>
-  tidy() |> kable(digits = 3)
 ```
 
 ## Model selection
@@ -641,3 +536,112 @@ We can check the randomness condition based on the context of the data and how t
 . . .
 
 `r emo::ji("white_check_mark")` The independence condition is satisfied. It is reasonable to conclude that the participants' health characteristics are independent of one another.
+
+# Comparing nested models using the drop-in-deviance test (optional)
+
+## Comparing nested models
+
+-   Suppose there are two models:
+
+    -   Reduced Model includes predictors $x_1, \ldots, x_q$
+    -   Full Model includes predictors $x_1, \ldots, x_q, x_{q+1}, \ldots, x_p$
+
+-   We want to test the hypotheses
+
+    $$
+    \begin{aligned}
+    H_0&: \beta_{q+1} = \dots = \beta_p = 0 \\
+    H_A&: \text{ at least 1 }\beta_j \text{ is not } 0
+    \end{aligned}
+    $$
+
+-   To do so, we will use the **Drop-in-deviance test**, also known as the Nested Likelihood Ratio test
+
+## Drop-in-deviance test
+
+**Hypotheses:**
+
+$$
+\begin{aligned}
+H_0&: \beta_{q+1} = \dots = \beta_p = 0 \\
+H_A&: \text{ at least 1 }\beta_j \text{ is not } 0
+\end{aligned}
+$$
+
+. . .
+
+**Test Statistic:** $$G = (-2 \log L_{reduced}) - (-2 \log L_{full})$$
+
+. . .
+
+**P-value:** $P(\chi^2 > G)$, calculated using a $\chi^2$ distribution with degrees of freedom equal to the difference in the number of parameters in the full and reduced models
+
+## $\chi^2$ distribution
+
+```{r}
+#| echo: false
+#| fig-height: 6
+
+x <- seq(from =0, to = 10, length = 100)
+
+# Evaluate the densities
+y_1 <- dchisq(x, 1)
+y_2 <- dchisq(x,2)
+y_3 <- dchisq(x,3)
+y_4 <- dchisq(x,5)
+
+# Plot the densities
+plot(x, y_1, col = 1, type = "l", ylab="",lwd=3, ylim = c(0, 0.5), 
+     main  = "Chi-square Distribution")
+lines(x,y_2, col = 2,lwd=3)
+lines(x, y_3, col = 3,lwd=3)
+lines(x, y_4, col = 4,lwd=3)
+
+# Add the legend
+legend("topright",
+       c("df = 1", "df = 2 ", "df = 3", "df = 5"), 
+       col = c(1, 2, 3, 4), lty = 1)
+```
+
+## Should we add `currentSmoker` to the model?
+
+Calculate deviance for each model:
+
+```{r}
+(dev_reduced <- glance(risk_fit_reduced)$deviance)
+
+(dev_full <- glance(risk_fit_full)$deviance)
+```
+
+. . .
+
+Drop-in-deviance test statistic:
+
+```{r}
+(test_stat <- dev_reduced - dev_full)
+```
+
+## Should we add `currentSmoker` to the model?
+
+Calculate the p-value using a `pchisq()`, with degrees of freedom equal to the number of new model terms in the second model:
+
+```{r}
+pchisq(test_stat, 1, lower.tail = FALSE) 
+```
+
+. . .
+
+**Conclusion:** The p-value is very small, so we reject $H_0$. The data provide sufficient evidence that the coefficient of `currentSmoker` is not equal to 0. Therefore, we should add it to the model.
+
+## Drop-in-Deviance test in R
+
+-   We can use the **`anova`** function to conduct this test
+
+-   Add **`test = "Chisq"`** to conduct the drop-in-deviance test
+
+. . .
+
+```{r}
+anova(risk_fit_reduced$fit, risk_fit_full$fit, test = "Chisq") |>
+  tidy() |> kable(digits = 3)
+```

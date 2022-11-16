@@ -403,7 +403,7 @@
     "href": "weeks/week-12.html",
     "title": "Week 12",
     "section": "",
-    "text": "Prepare\n\n\n\n\n\n\n\nReading\nCorresponding lecture\n\n\n\n\n📖 IMS, Chp 26: Inference for logistic regression\nNov 16\n\n\n\n\n\nParticipate\n\n\n\n\n\n\n\n💻 Logistic regression: Model comparison\nNov 14\n\n\n💻 Logistic Regression: Inference + conditions\nNov 16\n\n\n\n\n\nPractice\n\n\n\n\n\n\n📋 AE 14: Logistic regression - Model Comparison\n\n\n\n\n\nPerform\n\n\n\n\n\n\n\n📝 HW 04\ndue Mon, Nov 21, 11:59pm\n\n\n📝 Statistics experience\ndue Fri, Dec 10, 11:59pm"
+    "text": "Prepare\n\n\n\n\n\n\n\nReading\nCorresponding lecture\n\n\n\n\n📖 IMS, Chp 26: Inference for logistic regression\nNov 16\n\n\n\n\n\nParticipate\n\n\n\n\n\n\n\n💻 Logistic regression: Model comparison\nNov 14\n\n\n💻 Logistic Regression: Inference + conditions\nNov 16\n\n\n💻 Lab: Project analysis + write up\nNov 17 + 18\n\n\n\n\n\nPractice\n\n\n\n\n\n\n📋 AE 14: Logistic regression - Model Comparison\n\n\n\n\n\nPerform\n\n\n\n\n\n\n\n📝 HW 04\ndue Mon, Nov 21, 11:59pm\n\n\n📝 Statistics experience\ndue Fri, Dec 10, 11:59pm"
   },
   {
     "objectID": "weeks/week-16.html",
@@ -3015,6 +3015,34 @@
     "title": "Lab 06",
     "section": "Resources for Lab 06",
     "text": "Resources for Lab 06\n\nLecture notes\n\nLogistic Regression: Introduction\n\nIMS, Chap 9: Logistic Regression\n\n\n\n\n🔗 Week 10"
+  },
+  {
+    "objectID": "slides/lab-project-writeup.html#goals",
+    "href": "slides/lab-project-writeup.html#goals",
+    "title": "Lab: Project Analysis + write up",
+    "section": "Goals",
+    "text": "Goals\n\nWork on project analysis and write up"
+  },
+  {
+    "objectID": "slides/lab-project-writeup.html#project-timeline",
+    "href": "slides/lab-project-writeup.html#project-timeline",
+    "title": "Lab: Project Analysis + write up",
+    "section": "Project timeline",
+    "text": "Project timeline\n\nProject meetings (optional): Nov 21 & 22\n\nClick here to sign up by Sun, Nov 20 at 11:59pm. Only one meeting per team.\n\nRound 1 submission (optional) due Nov 22 at 11:59pm\nWritten report due Fri, Dec 09 at 11:59pm\nVideo presentations during exam week"
+  },
+  {
+    "objectID": "slides/lab-project-writeup.html#tips-for-report",
+    "href": "slides/lab-project-writeup.html#tips-for-report",
+    "title": "Lab: Project Analysis + write up",
+    "section": "Tips for report",
+    "text": "Tips for report\nThere is a 10-page limit on the final report.\n\nAll code, warnings, and messages must be suppressed in the final report. Add the following code to the YAML:\n  echo: false\n  warning: false\n  message: false\nTell a cohesive and focused story. You won’t have room to give extensive details about everything you did in the analysis, so carefully consider where to put more/ less detail.\n\nUse the appendix for additional graphs and text you want to share. The reader may not read the appendix, so the body of the report should still be comprehensive without the material in the appendix."
+  },
+  {
+    "objectID": "slides/lab-project-writeup.html#tips-for-report-1",
+    "href": "slides/lab-project-writeup.html#tips-for-report-1",
+    "title": "Lab: Project Analysis + write up",
+    "section": "Tips for report",
+    "text": "Tips for report\n\nUse code chunk options to change the size of figures.\n\nDon’t make them so small they become unreadable!\n\nUse variable descriptions, not variable names in the narrative.\n\nSee Project Tips + Resources for more tips.\n\n\n\n🔗 Week 12"
   },
   {
     "objectID": "slides/07-slr-math-models.html#announcements",

@@ -64,6 +64,16 @@ knitr::opts_chunk$set(echo = FALSE,
                       message = FALSE)
 ```
 
+-   An alternative approach is to add the following code to the YAML:
+
+    ```{r}
+    #| eval: false
+    execute:
+      echo: false
+      warning: false
+      message: false
+    ```
+
 #### Headers
 
 -   Use headers to clearly label each section. Make sure there is a space between the last `#` and the title, so the header renders correctly. For example, `###Section Title` will not render as header, but `### Section Title` will.

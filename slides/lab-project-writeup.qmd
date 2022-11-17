@@ -39,7 +39,7 @@ library(knitr)
 
 -   Work on project analysis and write up
 
-## Project timeline 
+## Project timeline
 
 -   Project meetings (optional): Nov 21 & 22
     -   [Click here](https://docs.google.com/spreadsheets/d/1vIgC8SBaskHRFcU1Ge8-XlrOy6BstneBpvLIlc7Oa-A/edit?usp=sharing) to sign up by Sun, Nov 20 at 11:59pm. Only one meeting per team.
@@ -53,11 +53,13 @@ There is a **10-page limit** on the final report.
 
 -   All code, warnings, and messages must be suppressed in the final report. Add the following code to the YAML:
 
-    ```{execute:}
-      echo: false
-      warning: false
-      message: false
-    ```
+```{r}
+#| eval: false
+execute:
+  echo: false
+  warning: false
+  message: false
+```
 
 -   Tell a cohesive and focused story. You won't have room to give extensive details about everything you did in the analysis, so carefully consider where to put more/ less detail.
 

@@ -1,5 +1,5 @@
 ---
-title: "Lab: Project Analysis + write up"
+title: "Lab: Project Analysis + written report"
 author: "Nov 17 - 18, 2022"
 footer: "[🔗 Week 12](https://sta210-fa22.netlify.app/weeks/week-12.html)"
 logo: "../images/logo.png"
@@ -20,6 +20,8 @@ knitr:
     width: 200
 ---
 
+## Goals
+
 ```{r}
 # figure options
 knitr::opts_chunk$set(
@@ -34,8 +36,6 @@ library(viridis)
 library(tidymodels)
 library(knitr)
 ```
-
-## Goals
 
 -   Work on project analysis and write up
 
@@ -53,8 +53,7 @@ There is a **10-page limit** on the final report.
 
 -   All code, warnings, and messages must be suppressed in the final report. Add the following code to the YAML:
 
-```{r}
-#| eval: false
+```{---}
 execute:
   echo: false
   warning: false
@@ -71,6 +70,6 @@ execute:
 
     -   Don't make them so small they become unreadable!
 
--   Use variable descriptions, <u>not </u>variable names in the narrative.
+-   Use variable descriptions, <u>not</u>variable names in the narrative.
 
 See [Project Tips + Resources](https://sta210-fa22.netlify.app/project-tips.html#formatting-communication-tips) for more tips.

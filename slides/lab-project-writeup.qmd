@@ -53,7 +53,7 @@ There is a **10-page limit** on the final report.
 
 -   All code, warnings, and messages must be suppressed in the final report. Add the following code to the YAML:
 
-```{---}
+``` {.unnumbered .unnumbered .unnumbered}
 execute:
   echo: false
   warning: false

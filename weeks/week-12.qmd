@@ -16,13 +16,13 @@ title-block-style: none
 # Prepare
 
 | Reading                                                                                                        | Corresponding lecture |
-|--------------------------------------------------------|----------------|
+|----------------------------------------------------------------------------------------------------------------|-----------------------|
 | 📖 IMS, Chp 26: [Inference for logistic regression](https://openintro-ims.netlify.app/inf-model-logistic.html) | Nov 16                |
 
 # Participate
 
 |                                                                                  |             |
-|---------------------------------------------------------|---------------|
+|----------------------------------------------------------------------------------|-------------|
 | 💻 [Logistic regression: Model comparison](../slides/22-model-compare.html)      | Nov 14      |
 | 💻 [Logistic Regression: Inference + conditions](../slides/23-logistic-inf.html) | Nov 16      |
 | 💻 [Lab: Project analysis + write up](../slides/lab-project-writeup.html)        | Nov 17 + 18 |
@@ -30,12 +30,12 @@ title-block-style: none
 # Practice
 
 |                                                                                    |
-|------------------------------------------------------------------------|
+|------------------------------------------------------------------------------------|
 | 📋 [AE 14: Logistic regression - Model Comparison](../ae/ae-14-model-compare.html) |
 
 # Perform
 
 |                                                         |                          |
-|-------------------------------------------------|-----------------------|
+|---------------------------------------------------------|--------------------------|
 | 📝 [HW 04](../hw/hw-04.html)                            | due Mon, Nov 21, 11:59pm |
 | 📝 [Statistics experience](../hw/stats-experience.html) | due Fri, Dec 09, 11:59pm |

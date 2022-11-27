@@ -8,10 +8,33 @@ tbl-colwidths: [60,40]
 title-block-style: none
 ---
 
+::: callout-important
+Coming up:
+
+-   Exam 02: Dec 05 (evening) - Dec 08, 12pm (noon)
+
+    -   Click here for all lecture recordings
+:::
+
 # Prepare
 
+| Reading                                                                                                                                                                | Corresponding lecture |
+|------------------------------------------------------|------------------|
+| 📖 Beyond Multiple Linear Regression, Chapter 7: [Correlated Data](https://bookdown.org/roback/bookdown-BeyondMLR/ch-corrdata.html) (optional)                         | Nov 28                |
+| 📖 Beyond Multiple Linear Regression, Chapter 8:[Introduction to Multilevel Models](https://bookdown.org/roback/bookdown-BeyondMLR/ch-multilevelintro.html) (optional) | Nov 28 & Nov 30       |
+
 # Participate
+
+| Topic                                        | Date   |
+|----------------------------------------------|--------|
+| 💻 Introduction to Multilevel Models         | Nov 28 |
+| 💻 Introduction to Multilevel Models, Part 2 | Nov 30 |
 
 # Practice
 
 # Perform
+
+|                                                                                                       |                                                                |
+|--------------------------------------------|----------------------------|
+| 📝 [Project written report](https://sta210-fa22.netlify.app/project-instructions.html#written-report) | due Fri, Dec 09, 11:59pm (accepted until Sun, Dec 11, 11:59pm) |
+| 📝 [Statistics experience](../hw/stats-experience.html)                                               | due Fri, Dec 09, 11:59pm                                       |

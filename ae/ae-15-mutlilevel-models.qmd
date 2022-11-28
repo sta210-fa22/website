@@ -1,0 +1,29 @@
+---
+title: "AE 15: Introduction to Multilevel Models"
+date: "Nov 28, 2022"
+editor: visual
+execute: 
+  warning: false
+  message: false
+editor_options: 
+  chunk_output_type: console
+---
+
+::: callout-important
+Go to the [course GitHub organization](https://github.com/sta210-fa22) and locate your `ae-15`- to get started.
+
+The AE is due on GitHub by Thursday, December 01, 11:59pm.
+:::
+
+## Packages
+
+```{r}
+#| label: load-pkgs-data
+#| message: false
+ 
+library(tidyverse)
+library(tidymodels)
+library(knitr)
+```
+
+## 

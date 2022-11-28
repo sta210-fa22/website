@@ -1,0 +1,14 @@
+{
+  "hash": "d20e92842b3679b850c4d36d1b49ac35",
+  "result": {
+    "markdown": "---\ntitle: \"AE 15: Introduction to Multilevel Models\"\ndate: \"Nov 28, 2022\"\neditor: visual\nexecute: \n  warning: false\n  message: false\neditor_options: \n  chunk_output_type: console\n---\n\n\n::: callout-important\nGo to the [course GitHub organization](https://github.com/sta210-fa22) and locate your `ae-15`- to get started.\n\nThe AE is due on GitHub by Thursday, December 01, 11:59pm.\n:::\n\n## Packages\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(knitr)\n```\n:::\n\n\n## \n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

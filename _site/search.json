@@ -445,7 +445,7 @@
     "href": "weeks/week-14.html",
     "title": "Week 14",
     "section": "",
-    "text": "Participate\n\n\n\n\n\n\n\nTopic\nDate\n\n\n\n\n💻 Introduction to Multilevel Models\nNov 28\n\n\n💻 Introduction to Multilevel Models, Part 2\nNov 30\n\n\n\n\n\nPractice\n\n\nPerform\n\n\n\n\n\n\n\n📝 Project written report\ndue Fri, Dec 09, 11:59pm (accepted until Sun, Dec 11, 11:59pm)\n\n\n📝 Statistics experience\ndue Fri, Dec 09, 11:59pm"
+    "text": "Prepare\n\n\n\n\n\n\n\nReading\nCorresponding lecture\n\n\n\n\n📖 Beyond Multiple Linear Regression, Chapter 7: Correlated Data (optional)\nNov 28\n\n\n📖 Beyond Multiple Linear Regression, Chapter 8:Introduction to Multilevel Models (optional)\nNov 28 & Nov 30\n\n\n\n\n\nParticipate\n\n\n\n\n\n\n\nTopic\nDate\n\n\n\n\n💻 Introduction to Multilevel Models\nNov 28\n\n\n💻 Introduction to Multilevel Models, Part 2\nNov 30\n\n\n\n\n\nPractice\n\n\n\n\n\n\n📋 AE 15: Introduction to Multilevel Models\n\n\n\n\n\nPerform\n\n\n\n\n\n\n\n📝 Project written report\ndue Fri, Dec 09, 11:59pm (accepted until Sun, Dec 11, 11:59pm)\n\n\n📝 Statistics experience\ndue Fri, Dec 09, 11:59pm"
   },
   {
     "objectID": "hw/hw-04.html",
@@ -1062,6 +1062,20 @@
     "title": "AE 10: Cross validation",
     "section": "Model 2: Summarize model fit CV metrics",
     "text": "Model 2: Summarize model fit CV metrics\n\n# add code here"
+  },
+  {
+    "objectID": "ae/ae-15-mutlilevel-models.html",
+    "href": "ae/ae-15-mutlilevel-models.html",
+    "title": "AE 15: Introduction to Multilevel Models",
+    "section": "",
+    "text": "Important\n\n\n\nGo to the course GitHub organization and locate your ae-15- to get started.\nThe AE is due on GitHub by Thursday, December 01, 11:59pm."
+  },
+  {
+    "objectID": "ae/ae-15-mutlilevel-models.html#packages",
+    "href": "ae/ae-15-mutlilevel-models.html#packages",
+    "title": "AE 15: Introduction to Multilevel Models",
+    "section": "Packages",
+    "text": "Packages\n\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(knitr)"
   },
   {
     "objectID": "ae/ae-03-bootstrap.html",
@@ -4765,6 +4779,216 @@
     "title": "Logistic regression",
     "section": "Recap",
     "text": "Recap\n\nLogistic regression for binary response variable\nRelationship between odds and probabilities\nUsed logistic regression model to calculate predicted odds and probabilities"
+  },
+  {
+    "objectID": "slides/24-intro-multilevel-models.html#announcements",
+    "href": "slides/24-intro-multilevel-models.html#announcements",
+    "title": "Introduction to multilevel models",
+    "section": "Announcements",
+    "text": "Announcements\n\nDue dates\n\nHW 04 due Mon, Nov 21, 11:59pm\nProject Round 1 submission (optional) due Tue, Nov 22, 11:59pm\nStatistics experience due Fri, Dec 09, 11:59pm\n\nNo class Monday - Click here to sign up for project meeting (optional)\n\nMust sign up by Sun, Nov 20 at 11:59pm\n\nSee Week 12 activities"
+  },
+  {
+    "objectID": "slides/24-intro-multilevel-models.html#learning-goals",
+    "href": "slides/24-intro-multilevel-models.html#learning-goals",
+    "title": "Introduction to multilevel models",
+    "section": "Learning goals",
+    "text": "Learning goals\n\nRecognize a potential for correlation in a data set\nIdentify observational units at varying levels\nUnderstand issues correlated data may cause in modeling\nUnderstand how random effects models can be used to take correlation into account"
+  },
+  {
+    "objectID": "slides/24-intro-multilevel-models.html#examples-of-correlated-data",
+    "href": "slides/24-intro-multilevel-models.html#examples-of-correlated-data",
+    "title": "Introduction to multilevel models",
+    "section": "Examples of correlated data",
+    "text": "Examples of correlated data\n\n\nIn an education study, scores for students from a particular teacher are typically more similar than scores of other students with a different teacher\nIn a study measuring depression indices weekly over a month, the four measures for the same patient tend to be more similar than depression indices from other patients\nIn political polling, opinions of members from the same household tend to be more similar than opinions of members from another household\n\n\n\nCorrelation among outcomes within the same group (teacher, patient, household) is called intraclass correlation"
+  },
+  {
+    "objectID": "slides/24-intro-multilevel-models.html#multilevel-data",
+    "href": "slides/24-intro-multilevel-models.html#multilevel-data",
+    "title": "Introduction to multilevel models",
+    "section": "Multilevel data",
+    "text": "Multilevel data\n\nWe can think of correlated data as having a multilevel structure\n\nPopulation elements are aggregated into groups\nThere are observational units and measurements at each level\n\n\n\n\nFor now we will focus on data with two levels:\n\nLevel one: Most basic level of observation\nLevel two: Groups formed from aggregated level-one observations\n\n\n\n\n\nExample: education\n\nLevel one: students in a class\nLevel two: class / teacher"
+  },
+  {
+    "objectID": "slides/24-intro-multilevel-models.html#two-types-of-effects",
+    "href": "slides/24-intro-multilevel-models.html#two-types-of-effects",
+    "title": "Introduction to multilevel models",
+    "section": "Two types of effects",
+    "text": "Two types of effects\n\n\nFixed effects: Effects that are of interest in the study\n\nCan think of these as effects whose interpretations would be included in a write up of the study\n\nRandom effects: Effects we’re not interested in studying but whose variability we want to understand\n\nCan think of these as effects whose interpretations would not necessarily be included in a write up of the study"
+  },
+  {
+    "objectID": "slides/24-intro-multilevel-models.html#example",
+    "href": "slides/24-intro-multilevel-models.html#example",
+    "title": "Introduction to multilevel models",
+    "section": "Example",
+    "text": "Example\nResearchers are interested in understanding the effect social media has on opinions about a proposed economic plan. They randomly select 1000 households. They ask each adult in the household how many minutes they spend on social media daily and whether they support the proposed economic plan.\n\nFixed effect: daily minutes on social media\nRandom effect: household"
+  },
+  {
+    "objectID": "slides/24-intro-multilevel-models.html#practice",
+    "href": "slides/24-intro-multilevel-models.html#practice",
+    "title": "Introduction to multilevel models",
+    "section": "Practice",
+    "text": "Practice\nResearchers conducted a randomized controlled study where patients were randomly assigned to either an anti-epileptic drug or a placebo. For each patient, the number of seizures at baseline was measured over a 2-week period. For four consecutive visits the number of seizures were determined over the past 2-week period. Patient age and sex along with visit number were recorded.\n\n\nWhat are the level one and level two observational units\nWhat is the response variable?\nDescribe the within-group variation.\nWhat are the fixed effects? What are the random effects?"
+  },
+  {
+    "objectID": "slides/24-intro-multilevel-models.html#data-music-performance-anxiety",
+    "href": "slides/24-intro-multilevel-models.html#data-music-performance-anxiety",
+    "title": "Introduction to multilevel models",
+    "section": "Data: Music performance anxiety",
+    "text": "Data: Music performance anxiety\nThe data musicdata.csv come from the Sadler and Miller (2010) study of the emotional state of musicians before performances. The dataset contains information collected from 37 undergraduate music majors who completed the Positive Affect Negative Affect Schedule (PANAS), an instrument produces a measure of anxiety (negative affect) and a measure of happiness (positive affect). This analysis will focus on negative affect as a measure of performance anxiety."
+  },
+  {
+    "objectID": "slides/24-intro-multilevel-models.html#data-music-performance-anxiety-1",
+    "href": "slides/24-intro-multilevel-models.html#data-music-performance-anxiety-1",
+    "title": "Introduction to multilevel models",
+    "section": "Data: Music performance anxiety",
+    "text": "Data: Music performance anxiety\nThe primary variables we’ll use are\n\nna: negative affect score on PANAS (the response variable)\nperform_type: type of performance (Solo, Large Ensemble, Small Ensemble)\ninstrument: type of instrument (Voice, Orchestral, Piano)"
+  },
+  {
+    "objectID": "slides/24-intro-multilevel-models.html#look-at-data",
+    "href": "slides/24-intro-multilevel-models.html#look-at-data",
+    "title": "Introduction to multilevel models",
+    "section": "Look at data",
+    "text": "Look at data\n\n\n\n\n\nid\ndiary\nperform_type\nna\ngender\ninstrument\n\n\n\n\n1\n1\nSolo\n11\nFemale\nvoice\n\n\n1\n2\nLarge Ensemble\n19\nFemale\nvoice\n\n\n1\n3\nLarge Ensemble\n14\nFemale\nvoice\n\n\n43\n1\nSolo\n19\nFemale\nvoice\n\n\n43\n2\nSolo\n13\nFemale\nvoice\n\n\n43\n3\nSmall Ensemble\n19\nFemale\nvoice\n\n\n\n\n\n\nWhat are the Level One observations? Level Two observations?\nWhat are the Level One variables? Level Two variables?"
+  },
+  {
+    "objectID": "slides/24-intro-multilevel-models.html#univariate-exploratory-data-analysis",
+    "href": "slides/24-intro-multilevel-models.html#univariate-exploratory-data-analysis",
+    "title": "Introduction to multilevel models",
+    "section": "Univariate exploratory data analysis",
+    "text": "Univariate exploratory data analysis\nLevel One variables\nTwo ways to approach univariate EDA (visualizations and summary statistics) for Level One variables:\n\nUse individual observations (i.e., treat observations as independent)\nUse aggregated values for each Level Two observation\n\n\nLevel Two variables\n\nUse a data set that contains one row per Level Two observation"
+  },
+  {
+    "objectID": "slides/24-intro-multilevel-models.html#bivariate-exploratory-data-analysis",
+    "href": "slides/24-intro-multilevel-models.html#bivariate-exploratory-data-analysis",
+    "title": "Introduction to multilevel models",
+    "section": "Bivariate exploratory data analysis",
+    "text": "Bivariate exploratory data analysis\nGoals\n\nExplore general association between the predictor and response variable\nExplore whether subjects at a given level of the predictor tend to have similar mean responses\nExplore whether variation in response differs at different levels of a predictor\n\nThere are two ways to visualize these associations:\n\nOne plot of individual observations (i.e., treat observations as independent)\nSeparate plots of responses vs. predictor for each Level Two observation (lattice plots)"
+  },
+  {
+    "objectID": "slides/24-intro-multilevel-models.html#application-exercise",
+    "href": "slides/24-intro-multilevel-models.html#application-exercise",
+    "title": "Introduction to multilevel models",
+    "section": "Application exercise",
+    "text": "Application exercise\n\n📋 AE 15: Introduction to Multilevel models\n\nComplete Part 2: Bivariate EDA\n\n\n\n08:00"
+  },
+  {
+    "objectID": "slides/24-intro-multilevel-models.html#questions-we-want-to-answer",
+    "href": "slides/24-intro-multilevel-models.html#questions-we-want-to-answer",
+    "title": "Introduction to multilevel models",
+    "section": "Questions we want to answer",
+    "text": "Questions we want to answer\nThe goal is to understand variability in performance anxiety (na) based on performance-level and musician-level characteristics.\nSpecifically:\n\nWhat is the association between performance type (large ensemble or not) and performance anxiety? Does the association differ based on instrument type (orchestral or not)?"
+  },
+  {
+    "objectID": "slides/24-intro-multilevel-models.html#linear-regression-model",
+    "href": "slides/24-intro-multilevel-models.html#linear-regression-model",
+    "title": "Introduction to multilevel models",
+    "section": "Linear regression model",
+    "text": "Linear regression model\n\nWhat is the problem with using the following model to draw conclusions?\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n15.721\n0.359\n43.778\n0.000\n\n\norchestra\n1.789\n0.552\n3.243\n0.001\n\n\nlarge_ensemble\n-0.277\n0.791\n-0.350\n0.727\n\n\norchestra:large_ensemble\n-1.709\n1.062\n-1.609\n0.108"
+  },
+  {
+    "objectID": "slides/24-intro-multilevel-models.html#other-modeling-approaches",
+    "href": "slides/24-intro-multilevel-models.html#other-modeling-approaches",
+    "title": "Introduction to multilevel models",
+    "section": "Other modeling approaches",
+    "text": "Other modeling approaches\n1️⃣ Condense each musician’s set of responses into a single outcome (e.g., mean max, last observation, etc.) and fit a linear model on these condensed observations\n\nLeaves few observations (37) to fit the model\nIgnoring a lot of information in the multiple observations for each musician\n\n\n2️⃣ Fit a separate model for each musician understand the association between performance type (Level One models). Then fit a system of Level Two models to predict the fitted coefficients in the Level One model for each subject based on instrument type (Level Two model).\n\n\nLet’s look at approach #2"
+  },
+  {
+    "objectID": "slides/24-intro-multilevel-models.html#level-one-model",
+    "href": "slides/24-intro-multilevel-models.html#level-one-model",
+    "title": "Introduction to multilevel models",
+    "section": "Level One model",
+    "text": "Level One model\nWe’ll start with the Level One model to understand the association between performance type and performance anxiety for the \\(i^{th}\\) musician.\n\n\\[na_{ij} = a_i + b_i ~ LargeEnsemble_{ij} + \\epsilon_i, \\hspace{5mm} \\epsilon_{ij} \\sim N(0,\\sigma^2)\\]\n\nWhy is it more meaningful to use performance type for the Level One model than instrument?\n\n\nFor now, estimate \\(a_i\\) and \\(b_i\\) using least-squares regression."
+  },
+  {
+    "objectID": "slides/24-intro-multilevel-models.html#level-one-model-for-one-student",
+    "href": "slides/24-intro-multilevel-models.html#level-one-model-for-one-student",
+    "title": "Introduction to multilevel models",
+    "section": "Level One model for one student",
+    "text": "Level One model for one student\nBelow is partial data for observation #22\n\n\n\n\n\nid\ndiary\nperform_type\ninstrument\nna\n\n\n\n\n22\n1\nSolo\norchestral instrument\n24\n\n\n22\n2\nLarge Ensemble\norchestral instrument\n21\n\n\n22\n3\nLarge Ensemble\norchestral instrument\n14\n\n\n22\n13\nLarge Ensemble\norchestral instrument\n12\n\n\n22\n14\nLarge Ensemble\norchestral instrument\n19\n\n\n22\n15\nSolo\norchestral instrument\n25"
+  },
+  {
+    "objectID": "slides/24-intro-multilevel-models.html#level-one-model-1",
+    "href": "slides/24-intro-multilevel-models.html#level-one-model-1",
+    "title": "Introduction to multilevel models",
+    "section": "Level One model",
+    "text": "Level One model\n\nid_22 <- music |>\n  filter(id == 22)\n\nlinear_reg() |>\n  set_engine(\"lm\") |>\n  fit(na ~ large_ensemble, data = id_22) |>\n  tidy() |> kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n24.500\n1.96\n12.503\n0.000\n\n\nlarge_ensemble\n-7.833\n2.53\n-3.097\n0.009"
+  },
+  {
+    "objectID": "slides/24-intro-multilevel-models.html#application-exercise-1",
+    "href": "slides/24-intro-multilevel-models.html#application-exercise-1",
+    "title": "Introduction to multilevel models",
+    "section": "Application exercise",
+    "text": "Application exercise\n\n📋 AE 15: Introduction to Multilevel models\n\nSee Part 3: Level One Models to fit the Level One model for all 37 musicians."
+  },
+  {
+    "objectID": "slides/24-intro-multilevel-models.html#level-two-model",
+    "href": "slides/24-intro-multilevel-models.html#level-two-model",
+    "title": "Introduction to multilevel models",
+    "section": "Level Two Model",
+    "text": "Level Two Model\nThe slope and intercept for the \\(i^{th}\\) musician can be modeled as\n\n\\[\\begin{aligned}&a_i = \\alpha_0 + \\alpha_1 ~ Orchestra_i + u_i \\\\\n&b_i = \\beta_0 + \\beta_1 ~ Orchestra_i + v_i\\end{aligned}\\]\nNote the response variable in the Level Two models are not observed outcomes but the (fitted) slope and intercept from each musician"
+  },
+  {
+    "objectID": "slides/24-intro-multilevel-models.html#application-exercise-2",
+    "href": "slides/24-intro-multilevel-models.html#application-exercise-2",
+    "title": "Introduction to multilevel models",
+    "section": "Application exercise",
+    "text": "Application exercise\n\n📋 AE 15: Introduction to Multilevel models\n\nSee Part 4: Level Two Models."
+  },
+  {
+    "objectID": "slides/24-intro-multilevel-models.html#estimated-coefficients-by-instrument",
+    "href": "slides/24-intro-multilevel-models.html#estimated-coefficients-by-instrument",
+    "title": "Introduction to multilevel models",
+    "section": "Estimated coefficients by instrument",
+    "text": "Estimated coefficients by instrument"
+  },
+  {
+    "objectID": "slides/24-intro-multilevel-models.html#level-two-model-1",
+    "href": "slides/24-intro-multilevel-models.html#level-two-model-1",
+    "title": "Introduction to multilevel models",
+    "section": "Level Two model",
+    "text": "Level Two model\nModel for intercepts\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n16.283\n0.671\n24.249\n0.000\n\n\norchestra\n1.411\n0.991\n1.424\n0.163\n\n\n\n\n\nModel for slopes\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-0.771\n0.851\n-0.906\n0.373\n\n\norchestra\n-1.406\n1.203\n-1.168\n0.253"
+  },
+  {
+    "objectID": "slides/24-intro-multilevel-models.html#writing-out-the-models",
+    "href": "slides/24-intro-multilevel-models.html#writing-out-the-models",
+    "title": "Introduction to multilevel models",
+    "section": "Writing out the models",
+    "text": "Writing out the models\nLevel One\n\\[\\hat{na}_{ij}  = \\hat{a}_i + \\hat{b}_i ~ LargeEnsemble_{ij}\\]\nfor each musician.\n\nLevel Two\n\\[\\begin{aligned}&\\hat{a}_i = 16.283 + 1.441 ~ Orchestra_i \\\\\n&\\hat{b}_i = -0.771 - 1.406 ~ Orchestra_i\\end{aligned}\\]"
+  },
+  {
+    "objectID": "slides/24-intro-multilevel-models.html#composite-model",
+    "href": "slides/24-intro-multilevel-models.html#composite-model",
+    "title": "Introduction to multilevel models",
+    "section": "Composite model",
+    "text": "Composite model\n\\[\\begin{aligned}\\hat{na}_i &= 16.283 + 1.441 ~ Orchestra_i - 0.771 ~ LargeEnsemble_{ij} \\\\\n&- 1.406 ~ Orchestra:LargeEnsemble_{ij}\\end{aligned}\\]\n(Note that we also have the error terms \\(\\epsilon_{ij}, u_i, v_i\\) that we will discuss next class.)\n\n\nWhat is the predicted average performance anxiety before solos and small ensemble performances for vocalists and keyboardists? For those who place orchestral instruments?\nWhat is the predicted average performance anxiety before large ensemble performances for those who play orchestral instruments?"
+  },
+  {
+    "objectID": "slides/24-intro-multilevel-models.html#disadvantages-to-this-approach",
+    "href": "slides/24-intro-multilevel-models.html#disadvantages-to-this-approach",
+    "title": "Introduction to multilevel models",
+    "section": "Disadvantages to this approach",
+    "text": "Disadvantages to this approach\n⚠️ Weighs each musician the same regardless of number of diary entries\n⚠️ Drops subjects who have missing values for slope (7 individuals who didn’t play a large ensemble performance)\n⚠️ Does not share strength effectively across individuals."
+  },
+  {
+    "objectID": "slides/24-intro-multilevel-models.html#application-exercise-3",
+    "href": "slides/24-intro-multilevel-models.html#application-exercise-3",
+    "title": "Introduction to multilevel models",
+    "section": "Application exercise",
+    "text": "Application exercise\n\n📋 AE 15: Introduction to Multilevel models\n\nSee Part 5: Distribution of \\(R^2\\) values."
+  },
+  {
+    "objectID": "slides/24-intro-multilevel-models.html#next-time",
+    "href": "slides/24-intro-multilevel-models.html#next-time",
+    "title": "Introduction to multilevel models",
+    "section": "Next time",
+    "text": "Next time\nWe will use a unified approach that utilizes likelihood-based methods to address some of these drawbacks."
+  },
+  {
+    "objectID": "slides/24-intro-multilevel-models.html#acknowledgements",
+    "href": "slides/24-intro-multilevel-models.html#acknowledgements",
+    "title": "Introduction to multilevel models",
+    "section": "Acknowledgements",
+    "text": "Acknowledgements\n\nThe content in the slides is from\n\nBMLR: Chapter 7 - Correlated data\nBMLR: Chapter 8 - Introduction to Multilevel Models\n\nSadler, Michael E., and Christopher J. Miller. 2010. “Performance Anxiety: A Longitudinal Study of the Roles of Personality and Experience in Musicians.” Social Psychological and Personality Science 1 (3): 280–87. http://dx.doi.org/10.1177/1948550610370492.\n\n\n\n\n🔗 Week 14"
   },
   {
     "objectID": "slides/lab-project-proposal.html#goals",

@@ -45,15 +45,15 @@ library(patchwork)
 
 -   Due dates
 
-    -   [HW 04](../hw/hw-04.html) due Mon, Nov 21, 11:59pm
-    -   [Project Round 1 submission](https://sta210-fa22.netlify.app/project-instructions.html#draft-report) (optional) due Tue, Nov 22, 11:59pm
     -   [Statistics experience](../hw/stats-experience.html) due Fri, Dec 09, 11:59pm
 
--   No class Monday - [Click here](https://docs.google.com/spreadsheets/d/1vIgC8SBaskHRFcU1Ge8-XlrOy6BstneBpvLIlc7Oa-A/edit?usp=sharing) to sign up for project meeting (optional)
+-   Exam 02: Mon, Dec 05 (evening) - Thu, Dec 08, 12pm (noon)
 
-    -   Must sign up by Sun, Nov 20 at 11:59pm
+    -   Exam 02 review on Mon Dec 05
 
--   See [Week 12](../weeks/week-12.html) activities
+    -   [Click here](https://prodduke-my.sharepoint.com/:x:/g/personal/mt324_duke_edu/EfXF6q4ev7dNq53PBcDetSgBrNry2EB85vWv2xrUzGahbg?e=yuf7Cy) for lecture recordings
+
+-   See [Week 14](../weeks/week-14.html) activities
 
 ------------------------------------------------------------------------
 
@@ -65,8 +65,6 @@ library(patchwork)
 -   Understand how random effects models can be used to take correlation into account
 
 # Correlated observations
-
-------------------------------------------------------------------------
 
 ## Examples of correlated data {.midi}
 
@@ -244,8 +242,6 @@ tidy(ols) |> kable(digits = 3)
 
 **Let's look at approach #2**
 
-------------------------------------------------------------------------
-
 ## Level One model
 
 We'll start with the Level One model to understand the association between performance type and performance anxiety for the $i^{th}$ musician.\
@@ -271,8 +267,6 @@ music |>
   kable()
 ```
 
-------------------------------------------------------------------------
-
 ## Level One model {.midi}
 
 ```{r}
@@ -285,7 +279,7 @@ linear_reg() |>
   tidy() |> kable(digits = 3)
 ```
 
-## Application exercise 
+## Application exercise
 
 ::: appex
 📋 [AE 15: Introduction to Multilevel models](../ae/ae-15-multilevel-models.html)
@@ -293,7 +287,7 @@ linear_reg() |>
 
 See Part 3: Level One Models to fit the Level One model for all 37 musicians.
 
-------------------------------------------------------------------------
+\-\--
 
 ```{r echo = F}
 # set up tibble for fitted values 
@@ -345,8 +339,6 @@ p1 + p2
 
 **Now let's consider if there is an association between the estimated slopes, estimated intercepts, and the type of instrument.**
 
-------------------------------------------------------------------------
-
 ## Level Two Model
 
 The slope and intercept for the $i^{th}$ musician can be modeled as\
@@ -384,8 +376,6 @@ p2 <- ggplot(data = musicians, aes(x = slopes, y = factor(orchestra))) +
 p1 / p2
 ```
 
-------------------------------------------------------------------------
-
 ## Level Two model
 
 **Model for intercepts**
@@ -404,8 +394,6 @@ tidy(b) |>
   kable(digits = 3)
 ```
 
-------------------------------------------------------------------------
-
 ## Writing out the models
 
 **Level One**
@@ -418,14 +406,16 @@ for each musician.
 
 **Level Two**
 
+```{=tex}
 \begin{aligned}&\hat{a}_i = 16.283 + 1.441 ~ Orchestra_i \\
 &\hat{b}_i = -0.771 - 1.406 ~ Orchestra_i\end{aligned}
-
+```
 ## Composite model {.midi}
 
+```{=tex}
 \begin{aligned}\hat{na}_i &= 16.283 + 1.441 ~ Orchestra_i - 0.771 ~ LargeEnsemble_{ij} \\
 &- 1.406 ~ Orchestra:LargeEnsemble_{ij}\end{aligned}
-
+```
 (Note that we also have the error terms $\epsilon_{ij}, u_i, v_i$ that we will discuss next class.)
 
 ::: question
@@ -433,8 +423,6 @@ for each musician.
 
 -   What is the predicted average performance anxiety before large ensemble performances for those who play orchestral instruments?
 :::
-
-------------------------------------------------------------------------
 
 ## Disadvantages to this approach
 

@@ -51,7 +51,7 @@ library(patchwork)
 
     -   Exam 02 review on Mon Dec 05
 
-    -   [Click here](https://prodduke-my.sharepoint.com/:x:/g/personal/mt324_duke_edu/EfXF6q4ev7dNq53PBcDetSgBrNry2EB85vWv2xrUzGahbg?e=yuf7Cy) for lecture recordings
+    -   [Click here](https://duke.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx?folderID=3abb0b6f-0db5-4d55-84f2-aefd0140874b) for lecture recordings - available until Dec 05, 11:59pm
 
 -   See [Week 14](../weeks/week-14.html) activities
 

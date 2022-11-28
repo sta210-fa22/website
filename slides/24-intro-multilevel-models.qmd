@@ -119,11 +119,18 @@ Researchers are interested in understanding the effect social media has on opini
 Researchers conducted a randomized controlled study where patients were randomly assigned to either an anti-epileptic drug or a placebo. For each patient, the number of seizures at baseline was measured over a 2-week period. For four consecutive visits the number of seizures were determined over the past 2-week period. Patient age and sex along with visit number were recorded.
 
 ::: question
-1.  What are the level one and level two observational units
+1.  What are the level one and level two observational units?
 2.  What is the response variable?
 3.  Describe the within-group variation.
 4.  What are the fixed effects? What are the random effects?
 :::
+
+```{r}
+#| echo: false 
+
+countdown(minutes = 3, seconds  = 0)
+
+```
 
 # Multilevel models
 
@@ -267,7 +274,7 @@ music |>
   kable()
 ```
 
-## Level One model {.midi}
+## Level One model for musician 22 {.midi}
 
 ```{r}
 id_22 <- music |>
@@ -287,7 +294,7 @@ linear_reg() |>
 
 See Part 3: Level One Models to fit the Level One model for all 37 musicians.
 
-\-\--
+## Level One model summaries
 
 ```{r echo = F}
 # set up tibble for fitted values 

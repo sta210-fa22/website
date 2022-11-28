@@ -490,11 +490,18 @@
 <p>Researchers conducted a randomized controlled study where patients were randomly assigned to either an anti-epileptic drug or a placebo. For each patient, the number of seizures at baseline was measured over a 2-week period. For four consecutive visits the number of seizures were determined over the past 2-week period. Patient age and sex along with visit number were recorded.</p>
 <div class="question">
 <ol type="1">
-<li>What are the level one and level two observational units</li>
+<li>What are the level one and level two observational units?</li>
 <li>What is the response variable?</li>
 <li>Describe the within-group variation.</li>
 <li>What are the fixed effects? What are the random effects?</li>
 </ol>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="countdown" id="timer_6384cf19" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+</div>
 </div>
 </section></section>
 <section>
@@ -625,7 +632,7 @@
 <p>Complete Part 2: Bivariate EDA</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div class="countdown" id="timer_63842352" style="right:0;bottom:0;margin:1.25%;" data-warnwhen="0">
+<div class="countdown" id="timer_6384cca2" style="right:0;bottom:0;margin:1.25%;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">08</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 </div>
@@ -784,8 +791,8 @@
 </div>
 </div>
 </section>
-<section id="level-one-model-1" class="slide level2 midi">
-<h2>Level One model</h2>
+<section id="level-one-model-for-musician-22" class="slide level2 midi">
+<h2>Level One model for musician 22</h2>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>id_22 <span class="ot">&lt;-</span> music <span class="sc">|&gt;</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a>  <span class="fu">filter</span>(id <span class="sc">==</span> <span class="dv">22</span>)</span>
@@ -831,12 +838,14 @@
 <p>📋 <a href="../ae/ae-15-multilevel-models.html">AE 15: Introduction to Multilevel models</a></p>
 </div>
 <p>See Part 3: Level One Models to fit the Level One model for all 37 musicians.</p>
-<p>---</p>
+</section>
+<section id="level-one-model-summaries" class="slide level2">
+<h2>Level One model summaries</h2>
 <div class="cell" data-layout-align="center">
 
 </div>
 
-<img data-src="24-intro-multilevel-models_files/figure-revealjs/unnamed-chunk-8-1.png" style="width:90.0%" class="r-stretch quarto-figure-center"><p class="caption">Recreated from BMLR Figure 8.9</p><div class="fragment">
+<img data-src="24-intro-multilevel-models_files/figure-revealjs/unnamed-chunk-9-1.png" style="width:90.0%" class="r-stretch quarto-figure-center"><p class="caption">Recreated from BMLR Figure 8.9</p><div class="fragment">
 <p><strong>Now let’s consider if there is an association between the estimated slopes, estimated intercepts, and the type of instrument.</strong></p>
 </div>
 </section>
@@ -858,7 +867,7 @@
 <section id="estimated-coefficients-by-instrument" class="slide level2">
 <h2>Estimated coefficients by instrument</h2>
 
-<img data-src="24-intro-multilevel-models_files/figure-revealjs/unnamed-chunk-9-1.png" style="width:90.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="24-intro-multilevel-models_files/figure-revealjs/unnamed-chunk-10-1.png" style="width:90.0%" class="r-stretch quarto-figure-center"></section>
 <section id="level-two-model-1" class="slide level2">
 <h2>Level Two model</h2>
 <p><strong>Model for intercepts</strong></p>

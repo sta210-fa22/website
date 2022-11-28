@@ -1071,11 +1071,39 @@
     "text": "Important\n\n\n\nGo to the course GitHub organization and locate your ae-15- to get started.\nThe AE is due on GitHub by Thursday, December 01, 11:59pm."
   },
   {
-    "objectID": "ae/ae-15-mutlilevel-models.html#packages",
-    "href": "ae/ae-15-mutlilevel-models.html#packages",
+    "objectID": "ae/ae-15-mutlilevel-models.html#part-1-univariate-eda",
+    "href": "ae/ae-15-mutlilevel-models.html#part-1-univariate-eda",
     "title": "AE 15: Introduction to Multilevel Models",
-    "section": "Packages",
-    "text": "Packages\n\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(knitr)"
+    "section": "Part 1: Univariate EDA",
+    "text": "Part 1: Univariate EDA\n\nPlot the distribution of the response variable negative affect (na) using individual observations.\n\n\nggplot(data  = music, aes(x = na)) + \n  geom_histogram(fill = \"steelblue\", color = \"black\", binwidth = 2) + \n  labs(x = \"Individual scores\", \n       title =\"Distribution of Negative Affect Score\")\n\n\n\n\n\nPlot the distribution of the response variable using an aggregated value (or single observation) for each Level Two observation (musician).\n\n\nmusic |>\n  group_by(id) |>\n  summarise(mean_na = mean(na)) |>\n  ungroup() |>\n  ggplot(aes(x = mean_na)) + \n  geom_histogram(fill = \"steelblue\", color = \"black\", binwidth = 2) + \n  labs(x = \"Mean scores\", \n       title = \"Distribution of Mean Negative Affect Scores\",\n       subtitle = \"By Musician\")\n\n\n\n\n\nHow do the plots compare? How do they differ?\nWhat are some advantages of each plot? What are some disadvantages?"
+  },
+  {
+    "objectID": "ae/ae-15-mutlilevel-models.html#part-2-bivariate-eda",
+    "href": "ae/ae-15-mutlilevel-models.html#part-2-bivariate-eda",
+    "title": "AE 15: Introduction to Multilevel Models",
+    "section": "Part 2: Bivariate EDA",
+    "text": "Part 2: Bivariate EDA\n\nMake a single scatterplot of the negative affect versus number of previous performances (previous) using the individual observations. Use geom_smooth() to add a linear regression line to the plot.\n\n\n# Add code\n\n\nMake a separate scatterplot of the mean negative affect versus number of mean number of previous performances (previous) faceted by musician (id). Use geom_smooth() to add a linear regression line to each plot.\n\n\n# Add code\n\n\nHow do the plots compare? How do they differ?\nWhat are some advantages of each plot? What are some disadvantages?"
+  },
+  {
+    "objectID": "ae/ae-15-mutlilevel-models.html#part-3-level-one-models",
+    "href": "ae/ae-15-mutlilevel-models.html#part-3-level-one-models",
+    "title": "AE 15: Introduction to Multilevel Models",
+    "section": "Part 3: Level One Models",
+    "text": "Part 3: Level One Models\nCode to fit and display the Level One model for Observation 22 is below.\n\nid_22 <- music |>\n  filter(id == 22)\n\nlinear_reg() |>\n  set_engine(\"lm\") |>\n  fit(na ~ large_ensemble, data = id_22) |>\n  tidy() |> kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n24.500\n1.96\n12.503\n0.000\n\n\nlarge_ensemble\n-7.833\n2.53\n-3.097\n0.009\n\n\n\n\n\nCode to fit the Level One model and get the fitted slope, intercept, and \\(R^2\\) values for all musicians is below.\n\n# set up tibble for fitted values \n\nmodel_stats <- tibble(slopes = rep(0,37), \n               intercepts = rep(0,37), \n               r.squared = rep(0, 37))\n\n\nids <- music |> distinct(id) |> pull()\n\n# counter to keep track of row number to store model_stats\n\ncount <- 1\n\nfor(i in ids){\n  \nid_data <- music |>\n  filter(id == i)\n\nlevel_one_model <- linear_reg() |>\n  set_engine(\"lm\") |>\n  fit(na ~ large_ensemble, data = id_data) \n\nlevel_one_model_tidy <- tidy(level_one_model)\n\nmodel_stats$slopes[count] <- level_one_model_tidy$estimate[2]\nmodel_stats$intercepts[count] <- level_one_model_tidy$estimate[1]\nmodel_stats$r.squared[count] <- glance(level_one_model)$r.squared\n\ncount = count + 1\n}"
+  },
+  {
+    "objectID": "ae/ae-15-mutlilevel-models.html#part-4-level-two-models",
+    "href": "ae/ae-15-mutlilevel-models.html#part-4-level-two-models",
+    "title": "AE 15: Introduction to Multilevel Models",
+    "section": "Part 4: Level Two Models",
+    "text": "Part 4: Level Two Models\n\n# Make a Level Two data set\nmusicians <- music |>\n  distinct(id, orchestra) |>\n  bind_cols(model_stats)\n\nModel for intercepts\n\na <- linear_reg() |>\n  set_engine(\"lm\") |>\n  fit(intercepts ~ orchestra, data = musicians) \n\ntidy(a) |>\n  kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n16.283\n0.671\n24.249\n0.000\n\n\norchestra\n1.411\n0.991\n1.424\n0.163\n\n\n\n\n\nModel for slopes\n\nb <- linear_reg() |>\n  set_engine(\"lm\") |>\n  fit(slopes ~ orchestra, data = musicians) \n\ntidy(b) |>\n  kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-0.771\n0.851\n-0.906\n0.373\n\n\norchestra\n-1.406\n1.203\n-1.168\n0.253"
+  },
+  {
+    "objectID": "ae/ae-15-mutlilevel-models.html#part-5-distribution-of-r2-values",
+    "href": "ae/ae-15-mutlilevel-models.html#part-5-distribution-of-r2-values",
+    "title": "AE 15: Introduction to Multilevel Models",
+    "section": "Part 5: Distribution of \\(R^2\\) values",
+    "text": "Part 5: Distribution of \\(R^2\\) values\n\nggplot(data = model_stats, aes(x = r.squared)) +\n  geom_dotplot(fill = \"steelblue\",  color = \"black\") +\n  labs(x = \"R-squared values\", \n       title = \"Distribution of R-squared of Level One models\")"
   },
   {
     "objectID": "ae/ae-03-bootstrap.html",
@@ -7089,40 +7117,5 @@
     "title": "Schedule",
     "section": "Notes",
     "text": "Notes\n\nHomework will be due on Wednesdays at 11:59pm. You will have one week to complete each homework assignment.\nLab:\n\nLab sections 01 & 02 (Thursdays): Labs will be due on Mondays at 11:59pm.\nLab sections 03 & 04 (Fridays): Labs will be due on Tuesdays at 11:59pm.\n\nProject dates will be added when the project is assigned."
-  },
-  {
-    "objectID": "ae/ae-15-mutlilevel-models.html#part-1-univariate-eda",
-    "href": "ae/ae-15-mutlilevel-models.html#part-1-univariate-eda",
-    "title": "AE 15: Introduction to Multilevel Models",
-    "section": "Part 1: Univariate EDA",
-    "text": "Part 1: Univariate EDA\n\nPlot the distribution of the response variable negative affect (na) using individual observations.\n\n\nggplot(data  = music, aes(x = na)) + \n  geom_histogram(fill = \"steelblue\", color = \"black\", binwidth = 2) + \n  labs(x = \"Individual scores\", \n       title =\"Distribution of Negative Affect Score\")\n\n\n\n\n\nPlot the distribution of the response variable using an aggregated value (or single observation) for each Level Two observation (musician).\n\n\nmusic |>\n  group_by(id) |>\n  summarise(mean_na = mean(na)) |>\n  ungroup() |>\n  ggplot(aes(x = mean_na)) + \n  geom_histogram(fill = \"steelblue\", color = \"black\", binwidth = 2) + \n  labs(x = \"Mean scores\", \n       title = \"Distribution of Mean Negative Affect Scores\",\n       subtitle = \"By Musician\")\n\n\n\n\n\nHow do the plots compare? How do they differ?\nWhat are some advantages of each plot? What are some disadvantages?"
-  },
-  {
-    "objectID": "ae/ae-15-mutlilevel-models.html#part-2-bivariate-eda",
-    "href": "ae/ae-15-mutlilevel-models.html#part-2-bivariate-eda",
-    "title": "AE 15: Introduction to Multilevel Models",
-    "section": "Part 2: Bivariate EDA",
-    "text": "Part 2: Bivariate EDA\n\nMake a single scatterplot of the negative affect versus number of previous performances (previous) using the individual observations. Use geom_smooth() to add a linear regression line to the plot.\n\n\n# Add code\n\n\nMake a separate scatterplot of the mean negative affect versus number of mean number of previous performances (previous) faceted by musician (id). Use geom_smooth() to add a linear regression line to each plot.\n\n\n# Add code\n\n\nHow do the plots compare? How do they differ?\nWhat are some advantages of each plot? What are some disadvantages?"
-  },
-  {
-    "objectID": "ae/ae-15-mutlilevel-models.html#part-3-level-one-models",
-    "href": "ae/ae-15-mutlilevel-models.html#part-3-level-one-models",
-    "title": "AE 15: Introduction to Multilevel Models",
-    "section": "Part 3: Level One Models",
-    "text": "Part 3: Level One Models\nCode to fit and display the Level One model for Observation 22 is below.\n\nid_22 <- music |>\n  filter(id == 22)\n\nlinear_reg() |>\n  set_engine(\"lm\") |>\n  fit(na ~ large_ensemble, data = id_22) |>\n  tidy() |> kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n24.500\n1.96\n12.503\n0.000\n\n\nlarge_ensemble\n-7.833\n2.53\n-3.097\n0.009\n\n\n\n\n\nCode to fit the Level One model and get the fitted slope, intercept, and \\(R^2\\) values for all musicians is below.\n\n# set up tibble for fitted values \n\nmodel_stats <- tibble(slopes = rep(0,37), \n               intercepts = rep(0,37), \n               r.squared = rep(0, 37))\n\n\nids <- music |> distinct(id) |> pull()\n\n# counter to keep track of row number to store model_stats\n\ncount <- 1\n\nfor(i in ids){\n  \nid_data <- music |>\n  filter(id == i)\n\nlevel_one_model <- linear_reg() |>\n  set_engine(\"lm\") |>\n  fit(na ~ large_ensemble, data = id_data) \n\nlevel_one_model_tidy <- tidy(level_one_model)\n\nmodel_stats$slopes[count] <- level_one_model_tidy$estimate[2]\nmodel_stats$intercepts[count] <- level_one_model_tidy$estimate[1]\nmodel_stats$r.squared[count] <- glance(level_one_model)$r.squared\n\ncount = count + 1\n}"
-  },
-  {
-    "objectID": "ae/ae-15-mutlilevel-models.html#part-4-level-two-models",
-    "href": "ae/ae-15-mutlilevel-models.html#part-4-level-two-models",
-    "title": "AE 15: Introduction to Multilevel Models",
-    "section": "Part 4: Level Two Models",
-    "text": "Part 4: Level Two Models\n\n# Make a Level Two data set\nmusicians <- music |>\n  distinct(id, orchestra) |>\n  bind_cols(model_stats)\n\nModel for intercepts\n\na <- linear_reg() |>\n  set_engine(\"lm\") |>\n  fit(intercepts ~ orchestra, data = musicians) \n\ntidy(a) |>\n  kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n16.283\n0.671\n24.249\n0.000\n\n\norchestra\n1.411\n0.991\n1.424\n0.163\n\n\n\n\n\nModel for slopes\n\nb <- linear_reg() |>\n  set_engine(\"lm\") |>\n  fit(slopes ~ orchestra, data = musicians) \n\ntidy(b) |>\n  kable(digits = 3)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n-0.771\n0.851\n-0.906\n0.373\n\n\norchestra\n-1.406\n1.203\n-1.168\n0.253"
-  },
-  {
-    "objectID": "ae/ae-15-mutlilevel-models.html#part-5-distribution-of-r2-values",
-    "href": "ae/ae-15-mutlilevel-models.html#part-5-distribution-of-r2-values",
-    "title": "AE 15: Introduction to Multilevel Models",
-    "section": "Part 5: Distribution of \\(R^2\\) values",
-    "text": "Part 5: Distribution of \\(R^2\\) values\n\nggplot(data = model_stats, aes(x = r.squared)) +\n  geom_dotplot(fill = \"steelblue\",  color = \"black\") +\n  labs(x = \"R-squared values\", \n       title = \"Distribution of R-squared of Level One models\")"
   }
 ]

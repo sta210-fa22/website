@@ -70,7 +70,7 @@ music |>
 # Add code
 ```
 
-2.  Make a separate scatterplot of the mean negative affect versus number of mean number of previous performances (`previous`) faceted by musician (`id`). Use `geom_smooth()` to add a linear regression line to each plot.
+2.  Make a separate scatterplot of the negative affect versus number of previous performances (`previous`) faceted by musician (`id`). Use `geom_smooth()` to add a linear regression line to each plot.
 
 ```{r bivariate-2}
 

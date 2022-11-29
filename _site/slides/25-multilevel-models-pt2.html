@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.0.36">
 
   <meta name="author" content="Prof.&nbsp;Maria Tackett">
-  <title>STA 210 - Fall 2022 - Introduction to multilevel models</title>
+  <title>STA 210 - Fall 2022 - Fitting multilevel models</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -385,8 +385,7 @@
     <div class="slides">
 
 <section id="title-slide" class="center">
-  <h1 class="title">Introduction to multilevel models</h1>
-  <p class="subtitle">Part 2</p>
+  <h1 class="title">Fitting multilevel models</h1>
   <p class="author">Prof.&nbsp;Maria Tackett</p>
   <p class="date">Nov 30, 2022</p>
 </section>
@@ -397,6 +396,8 @@
 <li><p>Due dates</p>
 <ul>
 <li><a href="../hw/stats-experience.html">Statistics experience</a> due Fri, Dec 09, 11:59pm</li>
+<li>Project written report due Fri, Dec 09, 11:59pm</li>
+<li>Team Feedback #2 due Tue, Dec 06, 11:59pm (check for email from Teammates)</li>
 </ul></li>
 <li><p>Exam 02: Mon, Dec 05 (evening) - Thu, Dec 08, 12pm (noon)</p>
 <ul>
@@ -409,10 +410,9 @@
 <section id="learning-goals" class="slide level2">
 <h2>Learning goals</h2>
 <ul>
-<li>Recognize a potential for correlation in a data set</li>
-<li>Identify observational units at varying levels</li>
-<li>Understand issues correlated data may cause in modeling</li>
-<li>Understand how random effects models can be used to take correlation into account</li>
+<li>Understand how multilevel model can be used to take correlation into account</li>
+<li>Interpret fixed effects of multilevel model</li>
+<li>Fit multilevel model in R</li>
 </ul>
 </section>
 <section id="data-music-performance-anxiety" class="slide level2">
@@ -674,7 +674,19 @@
 </p>
 <p><span class="math display">\[\begin{aligned}&amp;a_i = \alpha_0 + \alpha_1 ~ Orchestra_i + u_i \\
 &amp;b_i = \beta_0 + \beta_1 ~ Orchestra_i + v_i\end{aligned}\]</span></p>
-<p>Note the response variable in the Level Two models are not observed outcomes but the (fitted) slope and intercept from each musician</p>
+<div class="callout callout-note callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>the response variable in the Level Two models are not observed outcomes but the (fitted) slope and intercept from each musician</p>
+</div>
+</div>
+</div>
 </section>
 <section id="application-exercise-1" class="slide level2">
 <h2>Application exercise</h2>
@@ -817,10 +829,22 @@
 </ul></li>
 </ul>
 <div class="fragment">
-<p>Note that we no longer need to estimate <span class="math inline">\(a_i\)</span> and <span class="math inline">\(b_i\)</span> directly as we did earlier. They conceptually connect the Level One and Level Two models.</p>
+<div class="callout callout-note callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>We no longer need to estimate <span class="math inline">\(a_i\)</span> and <span class="math inline">\(b_i\)</span> directly as we did earlier. They conceptually connect the Level One and Level Two models.</p>
+</div>
+</div>
+</div>
 </div>
 </section>
-<section id="error-terms" class="slide level2">
+<section id="error-terms" class="slide level2 midi">
 <h2>Error terms</h2>
 <ul>
 <li><p>We generally assume that the error terms are normally distributed, e.g.&nbsp;error associated with each performance of a given musician is <span class="math inline">\(\epsilon_{ij} \sim N(0, \sigma^2)\)</span></p></li>
@@ -865,7 +889,7 @@
 <h2>Fit the model in R</h2>
 <p>Fit multilevel model using <strong>tidymodels</strong> and the <strong>multilevelmod</strong> R packages. Display results using the <code>tidy()</code> function from the <strong>broom.mixed</strong> package.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb2" data-code-line-numbers="5| 6| 7| 8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">library</span>(tidymodels)</span>
+<div class="sourceCode cell-code" id="cb2" data-code-line-numbers="1|2|3|6|7|8|9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">library</span>(tidymodels)</span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="fu">library</span>(multilevelmod)</span>
 <span id="cb2-3"><a href="#cb2-3"></a><span class="fu">library</span>(broom.mixed)</span>
 <span id="cb2-4"><a href="#cb2-4"></a></span>
@@ -887,7 +911,7 @@
 <colgroup>
 <col style="width: 11%">
 <col style="width: 11%">
-<col style="width: 40%">
+<col style="width: 41%">
 <col style="width: 11%">
 <col style="width: 12%">
 <col style="width: 12%">
@@ -914,7 +938,7 @@
 <tr class="even">
 <td style="text-align: left;">fixed</td>
 <td style="text-align: left;">NA</td>
-<td style="text-align: left;">orchestra</td>
+<td style="text-align: left;">orchestra1</td>
 <td style="text-align: right;">1.693</td>
 <td style="text-align: right;">0.945</td>
 <td style="text-align: right;">1.791</td>
@@ -922,7 +946,7 @@
 <tr class="odd">
 <td style="text-align: left;">fixed</td>
 <td style="text-align: left;">NA</td>
-<td style="text-align: left;">large_ensemble</td>
+<td style="text-align: left;">large_ensemble1</td>
 <td style="text-align: right;">-0.911</td>
 <td style="text-align: right;">0.845</td>
 <td style="text-align: right;">-1.077</td>
@@ -930,7 +954,7 @@
 <tr class="even">
 <td style="text-align: left;">fixed</td>
 <td style="text-align: left;">NA</td>
-<td style="text-align: left;">orchestra:large_ensemble</td>
+<td style="text-align: left;">orchestra1:large_ensemble1</td>
 <td style="text-align: right;">-1.424</td>
 <td style="text-align: right;">1.099</td>
 <td style="text-align: right;">-1.295</td>
@@ -946,7 +970,7 @@
 <tr class="even">
 <td style="text-align: left;">ran_pars</td>
 <td style="text-align: left;">id</td>
-<td style="text-align: left;">cor__(Intercept).large_ensemble</td>
+<td style="text-align: left;">cor__(Intercept).large_ensemble1</td>
 <td style="text-align: right;">-0.635</td>
 <td style="text-align: right;">NA</td>
 <td style="text-align: right;">NA</td>
@@ -954,7 +978,7 @@
 <tr class="odd">
 <td style="text-align: left;">ran_pars</td>
 <td style="text-align: left;">id</td>
-<td style="text-align: left;">sd__large_ensemble</td>
+<td style="text-align: left;">sd__large_ensemble1</td>
 <td style="text-align: right;">0.672</td>
 <td style="text-align: right;">NA</td>
 <td style="text-align: right;">NA</td>
@@ -974,7 +998,10 @@
 </section>
 <section id="final-model" class="slide level2">
 <h2>Final model</h2>
-<p>[Write out final model]</p>
+<span class="math display">\[\begin{aligned}\hat{na}_i &amp;= 15.930 + 1.693 ~ Orchestra_i - 0.911 ~ LargeEnsemble_{ij} \\
+&amp;- 1.424 ~ Orchestra_i:LargeEnsemble_{ij} \\[5pt]
+&amp;\hat{\sigma}_{u} = 2.378 \hspace{20mm} \hat{\sigma}_{v} = 0.672 \hspace{20mm} \hat{\sigma}_{\epsilon} = 4.670 \\
+&amp;\hat{\rho}_{uv} = -0.635\end{aligned}\]</span>
 </section>
 <section id="acknowledgements" class="slide level2">
 <h2>Acknowledgements</h2>

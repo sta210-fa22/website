@@ -9,10 +9,9 @@ title-block-style: none
 ---
 
 ::: callout-important
--   AE 15 due Thu, Dec 01, 11:59pm
-
+-   AE 15 due Sat, Dec 03, 11:59pm
+-   Team Feedback #2 due Tue, Dec 06, 11:59pm
 -   Looking ahead
-
     -   Exam 02: Dec 05 (evening) - Dec 08, 12pm (noon)
         -   Click here for all lecture recordings
 :::
@@ -20,21 +19,21 @@ title-block-style: none
 # Prepare
 
 | Reading                                                                                                                                                                | Corresponding lecture |
-|------------------------------------------------------|------------------|
+|-----------------------------------------------------|-------------------|
 | 📖 Beyond Multiple Linear Regression, Chapter 7: [Correlated Data](https://bookdown.org/roback/bookdown-BeyondMLR/ch-corrdata.html) (optional)                         | Nov 28                |
 | 📖 Beyond Multiple Linear Regression, Chapter 8:[Introduction to Multilevel Models](https://bookdown.org/roback/bookdown-BeyondMLR/ch-multilevelintro.html) (optional) | Nov 28 & Nov 30       |
 
 # Participate
 
 | Topic                                                                             | Date   |
-|--------------------------------------------------------|----------------|
+|------------------------------------------------------|------------------|
 | 💻 [Introduction to Multilevel Models](../slides/24-intro-multilevel-models.html) | Nov 28 |
-| 💻 Introduction to Multilevel Models, Part 2                                      | Nov 30 |
+| 💻 [Fitting Multilevel Models](../slides/25-multilevel-models-pt.html)            | Nov 30 |
 
 # Practice
 
 |                                                                                   |
-|-----------------------------------------------------------------------------------|
+|------------------------------------------------------------------------|
 | 📋 [AE 15: Introduction to Multilevel Models](../ae/ae-15-multilevel-models.html) |
 
 # Perform

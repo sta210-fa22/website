@@ -445,7 +445,7 @@
     "href": "weeks/week-14.html",
     "title": "Week 14",
     "section": "",
-    "text": "Prepare\n\n\n\n\n\n\n\nReading\nCorresponding lecture\n\n\n\n\n📖 Beyond Multiple Linear Regression, Chapter 7: Correlated Data (optional)\nNov 28\n\n\n📖 Beyond Multiple Linear Regression, Chapter 8:Introduction to Multilevel Models (optional)\nNov 28 & Nov 30\n\n\n\n\n\nParticipate\n\n\n\n\n\n\n\nTopic\nDate\n\n\n\n\n💻 Introduction to Multilevel Models\nNov 28\n\n\n💻 Fitting Multilevel Models\nNov 30\n\n\n\n\n\nPractice\n\n\n\n\n\n\n📋 AE 15: Introduction to Multilevel Models\n\n\n\n\n\nPerform\n\n\n\n\n\n\n\n📝 Project written report\ndue Fri, Dec 09, 11:59pm (accepted until Sun, Dec 11, 11:59pm)\n\n\n📝 Statistics experience\ndue Fri, Dec 09, 11:59pm"
+    "text": "Prepare\n\n\n\n\n\n\n\nReading\nCorresponding lecture\n\n\n\n\n📖 Beyond Multiple Linear Regression, Chapter 7: Correlated Data (optional)\nNov 28\n\n\n📖 Beyond Multiple Linear Regression, Chapter 8:Introduction to Multilevel Models (optional)\nNov 28 & Nov 30\n\n\n\n\n\nParticipate\n\n\n\n\n\n\n\nTopic\nDate\n\n\n\n\n💻 Introduction to Multilevel Models\nNov 28\n\n\n💻 Fitting Multilevel Models\nNov 30\n\n\n💻 Lab: Written report\nDec 01 & 02\n\n\n\n\n\nPractice\n\n\n\n\n\n\n📋 AE 15: Introduction to Multilevel Models\n\n\n\n\n\nPerform\n\n\n\n\n\n\n\n📝 Project written report\ndue Fri, Dec 09, 11:59pm (accepted until Sun, Dec 11, 11:59pm)\n\n\n📝 Statistics experience\ndue Fri, Dec 09, 11:59pm"
   },
   {
     "objectID": "hw/hw-04.html",
@@ -2783,7 +2783,7 @@
     "href": "slides/25-multilevel-models-pt2.html#level-two-model",
     "title": "Fitting multilevel models",
     "section": "Level Two Model",
-    "text": "Level Two Model\nThe slope and intercept for the \\(i^{th}\\) musician can be modeled as\n\n\\[\\begin{aligned}&a_i = \\alpha_0 + \\alpha_1 ~ Orchestra_i + u_i \\\\\n&b_i = \\beta_0 + \\beta_1 ~ Orchestra_i + v_i\\end{aligned}\\]\n\n\n\n\n\n\nNote\n\n\nthe response variable in the Level Two models are not observed outcomes but the (fitted) slope and intercept from each musician"
+    "text": "Level Two Model\nThe slope and intercept for the \\(i^{th}\\) musician can be modeled as\n\n\\[\\begin{aligned}&a_i = \\alpha_0 + \\alpha_1 ~ Orchestra_i + u_i \\\\\n&b_i = \\beta_0 + \\beta_1 ~ Orchestra_i + v_i\\end{aligned}\\]\n\n\n\n\n\n\nNote\n\n\nThe response variable in the Level Two models are not observed outcomes but the (fitted) slope and intercept from each musician"
   },
   {
     "objectID": "slides/25-multilevel-models-pt2.html#application-exercise-1",
@@ -2818,7 +2818,7 @@
     "href": "slides/25-multilevel-models-pt2.html#composite-model",
     "title": "Fitting multilevel models",
     "section": "Composite model",
-    "text": "Composite model\n\\[\\begin{aligned}\\hat{na}_i &= 16.283 + 1.411 ~ Orchestra_i - 0.771 ~ LargeEnsemble_{ij} \\\\\n&- 1.406 ~ Orchestra:LargeEnsemble_{ij}\\end{aligned}\\]\n\n\nWhat is the predicted average performance anxiety before solos and small ensemble performances for vocalists and keyboardists? For those who place orchestral instruments?\nWhat is the predicted average performance anxiety before large ensemble performances for those who play orchestral instruments?"
+    "text": "Composite model\n\\[\\begin{aligned}\\hat{na}_i &= 16.283 + 1.411 ~ Orchestra_i - 0.771 ~ LargeEnsemble_{ij} \\\\\n&- 1.406 ~ Orchestra:LargeEnsemble_{ij}\\end{aligned}\\]\n\n\nWhat is the predicted average performance anxiety before solos and small ensemble performances for vocalists and keyboardists? For those who play orchestral instruments?\nWhat is the predicted average performance anxiety before large ensemble performances for those who play orchestral instruments?\n\n\n\ncountdown(minutes = 3, seconds= 0)\n\n\n03:00"
   },
   {
     "objectID": "slides/25-multilevel-models-pt2.html#disadvantages-to-this-approach",
@@ -2839,7 +2839,7 @@
     "href": "slides/25-multilevel-models-pt2.html#framework",
     "title": "Fitting multilevel models",
     "section": "Framework",
-    "text": "Framework\nLet \\(Y_{ij}\\) be the performance anxiety for the \\(i^{th}\\) musician before performance \\(j\\).\nLevel One\n\\[Y_{ij} = a_i + b_i ~ LargeEnsemble + \\epsilon_{ij}\\]\nLevel Two\n\\[\\begin{aligned}&a_i = \\alpha_0 + \\alpha_1 ~ Orchestra_i+ u_i\\\\\n&b_i = \\beta_0 + \\beta_1~Orchestra_i + v_i\\end{aligned}\\]\nCoefficients are estimated using likelihood-based methods (instead of least squares) to address the previously mentioned disadvantages"
+    "text": "Framework\nLet \\(Y_{ij}\\) be the performance anxiety for the \\(i^{th}\\) musician before performance \\(j\\).\nLevel One\n\\[Y_{ij} = a_i + b_i ~ LargeEnsemble_{ij} + \\epsilon_{ij}\\]\nLevel Two\n\\[\\begin{aligned}&a_i = \\alpha_0 + \\alpha_1 ~ Orchestra_i+ u_i\\\\\n&b_i = \\beta_0 + \\beta_1~Orchestra_i + v_i\\end{aligned}\\]\nCoefficients are estimated using likelihood-based methods (instead of least squares) to address the previously mentioned disadvantages"
   },
   {
     "objectID": "slides/25-multilevel-models-pt2.html#composite-model-1",
@@ -6062,6 +6062,20 @@
     "text": "Drop-in-Deviance test in R\n\nWe can use the anova function to conduct this test\nAdd test = \"Chisq\" to conduct the drop-in-deviance test\n\n\n\nanova(risk_fit_reduced$fit, risk_fit_full$fit, test = \"Chisq\") |>\n  tidy() |> kable(digits = 3)\n\n\n\n \n  \n    term \n    Resid..Df \n    Resid..Dev \n    df \n    Deviance \n    p.value \n  \n \n\n  \n    high_risk ~ age + education \n    4081 \n    3244.187 \n    NA \n    NA \n    NA \n  \n  \n    high_risk ~ age + education + currentSmoker \n    4080 \n    3221.901 \n    1 \n    22.286 \n    0 \n  \n\n\n\n\n\n\n\n\n🔗 Week 12"
   },
   {
+    "objectID": "slides/lab-dec01-02.html#announcements",
+    "href": "slides/lab-dec01-02.html#announcements",
+    "title": "Lab: Written report",
+    "section": "Announcements",
+    "text": "Announcements\n\nTeammates feedback #2 due Tue, Dec 06\nPlease fill out course evaluations and TA evaluations!\nIf you submitted a Round 1 submission, check GitHub Issues for feedback.\nProject written report due Fri, Dec 09, 11:59pm. Will be accepted (with no late penalty) until Sun, Dec 11, 11:59pm"
+  },
+  {
+    "objectID": "slides/lab-dec01-02.html#written-report-reminders",
+    "href": "slides/lab-dec01-02.html#written-report-reminders",
+    "title": "Lab: Written report",
+    "section": "Written report reminders",
+    "text": "Written report reminders\n\nUse a descriptive title for the report.\nSuppress all code, warnings, and messages.\nNeatly format every table / data frame using kable().\nWrite the report in narrative form (avoid bullet point lists).\nUse variable descriptions, not variable names, in narrative.\nUse neatly formatted links and citations; include a reference list at the end of the report.\n\nAt a minimum you should have a citation for the data set.\nClick here for guide on adding citations in Quarto using the visual editor\n\n\n\n\n\n🔗 Week 14"
+  },
+  {
     "objectID": "slides/22-model-compare.html#announcements",
     "href": "slides/22-model-compare.html#announcements",
     "title": "Logistic Regression: Model comparison",
@@ -7347,7 +7361,7 @@
     "href": "schedule.html#weekly-schedule",
     "title": "Schedule",
     "section": "Weekly schedule",
-    "text": "Weekly schedule\n\n\n\n\n\n\nWeek\n\n\nDates\n\n\nTopic\n\n\nAssignments\n\n\n\n\n\n\nWeek 01\n\n\nAug 29 - Sep 02\n\n\nWelcome to Regression Analysis\n\n\nCompelete STA 210 Student Survey\n\n\n\n\nWeek 02\n\n\nSep 05 - 09\n\n\nSLR: Tidymodels + Model evaluation\n\n\nLab 01, Statistics experience assigned\n\n\n\n\nWeek 03\n\n\nSep 12 - 16\n\n\nSLR: Inference\n\n\nLab 02, HW 01, Statistics experience assigned\n\n\n\n\nWeek 04\n\n\nSep 19 - 23\n\n\nMultiple Linear Regression (MLR)\n\n\nLab 03\n\n\n\n\nWeek 05\n\n\nSep 26 - 30\n\n\nMLR: Types of Predictors\n\n\nExam 01\n\n\n\n\nWeek 06\n\n\nOct 03 - 07\n\n\nFeature Engineering\n\n\nLab 04\n\n\n\n\nWeek 07\n\n\nOct 10 - 14\n\n\nVariable transformations\n\n\nIntroduce project, HW 02\n\n\n\n\nWeek 08\n\n\nOct 17 - 21\n\n\nMLR: Transformations + Model comparison\n\n\nLab 05\n\n\n\n\nWeek 09\n\n\nOct 24 - 28\n\n\nMLR: Cross validation + Inference\n\n\nProject proposal\n\n\n\n\nWeek 10\n\n\nOct 31 - Nov 04\n\n\nOdds + Odds Ratios\n\n\nHW 03 + Lab 06\n\n\n\n\nWeek 11\n\n\nNov 07 - 11\n\n\nLogistic regression (LR)\n\n\nLab 07\n\n\n\n\nWeek 12\n\n\nNov 14 - 18\n\n\nLR: Model Comparison + Inference\n\n\nHW 04\n\n\n\n\nWeek 13\n\n\nNov 21 - 25\n\n\nProject + Thanksgiving break\n\n\nProject: Round 1 submission due (optional)\n\n\n\n\nWeek 14\n\n\nNov 28 - Dec 02\n\n\nMixed effects models\n\n\n\n\n\n\n\nWeek 15\n\n\nDec 05 - 09\n\n\nExam 02 + Project\n\n\nExam 02, Written report, Statistics experience due\n\n\n\n\nWeek 16\n\n\nDec 12 - 19\n\n\nFinal exam period\n\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Weekly schedule\n\n\n\n\n\n\nWeek\n\n\nDates\n\n\nTopic\n\n\nAssignments\n\n\n\n\n\n\nWeek 01\n\n\nAug 29 - Sep 02\n\n\nWelcome to Regression Analysis\n\n\nCompelete STA 210 Student Survey\n\n\n\n\nWeek 02\n\n\nSep 05 - 09\n\n\nSLR: Tidymodels + Model evaluation\n\n\nLab 01, Statistics experience assigned\n\n\n\n\nWeek 03\n\n\nSep 12 - 16\n\n\nSLR: Inference\n\n\nLab 02, HW 01, Statistics experience assigned\n\n\n\n\nWeek 04\n\n\nSep 19 - 23\n\n\nMultiple Linear Regression (MLR)\n\n\nLab 03\n\n\n\n\nWeek 05\n\n\nSep 26 - 30\n\n\nMLR: Types of Predictors\n\n\nExam 01\n\n\n\n\nWeek 06\n\n\nOct 03 - 07\n\n\nFeature Engineering\n\n\nLab 04\n\n\n\n\nWeek 07\n\n\nOct 10 - 14\n\n\nVariable transformations\n\n\nIntroduce project, HW 02\n\n\n\n\nWeek 08\n\n\nOct 17 - 21\n\n\nMLR: Transformations + Model comparison\n\n\nLab 05\n\n\n\n\nWeek 09\n\n\nOct 24 - 28\n\n\nMLR: Cross validation + Inference\n\n\nProject proposal\n\n\n\n\nWeek 10\n\n\nOct 31 - Nov 04\n\n\nOdds + Odds Ratios\n\n\nHW 03 + Lab 06\n\n\n\n\nWeek 11\n\n\nNov 07 - 11\n\n\nLogistic regression (LR)\n\n\nLab 07\n\n\n\n\nWeek 12\n\n\nNov 14 - 18\n\n\nLR: Model Comparison + Inference\n\n\nHW 04\n\n\n\n\nWeek 13\n\n\nNov 21 - 25\n\n\nProject + Thanksgiving break\n\n\nProject: Round 1 submission due (optional)\n\n\n\n\nWeek 14\n\n\nNov 28 - Dec 02\n\n\nMultilevel models\n\n\n\n\n\n\n\nWeek 15\n\n\nDec 05 - 09\n\n\nExam 02 + Project\n\n\nExam 02, Written report, Statistics experience due\n\n\n\n\nWeek 16\n\n\nDec 12 - 19\n\n\nFinal exam period\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "schedule.html#notes",

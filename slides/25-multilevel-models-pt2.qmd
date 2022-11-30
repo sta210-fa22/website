@@ -400,7 +400,7 @@ Let $Y_{ij}$ be the performance anxiety for the $i^{th}$ musician before perform
 
 **Level One**
 
-$$Y_{ij} = a_i + b_i ~ LargeEnsemble + \epsilon_{ij}$$
+$$Y_{ij} = a_i + b_i ~ LargeEnsemble_{ij} + \epsilon_{ij}$$
 
 **Level Two**
 
@@ -559,7 +559,7 @@ music_fit <-
 tidy(music_fit) |> kable(digits = 3)
 ```
 
-## Final model 
+## Final model
 
 ```{=tex}
 \begin{aligned}\hat{na}_i &= 15.930 + 1.693 ~ Orchestra_i - 0.911 ~ LargeEnsemble_{ij} \\
@@ -567,7 +567,6 @@ tidy(music_fit) |> kable(digits = 3)
 &\hat{\sigma}_{u} = 2.378 \hspace{20mm} \hat{\sigma}_{v} = 0.672 \hspace{20mm} \hat{\sigma}_{\epsilon} = 4.670 \\
 &\hat{\rho}_{uv} = -0.635\end{aligned}
 ```
-
 ## Acknowledgements
 
 The content in the slides is from - [BMLR: Chapter 7 - Correlated data](https://bookdown.org/roback/bookdown-BeyondMLR/ch-corrdata.html) - [BMLR: Chapter 8 - Introduction to Multilevel Models](https://bookdown.org/roback/bookdown-BeyondMLR/ch-multilevelintro.html)

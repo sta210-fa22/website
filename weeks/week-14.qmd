@@ -28,7 +28,7 @@ title-block-style: none
 | Topic                                                                             | Date   |
 |------------------------------------------------------|------------------|
 | 💻 [Introduction to Multilevel Models](../slides/24-intro-multilevel-models.html) | Nov 28 |
-| 💻 [Fitting Multilevel Models](../slides/25-multilevel-models-pt.html)            | Nov 30 |
+| 💻 [Fitting Multilevel Models](../slides/25-multilevel-models-pt2.html)           | Nov 30 |
 
 # Practice
 

@@ -292,7 +292,7 @@ $$\begin{aligned}&a_i = \alpha_0 + \alpha_1 ~ Orchestra_i + u_i \\
 &b_i = \beta_0 + \beta_1 ~ Orchestra_i + v_i\end{aligned}$$
 
 ::: callout-note
-the response variable in the Level Two models are not observed outcomes but the (fitted) slope and intercept from each musician
+The response variable in the Level Two models are not observed outcomes but the (fitted) slope and intercept from each musician
 :::
 
 ## Application exercise
@@ -365,10 +365,14 @@ for each musician.
 &- 1.406 ~ Orchestra:LargeEnsemble_{ij}\end{aligned}
 ```
 ::: question
--   What is the predicted average performance anxiety before solos and small ensemble performances for vocalists and keyboardists? For those who place orchestral instruments?
+-   What is the predicted average performance anxiety before solos and small ensemble performances for vocalists and keyboardists? For those who play orchestral instruments?
 
 -   What is the predicted average performance anxiety before large ensemble performances for those who play orchestral instruments?
 :::
+
+```{r}
+countdown(minutes = 3, seconds= 0)
+```
 
 ## Disadvantages to this approach
 

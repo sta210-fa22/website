@@ -6353,7 +6353,7 @@
     "href": "slides/26-exam-02-review.html#assessment-criteria",
     "title": "Exam 02 review",
     "section": "Assessment criteria",
-    "text": "Assessment criteria\n\n\nYou can identify the correct approach, analysis method, and/or inferential results required to answer the question.\nYou understand the correct conditions and diagnostics needed to determine whether the conclusions drawn from the model will be reliable\nYou can write results and conclusions in a meaningful way that can be understood by a general audience (think a business or research partner)\nYou can produce a report that is suitable for a professional audience (e.g., narrative is written in complete sentences, all graphs have proper titles and axis labels, there is not extraneous output, all LaTex is rendered)\nYou can conduct the analysis using a reproducible data analysis workflow that incorporates version control"
+    "text": "Assessment criteria\n\nYou can identify the correct approach, analysis method, and/or inferential results required to answer the question.\nYou understand the correct conditions and diagnostics needed to determine whether the conclusions drawn from the model will be reliable\nYou can write results and conclusions in a meaningful way that can be understood by a general audience (think a business or research partner)\nYou can produce a report that is suitable for a professional audience (e.g., narrative is written in complete sentences, all graphs have proper titles and axis labels, there is not extraneous output, all LaTex is rendered)\nYou can conduct the analysis using a reproducible data analysis workflow that incorporates version control"
   },
   {
     "objectID": "slides/11-feature-engineering.html#announcements",

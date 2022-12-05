@@ -109,18 +109,16 @@ knitr::opts_chunk$set(
 
 ## Assessment criteria {.midi}
 
-::: small
 -   You can identify the correct approach, analysis method, and/or inferential results required to answer the question.
 -   You understand the correct conditions and diagnostics needed to determine whether the conclusions drawn from the model will be reliable
 -   You can write results and conclusions in a meaningful way that can be understood by a general audience (think a business or research partner)
 -   You can produce a report that is suitable for a professional audience (e.g., narrative is written in complete sentences, all graphs have proper titles and axis labels, there is not extraneous output, all LaTex is rendered)
 -   You can conduct the analysis using a reproducible data analysis workflow that incorporates version control
-:::
 
 # Application Exercise
 
 ::: appex
-📋 [AE 16: Exam 02 Review](https://sta210-fa22.netlify.app/ae/ae-10-exam-02-review.html)
+📋 [AE 16: Exam 02 Review](https://sta210-fa22.netlify.app/ae/ae-16-exam-02-review.html)
 :::
 
 -   Sit with your lab group

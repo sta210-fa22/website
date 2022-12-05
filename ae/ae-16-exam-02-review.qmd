@@ -51,7 +51,7 @@ Split the data into training (75%) and testing (25%) sets. Use seed `1205`.
 
 ## Exercise 2
 
-Write the equation of the statistical model for predicting interest rate (`interest_rate`) from debt to income ratio (`debt_to_income`), the term of loan (`term`), the number of inquiries (credit checks) into the applicant's credit during the last 12 months (`inquiries_last_12m`), whether there are any bankruptcies listed in the public record for this applicant (`bankrupt`), and the type of application (`application_type`). The model should allow for the effect of to income ratio on interest rate to vary by application type.
+Write the equation of the statistical model for predicting interest rate (`interest_rate`) from debt to income ratio (`debt_to_income`), the term of loan (`term`), the number of inquiries (credit checks) into the applicant's credit during the last 12 months (`inquiries_last_12m`), whether there are any bankruptcies listed in the public record for this applicant (`bankrupt`), and the type of application (`application_type`). The model should allow for the effect of debt to income ratio on interest rate to vary by application type.
 
 *\[Add model here\]*
 
@@ -112,7 +112,7 @@ Collect and summarize $R^2$ and RMSE metrics from your CV resamples.
 # add code here
 ```
 
-Why are we focusing on \$R^2\$and RMSE instead of adjusted^ $R^2$, AIC, BIC?
+Why are we focusing on $R^2$ and RMSE instead of adjusted $R^2$, AIC, BIC?
 
 *\[Add response here\]*
 

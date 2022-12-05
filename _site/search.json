@@ -809,7 +809,7 @@
     "href": "ae/ae-16-exam-02-review.html#exercise-2",
     "title": "AE 16: Exam 02 Review",
     "section": "Exercise 2",
-    "text": "Exercise 2\nWrite the equation of the statistical model for predicting interest rate (interest_rate) from debt to income ratio (debt_to_income), the term of loan (term), the number of inquiries (credit checks) into the applicant’s credit during the last 12 months (inquiries_last_12m), whether there are any bankruptcies listed in the public record for this applicant (bankrupt), and the type of application (application_type). The model should allow for the effect of to income ratio on interest rate to vary by application type.\n[Add model here]"
+    "text": "Exercise 2\nWrite the equation of the statistical model for predicting interest rate (interest_rate) from debt to income ratio (debt_to_income), the term of loan (term), the number of inquiries (credit checks) into the applicant’s credit during the last 12 months (inquiries_last_12m), whether there are any bankruptcies listed in the public record for this applicant (bankrupt), and the type of application (application_type). The model should allow for the effect of debt to income ratio on interest rate to vary by application type.\n[Add model here]"
   },
   {
     "objectID": "ae/ae-16-exam-02-review.html#exercise-3",
@@ -844,7 +844,7 @@
     "href": "ae/ae-16-exam-02-review.html#exercise-7",
     "title": "AE 16: Exam 02 Review",
     "section": "Exercise 7",
-    "text": "Exercise 7\nCollect and summarize \\(R^2\\) and RMSE metrics from your CV resamples.\n\n# add code here\n\nWhy are we focusing on $R2$and RMSE instead of adjusted \\(R^2\\), AIC, BIC?\n[Add response here]"
+    "text": "Exercise 7\nCollect and summarize \\(R^2\\) and RMSE metrics from your CV resamples.\n\n# add code here\n\nWhy are we focusing on \\(R^2\\) and RMSE instead of adjusted \\(R^2\\), AIC, BIC?\n[Add response here]"
   },
   {
     "objectID": "ae/ae-16-exam-02-review.html#exercise-8",

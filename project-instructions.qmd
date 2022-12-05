@@ -239,12 +239,12 @@ This is an assessment of the overall presentation and formatting of the written 
 
 The report neatly written and organized with clear section headers and appropriately sized figures with informative labels. Numerical results are displayed with a reasonable number of digits, and all visualizations are neatly formatted. All citations and links are properly formatted. If there is an appendix, it is reasonably organized and easy for the reader to find relevant information. All code, warnings, and messages are suppressed. The main body of the written report (not including the appendix) is no longer than 10 pages.
 
-### Submission 
+### Submission
 
 ::: callout-important
 The written report is due on **Friday, December 09, 11:59pm** and will be accepted with no late penalty until **Sunday, December 11, 11:59pm**.
 
-Push the file `written-report.qmd` and the rendered `written-report.pdf` go the GitHub repo by the deadline. You will \<u>not</u> submit the report on Gradescope.
+Push the file `written-report.qmd` and the rendered `written-report.pdf` go the GitHub repo by the deadline. You will \<u\>not</u> submit the report on Gradescope.
 
 **The version of the report in the repo by the Sunday, December 11, 11:59pm will be the one that is graded.**
 :::
@@ -268,7 +268,7 @@ The slide deck should have no more than 6 content slides + 1 title slide. Here i
 ::: callout-important
 Create a `presentation` folder in your GitHub repo. Put a PDF of the slides in the `presentation` folder. The slides PDF of your slides must be in the GitHub repo by **Wednesday, December 14, 11:59pm.**
 
-You will \<u>not</u> submit the slides on Gradescope.
+You will \<u\>not</u> submit the slides on Gradescope.
 :::
 
 ### Video presentation

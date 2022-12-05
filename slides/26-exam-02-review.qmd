@@ -58,7 +58,7 @@ knitr::opts_chunk$set(
 
     -   This will be determined separately for the Sections 001 and 002.
 
-## Project 
+## Project
 
 -   Written report submission: due Fri, Dec 09, 11:59pm (accepted until Sun, Dec 11, 11:59pm)
 

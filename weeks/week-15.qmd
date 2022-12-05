@@ -41,7 +41,7 @@ No readings this week.
 # Perform
 
 |                                                                                                       |                                                                |
-|--------------------------------------------|----------------------------|
+|-------------------------------------------------------------------------------------------------------|----------------------------------------------------------------|
 | 📝 Exam 02                                                                                            | Mon, Dec 05 evening - Thu, Dec 08, 12pm (noon)                 |
 | 📝 [Project written report](https://sta210-fa22.netlify.app/project-instructions.html#written-report) | due Fri, Dec 09, 11:59pm (accepted until Sun, Dec 11, 11:59pm) |
 | 📝 [Statistics experience](../hw/stats-experience.html)                                               | due Fri, Dec 09, 11:59pm                                       |

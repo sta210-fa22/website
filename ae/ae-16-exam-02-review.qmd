@@ -28,7 +28,7 @@ library(knitr)
 
 # Part 1: Multiple linear regression
 
-The goal of this analysis is to use characteristics of loan applications to predict the interest rate on the loan. We will use a random sample of 1000 loans given by Lending Club, a peer-to-peer lending service. The random sample was drawn from `loans_full_schema` in the **openintro** R package. [Click here](https://www.openintro.org/data/index.php?data=loans_full_schema) for the codebook.
+**The goal of this analysis is to use characteristics of loan applications to predict the interest rate on the loan.** We will use a random sample of loans given by Lending Club, a peer-to-peer lending service. The random sample was drawn from `loans_full_schema` in the **openintro** R package. [Click here](https://www.openintro.org/data/index.php?data=loans_full_schema) for the codebook.
 
 ```{r}
 #| label: load-loans-data
@@ -41,7 +41,7 @@ loans <- read_csv("data/loans-sample.csv")
 
 ## Exercise 1
 
-Split the data into training (75%) and testing (25%) sets.
+Split the data into training (75%) and testing (25%) sets. Use seed `1205`.
 
 ```{r}
 #| label: initial-split
@@ -66,6 +66,8 @@ Specify a linear regression model. Call it `loans_spec`.
 ```
 
 ## Exercise 4
+
+Use the training data to build the following recipe:
 
 -   Predict `interest_rate` from `debt_to_income`, `term`, `inquiries_last_12m`, `public_record_bankrupt`, and `application_type`.
 -   Mean center `debt_to_income`.
@@ -92,7 +94,7 @@ Create the workflow that brings together the model specification and recipe.
 
 ## Exercise 6
 
-Conduct 10-fold cross validation.
+Conduct 10-fold cross validation. Use the seed `1205`. You will only collect the default metrics, $R^2$ and RMSE. You do <u>not</u> need to collect AIC, BIC or Adj. $R^2$.
 
 ```{r}
 #| label: cv-tenfold
@@ -102,7 +104,7 @@ Conduct 10-fold cross validation.
 
 ## Exercise 7
 
-Summarize $R^2$ and RMSE metrics from your CV resamples.
+Collect and summarize $R^2$ and RMSE metrics from your CV resamples.
 
 ```{r}
 #| label: cv-summarize
@@ -110,17 +112,26 @@ Summarize $R^2$ and RMSE metrics from your CV resamples.
 # add code here
 ```
 
-Why are we focusing on R-squared and RMSE instead of adjusted R-squared, AIC, BIC?
+Why are we focusing on \$R^2\$and RMSE instead of adjusted^ $R^2$, AIC, BIC?
 
 *\[Add response here\]*
 
 ## Exercise 8
 
-Interpret the following in the context of the data:
+Refit the model on the entire training data.
+
+```{r}
+#| label: model-fit
+
+# add code here
+
+```
+
+Then, interpret the following in the context of the data:
 
 -   Intercept
 
--   `debt_to_income` for individual applications
+-   `debt_to_income` for joint applications
 
 -   `term`
 
@@ -128,7 +139,7 @@ Interpret the following in the context of the data:
 
 ## Data
 
-As part of a study of the effects of predatory intertidal crab species on snail populations, researchers measured the mean closing forces and the propodus heights of the claws on several crabs of three species.
+As part of a study of the effects of predatory invasive crab species on snail populations, researchers measured the mean closing forces and the propodus heights of the claws on several crabs of three species.
 
 ![](images/claw.png){fig-align="center"}
 
@@ -141,7 +152,7 @@ claws <- read_csv("data/claws.csv") |>
   mutate(lb = as_factor(lb))
 ```
 
-We will use the following variables:
+The data set contains following variables:
 
 -   `force`: Closing force of claw (newtons)
 -   `height`: Propodus height (mm)
@@ -197,7 +208,7 @@ Interpret the effect of force in the context of the data.
 
 ## Exercise 12
 
-Now let's consider adding `height_cent` to the model. Fit the model that includes `height_cent`. Then use AIC to choose the model that best fits the data.
+Now let's consider adding height to the model. Fit the model that includes `height_cent`. Then use AIC to choose the model that best fits the data.
 
 ```{r}
 #| label: crab-model-2

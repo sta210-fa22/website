@@ -412,13 +412,13 @@ Note: This in-class review is <u>not</u> exhaustive. Use lecture notes notes, ap
 </section>
 <section id="part-1-multiple-linear-regression" class="level1">
 <h1>Part 1: Multiple linear regression</h1>
-<p>The goal of this analysis is to use characteristics of loan applications to predict the interest rate on the loan. We will use a random sample of 1000 loans given by Lending Club, a peer-to-peer lending service. The random sample was drawn from <code>loans_full_schema</code> in the <strong>openintro</strong> R package. <a href="https://www.openintro.org/data/index.php?data=loans_full_schema">Click here</a> for the codebook.</p>
+<p><strong>The goal of this analysis is to use characteristics of loan applications to predict the interest rate on the loan.</strong> We will use a random sample of loans given by Lending Club, a peer-to-peer lending service. The random sample was drawn from <code>loans_full_schema</code> in the <strong>openintro</strong> R package. <a href="https://www.openintro.org/data/index.php?data=loans_full_schema">Click here</a> for the codebook.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>loans <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/loans-sample.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="exercise-1" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
-<p>Split the data into training (75%) and testing (25%) sets.</p>
+<p>Split the data into training (75%) and testing (25%) sets. Use seed <code>1205</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -437,6 +437,7 @@ Note: This in-class review is <u>not</u> exhaustive. Use lecture notes notes, ap
 </section>
 <section id="exercise-4" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
+<p>Use the training data to build the following recipe:</p>
 <ul>
 <li>Predict <code>interest_rate</code> from <code>debt_to_income</code>, <code>term</code>, <code>inquiries_last_12m</code>, <code>public_record_bankrupt</code>, and <code>application_type</code>.</li>
 <li>Mean center <code>debt_to_income</code>.</li>
@@ -458,26 +459,30 @@ Note: This in-class review is <u>not</u> exhaustive. Use lecture notes notes, ap
 </section>
 <section id="exercise-6" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-6">Exercise 6</h2>
-<p>Conduct 10-fold cross validation.</p>
+<p>Conduct 10-fold cross validation. Use the seed <code>1205</code>. You will only collect the default metrics, <span class="math inline">\(R^2\)</span> and RMSE. You do <u>not</u> need to collect AIC, BIC or Adj. <span class="math inline">\(R^2\)</span>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="exercise-7" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-7">Exercise 7</h2>
-<p>Summarize <span class="math inline">\(R^2\)</span> and RMSE metrics from your CV resamples.</p>
+<p>Collect and summarize <span class="math inline">\(R^2\)</span> and RMSE metrics from your CV resamples.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Why are we focusing on R-squared and RMSE instead of adjusted R-squared, AIC, BIC?</p>
+<p>Why are we focusing on $R<sup>2$and&nbsp;RMSE&nbsp;instead&nbsp;of&nbsp;adjusted</sup> <span class="math inline">\(R^2\)</span>, AIC, BIC?</p>
 <p><em>[Add response here]</em></p>
 </section>
 <section id="exercise-8" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-8">Exercise 8</h2>
-<p>Interpret the following in the context of the data:</p>
+<p>Refit the model on the entire training data.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Then, interpret the following in the context of the data:</p>
 <ul>
 <li><p>Intercept</p></li>
-<li><p><code>debt_to_income</code> for individual applications</p></li>
+<li><p><code>debt_to_income</code> for joint applications</p></li>
 <li><p><code>term</code></p></li>
 </ul>
 </section>
@@ -486,17 +491,17 @@ Note: This in-class review is <u>not</u> exhaustive. Use lecture notes notes, ap
 <h1>Part 2: Logistic regression</h1>
 <section id="data" class="level2">
 <h2 class="anchored" data-anchor-id="data">Data</h2>
-<p>As part of a study of the effects of predatory intertidal crab species on snail populations, researchers measured the mean closing forces and the propodus heights of the claws on several crabs of three species.</p>
+<p>As part of a study of the effects of predatory invasive crab species on snail populations, researchers measured the mean closing forces and the propodus heights of the claws on several crabs of three species.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/claw.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>claws <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/claws.csv"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">lb =</span> <span class="fu">as_factor</span>(lb))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>claws <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/claws.csv"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">lb =</span> <span class="fu">as_factor</span>(lb))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>We will use the following variables:</p>
+<p>The data set contains following variables:</p>
 <ul>
 <li><code>force</code>: Closing force of claw (newtons)</li>
 <li><code>height</code>: Propodus height (mm)</li>
@@ -586,14 +591,14 @@ Note: This in-class review is <u>not</u> exhaustive. Use lecture notes notes, ap
 </section>
 <section id="exercise-12" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-12">Exercise 12</h2>
-<p>Now let’s consider adding <code>height_cent</code> to the model. Fit the model that includes <code>height_cent</code>. Then use AIC to choose the model that best fits the data.</p>
+<p>Now let’s consider adding height to the model. Fit the model that includes <code>height_cent</code>. Then use AIC to choose the model that best fits the data.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>lb_fit_2 <span class="ot">&lt;-</span> <span class="fu">logistic_reg</span>() <span class="sc">|&gt;</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"glm"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(lb <span class="sc">~</span> force_cent <span class="sc">+</span> height_cent, <span class="at">data =</span> claws)</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(lb_fit_2, <span class="at">conf.int =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>lb_fit_2 <span class="ot">&lt;-</span> <span class="fu">logistic_reg</span>() <span class="sc">|&gt;</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"glm"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(lb <span class="sc">~</span> force_cent <span class="sc">+</span> height_cent, <span class="at">data =</span> claws)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(lb_fit_2, <span class="at">conf.int =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="table table-sm table-striped">
 <colgroup>

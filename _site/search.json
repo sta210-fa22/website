@@ -802,7 +802,7 @@
     "href": "ae/ae-16-exam-02-review.html#exercise-1",
     "title": "AE 16: Exam 02 Review",
     "section": "Exercise 1",
-    "text": "Exercise 1\nSplit the data into training (75%) and testing (25%) sets.\n\n# add code here"
+    "text": "Exercise 1\nSplit the data into training (75%) and testing (25%) sets. Use seed 1205.\n\n# add code here"
   },
   {
     "objectID": "ae/ae-16-exam-02-review.html#exercise-2",
@@ -823,7 +823,7 @@
     "href": "ae/ae-16-exam-02-review.html#exercise-4",
     "title": "AE 16: Exam 02 Review",
     "section": "Exercise 4",
-    "text": "Exercise 4\n\nPredict interest_rate from debt_to_income, term, inquiries_last_12m, public_record_bankrupt, and application_type.\nMean center debt_to_income.\nMake term a factor.\nCreate a new variable: bankrupt that takes on the value “no” if public_record_bankrupt is 0 and the value “yes” if public_record_bankrupt is 1 or higher. Then, remove public_record_bankrupt.\nInteract application_type with debt_to_income.\nCreate dummy variables where needed and drop any zero variance variables.\n\n\n# add code here"
+    "text": "Exercise 4\nUse the training data to build the following recipe:\n\nPredict interest_rate from debt_to_income, term, inquiries_last_12m, public_record_bankrupt, and application_type.\nMean center debt_to_income.\nMake term a factor.\nCreate a new variable: bankrupt that takes on the value “no” if public_record_bankrupt is 0 and the value “yes” if public_record_bankrupt is 1 or higher. Then, remove public_record_bankrupt.\nInteract application_type with debt_to_income.\nCreate dummy variables where needed and drop any zero variance variables.\n\n\n# add code here"
   },
   {
     "objectID": "ae/ae-16-exam-02-review.html#exercise-5",
@@ -837,28 +837,28 @@
     "href": "ae/ae-16-exam-02-review.html#exercise-6",
     "title": "AE 16: Exam 02 Review",
     "section": "Exercise 6",
-    "text": "Exercise 6\nConduct 10-fold cross validation.\n\n# add code here"
+    "text": "Exercise 6\nConduct 10-fold cross validation. Use the seed 1205. You will only collect the default metrics, \\(R^2\\) and RMSE. You do not need to collect AIC, BIC or Adj. \\(R^2\\).\n\n# add code here"
   },
   {
     "objectID": "ae/ae-16-exam-02-review.html#exercise-7",
     "href": "ae/ae-16-exam-02-review.html#exercise-7",
     "title": "AE 16: Exam 02 Review",
     "section": "Exercise 7",
-    "text": "Exercise 7\nSummarize \\(R^2\\) and RMSE metrics from your CV resamples.\n\n# add code here\n\nWhy are we focusing on R-squared and RMSE instead of adjusted R-squared, AIC, BIC?\n[Add response here]"
+    "text": "Exercise 7\nCollect and summarize \\(R^2\\) and RMSE metrics from your CV resamples.\n\n# add code here\n\nWhy are we focusing on $R2$and RMSE instead of adjusted \\(R^2\\), AIC, BIC?\n[Add response here]"
   },
   {
     "objectID": "ae/ae-16-exam-02-review.html#exercise-8",
     "href": "ae/ae-16-exam-02-review.html#exercise-8",
     "title": "AE 16: Exam 02 Review",
     "section": "Exercise 8",
-    "text": "Exercise 8\nInterpret the following in the context of the data:\n\nIntercept\ndebt_to_income for individual applications\nterm"
+    "text": "Exercise 8\nRefit the model on the entire training data.\n\n# add code here\n\nThen, interpret the following in the context of the data:\n\nIntercept\ndebt_to_income for joint applications\nterm"
   },
   {
     "objectID": "ae/ae-16-exam-02-review.html#data",
     "href": "ae/ae-16-exam-02-review.html#data",
     "title": "AE 16: Exam 02 Review",
     "section": "Data",
-    "text": "Data\nAs part of a study of the effects of predatory intertidal crab species on snail populations, researchers measured the mean closing forces and the propodus heights of the claws on several crabs of three species.\n\n\n\n\n\n\nclaws <- read_csv(\"data/claws.csv\") |>\n  mutate(lb = as_factor(lb))\n\nWe will use the following variables:\n\nforce: Closing force of claw (newtons)\nheight: Propodus height (mm)\nspecies: Crab species - Cp(Cancer productus), Hn (Hemigrapsus nudus), Lb(Lophopanopeus bellus)\nlb: 1 if Lophopanopeus bellus species, 0 otherwise\nhn: 1 if Hemigrapsus nudus species, 0 otherwise\ncp: 1 if Cancer productus species, 0 otherwise\nforce_cent: mean centered force\nheight_cent: mean centered height"
+    "text": "Data\nAs part of a study of the effects of predatory invasive crab species on snail populations, researchers measured the mean closing forces and the propodus heights of the claws on several crabs of three species.\n\n\n\n\n\n\nclaws <- read_csv(\"data/claws.csv\") |>\n  mutate(lb = as_factor(lb))\n\nThe data set contains following variables:\n\nforce: Closing force of claw (newtons)\nheight: Propodus height (mm)\nspecies: Crab species - Cp(Cancer productus), Hn (Hemigrapsus nudus), Lb(Lophopanopeus bellus)\nlb: 1 if Lophopanopeus bellus species, 0 otherwise\nhn: 1 if Hemigrapsus nudus species, 0 otherwise\ncp: 1 if Cancer productus species, 0 otherwise\nforce_cent: mean centered force\nheight_cent: mean centered height"
   },
   {
     "objectID": "ae/ae-16-exam-02-review.html#getting-started",
@@ -893,7 +893,7 @@
     "href": "ae/ae-16-exam-02-review.html#exercise-12",
     "title": "AE 16: Exam 02 Review",
     "section": "Exercise 12",
-    "text": "Exercise 12\nNow let’s consider adding height_cent to the model. Fit the model that includes height_cent. Then use AIC to choose the model that best fits the data.\n\nlb_fit_2 <- logistic_reg() |>\n  set_engine(\"glm\") |>\n  fit(lb ~ force_cent + height_cent, data = claws)\n\ntidy(lb_fit_2, conf.int = TRUE) |>\n  kable(digits = 3)\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-1.130\n0.463\n-2.443\n0.015\n-2.167\n-0.306\n\n\nforce_cent\n0.211\n0.092\n2.279\n0.023\n0.056\n0.424\n\n\nheight_cent\n-0.895\n0.398\n-2.249\n0.025\n-1.815\n-0.234"
+    "text": "Exercise 12\nNow let’s consider adding height to the model. Fit the model that includes height_cent. Then use AIC to choose the model that best fits the data.\n\nlb_fit_2 <- logistic_reg() |>\n  set_engine(\"glm\") |>\n  fit(lb ~ force_cent + height_cent, data = claws)\n\ntidy(lb_fit_2, conf.int = TRUE) |>\n  kable(digits = 3)\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\nconf.low\nconf.high\n\n\n\n\n(Intercept)\n-1.130\n0.463\n-2.443\n0.015\n-2.167\n-0.306\n\n\nforce_cent\n0.211\n0.092\n2.279\n0.023\n0.056\n0.424\n\n\nheight_cent\n-0.895\n0.398\n-2.249\n0.025\n-1.815\n-0.234"
   },
   {
     "objectID": "ae/ae-16-exam-02-review.html#exercise-13",

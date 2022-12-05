@@ -165,7 +165,7 @@ The proposal is with 15 points and will be graded based on accurately and compre
 
 ## Round 1 submission (optional) {#draft-report}
 
-The Round 1 submission is an opportunity to receive detailed feedback on your analysis and [written report]. The feedback will only be on the content that is submitted, so more "complete" drafts will receive more detailed feedback. At this stage, you will also be notified of the grade you would receive at that point. You will have the option to keep the grade (and thus you don't need to turn in an updated report) or resubmit the written report by the final submission deadline for grading.
+The Round 1 submission is an opportunity to receive detailed feedback on your analysis and [written report](#written-report). The feedback will only be on the content that is submitted, so more "complete" drafts will receive more detailed feedback. At this stage, you will also be notified of the grade you would receive at that point. You will have the option to keep the grade (and thus you don't need to turn in an updated report) or resubmit the written report by the final submission deadline for grading.
 
 To submit the draft:
 
@@ -174,7 +174,7 @@ To submit the draft:
 2\. Open an issue with the title "Round 1 Submission". You can use the template issue in the GitHub repo. Make sure I am tagged in the issue (\@matackett), so I receive notification of your Round 1 submission. See [Creating an issue from a repository](https://docs.github.com/en/issues/tracking-your-work-with-issues/creating-an-issue#creating-an-issue-from-a-repository) for instructions on opening an issue. Please ask a member of the teaching team for assistance if you need help opening the issue.
 
 ::: callout-important
-You must complete <u>both</u> steps by **Tuesday, November 22, 11:59pm** to receive prelminary feedback. \
+You must complete <u>both</u> steps by **Tuesday, November 22, 11:59pm** to receive prelminary feedback.\
 \
 Reports submitted after that date will not receive preliminary feedback.
 :::
@@ -189,9 +189,9 @@ Your written report must be completed in the `written-report.qmd` file and must 
 Before you finalize your write up, make sure the code chunks are not visible and all messages and warnings are suppressed.
 :::
 
-**You will submit the PDF of your final report on Gradescope.**
+**You will submit the PDF of your final report on GitHub.**
 
-The PDF you submit must match the files in your GitHub repository *exactly*. The mandatory components of the report are below. You are free to add additional sections as necessary. The report, including visualizations, should be **no more than 10 pages long.** There is no minimum page requirement; however, you should comprehensively address all of the analysis and report.
+The PDF you submit must match the .qmd in your GitHub repository *exactly*. The mandatory components of the report are below. You are free to add additional sections as necessary. The report, including visualizations, should be **no more than 10 pages long.** There is no minimum page requirement; however, you should comprehensively address all of the analysis and report.
 
 Be selective in what you include in your final write-up. The goal is to write a cohesive narrative that demonstrates a thorough and comprehensive analysis rather than explain every step of the analysis.
 
@@ -239,13 +239,21 @@ This is an assessment of the overall presentation and formatting of the written 
 
 The report neatly written and organized with clear section headers and appropriately sized figures with informative labels. Numerical results are displayed with a reasonable number of digits, and all visualizations are neatly formatted. All citations and links are properly formatted. If there is an appendix, it is reasonably organized and easy for the reader to find relevant information. All code, warnings, and messages are suppressed. The main body of the written report (not including the appendix) is no longer than 10 pages.
 
+### Submission 
+
+::: callout-important
+The written report is due on **Friday, December 09, 11:59pm** and will be accepted with no late penalty until **Sunday, December 11, 11:59pm**.
+
+Push the file `written-report.qmd` and the rendered `written-report.pdf` go the GitHub repo by the deadline. You will \<u>not</u> submit the report on Gradescope.
+
+**The version of the report in the repo by the Sunday, December 11, 11:59pm will be the one that is graded.**
+:::
+
 ## Video presentation + slides {#video-presentation-slides}
 
 ### Slides
 
 In addition to the written report, your team will also create presentation slides and record a video presentation that summarize and showcase your project. Introduce your research question and data set, showcase visualizations, and discuss the primary conclusions. These slides should serve as a brief visual addition to your written report and will be graded for content and quality.
-
-**For submission, convert these slides to a .pdf document, and submit the PDF of the slides on Gradescope.**
 
 The slide deck should have no more than 6 content slides + 1 title slide. Here is a <u>suggested</u> outline as you think through the slides; you do <u>not</u> have to use this exact format for the 6 slides.
 
@@ -257,9 +265,15 @@ The slide deck should have no more than 6 content slides + 1 title slide. Here i
 -   Slide 5: Interesting findings from the model
 -   Slide 6: Conclusions + future work
 
+::: callout-important
+Create a `presentation` folder in your GitHub repo. Put a PDF of the slides in the `presentation` folder. The slides PDF of your slides must be in the GitHub repo by **Wednesday, December 14, 11:59pm.**
+
+You will \<u>not</u> submit the slides on Gradescope.
+:::
+
 ### Video presentation
 
-For the video presentation, you can speak over your slide deck, similar to the lecture content videos. **The video presentation must be no longer than 8 minutes.** It is fine if the video is shorter than 8 minutes, but it cannot exceed 8 minutes. You may use can use any platform that works best for your group to record your presentation. Below are a few resources on recording videos:
+For the video presentation, you can speak over your slide deck, similar to the lecture content videos. **The video presentation must be no longer than 6 minutes.** It is fine if the video is shorter than 6 minutes, but it cannot exceed 6 minutes. You may use can use any platform that works best for your group to record your presentation. Below are a few resources on recording videos:
 
 -   [Recording presentations in Zoom](https://kb.siue.edu/61721)
 -   [Apple Quicktime for screen recording](https://support.apple.com/en-gb/guide/quicktime-player/qtp97b08e666/mac)
@@ -270,7 +284,7 @@ Once your video is ready, upload the video to Warpwire, then embed the video in 
 
 #### To upload your video to Warpwire:
 
--   Click the Warpwire tab in the course Sakai site.
+-   Click the Warpwire tab in the Sakai site for your section.
 -   Click the "+" and select "Upload files".
 -   Locate the video on your computer and click to upload.
 -   Once you've uploaded the video to Warpwire, click to share the video and copy the video's URL. You will need this when you post the video in the discussion forum.
@@ -288,13 +302,19 @@ Once your video is ready, upload the video to Warpwire, then embed the video in 
 
 You can see the Teaching Team example in Sakai.
 
+::: callout-important
+The presentation video must be uploaded to Sakai by **Wednesday, December 14, 11:59pm.**
+:::
+
 ## Presentation comments {#presentation-comments}
 
 Each student will be assigned 2 presentations to watch.
 
 Watch the group's video, then click "Reply" to post a question for the group. You may not post a question that's already been asked on the discussion thread. Additionally, the question should be (i) substantive (i.e. it shouldn't be "Why did you use a bar plot instead of a pie chart"?), (ii) demonstrate your understanding of the content from the course, and (iii) relevant to that group's specific presentation, i.e demonstrating that you've watched the presentation.
 
+::: callout-important
 You may start posting questions and comments on Thursday, December 15. **All comments must be posted by Friday, December 16 at 11:59pm.**
+:::
 
 <i>This portion of the project will be assessed individually.</i>
 
@@ -312,6 +332,10 @@ The GitHub repo should have the following structure:
     -   If your presentation slides are online, you can put a link to the slides in a `README.md` file in the `presentation` folder.
 
 Points for reproducibility + organization will be based on the reproducibility of the written report and the organization of the project GitHub repo. The repo should be neatly organized as described above, there should be no extraneous files, all text in the README should be easily readable.
+
+::: callout-important
+**The repo must be ready for grading by Wednesday, December 14, 11:59pm.**
+:::
 
 ## Peer teamwork evaluation
 

@@ -11,7 +11,15 @@ title-block-style: none
 ::: callout-important
 -   Exam 02: Mon, Dec 05 (evening) - Thu, Dec 08 at 12pm (noon)
 
+-   Team Feedback #2 due Tue, Dec 06, 11:59pm
+
 -   No class Wed, Dec 07
+
+    -   Online exam office hours (Zoom link in Sakai)
+
+-   Statistics experience due Fri, Dec 09, 11:59pm
+
+-   Project written report due Fri, Dec 09, 11:59pm (accepted until Sun, Dec 11, 11:59pm)
 :::
 
 # Prepare
@@ -20,11 +28,15 @@ No readings this week.
 
 # Participate
 
-| Topic             | Date   |
-|-------------------|--------|
-| 💻 Exam 02 Review | Dec 05 |
+| Topic                                                 | Date   |
+|-------------------------------------------------------|--------|
+| 💻 [Exam 02 Review](../slides/26-exam-02-review.html) | Dec 05 |
 
 # Practice
+
+|                                                             |
+|-------------------------------------------------------------|
+| 📋 [AE 16: Exam 02 Review](../ae/ae-16-exam-02-review.html) |
 
 # Perform
 

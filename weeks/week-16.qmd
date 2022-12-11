@@ -22,8 +22,8 @@ No AEs.
 
 # Perform
 
-|                                                                                                                                |                           |
-|--------------------------------------------|----------------------------|
-| 📝 [Project: Video presentation + slides](https://sta210-fa22.netlify.app/project-instructions.html#video-presentation-slides) | due Wed, Dec 14, 11:59pm  |
-| 📝 [Project: Organized GitHub repo](https://sta210-fa22.netlify.app/project-instructions.html#reproducibility-organization)    | due Wed, Dec 14, 11:59pm  |
-| 📝 [Project: Presentation comments](https://sta210-fa22.netlify.app/project-instructions.html#presentation-comments)           | due Fri, Dec 16, 11:59pm  |
+|                                                                                                                                |                          |
+|--------------------------------------------------------------------------------------------------------------------------------|--------------------------|
+| 📝 [Project: Video presentation + slides](https://sta210-fa22.netlify.app/project-instructions.html#video-presentation-slides) | due Wed, Dec 14, 11:59pm |
+| 📝 [Project: Organized GitHub repo](https://sta210-fa22.netlify.app/project-instructions.html#reproducibility-organization)    | due Wed, Dec 14, 11:59pm |
+| 📝 [Project: Presentation comments](https://sta210-fa22.netlify.app/project-instructions.html#presentation-comments)           | due Fri, Dec 16, 11:59pm |

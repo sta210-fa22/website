@@ -174,7 +174,7 @@ To submit the draft:
 2\. Open an issue with the title "Round 1 Submission". You can use the template issue in the GitHub repo. Make sure I am tagged in the issue (\@matackett), so I receive notification of your Round 1 submission. See [Creating an issue from a repository](https://docs.github.com/en/issues/tracking-your-work-with-issues/creating-an-issue#creating-an-issue-from-a-repository) for instructions on opening an issue. Please ask a member of the teaching team for assistance if you need help opening the issue.
 
 ::: callout-important
-You must complete <u>both</u> steps by **Tuesday, November 22, 11:59pm** to receive prelminary feedback.\
+You must complete <u>both</u> steps by **Tuesday, November 22, 11:59pm** to receive preliminary feedback.\
 \
 Reports submitted after that date will not receive preliminary feedback.
 :::
@@ -273,7 +273,7 @@ You will \<u\>not</u> submit the slides on Gradescope.
 
 ### Video presentation
 
-For the video presentation, you can speak over your slide deck, similar to the lecture content videos. **The video presentation must be no longer than 6 minutes.** It is fine if the video is shorter than 6 minutes, but it cannot exceed 6 minutes. You may use can use any platform that works best for your group to record your presentation. Below are a few resources on recording videos:
+For the video presentation, you can speak over your slide deck, similar to the lecture content videos. **The video presentation must be no longer than 7 minutes.** It is fine if the video is shorter than 7 minutes, but it cannot exceed 7 minutes. You may use can use any platform that works best for your group to record your presentation. Below are a few resources on recording videos:
 
 -   [Recording presentations in Zoom](https://kb.siue.edu/61721)
 -   [Apple Quicktime for screen recording](https://support.apple.com/en-gb/guide/quicktime-player/qtp97b08e666/mac)
@@ -281,6 +281,10 @@ For the video presentation, you can speak over your slide deck, similar to the l
 -   [Kap for screen recording](https://getkap.co/)
 
 Once your video is ready, upload the video to Warpwire, then embed the video in an new discussion post on Sakai.
+
+::: callout-note
+Note: Every team member is expected to speak in the presentation. Part of the grade will be whether every group member had a meaningful speaking role in the presentation.
+:::
 
 #### To upload your video to Warpwire:
 
@@ -294,10 +298,10 @@ Once your video is ready, upload the video to Warpwire, then embed the video in 
 -   Click the Presentations tab in the course Sakai site.
 -   Click the Presentations topic.
 -   Click "Start a new conversation".
--   Make the title "Your Team Name: Project Title". For example, "Teaching Team: Our Awesome Presentation".
+-   Make the title "Your Team Name: Project Title".
 -   Click the Warpwire icon (between the table and shopping cart icons).
 -   Select your video, then click "Insert 1 item." This will embed your video in the conversation.
--   Under the video, paste the URL to your video.
+-   Under the video, paste the URL to your video. This is to ensure peers can see the presentation if they're unable to view the embedded video.
 -   You're done!
 
 You can see the Teaching Team example in Sakai.
@@ -327,7 +331,7 @@ The GitHub repo should have the following structure:
 -   `README`: Short project description and data dictionary
 -   `written-report.qmd` & `written-report.pdf`: Final written report
 -   `/data`: Folder that contains the data set for the final project.
--   `/previous-work`: Folder that contains the `topic-ideas` and `project-proposal` files.
+-   `/previous-work`: Folder that contains the `topic-ideas`, `project-proposal` , and `written-report-comments.pdf` (if applicable) files.
 -   `/presentation`: Folder with the presentation slides.
     -   If your presentation slides are online, you can put a link to the slides in a `README.md` file in the `presentation` folder.
 

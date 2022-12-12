@@ -334,6 +334,8 @@ The GitHub repo should have the following structure:
 -   `/previous-work`: Folder that contains the `topic-ideas`, `project-proposal` , and `written-report-comments.pdf` (if applicable) files.
 -   `/presentation`: Folder with the presentation slides.
     -   If your presentation slides are online, you can put a link to the slides in a `README.md` file in the `presentation` folder.
+-   `*.Rproj`: File specifying the RStudio project
+-   `.gitignore`: File listing all files that are in the local RStudio project but not the GitHub repo
 
 Points for reproducibility + organization will be based on the reproducibility of the written report and the organization of the project GitHub repo. The repo should be neatly organized as described above, there should be no extraneous files, all text in the README should be easily readable.
 
